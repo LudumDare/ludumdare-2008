@@ -1,0 +1,17 @@
+#summary The front page at LudumDare.com
+
+= Introduction =
+
+Add your content here.
+
+
+= Details =
+
+TODO List:
+  * Put Hub in SVN
+  * Do the events bar
+    * Nice way 
+    * How to add content guide (run a compo, clocks, etc)
+      * Sync with the system used to run via wordpress
+    * ..
+  * Moo 
