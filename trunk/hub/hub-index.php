@@ -44,13 +44,13 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 						</td>
 						<td align="center" valign="top" bgcolor="#90745e">
 							<font size="-1">	
-							<a href="compo/"><img src="hub/hub-about.png" border="0"></a><br />
+							<a href="compo/about-ludum-dare/"><img src="hub/hub-about.png" border="0"></a><br />
 							What is Ludum Dare, and what is it about?<br />
 							<br />
 							<a href="http://www.gamecompo.com"><img src="hub/hub-mailinglist.png" border="0"></a><br />
 							The latest event news delivered to your mailbox<br />
 							<br />
-							<a href="compo/"><img src="hub/hub-irc.png" border="0"></a><br />
+							<a href="compo/irc/"><img src="hub/hub-irc.png" border="0"></a><br />
 							Join us live in #ludumdare on irc.afternet.org<br />
 							<br />
 							</font>
