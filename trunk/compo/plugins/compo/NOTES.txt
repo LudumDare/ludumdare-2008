@@ -1,0 +1,8 @@
+Added into polls/polls.php:489 in display_pollresults:
+
+        $poll_active = $wpdb->get_var("SELECT pollq_active FROM $wpdb->pollsq WHERE pollq_id = $poll_id");
+        if ($poll_active) {
+            return "<h4>$template_question</h4><p style='font-weight:bold;'>Result will be shown when poll is closed.</p>";
+        }
+
+This makes vote results secret until the poll is closed.

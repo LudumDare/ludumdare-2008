@@ -1,0 +1,20 @@
+- install compo and mythumbs plugins
+- install ludum theme
+- to modify countdown, edit
+    themes/ludum/countdown.php
+
+Instructions for creating new compos:
+
+Instructions for creating new votes:
+
+Instructions for doing other stuff that is important:
+
+Instructions for writing documentation:
+
+Instructions for documenting documentation:
+
+Instructions for wasting time:
+
+Tips and tricks:
+
+??
