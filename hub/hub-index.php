@@ -57,7 +57,7 @@ font-family:arial,verdana,sans-serif;
 					<tr>
 						<td align="center" bgcolor="#a4866a">
 							Next Event - <strong>Ludum Dare 12 - TBD 2008</strong><br />
-							<font size="-1">TODO: Hamumu's Monthly Thing</font>
+							<font size="-1">ToDo: Hamumu's Monthly Thing</font>
 						</td>
 					</tr>
 				</table>
