@@ -48,7 +48,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							What is Ludum Dare, and what is it about?<br />
 							<br />
 							<a href="http://www.gamecompo.com"><img src="hub/hub-mailinglist.png" border="0"></a><br />
-							The latest news delivered to your mailbox<br />
+							The latest event news delivered to your mailbox<br />
 							<br />
 							<a href="compo/"><img src="hub/hub-irc.png" border="0"></a><br />
 							Join us live in #ludumdare on irc.afternet.org<br />
