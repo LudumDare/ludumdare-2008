@@ -10,8 +10,8 @@ Add your content here.
 TODO List:
   * Put Hub in SVN
   * Do the events bar
-    * Nice way 
-    * How to add content guide (run a compo, clocks, etc)
+    * Nice way to manage a compo
       * Sync with the system used to run via wordpress
+    * How to add content guide (run a compo, clocks, etc)
     * ..
   * Moo 
