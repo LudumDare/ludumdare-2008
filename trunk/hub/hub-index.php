@@ -28,7 +28,7 @@ font-family:arial,verdana,sans-serif;
 						<td align="center" valign="top" bgcolor="#90745e">
 							<font size="-1">		
 							<a href="compo/"><img src="hub/hub-compo.png" border="0"></a><br />
-							Home of Ludum Dare game making competition<br />
+							Home of the Ludum Dare game making competition<br />
 							<br />
 							<a href="planet/"><img src="hub/hub-planet.png" border="0"></a><br />
 							Syndicated blogs from the Ludum Dare community<br />
@@ -57,7 +57,7 @@ font-family:arial,verdana,sans-serif;
 					<tr>
 						<td align="center" bgcolor="#a4866a">
 							Next Event - <strong>Ludum Dare 12 - TBD 2008</strong><br />
-							<font size="-1">ToDo: Hamumu's Monthly Thing</font>
+							<font size="-1">TODO: Hamumu's Monthly Thing</font>
 						</td>
 					</tr>
 				</table>
