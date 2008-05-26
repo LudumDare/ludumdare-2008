@@ -1,7 +1,7 @@
 <?
 $dname = "/home/ludum/db";
 
-foreach (array("ludum","compo") as $k) {
+foreach (array("compo","planet") as $k) {
     $fname = "$dname/dump-$k.sql";
 
     if ((time()-filemtime($fname)) > (36*60*60)) { die; }
