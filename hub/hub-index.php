@@ -49,7 +49,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							<a href="compo/about-ludum-dare/"><img src="hub/hub-about.png" border="0"></a><br />
 							What is Ludum Dare, and what is it about?<br />
 							<br />
-							<a href="http://www.gamecompo.com"><img src="hub/hub-mailinglist.png" border="0"></a><br />
+							<a href="http://www.gamecompo.com/mailing-list/"><img src="hub/hub-mailinglist.png" border="0"></a><br />
 							The latest event news delivered to your mailbox<br />
 							<br />
 							<a href="compo/irc/"><img src="hub/hub-irc.png" border="0"></a><br />
@@ -62,8 +62,8 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 				<table cellspacing="0" cellpadding="6" border="0" width="707">
 					<tr>
 						<td align="center" bgcolor="#a4866a">
-							Next Event - <strong>Ludum Dare 12 - TBD 2008</strong><br />
-							<font size="-1">TODO: Hamumu's Monthly Thing</font>
+							<font size="-1">Next Event - <strong>Ludum Dare 12 - TBD 2008</strong></font><br />
+							Mini LD48 #1 - <strong>Friday June 6th, 2008</strong> - Hosted by Hamumu
 						</td>
 					</tr>
 				</table>
