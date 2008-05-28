@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Ludum Dare dot com</title>
+<title>Ludum Dare - Home</title>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <STYLE TYPE="text/css">
