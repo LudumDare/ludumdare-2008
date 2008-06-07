@@ -13,7 +13,10 @@
 // LD 11
 // countdown(2008,4,18,12+8,0);
 // countdown(2008,4,20,12+8,0);
-countdown(2008,5,4,12+8,0);
+// countdown(2008,5,4,12+8,0);
+
+// MINI LD 1
+countdown(2008,8,6,12+8,0);
 
 //--------------------------
 // author: Louai Munajim
