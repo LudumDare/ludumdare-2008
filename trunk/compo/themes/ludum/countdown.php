@@ -16,7 +16,7 @@
 // countdown(2008,5,4,12+8,0);
 
 // MINI LD 1
-countdown(2008,8,6,12+8,0);
+countdown(2008,6,8,12+8,0);
 
 //--------------------------
 // author: Louai Munajim
