@@ -62,14 +62,10 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 				<table cellspacing="0" cellpadding="6" border="0" width="707">
 					<tr>
 						<td align="center" bgcolor="#a4866a">
+							<!--
 							<font size="-1">Next Event - <strong>Ludum Dare 12 - TBD 2008</strong></font><br />
 							Mini LD48 #1 - <strong>Friday June 6th, 2008</strong> - Hosted by Hamumu
-						</td>
-					</tr>
-				</table>
-				<table cellspacing="0" cellpadding="16" border="0" width="707">
-					<tr>
-						<td align="left" valign="top" bgcolor="#90745e" width="50%">
+							-->
 							<font size="-1">
 							<?php
 							$news = 'http://www.ludumdare.com/compo/author/news/';
@@ -93,6 +89,10 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							?>
 							</font>
 						</td>
+					</tr>
+				</table>
+				<table cellspacing="0" cellpadding="16" border="0" width="707">
+					<tr>
 						<td align="left" valign="top" bgcolor="#90745e" width="50%">
 							<font size="-1">
 							<?php
@@ -103,6 +103,30 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							
 							echo "<a href='$news'>";
 							echo "<img src='hub/hub-latest.png' border='0'>";
+							echo "</a>";
+							
+							echo "<img src='hub/hub-blank.png' width='14'>";
+							
+							echo "<a href='$newsfeed'>";
+							echo "<img src='hub/hub-rss.png' border='0'>";
+							echo "</a>";							
+							
+							echo "<br />";
+
+							require 'hub/news.inc';
+							?>
+							</font>
+						</td>
+						<td align="left" valign="top" bgcolor="#90745e" width="50%">
+							<font size="-1">
+							<?php
+							$news = 'http://www.ludumdare.com/planet/';
+							$newsfeed = 'http://www.ludumdare.com/planet/feed/';
+							$newsitems = 5;
+							$newsprefiximage = '/hub/hub-dot.png';
+							
+							echo "<a href='$news'>";
+							echo "<img src='hub/hub-latestplanet.png' border='0'>";
 							echo "</a>";
 							
 							echo "<img src='hub/hub-blank.png' width='14'>";
