@@ -31,36 +31,6 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 
 				<table cellspacing="0" cellpadding="0" border="0" width="707">
 					<tr>
-						<td align="center" valign="top" bgcolor="#90745e">
-							<font size="-1">		
-							<a href="compo/"><img src="hub/hub-compo.png" border="0"></a><br />
-							Home of the Ludum Dare game making competition<br />
-							<br />
-							<a href="planet/"><img src="hub/hub-planet.png" border="0"></a><br />
-							Syndicated blogs from the Ludum Dare community<br />
-							<br />
-							<a href="wiki/"><img src="hub/hub-wiki.png" border="0"></a><br />
-							Competition rules and more<br />
-							<br />
-							</font>
-						</td>
-						<td align="center" valign="top" bgcolor="#90745e">
-							<font size="-1">	
-							<a href="compo/about-ludum-dare/"><img src="hub/hub-about.png" border="0"></a><br />
-							What is Ludum Dare, and what is it about?<br />
-							<br />
-							<a href="http://www.gamecompo.com/mailing-list/"><img src="hub/hub-mailinglist.png" border="0"></a><br />
-							The latest event news delivered to your mailbox<br />
-							<br />
-							<a href="compo/irc/"><img src="hub/hub-irc.png" border="0"></a><br />
-							Join us live in #ludumdare on irc.afternet.org<br />
-							<br />
-							</font>
-						</td>
-					</tr>
-				</table>
-				<table cellspacing="0" cellpadding="6" border="0" width="707">
-					<tr>
 						<td align="center" bgcolor="#a4866a">
 							<!--
 							<font size="-1">Next Event - <strong>Ludum Dare 12 - TBD 2008</strong></font><br />
@@ -91,6 +61,36 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							echo "<img src='hub/feed-icon-14x14.png' border='0'>";
 							echo "</a>";
 							?>
+							</font>
+						</td>
+					</tr>
+				</table>
+				<table cellspacing="0" cellpadding="6" border="0" width="707">
+					<tr>
+						<td align="center" valign="top" bgcolor="#90745e">
+							<font size="-1">		
+							<a href="compo/"><img src="hub/hub-compo.png" border="0"></a><br />
+							Home of the Ludum Dare game making competition<br />
+							<br />
+							<a href="planet/"><img src="hub/hub-planet.png" border="0"></a><br />
+							Syndicated blogs from the Ludum Dare community<br />
+							<br />
+							<a href="wiki/"><img src="hub/hub-wiki.png" border="0"></a><br />
+							Competition rules and more<br />
+							<br />
+							</font>
+						</td>
+						<td align="center" valign="top" bgcolor="#90745e">
+							<font size="-1">	
+							<a href="compo/about-ludum-dare/"><img src="hub/hub-about.png" border="0"></a><br />
+							What is Ludum Dare, and what is it about?<br />
+							<br />
+							<a href="http://www.gamecompo.com/mailing-list/"><img src="hub/hub-mailinglist.png" border="0"></a><br />
+							The latest event news delivered to your mailbox<br />
+							<br />
+							<a href="compo/irc/"><img src="hub/hub-irc.png" border="0"></a><br />
+							Join us live in #ludumdare on irc.afternet.org<br />
+							<br />
 							</font>
 						</td>
 					</tr>
