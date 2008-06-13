@@ -71,17 +71,17 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							$news = 'http://www.ludumdare.com/compo/author/news/';
 							$newsfeed = 'http://www.ludumdare.com/compo/author/news/feed/';
 							$newsitems = 3;
-							$newsprefiximage = '/hub/hub-dot.png';
+							$newsprefiximage = '';
 							
 							echo "<a href='$news'>";
 							echo "<img src='hub/hub-headlines.png' border='0'>";
 							echo "</a>";
 							
-							echo "<img src='hub/hub-blank.png' width='14'>";
+							//echo "<img src='hub/hub-blank.png' width='14'>";
 							
-							echo "<a href='$newsfeed'>";
-							echo "<img src='hub/hub-rss.png' border='0'>";
-							echo "</a>";							
+							//echo "<a href='$newsfeed'>";
+							//echo "<img src='hub/hub-rss.png' border='0'>";
+							//echo "</a>";							
 							
 							echo "<br />";
 
