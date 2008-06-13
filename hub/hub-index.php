@@ -70,7 +70,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							<?php
 							$news = 'http://www.ludumdare.com/compo/author/news/';
 							$newsfeed = 'http://www.ludumdare.com/compo/author/news/feed/';
-							$newsitems = 5;
+							$newsitems = 3;
 							$newsprefiximage = '/hub/hub-dot.png';
 							
 							echo "<a href='$news'>";
