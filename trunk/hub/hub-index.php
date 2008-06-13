@@ -31,7 +31,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 
 				<table cellspacing="0" cellpadding="0" border="0" width="707">
 					<tr>
-						<td align="center" bgcolor="#a4866a">
+						<td align="center" bgcolor="#90745e">
 							<!--
 							<font size="-1">Next Event - <strong>Ludum Dare 12 - TBD 2008</strong></font><br />
 							Mini LD48 #1 - <strong>Friday June 6th, 2008</strong> - Hosted by Hamumu
@@ -67,7 +67,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 				</table>
 				<table cellspacing="0" cellpadding="6" border="0" width="707">
 					<tr>
-						<td align="center" valign="top" bgcolor="#90745e">
+						<td align="center" valign="top" bgcolor="#a4866a">
 							<font size="-1">		
 							<a href="compo/"><img src="hub/hub-compo.png" border="0"></a><br />
 							Home of the Ludum Dare game making competition<br />
@@ -80,7 +80,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							<br />
 							</font>
 						</td>
-						<td align="center" valign="top" bgcolor="#90745e">
+						<td align="center" valign="top" bgcolor="#a4866a">
 							<font size="-1">	
 							<a href="compo/about-ludum-dare/"><img src="hub/hub-about.png" border="0"></a><br />
 							What is Ludum Dare, and what is it about?<br />
