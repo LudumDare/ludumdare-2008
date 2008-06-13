@@ -61,11 +61,11 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 
 							require 'hub/news.inc';
 							
-							//echo "<br />";
+							echo "<br />";
 							?>
 							</font>
 						</td>
-						<td align="right" bgcolor="#90745e">
+						<td align="right" valign="top" bgcolor="#90745e">
 							<?php
 							echo "<a href='$newsfeed'>";
 							echo "<img src='hub/feed-icon-14x14.png' border='0'>";
