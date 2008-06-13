@@ -31,6 +31,11 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 
 				<table cellspacing="0" cellpadding="0" border="0" width="707">
 					<tr>
+						<td align="left" valign="top" bgcolor="#90745e">
+							<?php						
+							echo "<img src='hub/hub-blank.png' width='17'>";
+							?>
+						</td>
 						<td align="center" bgcolor="#90745e">
 							<!--
 							<font size="-1">Next Event - <strong>Ludum Dare 12 - TBD 2008</strong></font><br />
