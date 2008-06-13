@@ -46,6 +46,10 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							echo "<a href='$news'>";
 							echo "<img src='hub/hub-headlines.png' border='0'>";
 							echo "</a>";
+
+							echo "<a href='$newsfeed'>";
+							echo "<img src='hub/feed-icon-14x14.png' border='0'>";
+							echo "</a>";
 							
 							//echo "<img src='hub/hub-blank.png' width='14'>";
 							
@@ -56,10 +60,6 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							echo "<br />";
 
 							require 'hub/news.inc';
-							
-							echo "<a href='$newsfeed'>";
-							echo "<img src='hub/feed-icon-14x14.png' border='0'>";
-							echo "</a>";
 							?>
 							</font>
 						</td>
@@ -69,6 +69,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 					<tr>
 						<td align="center" valign="top" bgcolor="#a4866a">
 							<font size="-1">		
+							<br />
 							<a href="compo/"><img src="hub/hub-compo.png" border="0"></a><br />
 							Home of the Ludum Dare game making competition<br />
 							<br />
@@ -82,6 +83,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 						</td>
 						<td align="center" valign="top" bgcolor="#a4866a">
 							<font size="-1">	
+							<br />
 							<a href="compo/about-ludum-dare/"><img src="hub/hub-about.png" border="0"></a><br />
 							What is Ludum Dare, and what is it about?<br />
 							<br />
