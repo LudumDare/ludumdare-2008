@@ -73,7 +73,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 						<td align="right" valign="bottom" bgcolor="#90745e">
 							<?php
 							echo "<a href='$newsfeed'>";
-							echo "<img src='hub/feed-icon-14x14.png' border='0'>";
+							echo "<img src='hub/hub-rss.png' border='0'>";
 							echo "</a>";
 							
 							echo "<img src='hub/hub-blank.png' width='3'>";
