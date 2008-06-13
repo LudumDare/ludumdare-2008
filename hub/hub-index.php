@@ -111,7 +111,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 				<table cellspacing="0" cellpadding="16" border="0" width="707">
 					<tr>
 						<td bgcolor="#90745e">
-							<img src="hub/hub-blank.png" width="64">
+							<img src="hub/hub-blank.png" width="30">
 						</td>
 						<td align="left" valign="top" bgcolor="#90745e" width="50%">
 							<font size="-1">
@@ -138,7 +138,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							</font>
 						</td>
 						<td bgcolor="#90745e">
-							<img src="hub/hub-blank.png" width="64">
+							<img src="hub/hub-blank.png" width="30">
 						</td>
 						<td align="left" valign="top" bgcolor="#90745e" width="50%">
 							<font size="-1">
@@ -165,7 +165,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							</font>
 						</td>
 						<td bgcolor="#90745e">
-							<img src="hub/hub-blank.png" width="64">
+							<img src="hub/hub-blank.png" width="30">
 						</td>
 					</tr>
 				</table>
