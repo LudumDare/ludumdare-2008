@@ -66,7 +66,6 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							<font size="-1">Next Event - <strong>Ludum Dare 12 - TBD 2008</strong></font><br />
 							Mini LD48 #1 - <strong>Friday June 6th, 2008</strong> - Hosted by Hamumu
 							-->
-							<font size="-1">
 							<?php
 							$news = 'http://www.ludumdare.com/compo/author/news/';
 							$newsfeed = 'http://www.ludumdare.com/compo/author/news/feed/';
@@ -91,7 +90,6 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							echo "<img src='hub/feed-icon-14x14.png' border='0'>";
 							echo "</a>";
 							?>
-							</font>
 						</td>
 					</tr>
 				</table>
