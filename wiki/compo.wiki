@@ -18,6 +18,14 @@ Instructions for creating new compos:
 
 Instructions for creating new votes:
 
+== How to link to a grid ==
+
+add ?mythumb_nav=1 to the URL
+
+== How to link to final entries ==
+
+add ?tag=final+final to the URL.  (Just ?tag=final won't work because of some wordpress bug.)
+
 Instructions for doing other stuff that is important:
 
 Instructions for writing documentation:
