@@ -47,9 +47,9 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							echo "<img src='hub/hub-headlines.png' border='0'>";
 							echo "</a>";
 
-							echo "<a href='$newsfeed'>";
-							echo "<img src='hub/feed-icon-14x14.png' border='0'>";
-							echo "</a>";
+							//echo "<a href='$newsfeed'>";
+							//echo "<img src='hub/feed-icon-14x14.png' border='0'>";
+							//echo "</a>";
 							
 							//echo "<img src='hub/hub-blank.png' width='14'>";
 							
@@ -60,6 +60,8 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							echo "<br />";
 
 							require 'hub/news.inc';
+							
+							echo "<br />";
 							?>
 							</font>
 						</td>
