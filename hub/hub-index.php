@@ -87,15 +87,10 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 
 							require 'hub/news.inc';
 							
-							echo "<br />";
-							
 							echo "<a href='$newsfeed'>";
-							echo "<img src='hub/hub-rss.png' border='0'> RSS FEED";
+							echo "<img src='hub/feed-icon-14x14.png' border='0'>";
 							echo "</a>";
-							echo "<br />";
 							?>
-							
-							
 							</font>
 						</td>
 					</tr>
