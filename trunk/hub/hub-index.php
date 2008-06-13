@@ -70,6 +70,8 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							echo "<a href='$newsfeed'>";
 							echo "<img src='hub/feed-icon-14x14.png' border='0'>";
 							echo "</a>";
+							
+							echo "<img src='hub/hub-blank.png' width='3'>";
 							?>
 						</td>
 					</tr>
@@ -108,6 +110,9 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 				</table>
 				<table cellspacing="0" cellpadding="16" border="0" width="707">
 					<tr>
+						<td bgcolor="#90745e">
+							<img src="hub/hub-blank.png" width="64">
+						</td>
 						<td align="left" valign="top" bgcolor="#90745e" width="50%">
 							<font size="-1">
 							<?php
@@ -132,6 +137,9 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							?>
 							</font>
 						</td>
+						<td bgcolor="#90745e">
+							<img src="hub/hub-blank.png" width="64">
+						</td>
 						<td align="left" valign="top" bgcolor="#90745e" width="50%">
 							<font size="-1">
 							<?php
@@ -155,6 +163,9 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							require 'hub/news.inc';
 							?>
 							</font>
+						</td>
+						<td bgcolor="#90745e">
+							<img src="hub/hub-blank.png" width="64">
 						</td>
 					</tr>
 				</table>
