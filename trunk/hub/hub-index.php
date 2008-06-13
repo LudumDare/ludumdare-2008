@@ -76,6 +76,8 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							echo "<img src='hub/feed-icon-14x14.png' border='0'>";
 							echo "</a>";
 							
+							echo "<img src='hub/hub-blank.png' width='3' height='3'>";
+							
 							echo "<br />";
 							
 							echo "<img src='hub/hub-blank.png' width='3' height='3'>";
