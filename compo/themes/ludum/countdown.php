@@ -16,7 +16,11 @@
 // countdown(2008,5,4,12+8,0);
 
 // MINI LD 1
-countdown(2008,6,8,12+8,0);
+//countdown(2008,6,8,12+8,0);
+
+// MINI LD 2
+countdown(2008,7,4,12+8,0); // Start Time //
+//countdown(2008,7,6,12+8,0);
 
 //--------------------------
 // author: Louai Munajim
