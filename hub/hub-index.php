@@ -41,10 +41,12 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							<font size="-1">Next Event - <strong>Ludum Dare 12 - TBD 2008</strong></font><br />
 							Mini LD48 #1 - <strong>Friday June 6th, 2008</strong> - Hosted by Hamumu
 							-->
-							Ludum Dare 12 Countdown -
+							<font size="+1"><b>Ludum Dare 12 Countdown</b> - <font color="#fbda81">
 							<?php
 							require 'compo/wp-content/themes/ludum/countdown.php';
 							?>
+							</font></font>
+							<br />
 							<br />
 							
 							<font size="+1">
