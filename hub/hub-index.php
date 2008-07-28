@@ -43,7 +43,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							-->
 							Ludum Dare 12 Countdown -
 							<?php
-							require 'compo/themes/ludum/countdown.php';
+							require 'compo/wp-content/themes/ludum/countdown.php';
 							?>
 							<br />
 							
