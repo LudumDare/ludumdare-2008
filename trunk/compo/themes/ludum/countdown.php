@@ -23,7 +23,8 @@
 //countdown(2008,7,6,12+6,0); // Compo End Time //
 
 // LD 12
-countdown(2008,8,8,12+10,0); // Start Time //
+//countdown(2008,8,8,12+10,0); // Start Time //
+countdown(2008,8,10,12+10,0); // Start Time //
 
 //--------------------------
 // author: Louai Munajim
