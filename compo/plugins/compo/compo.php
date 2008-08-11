@@ -42,14 +42,10 @@ function compo_query($sql,$params=array()) {
     $parts = explode("?",$sql);
     $sql = array_shift($parts);
     foreach ($parts as $v) {
-        $sql .= "'".$wpdb->escape(array_shift($params))."'";
+        $sql .= "'".$wpdb->escape(stripslashes(array_shift($params)))."'";
         $sql .= $v;
     }
 
-/*    foreach ($params as $v) {
-        $sql = preg_replace("/\?/","'".$wpdb->escape($v)."'",$sql,1);
-    }*/
-    
     $r = $wpdb->get_results($sql,ARRAY_A);
     if (!$r) { return array(); }
     return $r;
