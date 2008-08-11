@@ -6,7 +6,9 @@ Add your content here.  Or not.
 
 = Announcing it =
 
-e-mail the gamecompo.com mailing list of course!
+  # create a category for it "ld14" or whatever - for mini compos, create a sub category of the mini category
+  # e-mail the gamecompo.com mailing list of course!
+  # make a blog post announcing the upcoming contest (as user=news)
 
 = The Countdown = 
 
@@ -17,9 +19,10 @@ e-mail the gamecompo.com mailing list of course!
 
 = Starting it =
 
-  # create a category for it "ld14" or whatever
   # update the countdown
   # set Compo > Admin > Settings > Writing > change default category to that so all posts get dropped in there magically
+  # make a blog post announcing the starting theme
+  # send a message to the mailing list
 
 = Ending it =
 
@@ -32,4 +35,6 @@ e-mail the gamecompo.com mailing list of course!
 
 = Revealing Results =
   
-To be written ..
+  # disable Judging in in Compo > Admin > Settings > Compo > 
+    set the current category to results mode.
+  # modify the Compo > Admin > Pages > Status > to say who the top few winners of the overall category were.
