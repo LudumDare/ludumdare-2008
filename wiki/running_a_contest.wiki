@@ -8,16 +8,18 @@ Add your content here.  Or not.
 
 e-mail the gamecompo.com mailing list of course!
 
-= Starting it =
-
-I'll add this some time when I think of it
-
 = The Countdown = 
 
   # Modify https://ludumdare.googlecode.com/svn/trunk/compo/themes/ludum/countdown.php
   # SSH to the site
   # $ cd (something)/compo/wp-content/themes/ludum 
   # $ svn update
+
+= Starting it =
+
+  # create a category for it "ld14" or whatever
+  # update the countdown
+  # set Compo > Admin > Settings > Writing > change default category to that so all posts get dropped in there magically
 
 = Ending it =
 
@@ -27,3 +29,7 @@ I'll add this some time when I think of it
     judged there.
   # Modify Compo > Admin > Pages > Status to have a link to the judging page
     The link will be http://www.ludumdare.com/compo/category/$category_goes_here/
+
+= Revealing Results =
+  
+To be written ..
