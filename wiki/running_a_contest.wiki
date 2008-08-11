@@ -14,15 +14,15 @@ I'll add this some time when I think of it
 
 = The Countdown = 
 
-Modify https://ludumdare.googlecode.com/svn/trunk/compo/themes/ludum/countdown.php
-SSH to the site
-$ cd (something)/compo/wp-content/themes/ludum 
-$ svn update
+  # Modify https://ludumdare.googlecode.com/svn/trunk/compo/themes/ludum/countdown.php
+  # SSH to the site
+  # $ cd (something)/compo/wp-content/themes/ludum 
+  # $ svn update
 
 = Ending it =
 
-* Change the countdown to 14 days later so people have time to judge
-* enable Judging in Compo > Admin > Settings > Compo > 
-  set up the current category to be in "Rate" mode and have a list of the categories being    judged there.
-* Modify Compo > Admin > Pages > Status to have a link to the judging page
-  The link will be http://www.ludumdare.com/compo/category/$category_goes_here/
+  * Change the countdown to 14 days later so people have time to judge
+  * enable Judging in Compo > Admin > Settings > Compo > 
+set up the current category to be in "Rate" mode and have a list of the categories being    judged there.
+  * Modify Compo > Admin > Pages > Status to have a link to the judging page
+The link will be http://www.ludumdare.com/compo/category/$category_goes_here/
