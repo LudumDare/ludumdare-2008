@@ -32,7 +32,8 @@ Add your content here.  Or not.
     set up the current category to be in "Rate" mode and have a list of the categories being       
     judged there.
   # Modify Compo > Admin > Pages > Status to have a link to the judging page
-    The link will be http://www.ludumdare.com/compo/category/$category_goes_here/
+    The link will be http://www.ludumdare.com/compo/category/$category/
+  # You might also want to link to a cool grid page http://www.ludumdare.com/compo/category/$category/?tag=final+final&mythumb_nav=1
 
 = Revealing Results =
   
