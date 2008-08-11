@@ -9,6 +9,7 @@ Add your content here.  Or not.
   # create a category for it "ld14" or whatever - for mini compos, create a sub category of the mini category
   # e-mail the gamecompo.com mailing list of course!
   # make a blog post announcing the upcoming contest (as user=news)
+  # For a big compo, copy the previous compo's wiki to a new folder and update some links so that each compo gets its own wiki.  More specific instructions to be added.
 
 = The Countdown = 
 
