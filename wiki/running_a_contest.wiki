@@ -21,8 +21,9 @@ I'll add this some time when I think of it
 
 = Ending it =
 
-  * Change the countdown to 14 days later so people have time to judge
-  * enable Judging in Compo > Admin > Settings > Compo > 
-set up the current category to be in "Rate" mode and have a list of the categories being    judged there.
-  * Modify Compo > Admin > Pages > Status to have a link to the judging page
-The link will be http://www.ludumdare.com/compo/category/$category_goes_here/
+  # Change the countdown to 14 days later so people have time to judge
+  # enable Judging in Compo > Admin > Settings > Compo > 
+    set up the current category to be in "Rate" mode and have a list of the categories being       
+    judged there.
+  # Modify Compo > Admin > Pages > Status to have a link to the judging page
+    The link will be http://www.ludumdare.com/compo/category/$category_goes_here/
