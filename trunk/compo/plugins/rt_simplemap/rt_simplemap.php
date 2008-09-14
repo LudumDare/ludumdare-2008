@@ -129,8 +129,7 @@ $formData .= "<form name=\"mapInput\" action=\"$action_url\" method=\"post\" ons
 	 }
 }
 
-
-function AddName($name, $url, $long, $lat)
+function AddName($id, $name, $url, $long, $lat)
 {
 	  $opacity = 60;	
 	  $useELabels = false;
@@ -143,11 +142,11 @@ function AddName($name, $url, $long, $lat)
 	  } else
 	  {
 	
-	    return 'var marker = new GMarker(new GLatLng(' . $long . ',' . $lat . '));
-		  map.addOverlay(marker);
-      GEvent.addListener(marker, "click", function()
+	    return 'var marker' . $id . ' = new GMarker(new GLatLng(' . $long . ',' . $lat . '));
+		  map.addOverlay(marker' . $id . ');
+      GEvent.addListener(marker' . $id . ', "click", function()
        {
-        marker.openInfoWindowHtml("' . $name . '");
+        marker' . $id . '.openInfoWindowHtml("<a href=\"' . $url . '\">' . $name . '</a>");
       });
 	  ';  
 	  }
@@ -182,7 +181,7 @@ function AddMapScript()
 		$user_info = get_userdata($rec->id);
 		if ($user_info)
 		{
-			$temp .= AddName($user_info->display_name, $topurl . '/authors/' . strtolower($user_info->user_login) . '/' , $rec->lat, $rec->lon);
+			$temp .= AddName($rec->id, $user_info->display_name, $topurl . '/author/' . strtolower($user_info->user_login) . '/' , $rec->lat, $rec->lon);
 		}
 	}
 
