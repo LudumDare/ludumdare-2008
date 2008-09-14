@@ -34,8 +34,11 @@ register_activation_hook(__FILE__,'rt_simplemap_activate');
 
 function GetMapHeader()
 {
-return '
-    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=' . get_option('rt_simplemap_api_key') . '"
+ //why won't set/get option work on LD but it does on codedojo?  Older version of wordpress?  Oh well, for now I'll hardcode  the API key
+ //<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=' . get_option('rt_simplemap_api_key') . '"
+
+
+return '<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAALGAoaAOJPTRvyBDYmxZhWBTeIkumfe3FA1mUXja_Jl4p5my2GBRfpC05_oDp7_RqsjyO2D23uHv0ow"
     type="text/javascript"></script>
     <script src="/wp-content/plugins/rt_simplemap/js/elabel.js" type="text/javascript"></script>
 	<script type="text/javascript">
@@ -129,10 +132,25 @@ $formData .= "<form name=\"mapInput\" action=\"$action_url\" method=\"post\" ons
 
 function AddName($name, $url, $long, $lat)
 {
-$opacity = 60;	
-	  return 'var label = new ELabel(new GLatLng(' . $long . ',' . $lat . '), "<div style=\"background-color: #f2efe9; padding: 0px;\"><font size=\"-2\">' . '<a href=\"' . $url . '\">' . $name . '</a>' . '</font></div>", null, null, '. $opacity . ', true);
+	  $opacity = 60;	
+	  $useELabels = false;
+	  
+	  if ($useELabels == true)
+	  {
+	  return 'label = new ELabel(new GLatLng(' . $long . ',' . $lat . '), "<div style=\"background-color: #f2efe9; padding: 0px;\"><font size=\"-2\">' . '<a href=\"' . $url . '\">' . $name . '</a>' . '</font></div>", null, null, '. $opacity . ', true);
       map.addOverlay(label);
 	  ';
+	  } else
+	  {
+	
+	    return 'var marker = new GMarker(new GLatLng(' . $long . ',' . $lat . '));
+		  map.addOverlay(marker);
+      GEvent.addListener(marker, "click", function()
+       {
+        marker.openInfoWindowHtml("' . $name . '");
+      });
+	  ';  
+	  }
 }
 
 function AddMapScript()
