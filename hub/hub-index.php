@@ -38,16 +38,17 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 						</td>
 						<td align="center" bgcolor="#90745e">
 							<!--
-							<font size="-1">Next Event - <strong>Ludum Dare 13 - December 2008</strong></font><br />
-							Mini LD48 #3 - <strong>Friday September 5th, 2008</strong> - Hosted by PoV
-							
-							<font size="+1"><b>Ludum Dare 12 Countdown</b> - <font color="#fbda81">
+							-->
+							<font size="-1"><strong>Ludum Dare 13 - December 5th, 2008</strong></font><br />
+														
+							<font size="+1"><b>Ludum Dare 13 Countdown</b> - <font color="#fbda81">
 							<?php
 							require 'compo/wp-content/themes/ludum/countdown.php';
 							?>
 							</font></font>
 							<br />
 							<br />
+							<!--
 							-->
 							
 							<font size="+1">
