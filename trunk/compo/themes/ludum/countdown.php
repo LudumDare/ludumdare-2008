@@ -29,7 +29,8 @@
 
 // LD 13
 //countdown(2008,12,5,12+10,0); // Start Time //
-countdown(2008,12,7,12+10,0); // End Time //
+// countdown(2008,12,7,12+10,0); // End Time //
+countdown(2008,12,21,12+10,0); // Judge End Time //
 
 //--------------------------
 // author: Louai Munajim
