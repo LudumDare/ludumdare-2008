@@ -24,13 +24,18 @@
 
 // LD 12
 //countdown(2008,8,8,12+10,0); // Start Time //
-// countdown(2008,8,10,12+10,0); // Start Time //
+//countdown(2008,8,10,12+10,0); // Start Time //
 //countdown(2008,8,24,12+10,0); // Judge End Time //
 
 // LD 13
 //countdown(2008,12,5,12+10,0); // Start Time //
-// countdown(2008,12,7,12+10,0); // End Time //
-countdown(2008,12,21,12+10,0); // Judge End Time //
+//countdown(2008,12,7,12+10,0); // End Time //
+//countdown(2008,12,21,12+10,0); // Judge End Time //
+
+// LD 14
+countdown(2009,4,10,12+10,0); // Start Time //
+//countdown(2009,4,12,12+10,0); // End Time //
+//countdown(2009,4,26,12+10,0); // Judge End Time //
 
 //--------------------------
 // author: Louai Munajim
