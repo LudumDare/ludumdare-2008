@@ -39,9 +39,9 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 						<td align="center" bgcolor="#90745e">
 							<!--
 							-->
-							<font size="-1"><strong>Ludum Dare 13 - December 5th, 2008</strong></font><br />
+							<font size="-1"><strong>Ludum Dare 14 - April 10th, 2009</strong></font><br />
 														
-							<font size="+1"><b>Ludum Dare 13 Countdown</b> - <font color="#fbda81">
+							<font size="+1"><b>Ludum Dare 14 Countdown</b> - <font color="#fbda81">
 							<?php
 							require 'compo/wp-content/themes/ludum/countdown.php';
 							?>
