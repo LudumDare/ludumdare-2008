@@ -39,7 +39,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 						<td align="center" bgcolor="#90745e">
 							<!--
 							-->
-							<font size="-1"><strong>Ludum Dare 14 - April 10th, 2009</strong></font><br />
+							<font size="-1"><strong>Ludum Dare 14 - April 17th, 2009</strong></font><br />
 														
 							<font size="+1"><b>Ludum Dare 14 Countdown</b> - <font color="#fbda81">
 							<?php
