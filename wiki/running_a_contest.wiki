@@ -18,6 +18,22 @@ Add your content here.  Or not.
   # $ cd (something)/compo/wp-content/themes/ludum 
   # $ svn update
 
+= Theme Voting =
+
+  # Create a new wordpress "page" per day of theme voting
+  # Fill that page with the theme voting tag as follows.  To start voting:
+
+{{{
+[compo-vote:open:theme1;theme 2;theme 3]
+}}}
+
+  * To show the results of voting:
+
+{{{
+[compo-vote:closed:theme1;theme 2;theme 3]
+}}}
+
+
 = Starting it =
 
   # update the countdown
