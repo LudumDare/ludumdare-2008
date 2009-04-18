@@ -33,8 +33,8 @@
 //countdown(2008,12,21,12+10,0); // Judge End Time //
 
 // LD 14
-countdown(2009,4,17,12+10,0); // Start Time //
-//countdown(2009,4,19,12+10,0); // End Time //
+//countdown(2009,4,17,12+10,0); // Start Time //
+countdown(2009,4,19,12+10,0); // End Time //
 //countdown(2009,5,3,12+10,0); // Judge End Time //
 
 //--------------------------
