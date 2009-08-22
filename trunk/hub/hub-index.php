@@ -74,7 +74,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							
 							echo "<br />";
 
-							include 'hub/news.inc';
+							include 'hub/news.php';
 							
 							echo "<br />";
 							?>
@@ -152,7 +152,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							
 							echo "<br />";
 
-							include 'hub/news.inc';
+							include 'hub/news.php';
 							?>
 							</font>
 						</td>
@@ -179,7 +179,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							
 							echo "<br />";
 
-							include 'hub/news.inc';
+							include 'hub/news.php';
 							?>
 							</font>
 						</td>
