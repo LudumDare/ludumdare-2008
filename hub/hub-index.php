@@ -43,7 +43,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 														
 							<font size="+1"><b>Ludum Dare 15 Countdown</b> - <font color="#fbda81">
 							<?php
-							require 'compo/wp-content/themes/ludum/countdown.php';
+							include 'compo/wp-content/themes/ludum/countdown.php';
 							?>
 							</font></font>
 							<br />
@@ -74,7 +74,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							
 							echo "<br />";
 
-							require 'hub/news.inc';
+							include 'hub/news.inc';
 							
 							echo "<br />";
 							?>
@@ -152,7 +152,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							
 							echo "<br />";
 
-							require 'hub/news.inc';
+							include 'hub/news.inc';
 							?>
 							</font>
 						</td>
@@ -179,7 +179,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							
 							echo "<br />";
 
-							require 'hub/news.inc';
+							include 'hub/news.inc';
 							?>
 							</font>
 						</td>
