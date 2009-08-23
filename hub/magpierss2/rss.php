@@ -93,10 +93,10 @@ define('ATOM', 'Atom');
 ## WordPress: make some settings WordPress-appropriate #########################
 ################################################################################
 
-define('MAGPIE_USER_AGENT', 'WordPress/' . $wp_version . '(+http://www.wordpress.org)');
+/*define('MAGPIE_USER_AGENT', 'WordPress/' . $wp_version . '(+http://www.wordpress.org)');*/
 
-$wp_encoding = get_settings('blog_charset');
-define('MAGPIE_OUTPUT_ENCODING', ($wp_encoding?$wp_encoding:'ISO-8859-1'));
+/*$wp_encoding = get_settings('blog_charset');*/
+define('MAGPIE_OUTPUT_ENCODING', ('ISO-8859-1'));
 
 ################################################################################
 ## rss_parse.inc: from MagpieRSS 0.85 ##########################################
