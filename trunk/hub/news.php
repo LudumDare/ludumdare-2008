@@ -1,6 +1,6 @@
 <?php
 
-require_once 'magpierss/rss_fetch.inc';
+require_once 'magpierss2/rss.php';
 
 $rss = fetch_rss($newsfeed);
 
