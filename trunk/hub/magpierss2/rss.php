@@ -1714,7 +1714,7 @@ class RSSCache {
 	Input:		url from wich the rss file was fetched
 	Output:		cached object on HIT, false on MISS	
 \*=======================================================================*/		
-	function check_cache ( $url ) {
+/*	function check_cache ( $url ) {
 		$this->ERROR = "";
 		$cache_option = $this->file_name( $url );
 		$cache_timestamp = 'rss_' . $this->file_name( $url ) . '_ts';
@@ -1736,7 +1736,30 @@ class RSSCache {
 			// object does not exist
 			return 'MISS';
 		}
-	}
+	}*/
+   function check_cache ( $url ) {
+        $this->ERROR = "";
+        $filename = $this->file_name( $url );
+        
+        if ( file_exists( $filename ) ) {
+            // find how long ago the file was added to the cache
+            // and whether that is longer then MAX_AGE
+            $mtime = filemtime( $filename );
+            $age = time() - $mtime;
+            if ( $this->MAX_AGE > $age ) {
+                // object exists and is current
+                return 'HIT';
+            }
+            else {
+                // object exists but is old
+                return 'STALE';
+            }
+        }
+        else {
+            // object does not exist
+            return 'MISS';
+        }
+    }
 
 /*=======================================================================*\
 	Function:	serialize
