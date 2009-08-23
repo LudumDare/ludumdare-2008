@@ -1617,8 +1617,8 @@ function is_server_error ($sc) {
 ################################################################################
 
 class RSSCache {
-	var $BASE_CACHE = 'wp-content/cache';	// where the cache files are stored
-	var $MAX_AGE	= 43200;  		// when are files stale, default twelve hours
+	var $BASE_CACHE = './cache';	// where the cache files are stored
+	var $MAX_AGE	= 900;  		// when are files stale, default twelve hours
 	var $ERROR 		= '';			// accumulate error messages
 	
 	function RSSCache ($base='', $age='') {
