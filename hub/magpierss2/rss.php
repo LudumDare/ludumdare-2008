@@ -1636,7 +1636,7 @@ class RSSCache {
 	Input:		url from wich the rss file was fetched
 	Output:		true on sucess	
 \*=======================================================================*/
-	function set ($url, $rss) {
+/*	function set ($url, $rss) {
 		global $wpdb;
 		$cache_option = 'rss_' . $this->file_name( $url );
 		$cache_timestamp = 'rss_' . $this->file_name( $url ) . '_ts';
@@ -1650,7 +1650,26 @@ class RSSCache {
 		update_option($cache_timestamp, time() );
 		
 		return $cache_option;
-	}
+	}*/
+    function set ($url, $rss) {
+        $this->ERROR = "";
+        $cache_file = $this->file_name( $url );
+        $fp = @fopen( $cache_file, 'w' );
+        
+        if ( ! $fp ) {
+            $this->error(
+                "Cache unable to open file for writing: $cache_file"
+            );
+            return 0;
+        }
+        
+        
+        $data = $this->serialize( $rss );
+        fwrite( $fp, $data );
+        fclose( $fp );
+        
+        return $cache_file;
+    }
 	
 /*=======================================================================*\
 	Function:	get
