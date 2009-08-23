@@ -1658,7 +1658,7 @@ class RSSCache {
 	Input:		url from wich the rss file was fetched
 	Output:		cached object on HIT, false on MISS	
 \*=======================================================================*/	
-	function get ($url) {
+/*	function get ($url) {
 		$this->ERROR = "";
 		$cache_option = 'rss_' . $this->file_name( $url );
 		
@@ -1677,7 +1677,35 @@ class RSSCache {
 		}
 		
 		return $rss;
-	}
+	}*/
+    function get ($url) {
+        $this->ERROR = "";
+        $cache_file = $this->file_name( $url );
+        
+        if ( ! file_exists( $cache_file ) ) {
+            $this->debug( 
+                "Cache doesn't contain: $url (cache file: $cache_file)"
+            );
+            return 0;
+        }
+        
+        $fp = @fopen($cache_file, 'r');
+        if ( ! $fp ) {
+            $this->error(
+                "Failed to open cache file for reading: $cache_file"
+            );
+            return 0;
+        }
+        
+        if ($filesize = filesize($cache_file) ) {
+        	$data = fread( $fp, filesize($cache_file) );
+        	$rss = $this->unserialize( $data );
+        
+        	return $rss;
+    	}
+    	
+    	return 0;
+    }
 
 /*=======================================================================*\
 	Function:	check_cache
