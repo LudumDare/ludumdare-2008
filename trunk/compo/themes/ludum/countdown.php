@@ -38,7 +38,7 @@
 // countdown(2009,5,6,12+10,0); // Judge End Time //
 
 // LD 15
-countdown(2009,8,29,12+10,0); // Start Time //
+countdown(2009,8,28,12+10,0); // Start Time //
 
 //--------------------------
 // author: Louai Munajim
