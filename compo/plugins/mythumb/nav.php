@@ -14,7 +14,10 @@ function mythumb_nav() {
     echo "<table>";
     $cols = $mythumb["nav.cols"];$n = 0;
     $size = $mythumb["nav.size"];
+    $posts = array();
     foreach ($r as $e) {
+        if (in_array($e["post_parent"],$posts)) { continue; }
+        $posts[] = $e["post_parent"];
         echo (($n++%$cols)==0?"<tr>":"");
         echo "<td align=center width={$mythumb["width"]} height={$mythumb["height"]}>";
 //         $link = htmlentities($e["src"]);
