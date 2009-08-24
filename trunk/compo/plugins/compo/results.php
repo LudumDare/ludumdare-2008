@@ -164,7 +164,7 @@ function _compo_show_some_results($cid,$cats,$cdata,$vdata,$limit) {
     
             
 //             echo "<nobr><img src='$topurl/wp-content/plugins/compo/images/$img' align=absmiddle> $vv $ulink </nobr>";
-            echo "<td><img src='$topurl/wp-content/plugins/compo/images/$img'><td align=center>$vv<td>$ulink";
+            echo "<td width=125><img src='$topurl/wp-content/plugins/compo/images/$img'><td align=center>$vv<td>$ulink";
         }
     }
     echo "</table></p>";
