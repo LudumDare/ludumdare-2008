@@ -131,7 +131,7 @@ function compo_results($cid) {
 
 function _compo_show_results($cid,$cats,$cdata,$vdata,$limit) {
     $cats = explode(",",$cats);
-    $cols = 3;
+    $cols = 4;
     $n =0;
     for ($i=0; $i<count($cats); $i+=$cols) {
         _compo_show_some_results($cid,array_slice($cats,$i,$cols),$cdata,$vdata,$limit);
