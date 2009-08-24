@@ -6,7 +6,7 @@ function mythumb_nav() {
     $sql = str_replace("SQL_CALC_FOUND_ROWS","",$GLOBALS["wp_query"]->request);
     $sql = preg_replace("/limit.*$/i","",$sql);
 //     echo $sql;
-    $r = mythumb_query("select t2.guid src,t2.post_title title,t2.post_parent post_id,t1.guid,t1.post_title from $wpdb->posts t2, ($sql) t1 where t2.post_parent = t1.ID and t2.post_type = 'attachment' and t2.post_mime_type like 'image/%'");
+    $r = mythumb_query("select t2.guid src,t2.post_title title,t2.ID as pid, t2.post_parent post_id,t1.guid,t1.post_title from $wpdb->posts t2, ($sql) t1 where t2.post_parent = t1.ID and t2.post_type = 'attachment' and t2.post_mime_type like 'image/%'");
     
     if (!count($r)) { return; }
     shuffle($r);
@@ -16,8 +16,9 @@ function mythumb_nav() {
     $size = $mythumb["nav.size"];
     $posts = array();
     foreach ($r as $e) {
-        if (in_array($e["post_parent"],$posts)) { continue; }
-        $posts[] = $e["post_parent"];
+        if (in_array($e["pid"],$posts)) { continue; }
+        $posts[] = $e["pid"];
+        
         echo (($n++%$cols)==0?"<tr>":"");
         echo "<td align=center width={$mythumb["width"]} height={$mythumb["height"]}>";
 //         $link = htmlentities($e["src"]);
