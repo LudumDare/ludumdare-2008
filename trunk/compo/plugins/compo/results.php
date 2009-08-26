@@ -77,6 +77,7 @@ function compo_results($cid) {
         echo "<tr><td><th>C";
         foreach (explode(",",$cats) as $k) { echo "<th>".ucfirst(substr($k,0,3)); }
 //         foreach ($r as $e) {
+        $total = 0;
         foreach ($data as $dd) {
             list($cnt,$final_id) = explode("|",$dd);
             echo "<tr>";
@@ -90,8 +91,13 @@ function compo_results($cid) {
                 $v = isset($re[$k])?$re[$k]:"";
                 echo "<td align=center>$v";
             }
+            $total += 1;
+            if ($total > 20 && !isset($_REQUEST["compo_results_all"])) { break; }
         }
         echo "</table></p>";
+        if (!isset($_REQUEST["compo_results_all"])) {
+            echo "<p><form action='?compo_results_all=1'><input type='submit' value='Show all Entries'></form></p>";
+        }
     } elseif ($state == "results") {
 //         $r = compo_query($sql,array($cid));
         
