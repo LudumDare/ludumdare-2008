@@ -6,7 +6,11 @@
         <?php 
         // check if we're on a "final" post page ..
         $tags = get_the_tags();
-        print_r($tags);
+        $is_final = 0;
+        foreach ($tags as $e) { if ($e->slug == "final") { $is_final = 1; } }
+        $my_auth = get_the_author_meta('login');
+        $my_cat = get_the_category();
+        echo "$my_auth : $my_cat : $is_final";
         ?>
 		<div class="navigation">
 			<div class="alignleft"><?php previous_post_link('&laquo; %link') ?></div>
