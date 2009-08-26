@@ -2,12 +2,13 @@
 
 
 	<div id="content" class="narrowcolumn">
-
+<!--
 <?php if (isset($_REQUEST["mythumb_nav"])): ?>
 <p><div id='mythumb'><?php mythumb_nav(); ?></div></p>
 <?php else: ?>
 <form method='post' action='<?php echo get_option('home'); ?>/tag/final/'><input type='hidden' name='mythumb_nav' value='1'><input type='submit' value='Show me the GRID!'></form>
 <?php endif; ?>
+-->
 
 <a name="the-entries"/>
 
@@ -15,9 +16,16 @@
 
 		<?php while (have_posts()) : the_post(); ?>
 
+<?php if ( get_the_author_meta('display_name') == 'news' ) { ?>
+			<div class="post" style="background: #f0fff0;" id="post-<?php the_ID(); ?>">
+<?php } else if ( get_the_author_meta('user_level') == 10 ) { ?>
+			<div class="post" style="background: #fffff0;" id="post-<?php the_ID(); ?>">
+<?php } else { ?>
 			<div class="post" id="post-<?php the_ID(); ?>">
+<?php } ?>
+			<div style="float: right;border: 1px solid #eee;padding: 2px;background: #fff;"><?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?></div>
 				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-                        <div>Posted by <?php the_author_posts_link(); ?></div>
+                       		<div>Posted by <?php the_author_posts_link(); ?> </div>
 				<small><?php the_time('F jS, Y') ?> <!-- by <?php the_author() ?> --></small>
 
 				<div class="entry">

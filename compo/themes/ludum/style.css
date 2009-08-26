@@ -1,19 +1,11 @@
-/*  
+/*
 Theme Name: Ludum Dare
-Theme URI: http://wordpress.org/
-Description: The default WordPress theme based on the famous <a href="http://binarybonsai.com/kubrick/">Kubrick</a>.
-Version: 1.6
-Author: Michael Heilemann
-Author URI: http://binarybonsai.com/
-
-	Kubrick v1.5
-	 http://binarybonsai.com/kubrick/
-
-	This theme was designed and built by Michael Heilemann,
-	whose blog you will find at http://binarybonsai.com/
-
-	The CSS, XHTML and design is released under GPL:
-	http://www.opensource.org/licenses/gpl-license.php
+Theme URI: http://ludumdare.com/
+Description: We hacked the Kuberick.
+Version: 0.1
+Author: PoV probably
+Author URI: 
+Tags: blue, custom header, fixed width, two columns, widgets
 
 */
 
@@ -38,7 +30,7 @@ Author URI: http://binarybonsai.com/
 body {
 	font-size: 62.5%; /* Resets 1em to 10px */
 	font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
-	background: #d5d6d7 url('images/kubrickbgcolor.jpg');
+	background: #5e7582 url('povimg/LDBackColor.png');
 	color: #333;
 	text-align: center;
 	}
@@ -50,17 +42,17 @@ body {
 	}
 
 #header {
-	background: #73a0c5 url('images/kubrickheader.jpg') no-repeat bottom center;
+	background: #5e7582 url('povimg/LDLogo2009.png') no-repeat bottom center;
 	}
 
-#headerimg 	{ 
-	margin: 7px 9px 0; 
-	height: 192px; 
-	width: 740px; 
-	} 
+#headerimg 	{
+	margin: 7px 9px 0;
+	height: 110px;
+	width: 960px;
+	}
 
 #content {
-	font-size: 1.2em
+	font-size: 1.2em;
 	}
 
 .widecolumn .entry p {
@@ -79,14 +71,23 @@ body {
 	text-align: center;
 	}
 
-.alt {
+.thread-alt {
 	background-color: #f8f8f8;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-	}
+}
+.thread-even {
+	background-color: white;
+}
+.depth-1 {
+border: 1px solid #ddd;
+}
+
+.even, .alt {
+
+	border-left: 1px solid #ddd;
+}
 
 #footer {
-	background: #eee url('images/kubrickfooter.jpg') no-repeat top; 
+	background: #e7e7e7 url('povimg/LDFooter.png') no-repeat top;
 	border: none;
 	}
 
@@ -107,8 +108,9 @@ h1 {
 	}
 
 #headerimg .description {
+	margin: 2px 18px 0;
 	font-size: 1.2em;
-	text-align: center;
+	text-align: right;
 	}
 
 h2 {
@@ -145,12 +147,30 @@ h2, h2 a, h2 a:hover, h2 a:visited, h3, h3 a, h3 a:hover, h3 a:visited, #sidebar
 	color: #b85b5a;
 	}
 
+.sticky {
+	background: #f7f7f7;
+	padding: 0 10px 10px;
+	}
+.sticky h2 {
+	padding-top: 10px;
+	}
+
 .commentlist li, #commentform input, #commentform textarea {
 	font: 0.9em 'Lucida Grande', Verdana, Arial, Sans-Serif;
 	}
+.commentlist li ul li {
+	font-size: 1em;
+}
 
 .commentlist li {
 	font-weight: bold;
+}
+
+.commentlist li .avatar { 
+	float: right;
+	border: 1px solid #eee;
+	padding: 2px;
+	background: #fff;
 	}
 
 .commentlist cite, .commentlist cite a {
@@ -225,46 +245,48 @@ a:hover {
 /* Begin Structure */
 body {
 	margin: 0 0 20px 0;
-	padding: 0; 
+	padding: 0;
 	}
 
 #page {
 	background-color: white;
 	margin: 20px auto;
 	padding: 0;
-	width: 760px;
+	width: 960px;
 	border: 1px solid #959596;
 	}
 
 #header {
 	background-color: #73a0c5;
-	margin: 0 0 0 1px; 
-	padding: 0; 
-	height: 200px; 
-	width: 758px;
+	margin: 0 0 0 1px;
+	padding: 0;
+	height: 110px;
+	width: 958px;
 	}
 
 #headerimg {
 	margin: 0;
-	height: 200px;
+	height: 110px;
 	width: 100%;
 	}
 
 .narrowcolumn {
 	float: left;
-	padding: 0 0 20px 45px;
+	padding: 0 0 5px 28px;
 	margin: 0px 0 0;
-	width: 450px;
+	width: 604px;
 	}
 
 .widecolumn {
-	padding: 10px 0 20px 0;
-	margin: 5px 0 0 150px;
-	width: 450px;
+	padding: 10px 0 5px 0;
+	margin: 5px 0 0 162px;
+	width: 634px;
 	}
 
 .post {
-	margin: 0 0 40px;
+	background-color: #ffffff;
+	margin: 0 0 30px;
+	padding: 15px;
 	text-align: justify;
 	}
 
@@ -297,13 +319,17 @@ body {
 }
 
 .postmetadata {
-	clear: left;
+	clear: both;
+}
+
+.clear {
+	clear: both;
 }
 
 #footer {
 	padding: 0;
 	margin: 0 auto;
-	width: 760px;
+	width: 960px;
 	clear: both;
 	}
 
@@ -318,12 +344,13 @@ body {
 
 /*	Begin Headers */
 h1 {
-	padding-top: 70px;
+	padding: 12px;
 	margin: 0;
 	}
 
 h2 {
-	margin: 30px 0 0;
+	margin: 0px 0 0;
+	text-align: left;
 	}
 
 h2.pagetitle {
@@ -383,7 +410,7 @@ img.alignleft {
 	}
 
 .alignleft {
-	float: left
+	float: left;
 	}
 /* End Images */
 
@@ -400,7 +427,7 @@ html>body .entry ul {
 	list-style: none;
 	padding-left: 10px;
 	text-indent: -10px;
-	} 
+	}
 
 html>body .entry li {
 	margin: 7px 0 8px 10px;
@@ -464,7 +491,7 @@ ol li, #sidebar ul ol li {
 /* Begin Form Elements */
 #searchform {
 	margin: 10px auto;
-	padding: 5px 3px; 
+	padding: 5px 3px;
 	text-align: center;
 	}
 
@@ -491,13 +518,22 @@ select {
 	margin: 5px 5px 1px 0;
 	}
 
+#commentform {
+	margin: 5px 10px 0 0;
+	}
 #commentform textarea {
 	width: 100%;
 	padding: 2px;
 	}
-
+#respond:after {
+		content: "."; 
+	    display: block; 
+	    height: 0; 
+	    clear: both; 
+	    visibility: hidden;
+	}
 #commentform #submit {
-	margin: 0;
+	margin: 0 0 5px auto;
 	float: right;
 	}
 /* End Form Elements */
@@ -516,14 +552,20 @@ select {
 	}
 
 .commentlist li {
-	margin: 15px 0 3px;
-	padding: 5px 10px 3px;
+	margin: 15px 0 10px;
+	padding: 5px 5px 10px 10px;
 	list-style: none;
+
 	}
+.commentlist li ul li { 
+	margin-right: -5px;
+	margin-left: 10px;
+}
 
 .commentlist p {
 	margin: 10px 5px 10px 0;
-	}
+}
+.children { padding: 0; }
 
 #commentform p {
 	margin: 5px 0;
@@ -547,8 +589,8 @@ select {
 #sidebar
 {
 	padding: 20px 0 10px 0;
-	margin-left: 545px;
-	width: 190px;
+	margin-left: 655px;
+	width: 290px;
 	}
 
 #sidebar form {
@@ -619,6 +661,15 @@ blockquote cite {
 	text-align: center;
 	}
 
+.hidden {
+	display: none;
+	}
+	
+.screen-reader-text {
+     position: absolute;
+     left: -1000em;
+}
+
 hr {
 	display: none;
 	}
@@ -637,6 +688,36 @@ a img {
 
 
 
-/* "Daisy, Daisy, give me your answer do. I'm half crazy all for the love of you.
-	It won't be a stylish marriage, I can't afford a carriage.
-	But you'll look sweet upon the seat of a bicycle built for two." */
+/* Captions */
+.aligncenter,
+div.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption {
+	border: 1px solid #ddd;
+	text-align: center;
+	background-color: #f3f3f3;
+	padding-top: 4px;
+	margin: 10px;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+.wp-caption img {
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+}
+
+.wp-caption p.wp-caption-text {
+	font-size: 11px;
+	line-height: 17px;
+	padding: 0 4px 5px;
+	margin: 0;
+}
+/* End captions */
