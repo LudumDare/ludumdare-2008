@@ -3,7 +3,8 @@
 function my_get_buttons() {
         // check if we're on a "final" post page ..
         $my_final = 0;
-        foreach (get_the_tags() as $e) { if ($e->slug == "final") { $my_final = 1; } }
+        $tags = get_the_tags(); if (!$tags) { return; }
+        foreach ($tags as $e) { if ($e->slug == "final") { $my_final = 1; } }
         $my_auth = get_the_author_meta('login');
         $cat = array_pop(get_the_category());
         $my_cat = $cat->slug;
