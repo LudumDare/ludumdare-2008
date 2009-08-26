@@ -27,6 +27,7 @@
             if ($my_final) {
                 echo "<p><form method=post action='$link'><input type='submit' value='Vote on this Entry'></form></p>";
             }
+            ?>
 
 			<div class="entry">
 				<?php the_content('<p class="serif">Read the rest of this entry &raquo;</p>'); ?>
