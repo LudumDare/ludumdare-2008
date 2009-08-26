@@ -5,7 +5,7 @@ function my_get_buttons() {
         $my_final = 0;
         $tags = get_the_tags(); if (!$tags) { return; }
         foreach ($tags as $e) { if ($e->slug == "final") { $my_final = 1; } }
-        $my_auth = get_the_author_meta('login');
+        $my_auth = get_the_author_meta('user_nicename');
         $cat = array_pop(get_the_category());
         $my_cat = $cat->slug;
 //         print_r($cat);
