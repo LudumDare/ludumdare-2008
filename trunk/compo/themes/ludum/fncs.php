@@ -5,12 +5,21 @@ function my_get_buttons() {
         $my_final = 0;
         foreach (get_the_tags() as $e) { if ($e->slug == "final") { $my_final = 1; } }
         $my_auth = get_the_author_meta('login');
-        $my_cat = array_pop(get_the_category())->slug;
+        $cat = array_pop(get_the_category());
+        $my_cat = $cat->slug;
+        $cid = $cat->ID;
 //         echo "$my_auth : $my_cat : $is_final";
         $my_link = get_option('home')."/?category_name=".urlencode($my_cat)."&author_name=".urlencode($my_auth);
+        $state = get_option("compo-$cid-state");
+        
+        if (!$my_final) { return; }
+        
         ob_start();
-        if ($my_final) {
+        if ($state == "rate") {
             echo "<p style='text-align:left'><form method=post action='$my_link'><input type='submit' value='Vote on this Entry'></form></p>";
+        }
+        if ($state == "results") {
+            echo "<p style='text-align:left'><form method=post action='$my_link'><input type='submit' value='View voting results for this entry'></form></p>";
         }
         $my_buttons = ob_get_contents();
         ob_end_clean();
