@@ -27,9 +27,9 @@ echo "<meta http-equiv='refresh' content='300'/>";
 // Checks to see whether it needs a sidebar or not
 if ( !$withcomments && !is_single() ) {
 ?>
-	#page { background: url("<?php bloginfo('stylesheet_directory'); ?>/images/kubrickbg-<?php bloginfo('text_direction'); ?>.jpg") repeat-y top; border: none; }
+	#page { background: url("<?php bloginfo('stylesheet_directory'); ?>/povimg/LDBack.png") repeat-y top; border: none; }
 <?php } else { // No sidebar ?>
-	#page { background: url("<?php bloginfo('stylesheet_directory'); ?>/images/kubrickbgwide.jpg") repeat-y top; border: none; }
+	#page { background: url("<?php bloginfo('stylesheet_directory'); ?>/povimg/LDBackWide.png") repeat-y top; border: none; }
 <?php } ?>
 
 </style>
@@ -44,8 +44,8 @@ if ( !$withcomments && !is_single() ) {
 
 <div id="header">
 	<div id="headerimg">
-		<h1><a href="<?php echo get_option('home'); ?>/"><?php /* bloginfo('name'); */ echo str_repeat("&nbsp;",40); ?></a></h1>
-		<div class="description"><?php bloginfo('description'); ?></div>
+		<h1 style="text-align:left; font-size:70px"><a href="<?php echo get_option('home'); ?>/"><?php /* bloginfo('name'); */ echo str_repeat("&nbsp;",30); ?></a></h1>
+		<!--<div class="description"><?php bloginfo('description'); ?></div>-->
 	</div>
 </div>
 <hr />

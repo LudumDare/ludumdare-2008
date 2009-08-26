@@ -48,15 +48,57 @@
 			<?php /*wp_list_pages('title_li=<h2>Pages</h2>' );*/ ?>
                         <?php wp_list_bookmarks('categorize=0&category_name=links'); ?>
 
-
+<!--
                         <h2>Countdown</h2>
                         
                         <ul>
                         <li style='font-size:20px; color:#ff5555;'><?php include dirname(__FILE__)."/countdown.php"; ?>
                         </ul>
-                        
-                        
-                        
+-->
+
+<li id='countdown'><h2>Countdown</h2>
+<div style='font-size:20px; color:#ff8844;'>
+<?php function_exists('fergcorp_countdownTimer')?fergcorp_countdownTimer(1):NULL; ?>
+</div>
+</li>
+
+
+   <li><h2><?php _e('Recent Comments'); ?></h2>
+        <ul>
+        <?php get_recent_comments(); ?>
+        </ul>
+   </li>
+
+
+<h2><?php _e('Recent Tweets (<a href="http://search.twitter.com/search?q=%23LD48">Tag: #LD48</a>)'); ?></h2>
+<?php // Get RSS Feed(s)
+include_once(ABSPATH . WPINC . '/feed.php');
+
+// Get a SimplePie feed object from the specified feed source.
+$rss = fetch_feed('http://search.twitter.com/search.atom?q=%23LD48');
+
+// Figure out how many total items there are, but limit it to 5. 
+$maxitems = $rss->get_item_quantity(5); 
+
+// Build an array of all the items, starting with element 0 (first element).
+$rss_items = $rss->get_items(0, $maxitems); 
+?>
+
+<ul>
+    <?php if ($maxitems == 0) echo '<li>No items.</li>';
+    else
+    // Loop through each feed item and display each item as a hyperlink.
+    foreach ( $rss_items as $item ) : ?>
+    <li>
+        <strong><a href='<?php echo $item->get_author()->get_link(); ?>'><?php echo $item->get_author()->get_name(); ?></a>:</strong> 
+        <a href='<?php echo $item->get_permalink(); ?>'
+        title='<?php echo 'Posted '.$item->get_date('j F Y | g:i a'); ?>'>
+        <?php echo $item->get_title(); ?></a>
+    </li>
+    <?php endforeach; ?>
+</ul>
+
+
 
                         <!--
 			<li><h2>Archives</h2>
@@ -66,11 +108,11 @@
 			</li>
 			-->
 
-			<?php wp_list_categories('orderby=description&show_count=1&title_li=<h2>Categories</h2>'); ?>
+			<?php wp_list_categories('orderby=name&show_count=1&title_li=<h2>Categories</h2>'); ?>
 			
-			<h2>Tags</h2>
+			<!--<h2>Tags</h2>
                         <?php compo_cloud(); ?>
-                        
+                        -->
 			<?php /* If this is the frontpage */ /* if ( is_home() || is_page() ) { */ ?>
 				<?php /* wp_list_bookmarks(); */ ?>
 
@@ -89,22 +131,26 @@
                         <? 
                         
 //                         wp_list_authors('exclude_admin=0&optioncount=1'); 
-                        global $wpdb;
+/*                        global $wpdb;
                         $e = array_pop($wpdb->get_results("select count(*) as c from $wpdb->users",ARRAY_A)); $v = $e["c"];
+*/
                         ?>
-
-                        <li><h2>Members (<?php echo $v;?>)</h2>
+<!--
+                        <li><h2>Members (<?php /*echo $v;*/?>)</h2>
                         <ul>
+-->
                         <? 
+/*
                         if (isset($_REQUEST["drpetter_makes_unreasonable_demands_all_the_time"])) {
                             wp_list_authors('exclude_admin=0&optioncount=1&hide_empty=0'); 
                         } else {
                             echo "<p><a href='?drpetter_makes_unreasonable_demands_all_the_time=1'>Show all members</a></p>";
                             wp_list_authors('exclude_admin=0&optioncount=1');
                         }
-                        
-                        ?></ul>
+*/                        
+                        ?><!--</ul>-->
 			<?php endif; ?>
+
 			
 			<li><h2>Recent Trophies</h2>
 			<?php compo_trophy_sidebar(); ?>

@@ -60,8 +60,15 @@ if (is_author() && is_category()) {
 ?>
 
 		<?php while (have_posts()) : the_post(); ?>
-		<div class="post">
-				<h3 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+<?php if ( get_the_author_meta('display_name') == 'news' ) { ?>
+			<div class="post" style="background: #f0fff0;">
+<?php } else if ( get_the_author_meta('user_level') == 10 ) { ?>
+			<div class="post" style="background: #fffff0;">
+<?php } else { ?>
+			<div class="post">
+<?php } ?>
+			<div style="float: right;border: 1px solid #eee;padding: 2px;background: #fff;"><?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?></div>
+			<h2 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
                         <div>Posted by <?php the_author_posts_link(); ?></div>
 				<small><?php the_time('l, F jS, Y') ?></small>
                                 
