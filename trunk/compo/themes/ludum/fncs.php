@@ -18,10 +18,10 @@ function my_get_buttons() {
         
         ob_start();
         if ($state == "rate") {
-            echo "<p style='text-align:left'><form method=post action='$my_link'><input type='submit' value='Vote on this Entry'></form></p>";
+            echo "<p style='text-align:left;clear:both;'><form method=post action='$my_link'><input type='submit' value='Vote on this Entry'></form></p>";
         }
         if ($state == "results") {
-            echo "<p style='text-align:left'><form method=post action='$my_link'><input type='submit' value='View voting results for this entry'></form></p>";
+            echo "<p style='text-align:left;clear:both;'><form method=post action='$my_link'><input type='submit' value='View voting results for this entry'></form></p>";
         }
         $my_buttons = ob_get_contents();
         ob_end_clean();
