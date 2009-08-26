@@ -96,7 +96,7 @@ function compo_results($cid) {
         }
         echo "</table></p>";
         if (!isset($_REQUEST["compo_results_all"])) {
-            echo "<p><form action='?compo_results_all=1'><input type='submit' value='Show all Entries'></form></p>";
+            echo "<p><form ><input type='hidden' name='compo_results_all' value='1'><input type='submit' value='Show all Entries'></form></p>";
         }
     } elseif ($state == "results") {
 //         $r = compo_query($sql,array($cid));
