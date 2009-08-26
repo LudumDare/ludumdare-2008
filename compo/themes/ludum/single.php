@@ -5,12 +5,12 @@
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
         <?php 
         // check if we're on a "final" post page ..
-        $tags = get_the_tags();
-        $is_final = 0;
-        foreach ($tags as $e) { if ($e->slug == "final") { $is_final = 1; } }
+        $my_final = 0;
+        foreach (get_the_tags() as $e) { if ($e->slug == "final") { $my_final = 1; } }
         $my_auth = get_the_author_meta('login');
         $my_cat = array_pop(get_the_category())->slug;
-        echo "$my_auth : $my_cat : $is_final";
+//         echo "$my_auth : $my_cat : $is_final";
+        $my_link = get_option('home')."/?category_name=".urlencode($my_cat)."&author_name=".urlencode($my_auth);
         ?>
 		<div class="navigation">
 			<div class="alignleft"><?php previous_post_link('&laquo; %link') ?></div>
@@ -22,6 +22,11 @@
 			<h2><a href="<?php echo get_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
                         <div>Posted by <?php the_author_posts_link(); ?></div>
                         <small><?php the_time('F jS, Y') ?></small>
+                        
+            <?php
+            if ($my_final) {
+                echo "<p><form method=post action='$link'><input type='submit' value='Vote on this Entry'></form></p>";
+            }
 
 			<div class="entry">
 				<?php the_content('<p class="serif">Read the rest of this entry &raquo;</p>'); ?>
