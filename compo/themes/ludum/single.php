@@ -3,22 +3,6 @@
 	<div id="content" class="widecolumn">
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-        <?php 
-        // check if we're on a "final" post page ..
-        $my_final = 0;
-        foreach (get_the_tags() as $e) { if ($e->slug == "final") { $my_final = 1; } }
-        $my_auth = get_the_author_meta('login');
-        $my_cat = array_pop(get_the_category())->slug;
-//         echo "$my_auth : $my_cat : $is_final";
-        $my_link = get_option('home')."/?category_name=".urlencode($my_cat)."&author_name=".urlencode($my_auth);
-        ob_start();
-        if ($my_final) {
-            echo "<p><form method=post action='$my_link'><input type='submit' value='Vote on this Entry'></form></p>";
-        }
-        $my_buttons = ob_get_contents();
-        ob_end_clean();
-
-        ?>
 		<div class="navigation">
 			<div class="alignleft"><?php previous_post_link('&laquo; %link') ?></div>
 			<div class="alignright"><?php next_post_link('%link &raquo;') ?></div>
@@ -30,13 +14,13 @@
                         <div>Posted by <?php the_author_posts_link(); ?></div>
                         <small><?php the_time('F jS, Y') ?></small>
                         
-            <?php echo $my_buttons; ?>
+            <?php echo my_get_buttons(); ?>
 
 			<div class="entry">
 				<?php the_content('<p class="serif">Read the rest of this entry &raquo;</p>'); ?>
 
 				<?php wp_link_pages(array('before' => '<p><strong>Pages:</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
-            <?php echo $my_buttons; ?>
+				<?php echo my_get_buttons(); ?>
 				<?php the_tags( '<p>Tags: ', ', ', '</p>'); ?>
 
 				<p class="postmetadata alt">
