@@ -79,10 +79,10 @@ function _compo2_active_form($params) {
 
 function _compo2_active_save($params) {
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
-    $active = true;
+    $active = true; $msg = "";
     
     $ce["title"] = $_REQUEST["title"];
-    if (!strlen($ce["title"])) { $active = false; }
+    if (!strlen($ce["title"])) { $active = false; $msg = "Entry name is a required field."; }
     
     $ce["notes"] = $_REQUEST["notes"];
     
@@ -104,13 +104,13 @@ function _compo2_active_save($params) {
         $shots[$k] = $fname;
     }
     $ce["shots"] = serialize($shots);
-    if (!count($shots)) { $active = false; }
+    if (!count($shots)) { $active = false; $msg = "You must include at least one screenshot."; }
     
     $ce["links"] = serialize($_REQUEST["links"]);
     $ok = false; foreach ($_REQUEST["links"] as $le) {
         if (strlen($le["title"]) && strlen($le["link"])) { $ok = true; }
     }
-    if (!$ok) { $active = false; }
+    if (!$ok) { $active = false; $msg = "You must include at least one link."; }
     
     $ce["data"] = serialize($_REQUEST["data"]);
     $ce["active"] = intval($active);
@@ -121,6 +121,10 @@ function _compo2_active_save($params) {
         compo2_insert("c2_entry",$ce);
     } else {
         compo2_update("c2_entry",$ce);
+    }
+    
+    if (!$active) {
+        echo "<p class='error'>$msg</p>";
     }
     
     echo "<p>Entry saved.  <a href='?action=default'>Edit your entry</a> | <a href='?action=preview'>View all entries</a></p>";
