@@ -1,7 +1,10 @@
 <?php
 
 function _compo2_main($m) {
-    list($state,$opts) = explode(":",html_entity_decode($m[1]));
+    $parts = explode(":",html_entity_decode($m[1]));
+    $state = $parts[0];
+    $jcat = $parts[1];
+    $opts = $parts[2];
     $opts = explode(";",str_replace(" ","",$opts));
     $pid = intval($GLOBALS["post"]->ID);
     $cur = wp_get_current_user(); $uid = $cur->ID;
@@ -10,6 +13,7 @@ function _compo2_main($m) {
         "cats"=>$opts,
         "user"=>$cur,
         "uid"=>$uid,
+        "jcat"=>$jcat,
     );
     
     ob_start();
