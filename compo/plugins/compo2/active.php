@@ -99,7 +99,7 @@ function _compo2_active_save($params) {
         $dname = dirname(__FILE__)."/../../compo2";
         @mkdir($dname);
         $dest = "$dname/$fname";
-        move_uploaded_file  ( $fe["tmp_name"] ,$dest );
+        copy ( $fe["tmp_name"] ,$dest );
         $shots[$k] = $fname;
     }
     $ce["shots"] = serialize($shots);
