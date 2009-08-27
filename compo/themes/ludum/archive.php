@@ -73,7 +73,7 @@ if (is_author() && is_category()) {
 			<div class="post">
 <?php } ?>
 			<div style="float: right;border: 1px solid #eee;padding: 2px;background: #fff;"><?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?></div>
-			<h2 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h3>
+			<h2 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
                         <div>Posted by <?php the_author_posts_link(); ?></div>
 				<small><?php the_time('l, F jS, Y') ?></small>
                                 
