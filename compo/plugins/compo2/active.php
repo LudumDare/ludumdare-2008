@@ -88,6 +88,7 @@ function _compo2_active_save($params) {
     
     $shots = unserialize($ce["shots"]);
     foreach ($_FILES as $k=>$fe) {
+        if (!$fe["tmp_name"]) { continue; }
         list($w,$h) = getimagesize($fe["tmp_name"]);
         if (!$w) { continue; } if (!$h) { continue; }
         unset($shots[$k]);
