@@ -123,6 +123,7 @@ function _compo2_active_save($params) {
         compo2_update("c2_entry",$ce);
     }
     
-    header("Location: ?action=default"); die;
+    echo "<p>Entry saved.  <a href='?action=default'>Edit your entry</a> | <a href='?action=preview'>View all entries</a></p>";
+//     header("Location: ?action=default"); die;
 }
 ?>
