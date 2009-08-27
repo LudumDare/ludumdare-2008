@@ -18,6 +18,8 @@ function _compo2_active_form($params) {
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     $links = unserialize($ce["links"]);
     
+    echo "<p><a href='?action=preview'>View all entries.</a></p>";
+    
     if ($ce["id"] != "" && !$ce["active"]) {
         echo "<div class='warning'>Your entry is not complete.</div>";
     }
@@ -51,7 +53,7 @@ function _compo2_active_form($params) {
     
     echo "<h3>Links</h3>";
     
-    echo "<p>This is where you link to your entry downloads.  Please use names like: win32, linux, osx, web, flash, src, etc ...</p>";
+    echo "<p>This is where you link to your entry downloads.  Please use names like: win32, linux, osx, web, flash, src, etc ... You must include at least one link.</p>";
     
     echo "<table>";
     echo "<tr><th>Name<th>URL";
