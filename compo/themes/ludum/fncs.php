@@ -6,6 +6,7 @@ function my_get_buttons() {
         $tags = get_the_tags(); if (!$tags) { return; }
         foreach ($tags as $e) { if ($e->slug == "final") { $my_final = 1; } }
         $my_auth = get_the_author_meta('user_nicename');
+        $uid = get_the_author_meta('user_ID');
         $cat = array_pop(get_the_category());
         $my_cat = $cat->slug;
 //         print_r($cat);
@@ -18,7 +19,12 @@ function my_get_buttons() {
         
         ob_start();
         if ($state == "rate") {
-            echo "<p style='text-align:left;clear:both;'><form method=post action='$my_link'><input type='submit' value='Vote on this Entry'></form></p>";
+            if (!is_user_logged_in()) { return; }
+            $cuid = wp_get_current_user()->ID;
+            if ($cuid == $uid) { return; }
+            if (compo_can_rate($cid,$cuid)) {
+                echo "<p style='text-align:left;clear:both;'><form method=post action='$my_link'><input type='submit' value='Vote on this Entry'></form></p>";
+            }
         }
         if ($state == "results") {
             echo "<p style='text-align:left;clear:both;'><form method=post action='$my_link'><input type='submit' value='View voting results for this entry'></form></p>";
