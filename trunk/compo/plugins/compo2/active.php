@@ -97,7 +97,7 @@ function _compo2_active_save($params) {
         $ts = time();
         $fname = "$cid/$uid-$ts.$ext";
         $dname = dirname(__FILE__)."/../../compo2";
-        @mkdir("$cid/$dname");
+        @mkdir("$dname/$cid");
         $dest = "$dname/$fname";
         move_uploaded_file  ( $fe["tmp_name"] ,$dest );
         $shots[$k] = $fname;
