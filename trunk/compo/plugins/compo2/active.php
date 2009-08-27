@@ -123,6 +123,6 @@ function _compo2_active_save($params) {
         compo2_update("c2_entry",$ce);
     }
     
-//     header("Location: ?action=default"); die;
+    header("Location: ?action=default"); die;
 }
 ?>
