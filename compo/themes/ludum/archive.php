@@ -40,6 +40,11 @@
 <?php
 
 if (is_author() && is_category()) {
+    $uid = get_query_var("author");
+    $auth = get_userdata($uid);
+    $mylink = get_option('home')."/author/{$auth->user_nicename}/";
+    echo "<form method=post action='$mylink'><input type='submit' value='Award a trophy!'></form>";
+    
     compo_rate(get_query_var("cat"),get_query_var("author"));
 } elseif (is_author()) {
     compo_trophy(get_query_var("author"));
