@@ -168,6 +168,9 @@ function _compo2_rate_submit($params) {
 //     print_r($_REQUEST); die;
     $uid = intval($_REQUEST["uid"]);
     $ce = compo2_entry_load($params["cid"],$uid);
+    
+    if (!$ce["id"]) { compo2_error("invalid entry: uid=$uid"); }
+    
     compo2_query("delete from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"]));
     $data = array();
     $total = 0;
