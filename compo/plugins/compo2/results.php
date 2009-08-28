@@ -85,11 +85,9 @@ function _compo2_results_cat($params,$r,$cat) {
 }
 
 function _compo2_results_show($params,$uid) {
-    
     echo "<p><a href='?action=default'>Back to Results</a></p>";
-    
-//     _compo2_preview_show($params,$uid,0,0);
-    _compo2_preview_show($params,$uid,0,1);
+    _compo2_preview_show($params,$uid);
+    _compo2_show_comments($params["cid"],$uid);
 }
     
 function _compo2_results_ratings($params,$uid) {
