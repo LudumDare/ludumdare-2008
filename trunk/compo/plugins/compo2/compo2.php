@@ -81,7 +81,7 @@ function compo2_select($k,$r,$v) {
 function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
     $topdir = dirname(__FILE__)."/../../compo2";
     $fname = "$topdir/$_fname";
-    list($w,$h) = getimagesize($fe["tmp_name"]);
+    list($w,$h) = getimagesize($fname);
     if ($w < $width && $h < $height) {
         // don't scale it up ..
         return get_bloginfo("url")."/wp-content/compo2/$_fname";
