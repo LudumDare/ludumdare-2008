@@ -10,6 +10,7 @@ function _compo2_rate($params) {
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if ((!$ce["id"]) || (!$ce["active"])) {
         $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"preview";
+        if ($action == "default") { $action = "preview"; }
         if ($action == "edit") {
             return _compo2_active_form($params);
         } elseif ($action == "save") {
