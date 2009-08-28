@@ -172,6 +172,8 @@ function _compo2_rate_submit($params) {
     
     if (!$ce["id"]) { compo2_error("invalid entry: uid=$uid"); }
     
+    if ($uid == $params["uid"]) { compo2_error("can't vote on your own entry"); }
+    
     compo2_query("delete from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"]));
     $data = array();
     $total = 0;
