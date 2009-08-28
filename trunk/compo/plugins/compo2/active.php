@@ -128,7 +128,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
         if (!$fe["tmp_name"]) { continue; }
         list($w,$h) = getimagesize($fe["tmp_name"]);
         if (!$w) { continue; } if (!$h) { continue; }
-        unset($shots[$k]);
+//         unset($shots[$k]);
         $ext = array_pop(explode(".",$fe["name"]));
         $cid = $params["cid"];
         $ts = time();
