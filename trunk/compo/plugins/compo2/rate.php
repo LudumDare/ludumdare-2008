@@ -103,7 +103,6 @@ function _compo2_rate_submit($params) {
     ));
     
     _compo2_rate_recalc($params,$ce["uid"]);
-    die;
     header("Location: ?action=default"); die;
 }
 
