@@ -77,6 +77,7 @@ function _compo2_rate_list($params) {
     $n=0;
     echo "<table>";
     echo "<tr><th><th>C";
+    $total = 0;
     foreach ($params["cats"] as $k) { echo "<th>".substr($k,0,3); }
     foreach ($r as $ce) {
         if ($ce["uid"] == $params["uid"]) { continue; }
@@ -92,8 +93,13 @@ function _compo2_rate_list($params) {
         foreach ($params["cats"] as $k) {
             echo "<td align=center>".(strlen($data[$k])?intval($data[$k]):"-");
         }
+        
+        $ok = false; if (strlen($ve["comments"]) { $ok = true; }
+        foreach ($params["cats"] as $k) { if (strlen($data[$k])) { $ok = true; } }
+        if ($ok) { $total += 1; }
+        
         $n += 1;
-        if ($n >= 20 && !strlen($_REQUEST["more"])) { break; }
+        if ($n >= max(20,$total+10) && !strlen($_REQUEST["more"])) { break; }
     }
     echo "</table>";
     
