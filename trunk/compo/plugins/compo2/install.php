@@ -63,6 +63,13 @@ function compo2_install() {
         compo2_query("alter table c2_entry add rate_out int default 0");
         update_option($key,$version);
     }
+    
+    $version = 22;
+    if ($cur < $version) {
+        compo2_query("alter table c2_rate add ts datetime");
+        compo2_query("alter table c2_entry add ts datetime");
+        update_option($key,$version);
+    }
 }
 
 register_activation_hook($GLOBALS["compo2"]["plugin"],"compo2_install");
