@@ -169,7 +169,7 @@ function _compo2_rate_submit($params) {
         "to_uid"=>$ce["uid"],
         "from_uid"=>$params["uid"],
         "data"=>serialize($data),
-        "comments"=>compo2_strip($_REQUEST["comments"]),
+        "comments"=>trim(compo2_strip($_REQUEST["comments"])),
     ));
     
     _compo2_rate_recalc($params,$ce["uid"]);
