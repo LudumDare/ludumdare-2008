@@ -123,6 +123,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
     $ce["notes"] = compo2_strip($_REQUEST["notes"]);
     
     $shots = unserialize($ce["shots"]);
+    $n=0;
     foreach ($_FILES as $k=>$fe) {
         if (!$fe["tmp_name"]) { continue; }
         list($w,$h) = getimagesize($fe["tmp_name"]);
@@ -131,12 +132,13 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
         $ext = array_pop(explode(".",$fe["name"]));
         $cid = $params["cid"];
         $ts = time();
-        $fname = "$cid/$uid-$ts.$ext";
+        $fname = "$cid/$uid-$ts-$n.$ext";
         $dname = dirname(__FILE__)."/../../compo2";
         @mkdir("$dname/$cid");
         $dest = "$dname/$fname";
         move_uploaded_file  ( $fe["tmp_name"] ,$dest );
         $shots[$k] = $fname;
+        $n += 1;
     }
     $ce["shots"] = serialize($shots);
     if (!count($shots)) { $active = false; $msg = "You must include at least one screenshot."; }
