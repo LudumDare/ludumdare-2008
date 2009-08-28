@@ -5,7 +5,7 @@ function _compo2_preview_sort($a,$b) {
     return strcmp($a["title"],$b["title"]);
 }
 
-function _compo2_preview($params,$is_admin=0) {
+function _compo2_preview($params,$is_admin=0,$_link="?action=preview") {
     if (isset($_REQUEST["uid"])) { return _compo2_preview_show($params,intval($_REQUEST["uid"]),1); }
 
     echo "<h3>All Entries</h3>";
@@ -20,7 +20,7 @@ function _compo2_preview($params,$is_admin=0) {
         
         echo "<td valign=bottom align=center>";
         if (!$is_admin) {
-            $link = "?action=preview&uid={$e["uid"]}";
+            $link = "$_link&uid={$e["uid"]}";
         } else {
             $link = "?admin=1&action=edit&uid={$e["uid"]}";
         }
