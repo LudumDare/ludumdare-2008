@@ -111,7 +111,6 @@ function _compo2_results_show($params,$uid) {
     }
     echo "</table>";
 
-    
     echo "<h3>Comments</h3>";
     foreach ($r2 as $ve) {
         $user = compo2_get_user($ve["from_uid"]);

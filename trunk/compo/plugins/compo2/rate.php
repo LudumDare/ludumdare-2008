@@ -9,6 +9,8 @@ function _compo2_rate($params) {
         return _compo2_rate_list($params);
     } elseif ($action == "preview") { // HACK: so this action works
         return _compo2_rate_list($params);
+    } elseif ($action == "comments") {
+        return _compo2_rate_comments($params);
     } elseif ($action == "rate") {
         return _compo2_rate_rate($params);
     } elseif ($action == "submit") {
@@ -19,6 +21,21 @@ function _compo2_rate($params) {
         return _compo2_active_save($params);
     }
 }
+
+function _compo2_rate_comments($params) {
+    $ce = compo2_entry_load($params["cid"],$params["uid"]);
+    
+    echo "<p><a href='?action=default'>Back to Rate Entries</a></p>";
+    
+    echo "<h3>Comments on your Entry</h3>";
+    
+    foreach ($r as $ve) {
+        $user = compo2_get_user($ve["from_uid"]);
+        echo "<h4>{$user->display_name} says...</h4>";
+        echo "<p>".str_replace("\n","<br/>",htmlentities($ve["comments"]))."</p>";
+    }
+}
+
 
 function _compo2_rate_sort($a,$b) {
     return strcmp($a["s"],$b["s"]);
@@ -57,7 +74,9 @@ function _compo2_rate_list($params) {
     }
     
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
-    if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
+    if ($ce["id"]) {
+        echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=comments'>See comments on your entry</a></p>";
+    }
 }
 
 function _compo2_rate_rate($params) {
