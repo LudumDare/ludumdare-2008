@@ -3,9 +3,9 @@
 function _compo2_active($params) {
     if (!$params["uid"]) { return _compo2_preview($params); }
 
-    $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"default";
+    $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"edit";
     
-    if ($action == "default") {
+    if ($action == "edit") {
         return _compo2_active_form($params);
     } elseif ($action == "save") {
         return _compo2_active_save($params);
@@ -19,6 +19,8 @@ function _compo2_active_form($params) {
     $links = unserialize($ce["links"]);
     
     echo "<p><a href='?action=preview'>View all entries.</a></p>";
+    
+    echo "<h2>Edit your Entry</h2>";
     
     if ($ce["id"] != "" && !$ce["active"]) {
         echo "<div class='warning'>Your entry is not complete.</div>";
@@ -71,7 +73,7 @@ function _compo2_active_form($params) {
     echo "</table>";
     
     echo "<p>";
-    echo "<input type='submit' value='Submit your Entry'>";
+    echo "<input type='submit' value='Save your Entry'>";
     echo "</p>";
     
     echo "</form>";
@@ -81,10 +83,10 @@ function _compo2_active_save($params) {
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     $active = true; $msg = "";
     
-    $ce["title"] = $_REQUEST["title"];
+    $ce["title"] = compo2_strip($_REQUEST["title"]);
     if (!strlen($ce["title"])) { $active = false; $msg = "Entry name is a required field."; }
     
-    $ce["notes"] = $_REQUEST["notes"];
+    $ce["notes"] = compo2_strip($_REQUEST["notes"]);
     
     $shots = unserialize($ce["shots"]);
     foreach ($_FILES as $k=>$fe) {
@@ -106,13 +108,19 @@ function _compo2_active_save($params) {
     $ce["shots"] = serialize($shots);
     if (!count($shots)) { $active = false; $msg = "You must include at least one screenshot."; }
     
+    foreach ($_REQUEST["links"] as $k=>$le) {
+        $_REQUEST["links"][$k] = array(
+            "title"=>compo2_strip($le["title"]),
+            "link"=>compo2_strip($le["link"]),
+        );
+    }
     $ce["links"] = serialize($_REQUEST["links"]);
     $ok = false; foreach ($_REQUEST["links"] as $le) {
         if (strlen($le["title"]) && strlen($le["link"])) { $ok = true; }
     }
     if (!$ok) { $active = false; $msg = "You must include at least one link."; }
     
-    $ce["data"] = serialize($_REQUEST["data"]);
+//     $ce["data"] = serialize($_REQUEST["data"]);
     $ce["active"] = intval($active);
     unset($ce["results"]);
     if (!$ce["cid"]) {
@@ -123,11 +131,13 @@ function _compo2_active_save($params) {
         compo2_update("c2_entry",$ce);
     }
     
+    echo "<h2>Entry Saved</h2>";
+    
     if (!$active) {
         echo "<p class='error'>$msg</p>";
     }
     
-    echo "<p>Entry saved.  <a href='?action=default'>Edit your entry</a> | <a href='?action=preview'>View all entries</a></p>";
+    echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=preview'>View all entries</a></p>";
 //     header("Location: ?action=default"); die;
 }
 ?>

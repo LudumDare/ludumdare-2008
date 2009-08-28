@@ -26,7 +26,7 @@ function compo2_query($sql,$params=array()) {
     $parts = explode("?",$sql);
     $sql = array_shift($parts);
     foreach ($parts as $v) {
-        $sql .= "'".$wpdb->escape(stripslashes(array_shift($params)))."'";
+        $sql .= "'".$wpdb->escape(array_shift($params))."'";
         $sql .= $v;
     }
     

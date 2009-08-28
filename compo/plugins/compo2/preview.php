@@ -2,7 +2,9 @@
 
 
 function _compo2_preview($params) {
-    if (isset($_REQUEST["uid"])) { return _compo2_preview_show($params,intval($_REQUEST["uid"])); }
+    if (isset($_REQUEST["uid"])) { return _compo2_preview_show($params,intval($_REQUEST["uid"]),1); }
+
+    echo "<h2>All Entries</h2>";
 
     $r = compo2_query("select * from c2_entry where cid = ? and active = 1",array($params["cid"]));
     shuffle($r);
@@ -17,16 +19,27 @@ function _compo2_preview($params) {
         $shots = unserialize($e["shots"]);
         echo "<img src='".compo2_thumb($shots["shot0"],120,120)."'>";
         echo "<br/>";
+        echo htmlentities($e["title"]);
+        echo "<br/>";
         echo compo2_get_user($e["uid"])->user_nicename;
         echo "</a>";
     }
     echo "</table>";
 
+    $ce = compo2_entry_load($params["cid"],$params["uid"]);
+    if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
+
 }
 
-function _compo2_preview_show($params,$uid) {
+function compo2_strip($v) {
+    return stripslashes($v);
+}
+
+function _compo2_preview_show($params,$uid,$back=0) {
     $ce = compo2_entry_load($params["cid"],$uid);
     $user = compo2_get_user($ce["uid"]);
+    
+    if ($back) { echo "<p><a href='?action=preview'>Back to View all Entries</a></p>"; }
     
     echo "<h2>".htmlentities($ce["title"])." - {$user->user_nicename}</h2>";
     
@@ -34,7 +47,11 @@ function _compo2_preview_show($params,$uid) {
     $pre = "";
     foreach (unserialize($ce["links"]) as $le) {
         if (!strlen($le["title"])) { continue; }
-        echo "$pre<a href=\"".htmlentities($le["link"])."\" target='_blank'>".htmlentities($le["title"])."</a>";
+        $link = $le["link"];
+        if (strpos($link,"javascript:") === 0) { continue; }
+        if (strpos($link,"?") === 0) { continue; }
+        if (!preg_match("/^\w+\:\/\//",$link)) { continue; }
+        echo "$pre<a href=\"".htmlentities($link)."\" target='_blank'>".htmlentities($le["title"])."</a>";
         $pre = " | ";
     }
     echo "</p>";
