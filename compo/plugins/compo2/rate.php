@@ -99,7 +99,7 @@ function _compo2_rate_list($params) {
         if ($ok) { $total += 1; }
         
         $n += 1;
-        if ($n >= max(20,$total+10) && !strlen($_REQUEST["more"])) { break; }
+        if ($n >= max(20,$total+5) && !strlen($_REQUEST["more"])) { break; }
     }
     echo "</table>";
     
