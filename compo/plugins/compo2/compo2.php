@@ -109,6 +109,7 @@ require_once dirname(__FILE__)."/active.php";
 require_once dirname(__FILE__)."/rate.php";
 require_once dirname(__FILE__)."/results.php";
 require_once dirname(__FILE__)."/preview.php";
+require_once dirname(__FILE__)."/admin.php";
 
 add_filter('the_content','compo2_the_content');
 function compo2_the_content($v) {

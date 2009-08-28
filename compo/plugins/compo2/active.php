@@ -20,21 +20,31 @@ function _compo2_active($params) {
     }
 }
 
-function _compo2_active_form($params) {
-    $ce = compo2_entry_load($params["cid"],$params["uid"]);
+function _compo2_active_form($params,$uid="",$is_admin=0) {
+    if (!$uid) { $uid = $params["uid"]; }
+    $ce = compo2_entry_load($params["cid"],$uid);
     $links = unserialize($ce["links"]);
     
-    echo "<p><a href='?action=preview'>View all entries.</a></p>";
+    if (!$is_admin) {
+        echo "<p><a href='?action=preview'>View all entries.</a></p>";
+    }
     
     $star = "<span style='color:#f00;font-weight:bold;'>*</span>";
     
-    echo "<h3>Edit your Entry</h3>";
+    if (!$is_admin) {
+        echo "<h3>Edit your Entry</h3>";
+    } else {
+        echo "<h3>Edit this Entry</h3>";
+    }
     
     if ($ce["id"] != "" && !$ce["active"]) {
         echo "<div class='warning'>Your entry is not complete.</div>";
     }
 
-    echo "<form method='post' action='?action=save' enctype='multipart/form-data'>";
+    $link = "?action=save";
+    if ($is_admin) { $link .= "&admin=1&uid=$uid"; }
+
+    echo "<form method='post' action='$link' enctype='multipart/form-data'>";
     echo "<h4>Name of Entry</h4>";
     
     echo "$star <input type='text' name='title' value=\"".htmlentities($ce["title"])."\" size=60> ";
@@ -86,6 +96,13 @@ function _compo2_active_form($params) {
     echo "<td>Checkbox that PoV wanted for reasons unbeknownst to us.";
     echo "</table>";
     
+    if ($is_admin) {
+        echo "<table>";
+        echo "<tr><td>Disabled";
+        echo "<td>"; compo2_select("disabled",array("0"=>"No","1"=>"Yes"),$ce["disabled"]);
+        echo "</table>";
+    }
+    
     echo "<p>";
     echo "<input type='submit' value='Save your Entry'>";
     echo "</p>";
@@ -95,8 +112,9 @@ function _compo2_active_form($params) {
     echo "<p>$star - required field</p>";
 }
 
-function _compo2_active_save($params) {
-    $ce = compo2_entry_load($params["cid"],$params["uid"]);
+function _compo2_active_save($params,$uid="",$is_admin=0) {
+    if (!$uid) { $uid = $params["uid"]; }
+    $ce = compo2_entry_load($params["cid"],$uid);
     $active = true; $msg = "";
     
     $ce["title"] = compo2_strip($_REQUEST["title"]);
@@ -112,7 +130,6 @@ function _compo2_active_save($params) {
         unset($shots[$k]);
         $ext = array_pop(explode(".",$fe["name"]));
         $cid = $params["cid"];
-        $uid = $params["uid"];
         $ts = time();
         $fname = "$cid/$uid-$ts.$ext";
         $dname = dirname(__FILE__)."/../../compo2";
@@ -136,12 +153,16 @@ function _compo2_active_save($params) {
     }
     if (!$ok) { $active = false; $msg = "You must include at least one link."; }
     
+    if ($is_admin) { 
+        $ce["disabled"] = $_REQUEST["disabled"];
+    }
+    if ($ce["disabled"]) { $active = false; $msg = "This entry has been disabled."; }
+    
 //     $ce["data"] = serialize($_REQUEST["data"]);
     $ce["active"] = intval($active);
     unset($ce["results"]);
     if (!$ce["cid"]) {
         $ce["cid"] = $params["cid"];
-        $ce["uid"] = $params["uid"];
         compo2_insert("c2_entry",$ce);
     } else {
         compo2_update("c2_entry",$ce);
@@ -153,7 +174,11 @@ function _compo2_active_save($params) {
         echo "<p class='error'>$msg</p>";
     }
     
-    echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=default'>View all entries</a></p>";
+    if (!$is_admin) {
+        echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=default'>View all entries</a></p>";
+    } else {
+        echo "<p><a href='?action=default&admin=1'>View all entries</a></p>";
+    }
 //     header("Location: ?action=default"); die;
 }
 ?>
