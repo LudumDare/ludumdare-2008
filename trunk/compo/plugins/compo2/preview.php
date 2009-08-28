@@ -21,7 +21,7 @@ function _compo2_preview($params) {
         echo "<br/>";
         echo "<i>".htmlentities($e["title"])."</i>";
         echo "<br/>";
-        echo compo2_get_user($e["uid"])->user_nicename;
+        echo compo2_get_user($e["uid"])->user_displayname;
         echo "</a>";
     }
     echo "</table>";
@@ -41,7 +41,7 @@ function _compo2_preview_show($params,$uid,$back=0) {
     
     if ($back) { echo "<p><a href='?action=preview'>Back to View all Entries</a></p>"; }
     
-    echo "<h3>".htmlentities($ce["title"])." - {$user->user_nicename}</h3>";
+    echo "<h3>".htmlentities($ce["title"])." - {$user->user_displayname}</h3>";
     
     echo "<p>";
     $pre = "";
@@ -69,7 +69,7 @@ function _compo2_preview_show($params,$uid,$back=0) {
     
     if ($params["jcat"]) {
         $link = get_bloginfo("url")."/?category_name=$jcat&author_name={$user->user_nicename}";
-        echo "<p><a href='$link' target='_blank'>View {$user->user_nicename}'s journal.</a></p>";
+        echo "<p><a href='$link' target='_blank'>View {$user->user_displayname}'s journal.</a></p>";
     }
 }
 
