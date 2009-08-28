@@ -21,7 +21,7 @@ function _compo2_rate($params) {
     if ($action == "default") {
         return _compo2_rate_list($params);
     } elseif ($action == "preview") {
-        return _compo2_rate_preview($params);
+        return _compo2_preview($params);
     } elseif ($action == "comments") {
         return _compo2_rate_comments($params);
     } elseif ($action == "rate") {
