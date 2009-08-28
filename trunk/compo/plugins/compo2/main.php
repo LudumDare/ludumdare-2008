@@ -9,6 +9,8 @@ function _compo2_main($m) {
     $pid = intval($GLOBALS["post"]->ID);
     $cur = wp_get_current_user(); $uid = $cur->ID;
     if ($_REQUEST["admin"]) { $state = "admin"; }
+    $mode = 0;
+    $ce = compo2_entry_load($pid,$uid);
     $params = array(
         "cid"=>$pid,
         "cats"=>$opts,
@@ -16,6 +18,7 @@ function _compo2_main($m) {
         "uid"=>$uid,
         "jcat"=>$jcat,
         "state"=>$state,
+        "has_entry"=>$ce["id"]!=0,
     );
     
     ob_start();
