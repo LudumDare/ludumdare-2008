@@ -26,6 +26,7 @@ function _compo2_rate($params) {
     if ($action == "default") {
         return _compo2_rate_list($params);
     } elseif ($action == "preview") {
+        echo "<p><a href='?action=default'>Back to Rate Entries</a></p>";
         return _compo2_preview($params);
     } elseif ($action == "comments") {
         return _compo2_rate_comments($params);
