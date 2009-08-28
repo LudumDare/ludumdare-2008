@@ -159,18 +159,26 @@ function _compo2_rate_submit($params) {
     $ce = compo2_entry_load($params["cid"],$uid);
     compo2_query("delete from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"]));
     $data = array();
+    $total = 0;
     foreach ($_REQUEST["data"] as $k=>$v) {
 //         $data[$k] = strlen($v)?intval($v):""; // worked for old method
         $data[$k] = intval($v)?intval($v):""; // works for new javascript starry
+        $total += $data[$k];
     }
     
-    compo2_insert("c2_rate",array(
-        "cid"=>$params["cid"],
-        "to_uid"=>$ce["uid"],
-        "from_uid"=>$params["uid"],
-        "data"=>serialize($data),
-        "comments"=>trim(compo2_strip($_REQUEST["comments"])),
-    ));
+    $comments = trim(compo2_strip($_REQUEST["comments"]));
+    
+    $total += strlen($comments);
+    
+    if ($total) {
+        compo2_insert("c2_rate",array(
+            "cid"=>$params["cid"],
+            "to_uid"=>$ce["uid"],
+            "from_uid"=>$params["uid"],
+            "data"=>serialize($data),
+            "comments"=>$comments,
+        ));
+    }
     
     _compo2_rate_recalc($params,$ce["uid"]);
     header("Location: ?action=default"); die;
