@@ -75,13 +75,13 @@ function _compo2_preview_show($params,$uid,$back=0) {
         
     
     echo "<table>";
-    $cols = 3; $n = 0;
+    $cols = 4; $n = 0;
     $link = get_bloginfo("url")."/wp-content/compo2/$fname";
     echo "<tr><td colspan=$cols align=center><a href='$link' target='_blank'><img src='".compo2_thumb($fname,450,450)."'></a>";
     foreach ($shots as $fname) {
         if (($n%$cols)==0) { echo "<tr>"; } $n += 1;
         $link = get_bloginfo("url")."/wp-content/compo2/$fname";
-        echo "<td><a href='$link' target='_blank'><img src='".compo2_thumb($fname,150,150)."'></a>";
+        echo "<td><a href='$link' target='_blank'><img src='".compo2_thumb($fname,120,120)."'></a>";
     }
     echo "</table>";
     
