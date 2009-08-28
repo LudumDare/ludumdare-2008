@@ -41,7 +41,7 @@ function _compo2_rate_list($params) {
         $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
         $ue = compo2_get_user($ce["uid"]);
         echo "<tr>";
-        echo "<td><a href='?action=rate&uid={$ce["uid"]}'>".htmlentities($ue->user_displayname)."</a>";
+        echo "<td><a href='?action=rate&uid={$ce["uid"]}'>".htmlentities($ue->display_name)."</a>";
         echo "<td>".(strlen($ve["comments"])?"x":"-");
         $data = unserialize($ve["data"]);
         foreach ($params["cats"] as $k) {
