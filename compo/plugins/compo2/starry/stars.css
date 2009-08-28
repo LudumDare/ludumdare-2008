@@ -1,0 +1,20 @@
+div.starry {
+	width:auto;
+	xfloat:left;
+/* 	margin:10px 0 10px 0; */
+    margin: 0px 0px 0px 0px;
+	padding:0px;
+	xborder:1px solid #ddd;
+	width:auto;
+}
+div.standard_star {
+	background-repeat: no-repeat;
+	cursor:pointer;
+	float:left;
+	display:inline;
+}
+div.feedback {
+	border:1px solid #ddd;
+	padding:5px 3px 3px;
+	display:inline;
+}

@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/2000/REC-xhtml1-20000126/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+	<title>Star Rating Form Widget 2</title>
+	<script type="text/javascript" src="prototype.lite.js"></script>
+	<script type="text/javascript" src="stars.js"></script>
+	<link rel="stylesheet" href="stars.css" type="text/css" />
+</head>
+<body>
+
+				
+<h2>Starry Widget 2 Examples</h2>
+
+
+<fieldset><legend>All default settings</legend>
+<script>
+	new Starry('default');
+</script>					
+<pre>&lt;script&gt;
+   new Starry('default');
+&lt;/script&gt;</pre>
+</fieldset>
+
+
+<fieldset><legend>Setting a custom length</legend>
+<script>
+	new Starry('custom_length', {name:'customLength', maxLength:12});
+</script>					
+<pre>&lt;script&gt;
+   new Starry('custom_length', {name:'customLength', maxLength:12});
+&lt;/script&gt;</pre>
+</fieldset>
+
+
+<fieldset><legend>Make each star worth more</legend>
+<script>	
+	new Starry('multiplier', {maxLength:10, multiplier:1000, feedback:true});
+</script>
+<pre>&lt;script&gt;
+   new Starry('multiplier', {maxLength:10, multiplier:1000, feedback:true});
+&lt;/script&gt;</pre>
+</fieldset>
+
+
+<fieldset><legend>You can specify which star to start with</legend>
+<script>	
+new Starry('custom_start', {maxLength:10, startAt:5});</script>
+<pre>&lt;script&gt;
+   new Starry('custom_start', {maxLength:10, startAt:5});
+&lt;/script&gt;</pre>
+</fieldset>
+
+
+<fieldset><legend>Use an alternative sprite</legend>
+<script>
+	new Starry('custom_sprite', {sprite:'alphabet.gif', width:28, height:40});
+</script>
+<pre>&lt;script&gt;
+   new Starry('custom_sprite', {sprite:'alphabet.gif', width:28, height:40});
+&lt;/script&gt;</pre>
+</fieldset>
+
+
+<fieldset><legend>Choose to not have a zero value</legend>
+<script>
+	new Starry('no_null', {showNull:false});
+</script>
+<pre>&lt;script&gt;
+   new Starry('no_null', {showNull:false});
+&lt;/script&gt;</pre>
+</fieldset>
+
+
+<fieldset><legend>Align the stars to the right</legend>
+<script>
+	new Starry('align_right', {align:'right', maxLength:12});
+</script>
+<pre>&lt;script&gt;
+  new Starry('align_right', {align:'right', maxLength:12});
+&lt;/script&gt;</pre>
+</fieldset>
+
+
+</body>
+</html>

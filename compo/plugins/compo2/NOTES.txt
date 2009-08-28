@@ -13,3 +13,5 @@ the 3 compo status are "active","rate" and "results"
 STATUS is one of "active", "rate", and "results"
 
 WP_CATEGORY is the category as it appears in links, and this is optional.
+
+Starry is from: http://www.duarte.com/starry/
