@@ -91,7 +91,8 @@ function _compo2_preview_show($params,$uid,$back=0,$comments=1) {
     }
     
     if ($comments) {
-        _compo_show_comments($r2);
+        $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($params["cid"],$uid));
+        _compo_show_comments($r);
     }
 }
 
