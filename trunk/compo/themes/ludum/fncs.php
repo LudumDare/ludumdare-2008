@@ -1,6 +1,6 @@
 <?php
-
-function my_get_buttons() {
+function my_get_buttons() { return ""; }
+function x_my_get_buttons() {
         // check if we're on a "final" post page ..
         $my_final = 0;
         $tags = get_the_tags(); if (!$tags) { return; }
