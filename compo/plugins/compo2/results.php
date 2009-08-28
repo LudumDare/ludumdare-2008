@@ -26,7 +26,7 @@ function _compo2_results_results($params) {
     // HACK: add in Coolness
     $cat = $params["cats"][] = "Coolness";
     foreach ($r as $k=>$ce) {
-        $r[$k]["results"][$cat] = intval(5*$ce["rate_out"]/(count($r)-1));
+        $r[$k]["results"][$cat] = 25*intval(4*$ce["rate_out"]/(count($r)-1));
     }
     
     echo "<h3>Results</h3>";
