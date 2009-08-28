@@ -86,6 +86,7 @@ function _compo2_rate_list($params) {
         if ($v > $vmax*1/4) { $img = "ibronze.gif"; }
         if ($v > $vmax*2/4) { $img = "isilver.gif"; }
         if ($v > $vmax*3/4) { $img = "igold.gif"; }
+        if ($v >= ($vmax-1)) { $img = "star.gif"; }
         echo "<td><img src='$myurl/images/$img'>";
         if ($ce["uid"] != $params["uid"]) {
             echo "<td><a href='?action=rate&uid={$ce["uid"]}'>".htmlentities($ue->display_name)."</a>";
