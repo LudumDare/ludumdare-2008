@@ -87,7 +87,7 @@ function compo_the_content($v) {
 }
 
 function compo_the_editor($v) {
-    $v.="<p style='font-size:20px;font-style:italic;'>If this is your final entry (or an old entry), be sure to mark it with the <b>\"final\"</b> tag.</p>";
+//     $v.="<p style='font-size:20px;font-style:italic;'>If this is your final entry (or an old entry), be sure to mark it with the <b>\"final\"</b> tag.</p>";
     return $v;
 }
 add_filter("the_editor","compo_the_editor");
