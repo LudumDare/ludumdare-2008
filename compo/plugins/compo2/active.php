@@ -20,6 +20,8 @@ function _compo2_active_form($params) {
     
     echo "<p><a href='?action=preview'>View all entries.</a></p>";
     
+    $star = "<span style='color:#f00;font-weight:bold;'>*</span>";
+    
     echo "<h3>Edit your Entry</h3>";
     
     if ($ce["id"] != "" && !$ce["active"]) {
@@ -29,7 +31,7 @@ function _compo2_active_form($params) {
     echo "<form method='post' action='?action=save' enctype='multipart/form-data'>";
     echo "<h4>Name of Entry</h4>";
     
-    echo "<input type='text' name='title' value=\"".htmlentities($ce["title"])."\" size=60>";
+    echo "<input type='text' name='title' value=\"".htmlentities($ce["title"])."\" size=60> $star ";
     
     echo "<h4>Notes</h4>";
     
@@ -46,7 +48,7 @@ function _compo2_active_form($params) {
     for ($i=0; $i<5; $i++) {
         $k = "shot$i";
         echo "<tr><td>".($i+1).".<td><input type='file' name='$k'>";
-        if ($i==0) { echo "<td>(Primary Screenshot)"; }
+        if ($i==0) { echo " $star <td>(Primary Screenshot)"; }
         if (isset($shots[$k])) {
             echo "<tr><td><td align=left><img src='".compo2_thumb($shots[$k],120,80)."'>";
         }
@@ -61,7 +63,9 @@ function _compo2_active_form($params) {
     echo "<tr><th>Name<th>URL";
     for ($i=0; $i<5; $i++) {
         echo "<tr><td><input type='text' name='links[$i][title]' size=15 value=\"".htmlentities($links[$i]["title"])."\">";
+        if ($i=0) { echo " $star"; }
         echo "<td><input type='text' name='links[$i][link]' value=\"".htmlentities($links[$i]["link"])."\" size=45>";
+        if ($i=0) { echo " $star"; }
     }
     echo "</table>";
     
@@ -77,6 +81,8 @@ function _compo2_active_form($params) {
     echo "</p>";
     
     echo "</form>";
+    
+    echo "<p>$star - required field</p>";
 }
 
 function _compo2_active_save($params) {
