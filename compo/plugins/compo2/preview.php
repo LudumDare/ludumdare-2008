@@ -89,6 +89,10 @@ function _compo2_preview_show($params,$uid,$back=0,$comments=1) {
         $link = get_bloginfo("url")."/?category_name={$params["jcat"]}&author_name={$user->user_nicename}";
         echo "<p><a href='$link' target='_blank'>View {$user->display_name}'s journal.</a></p>";
     }
+    
+    if ($comments) {
+        _compo_show_comments($r2);
+    }
 }
 
 ?>
