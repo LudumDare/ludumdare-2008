@@ -2,7 +2,7 @@
 
 function _compo2_rate($params) {
     if (!$params["uid"]) {
-        echo "<p style='message'>You sign in to vote.</p>";
+        echo "<p style='message'>You must sign in to vote.</p>";
         return _compo2_preview($params);
     }
 
