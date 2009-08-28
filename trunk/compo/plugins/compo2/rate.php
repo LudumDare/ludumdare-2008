@@ -23,12 +23,14 @@ function _compo2_rate($params) {
 }
 
 function _compo2_rate_comments($params) {
+    $cid = $params["cid"]; $uid = $params["uid"];
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     
     echo "<p><a href='?action=default'>Back to Rate Entries</a></p>";
     
     echo "<h3>Comments on your Entry</h3>";
     
+    $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($cid,$uid));
     foreach ($r as $ve) {
         $user = compo2_get_user($ve["from_uid"]);
         echo "<h4>{$user->display_name} says...</h4>";
