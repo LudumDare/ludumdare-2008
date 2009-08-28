@@ -39,14 +39,14 @@ function compo2_install() {
         compo2_query("alter table c2_entry add shots blob");
         update_option($key,$version);
     }
-    $version = 14;
-    if ($cur < $version) {
-        compo2_query("alter table c2_rate add comments text");
-        update_option($key,$version);
-    }
     $version = 15;
     if ($cur < $version) {
         compo2_query("create table c2_rate (cid int, to_uid int, from_uid int, data blob)");
+        update_option($key,$version);
+    }
+    $version = 16;
+    if ($cur < $version) {
+        compo2_query("alter table c2_rate add comments text");
         update_option($key,$version);
     }
 }
