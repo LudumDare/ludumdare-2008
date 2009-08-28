@@ -88,7 +88,7 @@ function _compo2_results_cat($params,$r,$cat) {
         }
         echo "<tr>";
         echo "<td><img src='$myurl/$img'>";
-        echo "<td align=center>$vv";
+        echo "<td align=right>$vv";
         echo "<td><a href='?uid={$ce["uid"]}'>{$ce["user"]->display_name}</a>";
         
         $t += 1;
