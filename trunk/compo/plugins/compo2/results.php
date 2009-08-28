@@ -89,7 +89,7 @@ function _compo2_results_show($params,$uid) {
     
     echo "<p><a href='?action=default'>Back to Results</a></p>";
     
-    _compo2_preview_show($params,$uid);
+    _compo2_preview_show($params,$uid,0,0);
     
     $cid = $params["cid"];
     $ce = compo2_entry_load($params["cid"],$uid);
@@ -114,7 +114,6 @@ function _compo2_results_show($params,$uid) {
     }
     echo "</table>";
 
-    echo "<h3>Comments</h3>";
     _compo_show_comments($r2);
 }
 ?>

@@ -42,6 +42,8 @@ function _compo2_rate($params) {
 }
 
 function _compo_show_comments($r) {
+    if (!count($r)) { return; }
+    echo "<h3>Comments</h3>";
     foreach ($r as $ve) if (strlen(trim($ve["comments"]))) {
         $user = compo2_get_user($ve["from_uid"]);
         echo "<h4>{$user->display_name} says ...</h4>";
@@ -128,7 +130,7 @@ function _compo2_rate_list($params) {
 function _compo2_rate_rate($params,$uid = "") {
     if (!$uid) { $uid = intval($_REQUEST["uid"]); }
     echo "<p><a href='?action=default'>Back to Rate Entries</a></p>";
-    _compo2_preview_show($params,$uid);
+    _compo2_preview_show($params,$uid,0,0);
     $ce = compo2_entry_load($params["cid"],$uid);
     $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
     
@@ -161,7 +163,6 @@ function _compo2_rate_rate($params,$uid = "") {
         echo "<hr/>";
     }
     
-    echo "<h4>Comments</h4>";
     $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($params["cid"],$ce["uid"]));
     _compo_show_comments($r);
 
