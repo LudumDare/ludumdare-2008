@@ -57,6 +57,12 @@ function compo2_install() {
         compo2_query("create index idx_c2_rate_from_uid on c2_rate (from_uid)");
         update_option($key,$version);
     }
+    $version = 21;
+    if ($cur < $version) {
+        compo2_query("alter table c2_entry add rate_in int default 0");
+        compo2_query("alter table c2_entry add rate_out int default 0");
+        update_option($key,$version);
+    }
 }
 
 register_activation_hook($GLOBALS["compo2"]["plugin"],"compo2_install");
