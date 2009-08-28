@@ -2,7 +2,7 @@
 
 function _compo2_rate($params) {
     if (!$params["uid"]) {
-        echo "<p style='message'>You must sign in to vote.</p>";
+        echo "<p class='message'>You must sign in to vote.</p>";
         return _compo2_preview($params);
     }
 
@@ -15,7 +15,7 @@ function _compo2_rate($params) {
         } elseif ($action == "save") {
             return _compo2_active_save($params);
         } elseif ($action == "preview") {
-            echo "<p style='message'>Voting is only available to participants.</p>";
+            echo "<p class='message'>Voting is only available to participants.</p>";
             return _compo2_preview($params);
         }
         return;
