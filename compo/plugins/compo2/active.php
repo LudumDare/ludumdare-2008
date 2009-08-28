@@ -20,22 +20,22 @@ function _compo2_active_form($params) {
     
     echo "<p><a href='?action=preview'>View all entries.</a></p>";
     
-    echo "<h2>Edit your Entry</h2>";
+    echo "<h3>Edit your Entry</h3>";
     
     if ($ce["id"] != "" && !$ce["active"]) {
         echo "<div class='warning'>Your entry is not complete.</div>";
     }
 
     echo "<form method='post' action='?action=save' enctype='multipart/form-data'>";
-    echo "<h3>Name of Entry</h3>";
+    echo "<h4>Name of Entry</h4>";
     
     echo "<input type='text' name='title' value=\"".htmlentities($ce["title"])."\" size=60>";
     
-    echo "<h3>Notes</h3>";
+    echo "<h4>Notes</h4>";
     
     echo "<textarea name='notes' rows=8 cols=60>".htmlentities($ce["notes"])."</textarea>";
     
-    echo "<h3>Screenshots</h3>";
+    echo "<h4>Screenshots</h4>";
     
     echo "<p>You must include at least one screenshot.</p>";
     
@@ -53,7 +53,7 @@ function _compo2_active_form($params) {
     }
     echo "</table>";
     
-    echo "<h3>Links</h3>";
+    echo "<h4>Links</h4>";
     
     echo "<p>This is where you link to your entry downloads.  Please use names like: win32, linux, osx, web, flash, src, etc ... You must include at least one link.</p>";
     
@@ -65,7 +65,7 @@ function _compo2_active_form($params) {
     }
     echo "</table>";
     
-    echo "<h3>Extra Stuff</h3>";
+    echo "<h4>Extra Stuff</h4>";
     // this is non-functional
     echo "<table>";
     echo "<tr><td><input type='checkbox' name='data[pov_toggle]'>";
@@ -131,7 +131,7 @@ function _compo2_active_save($params) {
         compo2_update("c2_entry",$ce);
     }
     
-    echo "<h2>Entry Saved</h2>";
+    echo "<h3>Entry Saved</h3>";
     
     if (!$active) {
         echo "<p class='error'>$msg</p>";

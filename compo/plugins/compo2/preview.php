@@ -4,7 +4,7 @@
 function _compo2_preview($params) {
     if (isset($_REQUEST["uid"])) { return _compo2_preview_show($params,intval($_REQUEST["uid"]),1); }
 
-    echo "<h2>All Entries</h2>";
+    echo "<h3>All Entries</h3>";
 
     $r = compo2_query("select * from c2_entry where cid = ? and active = 1",array($params["cid"]));
     shuffle($r);
@@ -41,7 +41,7 @@ function _compo2_preview_show($params,$uid,$back=0) {
     
     if ($back) { echo "<p><a href='?action=preview'>Back to View all Entries</a></p>"; }
     
-    echo "<h2>".htmlentities($ce["title"])." - {$user->user_nicename}</h2>";
+    echo "<h3>".htmlentities($ce["title"])." - {$user->user_nicename}</h3>";
     
     echo "<p>";
     $pre = "";
