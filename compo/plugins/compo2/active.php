@@ -161,7 +161,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 //     $ce["data"] = serialize($_REQUEST["data"]);
     $ce["active"] = intval($active);
     unset($ce["results"]);
-    if (!$ce["cid"]) {
+    if (!$ce["id"]) {
         $ce["cid"] = $params["cid"];
         $ce["uid"] = $uid;
         compo2_insert("c2_entry",$ce);
