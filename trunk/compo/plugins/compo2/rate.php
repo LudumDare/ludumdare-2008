@@ -76,9 +76,10 @@ function _compo2_rate_list($params) {
     echo "<h3>Rate Entries</h3>";
     $n=0;
     echo "<table>";
-    echo "<tr><th><th>C";
+    echo "<tr><th>";
     $total = 0;
     foreach ($params["cats"] as $k) { echo "<th>".substr($k,0,3); }
+    echo "<th>C";
     foreach ($r as $ce) {
         if ($ce["uid"] == $params["uid"]) { continue; }
         $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
@@ -88,11 +89,11 @@ function _compo2_rate_list($params) {
         $ct = array_pop(compo2_query("select count(*) cnt from c2_rate where cid = ? and to_uid = ?",array($params["cid"],$ce["uid"])));
         if ($ct["cnt"]) { echo " ({$ct["cnt"]})"; }
         
-        echo "<td>".(strlen($ve["comments"])?"x":"-");
         $data = unserialize($ve["data"]);
         foreach ($params["cats"] as $k) {
             echo "<td align=center>".(strlen($data[$k])?intval($data[$k]):"-");
         }
+        echo "<td>".(strlen($ve["comments"])?"x":"-");
         
         $ok = false; if (strlen($ve["comments"])) { $ok = true; }
         foreach ($params["cats"] as $k) { if (strlen($data[$k])) { $ok = true; } }
