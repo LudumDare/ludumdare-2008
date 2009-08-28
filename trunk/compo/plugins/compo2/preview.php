@@ -53,7 +53,7 @@ function _compo2_preview_show($params,$uid,$back=0,$comments=1) {
     
     if ($back) { echo "<p><a href='?action=preview'>Back to View all Entries</a></p>"; }
     
-    if ($params["state"] == "rate" && $ce["has_entry"]) {
+    if ($params["state"] == "rate" && $params["has_entry"]) {
         echo "<p><a href='?action=rate&uid=$uid'>Rate this Entry</a></p>";
     }
     
