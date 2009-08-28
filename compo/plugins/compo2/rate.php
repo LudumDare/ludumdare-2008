@@ -35,6 +35,14 @@ function _compo2_rate($params) {
     }
 }
 
+function _compo_show_comments($r) {
+    foreach ($r as $ve) if (strlen(trim($ve["comments"]))) {
+        $user = compo2_get_user($ve["from_uid"]);
+        echo "<h4>{$user->display_name} says ...</h4>";
+        echo "<p>".str_replace("\n","<br/>",htmlentities($ve["comments"]))."</p>";
+    }
+}
+
 function _compo2_rate_comments($params) {
     $cid = $params["cid"]; $uid = $params["uid"];
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
@@ -44,11 +52,7 @@ function _compo2_rate_comments($params) {
     echo "<h3>Comments on your Entry</h3>";
     
     $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($cid,$uid));
-    foreach ($r as $ve) {
-        $user = compo2_get_user($ve["from_uid"]);
-        echo "<h4>{$user->display_name} says ...</h4>";
-        echo "<p>".str_replace("\n","<br/>",htmlentities($ve["comments"]))."</p>";
-    }
+    _compo_show_comments($r);
 }
 
 
@@ -117,6 +121,12 @@ function _compo2_rate_rate($params) {
     echo "<p><input type='submit' value='Save'></p>";
     echo "</form>";
     
+    echo "<hr/>";
+    
+    echo "<h4>Other user's comments</h4>";
+    $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($params["cid"],$ce["uid"]));
+    _compo_show_comments($r);
+
 }
 
 function _compo2_rate_submit($params) {
