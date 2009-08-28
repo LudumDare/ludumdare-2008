@@ -94,11 +94,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "<tr><th>Name<th>URL";
     for ($i=0; $i<5; $i++) {
         echo "<tr><td>";
-        if ($i==0) { echo " $star"; }
         echo "<input type='text' name='links[$i][title]' size=15 value=\"".htmlentities($links[$i]["title"])."\">";
-        echo "<td>";
         if ($i==0) { echo " $star"; }
+        echo "<td>";
         echo "<input type='text' name='links[$i][link]' value=\"".htmlentities($links[$i]["link"])."\" size=45>";
+        if ($i==0) { echo " $star"; }
     }
     echo "</table>";
     
