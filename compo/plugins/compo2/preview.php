@@ -1,13 +1,17 @@
 <?php
 
 
+function _compo2_preview_sort($a,$b) {
+    return strcmp($a["title"],$b["title"]);
+}
+
 function _compo2_preview($params) {
     if (isset($_REQUEST["uid"])) { return _compo2_preview_show($params,intval($_REQUEST["uid"]),1); }
 
     echo "<h3>All Entries</h3>";
 
     $r = compo2_query("select * from c2_entry where cid = ? and active = 1",array($params["cid"]));
-    shuffle($r);
+    usort($r,"_compo2_preview_sort");
     $cols = 4;
     $n = 0;
     echo "<table>";
