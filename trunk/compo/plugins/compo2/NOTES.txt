@@ -1,1 +1,15 @@
 Just add ?admin=1 to the URL and you can manage entries if you are a WP admin.
+
+
+fact is, the journal isn't even needed to run a compo ..
+so just create a new page ..
+and copy in the code from the current page ..
+
+the only thing the journal does - is if a category is included in the "compo tag", then the "view users' journal" link will appear and link to their journal for that category
+the 3 compo status are "active","rate" and "results"
+
+[compo2:STATUS:WP_CATEGORY:Cat1;Cat2;Cat3]
+
+STATUS is one of "active", "rate", and "results"
+
+WP_CATEGORY is the category as it appears in links, and this is optional.
