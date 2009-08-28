@@ -94,7 +94,7 @@ function _compo2_rate_list($params) {
             echo "<td align=center>".(strlen($data[$k])?intval($data[$k]):"-");
         }
         
-        $ok = false; if (strlen($ve["comments"]) { $ok = true; }
+        $ok = false; if (strlen($ve["comments"])) { $ok = true; }
         foreach ($params["cats"] as $k) { if (strlen($data[$k])) { $ok = true; } }
         if ($ok) { $total += 1; }
         
