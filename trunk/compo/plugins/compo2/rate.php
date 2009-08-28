@@ -7,6 +7,8 @@ function _compo2_rate($params) {
     
     if ($action == "default") {
         return _compo2_rate_list($params);
+    } elseif ($action == "preview") { // HACK: so this action works
+        return _compo2_rate_list($params);
     } elseif ($action == "rate") {
         return _compo2_rate_rate($params);
     } elseif ($action == "submit") {
@@ -28,6 +30,8 @@ function _compo2_rate_list($params) {
         $r[$k]["s"] = md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}");
     }
     usort($r,"_compo2_rate_sort");
+    
+    echo "<h2>Rate Entries</h2>";
     $n=0;
     echo "<table>";
     echo "<tr><th><th>C";
@@ -41,7 +45,7 @@ function _compo2_rate_list($params) {
         echo "<td>".(strlen($ve["comments"])?"x":"-");
         $data = unserialize($ve["data"]);
         foreach ($params["cats"] as $k) {
-            echo "<td align=center>".(compo_number_format($data[$k]));
+            echo "<td align=center>".(strlen($data[$k])?intval($data[$k]):"-");
         }
         $n += 1;
         if ($n >= 20 && !strlen($_REQUEST["more"])) { break; }
@@ -95,7 +99,7 @@ function _compo2_rate_submit($params) {
         "to_uid"=>$ce["uid"],
         "from_uid"=>$params["uid"],
         "data"=>serialize($data),
-        "comments"=>$_REQUEST["comments"],
+        "comments"=>compo2_strip($_REQUEST["comments"]),
     ));
     
     _compo2_rate_recalc($params,$ce["uid"]);

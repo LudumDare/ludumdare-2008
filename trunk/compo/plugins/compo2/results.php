@@ -5,6 +5,8 @@ function _compo2_results($params) {
     
     if ($action == "default") {
         return _compo2_results_results($params);
+    } elseif ($action == "preview") {
+        return _compo2_results_results($params); // HACK: so that link works
     } elseif ($action == "edit") {
         return _compo2_active_form($params);
     } elseif ($action == "save") {
@@ -20,7 +22,7 @@ function _compo2_results_results($params) {
         $r[$k]["results"] = unserialize($ce["results"]);
         $r[$k]["user"] = compo2_get_user($ce["uid"]);
     }
-
+    echo "<h2>Results</h2>";
     $cols = 4; $n = 0;
     echo "<table>";
     foreach ($params["cats"] as $k) {
@@ -82,6 +84,8 @@ function _compo2_results_cat($params,$r,$cat) {
 function _compo2_results_show($params,$uid) {
     $ce = compo2_entry_load($params["cid"],$uid);
     
+    echo "<p><a href='?action=default'>Back to Results</a></p>";
+    
     _compo2_preview_show($params,$uid);
     
     $cid = $params["cid"];
@@ -97,7 +101,7 @@ function _compo2_results_show($params,$uid) {
         echo "<tr>";
         $data = unserialize($ve["data"]);
         foreach ($params["cats"] as $k) {
-            echo "<td align=center>".(compo2_number_format($data[$k]));
+            echo "<td align=center>".(strlen($data[$k])?intval($data[$k]):"-");
         }
     }
     echo "<tr>";
