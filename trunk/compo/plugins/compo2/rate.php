@@ -83,6 +83,9 @@ function _compo2_rate_list($params) {
         $ue = compo2_get_user($ce["uid"]);
         echo "<tr>";
         echo "<td><a href='?action=rate&uid={$ce["uid"]}'>".htmlentities($ue->display_name)."</a>";
+        $ct = array_pop(compo2_query("select count(*) cnt from c2_rate where cid = ? and to_uid = ?",array($params["cid"],$ce["uid"])));
+        if ($ct["cnt"]) { echo " ({$ct["cnt"]})"; }
+        
         echo "<td>".(strlen($ve["comments"])?"x":"-");
         $data = unserialize($ve["data"]);
         foreach ($params["cats"] as $k) {
