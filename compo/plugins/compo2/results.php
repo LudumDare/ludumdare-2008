@@ -6,7 +6,7 @@ function _compo2_results($params) {
     if ($action == "default") {
         return _compo2_results_results($params);
     } elseif ($action == "preview") {
-        return _compo2_results_results($params); // HACK: so that link works
+        return _compo2_preview($params);
     } elseif ($action == "edit") {
         return _compo2_active_form($params);
     } elseif ($action == "save") {
@@ -36,6 +36,8 @@ function _compo2_results_results($params) {
     if (!strlen($_REQUEST["more"])) {
         echo "<p><a href='?more=1'>Show all entries.</a></p>";
     }
+    
+    echo "<p><a href='?action=preview'>View all Screenshots</a></p>";
 
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
