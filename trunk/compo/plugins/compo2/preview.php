@@ -86,7 +86,7 @@ function _compo2_preview_show($params,$uid,$back=0) {
     echo "</table>";
     
     if ($params["jcat"]) {
-        $link = get_bloginfo("url")."/?category_name=$jcat&author_name={$user->user_nicename}";
+        $link = get_bloginfo("url")."/?category_name={$params["jcat"]}t&author_name={$user->user_nicename}";
         echo "<p><a href='$link' target='_blank'>View {$user->display_name}'s journal.</a></p>";
     }
 }
