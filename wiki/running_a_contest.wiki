@@ -36,7 +36,10 @@ Add your content here.  Or not.
 = Starting a Compo =
 
  # Create a new wordpress page for the compo
- # Put in a tag [compo2:STATUS:WP-CATEGORY:JUDGE-CATEGORIES]
+ # Put in a tag 
+{{{
+[compo2:STATUS:WP-CATEGORY:JUDGE-CATEGORIES]
+}}}
  # STATUS is "active" at start
  # WP-CATEGORY is optional, but can refer to the wp-category slug that is being used by contestants to journal in.
  # JUDGE-CATEGORIES should be a semi-colon delimited list of voting categories "Fun;Innovation;Production;Theme"
