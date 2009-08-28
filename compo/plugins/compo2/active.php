@@ -1,7 +1,10 @@
 <?php
 
 function _compo2_active($params) {
-    if (!$params["uid"]) { return _compo2_preview($params); }
+    if (!$params["uid"]) {
+        echo "<p style='message'>You must sign in to submit an entry.</p>";
+        return _compo2_preview($params);
+    }
 
     $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"default";
     
