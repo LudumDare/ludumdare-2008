@@ -17,11 +17,6 @@ function compo2_install() {
         compo2_query("create table c2_entry (id int not null auto_increment primary key, cid int, uid int, notes text, links blob, data blob)");
         update_option($key,$version);
     }
-    $version = 8;
-    if ($cur < $version) {
-        compo2_query("create table c2_rate (cid int, to_uid int, from_uid int, data blob, )");
-        update_option($key,$version);
-    }
     $version = 9;
     if ($cur < $version) {
         compo2_query("alter table c2_entry add results blob");
@@ -47,6 +42,11 @@ function compo2_install() {
     $version = 14;
     if ($cur < $version) {
         compo2_query("alter table c2_rate add comments text");
+        update_option($key,$version);
+    }
+    $version = 15;
+    if ($cur < $version) {
+        compo2_query("create table c2_rate (cid int, to_uid int, from_uid int, data blob)");
         update_option($key,$version);
     }
 }
