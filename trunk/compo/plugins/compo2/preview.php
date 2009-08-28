@@ -5,12 +5,12 @@ function _compo2_preview_sort($a,$b) {
     return strcmp($a["title"],$b["title"]);
 }
 
-function _compo2_preview($params) {
+function _compo2_preview($params,$is_admin=0) {
     if (isset($_REQUEST["uid"])) { return _compo2_preview_show($params,intval($_REQUEST["uid"]),1); }
 
     echo "<h3>All Entries</h3>";
 
-    $r = compo2_query("select * from c2_entry where cid = ? and active = 1",array($params["cid"]));
+    $r = compo2_query("select * from c2_entry where cid = ? ".(!$is_admin?" and active=1":""),array($params["cid"]));
     usort($r,"_compo2_preview_sort");
     $cols = 4;
     $n = 0;
@@ -19,7 +19,13 @@ function _compo2_preview($params) {
         if (($n%$cols)==0) { echo "<tr>"; } $n += 1;
         
         echo "<td valign=bottom align=center>";
-        echo "<a href='?action=preview&uid={$e["uid"]}'>";
+        if (!$is_admin) {
+            $link = "?action=preview&uid={$e["uid"]}";
+        } else {
+            $link = "?admin=1&action=edit&uid={$e["uid"]}";
+        }
+        if (!$e["active"]) { echo "<i>inactive</i>"; }
+        echo "<a href='$link'>";
         $shots = unserialize($e["shots"]);
         echo "<img src='".compo2_thumb($shots["shot0"],120,120)."'>";
         echo "<br/>";
@@ -30,8 +36,10 @@ function _compo2_preview($params) {
     }
     echo "</table>";
 
-    $ce = compo2_entry_load($params["cid"],$params["uid"]);
-    if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
+    if (!$is_admin) {
+        $ce = compo2_entry_load($params["cid"],$params["uid"]);
+        if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
+    }
 
 }
 

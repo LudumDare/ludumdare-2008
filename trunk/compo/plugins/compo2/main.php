@@ -17,9 +17,11 @@ function _compo2_main($m) {
     );
     
     ob_start();
+    if ($_REQUEST["admin"]) { $state = "admin"; }
     if ($state == "active") { _compo2_active($params); }
     elseif ($state == "rate") { _compo2_rate($params); }
     elseif ($state == "results") { _compo2_results($params); }
+    elseif ($state == "admin") { _compo2_admin($params); }
     else { compo2_error("compo2 - Invalid state: $state"); }
     $r = ob_get_contents();
     ob_end_clean();
