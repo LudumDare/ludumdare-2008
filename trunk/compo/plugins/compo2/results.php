@@ -73,7 +73,7 @@ function _compo2_results_cat($params,$r,$cat) {
         $img = "inone.gif";
         $vv = compo2_number_format($v);
         // HACK: for coolness
-        if ($k == "Coolness") {
+        if ($cat == "Coolness") {
             if ($v > 25) { $n = 3; }
             if ($v > 50) { $n = 2; }
             if ($v > 75) { $n = 1; }
