@@ -82,7 +82,6 @@ function _compo2_rate_list($params) {
     echo "<th>Txt";
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
     foreach ($r as $ce) {
-        if ($ce["uid"] == $params["uid"]) { continue; }
         $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
         $ue = compo2_get_user($ce["uid"]);
         echo "<tr>";
@@ -93,7 +92,11 @@ function _compo2_rate_list($params) {
         if ($v > $vmax*2/4) { $img = "isilver.gif"; }
         if ($v > $vmax*3/4) { $img = "igold.gif"; }
         echo "<td><img src='$myurl/images/$img'>";
-        echo "<td><a href='?action=rate&uid={$ce["uid"]}'>".htmlentities($ue->display_name)."</a>";
+        if ($ce["uid"] != $params["uid"]) {
+            echo "<td><a href='?action=rate&uid={$ce["uid"]}'>".htmlentities($ue->display_name)."</a>";
+        } else {
+            echo "<td>".htmlentities($ue->display_name);
+        }
         if ($ce["rate_in"]) { echo " ({$ce["rate_in"]})"; }
         
         $data = unserialize($ve["data"]);
