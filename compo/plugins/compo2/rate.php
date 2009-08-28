@@ -134,7 +134,7 @@ function _compo2_rate_rate($params) {
         echo "<tr><th>".htmlentities($k);
         echo "<td>";
         $v = intval($data[$k]);
-        echo "<script>new Starry('data[$k]',{name:'data[$k]',sprite:'$myurl/starry/stars20.gif',width:20,height:20,startAt:$v});</script>";
+        echo "<script>new Starry('data[$k]',{name:'data[$k]',sprite:'$myurl/starry/newstars20.gif',width:20,height:20,startAt:$v});</script>";
 //         compo2_select("data[$k]",array(""=>"n/a","5"=>"5 - Best","4"=>"4","3"=>"3","2"=>"2","1"=>"1 - Worst"),$v);
     }
     echo "</table>";
