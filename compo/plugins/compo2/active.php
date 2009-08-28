@@ -163,6 +163,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
     unset($ce["results"]);
     if (!$ce["cid"]) {
         $ce["cid"] = $params["cid"];
+        $ce["uid"] = $uid;
         compo2_insert("c2_entry",$ce);
     } else {
         compo2_update("c2_entry",$ce);
