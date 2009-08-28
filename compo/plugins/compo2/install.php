@@ -48,6 +48,15 @@ function compo2_install() {
         compo2_query("alter table c2_entry add disabled int default 0");
         update_option($key,$version);
     }
+    $version = 20;
+    if ($cur < $version) {
+        compo2_query("create index idx_c2_entry_uid on c2_entry (uid)");
+        compo2_query("create index idx_c2_entry_cid on c2_entry (cid)");
+        compo2_query("create index idx_c2_rate_cid on c2_rate (cid)");
+        compo2_query("create index idx_c2_rate_to_uid on c2_rate (to_uid)");
+        compo2_query("create index idx_c2_rate_from_uid on c2_rate (from_uid)");
+        update_option($key,$version);
+    }
 }
 
 register_activation_hook($GLOBALS["compo2"]["plugin"],"compo2_install");
