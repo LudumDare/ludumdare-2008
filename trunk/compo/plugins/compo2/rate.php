@@ -110,6 +110,12 @@ function _compo2_rate_rate($params) {
     $ce = compo2_entry_load($params["cid"],$uid);
     $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
     echo "<h3>Rate this Entry</h3>";
+    
+    $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
+    echo "<script type='text/javascript' src='$myurl/starry/prototype.lite.js'></script>";
+    echo "<script type='text/javascript' src='$myurl/starry/stars.js'></script>";
+    echo "<link rel='stylesheet' href='$myurl/starry/stars.css' type='text/css' />";
+
     echo "<form method=post action='?action=submit&uid=$uid'>";
     echo "<p>";
     echo "<table>";
@@ -117,8 +123,9 @@ function _compo2_rate_rate($params) {
     foreach ($params["cats"] as $k) {
         echo "<tr><th>".htmlentities($k);
         echo "<td>";
-        $v = $data[$k];
-        compo2_select("data[$k]",array(""=>"n/a","5"=>"5 - Best","4"=>"4","3"=>"3","2"=>"2","1"=>"1 - Worst"),$v);
+        $v = intval($data[$k]);
+        echo "<script>new Starry('data[$k]',{name:'data[$k]',sprite:'$myurl/starry/stars20.gif',width:20,height:20,startAt:$v});</script>";
+//         compo2_select("data[$k]",array(""=>"n/a","5"=>"5 - Best","4"=>"4","3"=>"3","2"=>"2","1"=>"1 - Worst"),$v);
     }
     echo "</table>";
     echo "</p>";
@@ -136,12 +143,14 @@ function _compo2_rate_rate($params) {
 }
 
 function _compo2_rate_submit($params) {
+//     print_r($_REQUEST); die;
     $uid = intval($_REQUEST["uid"]);
     $ce = compo2_entry_load($params["cid"],$uid);
     compo2_query("delete from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"]));
     $data = array();
     foreach ($_REQUEST["data"] as $k=>$v) {
-        $data[$k] = strlen($v)?intval($v):"";
+//         $data[$k] = strlen($v)?intval($v):""; // worked for old method
+        $data[$k] = intval($v)?intval($v):""; // works for new javascript starry
     }
     
     compo2_insert("c2_rate",array(
