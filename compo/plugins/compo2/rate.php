@@ -88,13 +88,14 @@ function _compo2_rate_list($params) {
     }
     echo "</table>";
     
+    echo "<p>";
     if (!strlen($_REQUEST["more"])) {
-        echo "<p><a href='?more=1'>Show all entries</a></p>";
+        echo "<a href='?more=1'>Show all entries</a> | ";
     }
-    
-    echo "<p><a href='?action=preview'>View all Screenshots</a></p>";
-    
-    echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=comments'>See comments on your entry</a></p>";
+    echo "<a href='?action=preview'>View all Screenshots</a> | ";
+    echo "<a href='?action=edit'>Edit your entry</a> | ";
+    echo "<a href='?action=comments'>See comments on your entry</a>";
+    echo "</p>";
 }
 
 function _compo2_rate_rate($params) {
