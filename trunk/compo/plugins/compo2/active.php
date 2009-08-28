@@ -2,7 +2,7 @@
 
 function _compo2_active($params) {
     if (!$params["uid"]) {
-        echo "<p style='message'>You must sign in to submit an entry.</p>";
+        echo "<p class='message'>You must sign in to submit an entry.</p>";
         return _compo2_preview($params);
     }
 
