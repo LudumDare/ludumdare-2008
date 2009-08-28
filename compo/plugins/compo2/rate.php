@@ -93,7 +93,7 @@ function _compo2_rate_list($params) {
         foreach ($params["cats"] as $k) {
             echo "<td align=center>".(strlen($data[$k])?intval($data[$k]):"-");
         }
-        echo "<td>".(strlen($ve["comments"])?"x":"-");
+        echo "<td align=center>".(strlen($ve["comments"])?"x":"-");
         
         $ok = false; if (strlen($ve["comments"])) { $ok = true; }
         foreach ($params["cats"] as $k) { if (strlen($data[$k])) { $ok = true; } }
