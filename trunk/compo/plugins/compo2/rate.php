@@ -76,15 +76,23 @@ function _compo2_rate_list($params) {
     echo "<h3>Rate Entries</h3>";
     $n=0;
     echo "<table>";
-    echo "<tr><th>";
+    echo "<tr><th><th>";
     $total = 0;
     foreach ($params["cats"] as $k) { echo "<th>".substr($k,0,3); }
     echo "<th>Txt";
+    $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
     foreach ($r as $ce) {
         if ($ce["uid"] == $params["uid"]) { continue; }
         $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
         $ue = compo2_get_user($ce["uid"]);
         echo "<tr>";
+        $v = $ce["rate_out"];
+        $vmax = count($r);
+        $img = "inone.gif";
+        if ($v > $vmax*3/4) { $img = "igold.gif"; }
+        if ($v > $vmax*2/4) { $img = "isilver.gif"; }
+        if ($v > $vmax*1/4) { $img = "ibronze.gif"; }
+        echo "<td><img src='$myurl/images/$img'>";
         echo "<td><a href='?action=rate&uid={$ce["uid"]}'>".htmlentities($ue->display_name)."</a>";
         if ($ce["rate_in"]) { echo " ({$ce["rate_in"]})"; }
         
