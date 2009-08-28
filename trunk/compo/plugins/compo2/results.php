@@ -72,6 +72,12 @@ function _compo2_results_cat($params,$r,$cat) {
         if ($v != $p) { $n += 1; } $p = $v;
         $img = "inone.gif";
         $vv = compo2_number_format($v);
+        // HACK: for coolness
+        if ($k == "Coolness") {
+            if ($v > 25) { $n = 3; }
+            if ($v > 50) { $n = 2; }
+            if ($v > 75) { $n = 1; }
+        }
         if ($n <= 3) {
             $map = array("1"=>"igold.gif","2"=>"isilver.gif","3"=>"ibronze.gif");
             $img = $map[$n];
