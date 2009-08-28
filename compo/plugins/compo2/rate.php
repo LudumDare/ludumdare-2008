@@ -42,7 +42,7 @@ function _compo2_rate($params) {
 }
 
 function _compo2_show_comments($cid,$uid) {
-    $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($cid,$uid));
+    $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ? order by ts asc",array($cid,$uid));
     if (!count($r)) { return; }
     echo "<h3>Comments</h3>";
     foreach ($r as $ve) if (strlen(trim($ve["comments"]))) {
@@ -194,6 +194,7 @@ function _compo2_rate_submit($params) {
             "from_uid"=>$params["uid"],
             "data"=>serialize($data),
             "comments"=>$comments,
+            "ts"=>date("Y-m-d H:i:s"),
         ));
     }
     

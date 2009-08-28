@@ -179,6 +179,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
     if (!$ce["id"]) {
         $ce["cid"] = $params["cid"];
         $ce["uid"] = $uid;
+        $ce["ts"] = date("Y-m-d H:i:s");
         compo2_insert("c2_entry",$ce);
     } else {
         compo2_update("c2_entry",$ce);
