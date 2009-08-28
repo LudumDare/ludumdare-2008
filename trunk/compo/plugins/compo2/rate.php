@@ -31,7 +31,7 @@ function _compo2_rate_list($params) {
     }
     usort($r,"_compo2_rate_sort");
     
-    echo "<h2>Rate Entries</h2>";
+    echo "<h3>Rate Entries</h3>";
     $n=0;
     echo "<table>";
     echo "<tr><th><th>C";
@@ -65,7 +65,7 @@ function _compo2_rate_rate($params) {
     _compo2_preview_show($params,$uid);
     $ce = compo2_entry_load($params["cid"],$uid);
     $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
-    echo "<h2>Rate this Entry</h2>";
+    echo "<h3>Rate this Entry</h3>";
     echo "<form method=post action='?action=submit&uid=$uid'>";
     echo "<p>";
     echo "<table>";
@@ -78,7 +78,7 @@ function _compo2_rate_rate($params) {
     }
     echo "</table>";
     echo "</p>";
-    echo "<h3>Comments (non-anonymous)</h3>";
+    echo "<h4>Comments (non-anonymous)</h4>";
     echo "<textarea name='comments' rows=4 cols=60>".htmlentities($ve["comments"])."</textarea>";
     echo "<p><input type='submit' value='Save'></p>";
     echo "</form>";

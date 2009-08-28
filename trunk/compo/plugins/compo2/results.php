@@ -22,7 +22,7 @@ function _compo2_results_results($params) {
         $r[$k]["results"] = unserialize($ce["results"]);
         $r[$k]["user"] = compo2_get_user($ce["uid"]);
     }
-    echo "<h2>Results</h2>";
+    echo "<h3>Results</h3>";
     $cols = 4; $n = 0;
     echo "<table>";
     foreach ($params["cats"] as $k) {
@@ -92,7 +92,7 @@ function _compo2_results_show($params,$uid) {
     $ce = compo2_entry_load($params["cid"],$uid);
     $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($cid,$uid));
     $r2 = $r;
-    echo "<h2>Ratings</h2>";
+    echo "<h3>Ratings</h3>";
     
     echo "<table><tr>";
     foreach ($params["cats"] as $k) { echo "<th>".substr($k,0,3); }
@@ -112,10 +112,10 @@ function _compo2_results_show($params,$uid) {
     echo "</table>";
 
     
-    echo "<h2>Comments</h2>";
+    echo "<h3>Comments</h3>";
     foreach ($r2 as $ve) {
         $user = compo2_get_user($ve["from_uid"]);
-        echo "<h3>{$user->user_nicename} says...</h3>";
+        echo "<h4>{$user->user_nicename} says...</h4>";
         echo "<p>".str_replace("\n","<br/>",htmlentities($ve["comments"]))."</p>";
     }
 }
