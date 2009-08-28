@@ -79,7 +79,7 @@ function _compo2_rate_list($params) {
     echo "<tr><th>";
     $total = 0;
     foreach ($params["cats"] as $k) { echo "<th>".substr($k,0,3); }
-    echo "<th>C";
+    echo "<th>Txt";
     foreach ($r as $ce) {
         if ($ce["uid"] == $params["uid"]) { continue; }
         $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
