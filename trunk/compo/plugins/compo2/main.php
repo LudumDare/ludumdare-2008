@@ -23,10 +23,18 @@ function _compo2_main($m) {
     elseif ($state == "results") { _compo2_results($params); }
     elseif ($state == "admin") { _compo2_admin($params); }
     else { compo2_error("compo2 - Invalid state: $state"); }
+    
+    $user = compo2_get_user($params["uid"]);
+    if ($user->user_level >= 10) {
+        echo "<p><a href='?admin=1'>Enter admin mode</a></p>";
+    }
+    
     $r = ob_get_contents();
     ob_end_clean();
     
     return "<div class='compo2'>$r</div>";
+    
+    
 }
 
 
