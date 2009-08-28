@@ -5,7 +5,7 @@ function _compo2_rate($params) {
 
     // handle non-competitors ..
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
-    if (!$ce["id"]) {
+    if ((!$ce["id"]) || (!$ce["active"])) {
         $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"preview";
         if ($action == "edit") {
             return _compo2_active_form($params);
@@ -20,8 +20,8 @@ function _compo2_rate($params) {
     $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"default";
     if ($action == "default") {
         return _compo2_rate_list($params);
-    } elseif ($action == "preview") { // HACK: so this action works
-        return _compo2_rate_list($params);
+    } elseif ($action == "preview") {
+        return _compo2_rate_preview($params);
     } elseif ($action == "comments") {
         return _compo2_rate_comments($params);
     } elseif ($action == "rate") {
@@ -85,13 +85,12 @@ function _compo2_rate_list($params) {
     echo "</table>";
     
     if (!strlen($_REQUEST["more"])) {
-        echo "<p><a href='?more=1'>Show all entries.</a></p>";
+        echo "<p><a href='?more=1'>Show all entries</a></p>";
     }
     
-    $ce = compo2_entry_load($params["cid"],$params["uid"]);
-    if ($ce["id"]) {
-        echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=comments'>See comments on your entry</a></p>";
-    }
+    echo "<p><a href='?action=preview'>View all Screenshots</a></p>";
+    
+    echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=comments'>See comments on your entry</a></p>";
 }
 
 function _compo2_rate_rate($params) {

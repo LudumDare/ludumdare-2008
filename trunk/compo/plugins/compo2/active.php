@@ -3,7 +3,13 @@
 function _compo2_active($params) {
     if (!$params["uid"]) { return _compo2_preview($params); }
 
-    $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"edit";
+    $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"default";
+    
+    if ($action == "default") {
+        $ce = compo2_entry_load($params["cid"],$params["uid"]);
+        $action = "edit";
+        if ($ce["id"]) { $action = "preview"; }
+    }
     
     if ($action == "edit") {
         return _compo2_active_form($params);
@@ -147,7 +153,7 @@ function _compo2_active_save($params) {
         echo "<p class='error'>$msg</p>";
     }
     
-    echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=preview'>View all entries</a></p>";
+    echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=default'>View all entries</a></p>";
 //     header("Location: ?action=default"); die;
 }
 ?>
