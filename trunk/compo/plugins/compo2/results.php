@@ -83,7 +83,7 @@ function _compo2_results_cat($params,$r,$cat) {
             $img = $map[$n];
         }
         if ($n <= 5) {
-            $vv = "<b>$v</b>";
+            $vv = "<b>$vv</b>";
         }
         echo "<tr>";
         echo "<td><img src='$myurl/$img'>";
