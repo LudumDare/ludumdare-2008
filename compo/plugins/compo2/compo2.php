@@ -85,7 +85,7 @@ function compo2_thumb($fname,$width,$height,$itype="jpg",$quality=85) {
     @mkdir("$topdir/thumb");
     $dest = "$topdir/thumb/$dst";
     if (!file_exists($dest)) {
-        $cmd = "/usr/bin/convert -quality $quality ".escapeshellarg($fname)." -resize {$width}x{$height} +profile \"*\" ".escapeshellarg($dest);
+        $cmd = "/usr/bin/convert -quality $quality ".escapeshellarg($fname)." -flatten -resize {$width}x{$height} +profile \"*\" ".escapeshellarg($dest);
         `$cmd`;
     }
     return get_bloginfo("url")."/wp-content/compo2/thumb/$dst";
