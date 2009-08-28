@@ -30,7 +30,7 @@ function compo2_query($sql,$params=array()) {
         $sql .= $v;
     }
     
-    echo "<p>compo2 - Debug: ".htmlentities($sql)."</p>";
+//     echo "<p>compo2 - Debug: ".htmlentities($sql)."</p>";
 
     $r = $wpdb->get_results($sql,ARRAY_A);
     if ($r===false) {
