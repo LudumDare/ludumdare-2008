@@ -47,7 +47,7 @@ function compo2_strip($v) {
     return stripslashes($v);
 }
 
-function _compo2_preview_show($params,$uid,$back=0) {
+function _compo2_preview_show($params,$uid,$back=0,$comments=1) {
     $ce = compo2_entry_load($params["cid"],$uid);
     $user = compo2_get_user($ce["uid"]);
     
