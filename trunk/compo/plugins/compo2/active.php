@@ -27,6 +27,16 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     if (!$uid) { $uid = $params["uid"]; }
     $ce = compo2_entry_load($params["cid"],$uid);
     $links = unserialize($ce["links"]);
+    if (!$ce["id"]) {
+        $links = array(
+            0=>array("title"=>"Windows","url"=>""),
+            1=>array("title"=>"OS/X","url"=>""),
+            2=>array("title"=>"Linux","url"=>""),
+            3=>array("title"=>"Web","url"=>""),
+            4=>array("title"=>"Source","url"=>""),
+        );
+    }
+    
     
     if (!$is_admin) {
         echo "<p><a href='?action=preview'>View all entries.</a></p>";
@@ -78,7 +88,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
     echo "<h4>Links</h4>";
     
-    echo "<p>This is where you link to your entry downloads.  Please use names like: win32, linux, osx, web, flash, src, etc ... You must include at least one link.</p>";
+    echo "<p>This is where you link to your entry downloads.  You must include at least one link.</p>";
     
     echo "<table>";
     echo "<tr><th>Name<th>URL";
