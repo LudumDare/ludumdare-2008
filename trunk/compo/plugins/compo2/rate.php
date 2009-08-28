@@ -1,7 +1,10 @@
 <?php
 
 function _compo2_rate($params) {
-    if (!$params["uid"]) { return _compo2_preview($params); }
+    if (!$params["uid"]) {
+        echo "<p style='message'>You sign in to vote.</p>";
+        return _compo2_preview($params);
+    }
 
     // handle non-competitors ..
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
@@ -12,6 +15,7 @@ function _compo2_rate($params) {
         } elseif ($action == "save") {
             return _compo2_active_save($params);
         } elseif ($action == "preview") {
+            echo "<p style='message'>Voting is only available to participants.</p>";
             return _compo2_preview($params);
         }
         return;
