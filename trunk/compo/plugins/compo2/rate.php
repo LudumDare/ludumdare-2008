@@ -27,7 +27,7 @@ function _compo2_rate($params) {
         return _compo2_rate_list($params);
     } elseif ($action == "preview") {
         echo "<p><a href='?action=default'>Back to Rate Entries</a></p>";
-        return _compo2_preview($params,0,"?action=rate");
+        return _compo2_preview($params,"?action=rate");
     } elseif ($action == "comments") {
         return _compo2_rate_comments($params);
     } elseif ($action == "rate") {
@@ -41,7 +41,8 @@ function _compo2_rate($params) {
     }
 }
 
-function _compo_show_comments($r) {
+function _compo2_show_comments($cid,$uid) {
+    $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($cid,$uid));
     if (!count($r)) { return; }
     echo "<h3>Comments</h3>";
     foreach ($r as $ve) if (strlen(trim($ve["comments"]))) {
@@ -52,15 +53,6 @@ function _compo_show_comments($r) {
 }
 
 function _compo2_rate_comments($params) {
-/*    $cid = $params["cid"]; $uid = $params["uid"];
-    $ce = compo2_entry_load($params["cid"],$params["uid"]);
-    
-    echo "<p><a href='?action=default'>Back to Rate Entries</a></p>";
-    
-    echo "<h3>Comments on your Entry</h3>";
-    
-    $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($cid,$uid));
-    _compo_show_comments($r);*/
     return _compo2_rate_rate($params,$params["uid"]);
 }
 
@@ -130,7 +122,7 @@ function _compo2_rate_list($params) {
 function _compo2_rate_rate($params,$uid = "") {
     if (!$uid) { $uid = intval($_REQUEST["uid"]); }
     echo "<p><a href='?action=default'>Back to Rate Entries</a></p>";
-    _compo2_preview_show($params,$uid,0,0);
+    _compo2_preview_show($params,$uid);
     $ce = compo2_entry_load($params["cid"],$uid);
     $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
     
@@ -163,8 +155,7 @@ function _compo2_rate_rate($params,$uid = "") {
         echo "<hr/>";
     }
     
-    $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($params["cid"],$ce["uid"]));
-    _compo_show_comments($r);
+    _compo2_show_comments($params["cid"],$ce["uid"]);
 
 }
 

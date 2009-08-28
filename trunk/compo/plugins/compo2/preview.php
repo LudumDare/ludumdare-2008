@@ -5,12 +5,17 @@ function _compo2_preview_sort($a,$b) {
     return strcmp($a["title"],$b["title"]);
 }
 
-function _compo2_preview($params,$is_admin=0,$_link="?action=preview") {
-    if (isset($_REQUEST["uid"])) { return _compo2_preview_show($params,intval($_REQUEST["uid"]),1); }
+function _compo2_preview($params,$_link="?action=preview") {
+    if (isset($_REQUEST["uid"])) {
+        echo "<p><a href='?action=preview'>Back to View all Entries</a></p>";
+        _compo2_preview_show($params,intval($_REQUEST["uid"]));
+        _compo2_show_comments($params["cid"],intval($_REQUEST["uid"]));
+        return;
+    }
 
     echo "<h3>All Entries</h3>";
 
-    $r = compo2_query("select * from c2_entry where cid = ? ".(!$is_admin?" and active=1":""),array($params["cid"]));
+    $r = compo2_query("select * from c2_entry where cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array($params["cid"]));
     usort($r,"_compo2_preview_sort");
     $cols = 4;
     $n = 0;
@@ -19,11 +24,7 @@ function _compo2_preview($params,$is_admin=0,$_link="?action=preview") {
         if (($n%$cols)==0) { echo "<tr>"; } $n += 1;
         
         echo "<td valign=bottom align=center>";
-        if (!$is_admin) {
-            $link = "$_link&uid={$e["uid"]}";
-        } else {
-            $link = "?admin=1&action=edit&uid={$e["uid"]}";
-        }
+        $link = "$_link&uid={$e["uid"]}";
         if (!$e["active"]) { echo "<i>inactive</i>"; }
         echo "<a href='$link'>";
         $shots = unserialize($e["shots"]);
@@ -36,10 +37,8 @@ function _compo2_preview($params,$is_admin=0,$_link="?action=preview") {
     }
     echo "</table>";
 
-    if (!$is_admin) {
-        $ce = compo2_entry_load($params["cid"],$params["uid"]);
-        if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
-    }
+    $ce = compo2_entry_load($params["cid"],$params["uid"]);
+    if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
 
 }
 
@@ -47,11 +46,9 @@ function compo2_strip($v) {
     return stripslashes($v);
 }
 
-function _compo2_preview_show($params,$uid,$back=0,$comments=1) {
+function _compo2_preview_show($params,$uid) {
     $ce = compo2_entry_load($params["cid"],$uid);
     $user = compo2_get_user($ce["uid"]);
-    
-    if ($back) { echo "<p><a href='?action=preview'>Back to View all Entries</a></p>"; }
     
     echo "<h3>".htmlentities($ce["title"])." - {$user->display_name}</h3>";
     
@@ -92,11 +89,6 @@ function _compo2_preview_show($params,$uid,$back=0,$comments=1) {
     
     if ($params["state"] == "results") {
         _compo2_results_ratings($params,$uid);
-    }
-    
-    if ($comments) {
-        $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($params["cid"],$uid));
-        _compo_show_comments($r);
     }
 }
 
