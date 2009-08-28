@@ -33,14 +33,15 @@ function _compo2_results_results($params) {
     }
     echo "</table>";
     
+    echo "<p>";
     if (!strlen($_REQUEST["more"])) {
-        echo "<p><a href='?more=1'>Show all entries.</a></p>";
+        echo "<a href='?more=1'>Show all entries.</a> | ";
     }
-    
-    echo "<p><a href='?action=preview'>View all Screenshots</a></p>";
-
+    echo "<a href='?action=preview'>View all Screenshots</a> | ";
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
-    if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
+    if ($ce["id"]) { echo "<a href='?action=edit'>Edit your entry.</a>"; }
+    echo "</p>";
+    
 }
 
 function _compo2_results_sort($a,$b) {
