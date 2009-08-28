@@ -19,7 +19,7 @@ function _compo2_preview($params) {
         $shots = unserialize($e["shots"]);
         echo "<img src='".compo2_thumb($shots["shot0"],120,120)."'>";
         echo "<br/>";
-        echo htmlentities($e["title"]);
+        echo "<i>".htmlentities($e["title"])."</i>";
         echo "<br/>";
         echo compo2_get_user($e["uid"])->user_nicename;
         echo "</a>";
