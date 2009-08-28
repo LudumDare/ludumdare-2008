@@ -90,6 +90,10 @@ function _compo2_preview_show($params,$uid,$back=0,$comments=1) {
         echo "<p><a href='$link' target='_blank'>View {$user->display_name}'s journal.</a></p>";
     }
     
+    if ($params["state"] == "results") {
+        _compo2_results_ratings($params,$uid);
+    }
+    
     if ($comments) {
         $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($params["cid"],$uid));
         _compo_show_comments($r);

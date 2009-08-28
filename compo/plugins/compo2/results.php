@@ -85,12 +85,15 @@ function _compo2_results_cat($params,$r,$cat) {
 }
 
 function _compo2_results_show($params,$uid) {
-    $ce = compo2_entry_load($params["cid"],$uid);
     
     echo "<p><a href='?action=default'>Back to Results</a></p>";
     
-    _compo2_preview_show($params,$uid,0,0);
+//     _compo2_preview_show($params,$uid,0,0);
+    _compo2_preview_show($params,$uid,0,1);
+}
     
+function _compo2_results_ratings($params,$uid) {
+    $ce = compo2_entry_load($params["cid"],$uid);
     $cid = $params["cid"];
     $ce = compo2_entry_load($params["cid"],$uid);
     $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($cid,$uid));
@@ -114,6 +117,5 @@ function _compo2_results_show($params,$uid) {
     }
     echo "</table>";
 
-    _compo_show_comments($r2);
 }
 ?>

@@ -8,16 +8,17 @@ function _compo2_main($m) {
     $opts = explode(";",str_replace(" ","",$opts));
     $pid = intval($GLOBALS["post"]->ID);
     $cur = wp_get_current_user(); $uid = $cur->ID;
+    if ($_REQUEST["admin"]) { $state = "admin"; }
     $params = array(
         "cid"=>$pid,
         "cats"=>$opts,
         "user"=>$cur,
         "uid"=>$uid,
         "jcat"=>$jcat,
+        "state"=>$state,
     );
     
     ob_start();
-    if ($_REQUEST["admin"]) { $state = "admin"; }
     if ($state == "active") { _compo2_active($params); }
     elseif ($state == "rate") { _compo2_rate($params); }
     elseif ($state == "results") { _compo2_results($params); }
