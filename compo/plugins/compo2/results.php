@@ -22,8 +22,15 @@ function _compo2_results_results($params) {
         $r[$k]["results"] = unserialize($ce["results"]);
         $r[$k]["user"] = compo2_get_user($ce["uid"]);
     }
+    
+    // HACK: add in Coolness
+    $cat = $params["cats"][] = "Coolness";
+    foreach ($r as $k=>$ce) {
+        $r[$k]["results"][$cat] = $ce["rate_out"];
+    }
+    
     echo "<h3>Results</h3>";
-    $cols = 4; $n = 0;
+    $cols = 3; $n = 0;
     echo "<table>";
     foreach ($params["cats"] as $k) {
         if (($n%$cols)==0) { echo "<tr>"; } $n += 1;
