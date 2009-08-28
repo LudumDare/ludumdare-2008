@@ -86,8 +86,7 @@ function _compo2_rate_list($params) {
         $ue = compo2_get_user($ce["uid"]);
         echo "<tr>";
         echo "<td><a href='?action=rate&uid={$ce["uid"]}'>".htmlentities($ue->display_name)."</a>";
-        $ct = array_pop(compo2_query("select count(*) cnt from c2_rate where cid = ? and to_uid = ?",array($params["cid"],$ce["uid"])));
-        if ($ct["cnt"]) { echo " ({$ct["cnt"]})"; }
+        if ($ce["rate_in"]) { echo " ({$ce["rate_in"]})"; }
         
         $data = unserialize($ve["data"]);
         foreach ($params["cats"] as $k) {
@@ -181,9 +180,25 @@ function _compo2_rate_submit($params) {
     }
     
     _compo2_rate_recalc($params,$ce["uid"]);
+    _compo2_rate_io_calc($params,$ce["uid"]);
+    _compo2_rate_io_calc($params,$params["uid"]);
     header("Location: ?action=default"); die;
 }
 
+function _compo2_rate_io_calc($params,$uid) {
+    $cid = $params["cid"];
+    $ce = compo2_entry_load($params["cid"],$uid);
+    $cc = array_pop(compo2_query("select count(*) cnt from c2_rate where cid = ? and to_uid = ?",array($cid,$uid)));
+    $in = $cc["cnt"];
+    $cc = array_pop(compo2_query("select count(*) cnt from c2_rate where cid = ? and from_uid = ?",array($cid,$uid)));
+    $out = $cc["cnt"];
+    
+    compo2_update("c2_entry",array(
+        "id"=>$ce["id"],
+        "rate_in"=>$in,
+        "rate_out"=>$out,
+    ));
+}
 
 function _compo2_rate_recalc($params,$uid) {
     $cid = $params["cid"];
