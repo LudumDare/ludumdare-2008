@@ -31,7 +31,7 @@ function _compo2_results_results($params) {
     
     echo "<h3>Results</h3>";
     $cols = 3; $n = 0;
-    echo "<table>";
+    echo "<table width=600>";
     foreach ($params["cats"] as $k) {
         if (($n%$cols)==0) { echo "<tr>"; } $n += 1;
         echo "<td>";
