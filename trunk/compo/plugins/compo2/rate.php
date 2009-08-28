@@ -3,8 +3,21 @@
 function _compo2_rate($params) {
     if (!$params["uid"]) { return _compo2_preview($params); }
 
+    // handle non-competitors ..
+    $ce = compo2_entry_load($params["cid"],$params["uid"]);
+    if (!$ce["id"]) {
+        $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"preview";
+        if ($action == "edit") {
+            return _compo2_active_form($params);
+        } elseif ($action == "save") {
+            return _compo2_active_save($params);
+        } elseif ($action == "preview") {
+            return _compo2_preview($params);
+        }
+        return;
+    }
+
     $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"default";
-    
     if ($action == "default") {
         return _compo2_rate_list($params);
     } elseif ($action == "preview") { // HACK: so this action works
@@ -33,7 +46,7 @@ function _compo2_rate_comments($params) {
     $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($cid,$uid));
     foreach ($r as $ve) {
         $user = compo2_get_user($ve["from_uid"]);
-        echo "<h4>{$user->display_name} says...</h4>";
+        echo "<h4>{$user->display_name} says ...</h4>";
         echo "<p>".str_replace("\n","<br/>",htmlentities($ve["comments"]))."</p>";
     }
 }
