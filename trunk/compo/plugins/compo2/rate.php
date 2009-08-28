@@ -50,7 +50,7 @@ function _compo_show_comments($r) {
 }
 
 function _compo2_rate_comments($params) {
-    $cid = $params["cid"]; $uid = $params["uid"];
+/*    $cid = $params["cid"]; $uid = $params["uid"];
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     
     echo "<p><a href='?action=default'>Back to Rate Entries</a></p>";
@@ -58,7 +58,8 @@ function _compo2_rate_comments($params) {
     echo "<h3>Comments on your Entry</h3>";
     
     $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($cid,$uid));
-    _compo_show_comments($r);
+    _compo_show_comments($r);*/
+    return _compo2_rate_rate($params,$params["uid"]);
 }
 
 
@@ -124,40 +125,43 @@ function _compo2_rate_list($params) {
     echo "</p>";
 }
 
-function _compo2_rate_rate($params) {
-    $uid = intval($_REQUEST["uid"]);
+function _compo2_rate_rate($params,$uid = "") {
+    if (!$uid) { $uid = intval($_REQUEST["uid"]); }
     echo "<p><a href='?action=default'>Back to Rate Entries</a></p>";
     _compo2_preview_show($params,$uid);
     $ce = compo2_entry_load($params["cid"],$uid);
     $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
-    echo "<h3>Rate this Entry</h3>";
     
-    $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
-    echo "<script type='text/javascript' src='$myurl/starry/prototype.lite.js'></script>";
-    echo "<script type='text/javascript' src='$myurl/starry/stars.js'></script>";
-    echo "<link rel='stylesheet' href='$myurl/starry/stars.css' type='text/css' />";
-
-    echo "<form method=post action='?action=submit&uid=$uid'>";
-    echo "<p>";
-    echo "<table>";
-    $data = unserialize($ve["data"]);
-    foreach ($params["cats"] as $k) {
-        echo "<tr><th>".htmlentities($k);
-        echo "<td>";
-        $v = intval($data[$k]);
-        echo "<script>new Starry('data[$k]',{name:'data[$k]',sprite:'$myurl/starry/newstars.gif',width:20,height:20,startAt:$v});</script>";
-//         compo2_select("data[$k]",array(""=>"n/a","5"=>"5 - Best","4"=>"4","3"=>"3","2"=>"2","1"=>"1 - Worst"),$v);
+    if ($params["uid"] != $uid) {
+        echo "<h3>Rate this Entry</h3>";
+    
+        $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
+        echo "<script type='text/javascript' src='$myurl/starry/prototype.lite.js'></script>";
+        echo "<script type='text/javascript' src='$myurl/starry/stars.js'></script>";
+        echo "<link rel='stylesheet' href='$myurl/starry/stars.css' type='text/css' />";
+    
+        echo "<form method=post action='?action=submit&uid=$uid'>";
+        echo "<p>";
+        echo "<table>";
+        $data = unserialize($ve["data"]);
+        foreach ($params["cats"] as $k) {
+            echo "<tr><th>".htmlentities($k);
+            echo "<td>";
+            $v = intval($data[$k]);
+            echo "<script>new Starry('data[$k]',{name:'data[$k]',sprite:'$myurl/starry/newstars.gif',width:20,height:20,startAt:$v});</script>";
+    //         compo2_select("data[$k]",array(""=>"n/a","5"=>"5 - Best","4"=>"4","3"=>"3","2"=>"2","1"=>"1 - Worst"),$v);
+        }
+        echo "</table>";
+        echo "</p>";
+        echo "<h4>Comments (non-anonymous)</h4>";
+        echo "<textarea name='comments' rows=4 cols=60>".htmlentities($ve["comments"])."</textarea>";
+        echo "<p><input type='submit' value='Save'></p>";
+        echo "</form>";
+        
+        echo "<hr/>";
     }
-    echo "</table>";
-    echo "</p>";
-    echo "<h4>Comments (non-anonymous)</h4>";
-    echo "<textarea name='comments' rows=4 cols=60>".htmlentities($ve["comments"])."</textarea>";
-    echo "<p><input type='submit' value='Save'></p>";
-    echo "</form>";
     
-    echo "<hr/>";
-    
-    echo "<h4>Other user's comments</h4>";
+    echo "<h4>Comments</h4>";
     $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($params["cid"],$ce["uid"]));
     _compo_show_comments($r);
 
