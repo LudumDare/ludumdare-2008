@@ -80,6 +80,10 @@ body {
 	font-size: 1.2em;
 	}
 
+#content img {
+    max-width: 600px;
+}
+
 .widecolumn .entry p {
 	font-size: 1.05em;
 	}
