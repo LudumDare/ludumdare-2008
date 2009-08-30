@@ -15,6 +15,9 @@ function _compo2_preview($params,$_link="?action=preview") {
 
     echo "<h3>All Entries</h3>";
 
+    $ce = compo2_entry_load($params["cid"],$params["uid"]);
+    if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
+
     $r = compo2_query("select * from c2_entry where cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array($params["cid"]));
     usort($r,"_compo2_preview_sort");
     $cols = 4;
@@ -52,7 +55,7 @@ function _compo2_preview_show($params,$uid) {
     
     echo "<h3>".htmlentities($ce["title"])." - {$user->display_name}</h3>";
     
-    echo "<p>";
+    echo "<p class='links'>";
     $pre = "";
     foreach (unserialize($ce["links"]) as $le) {
         if (!strlen($le["title"])) { continue; }
