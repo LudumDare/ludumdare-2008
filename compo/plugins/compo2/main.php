@@ -36,7 +36,7 @@ function _compo2_main($m) {
     $r = ob_get_contents();
     ob_end_clean();
     
-    return "<div class='compo2'>$r</div>";
+    return "<div id='compo2'>$r</div>";
     
     
 }
