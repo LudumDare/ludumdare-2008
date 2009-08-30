@@ -32,7 +32,9 @@ Tags: blue, custom header, fixed width, two columns, widgets
     font-weight: bold;
 }
 
-
+#compo2 .links {
+    font-size:20px;
+}
 
 #mythumb table {
     border-collapse: collapse;
