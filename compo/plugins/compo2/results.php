@@ -204,11 +204,15 @@ function _compo2_results_top($params) {
             $n = $ee["place"];
             $v = $ee["value"];
             $img = "inone.gif";
+            echo "<div>";
             if ($n <= 3) {
                 $map = array("1"=>"igold.gif","2"=>"isilver.gif","3"=>"ibronze.gif");
                 $img = $map[$n];
-                echo "<img src='$myurl/$img' title='$cat' alt='$cat'> ";
+                echo "<img src='$myurl/$img'> - $cat";
+            } else {
+                echo "#$n - $cat";
             }
+            echo "</div>";
         }
         echo "<tr><td><td colspan=2>";
         _compo2_preview_show_links($ce);
