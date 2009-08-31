@@ -207,7 +207,7 @@ function _compo2_results_top($params) {
             if ($n <= 3) {
                 $map = array("1"=>"igold.gif","2"=>"isilver.gif","3"=>"ibronze.gif");
                 $img = $map[$n];
-                echo "<img src='$myurl/$img'> - $cat";
+                echo "<img src='$myurl/$img' align=absmiddle> - $cat";
             } else {
                 echo "#$n - $cat";
             }
