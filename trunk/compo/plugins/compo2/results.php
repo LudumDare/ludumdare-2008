@@ -199,8 +199,13 @@ function _compo2_results_top($params) {
         $link = "?uid={$ce["uid"]}";
         echo "<tr>";
         echo "<td valign=top>$t.";
-        echo "<td align=center valign=center><a href='$link'><img src='".compo2_thumb($fname,160,160)."'></a>";
-        echo "<td valign=top><h4><a href='$link'>".htmlentities($ce["title"])." - ".htmlentities($ce["user"]->display_name)."</a></h4>";
+        echo "<td colspan=2>";
+        echo "<p><a href='$link'>".htmlentities($ce["title"])." - ".htmlentities($ce["user"]->display_name)."</a></p>";
+
+        echo "<tr>";
+        echo "<td align=center valign=top>";
+        echo "<a href='$link'><img src='".compo2_thumb($fname,160,160)."'></a>";
+        echo "<td valign=top>";
         echo "<div class='links'>";
         _compo2_preview_show_links($ce);
         echo "</div>";
