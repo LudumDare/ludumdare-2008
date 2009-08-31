@@ -221,12 +221,12 @@ function _compo2_results_top($params) {
         }
 
 
-        if ($t >= 20) { break; }
+        if ($t >= 10 && !strlen($_REQUEST["more"])) { break; }
         $t += 1;
         echo "<tr><td>&nbsp;";
     }
     echo "</table>";
     
-    echo "<p><a href='./'>Back to Results</a></p>";
+    echo "<p><a href='?action=top&more=1'>Show all Entries</a> | <a href='./'>Back to Results</a></p>";
 }
 ?>
