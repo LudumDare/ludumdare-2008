@@ -22,10 +22,17 @@ function _compo2_main($m) {
     );
     
     ob_start();
+    
+    $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"default";
+    if (in_array($action,array("misc_links"))) {
+        $state = "misc";
+    }
+    
     if ($state == "active") { _compo2_active($params); }
     elseif ($state == "rate") { _compo2_rate($params); }
     elseif ($state == "results") { _compo2_results($params); }
     elseif ($state == "admin") { _compo2_admin($params); }
+    elseif ($state == "misc") { _compo2_misc($params); }
     else { compo2_error("compo2 - Invalid state: $state"); }
     
     $user = compo2_get_user($params["uid"]);
