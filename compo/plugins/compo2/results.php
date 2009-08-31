@@ -197,7 +197,7 @@ function _compo2_results_top($params) {
         $link = "?uid={$ce["uid"]}";
         echo "<tr>";
         echo "<td>$t.";
-        echo "<td rowspan=3><a href='$link'><img src='".compo2_thumb($fname,80,80)."'></a>";
+        echo "<td rowspan=2 align=center valign=center><a href='$link'><img src='".compo2_thumb($fname,80,80)."'></a>";
         echo "<td><a href='$link'>".htmlentities($ce["title"])." - ".htmlentities($ce["user"]->display_name)."</a>";
         echo "<td>";
         foreach ($e["places"] as $cat=>$ee) {
