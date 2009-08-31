@@ -207,7 +207,7 @@ function _compo2_results_top($params) {
             if ($n <= 3) {
                 $map = array("1"=>"igold.gif","2"=>"isilver.gif","3"=>"ibronze.gif");
                 $img = $map[$n];
-                echo "<img src='$myurl/$img'> ";
+                echo "<img src='$myurl/$img' title='$cat' alt='$cat'> ";
             }
         }
         echo "<tr><td><td colspan=2>";
