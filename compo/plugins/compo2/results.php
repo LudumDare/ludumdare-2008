@@ -198,7 +198,7 @@ function _compo2_results_top($params) {
         $fname = array_shift($shots);
         $link = "?uid={$ce["uid"]}";
         echo "<tr>";
-        echo "<td valign=top>$t.";
+        echo "<td valign=top rowspan=2>$t.";
         echo "<td colspan=3>";
         echo "<p><a href='$link'>".htmlentities($ce["title"])." - ".htmlentities($ce["user"]->display_name)."</a></p>";
 
