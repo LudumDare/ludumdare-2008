@@ -227,6 +227,9 @@ function _compo2_results_top($params) {
     }
     echo "</table>";
     
-    echo "<p><a href='?action=top&more=1'>Show all Entries</a> | <a href='./'>Back to Results</a></p>";
+    echo "<p>";
+//     echo "<a href='?action=top&more=1'>Show all Entries</a> | ";
+    echo "<a href='./'>Back to Results</a>";
+    echo "</p>";
 }
 ?>
