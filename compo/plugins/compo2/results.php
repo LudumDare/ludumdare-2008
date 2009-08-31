@@ -105,6 +105,7 @@ function _compo2_results_cat($params,$cat,$r) {
     foreach ($r as $ce) {
         $vv = $ce["value"];
         $n = $ce["place"];
+        $img = "inone.gif";
         if ($n <= 3) {
             $map = array("1"=>"igold.gif","2"=>"isilver.gif","3"=>"ibronze.gif");
             $img = $map[$n];
