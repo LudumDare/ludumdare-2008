@@ -13,13 +13,14 @@ function _compo2_preview($params,$_link="?action=preview") {
         return;
     }
 
-    echo "<h3>All Entries</h3>";
+    $r = compo2_query("select * from c2_entry where cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array($params["cid"]));
+    usort($r,"_compo2_preview_sort");
+
+    echo "<h3>All Entries (".count($r).")</h3>";
 
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
 
-    $r = compo2_query("select * from c2_entry where cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array($params["cid"]));
-    usort($r,"_compo2_preview_sort");
     $cols = 4;
     $n = 0;
     echo "<table>";
