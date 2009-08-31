@@ -202,12 +202,12 @@ function _compo2_results_top($params) {
         echo "<div class='links'>";
         _compo2_preview_show_links($ce);
         echo "</div>";
-        echo "<p>".str_replace("\n","<br/>",htmlentities(substr($ce["notes"],0,140)))."</p>";
+        echo "<p>".str_replace("\n","<br/>",htmlentities(substr($ce["notes"],0,140)))." ...</p>";
         echo "<td valign=top>";
         asort($e["places"]);
         foreach ($e["places"] as $cat=>$n) {
             $img = "inone.gif";
-            echo "<div>";
+            echo "<div><nobr>";
             if ($n <= 3) {
                 $map = array("1"=>"igold.gif","2"=>"isilver.gif","3"=>"ibronze.gif");
                 $img = $map[$n];
@@ -215,7 +215,7 @@ function _compo2_results_top($params) {
             } else {
                 echo "#$n - $cat";
             }
-            echo "</div>";
+            echo "</nobr></div>";
         }
 
         if ($t >= 10) { break; }
