@@ -196,10 +196,13 @@ function _compo2_results_top($params) {
         $fname = array_shift($shots);
         $link = "?uid={$ce["uid"]}";
         echo "<tr>";
-        echo "<td>$t.";
-        echo "<td rowspan=2 align=center valign=center><a href='$link'><img src='".compo2_thumb($fname,160,160)."'></a>";
-        echo "<td><a href='$link'>".htmlentities($ce["title"])." - ".htmlentities($ce["user"]->display_name)."</a>";
-        echo "<td>";
+        echo "<td valign=top>$t.";
+        echo "<td align=center valign=center><a href='$link'><img src='".compo2_thumb($fname,120,120)."'></a>";
+        echo "<td valign=top><a href='$link'>".htmlentities($ce["title"])." - ".htmlentities($ce["user"]->display_name)."</a>";
+        echo "<div class='links'>";
+        _compo2_preview_show_links($ce);
+        echo "</div>";
+        echo "<td valign=top>";
         asort($e["places"]);
         foreach ($e["places"] as $cat=>$n) {
             $img = "inone.gif";
@@ -213,8 +216,6 @@ function _compo2_results_top($params) {
             }
             echo "</div>";
         }
-        echo "<tr><td><td colspan=2>";
-        _compo2_preview_show_links($ce);
 
         if ($t >= 10) { break; }
         $t += 1;
