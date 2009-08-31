@@ -202,6 +202,7 @@ function _compo2_results_top($params) {
         echo "<div class='links'>";
         _compo2_preview_show_links($ce);
         echo "</div>";
+        echo "<p>".str_replace("\n","<br/>",htmlentities(substr($ce["notes"],0,140)))."</p>";
         echo "<td valign=top>";
         asort($e["places"]);
         foreach ($e["places"] as $cat=>$n) {
