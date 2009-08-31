@@ -72,7 +72,7 @@ function _compo2_results_results($params) {
     $r = _compo2_get_results($params);
     
     echo "<h3>Results</h3>";
-    echo "<p><a href='?top'>Show top entries</a></p>";
+    echo "<p><a href='?action=top'>Show top entries</a></p>";
     $cols = 3; $n = 0;
     echo "<table width=600>";
     foreach ($r as $k => $res) {
@@ -84,7 +84,7 @@ function _compo2_results_results($params) {
     echo "</table>";
     
     echo "<p>";
-    echo "<a href='?top'>Show top entries</a> | ";
+    echo "<a href='?action=top'>Show top entries</a> | ";
     if (!strlen($_REQUEST["more"])) {
         echo "<a href='?more=1'>Show all entries.</a> | ";
     }
@@ -156,5 +156,62 @@ function _compo2_results_ratings($params,$uid) {
     }
     echo "</table>";
 
+}
+
+function _compo2_get_top($params) {
+    $r = _compo2_get_results($params);
+    
+    $rr = array();
+    foreach ($r as $cat=>$res) {
+        foreach ($res as $ce) {
+            $uid = $ce["uid"];
+            if ($ce["place"] > 10) { continue; }
+            if (!isset($rr[$uid])) {
+                $rr[$uid] = array(
+                    "info"=>$ce,
+                    "places" => array(),
+                    "v"=>0,
+                );
+            }
+            $rr[$uid]["places"][$cat] = $ce;
+            $rr[$uid]["v"] += 11-$ce["place"];
+        }
+    }
+    usort($rr,"_compo2_results_sort");
+    return $rr;
+}
+
+
+function _compo2_results_top($params) {
+    
+    $r = _compo2_get_top($params);
+    
+    echo "<h3>Top Entries</h3>";
+    echo "<table>";
+    $t = 1;
+    $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
+    foreach ($r as $e) {
+        $ce = $e["info"];
+        echo "<tr>";
+        echo "<td>$t.";
+        echo "<td><a href='?uid={$ce["uid"]}'>".htmlentities($ce["title"])." - ".htmlentities($ce["user"]->display_name)."</a>";
+        echo "<td>";
+        foreach ($e["places"] as $cat=>$ee) {
+            $n = $ee["place"];
+            $v = $ee["value"];
+            $img = "inone.gif";
+            if ($n <= 3) {
+                $map = array("1"=>"igold.gif","2"=>"isilver.gif","3"=>"ibronze.gif");
+                $img = $map[$n];
+                echo "<img src='$myurl/$img'> ";
+            }
+        }
+        echo "<td>";
+        _compo2_preview_show_links($ce);
+
+        if ($t >= 10) { break; }
+        $t += 1;
+    }
+    echo "</table>";
 }
 ?>
