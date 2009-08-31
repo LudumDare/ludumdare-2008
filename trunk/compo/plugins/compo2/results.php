@@ -220,7 +220,7 @@ function _compo2_results_top($params) {
             echo "</nobr></div>";
         }
 
-        if ($t >= 10) { break; }
+        if ($t >= 20) { break; }
         $t += 1;
         echo "<tr><td>&nbsp;";
     }
