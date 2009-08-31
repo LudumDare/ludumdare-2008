@@ -192,9 +192,13 @@ function _compo2_results_top($params) {
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
     foreach ($r as $e) {
         $ce = $e["info"];
+        $shots = unserialize($ce["shots"]);
+        $fname = array_shift($shots);
+        $link = "?uid={$ce["uid"]}";
         echo "<tr>";
         echo "<td>$t.";
-        echo "<td><a href='?uid={$ce["uid"]}'>".htmlentities($ce["title"])." - ".htmlentities($ce["user"]->display_name)."</a>";
+        echo "<td rowspan=3><a href='$link'><img src='".compo2_thumb($fname,80,80)."'></a>";
+        echo "<td><a href='$link'>".htmlentities($ce["title"])." - ".htmlentities($ce["user"]->display_name)."</a>";
         echo "<td>";
         foreach ($e["places"] as $cat=>$ee) {
             $n = $ee["place"];
@@ -206,11 +210,12 @@ function _compo2_results_top($params) {
                 echo "<img src='$myurl/$img'> ";
             }
         }
-        echo "<td>";
+        echo "<tr><td><td colspan=2>";
         _compo2_preview_show_links($ce);
 
         if ($t >= 10) { break; }
         $t += 1;
+        echo "<tr><td>&nbsp;";
     }
     echo "</table>";
 }
