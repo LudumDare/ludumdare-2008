@@ -2,7 +2,7 @@
 
 
 function _compo2_preview_sort($a,$b) {
-    return strcmp($a["title"],$b["title"]);
+    return strcasecmp($a["title"],$b["title"]);
 }
 
 function _compo2_preview($params,$_link="?action=preview") {
