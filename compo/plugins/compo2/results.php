@@ -186,6 +186,8 @@ function _compo2_results_top($params) {
     
     $r = _compo2_get_top($params);
     
+    echo "<p><a href='./'>Back to Results</a></p>";
+    
     echo "<h3>Top Entries</h3>";
     echo "<table>";
     $t = 1;
@@ -223,5 +225,7 @@ function _compo2_results_top($params) {
         echo "<tr><td>&nbsp;";
     }
     echo "</table>";
+    
+    echo "<p><a href='./'>Back to Results</a></p>";
 }
 ?>
