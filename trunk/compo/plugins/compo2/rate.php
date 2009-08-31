@@ -19,7 +19,7 @@ function _compo2_rate($params) {
             echo "<p class='message'>Voting is only available to participants.</p>";
             return _compo2_preview($params);
         } elseif ($action == "rate") {
-            header("Location ?action=preview&uid=".intval($_REQUEST["uid"])); die;
+            header("Location: ./?action=preview&uid=".intval($_REQUEST["uid"])); die;
         }
         return;
     }
