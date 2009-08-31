@@ -79,6 +79,8 @@ function _compo2_rate_list($params) {
     echo "<th>Txt";
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
     foreach ($r as $ce) {
+        if ($ce["uid"] == $params["uid"] && !strlen($_REQUEST["more"])) { continue; }
+        
         $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
         $ue = compo2_get_user($ce["uid"]);
         echo "<tr>";
