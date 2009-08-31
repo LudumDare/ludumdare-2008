@@ -198,17 +198,16 @@ function _compo2_results_top($params) {
         $fname = array_shift($shots);
         $link = "?uid={$ce["uid"]}";
         echo "<tr>";
-        echo "<td valign=top rowspan=2>$t.";
+        echo "<td valign=top rowspan=3>$t.";
         echo "<td colspan=3>";
         echo "<div><a href='$link'>".htmlentities($ce["title"])." - ".htmlentities($ce["user"]->display_name)."</a></div>";
 
         echo "<tr>";
-        echo "<td align=center valign=top>";
+        echo "<td align=center valign=top rowspan=2>";
         echo "<a href='$link'><img src='".compo2_thumb($fname,160,160)."'></a>";
         echo "<td valign=top>";
         echo "<p>".str_replace("\n","<br/>",htmlentities(substr($ce["notes"],0,140)))." ...</p>";
-        echo "<div>"; _compo2_preview_show_links($ce); echo "</div>";
-        echo "<td valign=top>";
+        echo "<td valign=top rowspan=2>";
         asort($e["places"]);
         foreach ($e["places"] as $cat=>$n) {
             $img = "inone.gif";
@@ -222,6 +221,9 @@ function _compo2_results_top($params) {
             }
             echo "</nobr></div>";
         }
+        echo "<tr><td valign=bottom>";
+        echo "<div>"; _compo2_preview_show_links($ce); echo "</div>";
+
 
         if ($t >= 20) { break; }
         $t += 1;
