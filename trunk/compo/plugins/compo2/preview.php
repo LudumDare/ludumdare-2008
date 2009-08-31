@@ -43,6 +43,7 @@ function _compo2_preview($params,$_link="?action=preview") {
 
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
+    echo "<p><a href='?action=misc_links'>See all links</a></p>";
 
 }
 
@@ -50,13 +51,7 @@ function compo2_strip($v) {
     return stripslashes($v);
 }
 
-function _compo2_preview_show($params,$uid) {
-    $ce = compo2_entry_load($params["cid"],$uid);
-    $user = compo2_get_user($ce["uid"]);
-    
-    echo "<h3>".htmlentities($ce["title"])." - {$user->display_name}</h3>";
-    
-    echo "<p class='links'>";
+function _compo2_preview_show_links($ce) {
     $pre = "";
     foreach (unserialize($ce["links"]) as $le) {
         if (!strlen($le["title"])) { continue; }
@@ -67,6 +62,16 @@ function _compo2_preview_show($params,$uid) {
         echo "$pre<a href=\"".htmlentities($link)."\" target='_blank'>".htmlentities($le["title"])."</a>";
         $pre = " | ";
     }
+}
+
+function _compo2_preview_show($params,$uid) {
+    $ce = compo2_entry_load($params["cid"],$uid);
+    $user = compo2_get_user($ce["uid"]);
+    
+    echo "<h3>".htmlentities($ce["title"])." - {$user->display_name}</h3>";
+    
+    echo "<p class='links'>";
+    _compo2_preview_show_links($ce);
     echo "</p>";
     
     echo "<p>".str_replace("\n","<br/>",htmlentities($ce["notes"]))."</p>";
