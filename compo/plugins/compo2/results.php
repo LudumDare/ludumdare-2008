@@ -189,7 +189,7 @@ function _compo2_results_top($params) {
     if (isset($_REQUEST["cat"])) {
         $cat = $_REQUEST["cat"];
         foreach ($r as $k=>$e) {
-            $r[$k]["v"] = $e["places"][$cat];
+            $r[$k]["v"] = -$e["places"][$cat];
         }
         usort($r,"_compo2_results_sort");
     }
