@@ -211,8 +211,8 @@ function _compo2_results_top($params) {
         $fname = array_shift($shots);
         $link = "?uid={$ce["uid"]}";
         echo "<tr>";
-        $t = intval($e["places"][$cat]);
-        echo "<td valign=top>$t.";
+        $n = intval($e["places"][$cat]);
+        echo "<td valign=top>$n.";
         echo "<td align=center valign=top>";
         echo "<a href='$link'><img src='".compo2_thumb($fname,160,160)."'></a>";
         echo "<td valign=top>";
