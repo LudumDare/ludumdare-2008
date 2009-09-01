@@ -98,7 +98,8 @@ function _compo2_results_results($params) {
 function _compo2_results_cat($params,$cat,$r) {
 
     echo "<table>";
-    echo "<tr><th colspan=3>$cat";
+//     echo "<tr><th colspan=3>$cat";
+    echo "<tr><th colspan=3><a href='?action=top&cat=$cat'>$cat</a>";
     
     $t = 0;
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
@@ -165,7 +166,6 @@ function _compo2_get_top($params) {
     foreach ($r as $cat=>$res) {
         foreach ($res as $ce) {
             $uid = $ce["uid"];
-            if ($ce["place"] > 10) { continue; }
             if (!isset($rr[$uid])) {
                 $rr[$uid] = array(
                     "info"=>$ce,
@@ -174,7 +174,7 @@ function _compo2_get_top($params) {
                 );
             }
             $rr[$uid]["places"][$cat] = $ce["place"];
-            $rr[$uid]["v"] += 11-$ce["place"];
+            $rr[$uid]["v"] += max(0,11-$ce["place"]);
         }
     }
     usort($rr,"_compo2_results_sort");
@@ -185,6 +185,14 @@ function _compo2_get_top($params) {
 function _compo2_results_top($params) {
     
     $r = _compo2_get_top($params);
+    
+    if (isset($_REQUEST["cat"])) {
+        $cat = $_REQUEST["cat"];
+        foreach ($r as $k=>$e) {
+            $r[$k]["v"] = $e["places"][$cat];
+        }
+        usort($r,"_compo2_results_sort");
+    }
     
     echo "<p><a href='./'>Back to Results</a></p>";
     
@@ -207,7 +215,7 @@ function _compo2_results_top($params) {
         echo "<p>".str_replace("\n","<br/>",htmlentities(substr($ce["notes"],0,140)))." ...</p>";
         echo "<td valign=top>";
         asort($e["places"]);
-        foreach ($e["places"] as $cat=>$n) {
+        foreach ($e["places"] as $cat=>$n) if ($n <= 10) {
             $img = "inone.gif";
             echo "<div><nobr>";
             if ($n <= 3) {
@@ -228,7 +236,7 @@ function _compo2_results_top($params) {
     echo "</table>";
     
     echo "<p>";
-//     echo "<a href='?action=top&more=1'>Show all Entries</a> | ";
+    echo "<a href='?action=top&more=1'>Show all Entries</a> | ";
     echo "<a href='./'>Back to Results</a>";
     echo "</p>";
 }
