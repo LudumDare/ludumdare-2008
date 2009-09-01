@@ -191,6 +191,7 @@ function _compo2_results_top($params) {
     $cat = $_REQUEST["cat"];
     if (!strlen($cat)) { $cat = "Overall"; } // HACK: why overall? who knows!
     // also, this now ignores the nice counting of trophes done earlier ..
+    $_cat = $cat; // backup for later
     
     if (strlen($cat)) {
         foreach ($r as $k=>$e) {
@@ -211,7 +212,7 @@ function _compo2_results_top($params) {
         $fname = array_shift($shots);
         $link = "?uid={$ce["uid"]}";
         echo "<tr>";
-        $n = intval($e["places"][$cat]);
+        $n = intval($e["places"][$_cat]);
         echo "<td valign=top>$n.";
         echo "<td align=center valign=top>";
         echo "<a href='$link'><img src='".compo2_thumb($fname,160,160)."'></a>";
