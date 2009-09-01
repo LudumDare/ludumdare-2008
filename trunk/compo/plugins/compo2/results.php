@@ -187,6 +187,9 @@ function _compo2_results_top($params) {
     $r = _compo2_get_top($params);
     
     $cat = $_REQUEST["cat"];
+    if (!strlen($cat)) { $cat = "Overall"; } // HACK: why overall? who knows!
+    // also, this now ignores the nice counting of trophes done earlier ..
+    
     if (strlen($cat)) {
         foreach ($r as $k=>$e) {
             $r[$k]["v"] = -$e["places"][$cat];
