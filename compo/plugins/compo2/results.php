@@ -170,10 +170,12 @@ function _compo2_get_top($params) {
                 $rr[$uid] = array(
                     "info"=>$ce,
                     "places" => array(),
+                    "values"=>array(),
                     "v"=>0,
                 );
             }
             $rr[$uid]["places"][$cat] = $ce["place"];
+            $rr[$uid]["values"][$cat] = $ce["value"];
             $rr[$uid]["v"] += max(0,11-$ce["place"]);
         }
     }
@@ -209,7 +211,8 @@ function _compo2_results_top($params) {
         $fname = array_shift($shots);
         $link = "?uid={$ce["uid"]}";
         echo "<tr>";
-//         echo "<td valign=top>$t.";
+        $t = intval($e["places"][$cat]);
+        echo "<td valign=top>$t.";
         echo "<td align=center valign=top>";
         echo "<a href='$link'><img src='".compo2_thumb($fname,160,160)."'></a>";
         echo "<td valign=top>";
