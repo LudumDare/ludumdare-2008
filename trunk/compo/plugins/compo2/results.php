@@ -186,8 +186,8 @@ function _compo2_results_top($params) {
     
     $r = _compo2_get_top($params);
     
-    if (isset($_REQUEST["cat"])) {
-        $cat = $_REQUEST["cat"];
+    $cat = $_REQUEST["cat"];
+    if (strlen($cat)) {
         foreach ($r as $k=>$e) {
             $r[$k]["v"] = -$e["places"][$cat];
         }
