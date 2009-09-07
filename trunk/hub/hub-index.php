@@ -14,8 +14,6 @@ font-family:arial,verdana,sans-serif;
 </head>
 <body bgcolor="#5f4f43" text="#ffffff" link="#fbda81" alink="#ffffff" vlink="#fbda81" TOPMARGIN="0" LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0">
 <?php
-// Change Magpie's cache directory //
-//define('MAGPIE_CACHE_DIR', 'hub/cache');
 require_once 'hub/news.php';
 ?>
 
