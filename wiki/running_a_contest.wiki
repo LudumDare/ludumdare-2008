@@ -50,5 +50,9 @@ Add your content here.  Or not.
 = Viewing Results =
  # Change the STATUS to "results"
 
+= Closed Compos =
+ # Change the STATUS to "closed"
+This is only used for compos that are not being judged.  It merely closes the compo from adding new entries.
+
 = Admin =
  # Click on the "Enter admin mode" link.  It will let you modify and disable entries.
