@@ -152,7 +152,8 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							
 							echo "<br />";
 
-							include 'hub/news.php';
+							require_once 'hub/news.php';
+							show_news($newsfeed,$newsitems,$newsprefiximage,$newssuffiximage);
 							?>
 							</font>
 						</td>
@@ -179,7 +180,8 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							
 							echo "<br />";
 
-							include 'hub/news.php';
+							require_once 'hub/news.php';
+							show_news($newsfeed,$newsitems,$newsprefiximage,$newssuffiximage);
 							?>
 							</font>
 						</td>
