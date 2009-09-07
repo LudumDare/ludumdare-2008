@@ -16,6 +16,7 @@ font-family:arial,verdana,sans-serif;
 <?php
 // Change Magpie's cache directory //
 define('MAGPIE_CACHE_DIR', 'hub/cache');
+require_once 'hub/news.php';
 ?>
 <table height="99%" width="100%" cellpadding="0" border="0">
 	<td valign="middle" align="right" width="100%">
@@ -74,7 +75,7 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							
 							echo "<br />";
 
-							include 'hub/news.php';
+							show_news($newsfeed,$newsitems,$newsprefiximage,$newssuffiximage);
 							
 							echo "<br />";
 							?>
@@ -152,7 +153,6 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							
 							echo "<br />";
 
-							require_once 'hub/news.php';
 							show_news($newsfeed,$newsitems,$newsprefiximage,$newssuffiximage);
 							?>
 							</font>
@@ -180,7 +180,6 @@ define('MAGPIE_CACHE_DIR', 'hub/cache');
 							
 							echo "<br />";
 
-							require_once 'hub/news.php';
 							show_news($newsfeed,$newsitems,$newsprefiximage,$newssuffiximage);
 							?>
 							</font>
