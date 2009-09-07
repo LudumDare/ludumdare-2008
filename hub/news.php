@@ -2,7 +2,7 @@
 
 require_once 'magpierss2/rss.php';
 
-function show_feed($newsfeed,$newsitems,$newsprefiximage,$newssuffiximage) {
+function show_news($newsfeed,$newsitems,$newsprefiximage,$newssuffiximage) {
     $rss = fetch_rss($newsfeed);
     
     $NewsItemCount = 0;
