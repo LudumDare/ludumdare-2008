@@ -1,25 +1,23 @@
 <?php
 
-require_once 'magpierss2/rss.php';
+require_once 'simplepie/simplepie.inc';
 
 function show_news($newsfeed,$newsitems,$newsprefiximage,$newssuffiximage) {
-    $rss = fetch_rss($newsfeed);
-    
-    $NewsItemCount = 0;
-    
-    foreach ($rss->items as $item) {
-        $title = $item[title];
-        $url   = $item[link];
+
+	$rss = new SimplePie($newsfeed, $_SERVER['DOCUMENT_ROOT'] . '/hub/cache');
+
+//    $rss = fetch_rss($newsfeed);
+   
+//    foreach ($rss->items as $item) {
+	foreach ($rss->get_items(0, $newsitems) as $item) {
+        $title = $item->get_title();
+        $url   = $item->get_permalink();
         if ($newsprefiximage != '')
             echo "<img src='$newsprefiximage'>";
         echo "<a href=$url>$title</a>";
         if ($newssuffiximage != '')
             echo "<img src='$newssuffiximage'>";
         echo "<br />";
-    
-        $NewsItemCount++;
-        if ($NewsItemCount == $newsitems)
-            break;
     }
 }
 
