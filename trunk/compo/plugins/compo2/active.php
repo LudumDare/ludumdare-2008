@@ -78,7 +78,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
         $k = "shot$i";
         echo "<tr><td>".($i+1).".<td>";
         if ($i==0) { echo "$star "; }
-        echo "<input type='file' name='$k'>";
+        echo "<td><input type='file' name='$k'>";
         if ($i==0) { echo "<td>(Primary Screenshot)"; }
         if (isset($shots[$k])) {
             echo "<tr><td><td align=left><img src='".compo2_thumb($shots[$k],120,80)."'>";
