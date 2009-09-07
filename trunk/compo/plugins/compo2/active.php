@@ -102,12 +102,12 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     }
     echo "</table>";
     
-    echo "<h4>Extra Stuff</h4>";
+/*    echo "<h4>Extra Stuff</h4>";
     // this is non-functional
     echo "<table>";
     echo "<tr><td><input type='checkbox' name='data[pov_toggle]'>";
     echo "<td>Checkbox that PoV wanted for reasons unbeknownst to us.";
-    echo "</table>";
+    echo "</table>";*/
     
     if ($is_admin) {
         echo "<table>";
