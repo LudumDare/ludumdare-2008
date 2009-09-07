@@ -33,6 +33,7 @@ function _compo2_main($m) {
     elseif ($state == "results") { _compo2_results($params); }
     elseif ($state == "admin") { _compo2_admin($params); }
     elseif ($state == "misc") { _compo2_misc($params); }
+    elseif ($state == "closed") { _compo2_closed($params); }
     else { compo2_error("compo2 - Invalid state: $state"); }
     
     $user = compo2_get_user($params["uid"]);
