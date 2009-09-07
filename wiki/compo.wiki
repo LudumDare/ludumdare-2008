@@ -42,6 +42,6 @@ Tips and tricks:
 
 The compo site currently relies on the following wordpress plugins.
 
-WP_UnityObject - a plugin for embedding unity apps in to the blog
-countdown-timer - a plugin for the countdown clock
-get-recent-comments - a plugin that grabs the latest comments
+  * WP_UnityObject - a plugin for embedding unity apps in to the blog
+  * countdown-timer - a plugin for the countdown clock
+  * get-recent-comments - a plugin that grabs the latest comments
