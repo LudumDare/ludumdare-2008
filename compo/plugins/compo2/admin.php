@@ -13,7 +13,10 @@ function _compo2_admin($params) {
         return _compo2_active_save($params,$_REQUEST["uid"],1);
     } elseif ($action == "preview") {
         return _compo2_preview($params,"?admin=1&action=edit");
+    } elseif ($action == "ratelist") {
+        return _compo2_rate_list($params);
     }
+
 }
 
 ?>
