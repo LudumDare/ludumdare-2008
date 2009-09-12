@@ -69,6 +69,8 @@ if (is_author() && is_category()) {
 			<div class="post" style="background: #f0fff0;">
 <?php } else if ( get_the_author_meta('user_level') == 10 ) { ?>
 			<div class="post" style="background: #fffff0;">
+<?php } else if ( is_sticky() ) { ?>
+			<div class="post" style="background: #fff0ff;">
 <?php } else { ?>
 			<div class="post">
 <?php } ?>
