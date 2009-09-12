@@ -15,8 +15,11 @@ function _compo2_admin($params) {
         return _compo2_preview($params,"?admin=1&action=edit");
     } elseif ($action == "ratelist") {
         return _compo2_rate_list($params);
+    } elseif ($action == "results") {
+        return _compo2_results_results($params);
+    } elseif ($action == "top") {
+        return _compo2_results_top($params);
     }
-
 }
 
 ?>
