@@ -203,7 +203,7 @@ function _compo2_results_top($params) {
     echo "<p><a href='./'>Back to Results</a></p>";
     
     echo "<h3>Top Entries - ".htmlentities($cat)."</h3>";
-    echo "<table>";
+    echo "<table width=600>";
     $t = 1;
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
     foreach ($r as $e) {
