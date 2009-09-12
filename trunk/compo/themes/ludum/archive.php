@@ -70,7 +70,7 @@ if (is_author() && is_category()) {
 <?php } else if ( get_the_author_meta('user_level') == 10 ) { ?>
 			<div class="post" style="background: #fffff0;">
 <?php } else if ( is_sticky() ) { ?>
-			<div class="post" style="background: #fff0ff;">
+			<div class="post" style="background: #f7f0ff;">
 <?php } else { ?>
 			<div class="post">
 <?php } ?>

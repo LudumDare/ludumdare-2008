@@ -21,7 +21,7 @@
 <?php } else if ( get_the_author_meta('user_level') == 10 ) { ?>
 			<div class="post" style="background: #fffff0;" id="post-<?php the_ID(); ?>">
 <?php } else if ( is_sticky() ) { ?>
-			<div class="post" style="background: #fff0ff;" id="post-<?php the_ID(); ?>">
+			<div class="post" style="background: #f7f0ff;" id="post-<?php the_ID(); ?>">
 <?php } else { ?>
 			<div class="post" id="post-<?php the_ID(); ?>">
 <?php } ?>
