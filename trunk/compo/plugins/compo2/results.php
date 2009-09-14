@@ -243,7 +243,8 @@ function _compo2_results_top($params) {
     echo "</table>";
     
     echo "<p>";
-    echo "<a href='?action=top&more=1'>Show all Entries</a> | ";
+    $cat = urlencode($_cat);
+    echo "<a href='?action=top&cat=$cat&more=1'>Show all Entries</a> | ";
     echo "<a href='./'>Back to Results</a>";
     echo "</p>";
 }
