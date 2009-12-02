@@ -1,3 +1,11 @@
+TODO:
+- add a lockdown feature so that after the compo
+tons of new entries can't be added / edited
+- allow non-voters to leave comments
+- document way for admin to see how many votes entries have
+- see suggestions post for more stuffs (written by PoV...)
+
+
 Just add ?admin=1 to the URL and you can manage entries if you are a WP admin.
 
 
