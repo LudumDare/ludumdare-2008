@@ -26,6 +26,13 @@ function _compo2_active($params) {
 function _compo2_active_form($params,$uid="",$is_admin=0) {
     if (!$uid) { $uid = $params["uid"]; }
     $ce = compo2_entry_load($params["cid"],$uid);
+    
+    if ($params["locked"] && !$ce["id"]) {
+        echo "<p class='warning'>This competition is locked.  No new entries are being accepted.</p>";
+        return;
+    }
+
+    
     $links = unserialize($ce["links"]);
     if (!$ce["id"]) {
         $links = array(
