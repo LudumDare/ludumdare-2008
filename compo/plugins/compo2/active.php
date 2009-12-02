@@ -128,6 +128,12 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 function _compo2_active_save($params,$uid="",$is_admin=0) {
     if (!$uid) { $uid = $params["uid"]; }
     $ce = compo2_entry_load($params["cid"],$uid);
+    
+    if ($params["locked"] && !$ce["id"]) {
+        echo "<p class='warning'>This competition is locked.  No new entries are being accepted.</p>";
+        return;
+    }
+    
     $active = true; $msg = "";
     
     $ce["title"] = compo2_strip($_REQUEST["title"]);
