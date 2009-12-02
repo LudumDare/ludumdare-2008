@@ -43,6 +43,7 @@ Add your content here.  Or not.
  # STATE is "active" at start
  # JCAT is optional, but can refer to the wp-category slug that is being used by contestants to journal in.
  # CATS should be a semi-colon delimited list of voting categories "Fun;Innovation;Production;Theme"
+# LOCKED should be 0 or 1.  If set to 1, it will stop users from adding new entries.  Existing users can still edit their existing entries.
 
 = Rating Entries =
  # Change the STATE to "rate"
