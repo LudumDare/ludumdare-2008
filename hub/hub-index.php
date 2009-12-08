@@ -37,19 +37,14 @@ require_once 'hub/news.php';
 							?>
 						</td>
 						<td align="center" bgcolor="#90745e">
-							<!--
-							-->
-							<font size="-1"><strong>Ludum Dare 15 - August 28th, 2009</strong></font><br />
 														
-							<font size="+1"><b>Ludum Dare 15 Countdown</b> - <font color="#fbda81">
+							<font size="+1"><b>Ludum Dare 16 Countdown</b> - <font color="#fbda81">
 							<?php
 							include 'compo/wp-content/themes/ludum/countdown.php';
 							?>
 							</font></font>
 							<br />
 							<br />
-							<!--
-							-->
 							
 							<font size="+1">
 							<?php
