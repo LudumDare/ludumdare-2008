@@ -31,7 +31,6 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
         echo "<p class='warning'>This competition is locked.  No new entries are being accepted.</p>";
         return;
     }
-
     
     $links = unserialize($ce["links"]);
     if (!$ce["id"]) {
