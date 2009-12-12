@@ -41,7 +41,8 @@
 //countdown(2009,8,28,12+10,0); // Start Time //
 
 // LD16
-countdown(2009,12,11,12+8,0); // start time
+// countdown(2009,12,11,12+8,0); // start time
+countdown(2009,12,13,12+8,0); // end time
 
 //--------------------------
 // author: Louai Munajim
