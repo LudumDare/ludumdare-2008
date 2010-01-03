@@ -203,7 +203,6 @@ function _compo2_results_top($params) {
     echo "<p><a href='./'>Back to Results</a></p>";
     
     echo "<h3>Top Entries - ".htmlentities($cat)."</h3>";
-    echo "<table width=600>";
     $t = 1;
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
     $ties = array();
@@ -213,6 +212,7 @@ function _compo2_results_top($params) {
     }
     
     foreach ($r as $e) {
+        echo "<table width=600>";
         $ce = $e["info"];
         $shots = unserialize($ce["shots"]);
         $fname = array_shift($shots);
@@ -245,8 +245,8 @@ function _compo2_results_top($params) {
         if ($t >= 20 && !strlen($_REQUEST["more"])) { break; }
         $t += 1;
         echo "<tr><td>&nbsp;";
+        echo "</table>";
     }
-    echo "</table>";
     
     echo "<p>";
     $cat = urlencode($_cat);
