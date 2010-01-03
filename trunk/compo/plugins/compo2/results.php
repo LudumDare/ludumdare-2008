@@ -225,7 +225,7 @@ function _compo2_results_top($params) {
         echo "<td valign=top>";
         echo "<div><a href='$link'><b>".htmlentities($ce["title"])."</b> - ".htmlentities($ce["user"]->display_name)."</a></div>";
         echo "<p>"; _compo2_preview_show_links($ce); echo "</p>";
-        echo "<div style='width:350px;overflow:hidden;'>".str_replace("\n","<br/>",htmlentities(substr($ce["notes"],0,140)))." ...</div>";
+        echo "<div style='width:300px;overflow:hidden;'>".str_replace("\n","<br/>",htmlentities(substr($ce["notes"],0,140)))." ...</div>";
         echo "<td valign=top>";
         asort($e["places"]);
         foreach ($e["places"] as $cat=>$n) if ($n <= 10) {
