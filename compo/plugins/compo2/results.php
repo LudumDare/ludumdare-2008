@@ -203,7 +203,7 @@ function _compo2_results_top($params) {
     echo "<p><a href='./'>Back to Results</a></p>";
     
     echo "<h3>Top Entries - ".htmlentities($cat)."</h3>";
-    echo "<table width=600>";
+    echo "<table width=400>";
     $t = 1;
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
     $ties = array();
@@ -222,7 +222,7 @@ function _compo2_results_top($params) {
         echo "<td valign=top align=center><b>$n.</b>"; if ($ties[$n]>1) { echo "<br/><i>TIE</i>"; }
         echo "<td align=center valign=top>";
         echo "<a href='$link'><img src='".compo2_thumb($fname,160,160)."'></a>";
-        echo "<td valign=top width=250>";
+        echo "<td valign=top>";
         echo "<div><a href='$link'><b>".htmlentities($ce["title"])."</b> - ".htmlentities($ce["user"]->display_name)."</a></div>";
         echo "<p>"; _compo2_preview_show_links($ce); echo "</p>";
         echo "<p>".str_replace("\n","<br/>",htmlentities(substr($ce["notes"],0,140)))." ...</p>";
