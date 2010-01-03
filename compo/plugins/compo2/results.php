@@ -211,8 +211,8 @@ function _compo2_results_top($params) {
         @$ties[$n] += 1;
     }
     
+    echo "<table width=600>";
     foreach ($r as $e) {
-        echo "<table width=600>";
         $ce = $e["info"];
         $shots = unserialize($ce["shots"]);
         $fname = array_shift($shots);
@@ -245,8 +245,8 @@ function _compo2_results_top($params) {
         if ($t >= 20 && !strlen($_REQUEST["more"])) { break; }
         $t += 1;
         echo "<tr><td>&nbsp;";
-        echo "</table>";
     }
+    echo "</table>";
     
     echo "<p>";
     $cat = urlencode($_cat);
