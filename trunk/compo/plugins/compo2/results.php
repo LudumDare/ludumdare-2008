@@ -219,7 +219,7 @@ function _compo2_results_top($params) {
         $link = "?uid={$ce["uid"]}";
         echo "<tr>";
         $n = intval($e["places"][$_cat]);
-        echo "<td valign=top>$n."; if ($ties[$n]>1) { echo "<br/>TIE"; }
+        echo "<td valign=top align=center><b>$n.</b>"; if ($ties[$n]>1) { echo "<br/><i>TIE</i>"; }
         echo "<td align=center valign=top>";
         echo "<a href='$link'><img src='".compo2_thumb($fname,160,160)."'></a>";
         echo "<td valign=top>";
