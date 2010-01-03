@@ -236,7 +236,7 @@ function _compo2_results_top($params) {
         }
 
 
-        if ($t >= 10 && !strlen($_REQUEST["more"])) { break; }
+        if ($t >= 20 && !strlen($_REQUEST["more"])) { break; }
         $t += 1;
         echo "<tr><td>&nbsp;";
     }
