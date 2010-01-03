@@ -96,7 +96,7 @@ function _compo2_preview_show($params,$uid) {
         echo "<p><a href='$link' target='_blank'>View {$user->display_name}'s journal.</a></p>";
     }
     
-    if ($params["state"] == "results") {
+    if ($params["state"] == "results" || $params["state"] == "admin") {
         _compo2_results_ratings($params,$uid);
     }
 }
