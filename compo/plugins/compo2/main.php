@@ -52,7 +52,7 @@ function _compo2_main($m) {
     // State is changed to misc, if we're accessing a misc_ page
     $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"default";
     if (in_array($action,array("misc_links"))) {
-        $state = "misc";
+        $params["state"] = "misc";
     }
     
     // If we're in debug mode, display our params
