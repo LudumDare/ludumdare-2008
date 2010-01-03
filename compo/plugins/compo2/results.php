@@ -223,7 +223,7 @@ function _compo2_results_top($params) {
         echo "<td align=center valign=top>";
         echo "<a href='$link'><img src='".compo2_thumb($fname,160,160)."'></a>";
         echo "<td valign=top>";
-        echo "<div><a href='$link'>".htmlentities($ce["title"])." - ".htmlentities($ce["user"]->display_name)."</a></div>";
+        echo "<div><a href='$link'><b>".htmlentities($ce["title"])."</b> - ".htmlentities($ce["user"]->display_name)."</a></div>";
         echo "<p>"; _compo2_preview_show_links($ce); echo "</p>";
         echo "<p>".str_replace("\n","<br/>",htmlentities(substr($ce["notes"],0,140)))." ...</p>";
         echo "<td valign=top>";
