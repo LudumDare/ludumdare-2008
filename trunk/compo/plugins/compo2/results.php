@@ -206,6 +206,12 @@ function _compo2_results_top($params) {
     echo "<table width=600>";
     $t = 1;
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
+    $ties = array();
+    foreach ($r as $e) {
+        $n = intval($e["places"][$_cat]);
+        @$ties[$n] += 1;
+    }
+    
     foreach ($r as $e) {
         $ce = $e["info"];
         $shots = unserialize($ce["shots"]);
@@ -213,7 +219,7 @@ function _compo2_results_top($params) {
         $link = "?uid={$ce["uid"]}";
         echo "<tr>";
         $n = intval($e["places"][$_cat]);
-        echo "<td valign=top>$n.";
+        echo "<td valign=top>$n."; if ($ties[$n]>1) { echo "<br/>TIE"; }
         echo "<td align=center valign=top>";
         echo "<a href='$link'><img src='".compo2_thumb($fname,160,160)."'></a>";
         echo "<td valign=top>";
