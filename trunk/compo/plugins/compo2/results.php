@@ -220,7 +220,7 @@ function _compo2_results_top($params) {
         $link = "?uid={$ce["uid"]}";
         
         $n = intval($e["places"][$_cat]);
-        if ($last != -1 && $last !=$n) { break; } // allow several last-places to show up
+        if ($last != -1 && $last != $n) { break; } // allow several last-places to show up
         
         echo "<tr>";
         echo "<td valign=top align=center><b>$n.</b>"; if ($ties[$n]>1) { echo "<br/><i>TIE</i>"; }
