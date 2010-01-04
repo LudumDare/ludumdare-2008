@@ -211,14 +211,18 @@ function _compo2_results_top($params) {
         @$ties[$n] += 1;
     }
     
+    $last = -1;
     echo "<table width=600>";
     foreach ($r as $e) {
         $ce = $e["info"];
         $shots = unserialize($ce["shots"]);
         $fname = array_shift($shots);
         $link = "?uid={$ce["uid"]}";
-        echo "<tr>";
+        
         $n = intval($e["places"][$_cat]);
+        if ($last != -1 && $last !=$n) { break; } // allow several last-places to show up
+        
+        echo "<tr>";
         echo "<td valign=top align=center><b>$n.</b>"; if ($ties[$n]>1) { echo "<br/><i>TIE</i>"; }
         echo "<td align=center valign=top>";
         echo "<a href='$link'><img src='".compo2_thumb($fname,160,160)."'></a>";
@@ -242,7 +246,7 @@ function _compo2_results_top($params) {
         }
 
 
-        if ($t >= 20 && !strlen($_REQUEST["more"])) { break; }
+        if ($t >= 20 && !strlen($_REQUEST["more"])) { $last = $n; }
         $t += 1;
         echo "<tr><td>&nbsp;";
     }
