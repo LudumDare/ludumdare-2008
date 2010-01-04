@@ -232,15 +232,15 @@ function _compo2_results_top($params) {
         echo "<div style='width:300px;overflow:hidden;'>".str_replace("\n","<br/>",htmlentities(substr($ce["notes"],0,140)))." ...</div>";
         echo "<td valign=top>";
         asort($e["places"]);
-        foreach ($e["places"] as $cat=>$n) if ($n <= 10) {
+        foreach ($e["places"] as $cat=>$n) if ($nn <= 10) {
             $img = "inone.gif";
             echo "<div><nobr>";
-            if ($n <= 3) {
+            if ($nn <= 3) {
                 $map = array("1"=>"igold.gif","2"=>"isilver.gif","3"=>"ibronze.gif");
-                $img = $map[$n];
+                $img = $map[$nn];
                 echo "<img src='$myurl/$img' align=absmiddle> - $cat";
             } else {
-                echo "#$n - $cat";
+                echo "#$nn - $cat";
             }
             echo "</nobr></div>";
         }
