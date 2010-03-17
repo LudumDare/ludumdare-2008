@@ -1,10 +1,48 @@
 <?php get_header(); ?>
 
 <div id="content" class="narrowcolumn">
+<?php
+/*
  	  <?php $meta = eup_get_extended_profile(); // call all new meta values
  	  		print_r($meta); // Get an overview whats in the object
  	  		echo $meta->email // echo an meta value ?>
+*/
+?>
 <?php is_tag(); ?>
+		<?php if (have_posts()) : ?>
+	  <?php /* If this is an author archive */ if (is_author()) { ?>
+		<h2 class="pagetitle">About <?php 
+		$uid = get_query_var("author");
+                $auth = get_userdata($uid);
+                echo $auth->display_name;
+		?></h2>
+		<div class="post" style="background: #f7f0ff;">
+			<?php the_description_meta() ?>
+		</div>
+		<?php } ?>
+
+		<h2 class="pagetitle"><?php 
+		$uid = get_query_var("author");
+                $auth = get_userdata($uid);
+                echo $auth->display_name;
+		?>'s Trophies</h2>
+<?php
+
+if (is_author() && is_category()) {
+    $uid = get_query_var("author");
+    $auth = get_userdata($uid);
+    $mylink = get_option('home')."/author/{$auth->user_nicename}/?compo_action=form";
+    echo "<form method=post action='$mylink'><input type='submit' value='Award a trophy!'></form>";
+    
+    compo_rate(get_query_var("cat"),get_query_var("author"));
+} elseif (is_author()) {
+    compo_trophy(get_query_var("author"));
+} elseif (is_category()) {
+    compo_results(get_query_var("cat"));
+}
+
+?>
+
 		<?php if (have_posts()) : ?>
 
  	  <?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
@@ -34,28 +72,17 @@
 			<div class="alignright"><?php previous_posts_link('Newer Entries &raquo;') ?></div>
 		</div>
 
+
+
 <?php
-
-if (is_author() && is_category()) {
-    $uid = get_query_var("author");
-    $auth = get_userdata($uid);
-    $mylink = get_option('home')."/author/{$auth->user_nicename}/?compo_action=form";
-    echo "<form method=post action='$mylink'><input type='submit' value='Award a trophy!'></form>";
-    
-    compo_rate(get_query_var("cat"),get_query_var("author"));
-} elseif (is_author()) {
-    compo_trophy(get_query_var("author"));
-} elseif (is_category()) {
-    compo_results(get_query_var("cat"));
-}
-
-?>
-
+/*
 <?php if (isset($_REQUEST["mythumb_nav"])): ?>
 <p><div id='mythumb'><?php mythumb_nav(); ?></div></p>
 <?php else: ?>
 <form method='post'><input type='hidden' name='mythumb_nav' value='1'><input type='submit' value='Show me the GRID!'></form>
 <?php endif; ?>
+*/
+?>
 
 <?
 #<div id='mythumb'>php mythumb_nav(); </div>
