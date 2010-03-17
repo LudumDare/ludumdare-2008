@@ -10,6 +10,8 @@
 ?>
 <?php is_tag(); ?>
 		<?php if (have_posts()) : ?>
+ 	  		<?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
+
 	  <?php /* If this is an author archive */ if (is_author()) { ?>
 		<h2 class="pagetitle">About <?php 
 		$uid = get_query_var("author");
@@ -43,9 +45,6 @@ if (is_author() && is_category()) {
 
 ?>
 
-		<?php if (have_posts()) : ?>
-
- 	  <?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
  	  <?php /* If this is a category archive */ if (is_category()) { ?>
 		<h2 class="pagetitle">Archive for the &#8216;<?php single_cat_title(); ?>&#8217; Category</h2>
  	  <?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
