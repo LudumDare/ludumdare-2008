@@ -19,7 +19,7 @@
                 echo $auth->display_name;
 		?></h2>
 		<div class="post">
-			<?php the_author_meta("description") ?>
+			<?php echo get_the_author_meta("description"); ?>
 		</div>
 		<?php } ?>
 
@@ -31,7 +31,7 @@
 <?php
 if (is_author() && is_category()) {
 ?>
-	<div class="post">
+
 <?php
     $uid = get_query_var("author");
     $auth = get_userdata($uid);
@@ -45,7 +45,6 @@ if (is_author() && is_category()) {
     compo_results(get_query_var("cat"));
 }
 ?>
-	</div>
 
  	  <?php /* If this is a category archive */ if (is_category()) { ?>
 		<h2 class="pagetitle">Archive for the &#8216;<?php single_cat_title(); ?>&#8217; Category</h2>
