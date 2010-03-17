@@ -19,7 +19,7 @@
                 echo $auth->display_name;
 		?></h2>
 		<div class="post">
-			<?php echo $auth->description; ?>
+			<?php echo wpautop($auth->description); ?>
 		</div>
 		<?php } ?>
 
