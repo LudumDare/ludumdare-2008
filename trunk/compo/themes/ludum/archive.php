@@ -18,8 +18,8 @@
                 $auth = get_userdata($uid);
                 echo $auth->display_name;
 		?></h2>
-		<div class="post" style="background: #f7f0ff;">
-			<?php the_author_meta("user_description") ?>
+		<div class="post">
+			<?php the_author_meta("description") ?>
 		</div>
 		<?php } ?>
 
@@ -29,8 +29,10 @@
                 echo $auth->display_name;
 		?>'s Trophies</h2>
 <?php
-
 if (is_author() && is_category()) {
+?>
+	<div class="post">
+<?php
     $uid = get_query_var("author");
     $auth = get_userdata($uid);
     $mylink = get_option('home')."/author/{$auth->user_nicename}/?compo_action=form";
@@ -42,8 +44,8 @@ if (is_author() && is_category()) {
 } elseif (is_category()) {
     compo_results(get_query_var("cat"));
 }
-
 ?>
+	</div>
 
  	  <?php /* If this is a category archive */ if (is_category()) { ?>
 		<h2 class="pagetitle">Archive for the &#8216;<?php single_cat_title(); ?>&#8217; Category</h2>
