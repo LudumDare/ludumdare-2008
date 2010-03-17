@@ -19,6 +19,7 @@
                 echo $auth->display_name;
 		?></h2>
 		<div class="post">
+			I love xmas!
 			<?php echo get_the_author_meta("description"); ?>
 		</div>
 		<?php } ?>
