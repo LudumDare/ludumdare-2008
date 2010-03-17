@@ -19,7 +19,7 @@
                 echo $auth->display_name;
 		?></h2>
 		<div class="post" style="background: #f7f0ff;">
-			<?php the_description_meta() ?>
+			<?php the_biography_meta() ?>
 		</div>
 		<?php } ?>
 
