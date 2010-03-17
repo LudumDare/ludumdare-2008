@@ -21,13 +21,13 @@
 		<div class="post">
 			<?php echo wpautop($auth->description); ?>
 		</div>
-		<?php } ?>
 
 		<h2 class="pagetitle"><?php 
 		$uid = get_query_var("author");
                 $auth = get_userdata($uid);
                 echo $auth->display_name;
 		?>'s Trophies</h2>
+		<?php } ?>
 <?php
 if (is_author() && is_category()) {
 ?>
