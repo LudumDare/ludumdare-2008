@@ -6,6 +6,9 @@
 		<?php if (have_posts()) : ?>
 
  	  <?php $post = $posts[0]; // Hack. Set $post so that the_date() works. ?>
+ 	  <?php $meta = eup_get_extended_profile(); // call all new meta values
+ 	  		print_r($meta); // Get an overview whats in the object
+ 	  		echo $meta->email // echo an meta value ?>
  	  <?php /* If this is a category archive */ if (is_category()) { ?>
 		<h2 class="pagetitle">Archive for the &#8216;<?php single_cat_title(); ?>&#8217; Category</h2>
  	  <?php /* If this is a tag archive */ } elseif( is_tag() ) { ?>
