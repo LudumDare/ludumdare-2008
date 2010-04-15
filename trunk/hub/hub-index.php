@@ -38,7 +38,7 @@ require_once 'hub/news.php';
 							?>
 						</td>
 						<td align="center" bgcolor="#90745e">
-														
+<?php /*														
 							<font size="+1"><b>Ludum Dare 16 Countdown</b> - <font color="#fbda81">
 							<?php
 							include 'compo/wp-content/themes/ludum/countdown.php';
@@ -46,7 +46,7 @@ require_once 'hub/news.php';
 							</font></font>
 							<br />
 							<br />
-							
+*/ ?>							
 							<font size="+1">
 							<?php
 							$news = 'http://www.ludumdare.com/compo/author/news/';
