@@ -13,3 +13,4 @@
 = WHATEVER =
 
   * Update our theme
+  * Bring on some new helpers/editors (so Mike can slack more, heh)
