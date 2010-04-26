@@ -1,4 +1,4 @@
-#summary Instructions on how the old-compo plugin works
+#summary OLD - Instructions on how the old-compo plugin works
 
 = OLD COMPO INSTRUCTIONS BELOW =
 
