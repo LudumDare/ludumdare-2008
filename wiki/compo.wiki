@@ -1,4 +1,4 @@
-#summary Stuff about the main compo site
+#summary Stuff about the main compo site - OLD
 
 = Introduction =
 
