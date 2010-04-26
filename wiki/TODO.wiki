@@ -1,16 +1,3 @@
 #summary The official TODO list for LD
 
-= ASAP =
-
-  * Move rules and submission guidelines to pages on the wordpress site
-  * Reduce wiki use to theme suggestions and general tips and tricks, and not rules and other key info.  A competitor who isn't super involved should never HAVE to go to the wiki, though it might contain useful info.
-
-= IMPORTANT =
-
-  * Game jam stuff features?
-  * Better comment features in voting
-
-= WHATEVER =
-
-  * Update our theme
-  * Bring on some new helpers/editors (so Mike can slack more, heh)
+http://code.google.com/p/ludumdare/issues/list
