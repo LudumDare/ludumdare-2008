@@ -80,7 +80,7 @@ function _compo2_rate_list($params) {
     if ($sortby == "rate_in") {
         usort($r,"_compo2_rate_sort_by_rate_in");
     } elseif ($sortby == "rate_out") {
-        usort($r,"_compo2_rate_sort_by_rate_in");
+        usort($r,"_compo2_rate_sort_by_rate_out");
     } else {
         usort($r,"_compo2_rate_sort");
     }
