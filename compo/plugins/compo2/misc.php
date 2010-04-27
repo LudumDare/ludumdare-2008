@@ -16,7 +16,7 @@ function _compo2_misc_links($params) {
     
     echo "<p><a href='?action=default'>Back ...</a></p>";
     
-    echo "<table><tr><th>Entry<th>User<th>Links ...\n";
+    echo "<table><tr><th>Entry<th>User<th>Links ...<th># Votes<th>Coolness\n";
     foreach ($r as $ce) {
         $ue = compo2_get_user($ce["uid"]);
         echo "<tr>";
