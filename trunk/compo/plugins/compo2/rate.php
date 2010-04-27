@@ -63,12 +63,22 @@ function _compo2_rate_sort($a,$b) {
     return strcmp($a["s"],$b["s"]);
 }
 
+function _compo2_rate_sort_by_rate_in($a,$b) {
+    return $a["rate_in"] - $b["rate_in"];
+}
+
 function _compo2_rate_list($params) {
     $r = compo2_query("select * from c2_entry where cid = ? and active = 1",array($params["cid"]));
     foreach ($r as $k=>$ce) {
         $r[$k]["s"] = md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}");
     }
-    usort($r,"_compo2_rate_sort");
+    
+    @$sortby = $_REQUEST["sortby"];
+    if ($sortby == "rate_in") {
+        usort($r,"_compo2_rate_sort_by_rate_in");
+    } else {
+        usort($r,"_compo2_rate_sort");
+    }
     
     echo "<h3>Rate Entries</h3>";
     $n=0;
@@ -117,6 +127,7 @@ function _compo2_rate_list($params) {
     if (!strlen($_REQUEST["more"])) {
         echo "<a href='?more=1'>Show all entries</a> | ";
     }
+    echo "<a href='?sortby=rate_in'>Sort by least ratings</a> | ";
     echo "<a href='?action=preview'>View all Screenshots</a> | ";
     echo "<a href='?action=edit'>Edit your entry</a> | ";
     echo "<a href='?action=comments'>See comments on your entry</a>";
