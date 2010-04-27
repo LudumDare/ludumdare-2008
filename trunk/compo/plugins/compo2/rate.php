@@ -66,6 +66,9 @@ function _compo2_rate_sort($a,$b) {
 function _compo2_rate_sort_by_rate_in($a,$b) {
     return $a["rate_in"] - $b["rate_in"];
 }
+function _compo2_rate_sort_by_rate_out($a,$b) {
+    return $b["rate_out"] - $a["rate_out"];
+}
 
 function _compo2_rate_list($params) {
     $r = compo2_query("select * from c2_entry where cid = ? and active = 1",array($params["cid"]));
@@ -75,6 +78,8 @@ function _compo2_rate_list($params) {
     
     @$sortby = $_REQUEST["sortby"];
     if ($sortby == "rate_in") {
+        usort($r,"_compo2_rate_sort_by_rate_in");
+    } elseif ($sortby == "rate_out") {
         usort($r,"_compo2_rate_sort_by_rate_in");
     } else {
         usort($r,"_compo2_rate_sort");
@@ -127,7 +132,8 @@ function _compo2_rate_list($params) {
     if (!strlen($_REQUEST["more"])) {
         echo "<a href='?more=1'>Show all entries</a> | ";
     }
-    echo "<a href='?sortby=rate_in'>Sort by least ratings</a>";
+    echo "<a href='?sortby=rate_in'>Sort by least ratings</a> | ";
+    echo "<a href='?sortby=rate_out'>Sort by most coolness</a>";
     echo "</p><p>";
     echo "<a href='?action=preview'>View all Screenshots</a> | ";
     echo "<a href='?action=edit'>Edit your entry</a> | ";
