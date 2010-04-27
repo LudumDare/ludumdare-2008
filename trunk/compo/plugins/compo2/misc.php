@@ -24,6 +24,8 @@ function _compo2_misc_links($params) {
         echo "<td>".htmlentities($ue->display_name);
         echo "<td>";
         _compo2_preview_show_links($ce);
+        echo "<td>".htmlentities($ce["rate_in"]);
+        echo "<td>".htmlentities($ce["rate_out"]);
         echo "\n";
     }
     echo "</table>";
