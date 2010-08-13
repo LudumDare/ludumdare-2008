@@ -55,7 +55,8 @@ if ( !$withcomments && !is_single() ) {
 <div id='compo-status'><?php
 global $wpdb;
 $e = array_pop(compo_query("select * from {$wpdb->posts} where post_name = ? and post_type =?",array("status","page")));
-echo str_replace("\n","<br>",$e["post_content"]);
+
+echo apply_filters('the_content',str_replace("\n","<br>",$e["post_content"]));
 
 ?></div>
 
