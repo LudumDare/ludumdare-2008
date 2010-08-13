@@ -1,6 +1,6 @@
 	<div id="sidebar">
 		<ul>
-                        <p>Join the GameCompo.Com <a href='http://www.gamecompo.com/mailing-list/'>mailing list</a> and stay informed!</pL>
+            <!--            <p>Join the GameCompo.Com <a href='http://www.gamecompo.com/mailing-list/'>mailing list</a> and stay informed!</pL>-->
                         
 			<?php 	/* Widgetized sidebar, if you have the plugin installed. */
 					if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar() ) : ?>
