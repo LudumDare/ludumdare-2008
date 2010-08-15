@@ -20,7 +20,7 @@ function _compo2_misc_links($params) {
     foreach ($r as $ce) {
         $ue = compo2_get_user($ce["uid"]);
         echo "<tr>";
-        echo "<td>".htmlentities($ce["title"]);
+        echo "<td><a href='?uid={$ce["uid"]}'>".htmlentities($ce["title"])."</a>";
         echo "<td>".htmlentities($ue->display_name);
         echo "<td>";
         _compo2_preview_show_links($ce);
