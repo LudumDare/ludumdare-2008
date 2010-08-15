@@ -176,6 +176,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
     $ce["notes"] = compo2_strip($_REQUEST["notes"]);
     
     $shots = unserialize($ce["shots"]);
+    if ($shots == null) { $shots = array(); }
     for ($i=0; $i<5; $i++) {
         $k = "shot$i"; $fe = $_FILES[$k];
         if (!$fe["tmp_name"]) { continue; }
