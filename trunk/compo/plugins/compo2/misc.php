@@ -16,7 +16,7 @@ function _compo2_misc_links($params) {
     
     echo "<p><a href='?action=default'>Back ...</a></p>";
     
-    echo "<table><tr><th>Entry<th>User<th>Links ...<th># Votes<th>Coolness\n";
+    echo "<table><tr><th>Entry<th>User<th>Links ...<th># Votes<th>Coolness<th>Entry Type\n";
     foreach ($r as $ce) {
         $ue = compo2_get_user($ce["uid"]);
         echo "<tr>";
@@ -26,6 +26,7 @@ function _compo2_misc_links($params) {
         _compo2_preview_show_links($ce);
         echo "<td>".htmlentities($ce["rate_in"]);
         echo "<td>".htmlentities($ce["rate_out"]);
+        echo "<td>".htmlentities($ce["rules_ok"]);
         echo "\n";
     }
     echo "</table>";
