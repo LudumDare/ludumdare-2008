@@ -128,7 +128,9 @@ function _compo2_preview_show($params,$uid,$comments=true) {
     $ce = compo2_entry_load($params["cid"],$uid);
     $user = compo2_get_user($ce["uid"]);
     
-    echo "<h3>".htmlentities($ce["title"])." - {$user->display_name}</h3>";
+    echo "<h3>".htmlentities($ce["title"])." - {$user->display_name}";
+    echo " - <i>".($ce["rules_ok"]?"Competition Entry":"Game Jam Entry")."</i>";
+    echo "</h3>";
     
     echo "<p class='links'>";
     _compo2_preview_show_links($ce);
