@@ -43,10 +43,11 @@ function _compo2_rate($params) {
     }
 }
 
+// this shows the archive of old comments before we created the c2_comments table to store comments
 function _compo2_show_comments($cid,$uid) {
-    $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ? order by ts asc",array($cid,$uid));
+    $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ? and length(comments) > 1 order by ts asc",array($cid,$uid));
     if (!count($r)) { return; }
-    echo "<h3>Comments</h3>";
+    echo "<h3>Comments (archive)</h3>";
     foreach ($r as $ve) if (strlen(trim($ve["comments"]))) {
         $user = compo2_get_user($ve["from_uid"]);
         echo "<h4>{$user->display_name} says ...</h4>";
@@ -55,7 +56,8 @@ function _compo2_show_comments($cid,$uid) {
 }
 
 function _compo2_rate_comments($params) {
-    return _compo2_rate_rate($params,$params["uid"]);
+//     return _compo2_rate_rate($params,$params["uid"]);
+    header("Location: ?action=preview&uid={$params["uid"]}"); die;
 }
 
 
@@ -71,7 +73,7 @@ function _compo2_rate_sort_by_rate_out($a,$b) {
 }
 
 function _compo2_rate_list($params) {
-    $r = compo2_query("select * from c2_entry where cid = ? and active = 1",array($params["cid"]));
+    $r = compo2_query("select * from c2_entry where cid = ? and active = 1 and rules_ok = 1",array($params["cid"]));
     foreach ($r as $k=>$ce) {
         $r[$k]["s"] = md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}");
     }
@@ -143,13 +145,19 @@ function _compo2_rate_list($params) {
 
 function _compo2_rate_rate($params,$uid = "") {
     if (!$uid) { $uid = intval($_REQUEST["uid"]); }
+    
     echo "<p><a href='?action=default'>Back to Rate Entries</a></p>";
+
+    if ($params["uid"] == $uid) {
+        _compo2_preview_show($params,$uid,true);
+        return;
+    }
     
     $ce = compo2_entry_load($params["cid"],$uid);
     
     if (!$ce["id"]) { compo2_error("invalid entry: uid=$uid"); }
 
-    _compo2_preview_show($params,$uid);
+    _compo2_preview_show($params,$uid,false);
     
     $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
     
@@ -175,13 +183,14 @@ function _compo2_rate_rate($params,$uid = "") {
         echo "</table>";
         echo "</p>";
         echo "<h4>Comments (non-anonymous)</h4>";
+        $ve["comments"]="";
         echo "<textarea name='comments' rows=4 cols=60>".htmlentities($ve["comments"])."</textarea>";
         echo "<p><input type='submit' value='Save'></p>";
         echo "</form>";
         
         echo "<hr/>";
     }
-    
+    _compo2_preview_comments($params,$uid,$form=true);
     _compo2_show_comments($params["cid"],$ce["uid"]);
 
 }
@@ -206,17 +215,27 @@ function _compo2_rate_submit($params) {
     
     $comments = trim(compo2_strip($_REQUEST["comments"]));
     
-    $total += strlen($comments);
-    
-    if ($total) {
-        compo2_insert("c2_rate",array(
+    $e=array(
             "cid"=>$params["cid"],
             "to_uid"=>$ce["uid"],
             "from_uid"=>$params["uid"],
             "data"=>serialize($data),
-            "comments"=>$comments,
             "ts"=>date("Y-m-d H:i:s"),
+        );
+    $total += strlen($comments);
+    if (strlen($comments)) {
+        $e["comments"] = "1";
+        compo2_insert("c2_comments",array(
+            "cid"=>$params["cid"],
+            "to_uid"=>$uid,
+            "from_uid"=>$params["uid"],
+            "ts"=>date("Y-m-d H:i:s"),
+            "content"=>$comments,
         ));
+    }
+    
+    if ($total) {
+        compo2_insert("c2_rate",$e);
     }
     
     _compo2_rate_recalc($params,$ce["uid"]);

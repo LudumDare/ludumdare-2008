@@ -70,6 +70,21 @@ function compo2_install() {
         compo2_query("alter table c2_entry add ts datetime");
         update_option($key,$version);
     }
+    
+    $version = 23;
+    if ($cur < $version) {
+        compo2_query("create table c2_comments (id int not null auto_increment primary key, cid int, to_uid int, from_uid int, content text, ts datetime)");
+        compo2_query("create index idx_c2_comments_cid on c2_comments (cid)");
+        compo2_query("create index idx_c2_comments_to_uid on c2_comments (to_uid)");
+        update_option($key,$version);
+    }
+    
+    $version = 24;
+    if ($cur < $version) {
+        compo2_query("alter table c2_entry add rules_ok int default 1");
+        update_option($key,$version);
+    }
+    
 }
 
 register_activation_hook($GLOBALS["compo2"]["plugin"],"compo2_install");

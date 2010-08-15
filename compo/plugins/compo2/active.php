@@ -68,6 +68,30 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
     echo "$star <input type='text' name='title' value=\"".htmlentities($ce["title"])."\" size=60> ";
     
+    if (isset($params["rules"])) {
+    
+        echo "<h4>Entry Type</h4>";
+        
+//         echo "<p style='border: 1px solid #aaa; background:#eee; padding:10px; margin:10px;'><i>We're glad to have you at Ludum Dare!  And we're thrilled you made a game this weekend!  There are two entry types: Competition Entries - those that <a href='{$params["rules"]}' target='_blank'>follow the rules</a> and Game Jam Entries - those that don't!</i></p>";
+        
+//         echo "<div>&nbsp;</div>";
+    
+//         $checked = ($ce["rules_ok"]?"checked":"");
+//         echo "<p><input type='checkbox' name='rules_ok' value='1' $checked /> This entry abides by the contest <a href='#' target='_blank'>rules</a> and should be judged.</p>";
+        echo "<div style='margin-left:20px'>";
+
+        $selected = (strcmp($ce["rules_ok"],"1")==0?"checked":"");
+        echo "<input type='radio' name='rules_ok' value='1' $selected /> Competition Entry";
+        echo "<div><i>My entry follows all <a href='{$params["rules"]}' target='_blank'>the rules</a> and I want it to be judged.</i></div>";
+        echo "<br/>";
+        $selected = (strcmp($ce["rules_ok"],"0")==0?"checked":"");
+        echo "<input type='radio' name='rules_ok' value='0' $selected /> Game Jam Entry";
+        echo "<div><i>My entry doesn't follow the rules or I don't want it to be judged.</i></div>";
+        echo "<div>&nbsp;</div>";
+        echo "</div>";
+        
+    }
+    
     echo "<h4>Notes</h4>";
     
     echo "<textarea name='notes' rows=8 cols=60>".htmlentities($ce["notes"])."</textarea>";
@@ -144,6 +168,10 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
     
     $ce["title"] = compo2_strip($_REQUEST["title"]);
     if (!strlen($ce["title"])) { $active = false; $msg = "Entry name is a required field."; }
+    
+    if (isset($params["rules"])) {
+        $ce["rules_ok"] = intval($_REQUEST["rules_ok"]);
+    }
     
     $ce["notes"] = compo2_strip($_REQUEST["notes"]);
     
