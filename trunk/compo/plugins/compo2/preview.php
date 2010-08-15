@@ -64,7 +64,67 @@ function _compo2_preview_show_links($ce) {
     }
 }
 
-function _compo2_preview_show($params,$uid) {
+function get_gravatar( $email, $s = 80, $d = 'mm', $r = 'g', $img = false, $atts = array() ) {
+    $url = 'http://www.gravatar.com/avatar/';
+    $url .= md5( strtolower( trim( $email ) ) );
+    $url .= "?s=$s&d=$d&r=$r";
+    if ( $img ) {
+        $url = '<img src="' . $url . '"';
+        foreach ( $atts as $key => $val )
+            $url .= ' ' . $key . '="' . $val . '"';
+        $url .= ' />';
+    }
+    return $url;
+}
+
+
+function _compo2_preview_comments($params,$uid,$form=true) {
+    if ($form) {
+        if ($params["uid"]) {
+            $comments = trim(compo2_strip($_REQUEST["comments"]));
+            if (strlen($comments)) {
+                compo2_insert("c2_comments",array(
+                    "cid"=>$params["cid"],
+                    "to_uid"=>$uid,
+                    "from_uid"=>$params["uid"],
+                    "ts"=>date("Y-m-d H:i:s"),
+                    "content"=>$comments,
+                ));
+                header("Location: ?action=preview&uid=$uid"); die;
+            }
+        }
+    }
+            
+    $r = compo2_query("select * from c2_comments where cid = ? and to_uid = ? order by ts asc",array($params["cid"],$uid));
+    
+    echo "<h3>Comments</h3>";
+    $pe = array();
+    foreach ($r as $e) if (strlen(trim($e["content"]))) {
+        // get rid of double posts.
+        if (strcmp($e["from_uid"],$pe["from_uid"])==0 &&
+            strcmp($e["content"],$pe["content"])==0) { continue; }
+        $pe = $e;
+        $user = compo2_get_user($e["from_uid"]);
+        echo "<div style='backgroud:#eee;border: 1px solid #aaa; margin:10px 0px 10px 0px; padding:10px;'>";
+        echo get_gravatar($user->user_email,48,'mm','g',true,array("align"=>"right","style"=>"border:1px solid #aaa;padding:2px;margin:2px;"));
+        echo "<div><strong>{$user->display_name} says ...</strong></div>";
+        echo "<div><small>".date("M j, Y @ g:ia",strtotime($e["ts"]))."</small></div>";
+        echo "<p>".str_replace("\n","<br/>",htmlentities(trim($e["content"])))."</p>";
+        echo "</div>";
+    }
+    if ($form) {
+        if ($params["uid"]) {
+            echo "<form method='post' action='?action=preview&uid=$uid'>";
+            echo "<textarea name='comments' rows=4 cols=60></textarea>";
+            echo "<p><input type='submit' value='Submit Comment'></p>";
+        } else {
+            echo "<p>You must sign in to comment.</p>";
+        }
+    }
+}
+        
+
+function _compo2_preview_show($params,$uid,$comments=true) {
     $ce = compo2_entry_load($params["cid"],$uid);
     $user = compo2_get_user($ce["uid"]);
     
@@ -98,6 +158,10 @@ function _compo2_preview_show($params,$uid) {
     
     if ($params["state"] == "results" || $params["state"] == "admin") {
         _compo2_results_ratings($params,$uid);
+    }
+    
+    if ($comments) {
+        _compo2_preview_comments($params,$uid,true);
     }
 }
 
