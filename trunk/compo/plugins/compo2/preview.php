@@ -13,10 +13,22 @@ function _compo2_preview($params,$_link="?action=preview") {
         return;
     }
 
-    $r = compo2_query("select * from c2_entry where cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array($params["cid"]));
+    $etype = $_REQUEST["etype"];
+    $cats = array(
+        ""=>"All Entries",
+        "compo"=>"Competition Entries",
+        "gamejam"=>"Game Jam Entries",
+    );
+    $r = compo2_query("select * from c2_entry where etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array("%$etype%",$params["cid"]));
     usort($r,"_compo2_preview_sort");
 
-    echo "<h3>All Entries (".count($r).")</h3>";
+    echo "<h3>".htmlentities($cats[$etype])." (".count($r).")</h3>";
+    
+    echo "<p>"; $pre = "";
+    foreach ($cats as $kk=>$vv) {
+        echo "$pre<a href='$_link&etype=$kk'>$vv</a>"; $pre = " | ";
+    }
+    echo "</p>";
 
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
