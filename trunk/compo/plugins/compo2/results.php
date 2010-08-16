@@ -87,9 +87,9 @@ function _compo2_results_results($params) {
     echo "<p>";
     echo "<a href='?action=top'>Show top entries</a> | ";
     if (!strlen($_REQUEST["more"])) {
-        echo "<a href='?more=1'>Show all entries.</a> | ";
+        echo "<a href='?more=1'>Show all results.</a> | ";
     }
-    echo "<a href='?action=preview'>View all Screenshots</a> | ";
+    echo "<a href='?action=preview'>Show all Entries</a> | ";
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if ($ce["id"]) { echo "<a href='?action=edit'>Edit your entry.</a>"; }
     echo "</p>";
