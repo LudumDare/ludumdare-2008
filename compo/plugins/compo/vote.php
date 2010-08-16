@@ -28,7 +28,7 @@ function _compo_vote_results($pid) {
         echo "<tr>";
         echo "<th>{$n}.";$n++;
         $link = "http://www.google.com/search?q=".urlencode($e["name"]);
-        echo "<td><a href=\"$link\">".htmlentities($e["name"])."</a>";
+        echo "<td><a href=\"$link\" target='_blank'>".htmlentities($e["name"])."</a>";
         $v = $e["value"];
         if ($v>0) { $v="+$v"; }
 //         echo "<th>(".htmlentities($v).")";
