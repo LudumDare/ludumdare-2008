@@ -48,7 +48,6 @@
 
 #compo2 .top-results img.screenshot {
     border: 1px solid #aaa;
-    padding: 5px;
-    margin: 5px;
+    padding: 2px;
     background: #000;
 }
