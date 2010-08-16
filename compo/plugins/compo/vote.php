@@ -13,6 +13,12 @@ function _compo_vote($m) {
     return $r;
 }
 
+function compo_vote_google($name) {
+    $link = "http://www.google.com/search?q=".urlencode($e["name"]);
+    return "<a href=\"$link\" target='_blank'>".htmlentities($e["name"])."</a>";
+}
+
+
 function _compo_vote_results($pid) {
     global $compo;
     
@@ -27,8 +33,7 @@ function _compo_vote_results($pid) {
     foreach ($r as $e) {
         echo "<tr>";
         echo "<th>{$n}.";$n++;
-        $link = "http://www.google.com/search?q=".urlencode($e["name"]);
-        echo "<td><a href=\"$link\" target='_blank'>".htmlentities($e["name"])."</a>";
+        echo "<td>".compo_vote_google($e["name"]);
         $v = $e["value"];
         if ($v>0) { $v="+$v"; }
 //         echo "<th>(".htmlentities($v).")";
@@ -88,7 +93,7 @@ function _compo_vote_form($pid,$opts) {
         $v = $r[$name];
         echo "<tr>";
         echo "<td><nobr>";compo_vote_fakeajax($key,$v);echo "</nobr>";
-        echo "<td align=left>".htmlentities($name);
+        echo "<td align=left>".compo_vote_google($name);
     }
     echo "</table>";
     
