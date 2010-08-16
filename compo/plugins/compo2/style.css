@@ -51,12 +51,17 @@
 }
 
 #compo2 .results-cat {
-    margin: 10px;
+    padding: 10px;
 }
 
 #compo2 .results-cat th {
     padding: 5px;
     font-size: 16px;
+    border-bottom: 1px solid #aaa;
+}
+
+#compo2 .results-cat td {
+    padding: 2px;
 }
     
 
