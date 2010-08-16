@@ -33,7 +33,7 @@
     width:220px; overflow:hidden;
 }
 
-#compo2 .top-results {
+#compo2 .results-top {
     width:550px;
 }
 
@@ -41,14 +41,24 @@
     width:550px;
 }
 
-#compo2 .top-results td {
+#compo2 .results-top td {
     padding: 10px;
     border-top: 1px solid #aaa;
 }
 
-#compo2 .top-results img.screenshot {
+#compo2 .results-top img.screenshot {
     border: 1px solid #aaa; padding: 2px; background: #000;
 }
+
+#compo2 .results-cat {
+    padding: 10px;
+}
+
+#compo2 .results-cat th {
+    padding: 5px;
+    font-size: 16px;
+}
+    
 
 #compo2 .preview td {
     width: 125px;
