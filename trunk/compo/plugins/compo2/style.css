@@ -55,13 +55,13 @@
 }
 
 #compo2 .results-cat th {
-    margin: 5px;
+    padding: 10px;
     font-size: 16px;
     border-bottom: 1px solid #aaa;
 }
 
 #compo2 .results-cat td {
-    margin: 5px;
+    padding: 5px;
 }
     
 
