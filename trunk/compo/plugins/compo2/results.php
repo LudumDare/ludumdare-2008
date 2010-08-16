@@ -223,6 +223,7 @@ function _compo2_results_top($params) {
         $link = "?uid={$ce["uid"]}";
         
         $n = intval($e["places"][$_cat]);
+        if ($n == 0) { continue; } // get rid of un-judged items
         if ($last != -1 && $last != $n) { break; } // allow several last-places to show up
         
         echo "<tr>";
