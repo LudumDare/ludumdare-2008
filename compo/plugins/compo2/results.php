@@ -227,7 +227,7 @@ function _compo2_results_top($params) {
         if ($n == 0) { continue; } // get rid of un-judged items
         if ($last != -1 && $last != $n) { break; } // allow several last-places to show up
         
-        $style = "class='alt-".(($row++)%2)."'";
+        $style = "class='alt-".(1+(($row++)%2))."'";
         
         echo "<tr>";
         echo "<td valign=top align=center $style><b>$n.</b>"; if ($ties[$n]>1) { echo "<br/><i>TIE</i>"; }
