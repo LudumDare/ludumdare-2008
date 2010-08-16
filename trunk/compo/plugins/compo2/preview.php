@@ -35,11 +35,10 @@ function _compo2_preview($params,$_link="?action=preview") {
 
     $cols = 4;
     $n = 0;
-    $row = 0;
     echo "<table class='preview'>";
     foreach ($r as $e) {
         if (($n%$cols)==0) { echo "<tr>"; } $n += 1;
-        $klass = "class='alt-".(1+(($row++)%2))."'";
+        $klass = "class='alt-".(1+(($n)%2))."'";
         
         echo "<td valign=bottom align=center $klass>";
         $link = "$_link&uid={$e["uid"]}";
