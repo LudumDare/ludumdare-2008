@@ -100,7 +100,7 @@ function _compo2_results_results($params) {
 
 function _compo2_results_cat($params,$cat,$r) {
 
-    echo "<table>";
+    echo "<table class='results-cat'>";
 //     echo "<tr><th colspan=3>$cat";
     echo "<tr><th colspan=3><a href='?action=top&cat=$cat'>$cat</a>";
     
@@ -215,7 +215,7 @@ function _compo2_results_top($params) {
     }
     
     $last = -1;
-    echo "<table class='top-results'>";
+    echo "<table class='results-top'>";
     $row = 0;
     foreach ($r as $e) {
         $ce = $e["info"];
