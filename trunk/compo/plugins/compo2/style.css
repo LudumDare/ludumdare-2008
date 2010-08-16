@@ -64,12 +64,13 @@
 
 #compo2 .results-cat td {
     padding: 2px 5px 2px 5px;
+    width: 125px;
+    overflow: hidden;
+    height: 18px;
 }
     
 
 #compo2 .preview td {
-    width: 125px; height: 18px;
-    overflow: hidden;
     padding: 10px 5px 10px 5px;
     border-top: 1px solid #aaa;
 }
