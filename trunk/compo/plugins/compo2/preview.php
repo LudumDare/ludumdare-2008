@@ -35,7 +35,7 @@ function _compo2_preview($params,$_link="?action=preview") {
 
     $cols = 4;
     $n = 0;
-    echo "<table>";
+    echo "<table class='preview'>";
     foreach ($r as $e) {
         if (($n%$cols)==0) { echo "<tr>"; } $n += 1;
         
