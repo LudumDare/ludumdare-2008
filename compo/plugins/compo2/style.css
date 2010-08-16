@@ -62,6 +62,7 @@
 
 #compo2 .preview title {
     width: 125px;
+    height: 12px;
     overflow: hidden;
 }
     
