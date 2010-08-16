@@ -1,3 +1,14 @@
+#compo2 table {
+    border-spacing: 0px; border-collapse: collapse;
+}
+
+#compo2 table, #compo2 form {
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+
 #compo2 .alt-1 {
     background: #eee;
 }
