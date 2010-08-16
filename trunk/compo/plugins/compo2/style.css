@@ -68,8 +68,8 @@
     
 
 #compo2 .preview td {
-    width: 125px;
-    overflow:hidden;
+    width: 125px; height: 18px;
+    overflow: hidden;
     padding: 10px 5px 10px 5px;
     border-top: 1px solid #aaa;
 }
