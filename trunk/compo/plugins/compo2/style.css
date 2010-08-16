@@ -1,10 +1,24 @@
-#compo2 td.alt-1 {
+#compo2 .alt-1 {
     background: #eee;
-    padding: 5px 0px 5px 0px;
 }
 
-#compo2 td.alt-2 {
+#compo2 .alt-2 {
     background: #ddd;
-    padding: 5px 0px 5px 0px;
 }
 
+#compo2 .comment {
+    background:#eee;
+    border: 1px solid #aaa;
+    margin:10px 0px 10px 0px;
+    padding:10px;
+}
+
+#compo2 .gravatar {
+    border:1px solid #aaa;
+    padding:2px;
+    margin:2px 2px 2px 10px;
+}
+
+#compo2 .notes {
+    width:300px; overflow:hidden;
+}

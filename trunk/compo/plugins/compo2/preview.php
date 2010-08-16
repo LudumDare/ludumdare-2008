@@ -117,8 +117,8 @@ function _compo2_preview_comments($params,$uid,$form=true) {
             strcmp($e["content"],$pe["content"])==0) { continue; }
         $pe = $e;
         $user = compo2_get_user($e["from_uid"]);
-        echo "<div style='backgroud:#eee;border: 1px solid #aaa; margin:10px 0px 10px 0px; padding:10px;'>";
-        echo get_gravatar($user->user_email,48,'mm','g',true,array("align"=>"right","style"=>"border:1px solid #aaa;padding:2px;margin:2px 2px 2px 10px;"));
+        echo "<div class = 'comment'>";
+        echo get_gravatar($user->user_email,48,'mm','g',true,array("align"=>"right","class"=>"gravatar"));
         echo "<div><strong>{$user->display_name} says ...</strong></div>";
         echo "<div><small>".date("M j, Y @ g:ia",strtotime($e["ts"]))."</small></div>";
         echo "<p>".str_replace("\n","<br/>",htmlentities(trim($e["content"])))."</p>";
