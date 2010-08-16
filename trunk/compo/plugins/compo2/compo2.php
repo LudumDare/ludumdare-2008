@@ -120,8 +120,13 @@ require_once dirname(__FILE__)."/misc.php";
 require_once dirname(__FILE__)."/closed.php";
 
 add_filter('the_content','compo2_the_content');
+add_action('wp_head', 'compo2_wp_head');
 function compo2_the_content($v) {
     $v = compo2_main($v);
     return $v;
+}
+function compo2_wp_head() {
+    $url = get_bloginfo("url")."/wp-content/plugins/compo2/style.css";
+    echo '<link rel="stylesheet" type="text/css" media="all" href="'.$url.'" />';
 }
 ?>

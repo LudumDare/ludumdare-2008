@@ -216,6 +216,7 @@ function _compo2_results_top($params) {
     
     $last = -1;
     echo "<table width=600>";
+    $row = 0;
     foreach ($r as $e) {
         $ce = $e["info"];
         $shots = unserialize($ce["shots"]);
@@ -226,15 +227,17 @@ function _compo2_results_top($params) {
         if ($n == 0) { continue; } // get rid of un-judged items
         if ($last != -1 && $last != $n) { break; } // allow several last-places to show up
         
+        $style = "class='alt-".(($row++)%2)."'";
+        
         echo "<tr>";
-        echo "<td valign=top align=center><b>$n.</b>"; if ($ties[$n]>1) { echo "<br/><i>TIE</i>"; }
-        echo "<td align=center valign=top>";
+        echo "<td valign=top align=center $style><b>$n.</b>"; if ($ties[$n]>1) { echo "<br/><i>TIE</i>"; }
+        echo "<td align=center valign=top $style>";
         echo "<a href='$link'><img src='".compo2_thumb($fname,160,160)."'></a>";
-        echo "<td valign=top>";
+        echo "<td valign=top $style>";
         echo "<div><a href='$link'><b>".htmlentities($ce["title"])."</b> - ".htmlentities($ce["user"]->display_name)."</a></div>";
         echo "<p>"; _compo2_preview_show_links($ce); echo "</p>";
         echo "<div style='width:300px;overflow:hidden;'>".str_replace("\n","<br/>",htmlentities(substr($ce["notes"],0,140)))." ...</div>";
-        echo "<td valign=top>";
+        echo "<td valign=top $style>";
         asort($e["places"]);
         foreach ($e["places"] as $cat=>$nn) if ($nn <= 10) {
             $img = "inone.gif";
