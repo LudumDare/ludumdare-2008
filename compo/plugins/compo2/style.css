@@ -47,7 +47,17 @@
 }
 
 #compo2 .top-results img.screenshot {
-    border: 1px solid #aaa;
-    padding: 2px;
-    background: #000;
+    border: 1px solid #aaa; padding: 2px; background: #000;
 }
+
+#compo2 .preview td {
+    width: 125px;
+    overflow:hidden;
+    padding: 5px;
+}
+
+#compo2 .preview img {
+    border: 1px solid #aaa; padding: 2px; background: #000;
+}
+    
+    
