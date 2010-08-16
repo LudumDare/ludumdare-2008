@@ -30,18 +30,25 @@
 }
 
 #compo2 .notes {
-    width:250px; overflow:hidden;
+    width:220px; overflow:hidden;
 }
 
 #compo2 .top-results {
-    width:600px;
+    width:550px;
 }
 
 #compo2 .results {
-    width:600px;
+    width:550px;
 }
 
 #compo2 .top-results td {
     padding: 10px;
     border-top: 1px solid #aaa;
+}
+
+#compo2 .top-results img {
+    border: 1px solid #aaa;
+    padding: 5px;
+    margin: 5px;
+    background: #000;
 }
