@@ -25,15 +25,17 @@ function _compo2_results_sort($a,$b) {
 function _compo2_get_results($params) {
 
     $r = compo2_query("select * from c2_entry where cid = ? and active = 1",array($params["cid"]));
+    $total = 0;
     foreach ($r as $k=>$ce) {
         $r[$k]["results"] = unserialize($ce["results"]);
         $r[$k]["user"] = compo2_get_user($ce["uid"]);
+        $total += intval($ce["is_judged"]!=0);
     }
     
     // HACK: add in Coolness
     $cat = $params["cats"][] = "Coolness";
     foreach ($r as $k=>$ce) {
-        $r[$k]["results"][$cat] = round(100*$ce["rate_out"]/(count($r)-1));
+        $r[$k]["results"][$cat] = round(100*$ce["rate_out"]/(max($total,2)-1));
     }
     
     $rr = array();
