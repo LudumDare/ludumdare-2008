@@ -77,7 +77,7 @@ function _compo2_results_results($params) {
     echo "<h3>Results</h3>";
     echo "<p><a href='?action=top'>Show top entries</a></p>";
     $cols = 3; $n = 0;
-    echo "<table width=600>";
+    echo "<table class='results'>";
     foreach ($r as $k => $res) {
         if (($n%$cols)==0) { echo "<tr>"; } $n += 1;
         echo "<td>";
@@ -232,7 +232,7 @@ function _compo2_results_top($params) {
         echo "<tr>";
         echo "<td valign=top align=center $klass><b>$n.</b>"; if ($ties[$n]>1) { echo "<br/><i>TIE</i>"; }
         echo "<td align=center valign=top $klass>";
-        echo "<a href='$link'><img src='".compo2_thumb($fname,160,160)."'></a>";
+        echo "<a href='$link'><img src='".compo2_thumb($fname,120,120)."'></a>";
         echo "<td valign=top $klass>";
         echo "<div><a href='$link'><b>".htmlentities($ce["title"])."</b> - ".htmlentities($ce["user"]->display_name)."</a></div>";
         echo "<p>"; _compo2_preview_show_links($ce); echo "</p>";
