@@ -54,6 +54,7 @@
     width: 125px;
     overflow:hidden;
     padding: 5px;
+    border-top: 1px solid #aaa;
 }
 
 #compo2 .preview img {
