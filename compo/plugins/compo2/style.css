@@ -60,9 +60,9 @@
     border: 1px solid #aaa; padding: 2px; background: #000;
 }
 
-#compo2 .preview title {
+#compo2 .preview .title {
     width: 125px;
-    height: 12px;
+    height: 20px;
     overflow: hidden;
 }
     
