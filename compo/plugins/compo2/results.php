@@ -255,7 +255,7 @@ function _compo2_results_top($params) {
 
         if ($t >= 20 && !strlen($_REQUEST["more"])) { $last = $n; }
         $t += 1;
-        echo "<tr><td>&nbsp;";
+//         echo "<tr><td>&nbsp;";
     }
     echo "</table>";
     
