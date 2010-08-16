@@ -14,8 +14,8 @@ function _compo_vote($m) {
 }
 
 function compo_vote_google($name) {
-    $link = "http://www.google.com/search?q=".urlencode($e["name"]);
-    return "<a href=\"$link\" target='_blank'>".htmlentities($e["name"])."</a>";
+    $link = "http://www.google.com/search?q=".urlencode($name);
+    return "<a href=\"$link\" target='_blank'>".htmlentities($name)."</a>";
 }
 
 
