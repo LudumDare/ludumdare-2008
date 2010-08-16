@@ -47,6 +47,7 @@ function _compo2_get_results($params) {
         $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
         $n = 0; $t = 0; $p = -1;
         foreach ($r as $ce) {
+            if ($cat != "Coolness" && !$ce["is_judged"]) { continue; }
             $v = $ce["v"];
             if ($v != $p) { $n += 1; } $p = $v;
             $vv = compo2_number_format($v);

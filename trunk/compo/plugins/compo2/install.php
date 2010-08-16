@@ -85,6 +85,14 @@ function compo2_install() {
         update_option($key,$version);
     }
     
+    $version = 25;
+    if ($cur < $version) {
+        compo2_query("alter table c2_entry change rules_ok is_judged int");
+        compo2_query("alter table c2_entry add etype varchar(32)");
+        compo2_query("update c2_entry set etype = 'compo' where is_judged = 1");
+        compo2_query("update c2_entry set etype = 'gamejam' where is_judged = 0");
+        update_option($key,$version);
+    }
 }
 
 register_activation_hook($GLOBALS["compo2"]["plugin"],"compo2_install");

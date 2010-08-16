@@ -1,3 +1,17 @@
+Entry viewing:
+    x - you can vote on jam entries
+
+Entry creation
+    x - if a URL is invalid, user isn't warned properly (and game isn't marked inactive)
+    x - if a user doesn't select an entry type, the user isn't warned properly (and game isn't marked inactive)
+        - maybe add etype=whatever and is_judged and get rid of rules_ok
+    x - don't allow game names that are just whitespace
+
+
+
+Rate submission (minor)
+    - have comment detection use a query to find out if they have made comments
+
 TODO:
 - add a lockdown feature so that after the compo
 tons of new entries can't be added / edited

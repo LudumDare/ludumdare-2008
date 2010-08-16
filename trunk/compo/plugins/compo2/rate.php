@@ -73,7 +73,7 @@ function _compo2_rate_sort_by_rate_out($a,$b) {
 }
 
 function _compo2_rate_list($params) {
-    $r = compo2_query("select * from c2_entry where cid = ? and active = 1 and rules_ok = 1",array($params["cid"]));
+    $r = compo2_query("select * from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
     foreach ($r as $k=>$ce) {
         $r[$k]["s"] = md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}");
     }
@@ -156,6 +156,11 @@ function _compo2_rate_rate($params,$uid = "") {
     $ce = compo2_entry_load($params["cid"],$uid);
     
     if (!$ce["id"]) { compo2_error("invalid entry: uid=$uid"); }
+    
+    if (!$ce["is_judged"]) {
+        _compo2_preview_show($params,$uid,true);
+        return;
+    }
 
     _compo2_preview_show($params,$uid,false);
     
