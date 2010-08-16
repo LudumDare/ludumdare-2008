@@ -70,12 +70,6 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
     if (isset($params["rules"])) {
         echo "<h4>Entry Type</h4>";
-//         echo "<p style='border: 1px solid #aaa; background:#eee; padding:10px; margin:10px;'><i>We're glad to have you at Ludum Dare!  And we're thrilled you made a game this weekend!  There are two entry types: Competition Entries - those that <a href='{$params["rules"]}' target='_blank'>follow the rules</a> and Game Jam Entries - those that don't!</i></p>";
-        
-//         echo "<div>&nbsp;</div>";
-    
-//         $checked = ($ce["rules_ok"]?"checked":"");
-//         echo "<p><input type='checkbox' name='rules_ok' value='1' $checked /> This entry abides by the contest <a href='#' target='_blank'>rules</a> and should be judged.</p>";
         echo "<div style='margin-left:20px'>";
 
         $selected = (strcmp($ce["etype"],"compo")==0?"checked":"");
