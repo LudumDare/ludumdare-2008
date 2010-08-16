@@ -8,7 +8,6 @@
     padding: 0px;
 }
 
-
 #compo2 .alt-1 {
     background: #eee;
 }
@@ -32,4 +31,12 @@
 
 #compo2 .notes {
     width:300px; overflow:hidden;
+}
+
+#compo2 .top-results {
+    width:600px;
+}
+
+#compo2 .top-results td {
+    padding: 10px;
 }

@@ -215,7 +215,7 @@ function _compo2_results_top($params) {
     }
     
     $last = -1;
-    echo "<table width=600>";
+    echo "<table class='top-results'>";
     $row = 0;
     foreach ($r as $e) {
         $ce = $e["info"];
