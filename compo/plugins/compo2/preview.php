@@ -47,7 +47,8 @@ function _compo2_preview($params,$_link="?action=preview") {
         $link = "$_link&uid={$e["uid"]}";
         echo "<div><a href='$link'>";
         $shots = unserialize($e["shots"]);
-        echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
+        $etype = htmlentities($ce["etype"]);
+        echo "<img src='".compo2_thumb($shots["shot0"],120,90)."' class='$etype'>";
         echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
         echo compo2_get_user($e["uid"])->display_name;
         echo "</a></div>";
