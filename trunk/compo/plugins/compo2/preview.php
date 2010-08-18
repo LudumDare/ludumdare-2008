@@ -27,7 +27,7 @@ function _compo2_preview($params,$_link="?action=preview") {
     if ($params["gamejam"]) {
         echo "<p>"; $pre = "";
         foreach ($cats as $kk=>$vv) {
-            echo "$pre<a href='$_link&etype=$kk'>$vv</a>"; $pre = " | ";
+            echo "$pre<a href='?action=preview&etype=$kk'>$vv</a>"; $pre = " | ";
         }
         echo "</p>";
     }
