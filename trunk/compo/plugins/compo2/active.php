@@ -56,8 +56,12 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
         echo "<h3>Edit this Entry</h3>";
     }
     
-    if ($ce["id"] != "" && !$ce["active"]) {
-        echo "<div class='warning'>Your entry is not complete.</div>";
+    if ($ce["disabled"]) {
+        echo "<div class='warning'>This entry is disabled.</div>";
+    } else {
+        if ($ce["id"] != "" && !$ce["active"]) {
+            echo "<div class='warning'>Your entry is not complete.</div>";
+        }
     }
 
     $link = "?action=save";
@@ -68,22 +72,38 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
     echo "$star <input type='text' name='title' value=\"".htmlentities($ce["title"])."\" size=60> ";
     
-    if (isset($params["rules"])) {
+    ////////////////////////////////////////////////////////////////////////////
+    // Handle the entry type.
+    ////////////////////////////////////////////////////////////////////////////
+    @$etype = $ce["etype"];
+    $opts = false; $default = "";
+    if (isset($params["gamejam"])) { // if we're in a gamejam
+        if ($params["state"] == "active") { // and we're active, show the options
+            $opts = true;
+        } else { // but if we're not active, the default is gamejam
+            $default = "gamejam";
+        }
+    } else { // non-gamejam, we're always compo
+        $default = "compo";
+    }
+    if ($is_admin) { $opts = true; }
+    if (!strlen($etype)) { $etype = $default; } // set the default
+    
+    $rules = isset($params["rules"])?$params["rules"]:"#";
+    if ($opts) {
         echo "<h4>Entry Type</h4>";
-        echo "<div style='margin-left:20px'>";
-
-        $selected = (strcmp($ce["etype"],"compo")==0?"checked":"");
+        $selected = (strcmp($etype,"compo")==0?"checked":"");
         echo "<input type='radio' name='etype' value='compo' $selected /> Competition Entry";
-        echo "<div><i>My entry follows all <a href='{$params["rules"]}' target='_blank'>the rules</a> and I want it to be judged.</i></div>";
+        echo "<div><i>My entry follows all <a href='$rules' target='_blank'>the rules</a> and I want it to be judged.</i></div>";
         echo "<br/>";
-        $selected = (strcmp($ce["etype"],"gamejam")==0?"checked":"");
+        $selected = (strcmp($etype,"gamejam")==0?"checked":"");
         echo "<input type='radio' name='etype' value='gamejam' $selected /> Game Jam Entry";
         echo "<div><i>My entry doesn't follow the rules or I don't want it to be judged.</i></div>";
         echo "<div>&nbsp;</div>";
-        echo "</div>";
     } else {
-        echo "<input type='hidden' name='etype' value='compo'>";
+        echo "<input type='hidden' name='etype' value='$etype'>";
     }
+    ////////////////////////////////////////////////////////////////////////////
     
     echo "<h4>Notes</h4>";
     

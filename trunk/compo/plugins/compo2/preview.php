@@ -24,11 +24,13 @@ function _compo2_preview($params,$_link="?action=preview") {
 
     echo "<h3>".htmlentities($cats[$etype])." (".count($r).")</h3>";
     
-    echo "<p>"; $pre = "";
-    foreach ($cats as $kk=>$vv) {
-        echo "$pre<a href='$_link&etype=$kk'>$vv</a>"; $pre = " | ";
+    if (isset($params["gamejam"])) {
+        echo "<p>"; $pre = "";
+        foreach ($cats as $kk=>$vv) {
+            echo "$pre<a href='$_link&etype=$kk'>$vv</a>"; $pre = " | ";
+        }
+        echo "</p>";
     }
-    echo "</p>";
 
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
@@ -43,13 +45,14 @@ function _compo2_preview($params,$_link="?action=preview") {
         
         echo "<td valign=bottom align=center $klass>";
         $link = "$_link&uid={$e["uid"]}";
-        if (!$e["active"]) { echo "<i>inactive</i>"; }
-        echo "<a href='$link'>";
+        echo "<div><a href='$link'>";
         $shots = unserialize($e["shots"]);
         echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
         echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
         echo compo2_get_user($e["uid"])->display_name;
-        echo "</a>";
+        echo "</a></div>";
+        if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
+        else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
     }
     echo "</table>";
 

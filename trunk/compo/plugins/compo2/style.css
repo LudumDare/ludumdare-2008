@@ -62,9 +62,6 @@
 
 #compo2 .results-cat td {
     padding: 2px 5px 2px 5px;
-/*     width: 125px; */
-/*     overflow: hidden; */
-/*     height: 18px; */
 }
     
 
@@ -79,7 +76,32 @@
 
 #compo2 .preview .title {
     width: 125px;
-    height: 18px;
+    height: 20px;
     overflow: hidden;
 }
     
+#compo2 .error {
+    border: 2px solid #faa;
+    background: #a00;
+    color: #fff;
+    padding: 4px;
+    font-weight: bold;
+}
+#compo2 .warning {
+    border: 2px solid #aa0;
+    background: #ff5;
+    color: #000;
+    padding: 4px;
+    font-weight: bold;
+}
+#compo2 .message {
+    border: 2px solid #5af;
+    background: #000;
+    color: #fff;
+    padding: 4px;
+    font-weight: bold;
+}
+
+#compo2 .links {
+    font-size:20px;
+}
