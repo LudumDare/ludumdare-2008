@@ -50,12 +50,12 @@ For a Mini-LD, including a Game Jam is probably silly.  (Though in many cases, t
 
 Here are all the compo2 tag attributes.
 
- # *state* is "active" at start
- # *jcat* is optional, but can refer to the wp-category slug that is being used by contestants to journal in.
- # *cats* should be a semi-colon delimited list of voting categories "Fun;Innovation;Production;Theme" 
- # *locked* should be 0 or 1.  If set to 1, it will stop users from adding new entries.  Existing users can still edit their existing entries.
- # *rules* should be a URL to a page with rules for this competition.
- # *gamejam* should be set to 1 if this competition includes a Game Jam.
+ # *state* - is "active" at start.  Further definition below.
+ # *jcat* - is optional, but can refer to the wp-category slug that is being used by contestants to journal in.
+ # *cats* - should be a semi-colon delimited list of voting categories "Fun;Innovation;Production;Theme" 
+ # *locked* - should be 0 or 1.  If set to 1, it will stop users from adding new entries.  Existing users can still edit their existing entries.
+ # *rules* - should be a URL to a page with rules for this competition.
+ # *gamejam* - should be set to 1 if this competition includes a Game Jam.
 
 = Rating Entries =
  # Change the STATE to "rate"
