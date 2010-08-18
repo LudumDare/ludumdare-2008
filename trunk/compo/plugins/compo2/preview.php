@@ -24,7 +24,7 @@ function _compo2_preview($params,$_link="?action=preview") {
 
     echo "<h3>".htmlentities($cats[$etype])." (".count($r).")</h3>";
     
-    if (isset($params["gamejam"])) {
+    if ($params["gamejam"]) {
         echo "<p>"; $pre = "";
         foreach ($cats as $kk=>$vv) {
             echo "$pre<a href='$_link&etype=$kk'>$vv</a>"; $pre = " | ";

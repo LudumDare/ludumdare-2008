@@ -77,7 +77,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     ////////////////////////////////////////////////////////////////////////////
     @$etype = $ce["etype"];
     $opts = false; $default = "";
-    if (isset($params["gamejam"])) { // if we're in a gamejam
+    if ($params["gamejam"]) { // if we're in a gamejam
         if ($params["state"] == "active") { // and we're active, show the options
             $opts = true;
         } else { // but if we're not active, the default is gamejam
