@@ -74,8 +74,9 @@
     border: 1px solid #000; padding: 4px; background: #000;
 }
 #compo2 .preview img.gamejam {
-    background: #ff55aa;
+    background: #fff;
 }
+
 
 #compo2 .preview .title {
     width: 125px;
