@@ -39,7 +39,7 @@ Add your content here.  Or not.
  # Put in a tag .  This is a basic tag for a Official Compo that includes a Game Jam
 
 {{{
-[compo2 state="active" jcat="ld234" cats="Innovation;Fun;Overall" rules="http://www.ludumdare.com/compo/rules/" gamejam="1"]
+[compo2 state="active" jcat="ld234" cats="Innovation;Fun;Theme;Graphics;Audio;Humor;Overall;Community" rules="http://www.ludumdare.com/compo/rules/" gamejam="1"]
 }}}
 
 For a Mini-LD, including a Game Jam is probably silly.  (Though in many cases, the Mini LD is ONLY a Game Jam, either way, don't include the Game Jam.  To run a Mini as just a Game Jam, just don't have a "rate" and "results" phase, just jump right to "closed" at the end.)
