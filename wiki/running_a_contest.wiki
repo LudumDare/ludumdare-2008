@@ -36,15 +36,26 @@ Add your content here.  Or not.
 = Starting a Compo =
 
  # Create a new wordpress page for the compo
- # Put in a tag 
+ # Put in a tag .  This is a basic tag for a Official Compo that includes a Game Jam
+
 {{{
-[compo2 state="active" jcat="ld234" cats="Innovation;Fun;Overall"]
+[compo2 state="active" jcat="ld234" cats="Innovation;Fun;Overall" rules="http://www.ludumdare.com/compo/rules/" gamejam="1"]
 }}}
- # STATE is "active" at start
- # JCAT is optional, but can refer to the wp-category slug that is being used by contestants to journal in.
- # CATS should be a semi-colon delimited list of voting categories "Fun;Innovation;Production;Theme" 
- # LOCKED should be 0 or 1.  If set to 1, it will stop users from adding new entries.  Existing users can still edit their existing entries.
- # RULES should be a URL to a page with rules if this is a contest where being judged vs just jamming is an option.
+
+For a Mini-LD, including a Game Jam is probably silly.  (Though in many cases, the Mini LD is ONLY a Game Jam, either way, don't include the Game Jam.  To run a Mini as just a Game Jam, just don't have a "rate" and "results" phase, just jump right to "closed" at the end.)
+
+{{{
+[compo2 state="active" jcat="ld234" cats="Innovation;Fun;Overall" rules="link-to-main-blog-post"]
+}}}
+
+Here are all the compo2 tag attributes.
+
+ # *state* is "active" at start
+ # *jcat* is optional, but can refer to the wp-category slug that is being used by contestants to journal in.
+ # *cats* should be a semi-colon delimited list of voting categories "Fun;Innovation;Production;Theme" 
+ # *locked* should be 0 or 1.  If set to 1, it will stop users from adding new entries.  Existing users can still edit their existing entries.
+ # *rules* should be a URL to a page with rules if this is a contest where being judged vs just jamming is an option.
+ # *gamejam* should be set to 1 if this competition includes a Game Jam.
 
 = Rating Entries =
  # Change the STATE to "rate"
