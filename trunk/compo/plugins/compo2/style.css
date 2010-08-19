@@ -76,6 +76,12 @@
 #compo2 .preview .gamejam img {
     background: #ff55aa;
 }
+#compo2 .preview .alt-1 {
+    background: #eee;
+}
+#compo2 .preview .alt-2 {
+    background: #ccc;
+}
 
 #compo2 .preview .title {
     width: 125px;
