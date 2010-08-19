@@ -43,12 +43,14 @@ function _compo2_preview($params,$_link="?action=preview") {
         if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
         $klass = "class='alt-".(1+(($row)%2))."'";
         
+        $etype = htmlentities($e["etype"]);
+        $klass = "class='alt-".($etype=="compo"?"1":"2")."'";
+        
         echo "<td valign=bottom align=center $klass>";
         $link = "$_link&uid={$e["uid"]}";
         echo "<div><a href='$link'>";
         $shots = unserialize($e["shots"]);
-        $etype = htmlentities($e["etype"]);
-        echo "<img src='".compo2_thumb($shots["shot0"],120,90)."' class='$etype'>";
+        echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
         echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
         echo compo2_get_user($e["uid"])->display_name;
         echo "</a></div>";
