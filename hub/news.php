@@ -8,6 +8,8 @@ function show_news($newsfeed,$newsitems,$newsprefiximage,$newssuffiximage) {
 	$rss->init();
 	$rss->handle_content_type();
 	
+	$rss->force_feed(); // MAKE IT WORK
+	
 	if ($rss->error()) {
 	   echo htmlentities($rss->error());
 	   return;
