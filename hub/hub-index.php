@@ -133,7 +133,7 @@ require_once 'hub/news.php';
 							<font size="-1">
 							<?php
 							$news = 'http://www.ludumdare.com/compo/';
-							$newsfeed = 'http://www.ludumdare.com/compo/feed';
+							$newsfeed = 'http://www.ludumdare.com/compo/feed/rss/';
 							$newsitems = 5;
 							$newsprefiximage = '/hub/hub-dot.png';
 							
