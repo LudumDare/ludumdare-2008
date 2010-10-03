@@ -10,10 +10,10 @@ function show_news($newsfeed,$newsitems,$newsprefiximage,$newssuffiximage) {
 	$rss->handle_content_type();
 	
 	
-	if ($rss->error()) {
-	   echo htmlentities($rss->error());
-	   return;
-    }
+// 	if ($rss->error()) {
+// 	   echo htmlentities($rss->error());
+// 	   return;
+//     }
 	foreach ($rss->get_items(0, $newsitems) as $item) {
         $title = $item->get_title();
         $url   = $item->get_permalink();
