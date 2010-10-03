@@ -4,11 +4,11 @@ require_once 'simplepie/simplepie.inc';
 
 function show_news($newsfeed,$newsitems,$newsprefiximage,$newssuffiximage) {
 	$rss = new SimplePie($newsfeed, dirname(__FILE__) . '/cache');
-	$rss->set_cache_duration ( 60*5 );
+    $rss->force_feed(true); // MAKE IT WORK
+    $rss->set_cache_duration ( 60*5 );
 	$rss->init();
 	$rss->handle_content_type();
 	
-	$rss->force_feed(true); // MAKE IT WORK
 	
 	if ($rss->error()) {
 	   echo htmlentities($rss->error());
