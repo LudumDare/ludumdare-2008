@@ -28,7 +28,6 @@
 			<div style="float: right;border: 1px solid #eee;padding: 2px;background: #fff;"><?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?></div>
 				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
                        		<div>Posted by <?php the_author_posts_link(); ?> </div>
-                       		<!--<div>Shorter URL: <?php wp_ozh_yourls_url(); ?> </div>-->
 				<small><?php the_time('F jS, Y g:i a') ?> <!-- by <?php the_author() ?> --></small>
 
 				<?php echo my_get_buttons(); ?>
