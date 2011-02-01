@@ -56,6 +56,7 @@ Here are all the compo2 tag attributes.
  # *locked* - should be 0 or 1.  If set to 1, it will stop users from adding new entries.  Existing users can still edit their existing entries.
  # *rules* - should be a URL to a page with rules for this competition.
  # *gamejam* - should be set to 1 if this competition includes a Game Jam.
+# *voting* - Type of voting (open, closed) defaults to closed.  Setting it to open allows anyone to vote.
 
 = Rating Entries =
  # Change the STATE to "rate"
