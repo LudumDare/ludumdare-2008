@@ -8,7 +8,7 @@ function _compo2_rate($params) {
 
     // handle non-competitors ..
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
-    if (strcmp($params["voting"],"open")!=0)
+    if (!intval($params["pubvote"]))
     if ((!$ce["id"]) || (!$ce["active"])) {
         $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"preview";
         if ($action == "default") { $action = "preview"; }
