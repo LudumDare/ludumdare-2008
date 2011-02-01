@@ -27,6 +27,7 @@ function _compo2_main($m) {
     @cats   List of judging categories: "Innovation;Fun;Production"
     @jcat   Wordpress Journal category
     @state  State of compo (active,rate,results,closed)
+    @voting Type of voting (open,closed) default: closed
     */
     
     $params = xmlhack_attrs2array($m[1]);
