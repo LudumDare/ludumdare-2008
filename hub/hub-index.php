@@ -14,7 +14,7 @@ font-family:arial,verdana,sans-serif;
 -->
 </STYLE>
 </head>
-<body bgcolor="#5f4f43" text="#ffffff" link="#fbda81" alink="#ffffff" vlink="#fbda81" TOPMARGIN="0" LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0">
+<body bgcolor="#5f4f43" text="#ffffff" link="#f3bb11" alink="#ffffff" vlink="#f3bb11" TOPMARGIN="0" LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0">
 <?php
 require_once 'hub/news.php';
 ?>
@@ -196,7 +196,7 @@ require_once 'hub/news.php';
 				<table cellspacing="0" cellpadding="0" border="0" width="707">
 					<tr>
 						<td align="center" bgcolor="#90745e">
-						<font color="#5f4f43" size="-1">(c) 2002-20XX The Ludum Dare Community</font>
+						<font color="#5f4f43" size="-1">(c) 2002-20XX <a href="http://www.towlr.com">+</a> The Ludum Dare Community</font>
 						</td>
 					</tr>
 				</table>
