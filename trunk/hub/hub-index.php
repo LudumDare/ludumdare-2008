@@ -196,7 +196,7 @@ require_once 'hub/news.php';
 				<table cellspacing="0" cellpadding="0" border="0" width="707">
 					<tr>
 						<td align="center" bgcolor="#90745e">
-						<font color="#5f4f43" size="-1">(c) 2002-20XX <a href="http://www.towlr.com">+</a> The Ludum Dare Community</font>
+						<span style="text-decoration:bold;color:#5f4f43;Font-size:10px">(c) 2002-20XX <a style="text-decoration:none" href="http://www.towlr.com">+</a> The Ludum Dare Community</span>
 						</td>
 					</tr>
 				</table>
