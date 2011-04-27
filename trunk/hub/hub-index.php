@@ -196,7 +196,7 @@ require_once 'hub/news.php';
 				<table cellspacing="0" cellpadding="0" border="0" width="707">
 					<tr>
 						<td align="center" bgcolor="#90745e">
-						Copyright Notice
+						(c) 2002-20XX : Copyright Notice
 						</td>
 					</tr>
 				</table>
