@@ -11,6 +11,24 @@ BODY
 font-family:arial,verdana,sans-serif;
 }
 -->
+
+#twitter_div {
+    background: #90745e;
+    padding-top: 5px;
+}
+ 
+#twitter_div ul li {
+    padding: 10px;
+}
+ 
+#twitter_div ul li a {
+}
+ 
+#twitter_div ul li a:hover {
+}
+ 
+#twitter_div p {
+}
 </STYLE>
 </head>
 <body bgcolor="#5f4f43" text="#ffffff" link="#f3bb11" alink="#ffffff" vlink="#f3bb11" TOPMARGIN="0" LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0">
@@ -34,10 +52,10 @@ font-family:arial,verdana,sans-serif;
 							<br />
 							<a href="compo/"><img src="hub/hub-compo.png" border="0"></a><br />
 							Home of the Ludum Dare game making competition<br />
-							<br />
+							<br /><br/><br/>
 							<a href="planet/"><img src="hub/hub-planet.png" border="0"></a><br />
 							Syndicated blogs from the Ludum Dare community<br />
-							<br />
+							<br /><br/><br/>
 							<a href="http://twitter.com/ludumdare"><img src="hub/twitter.png" border="0"></a><br />
 							Follow Ludum Dare on Twitter. Use hashtag #LD48<br />
 							<br />
@@ -48,10 +66,10 @@ font-family:arial,verdana,sans-serif;
 							<br />
 							<a href="compo/about-ludum-dare/"><img src="hub/hub-about.png" border="0"></a><br />
 							What is Ludum Dare, and what is it about?<br />
-							<br />
+							<br /><br/><br/>
 							<a href="http://www.gamecompo.com/mailing-list/"><img src="hub/hub-mailinglist.png" border="0"></a><br />
 							The latest event news delivered to your mailbox<br />
-							<br />
+							<br /><br/><br/>
 							<a href="compo/irc/"><img src="hub/hub-irc.png" border="0"></a><br />
 							Join us live in #ludumdare on irc.afternet.org<br />
 							<br />
@@ -59,12 +77,23 @@ font-family:arial,verdana,sans-serif;
 						</td>
 					</tr>
 				</table>
-
+<div><img src="hub/grad-bar.png"></div>
+				<table cellspacing="0" cellpadding="0" border="0" width="707" bgcolor="#90745e">
+				<tr><td>
+<!-- TWITTER -->
+<div id="twitter_div">
+	<ul id="twitter_update_list">
+		<li></li>
+	</ul>
+</div>
+<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+<script type="text/javascript" src="http://api.twitter.com/1/statuses/user_timeline.json?screen_name=ludumdare&callback=twitterCallback2&count=3&include_rts=1"></script>
+<!-- END TWITTER -->
+                </td></tr></table>
 				<table cellspacing="0" cellpadding="0" border="0" width="707">
 					<tr>
 						<td align="center" bgcolor="#90745e">
-							<img src="hub/grad-bar.png"><br />
-							<span style="text-decoration:none;font-weight:bold;color:#5f4f43;Font-size:12px">(c) 2002-20XX <a style="text-decoration:none" href="http://www.towlr.com">+</a> The Ludum Dare Community</span><br />
+							<span style="text-decoration:none;font-weight:bold;color:#5f4f43;Font-size:12px">(c) 2002-20XX <a style="text-decoration:none" href="http://www.towlr.com">+</a> The Ludum Dare Community</span><br /><br/>
 							<img src="hub/grad-single.png"><br />
 						</td>
 					</tr>
