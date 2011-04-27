@@ -195,7 +195,7 @@ require_once 'hub/news.php';
 */ ?>
 				<table cellspacing="0" cellpadding="0" border="0" width="707">
 					<tr>
-						<td align="center" bgcolor="#90745e">
+						<td align="center" bgcolor="#90745e" text="#5f4f43">
 						(c) 2002-20XX The Ludum Dare Community
 						</td>
 					</tr>
