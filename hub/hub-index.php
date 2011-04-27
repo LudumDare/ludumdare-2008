@@ -26,7 +26,7 @@ require_once 'hub/news.php';
 				<table cellspacing="0" cellpadding="0" border="0" width="707">
 					<tr>
 						<td align="center" bgcolor="#90745e">
-							<img src="hub/hub-header.jpg"/>
+							<img src="hub/hub-header.png"/>
 						</td>
 					</tr>
 				</table>
@@ -195,7 +195,7 @@ require_once 'hub/news.php';
 */ ?>
 				<table cellspacing="0" cellpadding="0" border="0" width="707">
 					<tr>
-						<td align="center" bgcolor="#a4866a">
+						<td align="center" bgcolor="#90745e">
 						Copyright Notice
 						</td>
 					</tr>
