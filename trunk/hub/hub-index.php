@@ -31,6 +31,7 @@ require_once 'hub/news.php';
 					</tr>
 				</table>
 
+<?php /*
 				<table cellspacing="0" cellpadding="0" border="0" width="707">
 					<tr>
 						<td align="left" valign="top" bgcolor="#90745e">
@@ -39,7 +40,8 @@ require_once 'hub/news.php';
 							?>
 						</td>
 						<td align="center" bgcolor="#90745e">
-<?php /*														
+*/ ?>							
+<?php /*
 							<font size="+1"><b>Ludum Dare 16 Countdown</b> - <font color="#fbda81">
 							<?php
 							include 'compo/wp-content/themes/ludum/countdown.php';
@@ -48,6 +50,8 @@ require_once 'hub/news.php';
 							<br />
 							<br />
 */ ?>							
+<?php /*
+
 							<font size="+1">
 							<?php
 							$news = 'http://www.ludumdare.com/compo/author/news/';
@@ -92,6 +96,7 @@ require_once 'hub/news.php';
 						</td>
 					</tr>
 				</table>
+*/ ?>
 				<table cellspacing="0" cellpadding="6" border="0" width="707">
 					<tr>
 						<td align="center" valign="top" bgcolor="#a4866a">
@@ -103,8 +108,8 @@ require_once 'hub/news.php';
 							<a href="planet/"><img src="hub/hub-planet.png" border="0"></a><br />
 							Syndicated blogs from the Ludum Dare community<br />
 							<br />
-							<a href="wiki/"><img src="hub/hub-wiki.png" border="0"></a><br />
-							Competition rules and more<br />
+							<!--<a href="wiki/"><img src="hub/hub-wiki.png" border="0"></a>--><br />
+							<!--Competition rules and more--><br />
 							<br />
 							</font>
 						</td>
@@ -124,6 +129,8 @@ require_once 'hub/news.php';
 						</td>
 					</tr>
 				</table>
+<?php /*
+
 				<table cellspacing="0" cellpadding="16" border="0" width="707">
 					<tr>
 						<td bgcolor="#90745e">
@@ -185,6 +192,7 @@ require_once 'hub/news.php';
 						</td>
 					</tr>
 				</table>
+*/ ?>
 				<table cellspacing="0" cellpadding="0" border="0" width="707">
 					<tr>
 						<td align="center" bgcolor="#a4866a">
