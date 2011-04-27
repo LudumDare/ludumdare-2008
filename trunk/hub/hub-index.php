@@ -108,8 +108,8 @@ require_once 'hub/news.php';
 							<a href="planet/"><img src="hub/hub-planet.png" border="0"></a><br />
 							Syndicated blogs from the Ludum Dare community<br />
 							<br />
-							<!--<a href="wiki/"><img src="hub/hub-wiki.png" border="0"></a>--><br />
-							<!--Competition rules and more--><br />
+							<a href="http://twitter.com/ludumdare"><img src="hub/twitter.png" border="0"></a><br />
+							Follow Ludum Dare on Twitter. Use hashtag #LD48<br />
 							<br />
 							</font>
 						</td>
