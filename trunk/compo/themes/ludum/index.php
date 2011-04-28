@@ -35,8 +35,9 @@
 					<?php the_content('Read the rest of this entry &raquo;'); ?>
 				</div>
 				<?php echo my_get_buttons(); ?>
-				
-				<p class="postmetadata"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?><span style="float: right;border: 1px solid #eee;padding: 2px;background: #fff;"><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?></span></p>
+
+				<!--<p class="postmetadata">--><div class="postmetadata"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></div><!--</p>-->
+				<span style="float: right;border: 1px solid #eee;padding: 2px;background: #fff;"><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?></span>
 			</div>
 
 		<?php endwhile; ?>
