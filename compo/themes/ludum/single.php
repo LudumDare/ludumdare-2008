@@ -50,7 +50,7 @@
 							// Neither Comments, nor Pings are open ?>
 							Both comments and pings are currently closed.
 
-						<?php } edit_post_link('Edit this entry.','',''); ?>
+						<?php } edit_post_link('Edit this entry.','',''); ?><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?>
 
 					</small>
 				</p>
