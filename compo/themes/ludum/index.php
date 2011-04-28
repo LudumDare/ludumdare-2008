@@ -36,10 +36,7 @@
 				</div>
 				<?php echo my_get_buttons(); ?>
 
-				<div style="margin: 0 auto">
-					<div style="float: right;border: 1px solid #eee;padding: 2px;background: #fff;"><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?></div>
-					<div class="postmetadata"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></div>
-				</div>
+				<div class="postmetadata"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?> | <?php if(function_exists(getILikeThis)) getILikeThis('get'); ?></div>
 			</div>
 
 		<?php endwhile; ?>
