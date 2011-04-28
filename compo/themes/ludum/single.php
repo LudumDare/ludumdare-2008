@@ -33,6 +33,8 @@
 						on <?php the_time('l, F jS, Y') ?> at <?php the_time() ?>
 						and is filed under <?php the_category(', ') ?>.
 						You can follow any responses to this entry through the <?php comments_rss_link('RSS 2.0'); ?> feed.
+						
+						You can like the post here:<?php if(function_exists(getILikeThis)) getILikeThis('get'); ?>.
 
 						<?php if (('open' == $post-> comment_status) && ('open' == $post->ping_status)) {
 							// Both Comments and Pings are open ?>
@@ -50,7 +52,7 @@
 							// Neither Comments, nor Pings are open ?>
 							Both comments and pings are currently closed.
 
-						<?php } edit_post_link('Edit this entry.','',''); ?><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?>
+						<?php } edit_post_link('Edit this entry.','',''); ?>
 
 					</small>
 				</p>
