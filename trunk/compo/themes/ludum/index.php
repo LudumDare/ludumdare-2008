@@ -25,7 +25,7 @@
 <?php } else { ?>
 			<div class="post" id="post-<?php the_ID(); ?>">
 <?php } ?>
-			<div style="float: right;border: 1px solid #eee;padding: 2px;background: #fff;"><?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?></div>
+				<div style="float: right;border: 1px solid #eee;padding: 2px;background: #fff;"><?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?></div>
 				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
                        		<div>Posted by <?php the_author_posts_link(); ?> </div>
 				<small><?php the_time('F jS, Y g:i a') ?> <!-- by <?php the_author() ?> --></small>
@@ -36,7 +36,7 @@
 				</div>
 				<?php echo my_get_buttons(); ?>
 
-				<div class="postmetadata"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></div>
+				<div class="postmetadata" style="float: center"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></div>
 				<div style="float: right;border: 1px solid #eee;padding: 2px;background: #fff;"><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?></div>
 			</div>
 
