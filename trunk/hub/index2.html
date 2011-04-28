@@ -15,12 +15,19 @@ font-family:arial,verdana,sans-serif;
 #twitter_div {
     background: #90745e;
     padding-top: 5px;
+    margin-bottom: 5px;
 }
  
 #twitter_div ul {
     margin:0px;padding:0px;
       list-style-type: none;
 
+}
+
+#ld_on_twitter {
+    margin: 10px 180px 5px 180px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #a4866a;
 }
  
 #twitter_div ul li {
@@ -37,7 +44,7 @@ font-family:arial,verdana,sans-serif;
 #twitter_div #t_0 {
     font-size:24px;
     border-top: 0px;
-    padding-top: 2px;
+    padding-top: 3px;
 }
 #twitter_div #t_0 a {
     font-size:24px;
@@ -156,15 +163,13 @@ function relative_time(time_value) {
 <div><img src="hub/grad-bar.png"></div>
 				<table cellspacing="0" cellpadding="0" border="0" width="707" bgcolor="#90745e">
 				<tr><td>
-					<br />
-					<center><a href="http://twitter.com/ludumdare"><img src="hub/ld-on-twitter.png" border="0" /></a></center>
+					<div id='ld_on_twitter'><center><a href="http://twitter.com/ludumdare"><img src="hub/ld-on-twitter.png" border="0" /></a></center></div>
 <!-- TWITTER -->
 <div id="twitter_div">
 	<ul id="twitter_update_list">
 		<li></li>
 	</ul>
 </div>
-<div>&nbsp;</div>
 <!-- <script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script> -->
 <script type="text/javascript" src="http://api.twitter.com/1/statuses/user_timeline.json?screen_name=ludumdare&callback=twitterCallback2&count=3&include_rts=1"></script>
 <!-- END TWITTER -->
