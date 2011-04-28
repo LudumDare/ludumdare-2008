@@ -23,7 +23,7 @@
 <?php } else if ( is_sticky() ) { ?>
 			<div class="post" style="background: #f7f0ff;" id="post-<?php the_ID(); ?>">
 <?php } else { ?>
-			<div class="post" id="post-<?php the_ID(); ?>">
+			<div class="post" id="post-<?php the_ID(); ?>" <?php if ( get_post_meta($post_ID, '_liked', true) > 1 ) { ?> style="background: #f7f0ff;"<?php } ?> >
 <?php } ?>
 				<div style="float: right;border: 1px solid #eee;padding: 2px;background: #fff;"><?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?></div>
 				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
