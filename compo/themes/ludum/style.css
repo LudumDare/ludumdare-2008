@@ -10,14 +10,14 @@ Tags: blue, custom header, fixed width, two columns, widgets
 */
 
 /* Countdown Timer Stylings... maybe! */
-fergcorp_countdownTimer_event_title { 
+.fergcorp_countdownTimer_event_title { 
 	font-size:16px; 
 } 
-fergcorp_countdownTimer_event_time { 
+.fergcorp_countdownTimer_event_time { 
 	font-weight:bold;
 	font-size:16px; 
 } 
-fergcorp_countdownTimer_event_li { 
+.fergcorp_countdownTimer_event_li { 
 	list-style-type:none;
 }
 
