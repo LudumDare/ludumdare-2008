@@ -16,6 +16,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .fergcorp_countdownTimer_event_time { 
 	font-weight:bold;
 	font-size:16px; 
+	color:#FF8800;
 } 
 .fergcorp_countdownTimer_event_li { 
 	list-style-type:none;
