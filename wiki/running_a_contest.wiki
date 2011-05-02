@@ -60,6 +60,7 @@ Here are all the compo2 tag attributes.
 
 = Rating Entries =
  # Change the STATE to "rate"
+NOTE: if gamejam=1, all new entries will be part of the gamejam at this point.
 
 = Viewing Results =
  # Change the STATE to "results"
