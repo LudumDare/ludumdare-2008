@@ -18,7 +18,7 @@
                 $auth = get_userdata($uid);
                 echo $auth->display_name;
 		?><?php $aff = get_the_author_meta('affiliation', $uid); if (($aff != null) && ($aff != '')) { echo ' of ' . $aff; } ?><?php $twitter = get_the_author_meta('twitter', $uid); if (($twitter != null) && ($twitter != '')) { echo ' (twitter: <a target="_blank" href="http://twitter.com/' . $twitter . '">@' . $twitter . '</a>)'; } ?></h2>
-		<div class="post-with-border">
+		<div class="post" id="description">
 			<?php echo wpautop($auth->description); ?>
 		</div>
 
@@ -28,6 +28,7 @@
                 echo $auth->display_name;
 		?>'s Trophies</h2>
 		<?php } ?>
+<div class="post" id="trophies">
 <?php
 if (is_author() && is_category()) {
 ?>
@@ -38,13 +39,16 @@ if (is_author() && is_category()) {
     $mylink = get_option('home')."/author/{$auth->user_nicename}/?compo_action=form";
     echo "<form method=post action='$mylink'><input type='submit' value='Award a trophy!'></form>";
     
+/*
     compo_rate(get_query_var("cat"),get_query_var("author"));
 } elseif (is_author()) {
     compo_trophy(get_query_var("author"));
 } elseif (is_category()) {
     compo_results(get_query_var("cat"));
 }
+*/
 ?>
+</div>
 
  	  <?php /* If this is a category archive */ if (is_category()) { ?>
 		<h2 class="pagetitle">Archive for the &#8216;<?php single_cat_title(); ?>&#8217; Category</h2>
