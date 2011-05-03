@@ -25,7 +25,7 @@
 <?php } else if ( get_post_meta(get_the_ID(), '_liked', true) >= 4 ) { ?>
 			<div class="post" style="background: #fff0f0 url('/compo/wp-content/themes/ludum/povimg/Heart.png') no-repeat top left;border: 1px solid #ff4444;" id="post-<?php the_ID(); ?>" >
 <?php } else if ( get_the_author_meta('user_level') == 7 ) { ?>
-			<div class="post" style="background: url('/compo/wp-content/themes/ludum/povimg/Moderator.png') no-repeat top left;" id="post-<?php the_ID(); ?>">
+			<div class="post" style="background: #ffffff url('/compo/wp-content/themes/ludum/povimg/Moderator.png') no-repeat top left;" id="post-<?php the_ID(); ?>">
 <?php } else { ?>
 			<div class="post" id="post-<?php the_ID(); ?>" >
 <?php } ?>
