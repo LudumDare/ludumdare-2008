@@ -410,6 +410,9 @@ h2 {
 h2.pagetitle {
 	margin-top: 0px;
 	text-align: center;
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;
+	background: #badff2;
 }
 
 #sidebar h2 {
