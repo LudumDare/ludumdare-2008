@@ -150,10 +150,6 @@ $rss_items = $rss->get_items(0, $maxitems);
 */                        
                         ?><!--</ul>-->
 			<?php endif; ?>
-
-			
-			<li><h2>Recent Trophies</h2>
-			<?php compo_trophy_sidebar(); ?>
 		</ul>
 	</div>
 

@@ -553,7 +553,7 @@ ol li, #sidebar ul ol li {
 	}
 
 #sidebar #searchform #s {
-	width: 108px;
+	width: 192px;
 	padding: 2px;
 	}
 
@@ -567,6 +567,10 @@ ol li, #sidebar ul ol li {
 
 select {
 	width: 130px;
+	}
+
+.postform {
+	width: 256px;
 	}
 
 #commentform input {
