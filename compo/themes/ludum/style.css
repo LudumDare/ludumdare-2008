@@ -325,7 +325,14 @@ body {
 .widecolumn {
 	padding: 10px 0 5px 0;
 	margin: 5px 0 0 162px;
-	width: 614px;
+	width: 634px;
+	}
+
+.fullcolumn {
+	float: left;
+	padding: 0 0 5px 20px;
+	margin: 0px 0 0;
+	width: 920px;
 	}
 
 .post {
