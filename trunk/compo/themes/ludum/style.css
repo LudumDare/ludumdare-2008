@@ -317,9 +317,9 @@ body {
 
 .narrowcolumn {
 	float: left;
-	padding: 0 0 5px 28px;
+	padding: 0 0 5px 20px;
 	margin: 0px 0 0;
-	width: 604px;
+	width: 614px;
 	}
 
 .widecolumn {
@@ -646,7 +646,7 @@ select {
 #sidebar
 {
 	padding: 20px 0 10px 0;
-	margin-left: 655px;
+	margin-left: 650px;
 	width: 290px;
 	}
 
