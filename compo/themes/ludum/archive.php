@@ -39,14 +39,14 @@ if (is_author() && is_category()) {
     $mylink = get_option('home')."/author/{$auth->user_nicename}/?compo_action=form";
     echo "<form method=post action='$mylink'><input type='submit' value='Award a trophy!'></form>";
     
-/*
+
     compo_rate(get_query_var("cat"),get_query_var("author"));
 } elseif (is_author()) {
     compo_trophy(get_query_var("author"));
 } elseif (is_category()) {
     compo_results(get_query_var("cat"));
 }
-*/
+
 ?>
 </div>
 
