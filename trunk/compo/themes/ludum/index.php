@@ -19,7 +19,7 @@
 <?php if ( get_the_author_meta('display_name') == 'news' ) { ?>
 			<div class="post" style="background: #f0fff0;border: 1px solid #44ff44;" id="post-<?php the_ID(); ?>">
 <?php } else if ( get_the_author_meta('user_level') == 10 ) { ?>
-			<div class="post" style="background: #fffff0;border: 1px solid #ffcc44;" id="post-<?php the_ID(); ?>">
+			<div class="post" style="background: #fffff0 url('/compo/wp-content/themes/ludum/povimg/Heart.png') no-repeat top left;border: 1px solid #ffcc44;" id="post-<?php the_ID(); ?>">
 <?php } else if ( is_sticky() ) { ?>
 			<div class="post" style="background: #f7f0ff;border: 1px solid #8844ff;" id="post-<?php the_ID(); ?>">
 <?php } else { ?>
