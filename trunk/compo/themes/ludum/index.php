@@ -10,7 +10,7 @@
 <?php endif; ?>
 -->
 
-<a name="the-entries"/>
+<?php /* <a name="the-entries"/> */ ?>
 
 	<?php if (have_posts()) : ?>
 
