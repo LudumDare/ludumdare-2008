@@ -17,7 +17,7 @@
 		$uid = get_query_var("author");
                 $auth = get_userdata($uid);
                 echo $auth->display_name;
-		?></h2>
+		?><?php $aff = get_the_author_meta('affiliation', get_the_author_ID()); if (($aff != null) && ($aff != '')) { echo ' of ' . $aff; } ?><?php $twitter = get_the_author_meta('twitter', get_the_author_ID()); if (($twitter != null) && ($twitter != '')) { echo ' (twitter: <a target="_blank" href="http://twitter.com/' . $twitter . '">@' . $twitter . '</a>)'; } ?></h2>
 		<div class="post">
 			<?php echo wpautop($auth->description); ?>
 		</div>
@@ -90,11 +90,15 @@ if (is_author() && is_category()) {
 
 		<?php while (have_posts()) : the_post(); ?>
 <?php if ( get_the_author_meta('display_name') == 'news' ) { ?>
-			<div class="post" style="background: #f0fff0;">
+			<div class="post" style="background: #f0fff0 url('/compo/wp-content/themes/ludum/povimg/News.png') no-repeat top left;border: 1px solid #44ff88;">
 <?php } else if ( get_the_author_meta('user_level') == 10 ) { ?>
-			<div class="post" style="background: #fffff0;">
+			<div class="post" style="background: #fffff0 url('/compo/wp-content/themes/ludum/povimg/Admin.png') no-repeat top left;border: 1px solid #ffcc44;">
 <?php } else if ( is_sticky() ) { ?>
-			<div class="post" style="background: #f7f0ff;">
+			<div class="post" style="background: #f7f0ff url('/compo/wp-content/themes/ludum/povimg/Featured.png') no-repeat top left;border: 1px solid #8844ff;">
+<?php } else if ( get_post_meta(get_the_ID(), '_liked', true) >= 4 ) { ?>
+			<div class="post" style="background: #fff0f0 url('/compo/wp-content/themes/ludum/povimg/Heart.png') no-repeat top left;border: 1px solid #ff4444;">
+<?php } else if ( get_the_author_meta('user_level') == 7 ) { ?>
+			<div class="post" style="background: #ffffff url('/compo/wp-content/themes/ludum/povimg/Moderator.png') no-repeat top left;">
 <?php } else { ?>
 			<div class="post">
 <?php } ?>
@@ -109,7 +113,7 @@ if (is_author() && is_category()) {
 				</div>
 				<?php echo my_get_buttons(); ?>
 
-				<p class="postmetadata"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' | '); ?>  <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></p>
+				<p class="postmetadata"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> | <?php edit_post_link('Edit', '', ' |'); ?><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></p>
 				
 				<?php get_tags(); ?>
 
