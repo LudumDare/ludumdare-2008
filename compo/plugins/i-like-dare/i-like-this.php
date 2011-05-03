@@ -71,27 +71,27 @@ register_uninstall_hook(__FILE__, 'unsetOptionsILT');
 
 
 #### ADMIN OPTIONS ####
-function ILikeThisAdminMenu() {
-	add_options_page('I Like This', 'I Like This', '10', 'ILikeThisAdminMenu', 'ILikeThisAdminContent');
+function ILikeDareAdminMenu() {
+	add_options_page('I Like Dare', 'I Like Dare', '10', 'ILikeDareAdminMenu', 'ILikeDareAdminContent');
 }
-add_action('admin_menu', 'ILikeThisAdminMenu');
+add_action('admin_menu', 'ILikeDareAdminMenu');
 
-function ILikeThisAdminRegisterSettings() { // whitelist options
+function ILikeDareAdminRegisterSettings() { // whitelist options
 	register_setting( 'ilt_options', 'ilt_jquery' );
 	register_setting( 'ilt_options', 'ilt_onPage' );
 	register_setting( 'ilt_options', 'ilt_textOrImage' );
 	register_setting( 'ilt_options', 'ilt_text' );
 }
-add_action('admin_init', 'ILikeThisAdminRegisterSettings');
+add_action('admin_init', 'ILikeDareAdminRegisterSettings');
 
-function ILikeThisAdminContent() {
+function ILikeDareAdminContent() {
 ?>
 <div class="wrap">
-	<h2>"I Like This" Options</h2>
+	<h2>"I Like Dare" Options</h2>
 	<br class="clear" />
 			
 	<div id="poststuff" class="ui-sortable meta-box-sortables">
-		<div id="ilikethisoptions" class="postbox">
+		<div id="ilikedareoptions" class="postbox">
 		<h3><?php _e('Configuration'); ?></h3>
 			<div class="inside">
 			<form method="post" action="options.php">
@@ -125,7 +125,7 @@ function ILikeThisAdminContent() {
 						<?php echo get_option('ilt_onPage') == '1' ? '<input type="checkbox" name="ilt_onPage" id="ilt_onPage" value="1" checked="checked">' : '<input type="checkbox" name="ilt_onPage" id="ilt_onPage" value="1">'; ?>
 						<?php _e('<strong>On all posts</strong> (home, archives, search) at the bottom of the post', 'i-like-dare'); ?>
 						</label>
-						<p class="description"><?php _e('If you disable this option, you have to put manually the code', 'i-like-dare'); ?><code>&lt;?php if(function_exists(getILikeThis)) getILikeThis('get'); ?&gt;</code> <?php _e('wherever you want in your template.', 'i-like-dare'); ?></p>
+						<p class="description"><?php _e('If you disable this option, you have to put manually the code', 'i-like-dare'); ?><code>&lt;?php if(function_exists(getILikeDare)) getILikeDare('get'); ?&gt;</code> <?php _e('wherever you want in your template.', 'i-like-dare'); ?></p>
 					</td>
 				</tr>
 				<tr valign="top">
@@ -139,7 +139,7 @@ function ILikeThisAdminContent() {
 	</div>
 	
 	<div id="poststuff" class="ui-sortable meta-box-sortables">
-		<div id="ilikethisoptions" class="postbox">
+		<div id="ilikedareoptions" class="postbox">
 		<h3><?php _e('You like this plugin?'); ?></h3>
 			<div class="inside">
 				<form name="_xclick" action="https://www.paypal.com/cgi-bin/webscr" method="post">
@@ -243,7 +243,7 @@ add_action('init', 'add_widget_most_liked_posts');
 
 
 #### FRONT-END VIEW ####
-function getILikeThis($arg) {
+function getILikeDare($arg) {
 	global $wpdb;
 	$post_ID = get_the_ID();
 	$ip = $_SERVER['REMOTE_ADDR'];
@@ -281,14 +281,14 @@ function getILikeThis($arg) {
 }
 
 if (get_option('ilt_onPage') == '1') {
-	function putILikeThis($content) {
+	function putILikeDare($content) {
 		if(!is_feed() && !is_page()) {
-			$content.= getILikeThis('put');
+			$content.= getILikeDare('put');
 		}
 	    return $content;
 	}
 
-	add_filter('the_content', putILikeThis);
+	add_filter('the_content', putILikeDare);
 }
 
 function enqueueScripts() {
