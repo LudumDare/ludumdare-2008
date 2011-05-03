@@ -17,13 +17,13 @@
 		<?php while (have_posts()) : the_post(); ?>
 
 <?php if ( get_the_author_meta('display_name') == 'news' ) { ?>
-			<div class="post" style="background: #f0fff0;" id="post-<?php the_ID(); ?>">
+			<div class="post" style="background: #f0fff0;border: #c0ffc0;" id="post-<?php the_ID(); ?>">
 <?php } else if ( get_the_author_meta('user_level') == 10 ) { ?>
-			<div class="post" style="background: #fffff0;" id="post-<?php the_ID(); ?>">
+			<div class="post" style="background: #fffff0;border: #ffffc0;" id="post-<?php the_ID(); ?>">
 <?php } else if ( is_sticky() ) { ?>
-			<div class="post" style="background: #f7f0ff;" id="post-<?php the_ID(); ?>">
+			<div class="post" style="background: #f7f0ff;border: #e0c0ff;" id="post-<?php the_ID(); ?>">
 <?php } else { ?>
-			<div class="post" id="post-<?php the_ID(); ?>" <?php if ( get_post_meta(get_the_ID(), '_liked', true) >= 4 ) { ?> style="background: #fff0f0;"<?php } ?> >
+			<div class="post" id="post-<?php the_ID(); ?>" <?php if ( get_post_meta(get_the_ID(), '_liked', true) >= 4 ) { ?> style="background: #fff0f0;border: #ffd0d0;"<?php } ?> >
 <?php } ?>
 				<div style="float: right;border: 1px solid #eee;padding: 2px;background: #fff;"><?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?></div>
 				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
