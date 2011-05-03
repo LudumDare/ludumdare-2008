@@ -1,11 +1,9 @@
 <?php
 /*
-Plugin Name: I Like This
-Plugin URI: http://www.my-tapestry.com/i-like-this/
-Description: This plugin allows your visitors to simply like your posts instead of commment it.
-Version: 1.7.1
-Author: Benoit "LeBen" Burgener
-Author URI: http://benoitburgener.com
+Plugin Name: I Like Dare
+Description: Modified version of "I Like This" by Benoit "LeBen" Burgener
+Version: 1.0 (based on I Like This 1.7.1)
+Author: Mike Kasprzak
 
 Copyright 2009  BENOIT LEBEN BURGENER  (email : CONTACT@BENOITBURGENER.COM)
 
@@ -21,7 +19,7 @@ GNU General Public License for more details.
 */
 
 #### LOAD TRANSLATIONS ####
-load_plugin_textdomain('i-like-this', 'wp-content/plugins/i-like-this/lang/', 'i-like-this/lang/');
+load_plugin_textdomain('i-like-dare', 'wp-content/plugins/i-like-dare/lang/', 'i-like-dare/lang/');
 ####
 
 
@@ -100,18 +98,18 @@ function ILikeThisAdminContent() {
 			<?php settings_fields('ilt_options'); ?>
 			<table class="form-table">
 				<tr valign="top">
-					<th scope="row"><label for="ilt_jquery"><?php _e('jQuery framework', 'i-like-this'); ?></label></th>
+					<th scope="row"><label for="ilt_jquery"><?php _e('jQuery framework', 'i-like-dare'); ?></label></th>
 					<td>
 						<select name="ilt_jquery" id="ilt_jquery">
-							<?php echo get_option('ilt_jquery') == '1' ? '<option value="1" selected="selected">'.__('Enabled', 'i-like-this').'</option><option value="0">'.__('Disabled', 'i-like-this').'</option>' : '<option value="1">'.__('Enabled', 'i-like-this').'</option><option value="0" selected="selected">'.__('Disabled', 'i-like-this').'</option>'; ?>
+							<?php echo get_option('ilt_jquery') == '1' ? '<option value="1" selected="selected">'.__('Enabled', 'i-like-dare').'</option><option value="0">'.__('Disabled', 'i-like-dare').'</option>' : '<option value="1">'.__('Enabled', 'i-like-dare').'</option><option value="0" selected="selected">'.__('Disabled', 'i-like-dare').'</option>'; ?>
 						</select>
-						<span class="description"><?php _e('Disable it if you already have the jQuery framework enabled in your theme.', 'i-like-this'); ?></span>
+						<span class="description"><?php _e('Disable it if you already have the jQuery framework enabled in your theme.', 'i-like-dare'); ?></span>
 					</td>
 				</tr>
 				<tr valign="top">
-					<th scope="row"><legend><?php _e('Image or text?', 'i-like-this'); ?></legend></th>
+					<th scope="row"><legend><?php _e('Image or text?', 'i-like-dare'); ?></legend></th>
 					<td>
-						<label for="ilt_textOrImage" style="padding:3px 20px 3px 0; margin-right:20px; background: url(<?php echo WP_PLUGIN_URL.'/i-like-this/css/add.png'; ?>) no-repeat right center;">
+						<label for="ilt_textOrImage" style="padding:3px 20px 3px 0; margin-right:20px; background: url(<?php echo WP_PLUGIN_URL.'/i-like-dare/css/add.png'; ?>) no-repeat right center;">
 						<?php echo get_option('ilt_textOrImage') == 'image' ? '<input type="radio" name="ilt_textOrImage" id="ilt_textOrImage" value="image" checked="checked">' : '<input type="radio" name="ilt_textOrImage" id="ilt_textOrImage" value="image">'; ?>
 						</label>
 						<label for="ilt_text">
@@ -121,17 +119,17 @@ function ILikeThisAdminContent() {
 					</td>
 				</tr>
 				<tr valign="top">
-					<th scope="row"><legend><?php _e('Automatic display', 'i-like-this'); ?></legend></th>
+					<th scope="row"><legend><?php _e('Automatic display', 'i-like-dare'); ?></legend></th>
 					<td>
 						<label for="ilt_onPage">
 						<?php echo get_option('ilt_onPage') == '1' ? '<input type="checkbox" name="ilt_onPage" id="ilt_onPage" value="1" checked="checked">' : '<input type="checkbox" name="ilt_onPage" id="ilt_onPage" value="1">'; ?>
-						<?php _e('<strong>On all posts</strong> (home, archives, search) at the bottom of the post', 'i-like-this'); ?>
+						<?php _e('<strong>On all posts</strong> (home, archives, search) at the bottom of the post', 'i-like-dare'); ?>
 						</label>
-						<p class="description"><?php _e('If you disable this option, you have to put manually the code', 'i-like-this'); ?><code>&lt;?php if(function_exists(getILikeThis)) getILikeThis('get'); ?&gt;</code> <?php _e('wherever you want in your template.', 'i-like-this'); ?></p>
+						<p class="description"><?php _e('If you disable this option, you have to put manually the code', 'i-like-dare'); ?><code>&lt;?php if(function_exists(getILikeThis)) getILikeThis('get'); ?&gt;</code> <?php _e('wherever you want in your template.', 'i-like-dare'); ?></p>
 					</td>
 				</tr>
 				<tr valign="top">
-					<th scope="row"><input class="button-primary" type="submit" name="Save" value="<?php _e('Save Options', 'i-like-this'); ?>" /></th>
+					<th scope="row"><input class="button-primary" type="submit" name="Save" value="<?php _e('Save Options', 'i-like-dare'); ?>" /></th>
 					<td></td>
 				</tr>
 			</table>
@@ -226,13 +224,13 @@ function add_widget_most_liked_posts() {
 			update_option("most_liked_posts", $options);
 		}
 		?>
-		<p><label for="mlp-title"><?php _e('Title:', 'i-like-this'); ?><br />
+		<p><label for="mlp-title"><?php _e('Title:', 'i-like-dare'); ?><br />
 		<input class="widefat" type="text" id="mlp-title" name="mlp-title" value="<?php echo $options['title'];?>" /></label></p>
 		
-		<p><label for="mlp-number"><?php _e('Number of posts to show:', 'i-like-this'); ?><br />
+		<p><label for="mlp-number"><?php _e('Number of posts to show:', 'i-like-dare'); ?><br />
 		<input type="text" id="mlp-number" name="mlp-number" style="width: 25px;" value="<?php echo $options['number'];?>" /> <small>(max. 15)</small></label></p>
 		
-		<p><label for="mlp-show-count"><input type="checkbox" id="mlp-show-count" name="mlp-show-count" value="1"<?php if($options['show_count'] == '1') echo 'checked="checked"'; ?> /> <?php _e('Show post count', 'i-like-this'); ?></label></p>
+		<p><label for="mlp-show-count"><input type="checkbox" id="mlp-show-count" name="mlp-show-count" value="1"<?php if($options['show_count'] == '1') echo 'checked="checked"'; ?> /> <?php _e('Show post count', 'i-like-dare'); ?></label></p>
 		
 		<input type="hidden" id="mlp-submit" name="mlp-submit" value="1" />
 		<?php
@@ -266,7 +264,12 @@ function getILikeThis($arg) {
     }
     
     $iLikeThis = '<div id="iLikeThis-'.$post_ID.'" class="iLikeThis">';
+	if ( $counter == 0 ) {
+    	$iLikeThis .= '<span class="counter0">'.$counter.'</span>';
+	}
+	else {
     	$iLikeThis .= '<span class="counter">'.$counter.'</span>';
+    }
     $iLikeThis .= '</div>';
     
     if ($arg == 'put') {
@@ -290,15 +293,15 @@ if (get_option('ilt_onPage') == '1') {
 
 function enqueueScripts() {
 	if (get_option('ilt_jquery') == '1') {
-	    wp_enqueue_script('iLikeThis', WP_PLUGIN_URL.'/i-like-this/js/i-like-this.js', array('jquery'));	
+	    wp_enqueue_script('iLikeThis', WP_PLUGIN_URL.'/i-like-dare/js/i-like-this.js', array('jquery'));	
 	}
 	else {
-	    wp_enqueue_script('iLikeThis', WP_PLUGIN_URL.'/i-like-this/js/i-like-this.js');	
+	    wp_enqueue_script('iLikeThis', WP_PLUGIN_URL.'/i-like-dare/js/i-like-this.js');	
 	}
 }
 
 function addHeaderLinks() {
-	echo '<link rel="stylesheet" type="text/css" href="'.WP_PLUGIN_URL.'/i-like-this/css/i-like-this.css" media="screen" />'."\n";
+	echo '<link rel="stylesheet" type="text/css" href="'.WP_PLUGIN_URL.'/i-like-dare/css/i-like-this.css" media="screen" />'."\n";
 	echo '<script type="text/javascript">var blogUrl = \''.get_bloginfo('wpurl').'\'</script>'."\n";
 }
 
