@@ -18,7 +18,7 @@
                 $auth = get_userdata($uid);
                 echo $auth->display_name;
 		?><?php $aff = get_the_author_meta('affiliation', $uid); if (($aff != null) && ($aff != '')) { echo ' of ' . $aff; } ?><?php $twitter = get_the_author_meta('twitter', $uid); if (($twitter != null) && ($twitter != '')) { echo ' (twitter: <a target="_blank" href="http://twitter.com/' . $twitter . '">@' . $twitter . '</a>)'; } ?></h2>
-		<div class="post">
+		<div class="post-with-border">
 			<?php echo wpautop($auth->description); ?>
 		</div>
 
