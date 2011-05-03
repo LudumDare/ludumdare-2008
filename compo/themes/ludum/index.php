@@ -2,7 +2,7 @@
 
 
 	<div id="content" class="narrowcolumn">
-<!--
+<?php /* <!--
 <?php if (isset($_REQUEST["mythumb_nav"])): ?>
 <p><div id='mythumb'><?php mythumb_nav(); ?></div></p>
 <?php else: ?>
@@ -10,7 +10,7 @@
 <?php endif; ?>
 -->
 
-<?php /* <a name="the-entries"/> */ ?>
+<a name="the-entries"/> */ ?>
 
 	<?php if (have_posts()) : ?>
 
