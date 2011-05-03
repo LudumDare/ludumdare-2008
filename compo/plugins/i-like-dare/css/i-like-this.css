@@ -1,0 +1,4 @@
+.iLikeThis { display:inline; }
+.iLikeThis .counter { background:url(heart.png) center left no-repeat; padding:0 0 0 20px; font-weight:bold; margin-left:5px; }
+.iLikeThis .counter a { cursor:pointer; }
+.iLikeThis .counter a.image { background:url(add.png) center right no-repeat; padding:0 20px 0 0; }
