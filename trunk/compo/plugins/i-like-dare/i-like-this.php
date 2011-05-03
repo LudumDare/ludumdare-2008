@@ -280,6 +280,10 @@ function getILikeDare($arg) {
     }
 }
 
+function getILikeThis($arg) {
+	return getILikeDare(%arg);
+}
+
 if (get_option('ilt_onPage') == '1') {
 	function putILikeDare($content) {
 		if(!is_feed() && !is_page()) {
