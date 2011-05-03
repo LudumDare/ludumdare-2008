@@ -264,7 +264,7 @@ function getILikeThis($arg) {
     }
     
     $iLikeThis = '<div id="iLikeThis-'.$post_ID.'" class="iLikeThis">';
-	if ( $counter == 0 ) {
+	if ( $liked == 0 ) {
     	$iLikeThis .= '<span class="counter0">'.$counter.'</span>';
 	}
 	else {
