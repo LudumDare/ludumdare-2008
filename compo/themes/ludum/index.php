@@ -17,7 +17,7 @@
 		<?php while (have_posts()) : the_post(); ?>
 
 <?php if ( get_the_author_meta('display_name') == 'news' ) { ?>
-			<div class="post" style="background: #f0fff0 url('/compo/wp-content/themes/ludum/povimg/News.png') no-repeat top left;border: 1px solid #44ff44;" id="post-<?php the_ID(); ?>">
+			<div class="post" style="background: #f0fff0 url('/compo/wp-content/themes/ludum/povimg/News.png') no-repeat top left;border: 1px solid #44ff88;" id="post-<?php the_ID(); ?>">
 <?php } else if ( get_the_author_meta('user_level') == 10 ) { ?>
 			<div class="post" style="background: #fffff0 url('/compo/wp-content/themes/ludum/povimg/Admin.png') no-repeat top left;border: 1px solid #ffcc44;" id="post-<?php the_ID(); ?>">
 <?php } else if ( is_sticky() ) { ?>
