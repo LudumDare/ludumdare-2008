@@ -68,6 +68,9 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     if ($is_admin) { $link .= "&admin=1&uid=$uid"; }
 
     echo "<form method='post' action='$link' enctype='multipart/form-data'>";
+    
+    echo "<input type='hidden' name='formdata' value='1'>";
+    
     echo "<h4>Name of Entry</h4>";
     
     echo "$star <input type='text' name='title' value=\"".htmlentities($ce["title"])."\" size=60> ";
@@ -179,71 +182,77 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
     
     $active = true; $msg = "";
     
-    $ce["title"] = compo2_strip($_REQUEST["title"]);
-    if (!strlen(trim($ce["title"]))) { $active = false; $msg = "Entry name is a required field."; }
-    
-    
-    $ce["etype"] = $_REQUEST["etype"];
-    $ce["is_judged"] = intval(strcmp($ce["etype"],"compo") == 0);
-    if (!strlen($ce["etype"])) {
+    if (!$_REQUEST["formdata"]) {
         $active = false;
-        $msg = "You must select an Entry Type.";
-    }
-    
-    $ce["notes"] = compo2_strip($_REQUEST["notes"]);
-    
-    $shots = unserialize($ce["shots"]);
-    if ($shots == null) { $shots = array(); }
-    for ($i=0; $i<5; $i++) {
-        $k = "shot$i"; $fe = $_FILES[$k];
-        if (!$fe["tmp_name"]) { continue; }
-        list($w,$h) = getimagesize($fe["tmp_name"]);
-        if (!$w) { continue; } if (!$h) { continue; }
-//         unset($shots[$k]);
-        $ext = array_pop(explode(".",$fe["name"]));
-        $cid = $params["cid"];
-        $ts = time();
-//         $fname = "$cid/$uid-$ts.$ext";
-        $fname = "$cid/$uid-$k.$ext";
-        $dname = dirname(__FILE__)."/../../compo2";
-        @mkdir("$dname/$cid");
-        $dest = "$dname/$fname";
-        move_uploaded_file  ( $fe["tmp_name"] ,$dest );
-        $shots[$k] = $fname;
-    }
-    $ce["shots"] = serialize($shots);
-    if (!count($shots)) { $active = false; $msg = "You must include at least one screenshot."; }
-    
-    foreach ($_REQUEST["links"] as $k=>$le) {
-        $_REQUEST["links"][$k] = array(
-            "title"=>compo2_strip($le["title"]),
-            "link"=>compo2_strip($le["link"]),
-        );
-    }
-    $ce["links"] = serialize($_REQUEST["links"]);
-    $ok = false; foreach ($_REQUEST["links"] as $le) {
-        if (strlen(trim($le["title"])) && strlen(trim($le["link"]))) { $ok = true; }
-    }
-    if (!$ok) { $active = false; $msg = "You must include at least one link."; }
-    
-    if ($is_admin) { 
-        $ce["disabled"] = $_REQUEST["disabled"];
-    }
-    if ($ce["disabled"]) { $active = false; $msg = "This entry has been disabled."; }
-    
-//     $ce["data"] = serialize($_REQUEST["data"]);
-    $ce["active"] = intval($active);
-    unset($ce["results"]);
-    if (!$ce["id"]) {
-        $ce["cid"] = $params["cid"];
-        $ce["uid"] = $uid;
-        $ce["ts"] = date("Y-m-d H:i:s");
-        compo2_insert("c2_entry",$ce);
+        $msg = "Invalid request.  Entry not updated.";
     } else {
-        compo2_update("c2_entry",$ce);
-    }
     
-    echo "<h3>Entry Saved</h3>";
+        $ce["title"] = compo2_strip($_REQUEST["title"]);
+        if (!strlen(trim($ce["title"]))) { $active = false; $msg = "Entry name is a required field."; }
+        
+        
+        $ce["etype"] = $_REQUEST["etype"];
+        $ce["is_judged"] = intval(strcmp($ce["etype"],"compo") == 0);
+        if (!strlen($ce["etype"])) {
+            $active = false;
+            $msg = "You must select an Entry Type.";
+        }
+        
+        $ce["notes"] = compo2_strip($_REQUEST["notes"]);
+        
+        $shots = unserialize($ce["shots"]);
+        if ($shots == null) { $shots = array(); }
+        for ($i=0; $i<5; $i++) {
+            $k = "shot$i"; $fe = $_FILES[$k];
+            if (!$fe["tmp_name"]) { continue; }
+            list($w,$h) = getimagesize($fe["tmp_name"]);
+            if (!$w) { continue; } if (!$h) { continue; }
+    //         unset($shots[$k]);
+            $ext = array_pop(explode(".",$fe["name"]));
+            $cid = $params["cid"];
+            $ts = time();
+    //         $fname = "$cid/$uid-$ts.$ext";
+            $fname = "$cid/$uid-$k.$ext";
+            $dname = dirname(__FILE__)."/../../compo2";
+            @mkdir("$dname/$cid");
+            $dest = "$dname/$fname";
+            move_uploaded_file  ( $fe["tmp_name"] ,$dest );
+            $shots[$k] = $fname;
+        }
+        $ce["shots"] = serialize($shots);
+        if (!count($shots)) { $active = false; $msg = "You must include at least one screenshot."; }
+        
+        foreach ($_REQUEST["links"] as $k=>$le) {
+            $_REQUEST["links"][$k] = array(
+                "title"=>compo2_strip($le["title"]),
+                "link"=>compo2_strip($le["link"]),
+            );
+        }
+        $ce["links"] = serialize($_REQUEST["links"]);
+        $ok = false; foreach ($_REQUEST["links"] as $le) {
+            if (strlen(trim($le["title"])) && strlen(trim($le["link"]))) { $ok = true; }
+        }
+        if (!$ok) { $active = false; $msg = "You must include at least one link."; }
+        
+        if ($is_admin) { 
+            $ce["disabled"] = $_REQUEST["disabled"];
+        }
+        if ($ce["disabled"]) { $active = false; $msg = "This entry has been disabled."; }
+        
+    //     $ce["data"] = serialize($_REQUEST["data"]);
+        $ce["active"] = intval($active);
+        unset($ce["results"]);
+        if (!$ce["id"]) {
+            $ce["cid"] = $params["cid"];
+            $ce["uid"] = $uid;
+            $ce["ts"] = date("Y-m-d H:i:s");
+            compo2_insert("c2_entry",$ce);
+        } else {
+            compo2_update("c2_entry",$ce);
+        }
+        
+        echo "<h3>Entry Saved</h3>";
+    }
     
     if (!$active) {
         echo "<p class='error'>$msg</p>";
