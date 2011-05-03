@@ -281,7 +281,7 @@ function getILikeDare($arg) {
 }
 
 function getILikeThis($arg) {
-	return getILikeDare(%arg);
+	return getILikeDare($arg);
 }
 
 if (get_option('ilt_onPage') == '1') {
