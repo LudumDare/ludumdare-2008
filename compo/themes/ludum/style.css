@@ -365,6 +365,7 @@ body {
 
 .postmetadata {
 	clear: both;
+	border-top: 1px dashed;
 }
 
 .clear {
