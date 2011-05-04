@@ -134,6 +134,7 @@ border: 1px solid #ddd;
 #footer {
 	background: url('povimg/LDFooter.png') no-repeat top;
 	border: none;
+	height: 61px
 	}
 
 small {
@@ -296,6 +297,7 @@ body {
 #page {
 	background-color: white;
 	margin: 20px auto;
+	margin-bottom: 0;
 	padding: 0;
 	width: 960px;
 	border: 1px solid #959596;
