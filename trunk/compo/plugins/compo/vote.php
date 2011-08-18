@@ -1,10 +1,20 @@
 <?php
+// ?admin=1 will show results before the voting is closed for admin level users
+
 function _compo_vote($m) {
     list($state,$opts) = explode(":",html_entity_decode($m[1]));
     $opts = explode(";",$opts);
     natcasesort($opts);
     $pid = intval($GLOBALS["post"]->ID);
     ob_start();
+    
+    $user = wp_get_current_user();
+    if ($user->user_level >= 10) {
+        if (isset($_REQUEST["admin"]) {
+            $state = "closed";
+        }
+    }
+
     if ($state == "open") { _compo_vote_do($pid,$opts); }
     if ($state == "open") { _compo_vote_form($pid,$opts); }
     if ($state == "closed") { _compo_vote_results($pid); }
