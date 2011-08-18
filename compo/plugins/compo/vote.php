@@ -10,7 +10,7 @@ function _compo_vote($m) {
     
     $user = wp_get_current_user();
     if ($user->user_level >= 10) {
-        if (isset($_REQUEST["admin"]) {
+        if (isset($_REQUEST["admin"])) {
             $state = "closed";
         }
     }
