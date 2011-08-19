@@ -106,7 +106,7 @@ function _compo2_rate_list($params) {
         $ue = compo2_get_user($ce["uid"]);
         echo "<tr>";
         $img = "inone.gif";
-        $v = round(100*$ce["rate_out"]/(count($r)-1));
+        $v = round(100*$ce["rate_out"]/max(1,(count($r)-1)));
         if ($v >= 25) { $img = "ibronze.gif"; }
         if ($v >= 50) { $img = "isilver.gif"; }
         if ($v >= 75) { $img = "igold.gif"; }
@@ -165,14 +165,16 @@ function _compo2_rate_rate($params,$uid = "") {
         _compo2_preview_show($params,$uid,true);
         return;
     }
+    
+    $div = $ce["etype"];
 
     _compo2_preview_show($params,$uid,false);
     
     $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
     
     if ($params["uid"] != $uid) {
-        echo "<h3>Rate this Entry</h3>";
-    
+        echo "<h3>Rate this {$params["{$div}_title"]} Entry</h3>";
+            
         $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
         echo "<script type='text/javascript' src='$myurl/starry/prototype.lite.js'></script>";
         echo "<script type='text/javascript' src='$myurl/starry/stars.js'></script>";
@@ -180,16 +182,20 @@ function _compo2_rate_rate($params,$uid = "") {
     
         echo "<form method=post action='?action=submit&uid=$uid'>";
         echo "<p>";
-        echo "<table>";
-        $data = unserialize($ve["data"]);
-        foreach ($params["cats"] as $k) {
-            echo "<tr><th>".htmlentities($k);
-            echo "<td>";
-            $v = intval($data[$k]);
-            echo "<script>new Starry('data[$k]',{name:'data[$k]',sprite:'$myurl/starry/newstars.gif',width:20,height:20,startAt:$v});</script>";
-    //         compo2_select("data[$k]",array(""=>"n/a","5"=>"5 - Best","4"=>"4","3"=>"3","2"=>"2","1"=>"1 - Worst"),$v);
+        if (isset($params["{$div}_cats"])) {
+            echo "<table>";
+            $data = unserialize($ve["data"]);
+            foreach ($params["{$div}_cats"] as $k) {
+                echo "<tr><th>".htmlentities($k);
+                echo "<td>";
+                $v = intval($data[$k]);
+                echo "<script>new Starry('data[$k]',{name:'data[$k]',sprite:'$myurl/starry/newstars.gif',width:20,height:20,startAt:$v});</script>";
+        //         compo2_select("data[$k]",array(""=>"n/a","5"=>"5 - Best","4"=>"4","3"=>"3","2"=>"2","1"=>"1 - Worst"),$v);
+            }
+            echo "</table>";
+        } else {
+            echo "<i>This division does not have any voting categories.  Please leave comments for the author.</i>";
         }
-        echo "</table>";
         echo "</p>";
         echo "<h4>Comments (non-anonymous)</h4>";
         $ve["comments"]="";
@@ -213,7 +219,6 @@ function _compo2_rate_submit($params) {
     
     if ($uid == $params["uid"]) { compo2_error("can't vote on your own entry"); }
     
-    compo2_query("delete from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"]));
     $data = array();
     $total = 0;
     foreach ($_REQUEST["data"] as $k=>$v) {
@@ -233,7 +238,6 @@ function _compo2_rate_submit($params) {
         );
     $total += strlen($comments);
     if (strlen($comments)) {
-        $e["comments"] = "1";
         compo2_insert("c2_comments",array(
             "cid"=>$params["cid"],
             "to_uid"=>$uid,
@@ -242,8 +246,15 @@ function _compo2_rate_submit($params) {
             "content"=>$comments,
         ));
     }
+    $r = compo2_query("select * from c2_comments where cid = ? and to_uid = ? and from_uid = ?",array(
+        "cid"=>$params["cid"],
+        "to_uid"=>$uid,
+        "from_uid"=>$params["uid"],
+        ));
+    $e["comments"] = intval(count($r)!=0);
     
     if ($total) {
+        compo2_query("delete from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"]));
         compo2_insert("c2_rate",$e);
     }
     
@@ -277,14 +288,19 @@ function _compo2_rate_recalc($params,$uid) {
     foreach ($params["cats"] as $k) {
         $value = 0;
         $total = 0;
+        $values = array();
         foreach ($r as $ve) {
             if ($ve["from_uid"] == $uid) { continue; } // no voting for self
             $dd = unserialize($ve["data"]);
             if (!strlen($dd[$k])) { continue; }
-            $value += intval($dd[$k]);
-            $total += 1;
+            $values[] = intval($dd[$k]);
         }
-        $data[$k] = ($total>=5?round($value/$total,2):"");
+        sort($values);
+        for($i=0;$i<$params["calc_droplow"];$i++) { array_shift($values); }
+        for($i=0;$i<$params["calc_drophigh"];$i++) { array_pop($values); }
+        foreach($values as $v) { $value += $v; $total += 1; }
+        
+        $data[$k] = ($total>=$params["calc_reqvote"]?round($value/$total,2):"");
     }
     compo2_update("c2_entry",array(
         "id"=>$ce["id"],

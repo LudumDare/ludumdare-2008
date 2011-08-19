@@ -78,9 +78,10 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     ////////////////////////////////////////////////////////////////////////////
     // Handle the entry type.
     ////////////////////////////////////////////////////////////////////////////
+    /*
     @$etype = $ce["etype"];
     $opts = false; $default = "";
-    if ($params["gamejam"]) { // if we're in a gamejam
+    if ($params["gamejam"] == 1 || $params["init"] != 0) { // if we're in a gamejam
         if ($params["state"] == "active") { // and we're active, show the options
             $opts = true;
         } else { // but if we're not active, the default is gamejam
@@ -91,10 +92,22 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     }
     if ($is_admin) { $opts = true; }
     if (!strlen($etype)) { $etype = $default; } // set the default
+    */
     
-    $rules = isset($params["rules"])?$params["rules"]:"#";
+    $opts = true;
+    $divs = $params["opendivs"];
+    @$etype = $ce["etype"];
+    if (strlen($etype)) {
+        if (!in_array($etype,$divs)) {
+            array_unshift($divs,$etype);
+        }
+    }
+    if ($is_admin) { $divs = $params["divs"]; }
+    
+//     $rules = isset($params["rules"])?$params["rules"]:"#";
     if ($opts) {
         echo "<h4>Entry Type</h4>";
+        /*
         $selected = (strcmp($etype,"compo")==0?"checked":"");
         echo "<input type='radio' name='etype' value='compo' $selected /> Competition Entry";
         echo "<div><i>My entry follows all <a href='$rules' target='_blank'>the rules</a> and I want it to be judged.</i></div>";
@@ -103,9 +116,18 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
         echo "<input type='radio' name='etype' value='gamejam' $selected /> Game Jam Entry";
         echo "<div><i>My entry doesn't follow the rules or I don't want it to be judged.</i></div>";
         echo "<div>&nbsp;</div>";
+        */
+        foreach ($divs as $div) {
+            $selected = (strcmp($etype,$div)==0?"checked":"");
+            echo "<input type='radio' name='etype' value='{$div}' $selected /> {$params["{$div}_title"]} Entry";
+            echo "<div><i>{$params["{$div}_summary"]}</i></div>";
+            echo "<div>&nbsp;</div>";
+        }
+    
     } else {
         echo "<input type='hidden' name='etype' value='$etype'>";
     }
+    
     ////////////////////////////////////////////////////////////////////////////
     
     echo "<h4>Notes</h4>";
@@ -192,7 +214,13 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
         
         
         $ce["etype"] = $_REQUEST["etype"];
-        $ce["is_judged"] = intval(strcmp($ce["etype"],"compo") == 0);
+        
+        if ($params["init"] == 0) {
+            $ce["is_judged"] = intval(strcmp($ce["etype"],"compo") == 0);
+        } else {
+            $ce["is_judged"] = 1; // now we judge all entries
+        }
+        
         if (!strlen($ce["etype"])) {
             $active = false;
             $msg = "You must select an Entry Type.";

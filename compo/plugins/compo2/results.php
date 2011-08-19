@@ -192,7 +192,7 @@ function _compo2_results_top($params) {
     $r = _compo2_get_top($params);
     
     $cat = $_REQUEST["cat"];
-    if (!strlen($cat)) { $cat = "Overall"; } // HACK: why overall? who knows!
+    if (!strlen($cat)) { $cat = $params["topcat"]; } // HACK: why overall? who knows!
     // also, this now ignores the nice counting of trophes done earlier ..
     $_cat = $cat; // backup for later
     
