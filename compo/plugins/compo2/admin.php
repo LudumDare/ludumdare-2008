@@ -19,7 +19,20 @@ function _compo2_admin($params) {
         return _compo2_results_results($params);
     } elseif ($action == "top") {
         return _compo2_results_top($params);
+    } elseif ($action == "recalc") {
+        return _compo2_admin_recalc($params);
     }
+}
+
+function _compo2_admin_recalc($params) {
+    echo "<h3>Recaculating Results ...</h3>";
+    $r = compo2_query("select uid from c2_entry where cid = ? and active = 1",array($params["cid"]));
+    foreach ($r as $ce) {
+        $uid = $ce["uid"];
+        _compo2_rate_recalc($params,$uid);
+    }
+    echo "<p>Done.</p>";
+
 }
 
 ?>
