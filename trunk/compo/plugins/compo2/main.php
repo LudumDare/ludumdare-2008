@@ -6,9 +6,9 @@
  */
 function xmlhack_attrs2array($data) {
     $r = array();
-    preg_match_all("/([a-zA-Z0-9]+)\s*=\s*[']([^']*)[']/s",$data,$m);
-    foreach ($m[1] as $n=>$k) { $r[$k] = $m[2][$n]; }
-    preg_match_all("/([a-zA-Z0-9]+)\s*=\s*[\"]([^\"]*)[\"]/s",$data,$m);
+//     preg_match_all("/([a-zA-Z0-9_]+)\s*=\s*[']([^']*)[']/s",$data,$m);
+//     foreach ($m[1] as $n=>$k) { $r[$k] = $m[2][$n]; }
+    preg_match_all("/([a-zA-Z0-9_]+)\s*=\s*[\"]([^\"]*)[\"]/s",$data,$m);
     foreach ($m[1] as $n=>$k) { $r[$k] = $m[2][$n]; }
     return ($r);
 }
@@ -30,7 +30,41 @@ function _compo2_main($m) {
     */
     
     $params = xmlhack_attrs2array($m[1]);
-    $params["cats"] = explode(";",str_replace(" ","",$params["cats"]));
+    
+    @$params["init"] = intval($params["init"]);
+    
+    if ($params["init"] == 0) {
+        $params["divs"] = "compo";
+        if (isset($params["gamejam"])) {
+            $params["divs"] .= ";gamejam";
+        }
+        $params["compo_cats"] = $params["cats"];
+        $params["compo_title"] = "Competition";
+        $params["compo_summary"] = "My entry follows all the rules and I want it to be judged.";
+        $params["compo_link"] = "#";
+        $params["gamejam_title"] = "Game Jam";
+        $params["gamejam_summary"] = "My entry doesn't follow the rules or I don't want it to be judged.";
+    }
+    if (!isset($params["opendivs"])) { $params["opendivs"] = $params["divs"]; }
+    $params["divs"] = explode(";",str_replace(" ","",$params["divs"]));
+    $params["opendivs"] = explode(";",str_replace(" ","",$params["opendivs"]));
+    if ($params["locked"]) { $params["opendivs"] = array(); }
+
+    $cats = array();
+    foreach ($params["divs"] as $div) {
+        if (isset($params["{$div}_cats"])) {
+            $params["{$div}_cats"] = explode(";",str_replace(" ","",$params["{$div}_cats"]));
+            foreach ($params["{$div}_cats"] as $v) {
+                if (!in_array($v,$cats)) { $cats[]= $v; }
+            }
+        }
+    }
+
+    $params["cats"] = $cats;
+    if (!isset($params["topcat"])) { $params["topcat"] = "Overall"; }
+    foreach (array("calc_droplow"=>0,"calc_drophigh"=>0,"calc_reqvote"=>5) as $k=>$v) {
+        $params[$k] = isset($params[$k])?intval($params[$k]):$v;
+    }
     
     // some other auto-calculated stuff
     // @cat Contenst id (taken from page ID)

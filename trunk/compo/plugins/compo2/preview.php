@@ -14,17 +14,17 @@ function _compo2_preview($params,$_link="?action=preview") {
     }
 
     $etype = $_REQUEST["etype"];
-    $cats = array(
-        ""=>"All Entries",
-        "compo"=>"Competition Entries",
-        "gamejam"=>"Game Jam Entries",
-    );
+    $cats = array(""=>"All Entries");
+    foreach ($params["divs"] as $div) {
+        $cats[$div] = "{$params["{$div}_title"]} Entries";
+    }
     $r = compo2_query("select * from c2_entry where etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array("%$etype%",$params["cid"]));
     usort($r,"_compo2_preview_sort");
 
     echo "<h3>".htmlentities($cats[$etype])." (".count($r).")</h3>";
     
-    if ($params["gamejam"]) {
+//     if ($params["gamejam"]) {
+    if (count($params["divs"]) > 1) {
         echo "<p>"; $pre = "";
         foreach ($cats as $kk=>$vv) {
             echo "$pre<a href='?action=preview&etype=$kk'>$vv</a>"; $pre = " | ";
@@ -43,8 +43,8 @@ function _compo2_preview($params,$_link="?action=preview") {
         if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
         $klass = "class='alt-".(1+(($row)%2))."'";
         
-        $etype = htmlentities($e["etype"]);
-        $klass = "class='alt-".($etype=="compo"?"1":"2")."'";
+/*        $etype = htmlentities($e["etype"]);
+        $klass = "class='alt-".($etype=="compo"?"1":"2")."'";*/
         
         echo "<td valign=bottom align=center $klass>";
         $link = "$_link&uid={$e["uid"]}";
