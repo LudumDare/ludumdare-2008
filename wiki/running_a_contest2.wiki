@@ -2,7 +2,7 @@
 
 = Introduction =
 
-Contest code has been overhauled.  Contest now broken down into separate divisions such as "compo;open;gamejam" 
+Contest code has been overhauled.  Contest now broken down into separate divisions such as "compo;open;gamejam".  Contestants in separate divisions can get voting results in the SAME categories.  So if you want a separate overall category for the Compo and the Open division, you should name the cats like "OverallCompo" and "OverallOpen" or whatever.
 
 = Announcing it =
 
