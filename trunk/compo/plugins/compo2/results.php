@@ -76,7 +76,7 @@ function _compo2_results_results($params) {
     
     echo "<h3>Results</h3>";
     echo "<p><a href='?action=top'>Show top entries</a></p>";
-    $cols = 3; $n = 0;
+    $cols = 4; $n = 0;
     echo "<table class='results'>";
     foreach ($r as $k => $res) {
         if (($n%$cols)==0) { echo "<tr>"; } $n += 1;
