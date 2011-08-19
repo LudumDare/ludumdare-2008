@@ -1,4 +1,4 @@
-#summary Stuff about how to run a contest
+#summary OLD - Stuff about how to run a contest
 
 = Introduction =
 
