@@ -35,7 +35,7 @@ function _compo2_preview($params,$_link="?action=preview") {
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
 
-    $cols = 4;
+    $cols = 6;
     $n = 0;
     $row = 0;
     echo "<table class='preview'>";
