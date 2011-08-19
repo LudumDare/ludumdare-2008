@@ -59,10 +59,12 @@ Here are all the compo2 tag attributes.
  # *$DIV_summary* - Summary / Rules: "The basic rules must be followed, etc, etc blah blah" May include HTML that uses single quotes, so you can link to more detailed information.
  # *locked* - should be 0 or 1.  If set to 1, it will stop users from adding new entries.  Existing users can still edit their existing entries.  This setting restricts users from changing their division as well.
  # *pubvote* - should be set to 1 if the public (non-entrants) can vote
- # *calc_droplow* - number of low votes to be dropped per entry
+ # *calc_droplow* - number of low votes to be dropped per entry 
  # *calc_drophigh* - number of high votes to be dropped per entry
  # *calc_reqvote* - number of remaining votes required to calculate an average
  # *topcat* - The voting category that will show the top entries, usually Overall.
+
+NOTE: if you change calc_droplow, calc_drophigh, calc_reqvote you must access ?admin=1&action=recalc to recalculate the results of the competition to reflect those changes.
 
 = Rating Entries =
  # Change the STATE to "rate"
