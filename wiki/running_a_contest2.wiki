@@ -66,6 +66,8 @@ Here are all the compo2 tag attributes.
 
 NOTE: if you change calc_droplow, calc_drophigh, calc_reqvote you must access ?admin=1&action=recalc to recalculate the results of the competition to reflect those changes.
 
+NOTE: You can preview the results by accessing ?admin=1&action=results OR ?admin=1&action=top
+
 = Rating Entries =
  # Change the STATE to "rate"
 
