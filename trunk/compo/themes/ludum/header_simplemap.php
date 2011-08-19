@@ -20,12 +20,6 @@ echo "<meta http-equiv='refresh' content='300'/>";
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" type="text/css" media="screen" />
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 <link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
-<?php
-        $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
-        echo "<script type='text/javascript' src='$myurl/starry/prototype.lite.js'></script>";
-        echo "<script type='text/javascript' src='$myurl/starry/stars.js'></script>";
-        echo "<link rel='stylesheet' href='$myurl/starry/stars.css' type='text/css' />";
-?>
 
 <style type="text/css" media="screen">
 
