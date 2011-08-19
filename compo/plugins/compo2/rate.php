@@ -175,6 +175,7 @@ function _compo2_rate_rate($params,$uid = "") {
     if ($params["uid"] != $uid) {
         echo "<h3>Rate this {$params["{$div}_title"]} Entry</h3>";
             
+        
         $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
         echo "<script type='text/javascript' src='$myurl/starry/prototype.lite.js'></script>";
         echo "<script type='text/javascript' src='$myurl/starry/stars.js'></script>";
