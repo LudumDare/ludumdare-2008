@@ -106,7 +106,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
 //     $rules = isset($params["rules"])?$params["rules"]:"#";
     if ($opts) {
-        echo "<h4>Entry Type</h4>";
+        echo "<h4>Entry Division</h4>";
         /*
         $selected = (strcmp($etype,"compo")==0?"checked":"");
         echo "<input type='radio' name='etype' value='compo' $selected /> Competition Entry";
