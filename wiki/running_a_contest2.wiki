@@ -56,7 +56,7 @@ Here are all the compo2 tag attributes.
  # *opendivs* - a semi-colon delimited list of divisions that can be joined at this time "compo;open;gamejam" when the compo goes into rate mode, probably change this to "open;gamejam" 
  # *$DIV_cats* - should be a semi-colon delimited list of voting categories "Fun;Innovation;Production;Theme" 
  # *$DIV_title* - title of the division "Competition" "Open" "Game Jam"
- # *$DIV_rules* - HTML of the rules "The basic rules must be followed, etc, etc blah blah"
+ # *$DIV_rules* - Rules "The basic rules must be followed, etc, etc blah blah" May include HTML that uses single quotes, so you can link to more detailed rules.
  # *locked* - should be 0 or 1.  If set to 1, it will stop users from adding new entries.  Existing users can still edit their existing entries.  This setting restricts users from changing their division as well.
  # *pubvote* - should be set to 1 if the public (non-entrants) can vote
  # *calc_droplow* - number of low votes to be dropped per entry
