@@ -2,7 +2,7 @@
 
 = Introduction =
 
-Contest code has been overhauled.  previos instructions still apply, but this has the new codes.
+Contest code has been overhauled.  Contest now broken down into separate divisions such as "compo;open;gamejam" 
 
 = Announcing it =
 
