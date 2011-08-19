@@ -109,6 +109,12 @@ function _compo2_main($m) {
     $r = ob_get_contents();
     ob_end_clean();
     
+    if (defined("W3TC_DIR")) { 
+        include_once W3TC_DIR . '/lib/W3/PgCache.php';
+        $w3_pgcache = & W3_PgCache::instance();
+        $w3_pgcache->flush();
+    }
+    
     // output the content
     return "<div id='compo2'>$r</div>";
 }
