@@ -98,7 +98,21 @@ function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
 }
 
 function compo2_get_user($uid) {
-    return get_userdata($uid);
+    $topdir = dirname(__FILE__)."/../../compo2";
+    $fname = "$topdir/get_user/$uid";
+//     print_r($fname); die;
+    if (!file_exists($fname)) {
+        $r = get_userdata($uid);
+        $f = fopen($fname,"wb");
+        fwrite($f,serialize($r));
+        fclose($f);
+    } else {
+        $f = fopen($fname,"rb");
+        $r = unserialize(fread($f,99999));
+        fclose($f);
+    }
+    return $r;
+//     return get_userdata($uid);
 }
 
 function compo2_number_format($v) {
