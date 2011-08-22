@@ -105,14 +105,14 @@ function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
         list($w,$h) = getimagesize($fname);
         if ($w < $width && $h < $height) {
             // don't scale it up ..
-            $width = $w; $height = $h;
-//             return get_bloginfo("url")."/wp-content/compo2/$_fname";
+            return get_bloginfo("url")."/wp-content/compo2/$_fname";
         }
 
         @mkdir("$topdir/thumb");
         $cmd = "/usr/bin/convert -quality $quality ".escapeshellarg($fname)." -flatten -resize {$width}x{$height} +profile \"*\" ".escapeshellarg($dest);
         `$cmd`;
     }
+
     return get_bloginfo("url")."/wp-content/compo2/thumb/$dst";
 }
 
