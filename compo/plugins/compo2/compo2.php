@@ -20,7 +20,7 @@ function compo2_error($msg) {
     trigger_error($msg,E_USER_ERROR);
 }
 
-function compo2_log($fnc,$tm,$msg) {
+function compo2_log($fnc,$tm,$msg="") {
     global $compo2;
     $key = "$fnc|$msg";
     $e = array("fnc"=>$fnc,"tm"=>$tm,"msg"=>$msg,"hits"=>1);
