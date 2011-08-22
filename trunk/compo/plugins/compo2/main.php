@@ -112,8 +112,8 @@ function _compo2_main($m) {
     ob_end_clean();
     
     // output the content
-    $tm = microtime(true) - $tm;
-    $r .= "<div class='error'>compo2: $tm</div>";
+    $tm = (microtime(true) - $tm)*1000;
+    $r .= "<div class='error'>compo2: $tm ms</div>";
     
     return "<div id='compo2'>$r</div>";
 }
