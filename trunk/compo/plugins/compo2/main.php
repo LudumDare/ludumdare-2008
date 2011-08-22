@@ -122,11 +122,12 @@ function _compo2_main($m) {
         $log = $compo2["log"];
         usort($log,"_compo2_log_sort");
         echo "<table border=1>";
-        echo "<tr><th>ms<th>fnc<th>msg";
+        echo "<tr><th>ms<th>fnc<th>hits<th>msg";
         foreach ($log as $e) {
             echo "<tr>";
             echo "<td align=right>".intval($e["tm"]*1000);
             echo "<td>".htmlentities($e["fnc"]);
+            echo "<td>".htmlentities($e["hits"]);
             echo "<td>".htmlentities($e["msg"]);
         }
         echo "</table>";
