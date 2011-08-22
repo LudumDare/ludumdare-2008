@@ -125,7 +125,7 @@ function _compo2_main($m) {
         echo "<tr><th>ms<th>fnc<th>msg";
         foreach ($log as $e) {
             echo "<tr>";
-            echo "<td>".intval($e["tm"]*1000);
+            echo "<td align=right>".intval($e["tm"]*1000);
             echo "<td>".htmlentities($e["fnc"]);
             echo "<td>".htmlentities($e["msg"]);
         }
