@@ -104,8 +104,11 @@ function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
     if (!file_exists($dest)) {
         list($w,$h) = getimagesize($fname);
         if ($w < $width && $h < $height) {
-            // don't scale it up ..
-            return get_bloginfo("url")."/wp-content/compo2/$_fname";
+            // scale to exact same size
+            $width = $w; $height = $h;
+            
+            // just don't scale at all
+//             return get_bloginfo("url")."/wp-content/compo2/$_fname";
         }
 
         @mkdir("$topdir/thumb");
