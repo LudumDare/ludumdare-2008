@@ -14,7 +14,7 @@ function xmlhack_attrs2array($data) {
 }
 
 function _compo2_log_sort($a,$b) {
-    return $a["tm"] - $b["tm"];
+    return $b["tm"] - $a["tm"];
 }
 
 function _compo2_main($m) {
