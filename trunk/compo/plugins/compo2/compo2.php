@@ -103,7 +103,12 @@ function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
     return get_bloginfo("url")."/wp-content/compo2/thumb/$dst";
 }
 
+
 function compo2_get_user($uid) {
+// display_name
+// nicename
+// user_email
+
     $topdir = dirname(__FILE__)."/../../compo2";
     $fname = "$topdir/get_user/$uid";
 //     print_r($fname); die;
@@ -142,7 +147,11 @@ require_once dirname(__FILE__)."/closed.php";
 add_filter('the_content','compo2_the_content');
 add_action('wp_head', 'compo2_wp_head');
 function compo2_the_content($v) {
+    $tm = microtime(true);
     $v = compo2_main($v);
+    $tm = microtime(true) - $tm;
+    $v .= "<div class='error'>compo2: $tm</div>";
+    
     return $v;
 }
 function compo2_wp_head() {

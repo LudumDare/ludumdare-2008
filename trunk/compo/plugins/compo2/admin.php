@@ -1,7 +1,7 @@
 <?php
 
 function _compo2_admin($params) {
-    $user = compo2_get_user($params["uid"]);
+    $user = $params["user"];
     if ($user->user_level < 10) { compo2_error("admin"); }
 
     $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"preview";
