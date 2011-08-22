@@ -127,7 +127,7 @@ function _compo2_main($m) {
             echo "<tr>";
             echo "<td align=right>".intval($e["tm"]*1000);
             echo "<td>".htmlentities($e["fnc"]);
-            echo "<td>".htmlentities($e["hits"]);
+            echo "<td align=right>".htmlentities($e["hits"]);
             echo "<td>".htmlentities($e["msg"]);
         }
         echo "</table>";
