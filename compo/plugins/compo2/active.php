@@ -107,16 +107,6 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 //     $rules = isset($params["rules"])?$params["rules"]:"#";
     if ($opts) {
         echo "<h4>Entry Division</h4>";
-        /*
-        $selected = (strcmp($etype,"compo")==0?"checked":"");
-        echo "<input type='radio' name='etype' value='compo' $selected /> Competition Entry";
-        echo "<div><i>My entry follows all <a href='$rules' target='_blank'>the rules</a> and I want it to be judged.</i></div>";
-        echo "<br/>";
-        $selected = (strcmp($etype,"gamejam")==0?"checked":"");
-        echo "<input type='radio' name='etype' value='gamejam' $selected /> Game Jam Entry";
-        echo "<div><i>My entry doesn't follow the rules or I don't want it to be judged.</i></div>";
-        echo "<div>&nbsp;</div>";
-        */
         foreach ($divs as $div) {
             $selected = (strcmp($etype,$div)==0?"checked":"");
             echo "<input type='radio' name='etype' value='{$div}' $selected /> {$params["{$div}_title"]} Entry";
