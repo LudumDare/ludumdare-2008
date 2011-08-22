@@ -13,9 +13,12 @@ function xmlhack_attrs2array($data) {
     return ($r);
 }
 
+function _compo2_log_sort($a,$b) {
+    return $a["tm"] - $b["tm"];
+}
 
 function _compo2_main($m) {
-
+    global $compo2;
     $tm = microtime(true);
 
     /* old parsing
@@ -112,8 +115,26 @@ function _compo2_main($m) {
     ob_end_clean();
     
     // output the content
-    $tm = intval((microtime(true) - $tm)*1000);
-    $r .= "<div class='error'>compo2: $tm ms</div>";
+    compo2_log("_compo2_main",microtime(true)-$tm,"");
+    if (1) {
+        ob_start();
+        
+        $log = $compo2["log"];
+        usort($log,"_compo2_log_sort");
+        echo "<table border=1>";
+        echo "<tr><th>ms<th>fnc<th>msg";
+        foreach ($log as $e) {
+            echo "<tr>";
+            echo "<td>".intval($e["tm"]*1000);
+            echo "<td>".htmlentities($e["fnc"]);
+            echo "<td>".htmlentities($e["msg"]);
+        }
+        echo "</table>";
+        
+        $rlog = ob_get_contents();
+        ob_end_clean();
+        $r .= "<div class='error'>$rlog</div>";
+    }
     
     return "<div id='compo2'>$r</div>";
 }
