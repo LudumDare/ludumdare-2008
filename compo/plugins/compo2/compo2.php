@@ -13,15 +13,22 @@ $compo2 = array(
     "version.key"=>"compo2_version",
     "plugin"=>__FILE__,
     "entry_load_cache"=>array(),
+    "log"=>array(),
 );
 
 function compo2_error($msg) {
     trigger_error($msg,E_USER_ERROR);
 }
 
+function compo2_log($fnc,$tm,$msg) {
+    global $compo2;
+    $compo2["log"][] = array("fnc"=>$fnc,"tm"=>$tm,"msg"=>$msg);
+}
 
 
 function compo2_query($sql,$params=array()) {
+    $tm = microtime(true);
+
     global $wpdb;
     
     $parts = explode("?",$sql);
@@ -37,6 +44,9 @@ function compo2_query($sql,$params=array()) {
     if ($r===false) {
         compo2_error("compo2 - Error in query: $sql");
     }
+    
+    compo2_log("compo2_query",microtime(true)-$tm,$sql);
+    
     if (!$r) { return array(); }
     return $r;
 }
