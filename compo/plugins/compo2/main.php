@@ -102,7 +102,6 @@ function _compo2_main($m) {
     elseif ($state == "misc") { _compo2_misc($params); }
     elseif ($state == "closed") { _compo2_closed($params); }
     else { compo2_error("compo2 - Invalid state: $state"); }
-//     $user = compo2_get_user($params["uid"]);
     if ($user->user_level >= 10) {
         echo "<p><a href='?admin=1'>Enter admin mode</a></p>";
     }
