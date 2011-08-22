@@ -99,10 +99,17 @@ function _compo2_rate_list($params) {
     foreach ($params["cats"] as $k) { echo "<th>".substr($k,0,3); }
     echo "<th>Txt";
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
+    
+    $r_rate = array();
+    foreach (compo2_query("select * from c2_rate where cid = ? and from_uid = ?",array($params["cid"],$params["uid"])) as $ve) {
+        $r_rate[$ve["to_uid"]] = $ve;
+    }
+    
     foreach ($r as $ce) {
         if ($ce["uid"] == $params["uid"] && !strlen($_REQUEST["more"])) { continue; }
         
-        $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
+//         $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
+        $ve = $r_rate[$ce["uid"]];
         $ue = compo2_get_user($ce["uid"]);
         echo "<tr>";
         $img = "inone.gif";
