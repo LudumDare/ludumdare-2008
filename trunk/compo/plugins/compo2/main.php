@@ -15,6 +15,9 @@ function xmlhack_attrs2array($data) {
 
 
 function _compo2_main($m) {
+
+    $tm = microtime(true);
+
     /* old parsing
     $parts = explode(":",html_entity_decode($m[1]));
     $state = $parts[0];
@@ -109,6 +112,9 @@ function _compo2_main($m) {
     ob_end_clean();
     
     // output the content
+    $tm = microtime(true) - $tm;
+    $r .= "<div class='error'>compo2: $tm</div>";
+    
     return "<div id='compo2'>$r</div>";
 }
 
