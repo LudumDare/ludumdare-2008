@@ -77,7 +77,7 @@ function _compo2_rate_sort_by_rate_out($a,$b) {
 }
 
 function _compo2_rate_list($params) {
-    $r = compo2_query("select uid,rate_in from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
+    $r = compo2_query("select uid,cid,rate_in from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
     foreach ($r as $k=>$ce) {
         $r[$k]["s"] = md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}");
     }
