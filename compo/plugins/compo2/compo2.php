@@ -97,16 +97,19 @@ function compo2_select($k,$r,$v) {
 function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
     $topdir = dirname(__FILE__)."/../../compo2";
     $fname = "$topdir/$_fname";
-    list($w,$h) = getimagesize($fname);
-    if ($w < $width && $h < $height) {
-        // don't scale it up ..
-        return get_bloginfo("url")."/wp-content/compo2/$_fname";
-    }
-
+    
     $dst = md5("thumb $fname $width $height $quality ".filesize($fname)).".$itype";
     @mkdir("$topdir/thumb");
     $dest = "$topdir/thumb/$dst";
+    
     if (!file_exists($dest)) {
+        list($w,$h) = getimagesize($fname);
+        if ($w < $width && $h < $height) {
+            // don't scale it up ..
+            $width = $w; $height = $h;
+//             return get_bloginfo("url")."/wp-content/compo2/$_fname";
+        }
+
         $cmd = "/usr/bin/convert -quality $quality ".escapeshellarg($fname)." -flatten -resize {$width}x{$height} +profile \"*\" ".escapeshellarg($dest);
         `$cmd`;
     }
