@@ -22,7 +22,14 @@ function compo2_error($msg) {
 
 function compo2_log($fnc,$tm,$msg) {
     global $compo2;
-    $compo2["log"][] = array("fnc"=>$fnc,"tm"=>$tm,"msg"=>$msg);
+    $key = "$fnc|$msg";
+    $e = array("fnc"=>$fnc,"tm"=>$tm,"msg"=>$msg,"hits"=>1);
+    if (isset($compo2["log"][$key])) {
+        $ee = $compo2["log"][$key];
+        $e["tm"] += $ee["tm"];
+        $e["hits"] += $ee["hits"];
+    }
+    $compo2["log"][$key] = $e;
 }
 
 
@@ -95,6 +102,8 @@ function compo2_select($k,$r,$v) {
 }
 
 function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
+    $tm = microtime(true);
+
     $topdir = dirname(__FILE__)."/../../compo2";
     $fname = "$topdir/$_fname";
     
@@ -115,12 +124,15 @@ function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
         $cmd = "/usr/bin/convert -quality $quality ".escapeshellarg($fname)." -flatten -resize {$width}x{$height} +profile \"*\" ".escapeshellarg($dest);
         `$cmd`;
     }
+    
+    compo2_log("compo2_thumb",microtime(true)-$tm);
 
     return get_bloginfo("url")."/wp-content/compo2/thumb/$dst";
 }
 
 
 function compo2_get_user($uid) {
+    $tm = microtime(true);
 // display_name
 // nicename
 // user_email
@@ -137,6 +149,8 @@ function compo2_get_user($uid) {
         $r = unserialize(fread($f,99999));
         fclose($f);
     }
+    
+    compo2_log("compo2_get_user",microtime(true)-$tm);
     return $r;
 //     return get_userdata($uid);
 }
