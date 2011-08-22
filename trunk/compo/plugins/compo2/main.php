@@ -77,7 +77,7 @@ function _compo2_main($m) {
     $params["user"] = $user;
     
     // @has_entry True if the current user has an entry in this compo
-    $ce = compo2_entry_load($pid,$uid);
+    $ce = compo2_entry_load($params["cid"],$uid);
     $params["has_entry"] = ($ce["id"]!=0);
     
     // State is changed to admin if ?admin=1 is in the URL
