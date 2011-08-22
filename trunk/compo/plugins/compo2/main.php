@@ -116,7 +116,7 @@ function _compo2_main($m) {
     
     // output the content
     compo2_log("_compo2_main",microtime(true)-$tm);
-    if (1) {
+    if (0) {
         ob_start();
         
         $log = $compo2["log"];
