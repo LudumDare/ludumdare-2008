@@ -41,6 +41,11 @@ function _compo2_preview($params,$_link="?action=preview") {
         echo "</p>";
     }
     
+
+    $ce = compo2_entry_load($params["cid"],$params["uid"]);
+    if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
+
+    ob_start();
     echo "<p>[ ";
     $n=1;
     for ($i=0; $i<$cnt; $i+=$limit) {
@@ -50,9 +55,11 @@ function _compo2_preview($params,$_link="?action=preview") {
         $n += 1;
     }
     echo " ]</p>";
+    $paging = ob_get_contents();
+    ob_end_clean();
+    
+    echo $paging;
 
-    $ce = compo2_entry_load($params["cid"],$params["uid"]);
-    if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
 
     $cols = 6;
     $n = 0;
@@ -77,6 +84,8 @@ function _compo2_preview($params,$_link="?action=preview") {
         else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
     }
     echo "</table>";
+
+    echo $paging;
 
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
