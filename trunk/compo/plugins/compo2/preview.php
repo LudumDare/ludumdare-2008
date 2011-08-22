@@ -18,10 +18,19 @@ function _compo2_preview($params,$_link="?action=preview") {
     foreach ($params["divs"] as $div) {
         $cats[$div] = "{$params["{$div}_title"]} Entries";
     }
-    $r = compo2_query("select * from c2_entry where etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array("%$etype%",$params["cid"]));
+    
+    $cnte = array_pop(compo2_query("select count(*) _cnt from c2_entry where etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array("%$etype%",$params["cid"])));
+    $cnt = $cnte["_cnt"];
+    
+    $limit = 24;
+    $start = 0;
+    if (isset($_REQUEST["start"])) { $start = intval($_REQUEST["start"]); }
+    $start = intval($start); $limit = intval($limit);
+    
+    $r = compo2_query("select * from c2_entry where etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":"")." limit $start,$limit",array("%$etype%",$params["cid"]));
     usort($r,"_compo2_preview_sort");
 
-    echo "<h3>".htmlentities($cats[$etype])." (".count($r).")</h3>";
+    echo "<h3>".htmlentities($cats[$etype])." ($cnt)</h3>";
     
 //     if ($params["gamejam"]) {
     if (count($params["divs"]) > 1) {
@@ -31,6 +40,12 @@ function _compo2_preview($params,$_link="?action=preview") {
         }
         echo "</p>";
     }
+    
+    echo "<p>";
+    $n=1;
+    for ($i=0; $i<$cnt; $i+=$limit) {
+        echo "<a href='?action=preview&etype=".urlencode($etype)."&start=$i'>$n</a> ";
+    echo "</p>";
 
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
