@@ -147,11 +147,7 @@ require_once dirname(__FILE__)."/closed.php";
 add_filter('the_content','compo2_the_content');
 add_action('wp_head', 'compo2_wp_head');
 function compo2_the_content($v) {
-    $tm = microtime(true);
     $v = compo2_main($v);
-    $tm = microtime(true) - $tm;
-    $v .= "<div class='error'>compo2: $tm</div>";
-    
     return $v;
 }
 function compo2_wp_head() {
