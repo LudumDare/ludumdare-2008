@@ -125,7 +125,7 @@ function compo2_get_user($uid) {
     $topdir = dirname(__FILE__)."/../../compo2";
     $fname = "$topdir/get_user/$uid";
 //     print_r($fname); die;
-    if (!($f=fopen($fname,"rb")) {
+    if (!($f=fopen($fname,"rb"))) {
         $r = get_userdata($uid);
         $f = fopen($fname,"wb");
         fwrite($f,serialize($r));
