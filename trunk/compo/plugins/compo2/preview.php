@@ -45,6 +45,7 @@ function _compo2_preview($params,$_link="?action=preview") {
     $n=1;
     for ($i=0; $i<$cnt; $i+=$limit) {
         echo "<a href='?action=preview&etype=".urlencode($etype)."&start=$i'>$n</a> ";
+    }
     echo "</p>";
 
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
