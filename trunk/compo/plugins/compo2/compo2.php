@@ -12,6 +12,7 @@ global $compo2;
 $compo2 = array(
     "version.key"=>"compo2_version",
     "plugin"=>__FILE__,
+    "entry_load_cache"=>array(),
 );
 
 function compo2_error($msg) {
@@ -41,7 +42,12 @@ function compo2_query($sql,$params=array()) {
 }
 
 function compo2_entry_load($cid,$uid) {
-    return array_pop(compo2_query("select * from c2_entry where cid = ? and uid = ?",array($cid,$uid)));
+    global $compo2;
+    $key = "$cid-$uid";
+    if (!isset($compo2["entry_load_cache"][$key])) {
+        $compo2["entry_load_cache"][$key] = array_pop(compo2_query("select * from c2_entry where cid = ? and uid = ?",array($cid,$uid)));
+    }
+    return $compo2["entry_load_cache"][$key];
 }
 
 function compo2_insert($table,$e,$key="id") {
