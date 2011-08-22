@@ -99,7 +99,6 @@ function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
     $fname = "$topdir/$_fname";
     
     $dst = md5("thumb $fname $width $height $quality ".filesize($fname)).".$itype";
-    @mkdir("$topdir/thumb");
     $dest = "$topdir/thumb/$dst";
     
     if (!file_exists($dest)) {
@@ -110,6 +109,7 @@ function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
 //             return get_bloginfo("url")."/wp-content/compo2/$_fname";
         }
 
+        @mkdir("$topdir/thumb");
         $cmd = "/usr/bin/convert -quality $quality ".escapeshellarg($fname)." -flatten -resize {$width}x{$height} +profile \"*\" ".escapeshellarg($dest);
         `$cmd`;
     }
