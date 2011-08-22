@@ -79,15 +79,15 @@ function _compo2_rate_sort_by_rate_out($a,$b) {
 function _compo2_rate_list($params) {
     $r = compo2_query("select uid,cid,rate_in from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
     
-    srand($params["cid"]*256 + $params["uid"]);
-    shuffle($r);
+//     srand($params["cid"]*256 + $params["uid"]);
+//     shuffle($r);
 /*    foreach ($r as $n=>$e) {
         if ($e["uid"] != $params["uid"]) { continue; }
         $r = array_merge(array_slice($r,$n),array_slice($r,0,$n));
         break;
     }*/
     
-    /*
+    
     foreach ($r as $k=>$ce) {
         $r[$k]["s"] = md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}");
     }
@@ -100,7 +100,7 @@ function _compo2_rate_list($params) {
     } else {
         usort($r,"_compo2_rate_sort");
     }
-    */
+    
     
     echo "<h3>Rate Entries</h3>";
     $n=0;
