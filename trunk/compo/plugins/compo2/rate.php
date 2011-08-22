@@ -81,11 +81,11 @@ function _compo2_rate_list($params) {
     
     srand($params["cid"]*256 + $params["uid"]);
     shuffle($r);
-    foreach ($r as $n=>$e) {
+/*    foreach ($r as $n=>$e) {
         if ($e["uid"] != $params["uid"]) { continue; }
         $r = array_merge(array_slice($r,$n),array_slice($r,0,$n));
         break;
-    }
+    }*/
     
     /*
     foreach ($r as $k=>$ce) {
