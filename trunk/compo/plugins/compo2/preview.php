@@ -60,7 +60,7 @@ function _compo2_preview($params,$_link="?action=preview") {
         $n += 1;
     }
     echo " ] ";
-    if ($start < $cnt-1) {
+    if ($start < ($cnt-$limit)) {
         $i = $start+$limit;
         echo "<a href='?action=preview&etype=".urlencode($etype)."&start=$i'>Next</a> ";
     }
