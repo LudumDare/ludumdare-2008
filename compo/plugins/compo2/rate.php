@@ -77,7 +77,7 @@ function _compo2_rate_sort_by_rate_out($a,$b) {
 }
 
 function _compo2_rate_list($params) {
-    $r = compo2_query("select uid,cid,rate_in from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
+    $_r = compo2_query("select uid,cid,rate_in from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
     
 //     srand($params["cid"]*256 + $params["uid"]);
 //     shuffle($r);
@@ -87,19 +87,21 @@ function _compo2_rate_list($params) {
         break;
     }*/
     
-    
-    foreach ($r as $k=>$ce) {
-        $r[$k]["s"] = md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}");
+    $r = array();
+    foreach ($_r as $k=>$ce) {
+        $key = md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}")."|{$ce["uid"]}";
+        $r[$key] = $ce;
     }
+    ksort($r);
     
-    @$sortby = $_REQUEST["sortby"];
+/*    @$sortby = $_REQUEST["sortby"];
     if ($sortby == "rate_in") {
         usort($r,"_compo2_rate_sort_by_rate_in");
     } elseif ($sortby == "rate_out") {
         usort($r,"_compo2_rate_sort_by_rate_out");
     } else {
         usort($r,"_compo2_rate_sort");
-    }
+    }*/
     
     
     echo "<h3>Rate Entries</h3>";
