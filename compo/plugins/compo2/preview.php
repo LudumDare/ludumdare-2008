@@ -43,22 +43,20 @@ function _compo2_preview($params,$_link="?action=preview") {
 
     echo "<h3>".htmlentities($cats[$etype])." ($cnt)</h3>";
     
-//     if ($params["gamejam"]) {
+    ob_start();
+    echo "<p>";
+    $pre = "";
     if (count($params["divs"]) > 1) {
-        echo "<p>"; $pre = "";
         foreach ($cats as $kk=>$vv) {
             echo "$pre<a href='?action=preview&etype=$kk'>$vv</a>"; $pre = " | ";
         }
-        echo "</p>";
     }
-    
-
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
-    ob_start();
-    if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=preview&uid={$ce["uid"]}'>View your entry</a></p>"; }
-    $yourlinks = ob_get_contents();
+    if ($ce["id"]) { echo "$pre<a href='?action=edit'>Edit your entry</a> | <a href='?action=preview&uid={$ce["uid"]}'>View your entry</a>"; }
+    echo "</p>";
+    $links = ob_get_contents();
     ob_end_clean();
-    echo $yourlinks;
+    echo $links;
     
     echo "<form style='text-align:left;margin:0px;'>";
     echo "<input type='hidden' name='action' value='preview'>";
@@ -120,7 +118,7 @@ function _compo2_preview($params,$_link="?action=preview") {
         echo $paging;
     }
 
-    echo $yourlinks;
+    echo $links;
 
 }
 
