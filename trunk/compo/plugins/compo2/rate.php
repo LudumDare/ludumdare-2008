@@ -80,9 +80,9 @@ function _compo2_rate_list($params) {
     @$q = $_REQUEST["q"];
 
     if (!strlen($q)) {
-        $_r = compo2_query("select uid,cid,rate_in,get_user from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
+        $_r = compo2_query("select uid,cid,rate_in,rate_out,get_user from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
     } else {
-        $_r = compo2_query("select uid,cid,rate_in,get_user from c2_entry where (notes like ? OR links like ? OR get_user like ?) and cid = ? and active = 1 and is_judged = 1",array("%$q%","%$q%","%$q%",$params["cid"]));
+        $_r = compo2_query("select uid,cid,rate_in,rate_out,get_user from c2_entry where (notes like ? OR links like ? OR get_user like ?) and cid = ? and active = 1 and is_judged = 1",array("%$q%","%$q%","%$q%",$params["cid"]));
     }
     
 //     srand($params["cid"]*256 + $params["uid"]);
