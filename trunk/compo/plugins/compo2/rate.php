@@ -120,6 +120,23 @@ function _compo2_rate_list($params) {
     
     echo "<h3>Rate Entries (".count($r).")</h3>";
     
+    ob_start();
+    echo "<p>";
+    if (!strlen($_REQUEST["more"])) {
+        echo "<a href='?more=1&q=".urlencode($q)."'>Show all entries</a> | ";
+    }
+    echo "<a href='?sortby=rate_in&q=".urlencode($q)."'>Sort by least ratings</a> | ";
+//     echo "<a href='?sortby=rate_out'>Sort by most coolness</a>";
+//     echo "</p><p>";
+    echo "<a href='?action=preview'>View all Screenshots</a> | ";
+    echo "<a href='?action=edit'>Edit your entry</a> | ";
+    echo "<a href='?action=preview&uid={$params["uid"]}'>View your entry</a>";
+    echo "</p>";
+    $links = ob_get_contents();
+    ob_end_clean();
+    
+    echo $links;
+    
     echo "<form style='text-align:left;margin:10px;'>";
 //     echo "<input type='hidden' name='action' value=''>";
     echo "<input type='text' name='q' value='".htmlentities($q)."'>";
@@ -177,17 +194,7 @@ function _compo2_rate_list($params) {
     }
     echo "</table>";
     
-    echo "<p>";
-    if (!strlen($_REQUEST["more"])) {
-        echo "<a href='?more=1&q=".urlencode($q)."'>Show all entries</a> | ";
-    }
-    echo "<a href='?sortby=rate_in&q=".urlencode($q)."'>Sort by least ratings</a> | ";
-//     echo "<a href='?sortby=rate_out'>Sort by most coolness</a>";
-//     echo "</p><p>";
-    echo "<a href='?action=preview'>View all Screenshots</a> | ";
-    echo "<a href='?action=edit'>Edit your entry</a> | ";
-    echo "<a href='?action=preview&uid={$params["uid"]}'>View your entry</a>";
-    echo "</p>";
+    echo $links;
 }
 
 function _compo2_rate_rate($params,$uid = "") {
