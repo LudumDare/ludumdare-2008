@@ -34,8 +34,8 @@ function _compo2_rate($params) {
     } elseif ($action == "preview") {
         echo "<p><a href='?action=default'>Back to Rate Entries</a></p>";
         return _compo2_preview($params,"?action=rate");
-    } elseif ($action == "comments") {
-        return _compo2_rate_comments($params);
+/*    } elseif ($action == "comments") {
+        return _compo2_rate_comments($params);*/
     } elseif ($action == "rate") {
         return _compo2_rate_rate($params);
     } elseif ($action == "submit") {
@@ -59,10 +59,10 @@ function _compo2_show_comments($cid,$uid) {
     }
 }
 
-function _compo2_rate_comments($params) {
-//     return _compo2_rate_rate($params,$params["uid"]);
-    header("Location: ?action=preview&uid={$params["uid"]}"); die;
-}
+// function _compo2_rate_comments($params) {
+// //     return _compo2_rate_rate($params,$params["uid"]);
+//     header("Location: ?action=preview&uid={$params["uid"]}"); die;
+// }
 
 
 function _compo2_rate_sort($a,$b) {
@@ -186,7 +186,7 @@ function _compo2_rate_list($params) {
 //     echo "</p><p>";
     echo "<a href='?action=preview'>View all Screenshots</a> | ";
     echo "<a href='?action=edit'>Edit your entry</a> | ";
-    echo "<a href='?action=comments'>See comments on your entry</a>";
+    echo "<a href='?action=preview&uid={$params["uid"]}'>View your entry</a>";
     echo "</p>";
 }
 
