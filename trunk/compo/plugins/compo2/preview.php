@@ -135,6 +135,7 @@ function _compo2_preview_comments($params,$uid,$form=true) {
     if ($form) {
         if ($params["uid"]) {
             $comments = trim(compo2_strip($_REQUEST["comments"]));
+            $user = compo2_get_user($params["uid"]);
             if (strlen($comments)) {
                 compo2_insert("c2_comments",array(
                     "cid"=>$params["cid"],
@@ -142,6 +143,11 @@ function _compo2_preview_comments($params,$uid,$form=true) {
                     "from_uid"=>$params["uid"],
                     "ts"=>date("Y-m-d H:i:s"),
                     "content"=>$comments,
+                    "get_user"=>serialize(array(
+                        "display_name"=>$user->display_name,
+                        "nicename"=>$user->nicename,
+                        "user_email"=>$user->user_email,
+                    )),
                 ));
                 header("Location: ?action=preview&uid=$uid"); die;
             }
@@ -195,7 +201,6 @@ function _compo2_preview_show($params,$uid,$comments=true) {
     $shots = unserialize($ce["shots"]);
     $fname = array_shift($shots);
         
-    
     echo "<table>";
     $cols = 4; $n = 0;
     $link = get_bloginfo("url")."/wp-content/compo2/$fname";
