@@ -1,3 +1,12 @@
+
+- prev and next buttons, bold current page on view all
+- add search button
+- on rate, be able to see least-votedupon entries
+- cache for results
+- add get_user data to entry data in database, and comment data.
+- better thumb cache (per compo)
+
+===========
 - you can add jam entries during rating before locked
 - you can not change entry type during rating
 - add "rules" as a attribute

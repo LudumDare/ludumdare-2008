@@ -92,7 +92,7 @@ function _compo2_rate_list($params) {
         $key = md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}")."|{$ce["uid"]}";
         $r[$key] = $ce;
     }
-    ksort($r);
+    ksort($r); // Much faster than usort.
     
 /*    @$sortby = $_REQUEST["sortby"];
     if ($sortby == "rate_in") {
