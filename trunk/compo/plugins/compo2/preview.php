@@ -54,7 +54,7 @@ function _compo2_preview($params,$_link="?action=preview") {
     
 
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
-    if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
+    if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a> | <a href='?action=preview&uid={$ce["id"]}'>View your entry.</a></p>"; }
     
     echo "<form style='text-align:left;margin:0px;'>";
     echo "<input type='hidden' name='action' value='preview'>";
