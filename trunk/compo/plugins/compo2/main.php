@@ -135,7 +135,10 @@ function _compo2_main($m) {
         $rlog = ob_get_contents();
         ob_end_clean();
         $r .= "<div class='error'>$rlog</div>";
+        $v = get_option($compo2["version.key"]);
+        $r .= "<p>compo2: $v</p>";
     }
+    
     
     return "<div id='compo2'>$r</div>";
 }

@@ -93,6 +93,49 @@ function compo2_install() {
         compo2_query("update c2_entry set etype = 'gamejam' where is_judged = 0");
         update_option($key,$version);
     }
+    
+    $version = 28;
+    if ($cur < $version) {
+        compo2_query("alter table c2_entry add get_user blob");
+        update_option($key,$version);
+    }
+    $version = 30;
+    if ($cur < $version) {
+        $r = compo2_query("select id,uid from c2_entry");
+        foreach ($r as $ce) {
+            $user = compo2_get_user($ce["uid"]);
+            compo2_query("update c2_entry set get_user = ? where id = ?",array(
+                serialize(array(
+                    "display_name"=>$user->display_name,
+                    "user_nicename"=>$user->user_nicename,
+                    "user_email"=>$user->user_email,
+                )),
+                $ce["id"],
+            ));
+        }
+        update_option($key,$version);
+    }
+    $version = 31;
+    if ($cur < $version) {
+        compo2_query("alter table c2_comments add get_user blob");
+        update_option($key,$version);
+    }
+    $version = 32;
+    if ($cur < $version) {
+        $r = compo2_query("select id,from_uid from c2_comments");
+        foreach ($r as $ce) {
+            $user = compo2_get_user($ce["from_uid"]);
+            compo2_query("update c2_comments set get_user = ? where id = ?",array(
+                serialize(array(
+                    "display_name"=>$user->display_name,
+                    "user_nicename"=>$user->user_nicename,
+                    "user_email"=>$user->user_email,
+                )),
+                $ce["id"],
+            ));
+        }
+        update_option($key,$version);
+    }
 }
 
 register_activation_hook($GLOBALS["compo2"]["plugin"],"compo2_install");

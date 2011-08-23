@@ -77,7 +77,7 @@ function _compo2_rate_sort_by_rate_out($a,$b) {
 }
 
 function _compo2_rate_list($params) {
-    $_r = compo2_query("select uid,cid,rate_in from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
+    $_r = compo2_query("select uid,cid,rate_in,get_user from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
     
 //     srand($params["cid"]*256 + $params["uid"]);
 //     shuffle($r);
@@ -128,7 +128,7 @@ function _compo2_rate_list($params) {
         
 //         $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
         $ve = $r_rate[$ce["uid"]];
-        $ue = compo2_get_user($ce["uid"]);
+        $ue = unserialize($ce["get_user"]);
         echo "<tr>";
         $img = "inone.gif";
         $v = round(100*$ce["rate_out"]/max(1,(count($r)-1)));
@@ -138,11 +138,11 @@ function _compo2_rate_list($params) {
 //         if ($v >= 100) { $img = "star.gif"; }
         echo "<td><img src='$myurl/images/$img' title='$v% Coolness'>";
         if ($ce["uid"] != $params["uid"]) {
-            $name = $ue->display_name;
+            $name = $ue["display_name"];
             if (!strlen($name)) { $name = "?"; }
             echo "<td><a href='?action=rate&uid={$ce["uid"]}'>".htmlentities($name)."</a>";
         } else {
-            echo "<td>".htmlentities($ue->display_name);
+            echo "<td>".htmlentities($ue["display_name"]);
         }
         if ($ce["rate_in"]) { echo " ({$ce["rate_in"]})"; }
         
@@ -266,12 +266,18 @@ function _compo2_rate_submit($params) {
         );
     $total += strlen($comments);
     if (strlen($comments)) {
+        $user = compo2_get_user($params["uid"]);
         compo2_insert("c2_comments",array(
             "cid"=>$params["cid"],
             "to_uid"=>$uid,
             "from_uid"=>$params["uid"],
             "ts"=>date("Y-m-d H:i:s"),
             "content"=>$comments,
+            "get_user"=>serialize(array(
+                "display_name"=>$user->display_name,
+                "nicename"=>$user->nicename,
+                "user_email"=>$user->user_email,
+            )),
         ));
     }
     $r = compo2_query("select * from c2_comments where cid = ? and to_uid = ? and from_uid = ?",array(

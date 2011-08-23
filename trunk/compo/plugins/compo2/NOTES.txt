@@ -1,13 +1,18 @@
 
-- prev and next buttons on view all
-- add search button
-- cache for results
 - add get_user data to entry data in database, and comment data.
-- better thumb cache (per compo)
-- add search on rate page as well
+- on user results page show all placings
+- add search button on view all
+- cache for results
 
-x- on rate, be able to see least-votedupon entries
-x- bold current page on view all
+x - prev and next buttons on view all
+x - on rate, be able to see least-votedupon entries
+x - bold current page on view all
+
+
+==
+
+- add search on rate page as well
+- better thumb cache (per compo)
 
 ===========
 - you can add jam entries during rating before locked
