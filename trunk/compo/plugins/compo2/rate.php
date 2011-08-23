@@ -88,8 +88,13 @@ function _compo2_rate_list($params) {
     }*/
     
     $r = array();
+    @$sortby = $_REQUEST["sortby"];
+    
     foreach ($_r as $k=>$ce) {
-        $key = md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}")."|{$ce["uid"]}";
+        if ($sortby == "rate_in") { $key = sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]); }
+        else {
+            $key = md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}")."|{$ce["uid"]}";
+        }
         $r[$key] = $ce;
     }
     ksort($r); // Much faster than usort.
@@ -158,7 +163,7 @@ function _compo2_rate_list($params) {
     if (!strlen($_REQUEST["more"])) {
         echo "<a href='?more=1'>Show all entries</a> | ";
     }
-//     echo "<a href='?sortby=rate_in'>Sort by least ratings</a> | ";
+    echo "<a href='?sortby=rate_in'>Sort by least ratings</a> | ";
 //     echo "<a href='?sortby=rate_out'>Sort by most coolness</a>";
 //     echo "</p><p>";
     echo "<a href='?action=preview'>View all Screenshots</a> | ";
