@@ -62,54 +62,59 @@ function _compo2_preview($params,$_link="?action=preview") {
     echo " <input type='submit' value='Search'>";
     echo "</form>";
 
-    ob_start();
-    echo "<p>";
-    if ($start > 0) {
-        $i = max(0,$start-$limit);
-        echo "<a href='?action=preview&q=".urlencode($q)."etype=".urlencode($etype)."&start=$i'>Previous</a> ";
-    }
-    echo " [ ";
-    $n=1;
-    for ($i=0; $i<$cnt; $i+=$limit) {
-        if ($i == $start) { echo "<b>$n</b> "; } else {
-            echo "<a href='?action=preview&q=".urlencode($q)."&etype=".urlencode($etype)."&start=$i'>$n</a> ";
+    if (!$cnt) {
+        echo "<p>No entries found.</p>";
+    } else {
+
+        ob_start();
+        echo "<p>";
+        if ($start > 0) {
+            $i = max(0,$start-$limit);
+            echo "<a href='?action=preview&q=".urlencode($q)."etype=".urlencode($etype)."&start=$i'>Previous</a> ";
         }
-        $n += 1;
-    }
-    echo " ] ";
-    if ($start < ($cnt-$limit)) {
-        $i = $start+$limit;
-        echo "<a href='?action=preview&q=".urlencode($q)."&etype=".urlencode($etype)."&start=$i'>Next</a> ";
-    }
-    echo "</p>";
-    $paging = ob_get_contents();
-    ob_end_clean();
+        echo " [ ";
+        $n=1;
+        for ($i=0; $i<$cnt; $i+=$limit) {
+            if ($i == $start) { echo "<b>$n</b> "; } else {
+                echo "<a href='?action=preview&q=".urlencode($q)."&etype=".urlencode($etype)."&start=$i'>$n</a> ";
+            }
+            $n += 1;
+        }
+        echo " ] ";
+        if ($start < ($cnt-$limit)) {
+            $i = $start+$limit;
+            echo "<a href='?action=preview&q=".urlencode($q)."&etype=".urlencode($etype)."&start=$i'>Next</a> ";
+        }
+        echo "</p>";
+        $paging = ob_get_contents();
+        ob_end_clean();
+        
+        echo $paging;
     
-    echo $paging;
-
-
-    $cols = 6;
-    $n = 0;
-    $row = 0;
-    echo "<table class='preview'>";
-    foreach ($r as $e) {
-        if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
-        $klass = "class='alt-".(1+(($row)%2))."'";
-        echo "<td valign=bottom align=center $klass>";
-        $link = "$_link&uid={$e["uid"]}";
-        echo "<div><a href='$link'>";
-        $shots = unserialize($e["shots"]);
-        echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
-        echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
-        $ue = unserialize($e["get_user"]);
-        echo $ue["display_name"];
-        echo "</a></div>";
-        if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
-        else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
+    
+        $cols = 6;
+        $n = 0;
+        $row = 0;
+        echo "<table class='preview'>";
+        foreach ($r as $e) {
+            if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
+            $klass = "class='alt-".(1+(($row)%2))."'";
+            echo "<td valign=bottom align=center $klass>";
+            $link = "$_link&uid={$e["uid"]}";
+            echo "<div><a href='$link'>";
+            $shots = unserialize($e["shots"]);
+            echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
+            echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
+            $ue = unserialize($e["get_user"]);
+            echo $ue["display_name"];
+            echo "</a></div>";
+            if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
+            else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
+        }
+        echo "</table>";
+    
+        echo $paging;
     }
-    echo "</table>";
-
-    echo $paging;
 
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
