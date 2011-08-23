@@ -77,7 +77,13 @@ function _compo2_rate_sort_by_rate_out($a,$b) {
 }
 
 function _compo2_rate_list($params) {
-    $_r = compo2_query("select uid,cid,rate_in,get_user from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
+    @$q = $_REQUEST["q"];
+
+    if (!strlen($q)) {
+        $_r = compo2_query("select uid,cid,rate_in,get_user from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
+    } else {
+        $_r = compo2_query("select uid,cid,rate_in,get_user from c2_entry where (notes like ? OR links like ? OR get_user like ?) and cid = ? and active = 1 and is_judged = 1",array("%$q%","%$q%","%$q%",$params["cid"]));
+    }
     
 //     srand($params["cid"]*256 + $params["uid"]);
 //     shuffle($r);
@@ -110,6 +116,12 @@ function _compo2_rate_list($params) {
     
     
     echo "<h3>Rate Entries</h3>";
+    
+    echo "<form><input type='hidden' name='action' value='preview'>";
+    echo "<input type='text' name='q' value='".htmlentities($q)."'>";
+    echo " <input type='submit' value='Search'>";
+    echo "</form>";
+    
     $n=0;
     echo "<table>";
     echo "<tr><th><th>";
@@ -163,9 +175,9 @@ function _compo2_rate_list($params) {
     
     echo "<p>";
     if (!strlen($_REQUEST["more"])) {
-        echo "<a href='?more=1'>Show all entries</a> | ";
+        echo "<a href='?more=1&q=".urlencode($q)."'>Show all entries</a> | ";
     }
-    echo "<a href='?sortby=rate_in'>Sort by least ratings</a> | ";
+    echo "<a href='?sortby=rate_in&q=".urlencode($q)."'>Sort by least ratings</a> | ";
 //     echo "<a href='?sortby=rate_out'>Sort by most coolness</a>";
 //     echo "</p><p>";
     echo "<a href='?action=preview'>View all Screenshots</a> | ";
