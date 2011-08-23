@@ -19,7 +19,14 @@ function _compo2_preview($params,$_link="?action=preview") {
         $cats[$div] = "{$params["{$div}_title"]} Entries";
     }
     
-    $cnte = array_pop(compo2_query("select count(*) _cnt from c2_entry where etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array("%$etype%",$params["cid"])));
+    @$q = $_REQUEST["q"];
+    
+    if (!strlen($q)) {
+        $cnte = array_pop(compo2_query("select count(*) _cnt from c2_entry where etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array("%$etype%",$params["cid"])));
+    } else {
+        $cnte = array_pop(compo2_query("select count(*) _cnt from c2_entry where (notes like ? OR links like ? OR get_user like ?) and  etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array("%$q%","%$q%","%$q%","%$etype%",$params["cid"])));
+    }
+
     $cnt = $cnte["_cnt"];
     
     $limit = 24;
@@ -27,7 +34,11 @@ function _compo2_preview($params,$_link="?action=preview") {
     if (isset($_REQUEST["start"])) { $start = intval($_REQUEST["start"]); }
     $start = intval($start); $limit = intval($limit);
     
-    $r = compo2_query("select * from c2_entry where etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":"")." limit $start,$limit",array("%$etype%",$params["cid"]));
+    if (!strlen($q)) {
+        $r = compo2_query("select * from c2_entry where etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":"")." limit $start,$limit",array("%$etype%",$params["cid"]));
+    } else {
+        $r = compo2_query("select * from c2_entry where (notes like ? OR links like ? OR get_user like ?) and etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":"")." limit $start,$limit",array("%$q%","%$q%","%$q%","%$etype%",$params["cid"]));
+    }
     usort($r,"_compo2_preview_sort");
 
     echo "<h3>".htmlentities($cats[$etype])." ($cnt)</h3>";
@@ -44,6 +55,12 @@ function _compo2_preview($params,$_link="?action=preview") {
 
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
+    
+    echo "<form><input type='hidden' name='action' value='preview'>";
+//     echo "<input type='hidden' name='etype' value='".htmlentities($etype)."'>";
+    echo "<input type='text' name='q' value='".htmlentities($q)."'>";
+    echo " <input type='submit' value='Search'>";
+    echo "</form>";
 
     ob_start();
     echo "<p>";
