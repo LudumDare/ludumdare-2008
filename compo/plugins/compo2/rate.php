@@ -117,7 +117,8 @@ function _compo2_rate_list($params) {
     
     echo "<h3>Rate Entries</h3>";
     
-    echo "<form><input type='hidden' name='action' value='preview'>";
+    echo "<form>";
+//     echo "<input type='hidden' name='action' value=''>";
     echo "<input type='text' name='q' value='".htmlentities($q)."'>";
     echo " <input type='submit' value='Search'>";
     echo "</form>";
