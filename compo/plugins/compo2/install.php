@@ -120,9 +120,9 @@ function compo2_install() {
         compo2_query("alter table c2_comments add get_user blob");
         update_option($key,$version);
     }
-    $version = 32;
+    $version = 33;
     if ($cur < $version) {
-        $r = compo2_query("select id,from_uid from c2_comments");
+        $r = compo2_query("select id,from_uid from c2_comments where get_user is null");
         foreach ($r as $ce) {
             $user = compo2_get_user($ce["from_uid"]);
             compo2_query("update c2_comments set get_user = ? where id = ?",array(
