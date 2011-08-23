@@ -70,7 +70,7 @@ function _compo2_preview($params,$_link="?action=preview") {
         echo "<p>";
         if ($start > 0) {
             $i = max(0,$start-$limit);
-            echo "<a href='?action=preview&q=".urlencode($q)."etype=".urlencode($etype)."&start=$i'>Previous</a> ";
+            echo "<a href='?action=preview&q=".urlencode($q)."&etype=".urlencode($etype)."&start=$i'>Previous</a> ";
         }
         echo " [ ";
         $n=1;
