@@ -66,20 +66,20 @@ function _compo2_preview($params,$_link="?action=preview") {
     echo "<p>";
     if ($start > 0) {
         $i = max(0,$start-$limit);
-        echo "<a href='?action=preview&etype=".urlencode($etype)."&start=$i'>Previous</a> ";
+        echo "<a href='?action=preview&q=".urlencode($q)."etype=".urlencode($etype)."&start=$i'>Previous</a> ";
     }
     echo " [ ";
     $n=1;
     for ($i=0; $i<$cnt; $i+=$limit) {
         if ($i == $start) { echo "<b>$n</b> "; } else {
-            echo "<a href='?action=preview&etype=".urlencode($etype)."&start=$i'>$n</a> ";
+            echo "<a href='?action=preview&q=".urlencode($q)."&etype=".urlencode($etype)."&start=$i'>$n</a> ";
         }
         $n += 1;
     }
     echo " ] ";
     if ($start < ($cnt-$limit)) {
         $i = $start+$limit;
-        echo "<a href='?action=preview&etype=".urlencode($etype)."&start=$i'>Next</a> ";
+        echo "<a href='?action=preview&q=".urlencode($q)."&etype=".urlencode($etype)."&start=$i'>Next</a> ";
     }
     echo "</p>";
     $paging = ob_get_contents();
