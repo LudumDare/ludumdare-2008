@@ -157,8 +157,8 @@ function _compo2_preview_comments($params,$uid,$form=true) {
     if ($form) {
         if ($params["uid"]) {
             $comments = trim(compo2_strip($_REQUEST["comments"]));
-            $user = compo2_get_user($params["uid"]);
             if (strlen($comments)) {
+                $user = compo2_get_user($params["uid"]);
                 compo2_insert("c2_comments",array(
                     "cid"=>$params["cid"],
                     "to_uid"=>$uid,
