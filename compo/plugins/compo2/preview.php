@@ -56,7 +56,8 @@ function _compo2_preview($params,$_link="?action=preview") {
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
     
-    echo "<form><input type='hidden' name='action' value='preview'>";
+    echo "<form style='text-align:left;margin:10px;'>";
+    echo "<input type='hidden' name='action' value='preview'>";
     echo "<input type='text' name='q' value='".htmlentities($q)."'>";
     echo " <input type='submit' value='Search'>";
     echo "</form>";
