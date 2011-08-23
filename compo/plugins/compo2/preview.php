@@ -78,17 +78,14 @@ function _compo2_preview($params,$_link="?action=preview") {
     foreach ($r as $e) {
         if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
         $klass = "class='alt-".(1+(($row)%2))."'";
-        
-/*        $etype = htmlentities($e["etype"]);
-        $klass = "class='alt-".($etype=="compo"?"1":"2")."'";*/
-        
         echo "<td valign=bottom align=center $klass>";
         $link = "$_link&uid={$e["uid"]}";
         echo "<div><a href='$link'>";
         $shots = unserialize($e["shots"]);
         echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
         echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
-        echo compo2_get_user($e["uid"])->display_name;
+        $ue = unserialize($e["get_user"]);
+        echo $ue["display_name"];
         echo "</a></div>";
         if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
         else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
@@ -160,10 +157,10 @@ function _compo2_preview_comments($params,$uid,$form=true) {
         if (strcmp($e["from_uid"],$pe["from_uid"])==0 &&
             strcmp($e["content"],$pe["content"])==0) { continue; }
         $pe = $e;
-        $user = compo2_get_user($e["from_uid"]);
+        $user = unserialize($e["get_user"]);
         echo "<div class = 'comment'>";
-        echo get_gravatar($user->user_email,48,'mm','g',true,array("align"=>"right","class"=>"gravatar"));
-        echo "<div><strong>{$user->display_name} says ...</strong></div>";
+        echo get_gravatar($user["user_email"],48,'mm','g',true,array("align"=>"right","class"=>"gravatar"));
+        echo "<div><strong>{$user["display_name"]} says ...</strong></div>";
         echo "<div><small>".date("M j, Y @ g:ia",strtotime($e["ts"]))."</small></div>";
         echo "<p>".str_replace("\n","<br/>",htmlentities(trim($e["content"])))."</p>";
         echo "</div>";
@@ -182,9 +179,9 @@ function _compo2_preview_comments($params,$uid,$form=true) {
 
 function _compo2_preview_show($params,$uid,$comments=true) {
     $ce = compo2_entry_load($params["cid"],$uid);
-    $user = compo2_get_user($ce["uid"]);
+    $user = unserialize($ce["get_user"]);
     
-    echo "<h3>".htmlentities($ce["title"])." - {$user->display_name}";
+    echo "<h3>".htmlentities($ce["title"])." - {$user["display_name"]}";
     $div = $ce["etype"];
     echo " - <i>{$params["{$div}_title"]} Entry</i>";
     echo "</h3>";
@@ -211,8 +208,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
     echo "</table>";
     
     if ($params["jcat"]) {
-        $link = get_bloginfo("url")."/?category_name={$params["jcat"]}&author_name={$user->user_nicename}";
-        echo "<p><a href='$link' target='_blank'>View {$user->display_name}'s journal.</a></p>";
+        $link = get_bloginfo("url")."/?category_name={$params["jcat"]}&author_name={$user["user_nicename"]}";
+        echo "<p><a href='$link' target='_blank'>View {$user["display_name"]}'s journal.</a></p>";
     }
     
     if ($params["state"] == "results" || $params["state"] == "admin") {

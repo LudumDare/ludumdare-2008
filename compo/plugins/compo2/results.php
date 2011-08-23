@@ -28,7 +28,7 @@ function _compo2_get_results($params) {
     $total = 0;
     foreach ($r as $k=>$ce) {
         $r[$k]["results"] = unserialize($ce["results"]);
-        $r[$k]["user"] = compo2_get_user($ce["uid"]);
+        $r[$k]["user"] = unserialize($ce["get_user"]);
         $total += intval($ce["is_judged"]!=0);
     }
     
@@ -120,7 +120,7 @@ function _compo2_results_cat($params,$cat,$r) {
         echo "<tr>";
         echo "<td><img src='$myurl/$img'>";
         echo "<td align=right>$vv";
-        echo "<td><a href='?uid={$ce["uid"]}'>{$ce["user"]->display_name}</a>";
+        echo "<td><a href='?uid={$ce["uid"]}'>{$ce["user"]["display_name"]}</a>";
         
         $t += 1;
         if ($t >= 5 && !strlen($_REQUEST["more"])) { break; }
@@ -234,7 +234,7 @@ function _compo2_results_top($params) {
         echo "<td align=center valign=top $klass>";
         echo "<a href='$link'><img src='".compo2_thumb($fname,160,160)."' class='screenshot'></a>";
         echo "<td valign=top $klass>";
-        echo "<div><a href='$link'><b>".htmlentities($ce["title"])."</b> - ".htmlentities($ce["user"]->display_name)."</a></div>";
+        echo "<div><a href='$link'><b>".htmlentities($ce["title"])."</b> - ".htmlentities($ce["user"]["display_name"])."</a></div>";
         echo "<p>"; _compo2_preview_show_links($ce); echo "</p>";
         echo "<div class='notes'>".str_replace("\n","<br/>",htmlentities(substr($ce["notes"],0,140)))." ...</div>";
         echo "<td valign=top $klass>";

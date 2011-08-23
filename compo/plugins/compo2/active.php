@@ -259,6 +259,14 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
         
     //     $ce["data"] = serialize($_REQUEST["data"]);
         $ce["active"] = intval($active);
+        
+        $user = compo2_get_user($uid);
+        $ce["get_user"] = serialize(array(
+            "display_name"=>$user->display_name,
+            "nicename"=>$user->nicename,
+            "user_email"=>$user->user_email,
+        ));
+        
         unset($ce["results"]);
         if (!$ce["id"]) {
             $ce["cid"] = $params["cid"];

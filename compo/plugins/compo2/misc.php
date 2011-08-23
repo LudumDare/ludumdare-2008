@@ -18,10 +18,10 @@ function _compo2_misc_links($params) {
     
     echo "<table><tr><th>Entry<th>User<th>Links ...<th># Votes<th>Coolness<th>Entry Type\n";
     foreach ($r as $ce) {
-        $ue = compo2_get_user($ce["uid"]);
+        $ue = unserialize($ce["get_user"]);
         echo "<tr>";
         echo "<td><a href='?action=preview&uid={$ce["uid"]}'>".htmlentities($ce["title"])."</a>";
-        echo "<td>".htmlentities($ue->display_name);
+        echo "<td>".htmlentities($ue["display_name"]);
         echo "<td>";
         _compo2_preview_show_links($ce);
         echo "<td>".htmlentities($ce["rate_in"]);
