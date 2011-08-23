@@ -138,7 +138,9 @@ function _compo2_rate_list($params) {
 //         if ($v >= 100) { $img = "star.gif"; }
         echo "<td><img src='$myurl/images/$img' title='$v% Coolness'>";
         if ($ce["uid"] != $params["uid"]) {
-            echo "<td><a href='?action=rate&uid={$ce["uid"]}'>".htmlentities($ue->display_name)."</a>";
+            $name = $ue->display_name;
+            if (!strlen($name)) { $name = "?"; }
+            echo "<td><a href='?action=rate&uid={$ce["uid"]}'>".htmlentities($name)."</a>";
         } else {
             echo "<td>".htmlentities($ue->display_name);
         }
