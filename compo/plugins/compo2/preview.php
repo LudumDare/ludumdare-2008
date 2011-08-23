@@ -55,7 +55,7 @@ function _compo2_preview($params,$_link="?action=preview") {
 
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     ob_start();
-    if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a> | <a href='?action=preview&uid={$ce["id"]}'>View your entry.</a></p>"; }
+    if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a> | <a href='?action=preview&uid={$ce["uid"]}'>View your entry.</a></p>"; }
     $yourlinks = ob_get_contents();
     ob_end_clean();
     echo $yourlinks;
