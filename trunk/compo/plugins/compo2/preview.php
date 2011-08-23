@@ -49,7 +49,7 @@ function _compo2_preview($params,$_link="?action=preview") {
     echo "<p>[ ";
     $n=1;
     for ($i=0; $i<$cnt; $i+=$limit) {
-        if ($i == $start) { echo "$n "; } else {
+        if ($i == $start) { echo "<b>$n</b> "; } else {
             echo "<a href='?action=preview&etype=".urlencode($etype)."&start=$i'>$n</a> ";
         }
         $n += 1;

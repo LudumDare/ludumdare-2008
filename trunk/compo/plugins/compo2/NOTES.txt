@@ -1,10 +1,12 @@
 
 - prev and next buttons, bold current page on view all
 - add search button
-- on rate, be able to see least-votedupon entries
 - cache for results
 - add get_user data to entry data in database, and comment data.
 - better thumb cache (per compo)
+- add search on rate page as well
+
+x- on rate, be able to see least-votedupon entries
 
 ===========
 - you can add jam entries during rating before locked
@@ -12,7 +14,7 @@
 - add "rules" as a attribute
 - add "gamejam" as a attribute
 - check for gamejam in various places where the game jam is mentioned in the code
-
+s
 Entry viewing:
     x - you can vote on jam entries
 
