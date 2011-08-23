@@ -115,7 +115,7 @@ function _compo2_rate_list($params) {
     }*/
     
     
-    echo "<h3>Rate Entries</h3>";
+    echo "<h3>Rate Entries (".count($r).")</h3>";
     
     echo "<form style='text-align:left;margin:10px;'>";
 //     echo "<input type='hidden' name='action' value=''>";
