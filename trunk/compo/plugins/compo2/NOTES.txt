@@ -1,5 +1,5 @@
 
-- prev and next buttons, bold current page on view all
+- prev and next buttons on view all
 - add search button
 - cache for results
 - add get_user data to entry data in database, and comment data.
@@ -7,6 +7,7 @@
 - add search on rate page as well
 
 x- on rate, be able to see least-votedupon entries
+x- bold current page on view all
 
 ===========
 - you can add jam entries during rating before locked

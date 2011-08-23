@@ -46,7 +46,12 @@ function _compo2_preview($params,$_link="?action=preview") {
     if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry.</a></p>"; }
 
     ob_start();
-    echo "<p>[ ";
+    echo "<p>";
+    if ($start > 0) {
+        $i = max(0,$start-$limit);
+        echo "<a href='?action=preview&etype=".urlencode($etype)."&start=$i'>Previous</a> ";
+    }
+    echo " [ ";
     $n=1;
     for ($i=0; $i<$cnt; $i+=$limit) {
         if ($i == $start) { echo "<b>$n</b> "; } else {
@@ -54,7 +59,12 @@ function _compo2_preview($params,$_link="?action=preview") {
         }
         $n += 1;
     }
-    echo " ]</p>";
+    echo " ] ";
+    if ($start < $cnt-1) {
+        $i = $start+$limit;
+        echo "<a href='?action=preview&etype=".urlencode($etype)."&start=$i'>Next</a> ";
+    }
+    echo "</p>";
     $paging = ob_get_contents();
     ob_end_clean();
     
