@@ -78,6 +78,9 @@ function _compo2_rate_sort_by_rate_out($a,$b) {
 
 function _compo2_rate_list($params) {
     @$q = $_REQUEST["q"];
+    
+    $ecnt = array_pop(compo2_query("select count(*) cnt from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"])));
+    $cnt = $ecnt["cnt"];
 
     if (!strlen($q)) {
         $_r = compo2_query("select uid,cid,rate_in,rate_out,get_user from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
@@ -144,7 +147,7 @@ function _compo2_rate_list($params) {
         $ue = unserialize($ce["get_user"]);
         echo "<tr>";
         $img = "inone.gif";
-        $v = round(100*$ce["rate_out"]/max(1,(count($r)-1)));
+        $v = round(100*$ce["rate_out"]/max(1,($cnt-1)));
         if ($v >= 25) { $img = "ibronze.gif"; }
         if ($v >= 50) { $img = "isilver.gif"; }
         if ($v >= 75) { $img = "igold.gif"; }
