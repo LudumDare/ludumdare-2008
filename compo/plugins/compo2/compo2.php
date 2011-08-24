@@ -32,7 +32,6 @@ function compo2_log($fnc,$tm,$msg="") {
     $compo2["log"][$key] = $e;
 }
 
-
 function compo2_query($sql,$params=array()) {
     $tm = microtime(true);
 
@@ -66,6 +65,18 @@ function compo2_entry_load($cid,$uid) {
     }
     return $compo2["entry_load_cache"][$key];
 }
+
+function compo2_cache_read($cid,$name) {
+    $r = compo2_query("select * from c2_cache where id = ?",array("$cid|$name"));
+    if (!count($r)) { return false; }
+    $e = array_pop($r);
+    return $e["data"];
+}
+
+function compo2_cache_write($cid,$name,$data) {
+    compo2_query("replace into c2_cache (id,cid,name,data,ts) values (?,?,?,?,?)",array("$cid|$name",$cid,$name,$data,date("Y-m-d H:i:s")));
+}
+
 
 function compo2_insert($table,$e,$key="id") {
     $keys = array_keys($e);

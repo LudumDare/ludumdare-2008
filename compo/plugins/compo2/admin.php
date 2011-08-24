@@ -21,7 +21,15 @@ function _compo2_admin($params) {
         return _compo2_results_top($params);
     } elseif ($action == "recalc") {
         return _compo2_admin_recalc($params);
+    } elseif ($action == "resetcache") {
+        return _compo2_admin_resetcache($params);
     }
+}
+
+function _compo2_admin_resetcache($params) {
+    echo "<h3>Resetting Cache ...</h3>";
+    compo2_query("delete from c2_cache where cid = ?",array($params["cid"]));
+    echo "<p>Done.</p>";
 }
 
 function _compo2_admin_recalc($params) {
@@ -32,7 +40,12 @@ function _compo2_admin_recalc($params) {
         _compo2_rate_recalc($params,$uid);
     }
     echo "<p>Done.</p>";
-
+    echo "<hr/>";
+    
+    _compo2_admin_resetcache($params);
+    echo "<hr/>";
+    
+    _compo2_results_results($params);
 }
 
 ?>
