@@ -23,7 +23,7 @@ function _compo2_results_sort($a,$b) {
 }
 
 function _compo2_get_results($params) {
-    if (($cres=compo2_cache_read($params["cid"],$ckey="get_results"))!==false) { return unserialize($cres); }
+//     if (($cres=compo2_cache_read($params["cid"],$ckey="get_results"))!==false) { return unserialize($cres); }
 
     $r = compo2_query("select * from c2_entry where cid = ? and active = 1",array($params["cid"]));
     $total = 0;
@@ -68,7 +68,7 @@ function _compo2_get_results($params) {
         $rr[$cat] = $res;
     }
     
-    compo2_cache_write($params["cid"],$ckey,serialize($rr));
+//     compo2_cache_write($params["cid"],$ckey,serialize($rr));
     
     return $rr;
 }
