@@ -6,6 +6,7 @@ function likeThis(postId) {
 			{ id: postId },
 			function(data){
 				jQuery('#iLikeThis-'+postId+' .counter').text(data);
+				jQuery('#iLikeThis-'+postId+' .counter').removeAttr('style');				
 			});
 	}
 }
