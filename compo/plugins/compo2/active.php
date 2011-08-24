@@ -227,6 +227,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
             if (!$w) { continue; } if (!$h) { continue; }
     //         unset($shots[$k]);
             $ext = array_pop(explode(".",$fe["name"]));
+            if (!in_array(strtolower($ext),array("png","gif","jpg","bmp"))) { continue; }
             $cid = $params["cid"];
             $ts = time();
     //         $fname = "$cid/$uid-$ts.$ext";
