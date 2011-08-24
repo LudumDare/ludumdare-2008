@@ -45,6 +45,11 @@ function setOptionsILT() {
 
 		add_option("ilt_dbVersion", $ilt_dbVersion);
 	}
+	if ($ilt_dbVersion != "1.1") {
+        $wpdb->get_results("create index idx_wp_ilikethis_votes_post_id on wp_ilikethis_votes (post_id)");
+        $wpdb->get_results("create index idx_wp_ilikethis_votes_ip on wp_ilikethis_votes (ip)");
+        update_option("ilt_dbVersion","1.1");
+    }
 	
 	add_option('ilt_jquery', '1', '', 'yes');
 	add_option('ilt_onPage', '1', '', 'yes');
@@ -56,14 +61,14 @@ register_activation_hook(__FILE__, 'setOptionsILT');
 
 function unsetOptionsILT() {
 	global $wpdb;
-	$wpdb->query("DROP TABLE IF EXISTS ".$wpdb->prefix."ilikethis_votes");
+/*	$wpdb->query("DROP TABLE IF EXISTS ".$wpdb->prefix."ilikethis_votes");
 
 	delete_option('ilt_jquery');
 	delete_option('ilt_onPage');
 	delete_option('ilt_textOrImage');
 	delete_option('ilt_text');
 	delete_option('most_liked_posts');
-	delete_option('ilt_dbVersion');
+	delete_option('ilt_dbVersion');*/
 }
 
 register_uninstall_hook(__FILE__, 'unsetOptionsILT');
@@ -249,7 +254,8 @@ function getILikeDare($arg) {
 	$ip = $_SERVER['REMOTE_ADDR'];
 	
     $liked = get_post_meta($post_ID, '_liked', true) != '' ? get_post_meta($post_ID, '_liked', true) : '0';
-	$voteStatusByIp = $wpdb->get_var("SELECT COUNT(*) FROM ".$wpdb->prefix."ilikethis_votes WHERE post_id = '$post_ID' AND ip = '$ip'");
+// 	$voteStatusByIp = $wpdb->get_var("SELECT COUNT(*) FROM ".$wpdb->prefix."ilikethis_votes WHERE post_id = '$post_ID' AND ip = '$ip'");
+    $voteStatusByIp = 0;
 		
     if (!isset($_COOKIE['liked-'.$post_ID]) && $voteStatusByIp == 0) {
     	if (get_option('ilt_textOrImage') == 'image') {
