@@ -272,12 +272,14 @@ function getILikeDare($arg) {
     }
     
     $iLikeThis = '<div id="iLikeThis-'.$post_ID.'" class="iLikeThis">';
+// 	$iLikeThis .= '<span class="counter">'.$counter.'</span>';
+
 	if ( $liked == 0 ) {
-    	$iLikeThis .= '<span class="counter-none">'.$counter.'</span>';
+    	$iLikeThis .= '<span class="counter" style="background:url(heart-none.png)">'.$counter.'</span>';
 	}
 	else {
-    	$iLikeThis .= '<span class="counter">'.$counter.'</span>';
-    }
+		$iLikeThis .= '<span class="counter">'.$counter.'</span>';
+	}
     $iLikeThis .= '</div>';
     
     if ($arg == 'put') {
