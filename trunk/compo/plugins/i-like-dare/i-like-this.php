@@ -275,7 +275,7 @@ function getILikeDare($arg) {
 // 	$iLikeThis .= '<span class="counter">'.$counter.'</span>';
 
 	if ( $liked == 0 ) {
-    	$iLikeThis .= '<span class="counter" style=".iLikeThis .counter { background:url(heart-none.png) }">'.$counter.'</span>';
+    	$iLikeThis .= '<span class="counter" style="background:url(css/heart-none.png)">'.$counter.'</span>';
 	}
 	else {
 		$iLikeThis .= '<span class="counter">'.$counter.'</span>';
