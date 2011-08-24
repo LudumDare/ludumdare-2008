@@ -136,6 +136,14 @@ function compo2_install() {
         }
         update_option($key,$version);
     }
+    
+    $version = 34;
+    if ($cur < $version) {
+        compo2_query("create table c2_cache (id varchar(32) primary key, cid int, name varchar(64), data longblob, ts datetime)");
+        compo2_query("create index idx_c2_cache_cid on c2_cache (cid)");
+        compo2_query("create index idx_c2_cache_name on c2_cache (name)");
+        update_option($key,$version);
+    }
 }
 
 register_activation_hook($GLOBALS["compo2"]["plugin"],"compo2_install");

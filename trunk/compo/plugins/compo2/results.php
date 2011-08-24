@@ -23,6 +23,7 @@ function _compo2_results_sort($a,$b) {
 }
 
 function _compo2_get_results($params) {
+    if (($cres=compo2_cache_read($params["cid"],$ckey="get_results"))!==false) { return unserialize($cres); }
 
     $r = compo2_query("select * from c2_entry where cid = ? and active = 1",array($params["cid"]));
     $total = 0;
@@ -66,11 +67,19 @@ function _compo2_get_results($params) {
         }
         $rr[$cat] = $res;
     }
+    
+    compo2_cache_write($params["cid"],$ckey,serialize($rr));
+    
     return $rr;
 }
 
 function _compo2_results_results($params) {
     if (isset($_REQUEST["uid"])) { return _compo2_results_show($params,intval($_REQUEST["uid"])); }
+    
+    //more=1 is the one alternate
+    $more = intval(strlen($_REQUEST["more"])!=0);
+    if (($cres=compo2_cache_read($params["cid"],$ckey="results_results:$more"))!==false) { echo $cres; return; }
+    ob_start();
     
     $r = _compo2_get_results($params);
     
@@ -96,6 +105,11 @@ function _compo2_results_results($params) {
     if ($ce["id"]) { echo "<a href='?action=edit'>Edit your entry.</a>"; }
     echo "</p>";
     
+    $cres = ob_get_contents();
+    ob_end_clean();
+    compo2_cache_write($params["cid"],$ckey,$cres);
+    
+    echo $cres;
 }
 
 function _compo2_results_cat($params,$cat,$r) {
@@ -188,11 +202,16 @@ function _compo2_get_top($params) {
 
 
 function _compo2_results_top($params) {
+    $cat = $_REQUEST["cat"];
+    if (!in_array($cat,$params["cats"])) { $cat = $params["topcat"]; } // HACK: why overall? who knows!
+    
+    // CACHING ///////////////
+    unset($_REQUEST["more"]);
+    if (($cres=compo2_cache_read($params["cid"],$ckey="results_top:$cat"))!==false) { echo $cres; return; }
+    ob_start();
     
     $r = _compo2_get_top($params);
     
-    $cat = $_REQUEST["cat"];
-    if (!strlen($cat)) { $cat = $params["topcat"]; } // HACK: why overall? who knows!
     // also, this now ignores the nice counting of trophes done earlier ..
     $_cat = $cat; // backup for later
     
@@ -261,8 +280,16 @@ function _compo2_results_top($params) {
     
     echo "<p>";
     $cat = urlencode($_cat);
-    echo "<a href='?action=top&cat=$cat&more=1'>Show all Entries</a> | ";
+//     echo "<a href='?action=top&cat=$cat&more=1'>Show all Entries</a> | ";
     echo "<a href='./'>Back to Results</a>";
     echo "</p>";
+    
+    $cres = ob_get_contents();
+    ob_end_clean();
+    compo2_cache_write($params["cid"],$ckey,$cres);
+    
+    echo $cres;
+
+    
 }
 ?>
