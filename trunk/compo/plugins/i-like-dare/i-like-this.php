@@ -26,6 +26,8 @@ load_plugin_textdomain('i-like-dare', 'wp-content/plugins/i-like-dare/lang/', 'i
 #### INSTALL PROCESS ####
 $ilt_dbVersion = "1.0";
 
+// NOTE: plugin is named incorrectly, so this is never called
+// so the index creation below I did by hand on Ludumdare.com
 function setOptionsILT() {
 	global $wpdb;
 	global $ilt_dbVersion;
