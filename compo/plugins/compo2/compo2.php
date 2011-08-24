@@ -133,6 +133,14 @@ function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
 
 function compo2_get_user($uid) {
     $tm = microtime(true);
+    $r = get_userdata($uid);
+    compo2_log("compo2_get_user",microtime(true)-$tm);
+    return $r;
+}
+
+/*
+function compo2_get_user($uid) {
+    $tm = microtime(true);
 // display_name
 // nicename
 // user_email
@@ -154,6 +162,8 @@ function compo2_get_user($uid) {
     return $r;
 //     return get_userdata($uid);
 }
+*/
+
 
 function compo2_number_format($v) {
     if (!strlen($v)) { return "-"; }
