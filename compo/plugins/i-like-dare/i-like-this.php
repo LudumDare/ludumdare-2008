@@ -165,6 +165,7 @@ function ILikeDareAdminContent() {
 
 
 #### WIDGET ####
+/*
 function most_liked_posts($numberOf, $before, $after, $show_count) {
 	global $wpdb;
 
@@ -246,6 +247,7 @@ function add_widget_most_liked_posts() {
 } 
 
 add_action('init', 'add_widget_most_liked_posts');
+*/
 ####
 
 
@@ -272,7 +274,6 @@ function getILikeDare($arg) {
     }
     
     $iLikeThis = '<div id="iLikeThis-'.$post_ID.'" class="iLikeThis">';
-// 	$iLikeThis .= '<span class="counter">'.$counter.'</span>';
 
 	if ( $liked == 0 ) {
     	$iLikeThis .= '<span class="counter" style="background:url(wp-content/plugins/i-like-dare/css/heart-none.png) center left no-repeat">'.$counter.'</span>';
