@@ -276,7 +276,8 @@ function getILikeDare($arg) {
     $iLikeThis = '<div id="iLikeThis-'.$post_ID.'" class="iLikeThis">';
 
 	if ( $liked == 0 ) {
-    	$iLikeThis .= '<span class="counter" style="background:url(wp-content/plugins/i-like-dare/css/heart-none.png) center left no-repeat">'.$counter.'</span>';
+		$iLikeThis .= '<span class="counter-off">'.$counter.'</span>';
+//    	$iLikeThis .= '<span class="counter" style="background:url(wp-content/plugins/i-like-dare/css/heart-none.png) center left no-repeat">'.$counter.'</span>';
 	}
 	else {
 		$iLikeThis .= '<span class="counter">'.$counter.'</span>';
