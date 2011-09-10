@@ -350,7 +350,7 @@ function _compo2_results_top($params) {
         echo "<div class='notes'>".str_replace("\n","<br/>",htmlentities(substr($ce["notes"],0,140)))." ...</div>";
         echo "<td valign=top $klass>";
         asort($e["places"]);
-        foreach ($e["places"] as $cat=>$nn) if ($nn <= 10 && $nn !=0) {
+        foreach ($e["places"] as $cat=>$nn) if ($nn <= 50 && $nn !=0) {
             $img = "inone.gif";
             echo "<div><nobr>";
             if ($nn <= 3) {
