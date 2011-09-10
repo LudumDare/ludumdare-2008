@@ -35,10 +35,13 @@ function _compo2_admin_resetcache($params) {
 function _compo2_admin_recalc($params) {
     echo "<h3>Recaculating Results ...</h3>";
     $r = compo2_query("select uid from c2_entry where cid = ? and active = 1",array($params["cid"]));
+    global $compo2;
+    $compo2["log.enabled"] = false;
     foreach ($r as $ce) {
         $uid = $ce["uid"];
         _compo2_rate_recalc($params,$uid);
     }
+    $compo2["log.enabled"] = true;
     echo "<p>Done.</p>";
     echo "<hr/>";
     
