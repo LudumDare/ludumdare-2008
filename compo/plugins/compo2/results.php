@@ -22,6 +22,17 @@ function _compo2_results_sort($a,$b) {
     return ($b["v"] - $a["v"])*1000;
 }
 
+function _compo2_results_sort2($rr) {
+    $r = array();
+    foreach ($rr as $ce) {
+        $key = sprintf("%08d",intval((1000+$ce["v"])*1000))."|{$ce["uid"]}";
+        $r[$key] = $ce;
+    }
+    krsort($r);
+    return $r;
+}
+    
+
 function _compo2_get_results($params) {
 //     if (($cres=compo2_cache_read($params["cid"],$ckey="get_results"))!==false) { return unserialize($cres); }
 
@@ -49,7 +60,8 @@ function _compo2_get_results($params) {
         foreach ($r as $k=>$ce) {
             $r[$k]["v"] = $ce["results"][$cat];
         }
-        usort($r,"_compo2_results_sort");
+        $r = _compo2_results_sort2($r);
+//         usort($r,"_compo2_results_sort");
 
         $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
         $n = 0; $t = 1; $p = -1;
@@ -109,7 +121,8 @@ function _compo2_results_results($params) {
             $r[$k]["place"] = $ce["places"][$cat];
             $r[$k]["value"] = $ce["values"][$cat];
         }
-        usort($r,"_compo2_results_sort");
+        $r = _compo2_results_sort2($r);
+//         usort($r,"_compo2_results_sort");
 //     foreach ($r as $k => $res) {
         if (($n%$cols)==0) { echo "<tr>"; } $n += 1;
         echo "<td valign=top>";
@@ -289,7 +302,8 @@ function _compo2_results_top($params) {
         $r[$k]["place"] = $ce["places"][$cat];
         $r[$k]["value"] = $ce["values"][$cat];
     }
-    usort($r,"_compo2_results_sort");
+    $r = _compo2_results_sort2($r);
+//     usort($r,"_compo2_results_sort");
 
     
     echo "<p><a href='./'>Back to Results</a></p>";
