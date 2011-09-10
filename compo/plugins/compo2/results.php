@@ -229,19 +229,21 @@ function _compo2_results_ratings($params,$uid) {
     
     echo "<p>";
     asort($e["places"]);
+    echo "<table width=0>";
     foreach ($e["places"] as $cat=>$nn) if (strcmp($e["values"][$cat],"-")!=0) {
         $img = "inone.gif";
-        echo "<div><nobr>";
+        echo "<tr>";
         if ($nn <= 3) {
             $map = array("1"=>"igold.gif","2"=>"isilver.gif","3"=>"ibronze.gif");
             $img = $map[$nn];
-            echo "<img src='$myurl/$img' align=absmiddle> - $cat";
+            echo "<td align=center><img src='$myurl/$img' align=absmiddle>";
         } else {
-            $val = $e["values"][$cat];
-            echo "#$nn - $cat - $val";
+            echo "<td align=center>$nn";
         }
-        echo "</nobr></div>";
+        $val = $e["values"][$cat];
+        echo "<td>$cat<td align=right>$val";
     }
+    echo "</table>";
     echo "</p>";
 
 }
