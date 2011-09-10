@@ -25,7 +25,7 @@ function compo2_error($msg) {
 
 function compo2_log($fnc,$tm,$msg="") {
     global $compo2;
-    if (!$compo2["log.enabled"]) { return; }
+    if (!$compo2["log.enabled"]) { $msg = "disabled"; }
     if (strlen($msg)>1024) { $msg = "..."; }
     $key = "$fnc|$msg";
     $e = array("fnc"=>$fnc,"tm"=>$tm,"msg"=>$msg,"hits"=>1);
@@ -71,13 +71,17 @@ function compo2_entry_load($cid,$uid) {
     return $compo2["entry_load_cache"][$key];
 }
 
-function compo2_cache_read($cid,$name) {
+function compo2_cache_read($cid,$name,$ts=-1) {
     if (isset($_REQUEST["cache"])) {
         $user = wp_get_current_user();
         if ($user->user_level >= 10) { return false; }
     }
-
-    $r = compo2_query("select * from c2_cache where id = ?",array("$cid|$name"));
+    
+    if ($ts==-1) {
+        $r = compo2_query("select * from c2_cache where id = ?",array("$cid|$name"));
+    } else {
+        $r = compo2_query("select * from c2_cache where id = ? and ts > ?",array("$cid|$name",date("Y-m-d H:i:s",time()-$ts)));
+    }
     if (!count($r)) { return false; }
     $e = array_pop($r);
     return $e["data"];
