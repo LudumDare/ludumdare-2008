@@ -130,9 +130,13 @@ function _compo2_results_cat($params,$cat,$r) {
     
     $t = 0;
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
+    $pn = 0;
     foreach ($r as $ce) {
         $vv = $ce["value"];
         $n = $ce["place"];
+        
+        if ($t > 20 && $pn != $n) { break; } $pn = $n;
+        
         $img = "inone.gif";
         if ($n <= 3) {
             $map = array("1"=>"igold.gif","2"=>"isilver.gif","3"=>"ibronze.gif");
@@ -148,7 +152,6 @@ function _compo2_results_cat($params,$cat,$r) {
         
         $t += 1;
         if ($t >= 5 && !strlen($_REQUEST["more"])) { break; }
-        if ($t > 20) { break; }
     }
     
     echo "</table>";
