@@ -126,7 +126,8 @@ function _compo2_results_cat($params,$cat,$r) {
 
     echo "<table class='results-cat'>";
 //     echo "<tr><th colspan=3>$cat";
-    echo "<tr><th colspan=3><a href='?action=top&cat=$cat'>$cat</a>";
+    $admin = ($params["state"]=="admin"?"admin=1":"");
+    echo "<tr><th colspan=3><a href='?action=top&cat=$cat$admin'>$cat</a>";
     
     $t = 0;
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
