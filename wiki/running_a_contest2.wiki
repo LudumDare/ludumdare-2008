@@ -76,16 +76,12 @@ This process takes a few steps.
 
  # ?admin=1&action=recalc
 This will force the site to recalc the results.  
-
  # ?admin=1&action=results
 View the results. 
-
  # ?admin1=&action=results&more=1
 To view the full results.
-
  # ?admin=1&action=top
-View the "top" results.  Then do it for each &cat=NAME_OF_CATEGORY to build up the cache.
-
+View the "top" results.  Then do it for each &cat=NAME_OF_CATEGORY to build up the cache.  You can do that by clicking from the main results page.
  # Change the STATE to "results"
 
 = Closed Compos =
