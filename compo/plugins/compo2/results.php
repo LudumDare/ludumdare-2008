@@ -135,7 +135,7 @@ function _compo2_results_cat($params,$cat,$r) {
         $vv = $ce["value"];
         $n = $ce["place"];
         
-        if ($t > 20 && $pn != $n) { break; } $pn = $n;
+        if ($t >= 20 && $pn != $n) { break; } $pn = $n;
         
         $img = "inone.gif";
         if ($n <= 3) {
