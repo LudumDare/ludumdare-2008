@@ -26,6 +26,7 @@ function compo2_error($msg) {
 function compo2_log($fnc,$tm,$msg="") {
     global $compo2;
     if (!$compo2["log.enable"]) { return; }
+    if (strlen($msg)>1024) { $msg = "..."; }
     $key = "$fnc|$msg";
     $e = array("fnc"=>$fnc,"tm"=>$tm,"msg"=>$msg,"hits"=>1);
     if (isset($compo2["log"][$key])) {
