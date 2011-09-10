@@ -82,7 +82,7 @@ function _compo2_get_results($params) {
                 $vv = intval($v)."%";
             }
             $r[$k]["values"][$cat] = $vv;
-            $r[$k]["places"][$cat] = $n;
+            $r[$k]["places"][$cat] = (strcmp($vv,"-")!=0?$n:0);
         }
     }
     
@@ -161,6 +161,7 @@ function _compo2_results_cat($params,$cat,$r) {
     foreach ($r as $ce) {
         $vv = $ce["value"];
         $n = $ce["place"];
+        if ($n==0) { continue; }
         
         if ($t >= 25 && $pn != $n) { break; } $pn = $n;
         
@@ -230,7 +231,7 @@ function _compo2_results_ratings($params,$uid) {
     echo "<p>";
     asort($e["places"]);
     echo "<table cellpadding=5>";
-    foreach ($e["places"] as $cat=>$nn) if (strcmp($e["values"][$cat],"-")!=0) {
+    foreach ($e["places"] as $cat=>$nn) if ($nn!=0) {
         $img = "inone.gif";
         echo "<tr>";
         if ($nn <= 3) {
