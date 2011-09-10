@@ -229,7 +229,7 @@ function _compo2_results_ratings($params,$uid) {
     
     echo "<p>";
     asort($e["places"]);
-    foreach ($e["places"] as $cat=>$nn) {
+    foreach ($e["places"] as $cat=>$nn) if (strlen($e["values"][$cat])) {
         $img = "inone.gif";
         echo "<div><nobr>";
         if ($nn <= 3) {
@@ -237,7 +237,8 @@ function _compo2_results_ratings($params,$uid) {
             $img = $map[$nn];
             echo "<img src='$myurl/$img' align=absmiddle> - $cat";
         } else {
-            echo "#$nn - $cat";
+            $val = $e["values"][$cat];
+            echo "#$nn - $cat - $val";
         }
         echo "</nobr></div>";
     }
