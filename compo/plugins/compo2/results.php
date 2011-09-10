@@ -162,7 +162,7 @@ function _compo2_results_cat($params,$cat,$r) {
         $vv = $ce["value"];
         $n = $ce["place"];
         
-        if ($t >= 20 && $pn != $n) { break; } $pn = $n;
+        if ($t >= 25 && $pn != $n) { break; } $pn = $n;
         
         $img = "inone.gif";
         if ($n <= 3) {
@@ -362,7 +362,7 @@ function _compo2_results_top($params) {
         }
 
 
-        if ($t >= 20 && !strlen($_REQUEST["more"])) { $last = $n; }
+        if ($t >= 25 && !strlen($_REQUEST["more"])) { $last = $n; }
         $t += 1;
 //         echo "<tr><td>&nbsp;";
     }
