@@ -362,7 +362,7 @@ function _compo2_results_top($params) {
         }
 
 
-        if ($t >= 25 && !strlen($_REQUEST["more"])) { $last = $n; }
+        if ($t >= 50 && !strlen($_REQUEST["more"])) { $last = $n; }
         $t += 1;
 //         echo "<tr><td>&nbsp;";
     }
