@@ -20,7 +20,7 @@ function _compo2_preview($params,$_link="?action=preview") {
     $etype = $_REQUEST["etype"];
     @$q = $_REQUEST["q"];
     
-    if (($cres=compo2_cache_read($params["cid"],$ckey="_compo2_preview:$etype:$q",15*60))!==false) { echo $cres; return; }
+    if (($cres=compo2_cache_read($params["cid"],$ckey="_compo2_preview:$etype:$q",5*60))!==false) { echo $cres; return; }
     ob_start();
     
     if (!strlen($q)) {
