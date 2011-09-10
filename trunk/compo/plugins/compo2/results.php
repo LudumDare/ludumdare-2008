@@ -82,7 +82,7 @@ function _compo2_get_results($params) {
     compo2_cache_write($params["cid"],$ckey,serialize($r));
     
     $compo2["log.enable"] = true;
-    compo2_log("compo2_thumb",microtime(true)-$tm);
+    compo2_log("_compo2_get_results",microtime(true)-$tm);
 
     return $r;
 }
