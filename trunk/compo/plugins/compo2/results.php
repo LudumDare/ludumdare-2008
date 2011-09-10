@@ -229,7 +229,7 @@ function _compo2_results_ratings($params,$uid) {
     
     echo "<p>";
     asort($e["places"]);
-    echo "<table class='results'>";
+    echo "<table cellpadding=10>";
     foreach ($e["places"] as $cat=>$nn) if (strcmp($e["values"][$cat],"-")!=0) {
         $img = "inone.gif";
         echo "<tr>";
@@ -238,7 +238,7 @@ function _compo2_results_ratings($params,$uid) {
             $img = $map[$nn];
             echo "<td align=center><img src='$myurl/$img' align=absmiddle>";
         } else {
-            echo "<td align=center>$nn";
+            echo "<td align=center>#$nn";
         }
         $val = $e["values"][$cat];
         echo "<td>$cat<td align=right>$val";
