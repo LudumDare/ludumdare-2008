@@ -67,6 +67,11 @@ function compo2_entry_load($cid,$uid) {
 }
 
 function compo2_cache_read($cid,$name) {
+    if (isset($_REQUEST["cache"])) {
+        $user = wp_get_current_user();
+        if ($user->user_level >= 10) { return false; }
+    }
+
     $r = compo2_query("select * from c2_cache where id = ?",array("$cid|$name"));
     if (!count($r)) { return false; }
     $e = array_pop($r);
