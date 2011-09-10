@@ -148,6 +148,7 @@ function _compo2_results_cat($params,$cat,$r) {
         
         $t += 1;
         if ($t >= 5 && !strlen($_REQUEST["more"])) { break; }
+        if ($t > 20) { break; }
     }
     
     echo "</table>";
