@@ -74,6 +74,8 @@ NOTE: You can preview the results by accessing ?admin=1&action=results OR ?admin
 = Viewing Results =
  # Change the STATE to "results"
 
+You must access ?admin=1&action=recalc to recalculate the results in advance.  Then you should navigate to the various categories (with admin=1) to get all the results to recache.
+
 = Closed Compos =
  # Change the STATE to "closed"
 This is only used for compos that are not being judged.  It merely closes the compo from adding new entries.
