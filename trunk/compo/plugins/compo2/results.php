@@ -23,7 +23,7 @@ function _compo2_results_sort($a,$b) {
 }
 
 function _compo2_get_results($params) {
-    if (($cres=compo2_cache_read($params["cid"],$ckey="get_results"))!==false) { return unserialize($cres); }
+//     if (($cres=compo2_cache_read($params["cid"],$ckey="get_results"))!==false) { return unserialize($cres); }
 
     global $compo2;
     $compo2["log.enable"] = false;
@@ -75,11 +75,12 @@ function _compo2_get_results($params) {
     }
     
     foreach ($r as $k=>$ce) {
-        $ukey = "get_results:{$ce["uid"]}";
-        compo2_cache_write($params["cid"],$ukey,serialize($ce));
+        if (($cres=compo2_cache_read($params["cid"],$ukey="get_results:{$ce["uid"]}"))==false) {
+            compo2_cache_write($params["cid"],$ukey,serialize($ce));
+        }
     }
     
-    compo2_cache_write($params["cid"],$ckey,serialize($r));
+//     compo2_cache_write($params["cid"],$ckey,serialize($r));
     
     $compo2["log.enable"] = true;
     compo2_log("_compo2_get_results",microtime(true)-$tm);
@@ -213,6 +214,7 @@ function _compo2_results_ratings($params,$uid) {
     $cres = compo2_cache_read($params["cid"],$key);
     $e = unserialize($cres);
     
+    echo "<p>";
     asort($e["places"]);
     foreach ($e["places"] as $cat=>$nn) if ($nn <= 10) {
         $img = "inone.gif";
@@ -226,6 +228,7 @@ function _compo2_results_ratings($params,$uid) {
         }
         echo "</nobr></div>";
     }
+    echo "</p>";
 
 }
 
