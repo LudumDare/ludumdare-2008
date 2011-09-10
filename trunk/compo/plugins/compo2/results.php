@@ -229,7 +229,7 @@ function _compo2_results_ratings($params,$uid) {
     
     echo "<p>";
     asort($e["places"]);
-    echo "<table width=0>";
+    echo "<table class='results'>";
     foreach ($e["places"] as $cat=>$nn) if (strcmp($e["values"][$cat],"-")!=0) {
         $img = "inone.gif";
         echo "<tr>";
