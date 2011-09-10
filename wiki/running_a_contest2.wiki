@@ -72,9 +72,21 @@ NOTE: You can preview the results by accessing ?admin=1&action=results OR ?admin
  # Change the STATE to "rate"
 
 = Viewing Results =
- # Change the STATE to "results"
+This process takes a few steps.
 
-You must access ?admin=1&action=recalc to recalculate the results in advance.  Then you should navigate to the various categories (with admin=1) to get all the results to recache.
+ # ?admin=1&action=recalc
+This will force the site to recalc the results.  
+
+ # ?admin=1&action=results
+View the results. 
+
+ # ?admin1=&action=results&more=1
+To view the full results.
+
+ # ?admin=1&action=top
+View the "top" results.  Then do it for each &cat=NAME_OF_CATEGORY to build up the cache.
+
+ # Change the STATE to "results"
 
 = Closed Compos =
  # Change the STATE to "closed"
@@ -84,3 +96,4 @@ This is only used for compos that are not being judged.  It merely closes the co
  # Click on the "Enter admin mode" link.  It will let you modify and disable entries.
  # action=results - see compo results
  # action=top - see compo top results
+ # add ?cache=0 to reset the cache for a page
