@@ -37,7 +37,7 @@ function _compo2_get_results($params) {
 //     if (($cres=compo2_cache_read($params["cid"],$ckey="get_results"))!==false) { return unserialize($cres); }
 
     global $compo2;
-    $compo2["log.enable"] = false;
+    $compo2["log.enabled"] = false;
     $tm = microtime(true);
 
     $r = compo2_query("select * from c2_entry where cid = ? and active = 1",array($params["cid"]));
@@ -94,7 +94,7 @@ function _compo2_get_results($params) {
     
 //     compo2_cache_write($params["cid"],$ckey,serialize($r));
     
-    $compo2["log.enable"] = true;
+    $compo2["log.enabled"] = true;
     compo2_log("_compo2_get_results",microtime(true)-$tm);
 
     return $r;
