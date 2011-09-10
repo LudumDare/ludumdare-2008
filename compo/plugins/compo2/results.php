@@ -30,6 +30,8 @@ function _compo2_get_results($params) {
     foreach ($r as $k=>$ce) {
         $r[$k]["results"] = unserialize($ce["results"]);
         $r[$k]["user"] = unserialize($ce["get_user"]);
+        $r[$k]["values"] = array();
+        $r[$k]["places"] = array();
         $total += intval($ce["is_judged"]!=0);
     }
     
@@ -39,38 +41,38 @@ function _compo2_get_results($params) {
         $r[$k]["results"][$cat] = round(100*$ce["rate_out"]/(max($total,2)-1));
     }
     
-    $rr = array();
     foreach ($params["cats"] as $cat) {
-        $res = array();
         foreach ($r as $k=>$ce) {
             $r[$k]["v"] = $ce["results"][$cat];
         }
         usort($r,"_compo2_results_sort");
 
         $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
-        $n = 0; $t = 0; $p = -1;
-        foreach ($r as $ce) {
+        $n = 0; $t = 1; $p = -1;
+        foreach ($r as $k=>$ce) {
             if ($cat != "Coolness" && !$ce["is_judged"]) { continue; }
+            
             $v = $ce["v"];
-            if ($v != $p) { $n += 1; } $p = $v;
+            if ($v != $p) { $n = $t; }
+            $p = $v;
+            $t += 1;
+            
             $vv = compo2_number_format($v);
             // HACK: for coolness
             if ($cat == "Coolness") {
                 if ($v >= 25) { $n = 3; }
                 if ($v >= 50) { $n = 2; }
                 if ($v >= 75) { $n = 1; }
-                $vv = intval($v)."%";
+                $vv = intval($v);
             }
-            $ce["value"] = $vv;
-            $ce["place"] = $n;
-            $res[] = $ce;
+            $r[$k]["values"][$cat] = $vv;
+            $r[$k]["places"][$cat] = $n;
         }
-        $rr[$cat] = $res;
     }
     
 //     compo2_cache_write($params["cid"],$ckey,serialize($rr));
     
-    return $rr;
+    return $r;
 }
 
 function _compo2_results_results($params) {
@@ -87,10 +89,18 @@ function _compo2_results_results($params) {
     echo "<p><a href='?action=top'>Show top entries</a></p>";
     $cols = 4; $n = 0;
     echo "<table class='results'>";
-    foreach ($r as $k => $res) {
+    $cat = $params["cats"][] = "Coolness";
+    foreach ($params["cats"] as $cat) {
+        foreach ($r as $k=>$ce) {
+            $r[$k]["v"] = -$ce["places"][$cat];
+            $r[$k]["place"] = $ce["places"][$cat];
+            $r[$k]["value"] = $ce["values"][$cat];
+        }
+        usort($r,"_compo2_results_sort");
+//     foreach ($r as $k => $res) {
         if (($n%$cols)==0) { echo "<tr>"; } $n += 1;
         echo "<td>";
-        _compo2_results_cat($params,$k,$res);
+        _compo2_results_cat($params,$cat,$r);
     
     }
     echo "</table>";
@@ -176,6 +186,7 @@ function _compo2_results_ratings($params,$uid) {
 
 }
 
+/*
 function _compo2_get_top($params) {
     $r = _compo2_get_results($params);
     
@@ -199,10 +210,11 @@ function _compo2_get_top($params) {
     usort($rr,"_compo2_results_sort");
     return $rr;
 }
-
+*/
 
 function _compo2_results_top($params) {
     $cat = $_REQUEST["cat"];
+    $params["cats"][] = "Coolness";
     if (!in_array($cat,$params["cats"])) { $cat = $params["topcat"]; } // HACK: why overall? who knows!
     
     // CACHING ///////////////
@@ -210,23 +222,35 @@ function _compo2_results_top($params) {
     if (($cres=compo2_cache_read($params["cid"],$ckey="results_top:$cat"))!==false) { echo $cres; return; }
     ob_start();
     
-    $r = _compo2_get_top($params);
-    
+//     $r = _compo2_get_top($params);
+    $r = _compo2_get_results($params);
+
     // also, this now ignores the nice counting of trophes done earlier ..
     $_cat = $cat; // backup for later
     
+    /*
     if (strlen($cat)) {
         foreach ($r as $k=>$e) {
             $r[$k]["v"] = -$e["places"][$cat];
         }
         usort($r,"_compo2_results_sort");
     }
+    */
+    
+    foreach ($r as $k=>$ce) {
+        $r[$k]["v"] = -$ce["places"][$cat];
+        $r[$k]["place"] = $ce["places"][$cat];
+        $r[$k]["value"] = $ce["values"][$cat];
+    }
+    usort($r,"_compo2_results_sort");
+
     
     echo "<p><a href='./'>Back to Results</a></p>";
     
     echo "<h3>Top Entries - ".htmlentities($cat)."</h3>";
-    $t = 1;
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
+    
+    $t = 1;
     $ties = array();
     foreach ($r as $e) {
         $n = intval($e["places"][$_cat]);
@@ -237,12 +261,14 @@ function _compo2_results_top($params) {
     echo "<table class='results-top'>";
     $row = 0;
     foreach ($r as $e) {
-        $ce = $e["info"];
+//         $ce = $e["info"];
+        $ce = $e;
         $shots = unserialize($ce["shots"]);
         $fname = array_shift($shots);
         $link = "?uid={$ce["uid"]}";
         
-        $n = intval($e["places"][$_cat]);
+//         $n = intval($e["places"][$_cat]);
+        $n = $e["place"];
         if ($n == 0) { continue; } // get rid of un-judged items
         if ($last != -1 && $last != $n) { break; } // allow several last-places to show up
         
