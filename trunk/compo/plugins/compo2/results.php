@@ -229,7 +229,7 @@ function _compo2_results_ratings($params,$uid) {
     
     echo "<p>";
     asort($e["places"]);
-    foreach ($e["places"] as $cat=>$nn) if ($nn <= 10) {
+    foreach ($e["places"] as $cat=>$nn) {
         $img = "inone.gif";
         echo "<div><nobr>";
         if ($nn <= 3) {
