@@ -12,14 +12,16 @@ function _compo2_preview($params,$_link="?action=preview") {
         _compo2_show_comments($params["cid"],intval($_REQUEST["uid"]));
         return;
     }
-
-    $etype = $_REQUEST["etype"];
     $cats = array(""=>"All Entries");
     foreach ($params["divs"] as $div) {
         $cats[$div] = "{$params["{$div}_title"]} Entries";
     }
-    
+
+    $etype = $_REQUEST["etype"];
     @$q = $_REQUEST["q"];
+    
+    if (($cres=compo2_cache_read($params["cid"],$ckey="_compo2_preview:$etype:$q",5*60))!==false) { echo $cres; return; }
+    ob_start();
     
     if (!strlen($q)) {
         $cnte = array_pop(compo2_query("select count(*) _cnt from c2_entry where etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array("%$etype%",$params["cid"])));
@@ -119,6 +121,12 @@ function _compo2_preview($params,$_link="?action=preview") {
     }
 
     echo $links;
+
+    $cres = ob_get_contents();
+    ob_end_clean();
+    compo2_cache_write($params["cid"],$ckey,$cres);
+    
+    echo $cres;
 
 }
 
