@@ -23,7 +23,7 @@ function _compo2_results_sort($a,$b) {
 }
 
 function _compo2_get_results($params) {
-//     if (($cres=compo2_cache_read($params["cid"],$ckey="get_results"))!==false) { return unserialize($cres); }
+    if (($cres=compo2_cache_read($params["cid"],$ckey="get_results"))!==false) { return unserialize($cres); }
 
     $r = compo2_query("select * from c2_entry where cid = ? and active = 1",array($params["cid"]));
     $total = 0;
@@ -70,7 +70,12 @@ function _compo2_get_results($params) {
         }
     }
     
-//     compo2_cache_write($params["cid"],$ckey,serialize($rr));
+    foreach ($r as $k=>$ce) {
+        $ukey = "get_results:{$ce["uid"]}";
+        compo2_cache_write($params["cid"],$ukey,serialize($ce));
+    }
+    
+    compo2_cache_write($params["cid"],$ckey,serialize($r));
     
     return $r;
 }
@@ -163,11 +168,11 @@ function _compo2_results_show($params,$uid) {
     _compo2_preview_show($params,$uid);
     _compo2_show_comments($params["cid"],$uid);
 }
-    
-function _compo2_results_ratings($params,$uid) {
+
+/*
+function _compo2_results_ratings_old($params,$uid) {
     $ce = compo2_entry_load($params["cid"],$uid);
     $cid = $params["cid"];
-    $ce = compo2_entry_load($params["cid"],$uid);
     $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ?",array($cid,$uid));
     $r2 = $r;
     echo "<h3>Ratings</h3>";
@@ -190,6 +195,33 @@ function _compo2_results_ratings($params,$uid) {
     echo "</table>";
 
 }
+*/
+
+function _compo2_results_ratings($params,$uid) {
+    $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
+    
+    echo "<h3>Ratings</h3>";
+    
+    $key = "get_results:$uid";
+    $cres = compo2_cache_read($params["cid"],$key);
+    $e = unserialize($cres);
+    
+    asort($e["places"]);
+    foreach ($e["places"] as $cat=>$nn) if ($nn <= 10) {
+        $img = "inone.gif";
+        echo "<div><nobr>";
+        if ($nn <= 3) {
+            $map = array("1"=>"igold.gif","2"=>"isilver.gif","3"=>"ibronze.gif");
+            $img = $map[$nn];
+            echo "<img src='$myurl/$img' align=absmiddle> - $cat";
+        } else {
+            echo "#$nn - $cat";
+        }
+        echo "</nobr></div>";
+    }
+
+}
+
 
 /*
 function _compo2_get_top($params) {
