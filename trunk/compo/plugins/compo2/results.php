@@ -79,7 +79,7 @@ function _compo2_get_results($params) {
                 if ($v >= 25) { $n = 3; }
                 if ($v >= 50) { $n = 2; }
                 if ($v >= 75) { $n = 1; }
-                $vv = intval($v);
+                $vv = intval($v)."%";
             }
             $r[$k]["values"][$cat] = $vv;
             $r[$k]["places"][$cat] = $n;
