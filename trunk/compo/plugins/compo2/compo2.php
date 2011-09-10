@@ -14,15 +14,18 @@ $compo2 = array(
     "plugin"=>__FILE__,
     "entry_load_cache"=>array(),
     "log"=>array(),
+    "log.enabled"=>true,
 );
 
 function compo2_error($msg) {
     trigger_error($msg,E_USER_ERROR);
 }
 
+
+
 function compo2_log($fnc,$tm,$msg="") {
     global $compo2;
-    if (strlen($msg)>1024) { $msg = "..."; }
+    if (!$compo2["log.enable"]) { return; }
     $key = "$fnc|$msg";
     $e = array("fnc"=>$fnc,"tm"=>$tm,"msg"=>$msg,"hits"=>1);
     if (isset($compo2["log"][$key])) {
