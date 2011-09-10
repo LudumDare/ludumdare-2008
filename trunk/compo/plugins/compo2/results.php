@@ -99,7 +99,7 @@ function _compo2_results_results($params) {
         usort($r,"_compo2_results_sort");
 //     foreach ($r as $k => $res) {
         if (($n%$cols)==0) { echo "<tr>"; } $n += 1;
-        echo "<td>";
+        echo "<td valign=top>";
         _compo2_results_cat($params,$cat,$r);
     
     }
