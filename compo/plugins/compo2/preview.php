@@ -19,8 +19,12 @@ function _compo2_preview($params,$_link="?action=preview") {
 
     $etype = $_REQUEST["etype"];
     @$q = $_REQUEST["q"];
+    $limit = 24;
+    $start = 0;
+    if (isset($_REQUEST["start"])) { $start = intval($_REQUEST["start"]); }
+    $start = intval($start); $limit = intval($limit);
     
-    if (($cres=compo2_cache_read($params["cid"],$ckey="_compo2_preview:$etype:$q",5*60))!==false) { echo $cres; return; }
+    if (($cres=compo2_cache_read($params["cid"],$ckey="_compo2_preview:$etype:$q:$start",15*60))!==false) { echo $cres; return; }
     ob_start();
     
     if (!strlen($q)) {
@@ -31,10 +35,6 @@ function _compo2_preview($params,$_link="?action=preview") {
 
     $cnt = $cnte["_cnt"];
     
-    $limit = 24;
-    $start = 0;
-    if (isset($_REQUEST["start"])) { $start = intval($_REQUEST["start"]); }
-    $start = intval($start); $limit = intval($limit);
     
     if (!strlen($q)) {
         $r = compo2_query("select * from c2_entry where etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":"")." limit $start,$limit",array("%$etype%",$params["cid"]));
