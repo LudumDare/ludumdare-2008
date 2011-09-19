@@ -1,0 +1,537 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Donate Plus\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-10-25 18:50-0700\n"
+"PO-Revision-Date: 2009-10-25 18:50-0700\n"
+"Last-Translator: Marcus Vanstone <m@devbits.ca>\n"
+"Language-Team: Devbits <m@devbits.ca>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-Country: CANADA\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /Users/marcusvanstone/Sites/!MT Sites/devbits.ca/wp-content/plugins/donate-plus\n"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:13
+msgid "U.S. Dollar"
+msgstr "U.S. Dollar"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:14
+msgid "Australian Dollar"
+msgstr "Australische Dollar"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:15
+msgid "Canadian Dollar"
+msgstr "Canadische Dollar"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:16
+msgid "Swiss Franc"
+msgstr "Schweizer Franken"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:17
+msgid "Czech Koruna"
+msgstr "Tschechische Krone"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:18
+msgid "Danish Krone"
+msgstr "Dänische Krone"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:19
+msgid "Euro"
+msgstr "Euro"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:20
+msgid "Pound Sterling"
+msgstr "Pfund Sterling"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:21
+msgid "Hong Kong Dollar"
+msgstr "Hong Kong Dollar"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:22
+msgid "Hungarian Forint"
+msgstr "Ungarische Forint"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:23
+msgid "Israeli New Shekel"
+msgstr "Israelische Scheckel"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:24
+msgid "Japanese Yen"
+msgstr "Japanische Yen"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:25
+msgid "Mexican Peso"
+msgstr "Mexicanische Peso"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:26
+msgid "Norwegian Krone"
+msgstr "Norwegische Krone"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:27
+msgid "New Zealand Dollar"
+msgstr "Neuseeländische Dollar"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:28
+msgid "Polish Zloty"
+msgstr "Plonische Zloty"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:29
+msgid "Swedish Krona"
+msgstr "Schwedische Krone"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:30
+msgid "Singapore Dollar"
+msgstr "Singapur Dollar"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:71
+#, fuzzy
+msgid "Donate Plus"
+msgstr "DonatePlus"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:144
+msgid "Settings Saved"
+msgstr "Einstellungen gespeichert"
+
+# C:\SVN\donate-plus\trunk/donate-plus.php:166
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:183
+msgid "Only Once (no recurring)"
+msgstr "Nur Einmal (nicht wiederholend)"
+
+# C:\SVN\donate-plus\trunk/donate-plus.php:166
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:183
+msgid "Daily"
+msgstr "Täglich"
+
+# C:\SVN\donate-plus\trunk/donate-plus.php:166
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:183
+msgid "Weekly"
+msgstr "Wöchentlich"
+
+# C:\SVN\donate-plus\trunk/donate-plus.php:166
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:183
+msgid "Monthly"
+msgstr "Monatlich"
+
+# C:\SVN\donate-plus\trunk/donate-plus.php:166
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:183
+msgid "Yearly"
+msgstr "Jährlich"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:209
+msgid "Donate Plus Settings"
+msgstr "Donate Plus Einstellungen"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:216
+msgid "PayPal Email Address"
+msgstr "Paypal Emailadresse"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:218
+msgid "This is the address associated with your PayPal account."
+msgstr "Die Adresse die mit Deinem Paypalkonto verbunden ist"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:221
+msgid "PayPal Currency"
+msgstr "Paypal Währung"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:227
+msgid "Testing Mode"
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:233
+msgid "Donation Description"
+msgstr "Beschreibung der Spende"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:237
+msgid "Default Donation Value"
+msgstr "Voreingestellte Spendensumme"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:241
+msgid "Button Image"
+msgstr "Button Grafik"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:246
+msgid "Custom Image URL"
+msgstr "Eigene Grafik URL"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:249
+msgid "Enable Recurring Donations"
+msgstr "Aktiviere periodisch wiederkehrende Spenden"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:254
+msgid "Enable Recognition Wall"
+msgstr "Aktiviere die Spenderliste"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:258
+msgid "Donation/Recognition Wall Location"
+msgstr "Spenden/Spenderliste Seite"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:261
+msgid "The default location of your Donation/Recognition Page that contains the <code>[donateplus]</code> shortcode."
+msgstr "Die Standardseite für Spenden/Spenderliste, die den <code>[donateplus]</code> enthält."
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:264
+msgid "Maximum Donors on Wall"
+msgstr "Maximale Anzahl auf der Spenderliste"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:265
+msgid "Enter 0 to show all donors. <em>Pagination coming soon</em>"
+msgstr "Die Eingabe 0 zeigt alle Spender. <em>Pagination coming soon</em>"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:268
+msgid "Website Thank You Message"
+msgstr "Danke Nachricht auf der Webseite"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:272
+msgid "Enable Thank You Email"
+msgstr "Aktiviere Danke Email"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:275
+msgid "Thank You From Name"
+msgstr "Danke von Name"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:279
+msgid "Thank You Email Address"
+msgstr "Danke von Emailadresse"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:283
+msgid "Thank You Email Subject"
+msgstr "Danke Email Betreff"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:287
+msgid "Thank You Email Message"
+msgstr "Danke Nachricht"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:289
+msgid "Replacement Codes"
+msgstr "Einsetzbare Variablen"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:289
+msgid "Email Message Only"
+msgstr "Nur für die Emailnachricht"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:289
+msgid "<code>{donor}</code> = Donor Name<br \\><code>{amount}</code> = Donation Amount<br \\><code>{donorwall}</code> = Donor Wall URL"
+msgstr "<code>{donor}</code> = Spendername<br \\><code>{amount}</code> = Spendensumme<br \\><code>{donorwall}</code> = Spenderliste URL"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:293
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:189
+msgid "Save Changes"
+msgstr "Einstellungen speichern"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:296
+msgid "Shortcodes"
+msgstr "Shortcodes"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:297
+msgid "This shortcode will display the Donate Plus donation form"
+msgstr "Dieser Shortcode zeigt das Donate Plus Spendenformular"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:298
+msgid "This shortcode will display the Donor Recognition Wall. <em>Optional attribute:</em> <code>title</code> is wrapped within a <code>&lt;h2&gt;</code> tag.  Usage is <code>[donorwall title='Donor Recognition Wall']"
+msgstr "Dieser Shortcode zeigt die Spenderliste. <em>Optionale Attribute:</em> <code>title</code> wird mit einen <code>&lt;h2&gt;</code> tag umschlossen.  Verwendung: <code>[donorwall title='Donor Recognition Wall']"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:299
+msgid "This shortcode will display the total donations received. <em>Optional attributes:</em> <code>prefix</code> is the currency symbol (ie. $), <code>suffix</code> is the currency code (ie. USD), <code>type</code> is the english description (ie. U.S. Dollar). Usage is <code>[donatetotal prefix='1', suffix='1', type='0']</code>. 1 will show, 0 will hide."
+msgstr "Dieser Shortcode zeigt die Gesamtsumme der erhaltenen Spenden. <em>Optionale Attribute:</em> <code>prefix</code> iist das Währungssymbol (z.B. $), <code>suffix</code> ist die Währungsabkürzung (z.B. USD), <code>type</code> ist die englische Beschreibung (z.B. U.S. Dollar). Verwendung: <code>[donatetotal prefix='1', suffix='1', type='0']</code>. 1 bedeutet anzeigen, 0 bedeutet nicht anzeigen."
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:300
+msgid "Instant Payment Notification URL"
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:301
+msgid "This is your IPN Notification URL.  If you have issues with your site receiving your PayPal payments, be sure to manually set this URL in your PayPal Profile IPN settings.  You can also view your "
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:301
+msgid "IPN History on PayPal"
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:302
+msgid "Uninstall Donate Plus Tables and Options"
+msgstr "Donate Plus Tabellen und Einstellungen deinstallieren"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:305
+msgid "<strong>WARNING:</strong> Uninstalling the Donate Plus tables and option settings will remove all donation data related to this plugin.  This data will not be recoverable."
+msgstr "<strong>ACHTUNG:</strong> Die Deinstallation der Donate Plus Tabellen und Optionen löscht alle Daten in Zusammenhang mit diesem Plugin. Diese Daten kann man nicht wieder herstellen."
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:306
+msgid "Uninstall Donate Plus"
+msgstr "Donate Plus deinstallieren"
+
+# C:\SVN\donate-plus\trunk/donate-plus.php:321
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:355
+msgid "Says:"
+msgstr "Sagt:"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:388
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:167
+msgid "Donation Amount"
+msgstr "Spendensumme"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:388
+msgid "Currency: "
+msgstr "Währung: "
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:413
+msgid "Put my Donation on the Recognition Wall"
+msgstr "Zeige meine Spende in der Spenderliste an"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:415
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:499
+msgid "Show on Wall"
+msgstr "Auf Spenderliste anzeigen"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:416
+msgid "Do not show any information"
+msgstr "Zeige keine Informationen"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:417
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:499
+msgid "Donation Amount, User Details &amp; Comments"
+msgstr "Spendensumme, Benutzerdetails &amp; Kommentar"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:418
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:499
+msgid "User Details &amp; Comments Only"
+msgstr "Nur Benutzerdetails &amp; Kommentar"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:420
+msgid "Name"
+msgstr "Name"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:421
+msgid "Email"
+msgstr "Email"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:422
+msgid "Website"
+msgstr "Webseite"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:423
+msgid "Comments"
+msgstr "Kommentar"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:423
+msgid "Write your comment within 199 characters."
+msgstr "Du kannst 199 Zeichen für Deinen Kommentar verwenden."
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:463
+msgid "You cannot write more then '+limit+' characters!"
+msgstr "Du kannst nicht mehr als '+limit+' Zeichen verwenden!"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/donate-plus.php:469
+msgid "You have '+ (limit - textlength) +' characters left."
+msgstr "Du hast noch '+ (limit - textlength) +' Zeichen frei."
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/dplus-widget.php:58
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/dplus-widget.php:70
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/dplus-widget.php:82
+msgid "Title:"
+msgstr "Titel: "
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:45
+#, fuzzy
+msgid "Manage Donations"
+msgstr "Aktiviere periodisch wiederkehrende Spenden"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:48
+msgid "Search Donations:"
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:50
+msgid "Search Donations"
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:58
+msgid "Bulk Actions"
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:59
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:100
+msgid "Delete"
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:61
+msgid "Apply"
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:73
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:84
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:147
+msgid "Donor Name"
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:74
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:85
+msgid "Amount"
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:75
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:86
+#, fuzzy
+msgid "Comment"
+msgstr "Kommentar"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:76
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:87
+msgid "Date"
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:98
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:100
+msgid "Edit"
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:100
+msgid "Edit this Donation"
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:100
+#, fuzzy
+msgid "Delete this Donation"
+msgstr "Voreingestellte Spendensumme"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:141
+#, fuzzy
+msgid "Edit Donation Details"
+msgstr "Beschreibung der Spende"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:151
+#, fuzzy
+msgid "Donor Email"
+msgstr "Email"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:155
+msgid "Donor URL"
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:159
+#, fuzzy
+msgid "Donor Comment"
+msgstr "Kommentar"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:163
+#, fuzzy
+msgid "Display on Recognition Wall"
+msgstr "Aktiviere die Spenderliste"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:171
+#, fuzzy
+msgid "Donation Currency"
+msgstr "Spendensumme"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:175
+#, fuzzy
+msgid "Donation Date"
+msgstr "Spendensumme"
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:179
+msgid "User"
+msgstr ""
+
+#: /Users/marcusvanstone/Sites/!MT
+#: Sites/devbits.ca/wp-content/plugins/donate-plus/manage-dp.php:183
+msgid "Payment Status"
+msgstr ""
+
