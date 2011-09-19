@@ -83,7 +83,7 @@ if( !class_exists('DarenatePlus') ):
 		
 		function AddPanel(){
 				global $manageDP;
-			add_menu_page( __("Darenate Plus",'dplus'), __("Darenate Plus",'dplus'), 10, 'DarenatePlus', array($manageDP, 'Manage'), 'div' );
+			add_menu_page( __("Darenate Plus",'dplus'), 'Manage Donations', 10, 'DarenatePlus', array($manageDP, 'Manage'), 'div' );
 			add_submenu_page( 'DarenatePlus', 'Expenses', 'Expenses', 10, 'darenateplusExpenses', array($this, 'Expenses') );
 			add_submenu_page( 'DarenatePlus', 'Settings', 'Settings', 10, 'darenateplusSettings', array($this, 'Settings') );
 		}
