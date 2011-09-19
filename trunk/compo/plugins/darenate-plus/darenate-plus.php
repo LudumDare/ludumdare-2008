@@ -25,6 +25,7 @@ Author URI: http://www.ludumdare.com
 $dplus_db_version = "1.0";
 include_once('dplus-widget.php');
 include_once('manage-dp.php');
+include_once('manage-expenses.php');
 $currency = array( 	'USD' => array( 'type' => __('U.S. Dollar', 'dplus'), 			'symbol' => '$'	), 
 					'AUD' => array( 'type' => __('Australian Dollar', 'dplus'), 	'symbol' => '$'	), 
 					'CAD' => array( 'type' => __('Canadian Dollar', 'dplus'), 		'symbol' => '$'	), 
@@ -82,9 +83,10 @@ if( !class_exists('DarenatePlus') ):
 		}
 		
 		function AddPanel(){
-				global $manageDP;
-			add_menu_page( __("Darenate Plus",'dplus'), 'Manage Donations', 10, 'DarenatePlus', array($manageDP, 'Manage'), 'div' );
-			add_submenu_page( 'DarenatePlus', 'Expenses', 'Expenses', 10, 'darenateplusExpenses', array($this, 'Expenses') );
+			global $manageDP;
+			global $manageDPExpenses;
+			add_menu_page( __("Darenate Plus",'dplus'), __("Darenate Plus",'dplus'), 10, 'DarenatePlus', array($manageDP, 'Manage'), 'div' );
+			add_submenu_page( 'DarenatePlus', 'Expenses', 'Expenses', 10, 'darenateplusExpenses', array($manageDPExpenses, 'Manage') );
 			add_submenu_page( 'DarenatePlus', 'Settings', 'Settings', 10, 'darenateplusSettings', array($this, 'Settings') );
 		}
 		function icon_css(){
@@ -215,19 +217,6 @@ if( !class_exists('DarenatePlus') ):
 				$output .= ">$label</option>\n";
 			endforeach;
 			return $output;
-		}
-		
-		function Expenses() {
-			$dplus = get_option( 'DarenatePlus' );
-			if( $_POST['notice'] )
-				echo '<div id="message" class="updated fade"><p><strong>' . $_POST['notice'] . '</strong></p></div>';
-			?>
-			
-            <div class="wrap">
-            	<h2><?php _e('Darenate Plus Expenses', 'dplus')?></h2>
-            </div>
-            
-            <?
 		}
 		
 		function Settings(){
