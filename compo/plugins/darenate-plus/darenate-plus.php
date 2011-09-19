@@ -217,6 +217,17 @@ if( !class_exists('DarenatePlus') ):
 			return $output;
 		}
 		
+		function Expenses(){
+			$dplus = get_option( 'DarenatePlus' );
+			if( $_POST['notice'] )
+				echo '<div id="message" class="updated fade"><p><strong>' . $_POST['notice'] . '</strong></p></div>';
+			?>
+			
+            <div class="wrap">
+            	<h2><?php _e('Darenate Plus Expenses', 'dplus')?></h2>
+            </div>
+		}
+		
 		function Settings(){
 			$dplus = get_option( 'DarenatePlus' );
 			if( $_POST['notice'] )
