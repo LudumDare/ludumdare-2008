@@ -29,11 +29,11 @@
 
 require("../../../wp-blog-header.php");
 global $wpdb;
-$dplus = get_option('DonatePlus');
+$dplus = get_option('DarenatePlus');
 $email_IPN_results = get_option('IPN_email'); 
 $tmp_nl = "\r\n";
 
-if(class_exists('DonatePlus'))$donateplus = new DonatePlus();
+if(class_exists('DarenatePlus'))$darenateplus = new DarenatePlus();
 
 #1 = Live on PayPal Network 
 #2 = Testing with www.BelaHost.com/pp
@@ -269,7 +269,7 @@ if (!$port && !$error){
 			$subject 	= stripslashes($dplus['ty_subject']);
 			$prefix 	= $currency[$mc_currency]['symbol'];
 			$amount 	= $prefix.$mc_gross.' '.$mc_currency;
-			$payer_msg 	= nl2br($donateplus->TagReplace(stripslashes($dplus['ty_emailmsg']), $option_name1, $amount));
+			$payer_msg 	= nl2br($darenateplus->TagReplace(stripslashes($dplus['ty_emailmsg']), $option_name1, $amount));
 			//$payer_msg = utf8_encode($payer_msg);
 			//echo '<br />'.$payer_msg;
 			$headers  = 'MIME-Version: 1.0'."\r\n";
