@@ -97,7 +97,7 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
         	<th scope="row" class="check-column"><input type="checkbox" name="donor[]" value="<?php echo $dn->ID;?>" /></th>
             <td class="donorname"><strong><a class="row-title" href="<?php echo $mngpg.'&amp;edit='.$dn->ID;?>" title="<?php _e('Edit', 'dplus'); echo $dn->name;?>"><?php echo $dn->name;?></a></strong>
             	<div class="row-actions">
-                	<span class="edit"><a href="<?php echo $mngpg.'&amp;edit='.$dn->ID;?>" title="<?php _e('Edit this Donation', 'dplus');?>"><?php _e('Edit','dplus');?></a> | </span><span class="delete"><a class="submitdelete" title="<?php _e('Delete this Donation','dplus');?>" href="<?php echo $mngpg.'&amp;delete='.$dn->ID;?>"><?php _e('Delete','dplus');?></a> </span>
+                	<span class="edit"><a href="<?php echo $mngpg.'&amp;edit='.$dn->ID;?>" title="<?php _e('Edit this Expense', 'dplus');?>"><?php _e('Edit','dplus');?></a> | </span><span class="delete"><a class="submitdelete" title="<?php _e('Delete this Expense','dplus');?>" href="<?php echo $mngpg.'&amp;delete='.$dn->ID;?>"><?php _e('Delete','dplus');?></a> </span>
                 </div>
                 <div class="hidden" id="inline_<?php echo $dn->ID;?>">
                 	<div class="name"><?php echo $dn->name;?></div>
@@ -138,7 +138,7 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 			$donor = $wpdb->get_row("SELECT * FROM $tb WHERE ID=$dID");
 			?>
             <div class="wrap">
-            	<h2><?php _e('Edit Donation Details', 'dplus');?></h2>
+            	<h2><?php _e('Edit Expense Details', 'dplus');?></h2>
                 <form method="post" action="">
                     <input type="hidden" name="updatedonor" value="true" /><input type="hidden" name="dID" value="<?php echo $dID;?>" />
                     <table class="form-table">
@@ -164,15 +164,15 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
                    			<td><select name="display" id="display"><option value="0" <?php if(!$donor->display) echo 'selected="selected"';?>>No</option> <option value="1" <?php if($donor->display) echo 'selected="selected"';?>>Yes</option></select></td>
                    		</tr>
                         <tr valign="top">
-                    		<th scope="row"><label for="amount"><?php _e('Donation Amount', 'dplus');?></label></th>
+                    		<th scope="row"><label for="amount"><?php _e('Expense Amount', 'dplus');?></label></th>
                    			<td><input name="amount" id="amount" value="<?php echo $donor->amount;?>" class="regular-text" type="text"></td>
                    		</tr>
                         <tr valign="top">
-                    		<th scope="row"><label for="currency"><?php _e('Donation Currency', 'dplus');?></label></th>
+                    		<th scope="row"><label for="currency"><?php _e('Expense Currency', 'dplus');?></label></th>
                    			<td><input name="currency" id="currency" value="<?php echo $donor->currency;?>" class="regular-text" type="text"></td>
                    		</tr>
                         <tr valign="top">
-                    		<th scope="row"><label for="date"><?php _e('Donation Date', 'dplus');?></label></th>
+                    		<th scope="row"><label for="date"><?php _e('Expense Date', 'dplus');?></label></th>
                    			<td><input name="date" id="date" value="<?php echo $donor->date;?>" class="regular-text" type="text"></td>
                    		</tr>
                         <tr valign="top">
