@@ -75,7 +75,7 @@ if( !class_exists('DarenatePlus') ):
 			//LOCALIZATION
 				#Place your language file in the plugin folder and name it "wpfrom-{language}.mo"
 				#replace {language} with your language value from wp-config.php
-				load_plugin_textdomain( 'dplus', '/wp-content/plugins/donate-plus' );
+				load_plugin_textdomain( 'dplus', '/wp-content/plugins/darenate-plus' );
 			//INSTALL TABLE
 				#Runs the database installation for the wp_donations table
 				register_activation_hook( __FILE__, array($this, 'DarenatePlusInstall') );
@@ -92,10 +92,10 @@ if( !class_exists('DarenatePlus') ):
 		function icon_css(){
 			echo '<style type="text/css">
 			#toplevel_page_DarenatePlus div.wp-menu-image {
-			  background:transparent url("'.trailingslashit(get_option('siteurl')).'wp-content/plugins/donate-plus/dplus-menu.png") no-repeat center -32px;
+			  background:transparent url("'.trailingslashit(get_option('siteurl')).'wp-content/plugins/darenate-plus/dplus-menu.png") no-repeat center -32px;
 			} 
 			#toplevel_page_DarenatePlus:hover div.wp-menu-image, #toplevel_page_DarenatePlus.current div.wp-menu-image, #toplevel_page_DarenatePlus.wp-has-current-submenu div.wp-menu-image {
-			  background:transparent url("'.trailingslashit(get_option('siteurl')).'wp-content/plugins/donate-plus/dplus-menu.png") no-repeat center 0px;
+			  background:transparent url("'.trailingslashit(get_option('siteurl')).'wp-content/plugins/darenate-plus/dplus-menu.png") no-repeat center 0px;
 			}
 			</style>';
 		
@@ -558,40 +558,77 @@ jQuery(function(){
 		
 		function DarenatePlusInstall () {
    			global $wpdb, $dplus_db_version;
-			$table_name = $wpdb->prefix . "donations";
-			if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) :
-				$sql = "CREATE TABLE $table_name  (
-					  ID bigint(20) NOT NULL AUTO_INCREMENT,
-					  name tinytext NOT NULL,
-					  email VARCHAR(100) NOT NULL,
-					  url VARCHAR(200) NOT NULL,
-					  comment text NOT NULL,
-					  display int(11) NOT NULL DEFAULT 0,
-					  amount bigint(200) NOT NULL DEFAULT 0,
-					  currency VARCHAR(200) NOT NULL,
-					  date datetime DEFAULT '000-00-00 00:00:00',
-					  user_id bigint(20) NOT NULL DEFAULT 0,
-					  status VARCHAR(100) NOT NULL,
-					  txn_id VARCHAR(100) NOT NULL,		  
-					  UNIQUE KEY ID (ID)
-					);";
-				
-				require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-				dbDelta($sql);
-				
-				add_option("dplus_db_version", $dplus_db_version);
-			endif;
+   			{
+				$table_name = $wpdb->prefix . "donations";
+				if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) :
+					$sql = "CREATE TABLE $table_name  (
+						  ID bigint(20) NOT NULL AUTO_INCREMENT,
+						  name tinytext NOT NULL,
+						  email VARCHAR(100) NOT NULL,
+						  url VARCHAR(200) NOT NULL,
+						  comment text NOT NULL,
+						  display int(11) NOT NULL DEFAULT 0,
+						  amount bigint(200) NOT NULL DEFAULT 0,
+						  currency VARCHAR(200) NOT NULL,
+						  date datetime DEFAULT '000-00-00 00:00:00',
+						  user_id bigint(20) NOT NULL DEFAULT 0,
+						  status VARCHAR(100) NOT NULL,
+						  txn_id VARCHAR(100) NOT NULL,		  
+						  UNIQUE KEY ID (ID)
+						);";
+					
+					require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+					dbDelta($sql);
+					
+					add_option("dplus_db_version", $dplus_db_version);
+				endif;
+			}
+			
+			{
+				$table_name = $wpdb->prefix . "expenses";
+				if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) :
+					$sql = "CREATE TABLE $table_name  (
+						  ID bigint(20) NOT NULL AUTO_INCREMENT,
+						  name tinytext NOT NULL,
+						  email VARCHAR(100) NOT NULL,
+						  url VARCHAR(200) NOT NULL,
+						  comment text NOT NULL,
+						  display int(11) NOT NULL DEFAULT 0,
+						  amount bigint(200) NOT NULL DEFAULT 0,
+						  currency VARCHAR(200) NOT NULL,
+						  date datetime DEFAULT '000-00-00 00:00:00',
+						  user_id bigint(20) NOT NULL DEFAULT 0,
+						  status VARCHAR(100) NOT NULL,
+						  txn_id VARCHAR(100) NOT NULL,		  
+						  UNIQUE KEY ID (ID)
+						);";
+					
+					require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+					dbDelta($sql);
+					
+					add_option("dplus_db_version", $dplus_db_version);
+				endif;
+			}
 		}
 		
 
 		function UninstallDP() {
 			global $wpdb;
+			
+			$plugin_file = 'darenate-plus/darenate-plus.php';
+
 			$table_name = $wpdb->prefix . "donations";
-			$plugin_file = 'donate-plus/donate-plus.php';
 			if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) :
 				$sql = "DROP TABLE $table_name";
 				$wpdb->query($sql);
 			endif;
+			
+			$table_name = $wpdb->prefix . "expenses";
+			if($wpdb->get_var("SHOW TABLES LIKE '$table_name'") == $table_name) :
+				$sql = "DROP TABLE $table_name";
+				$wpdb->query($sql);
+			endif;
+			
 			delete_option("dplus_db_version");
 			delete_option("DarenatePlus");
 			$deactivate = wp_nonce_url('plugins.php?action=deactivate&plugin=' . $plugin_file, 'deactivate-plugin_' . $plugin_file);

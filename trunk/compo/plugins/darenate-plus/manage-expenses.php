@@ -11,7 +11,7 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 		
 		function Actions(){
 			global $wpdb;
-			$tb = $wpdb->prefix.'donations';
+			$tb = $wpdb->prefix.'expenses';
 			if( $_GET['action'] == 'delete' || $_GET['delete']):
 				if( $_GET['action'] ) $dIDs = $wpdb->escape($_GET['donor']);
 				$mngpg = get_option('siteurl').'/wp-admin/admin.php?page=darenateplusExpenses';
@@ -31,7 +31,7 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 			if( $_GET['edit'] ):
 				$this->Edit();
 			else:
-			$tb = $wpdb->prefix.'donations';
+			$tb = $wpdb->prefix.'expenses';
 			$mngpg = get_option('siteurl').'/wp-admin/admin.php?page=darenateplusExpenses';
 			$donors = $wpdb->get_results("SELECT * FROM $tb ORDER BY ID ASC");
 			if(  $_GET['s'] ):
@@ -133,7 +133,7 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 		
 		function Edit(){
 			global $wpdb;
-			$tb = $wpdb->prefix.'donations';
+			$tb = $wpdb->prefix.'expenses';
 			$dID = $_GET['edit'];
 			$donor = $wpdb->get_row("SELECT * FROM $tb WHERE ID=$dID");
 			?>
@@ -197,7 +197,7 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 		
 		function Update(){
 			global $wpdb;
-			$tb = $wpdb->prefix.'donations';
+			$tb = $wpdb->prefix.'expenses';
 			$dID = $_POST['dID'];
 			unset($_POST['updatedonor']);
 			unset($_POST['dID']);
