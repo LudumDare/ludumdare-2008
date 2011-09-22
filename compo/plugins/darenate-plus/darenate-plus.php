@@ -226,7 +226,18 @@ if( !class_exists('DarenatePlus') ):
 			?>
              <div class="wrap">
             	<h2><?php _e('Darenate Plus Settings', 'dplus')?></h2>
-               
+				<?php
+				
+ 				$table_name = $wpdb->prefix . "donations";
+				if( $wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) ) {
+					echo 'Donations Table Exists</br>';
+				}
+ 				$table_name = $wpdb->prefix . "expenses";
+				if( $wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) ) {
+					echo 'Expenses Table Exists</br>';
+				}
+              	
+              	?>
                 <form method="post" action="">
                 	<?php if( function_exists( 'wp_nonce_field' )) wp_nonce_field( 'dplus-update-options'); ?>
                     <table class="form-table">

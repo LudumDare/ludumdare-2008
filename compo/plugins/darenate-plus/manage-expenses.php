@@ -1,6 +1,6 @@
 <?php
 if( !class_exists('ManageDarenatePlusExpenses') ):
-	class ManageDarenatePlusExpenses{
+	class ManageDarenatePlusExpenses {
 		function ManageDarenatePlusExpenses() { //constructor
 			if( $_GET['page'] == 'darenateplusExpenses' && ( $_GET['doaction'] || $_GET['delete'] ) )
 				$this->Actions();
