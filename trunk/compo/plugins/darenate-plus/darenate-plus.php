@@ -229,11 +229,11 @@ if( !class_exists('DarenatePlus') ):
 				<?php
 				
  				$table_name = $wpdb->prefix . "donations";
-				if( $wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) ) {
+				if( $wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
 					echo 'Donations Table Exists</br>';
 				}
  				$table_name = $wpdb->prefix . "expenses";
-				if( $wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) ) {
+				if( $wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
 					echo 'Expenses Table Exists</br>';
 				}
               	
