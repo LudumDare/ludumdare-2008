@@ -228,6 +228,8 @@ if( !class_exists('DarenatePlus') ):
             	<h2><?php _e('Darenate Plus Settings', 'dplus')?></h2>
 				<?php
 				
+				global $wpdb;
+				
  				$table_name = $wpdb->prefix . "donations";
 				if( $wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
 					echo 'Donations Table Exists</br>';
