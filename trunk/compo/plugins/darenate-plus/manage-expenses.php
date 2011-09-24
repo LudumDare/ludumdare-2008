@@ -30,6 +30,9 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 			global $wpdb;
 			if( $_GET['edit'] ):
 				$this->Edit();
+			elseif( $_GET['add'] ):
+				$this->Add();
+				$this->Edit();
 			else:
 			$tb = $wpdb->prefix.'expenses';
 			$mngpg = get_option('siteurl').'/wp-admin/admin.php?page=darenateplusExpenses';
@@ -70,7 +73,7 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
   <thead>
   <tr>
 	<th scope="col" id="cb" class="manage-column column-cb check-column" style=""><input type="checkbox" /></th>
-	<th scope="col" id="donorname" class="manage-column column-donorname" style=""><?php _e('Donor Name', 'dplus');?></th>
+	<th scope="col" id="donorname" class="manage-column column-donorname" style=""><?php _e('Expense Name', 'dplus');?></th>
 	<th scope="col" id="amount" class="manage-column column-amount" style=""><?php _e('Amount', 'dplus');?></th>
     <th scope="col" id="comment" class="manage-column column-comment" style=""><?php _e('Comment', 'dplus');?></th>
 	<th scope="col" id="date" class="manage-column column-date" style=""><?php _e('Date', 'dplus');?></th>
@@ -81,7 +84,7 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
   <tr>
 
 	<th scope="col" class="manage-column column-cb check-column" style=""><input type="checkbox" /></th>
-	<th scope="col" class="manage-column column-donorname" style=""><?php _e('Donor Name', 'dplus');?></th>
+	<th scope="col" class="manage-column column-donorname" style=""><?php _e('Expense Name', 'dplus');?></th>
 	<th scope="col" class="manage-column column-amount" style=""><?php _e('Amount', 'dplus');?></th>
     <th scope="col" class="manage-column column-comment" style=""><?php _e('Comment', 'dplus');?></th>
 	<th scope="col" class="manage-column column-date" style=""><?php _e('Date', 'dplus');?></th>
@@ -130,6 +133,10 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
             <?php
 			endif;
 		}
+
+		function Add() {
+			
+		}
 		
 		function Edit(){
 			global $wpdb;
@@ -144,19 +151,19 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
                     <table class="form-table">
                     <tbody>
                     	<tr valign="top">
-                    		<th scope="row"><label for="name"><?php _e('Donor Name', 'dplus');?></label></th>
+                    		<th scope="row"><label for="name"><?php _e('Expense Name', 'dplus');?></label></th>
                    			<td><input name="name" id="name" value="<?php echo $donor->name;?>" class="regular-text" type="text"></td>
                    		</tr>
                         <tr valign="top">
-                    		<th scope="row"><label for="email"><?php _e('Donor Email', 'dplus');?></label></th>
+                    		<th scope="row"><label for="email"><?php _e('Reference Email', 'dplus');?></label></th>
                    			<td><input name="email" id="email" value="<?php echo $donor->email;?>" class="regular-text" type="text"></td>
                    		</tr>
                         <tr valign="top">
-                    		<th scope="row"><label for="url"><?php _e('Donor URL', 'dplus');?></label></th>
+                    		<th scope="row"><label for="url"><?php _e('Reference URL', 'dplus');?></label></th>
                    			<td><input name="url" id="url" value="<?php echo $donor->url;?>" class="regular-text" type="text"></td>
                    		</tr>
                         <tr valign="top">
-                    		<th scope="row"><label for="comment"><?php _e('Donor Comment', 'dplus');?></label></th>
+                    		<th scope="row"><label for="comment"><?php _e('Expense Comment', 'dplus');?></label></th>
                    			<td><textarea name="comment" id="comment" cols="45" rows="5"><?php echo $donor->comment;?></textarea></td>
                    		</tr>
                         <tr valign="top">
