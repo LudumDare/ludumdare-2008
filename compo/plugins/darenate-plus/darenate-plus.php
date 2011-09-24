@@ -87,6 +87,7 @@ if( !class_exists('DarenatePlus') ):
 			global $manageDPExpenses;
 			add_menu_page( __("Darenate Plus",'dplus'), __("Darenate Plus",'dplus'), 10, 'DarenatePlus', array($manageDP, 'Manage'), 'div' );
 			add_submenu_page( 'DarenatePlus', 'Expenses', 'Expenses', 10, 'darenateplusExpenses', array($manageDPExpenses, 'Manage') );
+			add_submenu_page( 'DarenatePlus', 'Add Expense', 'Add Expense', 10, 'darenateplusAddExpense', array($this, 'AddExpense') );
 			add_submenu_page( 'DarenatePlus', 'Settings', 'Settings', 10, 'darenateplusSettings', array($this, 'Settings') );
 		}
 		function icon_css(){
@@ -218,7 +219,16 @@ if( !class_exists('DarenatePlus') ):
 			endforeach;
 			return $output;
 		}
-		
+
+		function AddExpense(){
+			$dplus = get_option( 'DarenatePlus' );
+			if( $_POST['notice'] )
+				echo '<div id="message" class="updated fade"><p><strong>' . $_POST['notice'] . '</strong></p></div>';
+			?>
+			
+			<?php
+		}
+				
 		function Settings(){
 			$dplus = get_option( 'DarenatePlus' );
 			if( $_POST['notice'] )
