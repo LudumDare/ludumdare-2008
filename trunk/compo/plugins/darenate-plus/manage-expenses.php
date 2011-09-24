@@ -135,7 +135,12 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 		}
 
 		function Add() {
+			$dplus = get_option( 'DarenatePlus' );
+			if( $_POST['notice'] )
+				echo '<div id="message" class="updated fade"><p><strong>' . $_POST['notice'] . '</strong></p></div>';
+			?>
 			
+			<?php
 		}
 		
 		function Edit(){
