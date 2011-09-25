@@ -142,13 +142,14 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 			$table_name = $wpdb->prefix."expenses";
 			$txn_id = 0;
 			$uID = $user_ID;
+			$status = "";
 			
 			//USE SECURE INSERT!
 			$wpdb->query(
 				$wpdb->prepare("INSERT INTO $table_name
 				( name, email, url, comment, display, amount, currency, date, user_id, status, txn_id )
 				VALUES ( %s, %s, %s, %s, %d, %s, %s, %s, %d, %s, %s )", 
-			    $_POST['name'], $_POST['email'], $_POST['url'], strip_tags($_POST['comment']), $_POST['display'], $_POST['amount'], $_POST['currency'], date('Y-m-d H:i:s'), $uID, $_POST['status'], $txn_id )
+			    $_POST['name'], $_POST['email'], $_POST['url'], strip_tags($_POST['comment']), $_POST['display'], $_POST['amount'], $_POST['currency'], date('Y-m-d H:i:s'), $uID, $status, $txn_id )
 		    );
 
 			$_POST['notice'] = 'Expense Added';
@@ -194,10 +195,6 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
                         <tr valign="top">
                     		<th scope="row"><label for="currency"><?php _e('Expense Currency', 'dplus');?></label></th>
                    			<td><input name="currency" id="currency" value="USD" class="regular-text" type="text"></td>
-                   		</tr>
-                        <tr valign="top">
-                    		<th scope="row"><label for="status"><?php _e('Payment Status', 'dplus');?></label></th>
-                   			<td><input name="status" id="status" value="" class="regular-text" type="text"></td>
                    		</tr>
                     </tbody>
                     </table>
