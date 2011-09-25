@@ -74,6 +74,7 @@ if( !class_exists('DarenatePlus') ):
 				add_shortcode('donatetotal', array($this, 'DonateTotal') );
 				add_shortcode('expensetotal', array($this, 'ExpenseTotal') );
 				add_shortcode('fundstotal', array($this, 'FundsTotal') );
+				add_shortcode('expensedate', array($this, 'ExpenseDate') );
 			//LOCALIZATION
 				#Place your language file in the plugin folder and name it "wpfrom-{language}.mo"
 				#replace {language} with your language value from wp-config.php
@@ -427,6 +428,14 @@ if( !class_exists('DarenatePlus') ):
 			if( $suffix ) $output .= ' '.$thecur;
 			if( $type ) $output .= ' '.$type;
 			return $output;
+		}
+		
+		function ExpenseDate($atts=false) {
+			global $wpdb;
+			$dplus = get_option( 'DarenatePlus' );
+			$table = $wpdb->prefix . 'expenses';
+			$thedate = $wpdb->get_results("SELECT date FROM $table WHERE status='Completed' ORDER BY ID DESC LIMIT 1");
+			return date('M j, Y \a\t g:i a', strtotime($thedate) );
 		}
 						
 		function DonorWall($atts=false) {
