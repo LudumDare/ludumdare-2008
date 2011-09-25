@@ -335,6 +335,8 @@ if( !class_exists('DarenatePlus') ):
                <p><code>[donateplus]</code><br /><?php _e('This shortcode will display the Darenate Plus donation form', 'dplus'); ?></p>
                <p><code>[donorwall]</code><br /><?php _e('This shortcode will display the Donor Recognition Wall. <em>Optional attribute:</em> <code>title</code> is wrapped within a <code>&lt;h2&gt;</code> tag.  Usage is <code>[donorwall title=\'Donor Recognition Wall\']', 'dplus'); ?></p>
                <p><code>[donatetotal]</code> <br /><?php _e('This shortcode will display the total donations received. <em>Optional attributes:</em> <code>prefix</code> is the currency symbol (ie. $), <code>suffix</code> is the currency code (ie. USD), <code>type</code> is the english description (ie. U.S. Dollar). Usage is <code>[donatetotal prefix=\'1\', suffix=\'1\', type=\'0\']</code>. 1 will show, 0 will hide.', 'dplus'); ?></p>
+               <p><code>[expensetotal]</code> <br /></p>
+               <p><code>[fundstotal]</code> <br /></p>
                <h2><?php _e('Instant Payment Notification URL', 'dplus');?></h2>
                <p><code><?php echo str_replace(ABSPATH, trailingslashit(get_option('siteurl')), dirname(__FILE__)).'/paypal.php';?></code><br /><?php _e('This is your IPN Notification URL.  If you have issues with your site receiving your PayPal payments, be sure to manually set this URL in your PayPal Profile IPN settings.  You can also view your ', 'dplus');?> <a href="https://www.paypal.com/us/cgi-bin/webscr?cmd=_display-ipns-history"><?php _e('IPN History on PayPal','dplus');?></a></p>
                 <h2><?php _e('Uninstall Darenate Plus Tables and Options', 'dplus'); ?></h2>
@@ -369,6 +371,62 @@ if( !class_exists('DarenatePlus') ):
 			return $output;			
 		}
 		
+		function ExpenseTotal($atts=false) {
+			global $wpdb, $currency;
+			extract( shortcode_atts( array( 'prefix' => true, 'suffix' => true, 'type' => false ), $atts ) );
+			$dplus = get_option( 'DarenatePlus' );
+			$table = $wpdb->prefix . 'expenses';
+			$donors = $wpdb->get_results("SELECT amount FROM $table WHERE status='Completed'");
+			$total = '';
+			foreach( $donors as $donor ):
+				$total = $total + $donor->amount;
+			endforeach;
+			if( !$total ) $total = '0';
+			$thecur = $dplus['paypal_currency'];
+			$symbol = $currency[$thecur]['symbol'];
+			$thetype = $currency[$cur]['type'];
+			if( $prefix ) $output .= $symbol;
+			$output .= $total;
+			if( $suffix ) $output .= ' '.$thecur;
+			if( $type ) $output .= ' '.$type;
+			return $output;
+		}
+
+		
+		function FundsTotal($atts=false) {
+			global $wpdb, $currency;
+			extract( shortcode_atts( array( 'prefix' => true, 'suffix' => true, 'type' => false ), $atts ) );
+			$dplus = get_option( 'DarenatePlus' );
+			$table = $wpdb->prefix . 'expenses';
+			$donors = $wpdb->get_results("SELECT amount FROM $table WHERE status='Completed'");
+			
+			$exp_total = '';
+			foreach( $donors as $donor ):
+				$exp_total = $exp_total + $donor->amount;
+			endforeach;
+			if( !$exp_total ) $exp_total = '0';
+
+			$table = $wpdb->prefix . 'donations';
+			$donors = $wpdb->get_results("SELECT amount FROM $table WHERE status='Completed'");
+			
+			$don_total = '';
+			foreach( $donors as $donor ):
+				$don_total = $don_total + $donor->amount;
+			endforeach;
+			if( !$don_total ) $don_total = '0';
+			
+			$total = $don_total - $exp_total;
+			
+			$thecur = $dplus['paypal_currency'];
+			$symbol = $currency[$thecur]['symbol'];
+			$thetype = $currency[$cur]['type'];
+			if( $prefix ) $output .= $symbol;
+			$output .= $total;
+			if( $suffix ) $output .= ' '.$thecur;
+			if( $type ) $output .= ' '.$type;
+			return $output;
+		}
+						
 		function DonorWall($atts=false) {
 			global $wpdb, $currency;
 			extract( shortcode_atts( array( 'title' => '' ), $atts ) );
