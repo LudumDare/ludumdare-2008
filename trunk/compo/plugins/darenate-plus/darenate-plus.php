@@ -436,9 +436,9 @@ if( !class_exists('DarenatePlus') ):
 			$table = $wpdb->prefix . 'expenses';
 			$expenses = $wpdb->get_results("SELECT date FROM $table WHERE status='Completed' ORDER BY ID DESC LIMIT 1");
 			
+			$output = '';
 			foreach( $expenses as $expense ):
-				$output = '(' . $expense->date . ') ';
-				$output .= date('M j, Y \a\t g:i a', strtotime($expense->date) );
+				$output .= date('M j, Y', strtotime($expense->date) );
 			endforeach;
 			return $output;
 		}
