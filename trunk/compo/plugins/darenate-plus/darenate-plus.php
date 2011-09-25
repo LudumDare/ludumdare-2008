@@ -72,6 +72,8 @@ if( !class_exists('DarenatePlus') ):
 				add_shortcode('donorwall', array($this, 'DonorWall') );
 				#Add Total Donations Count Shortcode
 				add_shortcode('donatetotal', array($this, 'DonateTotal') );
+				add_shortcode('expensetotal', array($this, 'ExpenseTotal') );
+				add_shortcode('fundstotal', array($this, 'FundsTotal') );
 			//LOCALIZATION
 				#Place your language file in the plugin folder and name it "wpfrom-{language}.mo"
 				#replace {language} with your language value from wp-config.php
@@ -726,4 +728,12 @@ function DarenatePlusWall(){
 function DarenatePlusTotal(){
 	global $darenateplus;
 	echo $darenateplus->DonateTotal();
+}
+function DarenatePlusTotalExpenses(){
+	global $darenateplus;
+	echo $darenateplus->ExpenseTotal();
+}
+function DarenatePlusTotalFunds(){
+	global $darenateplus;
+	echo $darenateplus->FundsTotal();
 }
