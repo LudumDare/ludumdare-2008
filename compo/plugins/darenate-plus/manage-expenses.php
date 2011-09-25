@@ -5,7 +5,7 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 			if( $_GET['page'] == 'darenateplusExpenses' && ( $_GET['doaction'] || $_GET['delete'] ) )
 				$this->Actions();
 				
-			if( $_POST['updatedonor'] )
+			if( $_POST['updateexpense'] )
 				$this->Update();
 		}
 		
@@ -135,11 +135,67 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 		}
 
 		function Add() {
+			global $currency, $user_ID;
+			get_currentuserinfo();
 			$dplus = get_option( 'DarenatePlus' );
 			if( $_POST['notice'] )
 				echo '<div id="message" class="updated fade"><p><strong>' . $_POST['notice'] . '</strong></p></div>';
 			?>
-			
+           <div class="wrap">
+            	<h2><?php _e('Add Expense', 'dplus');?></h2>
+                <form method="post" action="">
+                    <input type="hidden" name="addexpense" value="true" /><!--<input type="hidden" name="dID" value="<?php echo $dID;?>" />-->
+                    <table class="form-table">
+                    <tbody>
+                    	<tr valign="top">
+                    		<th scope="row"><label for="name"><?php _e('Expense Name', 'dplus');?></label></th>
+                   			<td><input name="name" id="name" value="" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="email"><?php _e('Reference Email', 'dplus');?></label></th>
+                   			<td><input name="email" id="email" value="" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="url"><?php _e('Reference URL', 'dplus');?></label></th>
+                   			<td><input name="url" id="url" value="" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="comment"><?php _e('Expense Comment', 'dplus');?></label></th>
+                   			<td><textarea name="comment" id="comment" cols="45" rows="5"></textarea></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="display"><?php _e('Display on Recognition Wall', 'dplus');?></label></th>
+                   			<td><select name="display" id="display"><option value="0" <?php if(!true) echo 'selected="selected"';?>>No</option> <option value="1" <?php if(true) echo 'selected="selected"';?>>Yes</option></select></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="amount"><?php _e('Expense Amount', 'dplus');?></label></th>
+                   			<td><input name="amount" id="amount" value="" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="currency"><?php _e('Expense Currency', 'dplus');?></label></th>
+                   			<td><input name="currency" id="currency" value="USD" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="date"><?php _e('Expense Date', 'dplus');?></label></th>
+                   			<td><input name="date" id="date" value="<?php echo getdate();?>" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="user_id"><?php _e('User', 'dplus');?></label></th>
+                   			<td><input name="user_id" id="user_id" value="<?php echo $user_ID;?>" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="status"><?php _e('Payment Status', 'dplus');?></label></th>
+                   			<td><input name="status" id="status" value="" class="regular-text" type="text"></td>
+                   		</tr>
+                    </tbody>
+                    </table>
+                    <p class="submit">
+                    <input name="Submit" class="button-primary" value="<?php _e('Save Changes','dplus');?>" type="submit">
+                    </p>
+
+                </form>
+
+            </div>
 			<?php
 		}
 		
@@ -152,7 +208,7 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
             <div class="wrap">
             	<h2><?php _e('Edit Expense Details', 'dplus');?></h2>
                 <form method="post" action="">
-                    <input type="hidden" name="updatedonor" value="true" /><input type="hidden" name="dID" value="<?php echo $dID;?>" />
+                    <input type="hidden" name="updateexpense" value="true" /><input type="hidden" name="dID" value="<?php echo $dID;?>" />
                     <table class="form-table">
                     <tbody>
                     	<tr valign="top">
@@ -211,7 +267,7 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 			global $wpdb;
 			$tb = $wpdb->prefix.'expenses';
 			$dID = $_POST['dID'];
-			unset($_POST['updatedonor']);
+			unset($_POST['updateexpense']);
 			unset($_POST['dID']);
 			unset($_POST['Submit']);
 			foreach( $_POST as $key => $val ):
