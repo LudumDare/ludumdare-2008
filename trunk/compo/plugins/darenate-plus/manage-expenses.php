@@ -6,7 +6,7 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 				$this->Actions();
 				
 			if( $_POST['addexpense'] )
-				echo 'ROOOOOOOOOOOCHIE!';
+				$this->Add();
 
 			if( $_POST['updateexpense'] )
 				$this->Update();
@@ -138,6 +138,10 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 		}
 
 		function Add() {
+			echo 'ROOOOOOOOOOOOOOOOOOCHI';
+		}
+		
+		function AddPage() {
 			global $currency, $user_ID;
 			get_currentuserinfo();
 			$dplus = get_option( 'DarenatePlus' );
