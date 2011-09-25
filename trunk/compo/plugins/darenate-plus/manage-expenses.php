@@ -177,7 +177,7 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
                    		</tr>
                         <tr valign="top">
                     		<th scope="row"><label for="date"><?php _e('Expense Date', 'dplus');?></label></th>
-                   			<td><input name="date" id="date" value="<?php echo getdate();?>" class="regular-text" type="text"></td>
+                   			<td><input name="date" id="date" value="<?php echo tdate("Y-m-d H:i:s",$timestamp);?>" class="regular-text" type="text"></td>
                    		</tr>
                         <tr valign="top">
                     		<th scope="row"><label for="user_id"><?php _e('User', 'dplus');?></label></th>
