@@ -1,11 +1,4 @@
-<div id="sidebar">
 
-    Sidebar is AFK LOL!!!
-
-</div>
-
-<?php return; ?>
-	
 	<div id="sidebar">
 		<ul>
             <!--            <p>Join the GameCompo.Com <a href='http://www.gamecompo.com/mailing-list/'>mailing list</a> and stay informed!</pL>-->
