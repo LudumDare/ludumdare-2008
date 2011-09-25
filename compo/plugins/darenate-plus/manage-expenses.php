@@ -142,7 +142,7 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 			$table_name = $wpdb->prefix."expenses";
 			$txn_id = 0;
 			$uID = $user_ID;
-			$status = "";
+			$status = 'Completed';
 			
 			//USE SECURE INSERT!
 			$wpdb->query(
