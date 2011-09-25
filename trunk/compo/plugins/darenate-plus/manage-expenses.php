@@ -5,6 +5,9 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 			if( $_GET['page'] == 'darenateplusExpenses' && ( $_GET['doaction'] || $_GET['delete'] ) )
 				$this->Actions();
 				
+			if( $_POST['addexpense'] )
+				echo 'ROOOOOOOOOOOCHIE!';
+
 			if( $_POST['updateexpense'] )
 				$this->Update();
 		}
