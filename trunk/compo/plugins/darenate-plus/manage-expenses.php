@@ -138,7 +138,7 @@ if( !class_exists('ManageDarenatePlusExpenses') ):
 		}
 
 		function Add() {
-			echo 'ROOOOOOOOOOOOOOOOOOCHI';
+			$_POST['notice'] = 'Expense Added';
 		}
 		
 		function AddPage() {
