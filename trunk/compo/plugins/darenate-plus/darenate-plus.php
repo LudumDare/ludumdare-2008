@@ -519,12 +519,12 @@ if( !class_exists('DarenatePlus') ):
 			extract( shortcode_atts( array( 'title' => '' ), $atts ) );
 			$dplus = get_option( 'DarenatePlus' );
 			$table = $wpdb->prefix . 'donations';
-			$where_text = "WHERE date < '".$wpdb->escape(date("Y-m-d H:i:s",time()-180*24*60*60))."'";
+			$where_text = "WHERE date > '".$wpdb->escape(date("Y-m-d H:i:s",time()-180*24*60*60))."'";
 			
 			if($dplus['wall_max'] > 0)
 				$limit = "ORDER BY amount DESC, display ASC, ID DESC, name ASC ".$where_text." LIMIT ".$dplus['wall_max'];
 			else
-				$limit = "ORDER BY amount DESC, display ASC, ID DESC, name ASC".$where_text;
+				$limit = "ORDER BY amount DESC, display ASC, ID DESC, name ASC ".$where_text;
 			$donors = $wpdb->get_results("SELECT * FROM $table WHERE status='Completed' AND display!=0 $limit");
 			//print_r($donors);
 			$output .= '<div id="highdonorwall">';
