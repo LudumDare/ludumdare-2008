@@ -455,7 +455,7 @@ if( !class_exists('DarenatePlus') ):
 			if($dplus['wall_max'] > 0)
 				$limit = "ORDER BY ID DESC, display ASC, amount DESC, name ASC LIMIT ".$dplus['wall_max'];
 			else
-				$limit = "ORDER BY display ASC, amount DESC, name ASC";
+				$limit = "ORDER BY ID DESC, display ASC, amount DESC, name ASC";
 			$donors = $wpdb->get_results("SELECT * FROM $table WHERE status='Completed' AND display!=0 $limit");
 			//print_r($donors);
 			$output .= '<div id="donorwall">';
@@ -480,9 +480,9 @@ if( !class_exists('DarenatePlus') ):
 			$dplus = get_option( 'DarenatePlus' );
 			$table = $wpdb->prefix . 'expenses';
 			if($dplus['wall_max'] > 0)
-				$limit = "ORDER BY ID DESC, display DESC, amount DESC, name ASC LIMIT ".$dplus['wall_max'];
+				$limit = "ORDER BY ID DESC, display ASC, amount DESC, name ASC LIMIT ".$dplus['wall_max'];
 			else
-				$limit = "ORDER BY display DESC, amount DESC, name ASC";
+				$limit = "ORDER BY ID DESC, display ASC, amount DESC, name ASC";
 			$donors = $wpdb->get_results("SELECT * FROM $table WHERE status='Completed' AND display!=0 $limit");
 			//print_r($donors);
 			$output .= '<div id="expensewall">';
