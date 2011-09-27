@@ -508,7 +508,7 @@ if( !class_exists('DarenatePlus') ):
 				else {
 					$output .= '<strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong> ';
 				}
-				$output .= $donation.'on <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span></cite><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
+				$output .= ' on <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span> '.$donation.'</cite><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
 			endforeach;
 			$output .= '</div>';
 			return $output;
@@ -548,7 +548,7 @@ if( !class_exists('DarenatePlus') ):
 				else {
 					$output .= '<strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong> ';
 				}
-				$output .= $donation.'on <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span></cite><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
+				$output .= ' on <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span> '.$donation.'</cite><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
 			endforeach;
 			$output .= '</div>';
 			return $output;
