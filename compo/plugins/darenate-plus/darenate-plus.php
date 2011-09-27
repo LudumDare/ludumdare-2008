@@ -494,7 +494,7 @@ if( !class_exists('DarenatePlus') ):
 				
 				$date = strtotime($donor->date);
 				$datetime = date('M j, Y \a\t g:i a', $date);
-				$output .= '<div class="donorbox"><p><small class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></small><br /><cite><strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donor->name.'</a></strong> '.$donation.'</cite> '.__('Said:','dplus').'<blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
+				$output .= '<div class="donorbox"><p><cite><strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donor->name.'</a></strong> '.$donation.'<span class="date time"><a href="#expense-'.$donor->ID.'">'.$datetime.'</a></span></cite>.<blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
 			endforeach;
 			$output .= '</div>';
 			return $output;
