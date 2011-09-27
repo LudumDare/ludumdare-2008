@@ -539,7 +539,7 @@ if( !class_exists('DarenatePlus') ):
 				if ( $donorname == '' ) {
 					$donorname = 'Anonymous';
 				}
-				$output .= '<div class="donorbox"><p><small class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></small><br /><cite>';
+				$output .= '<div class="highdonorbox"><p><small class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></small><br /><cite>';
 				if ( ($donor->url == '') || ($donor->url == 'http://') ) {
 					$output .= '<strong>'.$donorname.'</a></strong> ';
 				}
