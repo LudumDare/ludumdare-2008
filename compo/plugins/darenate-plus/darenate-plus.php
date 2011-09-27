@@ -494,7 +494,6 @@ if( !class_exists('DarenatePlus') ):
 			$count = 0;
 			foreach( $donors as $donor ):
 				$count += 1;
-				$output .= $count.'. ';
 
 				$symbol = $currency[$donor->currency]['symbol'];
 				if($donor->display == 1) $donation = '(<span class="amount">'.$symbol.number_format($donor->amount, 2, '.', ',').' <small class="currency">'.$donor->currency.'</small></span>)';
@@ -507,6 +506,7 @@ if( !class_exists('DarenatePlus') ):
 					$donorname = 'Anonymous';
 				}
 				$output .= '<div class="donorbox"><p><cite>';
+				$output .= $count.'. ';
 				if ( ($donor->url == '') || ($donor->url == 'http://') ) {
 					$output .= '<strong>'.$donorname.'</a></strong> ';
 				}
@@ -539,7 +539,6 @@ if( !class_exists('DarenatePlus') ):
 			$count = 0;
 			foreach( $donors as $donor ):
 				$count += 1;
-				$output .= $count.'. ';
 			
 				$symbol = $currency[$donor->currency]['symbol'];
 				if($donor->display == 1) $donation = '(<span class="amount">'.$symbol.number_format($donor->amount, 2, '.', ',').' <small class="currency">'.$donor->currency.'</small></span>)';
@@ -552,6 +551,7 @@ if( !class_exists('DarenatePlus') ):
 					$donorname = 'Anonymous';
 				}
 				$output .= '<div class="highdonorbox"><p><cite>';
+				$output .= $count.'. ';
 				if ( ($donor->url == '') || ($donor->url == 'http://') ) {
 					$output .= '<strong>'.$donorname.'</a></strong> ';
 				}
