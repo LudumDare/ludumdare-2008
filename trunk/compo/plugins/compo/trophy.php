@@ -98,7 +98,7 @@ function compo_trophy_sidebar() {
     global $compo;
     $table = $compo["trophy.table"];
     $topurl = get_bloginfo("url");
-    $r = compo_query("select * from $table order by time desc limit 5");
+    $r = compo_query("select * from $table order by time desc limit 12");
     echo "<table cellspacing=16>";
     foreach ($r as $e) {
         echo "<tr><td align=center>";
