@@ -92,6 +92,7 @@ if( !class_exists('DarenatePlus') ):
 			add_menu_page( __("Darenate Plus",'dplus'), __("Darenate Plus",'dplus'), 10, 'DarenatePlus', array($manageDP, 'Manage'), 'div' );
 			add_submenu_page( 'DarenatePlus', 'Expenses', 'Expenses', 10, 'darenateplusExpenses', array($manageDPExpenses, 'Manage') );
 			add_submenu_page( 'DarenatePlus', 'Add Expense', 'Add Expense', 10, 'darenateplusAddExpense', array($manageDPExpenses, 'AddPage') );
+			add_submenu_page( 'DarenatePlus', 'Add Proxy Donor', 'Add Proxy Donor', 10, 'darenateplusAddProxyDonor', array($manageDP, 'AddPage') );
 			add_submenu_page( 'DarenatePlus', 'Settings', 'Settings', 10, 'darenateplusSettings', array($this, 'Settings') );
 		}
 		function icon_css(){
