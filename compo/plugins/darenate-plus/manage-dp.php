@@ -5,6 +5,9 @@ if( !class_exists('ManageDarenatePlus') ):
 			if( $_GET['page'] == 'DarenatePlus' && ( $_GET['doaction'] || $_GET['delete'] ) )
 				$this->Actions();
 				
+			if( $_POST['adddonation'] )
+				$this->Add();
+				
 			if( $_POST['updatedonor'] )
 				$this->Update();
 		}
@@ -130,6 +133,78 @@ if( !class_exists('ManageDarenatePlus') ):
             <?php
 			endif;
 		}
+
+		function Add() {
+			global $wpdb, $user_ID;
+			$table_name = $wpdb->prefix."donations";
+			$txn_id = 0;
+			$uID = $user_ID;
+			$status = 'Completed';
+			
+			//USE SECURE INSERT!
+			$wpdb->query(
+				$wpdb->prepare("INSERT INTO $table_name
+				( name, email, url, comment, display, amount, currency, date, user_id, status, txn_id )
+				VALUES ( %s, %s, %s, %s, %d, %s, %s, %s, %d, %s, %s )", 
+			    $_POST['name'], $_POST['email'], $_POST['url'], strip_tags($_POST['comment']), $_POST['display'], $_POST['amount'], $_POST['currency'], date('Y-m-d H:i:s'), $uID, $status, $txn_id )
+		    );
+
+			$_POST['notice'] = 'Donation Proxy Added';
+		}
+		
+		function AddPage() {
+			global $currency, $user_ID;
+			get_currentuserinfo();
+			$dplus = get_option( 'DarenatePlus' );
+			if( $_POST['notice'] )
+				echo '<div id="message" class="updated fade"><p><strong>' . $_POST['notice'] . '</strong></p></div>';
+			?>
+           <div class="wrap">
+            	<h2><?php _e('Add Proxy Donation', 'dplus');?></h2>
+                <form method="post" action="">
+                    <input type="hidden" name="adddonation" value="true" /><!--<input type="hidden" name="dID" value="<?php echo $dID;?>" />-->
+                    <table class="form-table">
+                    <tbody>
+                    	<tr valign="top">
+                    		<th scope="row"><label for="name"><?php _e('Donor Name', 'dplus');?></label></th>
+                   			<td><input name="name" id="name" value="" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="email"><?php _e('Donor Email', 'dplus');?></label></th>
+                   			<td><input name="email" id="email" value="" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="url"><?php _e('Donor URL', 'dplus');?></label></th>
+                   			<td><input name="url" id="url" value="" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="comment"><?php _e('Donor Comment', 'dplus');?></label></th>
+                   			<td><textarea name="comment" id="comment" cols="45" rows="5"></textarea></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="display"><?php _e('Display on Recognition Wall', 'dplus');?></label></th>
+                   			<td><select name="display" id="display"><option value="0" <?php if(!true) echo 'selected="selected"';?>>No</option> <option value="1" <?php if(true) echo 'selected="selected"';?>>Yes</option></select></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="amount"><?php _e('Donation Amount', 'dplus');?></label></th>
+                   			<td><input name="amount" id="amount" value="" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="currency"><?php _e('Donation Currency', 'dplus');?></label></th>
+                   			<td><input name="currency" id="currency" value="USD" class="regular-text" type="text"></td>
+                   		</tr>
+                    </tbody>
+                    </table>
+                    <p class="submit">
+                    <input name="Submit" class="button-primary" value="<?php _e('Save Changes','dplus');?>" type="submit">
+                    </p>
+
+                </form>
+
+            </div>
+			<?php
+		}
+
 		
 		function Edit(){
 			global $wpdb;
