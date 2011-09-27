@@ -70,6 +70,7 @@ if( !class_exists('DarenatePlus') ):
 				add_shortcode('donateplus', array($this, 'DonatePage') );
 				#Add Wall Shortcode
 				add_shortcode('donorwall', array($this, 'DonorWall') );
+				add_shortcode('highdonorwall', array($this, 'HighDonorWall') );
 				add_shortcode('expensewall', array($this, 'ExpenseWall') );
 				#Add Total Donations Count Shortcode
 				add_shortcode('donatetotal', array($this, 'DonateTotal') );
@@ -344,6 +345,7 @@ if( !class_exists('DarenatePlus') ):
                <p><code>[fundstotal]</code> <br /></p>
                <p><code>[expensewall]</code> <br /></p>
                <p><code>[expensedate]</code> <br /></p>
+               <p><code>[highdonorwall]</code> <br /></p>
                <h2><?php _e('Instant Payment Notification URL', 'dplus');?></h2>
                <p><code><?php echo str_replace(ABSPATH, trailingslashit(get_option('siteurl')), dirname(__FILE__)).'/paypal.php';?></code><br /><?php _e('This is your IPN Notification URL.  If you have issues with your site receiving your PayPal payments, be sure to manually set this URL in your PayPal Profile IPN settings.  You can also view your ', 'dplus');?> <a href="https://www.paypal.com/us/cgi-bin/webscr?cmd=_display-ipns-history"><?php _e('IPN History on PayPal','dplus');?></a></p>
                 <h2><?php _e('Uninstall Darenate Plus Tables and Options', 'dplus'); ?></h2>
@@ -511,7 +513,45 @@ if( !class_exists('DarenatePlus') ):
 			$output .= '</div>';
 			return $output;
 		}
+
+		function HighDonorWall($atts=false) {
+			global $wpdb, $currency;
+			extract( shortcode_atts( array( 'title' => '' ), $atts ) );
+			$dplus = get_option( 'DarenatePlus' );
+			$table = $wpdb->prefix . 'donations';
+			if($dplus['wall_max'] > 0)
+				$limit = "ORDER BY amount DESC, display ASC, ID DESC, name ASC LIMIT ".$dplus['wall_max'];
+			else
+				$limit = "ORDER BY amount DESC, display ASC, ID DESC, name ASC";
+			$donors = $wpdb->get_results("SELECT * FROM $table WHERE status='Completed' AND display!=0 $limit");
+			//print_r($donors);
+			$output .= '<div id="highdonorwall">';
+			if( $donors && $title )
+				$output .= '<h2>'.$title.'</h2>';
+			foreach( $donors as $donor ):
+				$symbol = $currency[$donor->currency]['symbol'];
+				if($donor->display == 1) $donation = '(<span class="amount">'.$symbol.number_format($donor->amount, 2, '.', ',').' <small class="currency">'.$donor->currency.'</small></span>)';
+				else $donation = '';
 				
+				$date = strtotime($donor->date);
+				$datetime = date('M j, Y \a\t g:i a', $date);
+				$donorname = $donor->name;
+				if ( $donorname == '' ) {
+					$donorname = 'Anonymous';
+				}
+				$output .= '<div class="donorbox"><p><small class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></small><br /><cite>';
+				if ( ($donor->url == '') || ($donor->url == 'http://') ) {
+					$output .= '<strong>'.$donorname.'</a></strong> ';
+				}
+				else {
+					$output .= '<strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong> ';
+				}
+				$output .= $donation.'</cite><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
+			endforeach;
+			$output .= '</div>';
+			return $output;
+		}
+					
 		function DonatePage($atts=false) {
 			global $currency, $user_ID;
 			get_currentuserinfo();
@@ -780,6 +820,10 @@ function DarenatePlusForm(){
 function DarenatePlusWall(){
 	global $darenateplus;
 	echo $darenateplus->DonorWall();
+}
+function DarenatePlusHighWall(){
+	global $darenateplus;
+	echo $darenateplus->HighDonorWall();
 }
 function DarenateExpenseWall(){
 	global $darenateplus;
