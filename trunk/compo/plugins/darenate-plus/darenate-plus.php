@@ -446,33 +446,6 @@ if( !class_exists('DarenatePlus') ):
 			endforeach;
 			return $output;
 		}
-						
-		function DonorWall($atts=false) {
-			global $wpdb, $currency;
-			extract( shortcode_atts( array( 'title' => '' ), $atts ) );
-			$dplus = get_option( 'DarenatePlus' );
-			$table = $wpdb->prefix . 'donations';
-			if($dplus['wall_max'] > 0)
-				$limit = "ORDER BY ID DESC, display ASC, amount DESC, name ASC LIMIT ".$dplus['wall_max'];
-			else
-				$limit = "ORDER BY ID DESC, display ASC, amount DESC, name ASC";
-			$donors = $wpdb->get_results("SELECT * FROM $table WHERE status='Completed' AND display!=0 $limit");
-			//print_r($donors);
-			$output .= '<div id="donorwall">';
-			if( $donors && $title )
-				$output .= '<h2>'.$title.'</h2>';
-			foreach( $donors as $donor ):
-				$symbol = $currency[$donor->currency]['symbol'];
-				if($donor->display == 1) $donation = '(<span class="amount">'.$symbol.number_format($donor->amount, 2, '.', ',').' <small class="currency">'.$donor->currency.'</small></span>)';
-				else $donation = '';
-				
-				$date = strtotime($donor->date);
-				$datetime = date('M j, Y \a\t g:i a', $date);
-				$output .= '<div class="donorbox"><p><small class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></small><br /><cite><strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donor->name.'</a></strong> '.$donation.'</cite> '.__('Said:','dplus').'<blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
-			endforeach;
-			$output .= '</div>';
-			return $output;
-		}
 
 		function ExpenseWall($atts=false) {
 			global $wpdb, $currency;
@@ -496,6 +469,44 @@ if( !class_exists('DarenatePlus') ):
 				$date = strtotime($donor->date);
 				$datetime = date('M j, Y \a\t g:i a', $date);
 				$output .= '<div class="donorbox"><p><cite><strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donor->name.'</a></strong> '.$donation.' - Added <span class="date time"><a href="#expense-'.$donor->ID.'">'.$datetime.'</a></span></cite>.<blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
+			endforeach;
+			$output .= '</div>';
+			return $output;
+		}
+								
+		function DonorWall($atts=false) {
+			global $wpdb, $currency;
+			extract( shortcode_atts( array( 'title' => '' ), $atts ) );
+			$dplus = get_option( 'DarenatePlus' );
+			$table = $wpdb->prefix . 'donations';
+			if($dplus['wall_max'] > 0)
+				$limit = "ORDER BY ID DESC, display ASC, amount DESC, name ASC LIMIT ".$dplus['wall_max'];
+			else
+				$limit = "ORDER BY ID DESC, display ASC, amount DESC, name ASC";
+			$donors = $wpdb->get_results("SELECT * FROM $table WHERE status='Completed' AND display!=0 $limit");
+			//print_r($donors);
+			$output .= '<div id="donorwall">';
+			if( $donors && $title )
+				$output .= '<h2>'.$title.'</h2>';
+			foreach( $donors as $donor ):
+				$symbol = $currency[$donor->currency]['symbol'];
+				if($donor->display == 1) $donation = '(<span class="amount">'.$symbol.number_format($donor->amount, 2, '.', ',').' <small class="currency">'.$donor->currency.'</small></span>)';
+				else $donation = '';
+				
+				$date = strtotime($donor->date);
+				$datetime = date('M j, Y \a\t g:i a', $date);
+				$donorname = $donor->name;
+				if ( $donorname == '' )
+					$donorname = 'Anonymous';
+				$output .= '<div class="donorbox"><p><small class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></small><br /><cite><strong>';
+				if ( $donorname == '' ) {
+					$donorname = 'Anonymous';
+					$output .= $donor->name.'</a></strong> ';
+				}
+				else {
+					$output .= '<a href="'.$donor->url.'" rel="external" class="name url">'.$donor->name.'</a></strong> ';
+				}
+				$output .= $donation.'</cite>.<blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
 			endforeach;
 			$output .= '</div>';
 			return $output;
