@@ -490,7 +490,12 @@ if( !class_exists('DarenatePlus') ):
 			$output .= '<div id="donorwall">';
 			if( $donors && $title )
 				$output .= '<h2>'.$title.'</h2>';
+
+			$count = 0;
 			foreach( $donors as $donor ):
+				$count += 1;
+				$output .= $count.'. ';
+
 				$symbol = $currency[$donor->currency]['symbol'];
 				if($donor->display == 1) $donation = '(<span class="amount">'.$symbol.number_format($donor->amount, 2, '.', ',').' <small class="currency">'.$donor->currency.'</small></span>)';
 				else $donation = '';
@@ -530,7 +535,12 @@ if( !class_exists('DarenatePlus') ):
 			$output .= '<div id="highdonorwall">';
 			if( $donors && $title )
 				$output .= '<h2>'.$title.'</h2>';
+				
+			$count = 0;
 			foreach( $donors as $donor ):
+				$count += 1;
+				$output .= $count.'. ';
+			
 				$symbol = $currency[$donor->currency]['symbol'];
 				if($donor->display == 1) $donation = '(<span class="amount">'.$symbol.number_format($donor->amount, 2, '.', ',').' <small class="currency">'.$donor->currency.'</small></span>)';
 				else $donation = '';
