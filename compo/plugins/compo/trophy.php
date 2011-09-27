@@ -91,7 +91,7 @@ require_once dirname(__FILE__)."/../compo2/compo2.php";
 
 function compo_trophy_sidebar() {
     // CACHE ///////////////////////////////////////////////////////////////
-    if (($cres=compo2_cache_read(0,$ckey="compo_trophy_sidebar",15*60))!==false) { echo $cres; return; }
+    if (($cres=compo2_cache_read("0",$ckey="compo_trophy_sidebar",15*60))!==false) { echo $cres; return; }
     ob_start();
     ////////////////////////////////////////////////////////////////////////
 
