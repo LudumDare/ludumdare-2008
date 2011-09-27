@@ -496,19 +496,19 @@ if( !class_exists('DarenatePlus') ):
 				else $donation = '';
 				
 				$date = strtotime($donor->date);
-				$datetime = date('M j, Y \a\t g:i a', $date);
+				$datetime = date('M j, Y', $date);
 				$donorname = $donor->name;
 				if ( $donorname == '' ) {
 					$donorname = 'Anonymous';
 				}
-				$output .= '<div class="donorbox"><p><small class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></small><br /><cite>';
+				$output .= '<div class="donorbox"><p><cite>';
 				if ( ($donor->url == '') || ($donor->url == 'http://') ) {
 					$output .= '<strong>'.$donorname.'</a></strong> ';
 				}
 				else {
 					$output .= '<strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong> ';
 				}
-				$output .= $donation.'</cite><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
+				$output .= $donation.'on <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span></cite><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
 			endforeach;
 			$output .= '</div>';
 			return $output;
@@ -536,19 +536,19 @@ if( !class_exists('DarenatePlus') ):
 				else $donation = '';
 				
 				$date = strtotime($donor->date);
-				$datetime = date('M j, Y \a\t g:i a', $date);
+				$datetime = date('M j, Y', $date);
 				$donorname = $donor->name;
 				if ( $donorname == '' ) {
 					$donorname = 'Anonymous';
 				}
-				$output .= '<div class="highdonorbox"><p><small class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></small><br /><cite>';
+				$output .= '<div class="highdonorbox"><p><cite>';
 				if ( ($donor->url == '') || ($donor->url == 'http://') ) {
 					$output .= '<strong>'.$donorname.'</a></strong> ';
 				}
 				else {
 					$output .= '<strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong> ';
 				}
-				$output .= $donation.'</cite><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
+				$output .= $donation.'on <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span></cite><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
 			endforeach;
 			$output .= '</div>';
 			return $output;
