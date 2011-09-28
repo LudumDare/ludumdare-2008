@@ -491,12 +491,15 @@ if( !class_exists('DarenatePlus') ):
 			if( $donors && $title )
 				$output .= '<h2>'.$title.'</h2>';
 
+            
 			$count = 0;
+			$output.= "<table>";
 			foreach( $donors as $donor ):
 				$count += 1;
+				$output.= "<tr>";
 
 				$symbol = $currency[$donor->currency]['symbol'];
-				if($donor->display == 1) $donation = '(<span class="amount">'.$symbol.number_format($donor->amount, 2, '.', ',').' <small class="currency">'.$donor->currency.'</small></span>)';
+				if($donor->display == 1) $donation = '<span class="amount">'.$symbol.number_format($donor->amount, 2, '.', ',').' <small class="currency">'.$donor->currency.'</small></span>';
 				else $donation = '';
 				
 				$date = strtotime($donor->date);
@@ -505,17 +508,20 @@ if( !class_exists('DarenatePlus') ):
 				if ( $donorname == '' ) {
 					$donorname = 'Anonymous';
 				}
-				$output .= '<div class="donorbox"><p><cite>';
-				$output .= $count.'. ';
+// 				$output .= '<div class="donorbox"><p><cite>';
+				$output .= '<td>'.$count.'. ';
 				if ( ($donor->url == '') || ($donor->url == 'http://') ) {
-					$output .= '<strong>'.$donorname.'</a></strong> ';
+					$output .= '<td><strong>'.$donorname.'</a></strong> ';
 				}
 				else {
-					$output .= '<strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong> ';
+					$output .= '<td><strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong> ';
 				}
-				$output .= ' on <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span> '.$donation.'</cite><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
+				$output .= '<td> <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span> <td>'.$donation.'</cite>';
+				//<td><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
 			endforeach;
-			$output .= '</div>';
+			$output.="</table>";
+// 			$output .= '</div>';
+
 			return $output;
 		}
 
@@ -537,11 +543,13 @@ if( !class_exists('DarenatePlus') ):
 				$output .= '<h2>'.$title.'</h2>';
 				
 			$count = 0;
+			$output.= "<table>";
 			foreach( $donors as $donor ):
 				$count += 1;
-			
+				$output.= "<tr>";
+
 				$symbol = $currency[$donor->currency]['symbol'];
-				if($donor->display == 1) $donation = '(<span class="amount">'.$symbol.number_format($donor->amount, 2, '.', ',').' <small class="currency">'.$donor->currency.'</small></span>)';
+				if($donor->display == 1) $donation = '<span class="amount">'.$symbol.number_format($donor->amount, 2, '.', ',').' <small class="currency">'.$donor->currency.'</small></span>';
 				else $donation = '';
 				
 				$date = strtotime($donor->date);
@@ -550,17 +558,20 @@ if( !class_exists('DarenatePlus') ):
 				if ( $donorname == '' ) {
 					$donorname = 'Anonymous';
 				}
-				$output .= '<div class="highdonorbox"><p><cite>';
-				$output .= $count.'. ';
+// 				$output .= '<div class="donorbox"><p><cite>';
+				$output .= '<td>'.$count.'. ';
 				if ( ($donor->url == '') || ($donor->url == 'http://') ) {
-					$output .= '<strong>'.$donorname.'</a></strong> ';
+					$output .= '<td><strong>'.$donorname.'</a></strong> ';
 				}
 				else {
-					$output .= '<strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong> ';
+					$output .= '<td><strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong> ';
 				}
-				$output .= ' on <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span> '.$donation.'</cite><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
+				$output .= '<td> <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span> <td>'.$donation.'</cite>';
+				//<td><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
 			endforeach;
-			$output .= '</div>';
+			$output.="</table>";
+// 			$output .= '</div>';
+
 			return $output;
 		}
 					
