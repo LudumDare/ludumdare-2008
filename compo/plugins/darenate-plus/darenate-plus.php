@@ -590,6 +590,12 @@ if( !class_exists('DarenatePlus') ):
 			
 			$output = '<form id="darenateplusform" action="'.$verifyurlz[$dplus['testing_mode']].'" method="post">';
 
+			$output .= '
+			<p class="donor_name"><label for="donor_name">'.__('Name', 'dplus').' (leave blank if you want to be Anonymous):</label><br /><input type="text" name="on0" id="donor_name" /></p>
+			<p class="donor_email"><label for="donor_email">'.__('Email', 'dplus').' (For reference only):</label><br /><input type="text" name="os0" id="donor_email" /></p>
+			<p class="donor_url"><label for="donor_url">'.__('Website', 'dplus').':</label><br /><input type="text" name="on1" id="donor_url" /></p>
+			';
+
 				$output .='<input type="hidden" id="cmd" name="cmd" value="_donations">
 			<p class="donate_amount"><label for="amount">'.__('Donation Amount', 'dplus').':</label><br /><input type="text" name="amount" id="amount" value="'.$dplus['default_value'].'" /> <small>('.__('Currency: ','dplus').$cur.')</small></p>';
 
@@ -628,11 +634,9 @@ $output .= '</select> x
 				<option value="1:'.$user_ID.'">'.__('Donation Amount, User Details &amp; Comments','dplus').'</option>
 				<option value="2:'.$user_ID.'">'.__('User Details &amp; Comments Only','dplus').'</option>
 			</select></p>
--->
 			<p class="donor_name"><label for="donor_name">'.__('Name', 'dplus').':</label><br /><input type="text" name="on0" id="donor_name" /></p>
 			<p class="donor_email"><label for="donor_email">'.__('Email', 'dplus').':</label><br /><input type="text" name="os0" id="donor_email" /></p>
 			<p class="donor_url"><label for="donor_url">'.__('Website', 'dplus').':</label><br /><input type="text" name="on1" id="donor_url" /></p>
-<!--
 			<p  class="donor_comment"><label for="donor_comment">'.__('Comments', 'dplus').':</label><br /><textarea name="os1" id="donor_comment" rows="4" cols="45" style="width:90%"></textarea><br /><span id="charinfo">'.__('Write your comment within 199 characters.','dplus').'</span> </p>
 -->
 			</div>';
