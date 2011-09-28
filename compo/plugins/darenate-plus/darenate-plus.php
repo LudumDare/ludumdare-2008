@@ -539,7 +539,7 @@ if( !class_exists('DarenatePlus') ):
 				$limit = "ORDER BY amount DESC, display ASC, ID DESC, name ASC";
 			$donors = $wpdb->get_results("SELECT * FROM $table WHERE status='Completed' AND display!=0 AND ".$where_text." $limit");
 			//print_r($donors);
-			$output .= '<div id="donorwall">';
+			$output .= '<div id="highdonorwall">';
 			if( $donors && $title )
 				$output .= '<h2>'.$title.'</h2>';
 				
