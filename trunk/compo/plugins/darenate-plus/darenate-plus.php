@@ -616,9 +616,13 @@ $output .= '</select> x
 			
 			if( $dplus['enable_wall'] == 1 ):
 				$output .= '
-			<p class="recognition_wall"><label><input type="hidden" id="recognize" name="recognize" value="1" checked="checked" /> '.__('Put my Donation on the Recognition Wall','dplus').'</label></p>
+<!--
+			<p class="recognition_wall"><label><input type="checkbox" id="recognize" name="recognize" value="1" checked="checked" /> '.__('Put my Donation on the Recognition Wall','dplus').'</label></p>
+-->
+			<p class="recognition_wall"><input type="hidden" id="recognize" name="recognize" value="1" checked="checked" /></p>
+			<div id="wallinfo-nojs">
+<!--
 			<div id="wallinfo">
-<!--			
 			<p class="show_onwall" id="wallops"><label for="show_onwall">'.__('Show on Wall', 'dplus').':</label><br /><select name="item_number">
 				<option value="0:'.$user_ID.'">'.__('Do not show any information','dplus').'</option>
 				<option value="1:'.$user_ID.'">'.__('Donation Amount, User Details &amp; Comments','dplus').'</option>
