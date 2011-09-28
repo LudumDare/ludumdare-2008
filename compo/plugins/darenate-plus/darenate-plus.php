@@ -591,9 +591,9 @@ if( !class_exists('DarenatePlus') ):
 			$output = '<form id="darenateplusform" action="'.$verifyurlz[$dplus['testing_mode']].'" method="post">';
 
 			$output .= '
-			<p class="donor_name"><label for="donor_name">'.__('Name', 'dplus').' (leave blank if you want to be Anonymous):</label><br /><input type="text" name="on0" id="donor_name" /></p>
-			<p class="donor_email"><label for="donor_email">'.__('Email', 'dplus').' (For reference only):</label><br /><input type="text" name="os0" id="donor_email" /></p>
-			<p class="donor_url"><label for="donor_url">'.__('Website', 'dplus').':</label><br /><input type="text" name="on1" id="donor_url" /></p>
+			<p class="donor_name"><label for="donor_name"><strong>'.__('Name', 'dplus').'</strong> (leave blank if you want to be Anonymous):</label><br /><input type="text" name="on0" id="donor_name" /></p>
+			<p class="donor_email"><label for="donor_email"><strong>'.__('Email', 'dplus').'</strong> (For reference only):</label><br /><input type="text" name="os0" id="donor_email" /></p>
+			<p class="donor_url"><label for="donor_url"><strong>'.__('Website', 'dplus').'</strong>:</label><br /><input type="text" name="on1" id="donor_url" /></p>
 			';
 
 				$output .='<input type="hidden" id="cmd" name="cmd" value="_donations">
