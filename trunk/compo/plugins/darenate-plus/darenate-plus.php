@@ -540,8 +540,8 @@ if( !class_exists('DarenatePlus') ):
 			$donors = $wpdb->get_results("SELECT * FROM $table WHERE status='Completed' AND display!=0 AND ".$where_text." $limit");
 			//print_r($donors);
 			$output .= '<div id="highdonorwall">';
-			if( $donors && $title )
-				$output .= '<h2>'.$title.'</h2>';
+// 			if( $donors && $title )
+// 				$output .= '<h2>'.$title.'</h2>';
 				
 			$count = 0;
 			$output.= "<table cellpadding=5>";
