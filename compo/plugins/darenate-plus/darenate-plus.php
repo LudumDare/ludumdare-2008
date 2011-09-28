@@ -595,7 +595,7 @@ if( !class_exists('DarenatePlus') ):
 			<p class="donor_email"><label for="donor_email"><strong>'.__('Email', 'dplus').'</strong>:</label><br /><input type="text" name="os0" id="donor_email" /><br /><small>For reference only</small></p>
 			<p class="donor_url"><label for="donor_url"><strong>'.__('Website', 'dplus').'</strong>:</label><br /><input type="text" name="on1" id="donor_url" /><br /><small>We link you</small></p>
 			
-			<input type="hidden" name="display" value="1" />
+			<input type="hidden" name="item_number" value="1" />
 			';
 
 				$output .='<input type="hidden" id="cmd" name="cmd" value="_donations">
@@ -621,7 +621,8 @@ $output .= '</select> x
 <input name="p3" id="p3" value="'.$dplus['duration'].'" type="text" style="width:10px;" />
 </p>';
 			endif;		
-			
+
+/*			
 			if( $dplus['enable_wall'] == 1 ):
 				$output .= '
 <!--
@@ -643,6 +644,7 @@ $output .= '</select> x
 -->
 			</div>';
 			endif;
+*/
 
 			$output .= '
 <input type="hidden" name="notify_url" value="'.$notify.'">
