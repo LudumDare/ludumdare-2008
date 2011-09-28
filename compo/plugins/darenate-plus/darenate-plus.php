@@ -582,7 +582,7 @@ if( !class_exists('DarenatePlus') ):
 			if( $dplus['wall_url'] == 'sidebar') $wall = get_option('siteurl');
 			else $wall = get_permalink($dplus['wall_url']);
 			if( strpos($wall, '?') === false )
-				$tyurl = $wall.'/donations/?thankyou=true';
+				$tyurl = $wall.'?thankyou=true';
 			else
 				$tyurl = $wall.'&amp;thankyou=true';
 				
