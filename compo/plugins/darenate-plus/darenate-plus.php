@@ -493,7 +493,7 @@ if( !class_exists('DarenatePlus') ):
 
             
 			$count = 0;
-			$output.= "<table>";
+			$output.= "<table cellpadding=5>";
 			foreach( $donors as $donor ):
 				$count += 1;
 				$output.= "<tr>";
@@ -516,7 +516,8 @@ if( !class_exists('DarenatePlus') ):
 				else {
 					$output .= '<td><strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong> ';
 				}
-				$output .= '<td> <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span> <td>'.$donation.'</cite>';
+				$output .= ' <td align=right>'.$donation.'</cite>';
+				$output .= '<td> <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span>';
 				//<td><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
 			endforeach;
 			$output.="</table>";
@@ -543,7 +544,7 @@ if( !class_exists('DarenatePlus') ):
 				$output .= '<h2>'.$title.'</h2>';
 				
 			$count = 0;
-			$output.= "<table>";
+			$output.= "<table cellpadding=5>";
 			foreach( $donors as $donor ):
 				$count += 1;
 				$output.= "<tr>";
@@ -566,7 +567,8 @@ if( !class_exists('DarenatePlus') ):
 				else {
 					$output .= '<td><strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong> ';
 				}
-				$output .= '<td> <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span> <td>'.$donation.'</cite>';
+				$output .= ' <td align=right>'.$donation.'</cite>';
+				$output .= '<td> <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span>';
 				//<td><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
 			endforeach;
 			$output.="</table>";
