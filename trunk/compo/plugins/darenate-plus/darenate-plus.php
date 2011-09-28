@@ -618,11 +618,6 @@ $output .= '</select> x
 				$output .= '
 			<p class="recognition_wall"><label><input type="hidden" id="recognize" name="recognize" value="1" checked="checked" /> '.__('Put my Donation on the Recognition Wall','dplus').'</label></p>
 			<div id="wallinfo">
-<!--			<p class="show_onwall" id="wallops"><label for="show_onwall">'.__('Show on Wall', 'dplus').':</label><br /><select name="item_number">
-				<option value="0:'.$user_ID.'">'.__('Do not show any information','dplus').'</option>
-				<option value="1:'.$user_ID.'">'.__('Donation Amount, User Details &amp; Comments','dplus').'</option>
-				<option value="2:'.$user_ID.'">'.__('User Details &amp; Comments Only','dplus').'</option>
-			</select></p>-->
 			<p class="donor_name"><label for="donor_name">'.__('Name', 'dplus').':</label><br /><input type="text" name="on0" id="donor_name" /></p>
 			<p class="donor_email"><label for="donor_email">'.__('Email', 'dplus').' (For reference only):</label><br /><input type="text" name="os0" id="donor_email" /></p>
 			<p class="donor_url"><label for="donor_url">'.__('Website', 'dplus').':</label><br /><input type="text" name="on1" id="donor_url" /></p>
