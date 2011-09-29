@@ -616,7 +616,7 @@ if( !class_exists('DarenatePlus') ):
 			';
 
 				$output .='<input type="hidden" id="cmd" name="cmd" value="_donations">
-			<p class="donate_amount"><label for="amount"><strong>'.__('Donation Amount', 'dplus').'</strong>:</label><br /><input type="text" name="amount" id="amount" value="'.$dplus['default_value'].'" /> <small>('.__('Currency: ','dplus').$cur.')</small><br /><small>NOTE: The donation plugin rounds off the decimals ($3.14 -> $3)</small></p>';
+			<p class="donate_amount"><label for="amount"><strong>'.__('Donation Amount', 'dplus').'</strong>:</label><br /><input type="text" name="amount" id="amount" value="'.$dplus['default_value'].'" /> <small>('.__('Currency: ','dplus').$cur.')</small><br /><small>NOTE: The donation plugin rounds decimals (i.e. $3.14 becomes $3)</small></p>';
 
 		
 			if( in_array('D',$dplus['subscribe']) || in_array('W',$dplus['subscribe']) || in_array('M',$dplus['subscribe']) || in_array('Y',$dplus['subscribe']) ):
