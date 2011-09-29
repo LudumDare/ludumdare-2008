@@ -610,7 +610,7 @@ if( !class_exists('DarenatePlus') ):
 			$output .= '
 			<p class="donor_name"><label for="donor_name"><strong>'.__('Name', 'dplus').'</strong>:</label><br /><input type="text" name="on0" id="donor_name" /><br /><small>Leave blank if you want to be Anonymous</small></p>
 			<p class="donor_email"><label for="donor_email"><strong>'.__('Email', 'dplus').'</strong>:</label><br /><input type="text" name="os0" id="donor_email" /><br /><small>For reference only</small></p>
-			<p class="donor_url"><label for="donor_url"><strong>'.__('Website', 'dplus').'</strong>:</label><br /><input type="text" name="on1" id="donor_url" /><br /><small>We link you</small></p>
+			<p class="donor_url"><label for="donor_url"><strong>'.__('Website', 'dplus').'</strong>:</label><br /><input type="text" name="on1" id="donor_url" /><br /><small>A link to you. Be sure to include "http://"</small></p>
 			
 			<input type="hidden" name="item_number" value="1" />
 			';
