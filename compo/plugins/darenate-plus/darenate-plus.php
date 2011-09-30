@@ -71,6 +71,7 @@ if( !class_exists('DarenatePlus') ):
 				#Add Wall Shortcode
 				add_shortcode('donorwall', array($this, 'DonorWall') );
 				add_shortcode('highdonorwall', array($this, 'HighDonorWall') );
+				add_shortcode('highmonthlydonorwall', array($this, 'HighMonthlyDonorWall') );
 				add_shortcode('expensewall', array($this, 'ExpenseWall') );
 				#Add Total Donations Count Shortcode
 				add_shortcode('donatetotal', array($this, 'DonateTotal') );
@@ -346,6 +347,7 @@ if( !class_exists('DarenatePlus') ):
                <p><code>[expensewall]</code> <br /></p>
                <p><code>[expensedate]</code> <br /></p>
                <p><code>[highdonorwall]</code> <br /></p>
+               <p><code>[highmonthlydonorwall]</code> <br /></p>
                <h2><?php _e('Instant Payment Notification URL', 'dplus');?></h2>
                <p><code><?php echo str_replace(ABSPATH, trailingslashit(get_option('siteurl')), dirname(__FILE__)).'/paypal.php';?></code><br /><?php _e('This is your IPN Notification URL.  If you have issues with your site receiving your PayPal payments, be sure to manually set this URL in your PayPal Profile IPN settings.  You can also view your ', 'dplus');?> <a href="https://www.paypal.com/us/cgi-bin/webscr?cmd=_display-ipns-history"><?php _e('IPN History on PayPal','dplus');?></a></p>
                 <h2><?php _e('Uninstall Darenate Plus Tables and Options', 'dplus'); ?></h2>
@@ -594,7 +596,7 @@ if( !class_exists('DarenatePlus') ):
 			$limit = "ORDER BY amount DESC, display ASC, ID ASC, name ASC LIMIT 5";
 			$donors = $wpdb->get_results("SELECT * FROM $table WHERE status='Completed' AND display!=0 AND ".$where_text." $limit");
 			//print_r($donors);
-			$output .= '<div id="highdonorwall">';
+			$output .= '<div id="highmonthlydonorwall">';
 			if( $donors && $title )
 				$output .= '<h2>'.$title.'</h2>';
 				
@@ -911,6 +913,10 @@ function DarenatePlusWall(){
 function DarenatePlusHighWall(){
 	global $darenateplus;
 	echo $darenateplus->HighDonorWall();
+}
+function DarenatePlusHighMonthlyWall(){
+	global $darenateplus;
+	echo $darenateplus->HighMonthlyDonorWall();
 }
 function DarenateExpenseWall(){
 	global $darenateplus;
