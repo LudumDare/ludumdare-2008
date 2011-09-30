@@ -45,6 +45,19 @@ function widget_darenateplus_init() {
 		echo $after_widget;
 	}
 
+	function widget_darenateplushighmonthlywall($args) {
+		extract($args);
+
+		// Each widget can store its own options. We keep strings here.
+		$options = get_option('widget_darenatepluswall');
+		$title = $options['title'];
+
+		// These lines generate our output. Widgets can be very complex
+		// but as you can see here, they can also be very, very simple.
+		echo $before_widget . $before_title . $title . $after_title;
+		DarenatePlusHighMonthlyWall();
+		echo $after_widget;
+	}
 
 	function widget_darenateplusform_control() {
 		$options = get_option('widget_darenateplusform');
@@ -88,6 +101,7 @@ function widget_darenateplus_init() {
 	register_sidebar_widget(array('Darenate Plus Form', 'widgets'), 'widget_darenateplusform');
 	register_sidebar_widget(array('Darenate Plus Total', 'widgets'), 'widget_darenateplustotal');
 	register_sidebar_widget(array('Darenate Plus Wall', 'widgets'), 'widget_darenatepluswall');
+	register_sidebar_widget(array('Darenate Plus High Monthly Wall', 'widgets'), 'widget_darenateplushighmonthlywall');
 
 	// This registers our optional widget control form. Because of this
 	// our widget will have a button that reveals a 300x100 pixel form.
