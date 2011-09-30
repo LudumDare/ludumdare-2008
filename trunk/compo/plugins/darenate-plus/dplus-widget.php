@@ -51,7 +51,7 @@ function widget_darenateplus_init() {
 		// Each widget can store its own options. We keep strings here.
 		$options = get_option('widget_darenatepluswall');
 		//$title = $options['title'];
-		$title = 'Highest Donations (last month)';
+		$title = 'Highest Donors (last month)';
 
 		// These lines generate our output. Widgets can be very complex
 		// but as you can see here, they can also be very, very simple.
