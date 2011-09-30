@@ -511,16 +511,17 @@ if( !class_exists('DarenatePlus') ):
 					$donorname = 'Anonymous';
 				}
 // 				$output .= '<div class="donorbox"><p><cite>';
-				$output .= '<td>'.$count.'. ';
+				$output .= '<td>'.$count.'.</td>';
 				if ( ($donor->url == '') || ($donor->url == 'http://') ) {
-					$output .= '<td><strong>'.$donorname.'</a></strong> ';
+					$output .= '<td><strong>'.$donorname.'</a></strong></td>';
 				}
 				else {
-					$output .= '<td><strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong> ';
+					$output .= '<td><strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong></td>';
 				}
-				$output .= ' <td align=right>'.$donation.'</cite>';
-				$output .= '<td> <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span>';
+				$output .= ' <td align=right>'.$donation.'</td>';
+				$output .= '<td> <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span></td>';
 				//<td><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
+				$output .= '</tr>';
 			endforeach;
 			$output.="</table>";
 // 			$output .= '</div>';
@@ -563,23 +564,69 @@ if( !class_exists('DarenatePlus') ):
 				if ( $donorname == '' ) {
 					$donorname = 'Anonymous';
 				}
-// 				$output .= '<div class="donorbox"><p><cite>';
-				$output .= '<td>'.$count.'. ';
+				$output .= '<td>'.$count.'.<td />';
 				if ( ($donor->url == '') || ($donor->url == 'http://') ) {
-					$output .= '<td><strong>'.$donorname.'</a></strong> ';
+					$output .= '<td><strong>'.$donorname.'</a></strong></td>';
 				}
 				else {
-					$output .= '<td><strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong> ';
+					$output .= '<td><strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong></td>';
 				}
-				$output .= ' <td align=right>'.$donation.'</cite>';
+				$output .= '<td align=right>'.$donation.'</td>';
 				$output .= '<td> <span class="date time"><a href="#donor-'.$donor->ID.'">'.$datetime.'</a></span>';
 				//<td><blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
+
+				$output .= '</tr>';
 			endforeach;
-			$output.="</table>";
+			$output .= "</table>";
 // 			$output .= '</div>';
 
 			return $output;
 		}
+	
+		function HighMonthDonorWall($atts=false) {
+			global $wpdb, $currency;
+			$output = '';
+			
+			extract( shortcode_atts( array( 'title' => '' ), $atts ) );
+			$dplus = get_option( 'DarenatePlus' );
+			$table = $wpdb->prefix . 'donations';
+			$where_text = "date > '".$wpdb->escape(date("Y-m-d H:i:s",time()-30*24*60*60))."'";
+			$limit = "ORDER BY amount DESC, display ASC, ID ASC, name ASC LIMIT 5";
+			$donors = $wpdb->get_results("SELECT * FROM $table WHERE status='Completed' AND display!=0 AND ".$where_text." $limit");
+			//print_r($donors);
+			$output .= '<div id="highdonorwall">';
+			if( $donors && $title )
+				$output .= '<h2>'.$title.'</h2>';
+				
+			$count = 0;
+			$output.= "<table cellpadding=5>";
+			foreach( $donors as $donor ):
+				$count += 1;
+				$output.= "<tr>";
+
+				$symbol = $currency[$donor->currency]['symbol'];
+				$donation = '<span class="amount">'.$symbol.number_format($donor->amount, 2, '.', ',').' <small class="currency">'.$donor->currency.'</small></span>';
+				
+				$donorname = $donor->name;
+				if ( $donorname == '' ) {
+					$donorname = 'Anonymous';
+				}
+				$output .= '<td>'.$count.'.</td>';
+				if ( ($donor->url == '') || ($donor->url == 'http://') ) {
+					$output .= '<td><strong>'.$donorname.'</a></strong></td>';
+				}
+				else {
+					$output .= '<td><strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donorname.'</a></strong></td>';
+				}
+				$output .= ' <td align=right>'.$donation.'</td>';
+				$output .= '</span>';
+				
+				$output .= '</tr>';
+			endforeach;
+			$output.="</table>";
+
+			return $output;
+		}	
 					
 		function DonatePage($atts=false) {
 			global $currency, $user_ID;
