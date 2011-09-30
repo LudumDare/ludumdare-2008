@@ -601,7 +601,7 @@ if( !class_exists('DarenatePlus') ):
 				$output .= '<h2>'.$title.'</h2>';
 				
 			$count = 0;
-			$output.= "<table cellpadding=5>";
+			$output.= "<table cellpadding=2>";
 			foreach( $donors as $donor ):
 				$count += 1;
 				$output.= "<tr>";
