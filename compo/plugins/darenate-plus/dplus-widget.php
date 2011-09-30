@@ -57,7 +57,7 @@ function widget_darenateplus_init() {
 		// but as you can see here, they can also be very, very simple.
 		echo $before_widget . $before_title . $title . $after_title;
 		DarenatePlusHighMonthlyWall();
-		echo '<center>To donate, <a href="/compo/donations/">Click Here</a></center>';
+		echo '<center>To make a donation, <a href="/compo/donations/">click here</a></center>';
 		echo $after_widget;
 	}
 
