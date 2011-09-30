@@ -497,7 +497,7 @@ if( !class_exists('DarenatePlus') ):
 
             
 			$count = 0;
-			$output.= "<table cellpadding="5" width="100%">";
+			$output.= "<table cellpadding='5' width='100%'>";
 			foreach( $donors as $donor ):
 				$count += 1;
 				$output.= "<tr>";
@@ -551,7 +551,7 @@ if( !class_exists('DarenatePlus') ):
 				$output .= '<h2>'.$title.'</h2>';
 				
 			$count = 0;
-			$output.= "<table cellpadding="5" width="100%">";
+			$output.= "<table cellpadding='5' width='100%'>";
 			foreach( $donors as $donor ):
 				$count += 1;
 				$output.= "<tr>";
@@ -601,7 +601,7 @@ if( !class_exists('DarenatePlus') ):
 				$output .= '<h2>'.$title.'</h2>';
 				
 			$count = 0;
-			$output.= "<table cellpadding="1" width="100%">";
+			$output.= "<table cellpadding='1' width='100%'>";
 			foreach( $donors as $donor ):
 				$count += 1;
 				$output.= "<tr>";
