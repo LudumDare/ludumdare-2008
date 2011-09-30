@@ -585,7 +585,7 @@ if( !class_exists('DarenatePlus') ):
 			return $output;
 		}
 	
-		function HighMonthDonorWall($atts=false) {
+		function HighMonthlyDonorWall($atts=false) {
 			global $wpdb, $currency;
 			$output = '';
 			
