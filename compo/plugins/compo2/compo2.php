@@ -238,8 +238,8 @@ require_once dirname(__FILE__)."/closed.php";
 
 add_filter('the_content','compo2_the_content');
 add_action('wp_head', 'compo2_wp_head');
-add_action('get_header', 'compo2_cache_begin');
-add_action('shutdown', 'compo2_cache_end');
+add_action('compo2_cache_begin', 'compo2_cache_begin');
+add_action('compo2_cache_end', 'compo2_cache_end');
 function compo2_the_content($v) {
     $v = compo2_main($v);
     return $v;
