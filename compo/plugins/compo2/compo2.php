@@ -95,7 +95,7 @@ function compo2_cache_write($cid,$name,$data) {
 // cache only caches for anonymous users
 // cache only works on non-POST responses
 // cache only caches for 60 seconds
-function compo2_cache_header() {
+function compo2_cache_begin() {
     $user = wp_get_current_user(); $uid = $user->ID; if ($uid) { return; }
     if (count($_POST)) { return; }
     
@@ -103,7 +103,7 @@ function compo2_cache_header() {
     if (($cres=compo2_cache_read("0",$ckey,60))!==false) { echo $cres; echo "<p>[cached]</p>"; die; }
     ob_start();
 }
-function compo2_cache_footer() {
+function compo2_cache_end() {
     $user = wp_get_current_user(); $uid = $user->ID; if ($uid) { return; }
     if (count($_POST)) { return; }
     
@@ -112,6 +112,12 @@ function compo2_cache_footer() {
     compo2_cache_write("0",$ckey,$cres);
     ob_end_clean();
     echo $cres;
+    
+    // 1 in 1000 hits, auto clear out all 1-hour old cache data in the "0" cache
+    if ((rand()%1000)==0) {
+        $ts = 60*60; 
+        compo2_query("delete from c2_cache where id = ? and ts < ?",array("0",date("Y-m-d H:i:s",time()-$ts)));
+    }
 }
 
 function compo2_insert($table,$e,$key="id") {
@@ -232,6 +238,8 @@ require_once dirname(__FILE__)."/closed.php";
 
 add_filter('the_content','compo2_the_content');
 add_action('wp_head', 'compo2_wp_head');
+add_action('get_header', 'compo2_cache_begin');
+add_action('shutdown', 'compo2_cache_end');
 function compo2_the_content($v) {
     $v = compo2_main($v);
     return $v;

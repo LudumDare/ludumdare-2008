@@ -144,6 +144,12 @@ function compo2_install() {
         compo2_query("create index idx_c2_cache_name on c2_cache (name)");
         update_option($key,$version);
     }
+    
+    $version = 35;
+    if ($cur < $version) {
+        compo2_query("create index idx_c2_cache_ts on c2_cache (ts)");
+        update_option($key,$version);
+    }
 }
 
 register_activation_hook($GLOBALS["compo2"]["plugin"],"compo2_install");
