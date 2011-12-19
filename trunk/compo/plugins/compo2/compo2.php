@@ -93,7 +93,7 @@ function compo2_cache_write($cid,$name,$data) {
 
 function compo2_cache_header() {
     if (strcmp($_SERVER["REQUEST_URI"],"/compo/")!=0) { return; }
-    if (($cres=compo2_cache_read("0","/",5))!==false) { echo $cres; echo "<p>[cached]</p>"; die; }
+    if (($cres=compo2_cache_read("0","/",60))!==false) { echo $cres; echo "<p>[cached]</p>"; die; }
     ob_start();
 }
 function compo2_cache_footer() {
