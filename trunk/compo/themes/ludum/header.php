@@ -1,3 +1,4 @@
+<?php do_action("compo2_cache_begin"); ?>
 <?php
 ob_start(); // start the ob_cache so that things work magictastically
 require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodies
