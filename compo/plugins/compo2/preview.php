@@ -175,7 +175,7 @@ function _compo2_preview_comments($params,$uid,$form=true) {
                     "content"=>$comments,
                     "get_user"=>serialize(array(
                         "display_name"=>$user->display_name,
-                        "nicename"=>$user->nicename,
+                        "user_nicename"=>$user->user_nicename,
                         "user_email"=>$user->user_email,
                     )),
                 ));
@@ -243,7 +243,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
     echo "</table>";
     
     if ($params["jcat"]) {
-        $link = get_bloginfo("url")."/?category_name={$params["jcat"]}&author_name={$user["nicename"]}";
+        $link = get_bloginfo("url")."/?category_name={$params["jcat"]}&author_name={$user["user_nicename"]}";
         echo "<p><a href='$link' target='_blank'>View {$user["display_name"]}'s journal.</a></p>";
     }
     

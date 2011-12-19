@@ -264,7 +264,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
         $user = compo2_get_user($uid);
         $ce["get_user"] = serialize(array(
             "display_name"=>$user->display_name,
-            "nicename"=>$user->nicename,
+            "nicename"=>$user->user_nicename,
             "user_email"=>$user->user_email,
         ));
         

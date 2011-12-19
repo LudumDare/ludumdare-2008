@@ -298,7 +298,7 @@ function _compo2_rate_submit($params) {
             "content"=>$comments,
             "get_user"=>serialize(array(
                 "display_name"=>$user->display_name,
-                "nicename"=>$user->nicename,
+                "user_nicename"=>$user->user_nicename,
                 "user_email"=>$user->user_email,
             )),
         ));
