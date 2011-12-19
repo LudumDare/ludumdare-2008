@@ -65,7 +65,7 @@
 
    <li><h2><?php _e('Recent Comments'); ?></h2>
         <ul>
-        <?php get_recent_comments(); ?>
+        <?php if (function_exists("get_recent_comments")) { get_recent_comments(); } ?>
         </ul>
    </li>
 
