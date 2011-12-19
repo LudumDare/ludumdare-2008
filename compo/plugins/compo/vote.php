@@ -30,6 +30,13 @@ function compo_vote_google($name) {
 
 
 function _compo_vote_results($pid) {
+    // CACHE ///////////////////////////////////////////////////////////////
+    if (($cres=compo2_cache_read(0,$ckey="compo_vote_results:$pid",15*60))!==false) {
+        if (!isset($_REQUEST["admin"])) { echo $cres; return; }
+    }
+    ob_start();
+    ////////////////////////////////////////////////////////////////////////
+
     global $compo;
     
     $r = compo_query("select * from {$compo["vote.table"]} where pid = ? and uid = ? order by value desc",array($pid,0));
@@ -53,6 +60,13 @@ function _compo_vote_results($pid) {
         echo "<td>".$data[$e["name"]]["-1"];
     }
     echo "</table>";
+    
+    // CACHE ///////////////////////////////////////////////////////////////
+    $cres = ob_get_contents();
+    ob_end_clean();
+    compo2_cache_write(0,$ckey,$cres);
+    echo $cres;
+    ////////////////////////////////////////////////////////////////////////
 }
 
 function _compo_vote_do($pid,$opts) {
