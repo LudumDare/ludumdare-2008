@@ -99,19 +99,26 @@ function compo2_cache_begin() {
     $user = wp_get_current_user(); $uid = $user->ID; if ($uid) { return; }
     if (count($_POST)) { return; }
     
-    $ckey = md5($_SERVER["REQUEST_URI"]);
-    if (($cres=compo2_cache_read("0",$ckey,60))!==false) { echo $cres; echo "<p>[cached]</p>"; die; }
+    $ckey = substr(md5($_SERVER["REQUEST_URI"]),0,30); // truncated because of 32 char limit of ckey
+    if (($cres=compo2_cache_read("0",$ckey,60))!==false) { echo $cres; echo "<p>[cache: using cached page]</p>"; die; }
     ob_start();
 }
 function compo2_cache_end() {
-    $user = wp_get_current_user(); $uid = $user->ID; if ($uid) { return; }
-    if (count($_POST)) { return; }
+    $user = wp_get_current_user(); $uid = $user->ID; if ($uid) {
+        echo "<p>[cache: unable to cache, user logged in]</p>";
+        return;
+    }
+    if (count($_POST)) {
+        echo "<p>[cache: unable to cache, POST data submitted]</p>";
+        return;
+    }
     
-    $ckey = md5($_SERVER["REQUEST_URI"]);
+    $ckey = substr(md5($_SERVER["REQUEST_URI"]),0,30); // truncated because of 32 char limit of ckey
     $cres = ob_get_contents();
     compo2_cache_write("0",$ckey,$cres);
     ob_end_clean();
     echo $cres;
+    echo "<p>[cache: storing page]</p>";
     
     // 1 in 1000 hits, auto clear out all 1-hour old cache data in the "0" cache
     if ((rand()%1000)==0) {
