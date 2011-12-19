@@ -87,7 +87,7 @@ function compo_trophy($uid) {
     }
 }
 
-require_once dirname(__FILE__)."/../compo2/compo2.php";
+// require_once dirname(__FILE__)."/../compo2/compo2.php";
 
 function compo_trophy_sidebar() {
     // CACHE ///////////////////////////////////////////////////////////////
