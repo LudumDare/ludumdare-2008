@@ -99,7 +99,7 @@ function compo2_cache_begin() {
     $user = wp_get_current_user(); $uid = $user->ID; if ($uid) { return; }
     if (count($_POST)) { return; }
     
-    $ckey = $_SERVER["REQUEST_URI"];
+    $ckey = md5($_SERVER["REQUEST_URI"]);
     if (($cres=compo2_cache_read("0",$ckey,60))!==false) { echo $cres; echo "<p>[cached]</p>"; die; }
     ob_start();
 }
@@ -107,7 +107,7 @@ function compo2_cache_end() {
     $user = wp_get_current_user(); $uid = $user->ID; if ($uid) { return; }
     if (count($_POST)) { return; }
     
-    $ckey = $_SERVER["REQUEST_URI"];
+    $ckey = md5($_SERVER["REQUEST_URI"]);
     $cres = ob_get_contents();
     compo2_cache_write("0",$ckey,$cres);
     ob_end_clean();
