@@ -116,7 +116,7 @@ function compo2_cache_end() {
     // 1 in 1000 hits, auto clear out all 1-hour old cache data in the "0" cache
     if ((rand()%1000)==0) {
         $ts = 60*60; 
-        compo2_query("delete from c2_cache where id = ? and ts < ?",array("0",date("Y-m-d H:i:s",time()-$ts)));
+        compo2_query("delete from c2_cache where cid = ? and ts < ?",array("0",date("Y-m-d H:i:s",time()-$ts)));
     }
 }
 
