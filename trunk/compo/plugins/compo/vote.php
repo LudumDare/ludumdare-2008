@@ -31,7 +31,7 @@ function compo_vote_google($name) {
 
 function _compo_vote_results($pid) {
     // CACHE ///////////////////////////////////////////////////////////////
-    if (($cres=compo2_cache_read(0,$ckey="compo_vote_results:$pid",15*60))!==false) {
+    if (($cres=compo2_cache_read(0,$ckey="compo_vote_results:$pid",5*60))!==false) {
         if (!isset($_REQUEST["admin"])) { echo $cres; return; }
     }
     ob_start();
