@@ -16,3 +16,4 @@
 		<?php wp_footer(); ?>
 </body>
 </html>
+<?php do_action("compo2_cache_end"); ?>
