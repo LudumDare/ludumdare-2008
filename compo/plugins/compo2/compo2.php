@@ -91,6 +91,18 @@ function compo2_cache_write($cid,$name,$data) {
     compo2_query("replace into c2_cache (id,cid,name,data,ts) values (?,?,?,?,?)",array("$cid|$name",$cid,$name,$data,date("Y-m-d H:i:s")));
 }
 
+function compo2_cache_header() {
+    if (strcmp($_SERVER["REQUEST_URI"],"/compo/")!=0) { return; }
+    if (($cres=compo2_cache_read("0","/",5))!==false) { echo $cres; echo "<p>[cached]</p>"; die; }
+    ob_start();
+}
+function compo2_cache_footer() {
+    if (strcmp($_SERVER["REQUEST_URI"],"/compo/")!=0) { return; }
+    $cres = ob_get_contents();
+    compo2_cache_write("0","/",$cres);
+    ob_end_clean();
+    echo $cres;
+}
 
 function compo2_insert($table,$e,$key="id") {
     $keys = array_keys($e);
