@@ -91,15 +91,25 @@ function compo2_cache_write($cid,$name,$data) {
     compo2_query("replace into c2_cache (id,cid,name,data,ts) values (?,?,?,?,?)",array("$cid|$name",$cid,$name,$data,date("Y-m-d H:i:s")));
 }
 
+// custom limited cache
+// cache only caches for anonymous users
+// cache only works on non-POST responses
+// cache only caches for 60 seconds
 function compo2_cache_header() {
-    if (strcmp($_SERVER["REQUEST_URI"],"/compo/")!=0) { return; }
-    if (($cres=compo2_cache_read("0","/",60))!==false) { echo $cres; echo "<p>[cached]</p>"; die; }
+    $user = wp_get_current_user(); $uid = $user->ID; if ($uid) { return; }
+    if (count($_POST)) { return; }
+    
+    $ckey = $_SERVER["REQUEST_URI"];
+    if (($cres=compo2_cache_read("0",$ckey,60))!==false) { echo $cres; echo "<p>[cached]</p>"; die; }
     ob_start();
 }
 function compo2_cache_footer() {
-    if (strcmp($_SERVER["REQUEST_URI"],"/compo/")!=0) { return; }
+    $user = wp_get_current_user(); $uid = $user->ID; if ($uid) { return; }
+    if (count($_POST)) { return; }
+    
+    $ckey = $_SERVER["REQUEST_URI"];
     $cres = ob_get_contents();
-    compo2_cache_write("0","/",$cres);
+    compo2_cache_write("0",$ckey,$cres);
     ob_end_clean();
     echo $cres;
 }
