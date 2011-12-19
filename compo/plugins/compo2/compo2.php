@@ -94,13 +94,13 @@ function compo2_cache_write($cid,$name,$data) {
 // custom limited cache
 // cache only caches for anonymous users
 // cache only works on non-POST responses
-// cache only caches for 60 seconds
+// cache only caches for 5*60 seconds
 function compo2_cache_begin() {
     $user = wp_get_current_user(); $uid = $user->ID; if ($uid) { return; }
     if (count($_POST)) { return; }
     
     $ckey = substr(md5($_SERVER["REQUEST_URI"]),0,30); // truncated because of 32 char limit of ckey
-    if (($cres=compo2_cache_read("0",$ckey,60))!==false) { echo $cres; echo "<p>[cache: using cached page]</p>"; die; }
+    if (($cres=compo2_cache_read("0",$ckey,5*60))!==false) { echo $cres; echo "<p>[cache: using cached page]</p>"; die; }
     ob_start();
 }
 function compo2_cache_end() {
