@@ -17,6 +17,9 @@ function _compo2_preview($params,$_link="?action=preview") {
         $cats[$div] = "{$params["{$div}_title"]} Entries";
     }
 
+    $ce = compo2_entry_load($params["cid"],$params["uid"]);
+    if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=preview&uid={$ce["uid"]}'>View your entry</a></p>"; }
+
     $etype = $_REQUEST["etype"];
     @$q = $_REQUEST["q"];
     $limit = 24;
@@ -54,12 +57,6 @@ function _compo2_preview($params,$_link="?action=preview") {
             echo "$pre<a href='?action=preview&etype=$kk'>$vv</a>"; $pre = " | ";
         }
     }
-/*
-    // removing this, it was being cached for random users ...
-    
-    $ce = compo2_entry_load($params["cid"],$params["uid"]);
-    if ($ce["id"]) { echo "$pre<a href='?action=edit'>Edit your entry</a> | <a href='?action=preview&uid={$ce["uid"]}'>View your entry</a>"; }
-*/
     echo "</p>";
     $links = ob_get_contents();
     ob_end_clean();
