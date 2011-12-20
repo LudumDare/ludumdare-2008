@@ -23,8 +23,26 @@ function _compo2_admin($params) {
         return _compo2_admin_recalc($params);
     } elseif ($action == "resetcache") {
         return _compo2_admin_resetcache($params);
+    } elseif ($action == "get_user") {
+        return _compo2_admin_get_user($params);
     }
 }
+
+function _compo2_admin_get_user($params) {
+    echo "<h3>Resetting get_user data ...</h3>";
+    $r = compo2_query("select id,uid from c2_entry");
+    foreach ($r as $ce) {
+        $user = compo2_get_user($ce["uid"]);
+        $ce["get_user"] = serialize(array(
+            "display_name"=>$user->display_name,
+            "user_nicename"=>$user->user_nicename,
+            "user_email"=>$user->user_email,
+        ));
+        compo2_update("c2_entry",$ce);
+    }
+    echo "<p>Done.</p>";
+}
+    
 
 function _compo2_admin_resetcache($params) {
     echo "<h3>Resetting Cache ...</h3>";
