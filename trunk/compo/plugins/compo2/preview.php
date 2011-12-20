@@ -17,7 +17,7 @@ function _compo2_preview($params,$_link="?action=preview") {
         $cats[$div] = "{$params["{$div}_title"]} Entries";
     }
 
-    if (strlen($params["uid"])) {
+    if ($params["uid"]) {
         $ce = compo2_entry_load($params["cid"],$params["uid"]);
         if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=preview&uid={$ce["uid"]}'>View your entry</a></p>"; }
     }
