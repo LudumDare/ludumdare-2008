@@ -36,7 +36,7 @@ function _compo2_preview($params,$_link="?action=preview") {
     $cnt = $cnte["_cnt"];
     
     
-    $sh = date("Y-m-d"); // shuffle the entries every day .. seems a good compromise between having a user's search order get messed up if they are going through a bunch of entries, and having the same entries on the 1st page all the time.
+    $sh = date("Y-m-d")."|"; // shuffle the entries every day .. seems a good compromise between having a user's search order get messed up if they are going through a bunch of entries, and having the same entries on the 1st page all the time.
     if (!strlen($q)) {
         $r = compo2_query("select *, md5(concat(id,?)) sh from c2_entry where etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":"")." order by sh limit $start,$limit",array($sh,"%$etype%",$params["cid"]));
     } else {
