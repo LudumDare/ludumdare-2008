@@ -31,12 +31,16 @@ function _compo2_rate($params) {
     $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"default";
     if ($action == "default") {
         return _compo2_rate_list($params);
-    } elseif ($action == "preview") {
+    } elseif ($action == "preview") { // send user to rate page
         echo "<p><a href='?action=default'>Back to Rate Entries</a></p>";
-        return _compo2_preview($params,"?action=rate");
+        if (isset($_REQUEST["uid"])) {
+            return _compo2_rate_rate($params);
+        } else {
+            return _compo2_preview($params,"?action=preview");
+        }
 /*    } elseif ($action == "comments") {
         return _compo2_rate_comments($params);*/
-    } elseif ($action == "rate") {
+    } elseif ($action == "rate") { // deprecated, but left here to keep old links live
         return _compo2_rate_rate($params);
     } elseif ($action == "submit") {
         return _compo2_rate_submit($params);
@@ -173,7 +177,7 @@ function _compo2_rate_list($params) {
         if ($ce["uid"] != $params["uid"]) {
             $name = $ue["display_name"];
             if (!strlen($name)) { $name = "?"; }
-            echo "<td><a href='?action=rate&uid={$ce["uid"]}'>".htmlentities($name)."</a>";
+            echo "<td><a href='?action=preview&uid={$ce["uid"]}'>".htmlentities($name)."</a>";
         } else {
             echo "<td>".htmlentities($ue["display_name"]);
         }
