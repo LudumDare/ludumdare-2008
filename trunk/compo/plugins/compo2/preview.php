@@ -30,7 +30,7 @@ function _compo2_preview($params,$_link="?action=preview") {
     if (!strlen($q)) {
         $cnte = array_pop(compo2_query("select count(*) _cnt from c2_entry where etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array("%$etype%",$params["cid"])));
     } else {
-        $cnte = array_pop(compo2_query("select count(*) _cnt from c2_entry where (notes like ? OR links like ? OR get_user like ?) and  etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array("%$q%","%$q%","%$q%","%$etype%",$params["cid"])));
+        $cnte = array_pop(compo2_query("select count(*) _cnt from c2_entry where (title like ? OR notes like ? OR links like ? OR get_user like ?) and  etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":""),array("%$q%","%$q%","%$q%","%$q%","%$etype%",$params["cid"])));
     }
 
     $cnt = $cnte["_cnt"];
