@@ -43,9 +43,9 @@ function _compo2_preview($params,$_link="?action=preview") {
     // md5(id) shuffles the order of the entries so that you can't game your way
     // to the front.  it's just luck.
     if (!strlen($q)) {
-        $r = compo2_query("select *, md5(id) sh from c2_entry where etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":"")." order by sh limit $start,$limit",array($sh,"%$etype%",$params["cid"]));
+        $r = compo2_query("select *, md5(id) sh from c2_entry where etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":"")." order by sh limit $start,$limit",array("%$etype%",$params["cid"]));
     } else {
-        $r = compo2_query("select *, md5(id) sh from c2_entry where (title like ? OR notes like ? OR links like ? OR get_user like ?) and etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":"")." order by sh limit $start,$limit",array($sh,"%$q%","%$q%","%$q%","%$q%","%$etype%",$params["cid"]));
+        $r = compo2_query("select *, md5(id) sh from c2_entry where (title like ? OR notes like ? OR links like ? OR get_user like ?) and etype like ? and cid = ? ".(!($params["state"]=="admin")?" and active=1":"")." order by sh limit $start,$limit",array("%$q%","%$q%","%$q%","%$q%","%$etype%",$params["cid"]));
     }
     usort($r,"_compo2_preview_sort");
 
