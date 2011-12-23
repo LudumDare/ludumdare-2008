@@ -103,13 +103,23 @@ function _compo2_rate_list($params) {
     $r = array();
     @$sortby = $_REQUEST["sortby"];
     
-    foreach ($_r as $k=>$ce) {
+/*    foreach ($_r as $k=>$ce) {
         if ($sortby == "rate_in") { $key = sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]); }
         else {
             $key = md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}")."|{$ce["uid"]}";
         }
         $r[$key] = $ce;
+    }*/
+    
+    foreach ($_r as $k=>$ce) {
+        $key = sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]);
+        if (strlen($ce["data"])) {
+            $key = ".".md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}")."|{$ce["uid"]}";
+        }
+        $r[$key] = $ce;
     }
+
+    
     ksort($r); // Much faster than usort.
     
 /*    @$sortby = $_REQUEST["sortby"];
