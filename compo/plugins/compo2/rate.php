@@ -145,7 +145,7 @@ function _compo2_rate_list($params) {
     if (!strlen($_REQUEST["more"])) {
         echo "<a href='?more=1&q=".urlencode($q)."'>Show all entries</a> | ";
     }
-    echo "<a href='?sortby=rate_in&q=".urlencode($q)."'>Sort by least ratings</a> | ";
+//     echo "<a href='?sortby=rate_in&q=".urlencode($q)."'>Sort by least ratings</a> | ";
 //     echo "<a href='?sortby=rate_out'>Sort by most coolness</a>";
 //     echo "</p><p>";
     echo "<a href='?action=preview'>View all Screenshots</a> | ";
