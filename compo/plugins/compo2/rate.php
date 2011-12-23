@@ -119,7 +119,8 @@ function _compo2_rate_list($params) {
     foreach ($_r as $k=>$ce) {
         $key = sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]);
         if (isset($r_rate[$ce["uid"]])) {
-            $key = ".".md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}")."|{$ce["uid"]}";
+            $ue = unserialize($ce["get_user"]);
+            $key = ".{$ce["display_name"]}";
         }
         $r[$key] = $ce;
     }
