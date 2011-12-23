@@ -243,6 +243,8 @@ function _compo2_rate_rate($params,$uid = "") {
     
     if ($params["uid"] != $uid) {
         echo "<h3>Rate this {$params["{$div}_title"]} Entry</h3>";
+        
+        echo "<p><i>If you can't run this entry, please leave a comment saying so and explaining why.  Do not leave any scores (except for Community, if applicable.)</i></p>";
             
         
         $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
