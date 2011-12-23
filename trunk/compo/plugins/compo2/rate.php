@@ -175,7 +175,7 @@ function _compo2_rate_list($params) {
 
     
     foreach ($r as $ce) {
-        if ($ce["uid"] == $params["uid"] && !strlen($_REQUEST["more"])) { continue; }
+//         if ($ce["uid"] == $params["uid"] && !strlen($_REQUEST["more"])) { continue; }
         
 //         $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
         $ve = $r_rate[$ce["uid"]];
@@ -188,6 +188,7 @@ function _compo2_rate_list($params) {
         if ($v >= 75) { $img = "igold.gif"; }
 //         if ($v >= 100) { $img = "star.gif"; }
         echo "<td><img src='$myurl/images/$img' title='$v% Coolness'>";
+        
         if ($ce["uid"] != $params["uid"]) {
             $name = $ue["display_name"];
             if (!strlen($name)) { $name = "?"; }
