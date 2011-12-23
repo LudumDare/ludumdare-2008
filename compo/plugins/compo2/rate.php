@@ -120,7 +120,7 @@ function _compo2_rate_list($params) {
         $key = sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]);
         if (isset($r_rate[$ce["uid"]])) {
             $ue = unserialize($ce["get_user"]);
-            $key = ".{$ue["display_name"]}";
+            $key = strtolower(".{$ue["display_name"]}");
         }
         $r[$key] = $ce;
     }
