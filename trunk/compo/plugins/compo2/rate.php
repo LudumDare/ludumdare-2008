@@ -100,6 +100,11 @@ function _compo2_rate_list($params) {
         break;
     }*/
     
+    $r_rate = array();
+    foreach (compo2_query("select * from c2_rate where cid = ? and from_uid = ?",array($params["cid"],$params["uid"])) as $ve) {
+        $r_rate[$ve["to_uid"]] = $ve;
+    }
+    
     $r = array();
     @$sortby = $_REQUEST["sortby"];
     
@@ -113,7 +118,7 @@ function _compo2_rate_list($params) {
     
     foreach ($_r as $k=>$ce) {
         $key = sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]);
-        if (strlen($ce["data"])) {
+        if (isset($r_rate[$ce["uid"]])) {
             $key = ".".md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}")."|{$ce["uid"]}";
         }
         $r[$key] = $ce;
@@ -165,10 +170,7 @@ function _compo2_rate_list($params) {
     echo "<th>Txt";
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
     
-    $r_rate = array();
-    foreach (compo2_query("select * from c2_rate where cid = ? and from_uid = ?",array($params["cid"],$params["uid"])) as $ve) {
-        $r_rate[$ve["to_uid"]] = $ve;
-    }
+
     
     foreach ($r as $ce) {
         if ($ce["uid"] == $params["uid"] && !strlen($_REQUEST["more"])) { continue; }
