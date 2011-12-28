@@ -1,4 +1,15 @@
 
+================================================================================
+TO ENABLE SUPER-FAST PRE-CACHE :: add this to top-level .htaccess
+================================================================================
+
+# BEGIN compo2
+php_value auto_prepend_file /var/www/html/wordpress/wp-content/plugins/compo2/fcache.php
+# END compo2
+
+================================================================================
+
+
 - add get_user data to entry data in database, and comment data.
 - on user results page show all placings
 - add search button on view all

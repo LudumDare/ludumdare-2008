@@ -96,6 +96,8 @@ function compo2_cache_write($cid,$name,$data) {
 // cache only works on non-POST responses
 // cache only caches for 5*60 seconds
 function compo2_cache_begin() {
+    if (function_exists("compo2_fcache_begin")) { return; }
+    
     $user = wp_get_current_user(); $uid = $user->ID; if ($uid) { return; }
     if (count($_POST)) { return; }
     
@@ -104,6 +106,8 @@ function compo2_cache_begin() {
     ob_start();
 }
 function compo2_cache_end() {
+    if (function_exists("compo2_fcache_end")) { return compo2_fcache_end(); }
+    
     $user = wp_get_current_user(); $uid = $user->ID; if ($uid) {
         echo "<p>[cache: unable to cache, user logged in]</p>";
         return;
