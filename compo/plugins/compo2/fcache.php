@@ -38,8 +38,17 @@ function compo2_fcache_begin() {
 
 function compo2_fcache_gc() {
     $ts = 60*60;
-    // garbage collection for files older than 60 minutes
-    // not yet implemented
+    
+    $dname = dirname(_compo2_fcache_fname("x"));
+    
+    if ($d = opendir($dname)) {
+        while (($name = readdir($d)) !== false) {
+            $fname = "$dname/$name";
+            if (!is_file($fname)) { continue; }
+            if ((time()-filemtime($fname)) <= $ts) { continue; }
+            unlink($fname);
+        }
+    }
 }
 
 function compo2_fcache_end() {
