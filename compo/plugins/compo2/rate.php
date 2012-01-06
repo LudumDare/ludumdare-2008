@@ -80,79 +80,45 @@ function _compo2_rate_sort_by_rate_out($a,$b) {
     return $b["rate_out"] - $a["rate_out"];
 }
 
-function _compo2_rate_list($params) {
+function _compo2_rate_list_old_n_busted($params) {
     @$q = $_REQUEST["q"];
     
     $ecnt = array_pop(compo2_query("select count(*) cnt from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"])));
     $cnt = $ecnt["cnt"];
 
     if (!strlen($q)) {
-        $_r = compo2_query("select shots,uid,cid,rate_in,rate_out,get_user from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
+        $_r = compo2_query("select shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
     } else {
-        $_r = compo2_query("select shots,uid,cid,rate_in,rate_out,get_user from c2_entry where (title like ? OR notes like ? OR links like ? OR get_user like ?) and cid = ? and active = 1 and is_judged = 1",array("%$q%","%$q%","%$q%","%$q%",$params["cid"]));
+        $_r = compo2_query("select shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where (title like ? OR notes like ? OR links like ? OR get_user like ?) and cid = ? and active = 1 and is_judged = 1",array("%$q%","%$q%","%$q%","%$q%",$params["cid"]));
         $_REQUEST["more"] = 1;
     }
-    
-//     srand($params["cid"]*256 + $params["uid"]);
-//     shuffle($r);
-/*    foreach ($r as $n=>$e) {
-        if ($e["uid"] != $params["uid"]) { continue; }
-        $r = array_merge(array_slice($r,$n),array_slice($r,0,$n));
-        break;
-    }*/
     
     $r_rate = array();
     foreach (compo2_query("select * from c2_rate where cid = ? and from_uid = ?",array($params["cid"],$params["uid"])) as $ve) {
         $r_rate[$ve["to_uid"]] = $ve;
     }
     
-    $r = array();
-    @$sortby = $_REQUEST["sortby"];
-    
-/*    foreach ($_r as $k=>$ce) {
-        if ($sortby == "rate_in") { $key = sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]); }
-        else {
-            $key = md5("{$params["uid"]}|{$ce["cid"]}|{$ce["uid"]}")."|{$ce["uid"]}";
-        }
-        $r[$key] = $ce;
-    }*/
-    
     $r_unrated = array();
     $r_rated = array();
     foreach ($_r as $k=>$ce) {
-        $key = "0".sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]);
         if (isset($r_rate[$ce["uid"]])) {
             $ue = unserialize($ce["get_user"]);
             $key = "1".strtolower($ue["display_name"]);
             $r_rated[$key] = $ce;
-            continue;
+        } else {
+            $key = "0".sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]);
+            $r_unrated[$key] = $ce;
         }
-        $r_unrated[$key] = $ce;
-//         $r[$key] = $ce;
     }
     ksort($r_rated);
     ksort($r_unrated);
-    $r = array_slice($r_unrated,0,max(5+strlen($_REQUEST["more"])*10000,min(20,count($r_unrated))-count($r_rated)),true);
-    $r = array_merge($r,$r_rated);
-    
-//     ksort($r); // Much faster than usort.
-    
-/*    @$sortby = $_REQUEST["sortby"];
-    if ($sortby == "rate_in") {
-        usort($r,"_compo2_rate_sort_by_rate_in");
-    } elseif ($sortby == "rate_out") {
-        usort($r,"_compo2_rate_sort_by_rate_out");
-    } else {
-        usort($r,"_compo2_rate_sort");
-    }*/
-    
     
     echo "<h3>Rate Entries (".count($r).")</h3>";
     
     ob_start();
     echo "<p>";
 //     if (!strlen($_REQUEST["more"])) {
-        echo "<a href='?more=1&q=".urlencode($q)."'>Show all entries</a> | ";
+//         echo "<a href='?more=1&q=".urlencode($q)."'>Show all entries</a> | ";
 //     }
 //     echo "<a href='?sortby=rate_in&q=".urlencode($q)."'>Sort by least ratings</a> | ";
 //     echo "<a href='?sortby=rate_out'>Sort by most coolness</a>";
@@ -172,66 +138,60 @@ function _compo2_rate_list($params) {
     echo " <input type='submit' value='Search'>";
     echo "</form>";
     
-    $n=0;
-    echo "<table>";
-    echo "<tr><th><th>";
-    $total = 0;
-    foreach ($params["cats"] as $k) { echo "<th>".substr($k,0,3); }
-    echo "<th>Txt";
-    $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
     
-
-    $_key = "0";
-    foreach ($r as $key=>$ce) {
-//         if ($ce["uid"] == $params["uid"] && !strlen($_REQUEST["more"])) { continue; }
+    echo "<h3>Rate another entry!</h3>";
+        $_link="?action=preview"
+        $r = array_slice($r_unrated,0,24,true);
         
-//         $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
-        
-        if ($_key != $key[0]) { 
-            $cs = 3+count($params["cats"]);
-            echo "<tr><td colspan=$cs><hr/>";
-            
-        } 
-        $_key = $key[0];
-
-        $ve = $r_rate[$ce["uid"]];
-        $ue = unserialize($ce["get_user"]);
-        echo "<tr>";
-        $img = "inone.gif";
-        $v = round(100*$ce["rate_out"]/max(1,($cnt-1)));
-        if ($v >= 25) { $img = "ibronze.gif"; }
-        if ($v >= 50) { $img = "isilver.gif"; }
-        if ($v >= 75) { $img = "igold.gif"; }
-//         if ($v >= 100) { $img = "star.gif"; }
-        echo "<td><img src='$myurl/images/$img' title='$v% Coolness'>";
-        
-        if ($ce["uid"] != $params["uid"]) {
-            $name = $ue["display_name"];
-            if (!strlen($name)) { $name = "?"; }
-            echo "<td><a href='?action=preview&uid={$ce["uid"]}'>".htmlentities($name)."</a>";
-        } else {
-            echo "<td>".htmlentities($ue["display_name"]);
-        }
-        if ($ce["rate_in"]) { echo " ({$ce["rate_in"]})"; }
-        
-        $data = unserialize($ve["data"]);
-        foreach ($params["cats"] as $k) {
-            echo "<td align=center>".(strlen($data[$k])?intval($data[$k]):"-");
-        }
-        echo "<td align=center>".(strlen($ve["comments"])?"x":"-");
-        echo "<tr><td colspan=2>";
-            $shots = unserialize($ce["shots"]);
+        $cols = 6;
+        $n = 0;
+        $row = 0;
+        echo "<table class='preview'>";
+        foreach ($r as $e) {
+            if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
+            $klass = "class='alt-".(1+(($row)%2))."'";
+            echo "<td valign=bottom align=center $klass>";
+            $link = "$_link&uid={$e["uid"]}";
+            echo "<div><a href='$link'>";
+            $shots = unserialize($e["shots"]);
             echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
+            echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
+            $ue = unserialize($e["get_user"]);
+            echo $ue["display_name"];
+            if ($e["rate_in"]) { echo " ({$e["rate_in"]})"; }
+            echo "</a></div>";
+            if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
+            else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
+        }
+        echo "</table>";
+    
+    echo "<h3>Previous rated entries</h3>";
+    
+        $_link="?action=preview"
+        $r = array_slice($r_unrated,0,24,true);
+        
+        $cols = 12;
+        $n = 0;
+        $row = 0;
+        echo "<table class='preview'>";
+        foreach ($r as $e) {
+            if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
+            $klass = "class='alt-".(1+(($row)%2))."'";
+            echo "<td valign=bottom align=center $klass>";
+            $link = "$_link&uid={$e["uid"]}";
+            echo "<div><a href='$link'>";
+            $shots = unserialize($e["shots"]);
+            echo "<img src='".compo2_thumb($shots["shot0"],60,45)."'>";
+            echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
+            $ue = unserialize($e["get_user"]);
+            echo $ue["display_name"];
+            echo "</a></div>";
+            if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
+            else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
+        }
+        echo "</table>";
 
-        
-        $ok = false; if (strlen($ve["comments"])) { $ok = true; }
-        foreach ($params["cats"] as $k) { if (strlen($data[$k])) { $ok = true; } }
-        if ($ok) { $total += 1; }
-        
-        $n += 1;
-//         if ($n >= max(20,$total+5) && !strlen($_REQUEST["more"])) { $done = 1; }
-    }
-    echo "</table>";
+    
     
     echo $links;
 }
