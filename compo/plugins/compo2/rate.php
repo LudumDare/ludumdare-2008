@@ -170,7 +170,7 @@ function _compo2_rate_list($params) {
     $r = $r_rated;
     
     echo "<table>";
-    echo "<tr><th><th>";
+    echo "<tr><th><th><th>";
     foreach ($params["cats"] as $k) { echo "<th>".substr($k,0,3); }
     echo "<th>Txt";
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
