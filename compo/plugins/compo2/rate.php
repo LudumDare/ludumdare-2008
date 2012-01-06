@@ -219,6 +219,10 @@ function _compo2_rate_list($params) {
             echo "<td align=center>".(strlen($data[$k])?intval($data[$k]):"-");
         }
         echo "<td align=center>".(strlen($ve["comments"])?"x":"-");
+        echo "<tr><td colspan=2>";
+            $shots = unserialize($ce["shots"]);
+            echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
+
         
         $ok = false; if (strlen($ve["comments"])) { $ok = true; }
         foreach ($params["cats"] as $k) { if (strlen($data[$k])) { $ok = true; } }
