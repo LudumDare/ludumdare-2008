@@ -161,36 +161,52 @@ function _compo2_rate_list($params) {
             echo $ue["display_name"];
             if ($e["rate_in"]) { echo " ({$e["rate_in"]})"; }
             echo "</a></div>";
-            if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
-            else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
+//             if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
+//             else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
         }
         echo "</table>";
     
     echo "<h3>Previous rated entries</h3>";
-    echo "<p>";
-        $_link="?action=preview";
-        $r = array_slice($r_rated,0,24,true);
+    $r = $r_rated;
+    
+    echo "<table>";
+    echo "<tr><th><th>";
+    foreach ($params["cats"] as $k) { echo "<th>".substr($k,0,3); }
+    echo "<th>Txt";
+    $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
+    foreach ($r as $key=>$ce) {
+        $ve = $r_rate[$ce["uid"]];
+        $ue = unserialize($ce["get_user"]);
+        echo "<tr>";
+        $img = "inone.gif";
+        $v = round(100*$ce["rate_out"]/max(1,($cnt-1)));
+        if ($v >= 25) { $img = "ibronze.gif"; }
+        if ($v >= 50) { $img = "isilver.gif"; }
+        if ($v >= 75) { $img = "igold.gif"; }
+//         if ($v >= 100) { $img = "star.gif"; }
+        echo "<td valign=center><img src='$myurl/images/$img' title='$v% Coolness'>";
         
-        $cols = 6;
-        $n = 0;
-        $row = 0;
-        echo "<table class='preview'>";
-        foreach ($r as $e) {
-            if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
-            $klass = "class='alt-".(1+(($row)%2))."'";
-            echo "<td valign=bottom align=center $klass>";
-            $link = "$_link&uid={$e["uid"]}";
-            echo "<div><a href='$link'>";
-            $shots = unserialize($e["shots"]);
-            echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
-            echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
-            $ue = unserialize($e["get_user"]);
-            echo $ue["display_name"];
-            echo "</a></div>";
-            if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
-            else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
+        echo "<td valign=center align=center>";
+            $shots = unserialize($ce["shots"]);
+            echo "<img src='".compo2_thumb($shots["shot0"],60,45)."'>";
+            
+        echo "<td valign=center>";
+            echo "<div class='title'><i>".htmlentities($ce["title"])."</i></div>";
+            if ($ce["uid"] != $params["uid"]) {
+                $name = $ue["display_name"];
+                if (!strlen($name)) { $name = "?"; }
+                echo "<a href='?action=preview&uid={$ce["uid"]}'>".htmlentities($name)."</a>";
+            } else {
+                echo htmlentities($ue["display_name"]);
+            }
+            
+        $data = unserialize($ve["data"]);
+        foreach ($params["cats"] as $k) {
+            echo "<td align=center valign=center>".(strlen($data[$k])?intval($data[$k]):"-");
         }
-        echo "</table>";
+        echo "<td align=center valign=center>".(strlen($ve["comments"])?"x":"-");
+    }
+    echo "</table>";
 
     
     
