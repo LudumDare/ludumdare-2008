@@ -160,7 +160,7 @@ function _compo2_rate_list($params) {
             echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
             $ue = unserialize($e["get_user"]);
             echo $ue["display_name"];
-            if ($e["rate_in"]) { echo " ({$e["rate_in"]})"; }
+//             if ($e["rate_in"]) { echo " ({$e["rate_in"]})"; }
             echo "</a></div>";
 //             if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
 //             else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
