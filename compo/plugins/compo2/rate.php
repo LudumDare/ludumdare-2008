@@ -117,17 +117,25 @@ function _compo2_rate_list($params) {
         $r[$key] = $ce;
     }*/
     
+    $r_unrated = array();
+    $r_rated = array();
     foreach ($_r as $k=>$ce) {
         $key = "0".sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]);
         if (isset($r_rate[$ce["uid"]])) {
             $ue = unserialize($ce["get_user"]);
             $key = "1".strtolower($ue["display_name"]);
+            $r_rated[$key] = $ue;
+            continue;
         }
-        $r[$key] = $ce;
+        $r_unrated[$key] = $ue;
+//         $r[$key] = $ce;
     }
-
+    ksort($r_rated);
+    ksort($r_unrated);
+    $r = array_slice($r_unrated,0,max(5,min(20,count($r_unrated))-count($r_rated)));
+    $r = array_merge($r,$r_rated);
     
-    ksort($r); // Much faster than usort.
+//     ksort($r); // Much faster than usort.
     
 /*    @$sortby = $_REQUEST["sortby"];
     if ($sortby == "rate_in") {
@@ -174,7 +182,6 @@ function _compo2_rate_list($params) {
     
 
     $_key = "0";
-    $done = 0;
     foreach ($r as $key=>$ce) {
 //         if ($ce["uid"] == $params["uid"] && !strlen($_REQUEST["more"])) { continue; }
         
@@ -186,7 +193,6 @@ function _compo2_rate_list($params) {
             
         } 
         $_key = $key[0];
-        if ($_key == "0" && $done == 1) { continue; }
 
         $ve = $r_rate[$ce["uid"]];
         $ue = unserialize($ce["get_user"]);
@@ -219,7 +225,7 @@ function _compo2_rate_list($params) {
         if ($ok) { $total += 1; }
         
         $n += 1;
-        if ($n >= max(20,$total+5) && !strlen($_REQUEST["more"])) { $done = 1; }
+//         if ($n >= max(20,$total+5) && !strlen($_REQUEST["more"])) { $done = 1; }
     }
     echo "</table>";
     
