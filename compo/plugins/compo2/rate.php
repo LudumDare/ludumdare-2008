@@ -188,7 +188,7 @@ function _compo2_rate_list($params) {
         
         echo "<td valign=center align=center>";
             $shots = unserialize($ce["shots"]);
-            echo "<img src='".compo2_thumb($shots["shot0"],60,45)."'>";
+            echo "<img src='".compo2_thumb($shots["shot0"],60,45)."' style='margin:5px;'>";
             
         echo "<td valign=center>";
             echo "<div class='title'><i>".htmlentities($ce["title"])."</i></div>";
