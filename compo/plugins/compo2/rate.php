@@ -171,7 +171,7 @@ function _compo2_rate_list($params) {
         $_link="?action=preview";
         $r = array_slice($r_rated,0,24,true);
         
-        $cols = 12;
+        $cols = 6;
         $n = 0;
         $row = 0;
         echo "<table class='preview'>";
@@ -182,7 +182,7 @@ function _compo2_rate_list($params) {
             $link = "$_link&uid={$e["uid"]}";
             echo "<div><a href='$link'>";
             $shots = unserialize($e["shots"]);
-            echo "<img src='".compo2_thumb($shots["shot0"],60,45)."'>";
+            echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
             echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
             $ue = unserialize($e["get_user"]);
             echo $ue["display_name"];
