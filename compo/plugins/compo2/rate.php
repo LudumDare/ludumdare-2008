@@ -124,10 +124,10 @@ function _compo2_rate_list($params) {
         if (isset($r_rate[$ce["uid"]])) {
             $ue = unserialize($ce["get_user"]);
             $key = "1".strtolower($ue["display_name"]);
-            $r_rated[$key] = $ue;
+            $r_rated[$key] = $ce;
             continue;
         }
-        $r_unrated[$key] = $ue;
+        $r_unrated[$key] = $ce;
 //         $r[$key] = $ce;
     }
     ksort($r_rated);
