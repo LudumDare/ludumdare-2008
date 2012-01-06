@@ -153,10 +153,6 @@ function _compo2_rate_list($params) {
             $klass = "class='alt-".(1+(($row)%2))."'";
             echo "<td valign=bottom align=center $klass>";
             
-            echo "<div style='color:#fff; padding: 5px; background:#000; text-align:center; font-weight:bold;'>";
-            echo htmlentities($params["{$e["etype"]}_title"]);
-            echo "</div>";
-            
             $link = "$_link&uid={$e["uid"]}";
             echo "<div><a href='$link'>";
             $shots = unserialize($e["shots"]);
@@ -168,6 +164,10 @@ function _compo2_rate_list($params) {
             echo "</a></div>";
 //             if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
 //             else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
+            echo "<div style='color:#fff; margin: 3px; padding: 2px; background:#000; text-align:center; font-weight:bold;'>";
+            echo htmlentities($params["{$e["etype"]}_title"]);
+            echo "</div>";
+            
         }
         echo "</table>";
     
