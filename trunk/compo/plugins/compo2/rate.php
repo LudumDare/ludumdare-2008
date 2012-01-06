@@ -139,8 +139,8 @@ function _compo2_rate_list($params) {
     echo "</form>";
     
     
-    echo "<h3>Rate one of these!</h3>";
-    echo "<p>";
+    echo "<p><h3>Rate one of these!</h3></p>";
+        
         $_link="?action=preview";
         $r = array_slice($r_unrated,0,24,true);
         
@@ -166,7 +166,7 @@ function _compo2_rate_list($params) {
         }
         echo "</table>";
     
-    echo "<h3>Previous rated entries</h3>";
+    echo "<p><h3>Previous rated entries</h3></p>";
     $r = $r_rated;
     
     echo "<table>";
