@@ -139,10 +139,10 @@ function _compo2_rate_list($params) {
     echo "</form>";
     
     
-    echo "<p><h3>Rate one of these!</h3></p>";
+    echo "<p><h3>Play another game!</h3></p>";
         
         $_link="?action=preview";
-        $r = array_slice($r_unrated,0,24,true);
+        $r = array_slice($r_unrated,0,12,true);
         
         $cols = 6;
         $n = 0;
