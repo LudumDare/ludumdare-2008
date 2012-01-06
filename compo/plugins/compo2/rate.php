@@ -118,10 +118,10 @@ function _compo2_rate_list($params) {
     }*/
     
     foreach ($_r as $k=>$ce) {
-        $key = "1".sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]);
+        $key = "0".sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]);
         if (isset($r_rate[$ce["uid"]])) {
             $ue = unserialize($ce["get_user"]);
-            $key = "0".strtolower($ue["display_name"]);
+            $key = "1".strtolower($ue["display_name"]);
         }
         $r[$key] = $ce;
     }
@@ -173,11 +173,19 @@ function _compo2_rate_list($params) {
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
     
 
-    
-    foreach ($r as $ce) {
+    $_key = "0";
+    foreach ($r as $key=>$ce) {
 //         if ($ce["uid"] == $params["uid"] && !strlen($_REQUEST["more"])) { continue; }
         
 //         $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
+        
+        if ($_key != $key[0]) { 
+            $cs = 2+count($params["cats"]);
+            echo "<tr><td colspan=$cs><hr/>";
+            
+        } 
+        $_key = $key[0];
+
         $ve = $r_rate[$ce["uid"]];
         $ue = unserialize($ce["get_user"]);
         echo "<tr>";
