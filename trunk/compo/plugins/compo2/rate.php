@@ -118,10 +118,10 @@ function _compo2_rate_list($params) {
     }*/
     
     foreach ($_r as $k=>$ce) {
-        $key = "1".sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]);
+        $key = "0".sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]);
         if (isset($r_rate[$ce["uid"]])) {
             $ue = unserialize($ce["get_user"]);
-            $key = "0".strtolower($ue["display_name"]);
+            $key = "1".strtolower($ue["display_name"]);
         }
         $r[$key] = $ce;
     }
@@ -174,6 +174,7 @@ function _compo2_rate_list($params) {
     
 
     $_key = "0";
+    $done = 0;
     foreach ($r as $key=>$ce) {
 //         if ($ce["uid"] == $params["uid"] && !strlen($_REQUEST["more"])) { continue; }
         
@@ -185,6 +186,7 @@ function _compo2_rate_list($params) {
             
         } 
         $_key = $key[0];
+        if ($_key == "0" && $done == 1) { continue; }
 
         $ve = $r_rate[$ce["uid"]];
         $ue = unserialize($ce["get_user"]);
@@ -217,7 +219,7 @@ function _compo2_rate_list($params) {
         if ($ok) { $total += 1; }
         
         $n += 1;
-        if ($n >= max(20,$total+5) && !strlen($_REQUEST["more"])) { break; }
+        if ($n >= max(20,$total+5) && !strlen($_REQUEST["more"])) { $done = 1; }
     }
     echo "</table>";
     
