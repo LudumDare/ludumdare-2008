@@ -89,7 +89,7 @@ function _compo2_rate_list($params) {
     if (!strlen($q)) {
         $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
     } else {
-        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where (title like ? OR notes like ? OR links like ? OR get_user like ? OR etype like ?) and cid = ? and active = 1 and is_judged = 1",array("%$q%","%$q%","%$q%","%$q%","%$q%",$params["cid"]));
+        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where (title like ? OR notes like ? OR links like ? OR get_user like ?) and cid = ? and active = 1 and is_judged = 1",array("%$q%","%$q%","%$q%","%$q%",$params["cid"]));
         $_REQUEST["more"] = 1;
     }
     
