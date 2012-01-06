@@ -80,7 +80,7 @@ function _compo2_rate_sort_by_rate_out($a,$b) {
     return $b["rate_out"] - $a["rate_out"];
 }
 
-function _compo2_rate_list_old_n_busted($params) {
+function _compo2_rate_list($params) {
     @$q = $_REQUEST["q"];
     
     $ecnt = array_pop(compo2_query("select count(*) cnt from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"])));
@@ -113,7 +113,7 @@ function _compo2_rate_list_old_n_busted($params) {
     ksort($r_rated);
     ksort($r_unrated);
     
-    echo "<h3>Rate Entries (".count($r).")</h3>";
+    echo "<h3>Rate Entries (".count($_r).")</h3>";
     
     ob_start();
     echo "<p>";
