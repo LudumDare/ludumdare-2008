@@ -180,7 +180,7 @@ function _compo2_rate_list($params) {
 //         $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
         
         if ($_key != $key[0]) { 
-            $cs = 2+count($params["cats"]);
+            $cs = 3+count($params["cats"]);
             echo "<tr><td colspan=$cs><hr/>";
             
         } 
