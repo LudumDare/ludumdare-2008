@@ -192,13 +192,11 @@ function _compo2_rate_list($params) {
             
         echo "<td valign=center>";
             echo "<div class='title'><i>".htmlentities($ce["title"])."</i></div>";
-            if ($ce["uid"] != $params["uid"]) {
-                $name = $ue["display_name"];
-                if (!strlen($name)) { $name = "?"; }
-                echo "<a href='?action=preview&uid={$ce["uid"]}'>".htmlentities($name)."</a>";
-            } else {
-                echo htmlentities($ue["display_name"]);
-            }
+            echo "<a href='?action=preview&uid={$ce["uid"]}'>";
+            $name = $ue["display_name"];
+            if (!strlen($name)) { $name = "?"; }
+            echo htmlentities($name);
+            echo "</a>";
             
         $data = unserialize($ve["data"]);
         foreach ($params["cats"] as $k) {
