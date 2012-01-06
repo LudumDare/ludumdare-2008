@@ -132,7 +132,7 @@ function _compo2_rate_list($params) {
     }
     ksort($r_rated);
     ksort($r_unrated);
-    $r = array_slice($r_unrated,0,max(5,min(20,count($r_unrated))-count($r_rated)),true);
+    $r = array_slice($r_unrated,0,max(5+strlen($_REQUEST["more"])*10000,min(20,count($r_unrated))-count($r_rated)),true);
     $r = array_merge($r,$r_rated);
     
 //     ksort($r); // Much faster than usort.
