@@ -156,7 +156,7 @@ function _compo2_rate_list($params) {
             $link = "$_link&uid={$e["uid"]}";
             echo "<div><a href='$link'>";
             $shots = unserialize($e["shots"]);
-            echo "<img src='".compo2_thumb($shots["shot0"],120,90)."' style='border:1px solid #000'>";
+            echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
             echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
             $ue = unserialize($e["get_user"]);
             echo $ue["display_name"];
@@ -193,7 +193,7 @@ function _compo2_rate_list($params) {
         
         echo "<td valign=center align=center>";
             $shots = unserialize($ce["shots"]);
-            echo "<img src='".compo2_thumb($shots["shot0"],60,45)."' style='margin:5px;'>";
+            echo "<img src='".compo2_thumb($shots["shot0"],60,45)."' style='margin:5px;border:1px solid #000;'>";
             
         echo "<td valign=center>";
             echo "<a href='?action=preview&uid={$ce["uid"]}'>";
