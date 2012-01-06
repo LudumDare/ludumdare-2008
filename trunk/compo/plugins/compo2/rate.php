@@ -163,7 +163,7 @@ function _compo2_rate_list($params) {
             echo "</a></div>";
 //             if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
 //             else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
-            echo "<div style='background:#000; text-align:center; font-weight:bold;'>";
+            echo "<div style='color:#fff; background:#000; text-align:center; font-weight:bold;'>";
             echo htmlentities($params["{$e["etype"]}_title"]);
             echo "</div>";
         }
