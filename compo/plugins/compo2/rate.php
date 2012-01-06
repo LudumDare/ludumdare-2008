@@ -167,8 +167,8 @@ function _compo2_rate_list_old_n_busted($params) {
     
     echo "<h3>Previous rated entries</h3>";
     
-        $_link="?action=preview"
-        $r = array_slice($r_unrated,0,24,true);
+        $_link="?action=preview";
+        $r = array_slice($r_rated,0,24,true);
         
         $cols = 12;
         $n = 0;
