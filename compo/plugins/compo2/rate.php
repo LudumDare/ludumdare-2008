@@ -171,7 +171,7 @@ function _compo2_rate_list($params) {
         }
         echo "</table>";
     
-    echo "<p><h3>Previous rated entries</h3></p>";
+    echo "<p><h3>Previously rated entries</h3></p>";
     $r = $r_rated;
     
     echo "<table>";
