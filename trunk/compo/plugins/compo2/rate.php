@@ -140,7 +140,7 @@ function _compo2_rate_list_old_n_busted($params) {
     
     
     echo "<h3>Rate another entry!</h3>";
-        $_link="?action=preview"
+        $_link="?action=preview";
         $r = array_slice($r_unrated,0,24,true);
         
         $cols = 6;
