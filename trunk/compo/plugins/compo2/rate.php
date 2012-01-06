@@ -191,7 +191,7 @@ function _compo2_rate_list($params) {
             echo "<img src='".compo2_thumb($shots["shot0"],60,45)."' style='margin:5px;'>";
             
         echo "<td valign=center>";
-            echo "<div><i>".htmlentities(substr($ce["title"],0,24))."</i></div>";
+            echo "<div style='width:125px;overflow:hidden;'><i>".htmlentities($ce["title"])."</i></div>";
             echo "<a href='?action=preview&uid={$ce["uid"]}'>";
             $name = $ue["display_name"];
             if (!strlen($name)) { $name = "?"; }
