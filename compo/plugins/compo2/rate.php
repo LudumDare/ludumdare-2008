@@ -165,6 +165,8 @@ function _compo2_rate_list($params) {
     echo " <input type='submit' value='Search'>";
     echo "</form>";
     
+    $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
+
     
     echo "<p><h3>Play another game!</h3></p>";
     
