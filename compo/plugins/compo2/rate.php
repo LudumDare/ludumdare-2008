@@ -204,7 +204,7 @@ function _compo2_rate_list($params) {
             echo "<div style='font-size:10px;text-align:center;font-style:italic'><i>";
             
             $img = "inone.gif";
-            $v = $ce["rate_c"];
+            $v = $e["rate_c"];
             if ($v >= 25) { $img = "ibronze.gif"; }
             if ($v >= 50) { $img = "isilver.gif"; }
             if ($v >= 75) { $img = "igold.gif"; }
