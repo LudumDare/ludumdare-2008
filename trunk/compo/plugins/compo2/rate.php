@@ -126,6 +126,7 @@ function _compo2_rate_list($params) {
     echo "<h3>Rate Entries (".count($_r).")</h3>";
     
     if (isset($_REQUEST["dump"])) {
+        echo "<h3>dump-only includes entries you haven't rated</h3>";
         echo "<table><tr><th><th>D<th>R<th>C";
         foreach ($r_unrated as $e) {
             $ue = unserialize($e["get_user"]);
@@ -136,6 +137,7 @@ function _compo2_rate_list($params) {
             $rate_d = intval($e["rate_d"]);
             echo "<td>$rate_d<td>$rate_in<td>$rate_out";   
         }
+        echo "</table>";
     }
     
     ob_start();
