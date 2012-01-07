@@ -187,13 +187,17 @@ function _compo2_rate_list($params) {
             $rate_in = intval($e["rate_in"]);
             $rate_out = intval($e["rate_out"]);
             $rate_d = intval($e["rate_d"]);
-            echo "(R:$rate_in C:$rate_out D:$rate_d)";
+            echo "(D:$rate_d=R:$rate_in-C:$rate_out)";
             echo "</div>";
             
         }
         echo "</table>";
         
-    echo "<p style='font-size:8px;'>Fine print:<br/><br/>R = Ratings = how many ratings this entry has received.<br/>C = Coolness = how many entries this user has rated<br/>D = Default = R - C, except not quite that simple<br/>L = Loser = someone who games the coolness ranking.  It's the honor system, people.  Everyone might think you are cool, but in your heart of hearts, you will know that you are a <i>loser</i>.</p>";
+    echo "<p style='font-size:8px;'>Fine print:<br/><br/>";
+    echo "D = Default = R - C, except not quite that simple<br/>";
+    echo "R = Ratings = how many ratings this entry has received.<br/>";
+    echo "C = Coolness = how many entries this user has rated<br/>";
+    echo "L = Loser = someone who games the coolness ranking.  It's the honor system, people.  Everyone might think you are cool, but in your heart of hearts, you will know that you are a <i>loser</i>.</p>";
     
     echo "<p><h3>Previously rated entries</h3></p>";
     $r = $r_rated;
