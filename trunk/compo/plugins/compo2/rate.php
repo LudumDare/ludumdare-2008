@@ -193,7 +193,7 @@ function _compo2_rate_list($params) {
         }
         echo "</table>";
         
-    echo "<p style='font-size:8px;'>Fine print:<br/><br/>";
+    echo "<p style='font-size:8px;'>";
     echo "D = Default = R - C, except not quite that simple<br/>";
     echo "R = Ratings = how many ratings this entry has received.<br/>";
     echo "C = Coolness = how many entries this user has rated<br/>";
