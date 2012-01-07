@@ -178,7 +178,7 @@ function _compo2_rate_list($params) {
             echo $ue["display_name"];
             $rate_in = intval($e["rate_in"]);
             $rate_out = intval($e["rate_out"]);
-            echo " (r:$rate_in c:$rate_out)";
+            echo " (R:$rate_in C:$rate_out)";
             echo "</a></div>";
 //             if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
 //             else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
@@ -188,6 +188,8 @@ function _compo2_rate_list($params) {
             
         }
         echo "</table>";
+        
+    echo "<p>Fine print:<br/>R = Ratings = how many ratings this entry has received.<br/>C = Coolness = how many entries this user has rated<br/>D = Default = R - sqrt(min(100,C)) * 25 / 10</p>";
     
     echo "<p><h3>Previously rated entries</h3></p>";
     $r = $r_rated;
