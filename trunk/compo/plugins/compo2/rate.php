@@ -179,7 +179,7 @@ function _compo2_rate_list($params) {
             echo $ue["display_name"];
             $rate_in = intval($e["rate_in"]);
             $rate_out = intval($e["rate_out"]);
-            $rate_d = intval($e["rate_d"];
+            $rate_d = intval($e["rate_d"]);
             echo "<br/>(R:$rate_in C:$rate_out D:$rate_d)";
             echo "</a></div>";
 //             if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
