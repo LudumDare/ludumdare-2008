@@ -108,7 +108,7 @@ function _compo2_rate_list($params) {
             $key = strtolower($ue["display_name"]);
             $r_rated[$key] = $ce;
         } else {
-            $ce["rate_d"] = ($ce["rate_in"] + 20 - (sqrt(min(100,$ce["rate_out"])) * 20 / 10));
+            $ce["rate_d"] = ($ce["rate_in"] + 25 - (sqrt(min(100,$ce["rate_out"])) * 25 / 10));
             if ($sortby == "ratings") {
                 $v = $ce["rate_in"];
             } elseif ($sortby == "coolness") {
