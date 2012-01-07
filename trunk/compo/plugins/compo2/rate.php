@@ -177,15 +177,17 @@ function _compo2_rate_list($params) {
             echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
             $ue = unserialize($e["get_user"]);
             echo $ue["display_name"];
-            $rate_in = intval($e["rate_in"]);
-            $rate_out = intval($e["rate_out"]);
-            $rate_d = intval($e["rate_d"]);
-            echo "<br/>(R:$rate_in C:$rate_out D:$rate_d)";
             echo "</a></div>";
 //             if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
 //             else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
             echo "<div style='color:#fff; margin: 3px; padding: 2px; background:#000; text-align:center; font-weight:bold;'>";
             echo htmlentities($params["{$e["etype"]}_title"]);
+            echo "</div>";
+            echo "<div style='font-size:10px;text-align:center;font-style:italic'><i>";
+            $rate_in = intval($e["rate_in"]);
+            $rate_out = intval($e["rate_out"]);
+            $rate_d = intval($e["rate_d"]);
+            echo "(R:$rate_in C:$rate_out D:$rate_d)";
             echo "</div>";
             
         }
