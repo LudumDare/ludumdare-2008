@@ -103,6 +103,7 @@ function _compo2_rate_list($params) {
     $r_unrated = array();
     $r_rated = array();
     foreach ($_r as $k=>$ce) {
+        $ce["rate_c"] = compo2_calc_coolness($ce["rate_out"],count($_r));
         if (isset($r_rate[$ce["uid"]])) {
             $ue = unserialize($ce["get_user"]);
             $key = strtolower($ue["display_name"]);
@@ -199,6 +200,15 @@ function _compo2_rate_list($params) {
             echo htmlentities($params["{$e["etype"]}_title"]);
             echo "</div>";
             echo "<div style='font-size:10px;text-align:center;font-style:italic'><i>";
+            
+            $img = "inone.gif";
+            $v = $ce["rate_c"];
+            if ($v >= 25) { $img = "ibronze.gif"; }
+            if ($v >= 50) { $img = "isilver.gif"; }
+            if ($v >= 75) { $img = "igold.gif"; }
+            echo "<img align=left src='$myurl/images/$img' title='$v% Coolness'>";
+
+            
             $rate_in = intval($e["rate_in"]);
             $rate_out = intval($e["rate_out"]);
             $rate_d = intval($e["rate_d"]);
@@ -226,13 +236,14 @@ function _compo2_rate_list($params) {
         $ve = $r_rate[$ce["uid"]];
         $ue = unserialize($ce["get_user"]);
         echo "<tr>";
+        echo "<td valign=center>";
+        
         $img = "inone.gif";
-        $v = round(100*$ce["rate_out"]/max(1,($cnt-1)));
+        $v = $ce["rate_c"];
         if ($v >= 25) { $img = "ibronze.gif"; }
         if ($v >= 50) { $img = "isilver.gif"; }
         if ($v >= 75) { $img = "igold.gif"; }
-//         if ($v >= 100) { $img = "star.gif"; }
-        echo "<td valign=center><img src='$myurl/images/$img' title='$v% Coolness'>";
+        echo "<img src='$myurl/images/$img' title='$v% Coolness'>";
         
         echo "<td valign=center align=center>";
             $shots = unserialize($ce["shots"]);

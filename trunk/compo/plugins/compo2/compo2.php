@@ -202,6 +202,13 @@ function compo2_get_user($uid) {
     return $r;
 }
 
+function compo2_calc_coolness($votes,$total) {
+    $votes = max(0,min(100,$votes));
+    $total = max(0,min(100,$total));
+    $v = sqrt($votes * 100 / max(1,$total-1)) *100 / 10;
+    return intval(round($v));
+}
+
 /*
 function compo2_get_user($uid) {
     $tm = microtime(true);
