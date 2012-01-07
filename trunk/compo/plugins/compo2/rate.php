@@ -108,14 +108,15 @@ function _compo2_rate_list($params) {
             $key = strtolower($ue["display_name"]);
             $r_rated[$key] = $ce;
         } else {
+            $ce["rate_d"] = ($ce["rate_in"] + 20 - (sqrt(min(100,$ce["rate_out"])) * 20 / 10));
             if ($sortby == "ratings") {
-                $v = 10000 + $ce["rate_in"];
+                $v = $ce["rate_in"];
             } elseif ($sortby == "coolness") {
-                $v = 10000 - $ce["rate_out"];
-            } else { // default
-                $v = 10000 + ($ce["rate_in"] - (sqrt(min(100,$ce["rate_out"])) * 25 / 10));
+                $v = - $ce["rate_out"];
+            } else {
+                $v = $ce["rate_d"];
             }
-            $key = sprintf("%05d|%s",$v,$ce["uid"]);
+            $key = sprintf("%05d|%s",10000+$v,$ce["uid"]);
             $r_unrated[$key] = $ce;
         }
     }
@@ -178,7 +179,8 @@ function _compo2_rate_list($params) {
             echo $ue["display_name"];
             $rate_in = intval($e["rate_in"]);
             $rate_out = intval($e["rate_out"]);
-            echo " (R:$rate_in C:$rate_out)";
+            $rate_d = intval($e["rate_d"];
+            echo "<br/>(R:$rate_in C:$rate_out D:$rate_d)";
             echo "</a></div>";
 //             if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
 //             else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
@@ -189,7 +191,7 @@ function _compo2_rate_list($params) {
         }
         echo "</table>";
         
-    echo "<p>Fine print:<br/>R = Ratings = how many ratings this entry has received.<br/>C = Coolness = how many entries this user has rated<br/>D = Default = R - sqrt(min(100,C)) * 25 / 10</p>";
+    echo "<p>Fine print:<br/>R = Ratings = how many ratings this entry has received.<br/>C = Coolness = how many entries this user has rated<br/>D = Default = R - C, except not quite that simple<br/>L = Loser = someone who games the coolness ranking.  It's the honor system, people.  Everyone might think you are cool, but in your heart of hearts, you will know that you are a <i>loser</i>.</p>";
     
     echo "<p><h3>Previously rated entries</h3></p>";
     $r = $r_rated;
