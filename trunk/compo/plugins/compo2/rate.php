@@ -159,7 +159,7 @@ function _compo2_rate_list($params) {
         echo "</p>";
         
         $_link="?action=preview";
-        $r = array_slice($r_unrated,0,12,true);
+        $r = array_slice($r_unrated,0,18,true);
         
         $cols = 6;
         $n = 0;
