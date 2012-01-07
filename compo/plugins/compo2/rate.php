@@ -193,7 +193,7 @@ function _compo2_rate_list($params) {
         }
         echo "</table>";
         
-    echo "<p>Fine print:<br/>R = Ratings = how many ratings this entry has received.<br/>C = Coolness = how many entries this user has rated<br/>D = Default = R - C, except not quite that simple<br/>L = Loser = someone who games the coolness ranking.  It's the honor system, people.  Everyone might think you are cool, but in your heart of hearts, you will know that you are a <i>loser</i>.</p>";
+    echo "<p style='font-size:10px;'>Fine print:<br/><br/>R = Ratings = how many ratings this entry has received.<br/>C = Coolness = how many entries this user has rated<br/>D = Default = R - C, except not quite that simple<br/>L = Loser = someone who games the coolness ranking.  It's the honor system, people.  Everyone might think you are cool, but in your heart of hearts, you will know that you are a <i>loser</i>.</p>";
     
     echo "<p><h3>Previously rated entries</h3></p>";
     $r = $r_rated;
