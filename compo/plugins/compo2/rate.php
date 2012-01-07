@@ -125,6 +125,19 @@ function _compo2_rate_list($params) {
     
     echo "<h3>Rate Entries (".count($_r).")</h3>";
     
+    if (isset($_REQUEST["dump"])) {
+        echo "<table><tr><th><th>D<th>R<th>C";
+        foreach ($r_unrated as $e) {
+            $ue = unserialize($e["get_user"]);
+            echo "<tr><th>";
+            echo $ue["display_name"];
+            $rate_in = intval($e["rate_in"]);
+            $rate_out = intval($e["rate_out"]);
+            $rate_d = intval($e["rate_d"]);
+            echo "<td>$rate_d<td>$rate_in<td>$rate_out";   
+        }
+    }
+    
     ob_start();
     echo "<p>";
 //     if (!strlen($_REQUEST["more"])) {
