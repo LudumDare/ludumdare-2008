@@ -53,7 +53,8 @@ function _compo2_get_results($params) {
     // HACK: add in Coolness
     $cat = $params["cats"][] = "Coolness";
     foreach ($r as $k=>$ce) {
-        $r[$k]["results"][$cat] = round(100*$ce["rate_out"]/(max($total,2)-1));
+//         $r[$k]["results"][$cat] = round(100*$ce["rate_out"]/(max($total,2)-1));
+        $r[$k]["results"][$cat] = compo2_calc_coolness($ce["rate_out"],$total);
     }
     
     foreach ($params["cats"] as $cat) {
