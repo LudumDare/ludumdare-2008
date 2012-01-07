@@ -109,7 +109,7 @@ function _compo2_rate_list($params) {
             $r_rated[$key] = $ce;
         } else {
             if ($sortby == "ratings") {
-                $v = $ce["rate_in"];
+                $v = 10000 + $ce["rate_in"];
             } elseif ($sortby == "coolness") {
                 $v = 10000 - $ce["rate_out"];
             } else { // default
