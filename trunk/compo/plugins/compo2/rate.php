@@ -98,15 +98,24 @@ function _compo2_rate_list($params) {
         $r_rate[$ve["to_uid"]] = $ve;
     }
     
+    $sortby = isset($_REQUEST["sortby"])?$_REQUEST["sortby"]:"default";
+    
     $r_unrated = array();
     $r_rated = array();
     foreach ($_r as $k=>$ce) {
         if (isset($r_rate[$ce["uid"]])) {
             $ue = unserialize($ce["get_user"]);
-            $key = "1".strtolower($ue["display_name"]);
+            $key = strtolower($ue["display_name"]);
             $r_rated[$key] = $ce;
         } else {
-            $key = "0".sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]);
+            if ($sortby == "ratings") {
+                $key = sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]);
+            } elseif ($sortby == "coolness") {
+                $key = sprintf("%05d|%s",$ce["rate_out"],$ce["uid"]);
+            } else { // default
+                $v = 10000 + ($ce["rate_in"] - (sqrt(min(100,$ce["rate_out"])) * 25 / 10));
+                $key = sprintf("%05d|%s",$v,$ce["uid"]);
+            }
             $r_unrated[$key] = $ce;
         }
     }
@@ -134,12 +143,19 @@ function _compo2_rate_list($params) {
     
     echo "<form style='text-align:left;margin:10px;'>";
 //     echo "<input type='hidden' name='action' value=''>";
-    echo "<input type='text' name='q' value='".htmlentities($q)."'>";
+    echo "<input type='hidden' name='sortby' value=\"".htmlentities($sortby)."\">";
+    echo "<input type='text' name='q' value=\"".htmlentities($q)."\">";
     echo " <input type='submit' value='Search'>";
     echo "</form>";
     
     
     echo "<p><h3>Play another game!</h3></p>";
+    
+        echo "<p>Sort by: "; $qq = urlencode($q);
+        echo "<a href='?sortby=default&q=$qq'>Default (both)</a> | ";
+        echo "<a href='?sortby=ratings&q=$qq'>Least Ratings</a> | ";
+        echo "<a href='?sortby=coolness&q=$qq'>Most Coolness</a>";
+        echo "</p>";
         
         $_link="?action=preview";
         $r = array_slice($r_unrated,0,12,true);
@@ -160,7 +176,9 @@ function _compo2_rate_list($params) {
             echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
             $ue = unserialize($e["get_user"]);
             echo $ue["display_name"];
-            if ($e["rate_in"]) { echo " ({$e["rate_in"]})"; }
+            $rate_in = intval($e["rate_in"]);
+            $rate_out = intval($e["rate_out"]);
+            echo " (r:$rate_in c:$rate_out)";
             echo "</a></div>";
 //             if ($e["disabled"]) { echo "<div><i>disabled</i></div>"; }
 //             else { if (!$e["active"]) { echo "<div><i>inactive</i></div>"; } }
