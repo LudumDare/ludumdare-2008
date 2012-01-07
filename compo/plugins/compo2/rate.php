@@ -109,13 +109,13 @@ function _compo2_rate_list($params) {
             $r_rated[$key] = $ce;
         } else {
             if ($sortby == "ratings") {
-                $key = sprintf("%05d|%s",$ce["rate_in"],$ce["uid"]);
+                $v = $ce["rate_in"];
             } elseif ($sortby == "coolness") {
-                $key = sprintf("%05d|%s",$ce["rate_out"],$ce["uid"]);
+                $v = 10000 - $ce["rate_out"];
             } else { // default
                 $v = 10000 + ($ce["rate_in"] - (sqrt(min(100,$ce["rate_out"])) * 25 / 10));
-                $key = sprintf("%05d|%s",$v,$ce["uid"]);
             }
+            $key = sprintf("%05d|%s",$v,$ce["uid"]);
             $r_unrated[$key] = $ce;
         }
     }
