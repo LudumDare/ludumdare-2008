@@ -77,9 +77,9 @@ function _compo2_get_results($params) {
             $vv = compo2_number_format($v);
             // HACK: for coolness
             if ($cat == "Coolness") {
-                if ($v >= 25) { $n = 3; }
-                if ($v >= 50) { $n = 2; }
-                if ($v >= 75) { $n = 1; }
+                if ($v >= 50) { $n = 3; }
+                if ($v >= 75) { $n = 2; }
+                if ($v >= 100) { $n = 1; }
                 $vv = intval($v)."%";
             }
             $r[$k]["values"][$cat] = $vv;
