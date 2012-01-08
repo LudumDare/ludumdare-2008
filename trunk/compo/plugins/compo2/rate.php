@@ -102,8 +102,9 @@ function _compo2_rate_list($params) {
     
     $r_unrated = array();
     $r_rated = array();
+    $total = count($_r); echo $total;
     foreach ($_r as $k=>$ce) {
-        $ce["rate_c"] = compo2_calc_coolness($ce["rate_out"],count($_r));
+        $ce["rate_c"] = compo2_calc_coolness($ce["rate_out"],$total);
         if (isset($r_rate[$ce["uid"]])) {
             $ue = unserialize($ce["get_user"]);
             $key = strtolower($ue["display_name"]);
