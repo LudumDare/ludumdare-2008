@@ -204,8 +204,8 @@ function compo2_get_user($uid) {
 
 function compo2_calc_coolness($votes,$total) {
     $votes = max(0,min(100,$votes));
-    $total = max(0,min(100,$total));
-    $v = sqrt($votes * 100 / max(1,$total-1)) * 100 / 10;
+    $total = max(0,min(100,$total-1));
+    $v = sqrt($votes * 100 / max(1,$total)) * 100 / 10;
     return intval(round($v));
 }
 
