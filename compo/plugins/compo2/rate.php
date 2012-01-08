@@ -100,8 +100,9 @@ function _compo2_rate_list($params) {
     
     $sortby = isset($_REQUEST["sortby"])?$_REQUEST["sortby"]:"default";
     
+    $r_rated = array();
     $r_unrated = array();
-    $total = count($_r); echo $total;
+    $total = count($_r);
     foreach ($_r as $k=>$ce) {
         $ce["rate_c"] = compo2_calc_coolness($ce["rate_out"],$cnt);
         if (isset($r_rate[$ce["uid"]])) {
