@@ -226,7 +226,10 @@ function _compo2_rate_list($params) {
     echo "C = Coolness = how many entries this user has rated<br/>";
     echo "L = Loser = someone who games the coolness ranking.  It's the honor system, people.  Everyone might think you are cool, but in your heart of hearts, you will know that you are a <i>loser</i>.</p>";
     
-    echo "<p><h3>Previously rated entries</h3></p>";
+    $n = htmlentities(count($r_rated));
+    echo "<p><h3>Previously rated entries ($n)</h3></p>";
+    
+    echo "<p>Rate 25+ entries to earn a Coolness medal!</p>";
     $r = $r_rated;
     
     echo "<table>";
