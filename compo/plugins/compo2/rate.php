@@ -205,9 +205,9 @@ function _compo2_rate_list($params) {
             
             $img = "inone.gif";
             $v = $e["rate_c"];
-            if ($v >= 25) { $img = "ibronze.gif"; }
-            if ($v >= 50) { $img = "isilver.gif"; }
-            if ($v >= 75) { $img = "igold.gif"; }
+            if ($v >= 50) { $img = "ibronze.gif"; }
+            if ($v >= 75) { $img = "isilver.gif"; }
+            if ($v >= 100) { $img = "igold.gif"; }
             echo "<img align=left src='$myurl/images/$img' title='$v% Coolness' style='padding:0px;margin:0px;border:0px;'>";
 
             
@@ -242,9 +242,9 @@ function _compo2_rate_list($params) {
         
         $img = "inone.gif";
         $v = $ce["rate_c"];
-        if ($v >= 25) { $img = "ibronze.gif"; }
-        if ($v >= 50) { $img = "isilver.gif"; }
-        if ($v >= 75) { $img = "igold.gif"; }
+        if ($v >= 50) { $img = "ibronze.gif"; }
+        if ($v >= 75) { $img = "isilver.gif"; }
+        if ($v >= 100) { $img = "igold.gif"; }
         echo "<img src='$myurl/images/$img' title='$v% Coolness'>";
         
         echo "<td valign=center align=center>";
