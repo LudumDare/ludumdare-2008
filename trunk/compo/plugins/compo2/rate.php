@@ -229,7 +229,7 @@ function _compo2_rate_list($params) {
     $n = htmlentities(count($r_rated));
     echo "<p><h3>Previously rated entries ($n)</h3></p>";
     
-    echo "<p>Rate 25+ entries to earn a Coolness medal!</p>";
+//     echo "<p>Rate 25+ entries to earn a Coolness medal!</p>";
     $r = $r_rated;
     
     echo "<table>";
