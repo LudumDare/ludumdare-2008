@@ -105,6 +105,19 @@ function _compo2_get_results($params) {
 function _compo2_results_results($params) {
     if (isset($_REQUEST["uid"])) { return _compo2_results_show($params,intval($_REQUEST["uid"])); }
     
+    // show user their link options here ..
+    echo "<p>";
+    echo "<a href='?action=top'>Show top entries</a> | ";
+    if (!strlen($_REQUEST["more"])) {
+        echo "<a href='?more=1'>Show all results.</a> | ";
+    }
+    echo "<a href='?action=preview'>Browse all Entries</a> | ";
+    $ce = compo2_entry_load($params["cid"],$params["uid"]);
+    if ($ce["id"]) { echo "<a href='?action=edit'>Edit your entry</a> | "; }
+    if ($ce["id"]) { echo "<a href='?preview&uid=".urlencode($ce["uid"])."'>View your entry</a> |"; }
+    echo "</p>";
+
+    // THE GOODS ARE HERE:
     //more=1 is the one alternate
     $more = intval(strlen($_REQUEST["more"])!=0);
     if (($cres=compo2_cache_read($params["cid"],$ckey="results_results:$more"))!==false) { echo $cres; return; }
@@ -132,16 +145,6 @@ function _compo2_results_results($params) {
     
     }
     echo "</table>";
-    
-    echo "<p>";
-    echo "<a href='?action=top'>Show top entries</a> | ";
-    if (!strlen($_REQUEST["more"])) {
-        echo "<a href='?more=1'>Show all results.</a> | ";
-    }
-    echo "<a href='?action=preview'>Show all Entries</a> | ";
-    $ce = compo2_entry_load($params["cid"],$params["uid"]);
-    if ($ce["id"]) { echo "<a href='?action=edit'>Edit your entry.</a>"; }
-    echo "</p>";
     
     $cres = ob_get_contents();
     ob_end_clean();
@@ -283,6 +286,15 @@ function _compo2_results_top($params) {
     $params["cats"][] = "Coolness";
     if (!in_array($cat,$params["cats"])) { $cat = $params["topcat"]; } // HACK: why overall? who knows!
     
+    // show user their link options here ..
+    echo "<p>";
+    echo "<a href='./'>Back to results</a> | ";
+    echo "<a href='?action=preview'>Browse all Entries</a> | ";
+    $ce = compo2_entry_load($params["cid"],$params["uid"]);
+    if ($ce["id"]) { echo "<a href='?action=edit'>Edit your entry</a> | "; }
+    if ($ce["id"]) { echo "<a href='?preview&uid=".urlencode($ce["uid"])."'>View your entry</a> |"; }
+    echo "</p>";
+    
     // CACHING ///////////////
     unset($_REQUEST["more"]);
     if (($cres=compo2_cache_read($params["cid"],$ckey="results_top:$cat"))!==false) { echo $cres; return; }
@@ -311,8 +323,6 @@ function _compo2_results_top($params) {
     $r = _compo2_results_sort2($r);
 //     usort($r,"_compo2_results_sort");
 
-    
-    echo "<p><a href='./'>Back to Results</a></p>";
     
     echo "<h3>Top Entries - ".htmlentities($cat)."</h3>";
     $myurl = get_bloginfo("url")."/wp-content/plugins/compo2/images";
@@ -370,12 +380,6 @@ function _compo2_results_top($params) {
 //         echo "<tr><td>&nbsp;";
     }
     echo "</table>";
-    
-    echo "<p>";
-    $cat = urlencode($_cat);
-//     echo "<a href='?action=top&cat=$cat&more=1'>Show all Entries</a> | ";
-    echo "<a href='./'>Back to Results</a>";
-    echo "</p>";
     
     $cres = ob_get_contents();
     ob_end_clean();
