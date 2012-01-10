@@ -126,7 +126,7 @@ function _compo2_results_results($params) {
     $r = _compo2_get_results($params);
     
     echo "<h3>Results</h3>";
-    echo "<p><a href='?action=top'>Show top entries</a></p>";
+//     echo "<p><a href='?action=top'>Show top entries</a></p>";
     $cols = 4; $n = 0;
     echo "<table class='results'>";
     $cat = $params["cats"][] = "Coolness";
