@@ -47,7 +47,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
     
     if (!$is_admin) {
-        echo "<p><a href='?action=preview'>View all entries.</a></p>";
+        echo "<p><a href='?action=preview'>Browse entries.</a></p>";
     }
     
     $star = "<span style='color:#f00;font-weight:bold;'>*</span>";
@@ -288,9 +288,9 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
     }
     
     if (!$is_admin) {
-        echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=default'>View all entries</a> | <a href='?action=preview&uid={$params["uid"]}'>View your entry</a></p>";
+        echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=default'>Browse entries</a> | <a href='?action=preview&uid={$params["uid"]}'>View your entry</a></p>";
     } else {
-        echo "<p><a href='?action=default&admin=1'>View all entries</a></p>";
+        echo "<p><a href='?action=default&admin=1'>Browse entries</a></p>";
     }
 //     header("Location: ?action=default"); die;
 }
