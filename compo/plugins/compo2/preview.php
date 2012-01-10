@@ -5,6 +5,17 @@ function _compo2_preview_sort($a,$b) {
     return strcasecmp($a["title"],$b["title"]);
 }
 
+function _compo2_preview_me($params) {
+    if ($params["uid"]) {
+        $ce = compo2_entry_load($params["cid"],$params["uid"]);
+        if ($ce["uid"]) {
+            header("Location: ?action=preview&uid=".intval($ce["uid"])); die;
+        }
+    }
+    header("Location: ?action=preview"); die;
+}
+    
+
 function _compo2_preview($params,$_link="?action=preview") {
     if (isset($_REQUEST["uid"])) {
         echo "<p><a href='?action=preview'>Back to View all Entries</a></p>";

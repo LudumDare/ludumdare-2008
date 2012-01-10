@@ -8,7 +8,7 @@ function _compo2_results($params) {
     } elseif ($action == "preview") {
         return _compo2_preview($params);
     } elseif ($action == "me") {
-        header("Location: ./?action=preview&uid=".intval($params["uid"])); die;
+        _compo2_preview_me($params);
     } elseif ($action == "top") {
         return _compo2_results_top($params);
     } elseif ($action == "rate") {
