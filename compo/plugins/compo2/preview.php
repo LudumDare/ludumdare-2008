@@ -9,10 +9,10 @@ function _compo2_preview_me($params) {
     if ($params["uid"]) {
         $ce = compo2_entry_load($params["cid"],$params["uid"]);
         if ($ce["uid"]) {
-            header("Location: ?action=preview&uid=".intval($ce["uid"])); die;
+            header("Location: ./?action=preview&uid=".intval($ce["uid"])); die;
         }
     }
-    header("Location: ?action=preview"); die;
+    header("Location: ./?action=preview"); die;
 }
     
 
