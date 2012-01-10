@@ -7,6 +7,8 @@ function _compo2_closed($params) {
         return _compo2_preview($params);
     } elseif ($action == "preview") {
         return _compo2_preview($params);
+    } elseif ($action == "me") {
+        header("Location: ./?action=preview&uid=".intval($params["uid"])); die;
     } elseif ($action == "edit") {
         return _compo2_active_form($params);
     } elseif ($action == "save") {
