@@ -16,6 +16,8 @@ function _compo2_rate($params) {
             return _compo2_active_form($params);
         } elseif ($action == "save") {
             return _compo2_active_save($params);
+        } elseif ($action == "me") {
+            _compo2_preview_me($params);
         } elseif ($action == "preview") {
             echo "<p class='message'>Voting is only available to participants.</p>";
             if (!$params["locked"]) {
