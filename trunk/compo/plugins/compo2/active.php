@@ -18,6 +18,8 @@ function _compo2_active($params) {
         return _compo2_active_form($params);
     } elseif ($action == "save") {
         return _compo2_active_save($params);
+    } elseif ($action == "me") {
+        _compo2_preview_me($params);
     } elseif ($action == "preview") {
         return _compo2_preview($params);
     }
