@@ -40,6 +40,8 @@ function _compo2_rate($params) {
         }
 /*    } elseif ($action == "comments") {
         return _compo2_rate_comments($params);*/
+    } elseif ($action == "me") {
+        header("Location: ./?action=preview&uid=".intval($params["uid"])); die;
     } elseif ($action == "rate") { // deprecated, but left here to keep old links live
         return _compo2_rate_rate($params);
     } elseif ($action == "submit") {
