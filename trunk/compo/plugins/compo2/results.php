@@ -114,7 +114,7 @@ function _compo2_results_results($params) {
     echo "<a href='?action=preview'>Browse all Entries</a> | ";
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if ($ce["id"]) { echo "<a href='?action=edit'>Edit your entry</a> | "; }
-    if ($ce["id"]) { echo "<a href='?preview&uid=".urlencode($ce["uid"])."'>View your entry</a> |"; }
+    if ($ce["id"]) { echo "<a href='?action=preview&uid=".urlencode($ce["uid"])."'>View your entry</a> |"; }
     echo "</p>";
 
     // THE GOODS ARE HERE:
@@ -292,7 +292,7 @@ function _compo2_results_top($params) {
     echo "<a href='?action=preview'>Browse all Entries</a> | ";
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if ($ce["id"]) { echo "<a href='?action=edit'>Edit your entry</a> | "; }
-    if ($ce["id"]) { echo "<a href='?preview&uid=".urlencode($ce["uid"])."'>View your entry</a> |"; }
+    if ($ce["id"]) { echo "<a href='?action=preview&uid=".urlencode($ce["uid"])."'>View your entry</a> |"; }
     echo "</p>";
     
     // CACHING ///////////////
