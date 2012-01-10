@@ -93,3 +93,7 @@ This is only used for compos that are not being judged.  It merely closes the co
  # action=results - see compo results
  # action=top - see compo top results
  # add ?cache=0 to reset the cache for a page
+
+= Whatever =
+# ?action=me 
+Redirect the user to ?action=preview&uid=UID
