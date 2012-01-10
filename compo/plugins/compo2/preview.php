@@ -18,7 +18,7 @@ function _compo2_preview_me($params) {
 
 function _compo2_preview($params,$_link="?action=preview") {
     if (isset($_REQUEST["uid"])) {
-        echo "<p><a href='?action=preview'>Back to View all Entries</a></p>";
+        echo "<p><a href='?action=preview'>Back to Browse Entries</a></p>";
         _compo2_preview_show($params,intval($_REQUEST["uid"]));
         _compo2_show_comments($params["cid"],intval($_REQUEST["uid"]));
         return;
