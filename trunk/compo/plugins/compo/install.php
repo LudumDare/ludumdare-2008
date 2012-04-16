@@ -48,6 +48,32 @@ function compo_install() {
         update_option($key,$version);
     }
     */
+
+    $version = 5;
+    if ($cur < $version) { 
+        $sql = "create index idx_{$compo["vote.table"]}_pid on {$compo["vote.table"]} (pid)";
+        $wpdb->query($sql);
+        $sql = "create index idx_{$compo["vote.table"]}_uid on {$compo["vote.table"]} (uid)";
+        $wpdb->query($sql);
+
+        $sql = "create index idx_{$compo["trophy.table"]}_to_uid on {$compo["trophy.table"]} (to_uid)";
+        $wpdb->query($sql);
+
+        $sql = "create index idx_{$compo["rate.table"]}_cid on {$compo["rate.table"]} (cid)";
+        $wpdb->query($sql);
+        $sql = "create index idx_{$compo["rate.table"]}_to_uid on {$compo["rate.table"]} (to_uid)";
+        $wpdb->query($sql);
+
+        update_option($key,$version);
+    }
+
+    $version = 6;
+    if ($cur < $version) { 
+        $sql = "create index idx_{$compo["trophy.table"]}_time on {$compo["trophy.table"]} (time)";
+        $wpdb->query($sql);
+        update_option($key,$version);
+    }
+
 }
 register_activation_hook($GLOBALS["compo"]["plugin"],"compo_install");
 ?>
