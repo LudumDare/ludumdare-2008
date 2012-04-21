@@ -97,3 +97,6 @@ This is only used for compos that are not being judged.  It merely closes the co
 = Whatever =
 # ?action=me 
 Redirect the user to ?action=preview&uid=UID
+
+= Emergency Cache Mode =
+Edit wp-content/plugins/compo2/fcache.php .. The first few lines let you put the site into emergency mode.  This should reduce the load on the site considerably.
