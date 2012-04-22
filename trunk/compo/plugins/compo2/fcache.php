@@ -33,7 +33,6 @@ function compo2_fcache_write($key,$value) {
 function compo2_fcache_emergency() {
     if (!_compo2_fcache_emergency()) { return ; }
     if (_compo2_fcache_admin()) { return ; }
-    if (count($_POST)) { return; }
 
     $ckey = $_SERVER["REQUEST_URI"];
     if (($cres=compo2_fcache_read($ckey,-1))!==false) {
