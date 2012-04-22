@@ -43,8 +43,28 @@ function compo2_fcache_emergency() {
     die;
 }
 
+
+function compo2_fcache_pages() {
+    if (_compo2_fcache_admin()) { return ; }
+
+    $pages = array(
+        "/compo/",
+        "/tmp/wordpress/",
+    );
+
+    $ckey = $_SERVER["REQUEST_URI"];
+    if (!in_array($ckey,$pages)) { return; }
+
+    if (($cres=compo2_fcache_read($ckey,5*60))!==false) {
+    echo $cres; echo "<p>[fcache: pages mode, using cached page]</p>"; die; }
+
+    echo "<p>[fcache: pages mode, page not found]</p>";
+    die;
+}
+
 function compo2_fcache_begin() {
     compo2_fcache_emergency();
+    compo2_fcache_pages();
     if (_compo2_fcache_logged_in()) { return; }
     if (count($_POST)) { return; }
     
