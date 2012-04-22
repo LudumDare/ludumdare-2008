@@ -56,7 +56,7 @@ function compo2_fcache_pages() {
     if (!in_array($ckey,$pages)) { return; }
 
     if (($cres=compo2_fcache_read($ckey,5*60))!==false) {
-    echo "<h1>[fcache: pages mode, using cached page]</h1>";
+    echo "<h3>[fcache: pages mode, page updated every 5 minutes]</h3>";
     echo $cres; echo "<p>[fcache: pages mode, using cached page]</p>"; die; }
 
 }
