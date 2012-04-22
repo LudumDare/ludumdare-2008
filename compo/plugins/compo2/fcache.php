@@ -58,8 +58,6 @@ function compo2_fcache_pages() {
     if (($cres=compo2_fcache_read($ckey,5*60))!==false) {
     echo $cres; echo "<p>[fcache: pages mode, using cached page]</p>"; die; }
 
-    echo "<p>[fcache: pages mode, page not found]</p>";
-    die;
 }
 
 function compo2_fcache_begin() {
