@@ -211,7 +211,8 @@ function _compo2_preview_comments($params,$uid,$form=true) {
         $user = unserialize($e["get_user"]);
         echo "<div class = 'comment'>";
         echo get_gravatar($user["user_email"],48,'mm','g',true,array("align"=>"right","class"=>"gravatar"));
-        echo "<div><strong>{$user["display_name"]} says ...</strong></div>";
+        $cuid = intval($e["from_uid"]);
+        echo "<div><strong><a href=\"?action=preview&uid=$cuid\">{$user["display_name"]}</a> says ...</strong></div>";
         echo "<div><small>".date("M j, Y @ g:ia",strtotime($e["ts"]))."</small></div>";
         echo "<p>".str_replace("\n","<br/>",htmlentities(trim($e["content"])))."</p>";
         echo "</div>";
