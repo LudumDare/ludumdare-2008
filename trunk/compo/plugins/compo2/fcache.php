@@ -3,6 +3,8 @@
 function _compo2_fcache_emergency() { return false; }
 // and add your IP to this array
 function _compo2_fcache_admin() { return in_array($_SERVER["REMOTE_ADDR"],array("127.0.0.1")); }
+// duration of cache, in seconds
+define("COMPO2_FCACHE_DURATION",5*60);
 
 // find out if a user is logged into wordpress
 function _compo2_fcache_logged_in() {
@@ -30,15 +32,26 @@ function compo2_fcache_write($key,$value) {
     file_put_contents($fname,$value);
 }
 
+function compo2_fcache_header() {
+    $expires = COMPO2_FCACHE_DURATION;
+    header("Pragma: public");
+    header("Cache-Control: maxage=".$expires);
+    header('Expires: ' . gmdate('D, d M Y H:i:s', time()+$expires) . ' GMT');
+}
+
 function compo2_fcache_emergency() {
     if (!_compo2_fcache_emergency()) { return ; }
     if (_compo2_fcache_admin()) { return ; }
 
     $ckey = $_SERVER["REQUEST_URI"];
     if (($cres=compo2_fcache_read($ckey,-1))!==false) {
-    echo "<p>[fcache: emergency mode, using cached page]</p>";
-    echo $cres; echo "<p>[fcache: emergency mode, using cached page]</p>"; die; }
+        compo2_fcache_header();
+        echo $cres;
+        echo "<p>[fcache: emergency mode, using cached page]</p>";
+        die;
+    }
 
+    compo2_fcache_header();
     echo "<p>[fcache: emergency mode, page not found]</p>";
     die;
 }
@@ -55,9 +68,12 @@ function compo2_fcache_pages() {
     $ckey = $_SERVER["REQUEST_URI"];
     if (!in_array($ckey,$pages)) { return; }
 
-    if (($cres=compo2_fcache_read($ckey,5*60))!==false) {
-    echo "<h3>[fcache: pages mode, page updated every 5 minutes]</h3>";
-    echo $cres; echo "<p>[fcache: pages mode, using cached page]</p>"; die; }
+    if (($cres=compo2_fcache_read($ckey,COMPO2_FCACHE_DURATION))!==false) {
+        compo2_fcache_header();
+        echo $cres;
+        echo "<p>[fcache: pages mode, using cached page]</p>";
+        die;
+    }
 
 }
 
@@ -68,7 +84,12 @@ function compo2_fcache_begin() {
     if (count($_POST)) { return; }
     
     $ckey = $_SERVER["REQUEST_URI"];
-    if (($cres=compo2_fcache_read($ckey,5*60))!==false) { echo $cres; echo "<p>[fcache: using cached page]</p>"; die; }
+    if (($cres=compo2_fcache_read($ckey,COMPO2_FCACHE_DURATION))!==false) {
+        compo2_fcache_header();
+        echo $cres;
+        echo "<p>[fcache: using cached page]</p>";
+        die;
+    }
 
     ob_start();
 }
