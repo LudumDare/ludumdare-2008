@@ -292,7 +292,11 @@ function _compo2_rate_rate($params,$uid = "") {
     
     $ce = compo2_entry_load($params["cid"],$uid);
     
-    if (!$ce["id"]) { compo2_error("invalid entry: uid=$uid"); }
+    if (!$ce["id"]) {
+        echo "<p>Sorry, this person did not have an entry.</p>";
+        return;
+        /* compo2_error("invalid entry: uid=$uid"); */
+    }
     
     if (!$ce["is_judged"]) {
         _compo2_preview_show($params,$uid,true);
