@@ -183,7 +183,7 @@ function _compo2_results_cat($params,$cat,$r) {
         echo "<tr>";
         echo "<td><img src='$myurl/$img'>";
         echo "<td align=right>$vv";
-        echo "<td><a href='?uid={$ce["uid"]}'>{$ce["user"]["display_name"]}</a>";
+        echo "<td><a href='?action=preview&uid={$ce["uid"]}'>{$ce["user"]["display_name"]}</a>";
         
         $t += 1;
         if ($t >= 5 && !strlen($_REQUEST["more"])) { break; }
@@ -344,7 +344,7 @@ function _compo2_results_top($params) {
         $ce = $e;
         $shots = unserialize($ce["shots"]);
         $fname = array_shift($shots);
-        $link = "?uid={$ce["uid"]}";
+        $link = "?action=preview&uid={$ce["uid"]}";
         
 //         $n = intval($e["places"][$_cat]);
         $n = $e["place"];
