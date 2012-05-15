@@ -292,12 +292,6 @@ function _compo2_rate_rate($params,$uid = "") {
     
     $ce = compo2_entry_load($params["cid"],$uid);
     
-    if (!$ce["id"]) {
-        echo "<p>Sorry, this person did not have an entry.</p>";
-        return;
-        /* compo2_error("invalid entry: uid=$uid"); */
-    }
-    
     if (!$ce["is_judged"]) {
         _compo2_preview_show($params,$uid,true);
         return;
@@ -306,7 +300,9 @@ function _compo2_rate_rate($params,$uid = "") {
     $div = $ce["etype"];
 
     _compo2_preview_show($params,$uid,false);
-    
+
+    if (!$ce["id"]) { return; }
+
     $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
     
     if ($params["uid"] != $uid) {
