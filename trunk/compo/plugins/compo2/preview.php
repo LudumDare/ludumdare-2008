@@ -231,6 +231,12 @@ function _compo2_preview_comments($params,$uid,$form=true) {
 
 function _compo2_preview_show($params,$uid,$comments=true) {
     $ce = compo2_entry_load($params["cid"],$uid);
+    
+    if (!$ce["id"]) {
+        echo "<p>Sorry, this person did not have an entry.</p>";
+        return;
+    }
+    
     $user = unserialize($ce["get_user"]);
     
     echo "<h3>".htmlentities($ce["title"])." - {$user["display_name"]}";
