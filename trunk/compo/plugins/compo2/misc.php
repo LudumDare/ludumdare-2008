@@ -48,6 +48,8 @@ function compo2_theme_author($uid) {
         echo "<table class='preview'>";
         foreach ($r as $e) {
             $pe = array_pop(compo2_query("select * from wp_posts where ID = ?",array($e["cid"])));
+            if (stristr($pe["post_name"],"test")!==false) { continue; } // HACK: don't include test compo results.
+            
             $_link = "../../{$pe["post_name"]}/?action=preview";
             
             if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
