@@ -40,7 +40,7 @@ function compo2_theme_author($uid) {
     if (!count($r)) { return; }
     
     echo '<h2 class="pagetitle">Entries</h2>';
-    echo "<div class='post'>";
+    echo "<div class='post' id='compo2'>";
     
         $cols = 4;
         $n = 0;
