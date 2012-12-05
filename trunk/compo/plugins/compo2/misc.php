@@ -40,7 +40,7 @@ function compo2_theme_author($uid) {
     if (!count($r)) { return; }
     
     echo '<h2 class="pagetitle">Entries</h2>';
-    echo "<p>";
+    echo "<div class='post'>";
     
         $cols = 4;
         $n = 0;
@@ -48,23 +48,23 @@ function compo2_theme_author($uid) {
         echo "<table class='preview'>";
         foreach ($r as $e) {
             $pe = array_pop(compo2_query("select * from wp_posts where ID = ?",array($e["cid"])));
-            $_link = $pe["guid"]."?action=preview";
+            $_link = "../../{$pe["post_name"]}/?action=preview";
             
             if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
             $klass = "class='alt-".(1+(($row)%2))."'";
             echo "<td valign=bottom align=center $klass>";
-            echo "<div class='title'>".htmlentities($pe["post_title"])."</div>";
             $link = "$_link&uid={$e["uid"]}";
             echo "<div><a href='$link'>";
             $shots = unserialize($e["shots"]);
             echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
             echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
             echo "</a></div>";
+            echo "<div class='title'>".htmlentities($pe["post_title"])."</div>";
         }
         echo "</table>";
 
     
-    echo "</p>";
+    echo "</div>";
     
 }
 
