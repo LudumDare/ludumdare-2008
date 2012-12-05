@@ -80,6 +80,9 @@ function compo2_theme_author($uid) {
             
             if (!strlen($ce->slug)) { continue; } // HACK: skip empty categories
             
+            // NOTE: with some smarts, search for their post tagged "final"
+            // then find the first image, and use that as the thumb image.
+            
             $_link = "../../category/{$ce->slug}/?";
             
             if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
