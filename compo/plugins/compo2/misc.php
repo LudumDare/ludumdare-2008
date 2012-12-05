@@ -90,7 +90,6 @@ function compo2_theme_author($uid) {
             echo "<td valign=bottom align=center $klass>";
             $link = "$_link&author_name={$ue->user_nicename}";
 
-            
             echo "<div>&nbsp;</div>";
             echo "<div><a href='$link'>";
             
