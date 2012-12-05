@@ -76,7 +76,7 @@ function compo2_theme_author($uid) {
             
             if (stristr($ce->name,"test")!==false) { continue; } // HACK: don't include test compo results.
             
-            $_link = "../../{$ce->slug}/";
+            $_link = "../../category/{$ce->slug}/";
             
             if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
             $klass = "class='alt-".(1+(($row)%2))."'";
@@ -88,7 +88,7 @@ function compo2_theme_author($uid) {
             echo "<div>&nbsp;</div>";
             echo "<div><a href='$link'>";
             
-            $e["title"] = $pe["post_title"];
+            $e["title"] = $ce->name;
             
 //             $shots = unserialize($e["shots"]);
 //             echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
