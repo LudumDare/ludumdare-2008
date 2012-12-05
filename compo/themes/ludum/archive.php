@@ -21,6 +21,8 @@
 		<div class="post" id="description">
 			<?php echo wpautop($auth->description); ?>
 		</div>
+		
+		<?php compo2_theme_author($uid); ?>
 
 		<h2 class="pagetitle"><?php 
 		$uid = get_query_var("author");
