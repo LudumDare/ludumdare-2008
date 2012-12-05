@@ -71,8 +71,14 @@ function compo2_theme_author($uid) {
         
         // compo
         foreach ($r1 as $e) {
-            $pe = array_pop(compo2_query("select * from wp_posts where ID = ?",array($e["cid"])));
+            
+            $ce = get_category($e["cid"]);
+            
+            print_r($ce); continue;
+
             if (stristr($pe["post_name"],"test")!==false) { continue; } // HACK: don't include test compo results.
+            
+            
             
             $_link = "../../{$pe["post_name"]}/";
             
