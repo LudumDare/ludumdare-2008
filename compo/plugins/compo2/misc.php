@@ -93,7 +93,7 @@ function compo2_theme_author($uid) {
             
 //             $shots = unserialize($e["shots"]);
 //             echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
-            echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
+            echo "<div class='title' style='height:40px;><i>".htmlentities($e["title"])."</i></div>";
             echo "</a></div>";
 //             echo "<div class='title' style='height:40px;'>".htmlentities($ce->name)."</div>";
         }
