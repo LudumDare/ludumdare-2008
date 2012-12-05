@@ -74,13 +74,9 @@ function compo2_theme_author($uid) {
             
             $ce = get_category($e["cid"]);
             
-            print_r($ce); continue;
-
-            if (stristr($pe["post_name"],"test")!==false) { continue; } // HACK: don't include test compo results.
+            if (stristr($ce["name"],"test")!==false) { continue; } // HACK: don't include test compo results.
             
-            
-            
-            $_link = "../../{$pe["post_name"]}/";
+            $_link = "../../{$ce["slug"]}/";
             
             if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
             $klass = "class='alt-".(1+(($row)%2))."'";
@@ -98,7 +94,7 @@ function compo2_theme_author($uid) {
 //             echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
             echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
             echo "</a></div>";
-            echo "<div class='title' style='height:40px;'>".htmlentities($pe["post_title"])."</div>";
+            echo "<div class='title' style='height:40px;'>".htmlentities($ce["name"])."</div>";
         }
 
 
