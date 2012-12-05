@@ -41,6 +41,8 @@ function compo2_theme_author($uid) {
     
     if (count($r1)==0 && count($r2)==0) { return; }
     
+    $ue = compo2_get_user($uid);
+    
     echo '<h2 class="pagetitle">Entries</h2>';
     echo "<div class='post' id='compo2'>";
     
@@ -76,14 +78,13 @@ function compo2_theme_author($uid) {
             
             if (stristr($ce->name,"test")!==false) { continue; } // HACK: don't include test compo results.
             
-            $_link = "../../category/{$ce->slug}/";
+            $_link = "../../category/{$ce->slug}/?";
             
             if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
             $klass = "class='alt-".(1+(($row)%2))."'";
             echo "<td valign=bottom align=center $klass>";
-//             $link = "$_link&uid={$e["uid"]}";
+            $link = "$_link&author_name={$ue["user_nicename"]}";
 
-            $link = $_link;
             
             echo "<div>&nbsp;</div>";
             echo "<div><a href='$link'>";
@@ -94,7 +95,7 @@ function compo2_theme_author($uid) {
 //             echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
             echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
             echo "</a></div>";
-            echo "<div class='title' style='height:40px;'>".htmlentities($ce->name)."</div>";
+//             echo "<div class='title' style='height:40px;'>".htmlentities($ce->name)."</div>";
         }
 
 
