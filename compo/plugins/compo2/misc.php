@@ -56,6 +56,7 @@ function compo2_theme_author($uid) {
             $klass = "class='alt-".(1+(($row)%2))."'";
             echo "<td valign=bottom align=center $klass>";
             $link = "$_link&uid={$e["uid"]}";
+            echo "<div>&nbsp;</div>";
             echo "<div><a href='$link'>";
             $shots = unserialize($e["shots"]);
             echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
