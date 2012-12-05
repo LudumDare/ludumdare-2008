@@ -35,9 +35,11 @@ function _compo2_misc_links($params) {
 
 function compo2_theme_author($uid) {
     
-    $r = compo2_query("select * from c2_entry where uid = ? and active = 1 and disabled = 0 order by cid desc",array($uid));
+    $r1 = compo2_query("select * from wp_compo_rate where to_uid = ? group by cid order by cid desc",array($uid));
     
-    if (!count($r)) { return; }
+    $r2 = compo2_query("select * from c2_entry where uid = ? and active = 1 and disabled = 0 order by cid desc",array($uid));
+    
+    if (count($r1)==0 && count($r2)==0) { return; }
     
     echo '<h2 class="pagetitle">Entries</h2>';
     echo "<div class='post' id='compo2'>";
@@ -46,7 +48,9 @@ function compo2_theme_author($uid) {
         $n = 0;
         $row = 0;
         echo "<table class='preview'>";
-        foreach ($r as $e) {
+        
+        // compo2
+        foreach ($r2 as $e) {
             $pe = array_pop(compo2_query("select * from wp_posts where ID = ?",array($e["cid"])));
             if (stristr($pe["post_name"],"test")!==false) { continue; } // HACK: don't include test compo results.
             
@@ -64,6 +68,34 @@ function compo2_theme_author($uid) {
             echo "</a></div>";
             echo "<div class='title' style='height:40px;'>".htmlentities($pe["post_title"])."</div>";
         }
+        
+        // compo
+        foreach ($r1 as $e) {
+            $pe = array_pop(compo2_query("select * from wp_posts where ID = ?",array($e["cid"])));
+            if (stristr($pe["post_name"],"test")!==false) { continue; } // HACK: don't include test compo results.
+            
+            $_link = "../../{$pe["post_name"]}/";
+            
+            if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
+            $klass = "class='alt-".(1+(($row)%2))."'";
+            echo "<td valign=bottom align=center $klass>";
+//             $link = "$_link&uid={$e["uid"]}";
+
+            $link = $_link;
+            
+            echo "<div>&nbsp;</div>";
+            echo "<div><a href='$link'>";
+            
+            $e["title"] = $pe["post_title"];
+            
+//             $shots = unserialize($e["shots"]);
+//             echo "<img src='".compo2_thumb($shots["shot0"],120,90)."'>";
+            echo "<div class='title'><i>".htmlentities($e["title"])."</i></div>";
+            echo "</a></div>";
+            echo "<div class='title' style='height:40px;'>".htmlentities($pe["post_title"])."</div>";
+        }
+
+
         echo "</table>";
 
     
