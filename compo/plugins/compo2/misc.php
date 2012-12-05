@@ -83,7 +83,7 @@ function compo2_theme_author($uid) {
             if (($n%$cols)==0) { echo "<tr>"; $row += 1; } $n += 1;
             $klass = "class='alt-".(1+(($row)%2))."'";
             echo "<td valign=bottom align=center $klass>";
-            $link = "$_link&author_name={$ue["user_nicename"]}";
+            $link = "$_link&author_name={$ue->user_nicename}";
 
             
             echo "<div>&nbsp;</div>";
