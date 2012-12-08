@@ -239,7 +239,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
     
     $user = unserialize($ce["get_user"]);
     
-    echo "<h3>".htmlentities($ce["title"])." - <a href=\"../author/{$user["user_nicename"]}/\" style='font-style:underline;'>{$user["display_name"]}</a>";
+    echo "<h3>".htmlentities($ce["title"])." - <a href=\"../author/{$user["user_nicename"]}/\">{$user["display_name"]}</a>";
     $div = $ce["etype"];
     echo " - <i>{$params["{$div}_title"]} Entry</i>";
     echo "</h3>";
@@ -268,6 +268,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
         $link = get_bloginfo("url")."/?category_name={$params["jcat"]}&author_name={$user["user_nicename"]}";
         echo "<p><a href='$link' target='_blank'>View {$user["display_name"]}'s journal.</a></p>";
     }
+    echo "<p><a href=\"../author/{$user["user_nicename"]}/\">View all entries by {$user["display_name"]}</a></p>";
     
     if ($params["state"] == "results" || $params["state"] == "admin") {
         _compo2_results_ratings($params,$uid);
