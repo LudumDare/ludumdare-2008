@@ -239,7 +239,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
     
     $user = unserialize($ce["get_user"]);
     
-    echo "<h3>".htmlentities($ce["title"])." - {$user["display_name"]}";
+    echo "<h3>".htmlentities($ce["title"])." - <a href=\"../author/{$user["user_nicename"]}/\">{$user["display_name"]}</a>";
     $div = $ce["etype"];
     echo " - <i>{$params["{$div}_title"]} Entry</i>";
     echo "</h3>";
