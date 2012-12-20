@@ -17,6 +17,19 @@ if ( function_exists('register_sidebar') ) {
 	));
 }
 
+// MK - Hey. Cell informed me Authors could edit the comments of anyone that posted in their threads //
+//      This should fix that issue. //
+// http://scribu.net/wordpress/prevent-blog-authors-from-editing-comments.html
+function restrict_comment_editing( $caps, $cap, $user_id, $args ) {
+	if ( 'edit_comment' == $cap ) {
+		$comment = get_comment( $args[0] );
+		if ( $comment->user_id != $user_id )
+			$caps[] = 'moderate_comments';
+		}
+	return $caps;
+}
+add_filter( 'map_meta_cap', 'restrict_comment_editing', 10, 4 );
+
 /** @ignore */
 function kubrick_head() {
 	$head = "<style type='text/css'>\n<!--";
