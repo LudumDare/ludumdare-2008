@@ -633,6 +633,8 @@ if( !class_exists('DarenatePlus') ):
 		function DonatePage($atts=false) {
 			global $currency, $user_ID;
 			get_currentuserinfo();
+			if ( !current_user_can( 'publish_posts' ) )
+				return;
 			$dplus = get_option( 'DarenatePlus' );
 			$repeat = array('D'=>'Days', 'W'=>'Weeks', 'M'=>'Months', 'Y'=>'Years');
 			if( isset($_GET['thankyou']) )
