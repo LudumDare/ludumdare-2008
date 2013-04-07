@@ -35,7 +35,7 @@ function ShowTwitchTVVideo( AutoStart ) {
 	var Streams = TwitchTV_Streams;
 	var MyText = "";
 	
-	if ( (TwitchTV_CurrentStream >= 0) || (TwitchTV_CurrentStream < Streams.length) ) {			
+	if ( (TwitchTV_CurrentStream >= 0) && (TwitchTV_CurrentStream < Streams.length) ) {			
 		var Stream = Streams[TwitchTV_CurrentStream];
 
 		var Name = Stream.channel.display_name;
@@ -58,7 +58,7 @@ function OnTwitchTVStopProp( e ) {
 function OnTwitchTVClicked( ClickId ) {
 	var Index = +ClickId.replace("TTV_ItemId_","");
 
-	if ( (TwitchTV_CurrentStream >= 0) || (TwitchTV_CurrentStream < Streams.length) ) {
+	if ( (TwitchTV_CurrentStream >= 0) && (TwitchTV_CurrentStream < Streams.length) ) {
 		var Old = $("#TTV_ItemId_" + TwitchTV_CurrentStream);
 		var New = $("#"+ClickId);
 		
