@@ -53,8 +53,8 @@
 }
 
 #TTV .ItemSelected:hover {
-	background-color:#6441FF;
-	/*background-color:#6441a5;*/
+	/*background-color:#6441FF;*/
+	background-color:#6441a5;
 	cursor:pointer;
 }
 
@@ -112,6 +112,9 @@
 	color:white;
 }
 
+#TTV .ItemMore_Button:hover {
+	color:#FF41a5;
+}
 
 /* ***** ITEM CONTENTS ***** */
 #TTV .Item_Image {
