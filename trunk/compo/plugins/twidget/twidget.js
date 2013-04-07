@@ -1,7 +1,7 @@
 
 
 var TwitchTV_Limit = 4;				// Number of Streams to get //
-var TwitchTV_CurrentStream = 0;		// Current Stream (default 0) //
+var TwitchTV_CurrentStream = -1;		// Current Stream (default 0) //
 var TwitchTV_VideoActive = false;	// Has the video been activated once //
 var TwitchTV_HasMoreStreams = true; // Show the More button //
 
@@ -35,7 +35,7 @@ function ShowTwitchTVVideo( AutoStart ) {
 	var Streams = TwitchTV_Streams;
 	var MyText = "";
 	
-	if ( TwitchTV_CurrentStream < Streams.length ) {					
+	if ( (TwitchTV_CurrentStream >= 0) || (TwitchTV_CurrentStream < Streams.length) ) {			
 		var Stream = Streams[TwitchTV_CurrentStream];
 
 		var Name = Stream.channel.display_name;
@@ -58,16 +58,23 @@ function OnTwitchTVStopProp( e ) {
 function OnTwitchTVClicked( ClickId ) {
 	var Index = +ClickId.replace("TTV_ItemId_","");
 
-	var Old = $("#TTV_ItemId_" + TwitchTV_CurrentStream);
-	var New = $("#"+ClickId);
-	
-	if ( Old != New ) {
-		Old.removeClass( 'ItemSelected' );
+	if ( (TwitchTV_CurrentStream >= 0) || (TwitchTV_CurrentStream < Streams.length) ) {
+		var Old = $("#TTV_ItemId_" + TwitchTV_CurrentStream);
+		var New = $("#"+ClickId);
+		
+		if ( Old != New ) {
+			Old.removeClass( 'ItemSelected' );
+			New.removeClass( 'Item' );
+			Old.addClass( 'Item' );
+			New.addClass( 'ItemSelected' );
+		}
+	}
+	else {
+		var New = $("#"+ClickId);
 		New.removeClass( 'Item' );
-		Old.addClass( 'Item' );
 		New.addClass( 'ItemSelected' );
 	}
-	
+		
 	TwitchTV_CurrentStream = Index;
 	
 	ShowTwitchTVVideo( true );
