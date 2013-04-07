@@ -1,10 +1,10 @@
-/*#TTV {
+#TTV {
 	color:#322060;
 	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 16px;
 	text-rendering: optimizelegibility;
 }
-#TTV A,A:link,A:visited,A:active {
+#TTV A,#TTV A:link,#TTV A:visited,#TTV A:active {
 	color:#FFFFFF;
 	text-decoration:none;
 }
@@ -12,7 +12,6 @@
 	color:#FF41a5;
 	text-decoration:none;
 }
-*/
 
 #TTV .Widget {
 	width:290px;
@@ -59,7 +58,7 @@
 	cursor:pointer;
 }
 
-#TTV .ItemSelected A,A:link,A:visited,A:active {
+#TTV .ItemSelected A,#TTV .ItemSelected A:link,#TTV .ItemSelected A:visited,#TTV .ItemSelected A:active {
 	color:#ffffff;
 }
 #TTV .ItemSelected A:hover {
@@ -75,7 +74,7 @@
 	vertical-align:middle;
 }
 
-#TTV .Item A,A:link,A:visited,A:active {
+#TTV .Item A,#TTV .Item A:link,#TTV .Item A:visited,#TTV .Item A:active {
 	color:#000000;
 }
 
@@ -84,7 +83,7 @@
 	cursor:pointer;
 }
 
-#TTV .Item:hover A,A:link,A:visited,A:active {
+#TTV .Item:hover A,#TTV .Item:hover A:link,#TTV .Item:hover A:visited,#TTV .Item:hover A:active {
 	color:#ffffff;
 }
 #TTV .Item:hover A:hover {
