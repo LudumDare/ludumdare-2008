@@ -56,6 +56,7 @@ function OnTwitchTVStopProp( e ) {
 }
 
 function OnTwitchTVClicked( ClickId ) {
+	var Streams = TwitchTV_Streams;
 	var Index = +ClickId.replace("TTV_ItemId_","");
 
 	var New = $("#"+ClickId);
