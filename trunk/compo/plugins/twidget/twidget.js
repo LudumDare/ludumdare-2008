@@ -69,7 +69,7 @@ function OnTwitchTVClicked( ClickId ) {
 //		}
 	}
 	
-	if ( (Index >= 0) && (Index < Streams.length) ) { {
+	if ( (Index >= 0) && (Index < Streams.length) ) {
 		New.removeClass( 'Item' );
 		New.addClass( 'ItemSelected' );
 	}
