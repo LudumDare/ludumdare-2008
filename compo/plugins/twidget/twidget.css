@@ -1,0 +1,146 @@
+#TTV {
+	color:#322060;
+	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 16px;
+	text-rendering: optimizelegibility;
+}
+#TTV A,A:link,A:visited,A:active {
+	color:#FFFFFF;
+	text-decoration:none;
+}
+#TTV A:hover {
+	color:#FF41a5;
+	text-decoration:none;
+}
+
+
+#TTV .Widget {
+	width:290px;
+	overflow:hidden;
+	background-color:#6441a5;
+	margin:0px;			
+}
+
+/* ***** HEADER ***** */
+#TTV .Head {
+	text-align:center;
+	margin:0px;
+	margin-top:4px;
+	height:173px;
+}
+
+/* ***** ITEM SECTION ***** */
+#TTV .Body {
+	height:250px;
+	overflow-y:auto;
+	overflow-x:hidden;
+	white-space:nowrap;
+	margin:0px;
+	background-color:#ffffff;
+	border-style:solid;
+	border-color:#6441a5;
+	border-width:0px;
+	border-left-width:4px;
+	border-right-width:4px;
+}
+
+/* ***** SELECTED ITEM ***** */
+#TTV .ItemSelected {
+	margin:0px;
+	clear:both;
+	height:54px;
+	vertical-align:middle;
+	background-color:#ab95d7;
+}
+
+#TTV .ItemSelected:hover {
+	background-color:#6441FF;
+	/*background-color:#6441a5;*/
+	cursor:pointer;
+}
+
+#TTV .ItemSelected A,A:link,A:visited,A:active {
+	color:#ffffff;
+}
+#TTV .ItemSelected A:hover {
+	color:#FF41a5;
+}
+
+		
+/* ***** NORMAL ITEM ***** */
+#TTV .Item {
+	margin:0px;
+	clear:both;
+	height:54px;
+	vertical-align:middle;
+}
+
+#TTV .Item A,A:link,A:visited,A:active {
+	color:#000000;
+}
+
+#TTV .Item:hover {
+	background-color:#6441FF;
+	cursor:pointer;
+}
+
+#TTV .Item:hover A,A:link,A:visited,A:active {
+	color:#ffffff;
+}
+#TTV .Item:hover A:hover {
+	color:#FF41a5;
+}
+
+
+/* ***** MORE ITEM ***** */
+#TTV .ItemMore {
+	text-align:center;
+	clear:both;
+	margin:6px;
+	font-size: 18px;
+}
+
+#TTV .ItemMore_Button {
+	margin:3px;
+	padding:3px;
+	padding-left:9px;
+	padding-right:9px;
+	background-color:#6441a5;
+	border-style:solid;
+	border-width:1px;
+	border-color:#ab95d7;
+	cursor:pointer;
+	color:white;
+}
+
+
+/* ***** ITEM CONTENTS ***** */
+#TTV .Item_Image {
+	float:left;
+	margin:2px;
+}
+
+#TTV .Item_Name {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+#TTV .Item_Body {
+}
+
+
+/* ***** FOOTER ***** */
+#TTV .Foot {
+	background-color:#6441a5;
+	color:white;
+	margin:2px;
+	vertical-align:middle;
+	height:24px;
+}	
+
+#TTV .FootImage {
+	float:left;
+	margin:0px;
+	margin-right:4px;
+}
+	
