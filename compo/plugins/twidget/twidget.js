@@ -58,19 +58,18 @@ function OnTwitchTVStopProp( e ) {
 function OnTwitchTVClicked( ClickId ) {
 	var Index = +ClickId.replace("TTV_ItemId_","");
 
+	var New = $("#"+ClickId);
+
 	if ( (TwitchTV_CurrentStream >= 0) && (TwitchTV_CurrentStream < Streams.length) ) {
 		var Old = $("#TTV_ItemId_" + TwitchTV_CurrentStream);
-		var New = $("#"+ClickId);
 		
-		if ( Old != New ) {
+//		if ( Old != New ) {
 			Old.removeClass( 'ItemSelected' );
-			New.removeClass( 'Item' );
 			Old.addClass( 'Item' );
-			New.addClass( 'ItemSelected' );
-		}
+//		}
 	}
-	else {
-		var New = $("#"+ClickId);
+	
+	if ( (Index >= 0) && (Index < Streams.length) ) { {
 		New.removeClass( 'Item' );
 		New.addClass( 'ItemSelected' );
 	}
