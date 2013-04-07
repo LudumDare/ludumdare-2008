@@ -100,7 +100,7 @@ function GetTwitchTVStreams() {
 	}
 	
 	if ( TwitchTV_HasMoreStreams ) {
-		MyText += '<div id="TTV_More" class="ItemMore"><span class="ItemMore_Button" onclick="LoadTwitchTVStreamsButton()"><a href="#">More</a></span></div>';
+		MyText += '<div id="TTV_More" class="ItemMore"><span class="ItemMore_Button" onclick="LoadTwitchTVStreamsButton()">More</span></div>';
 	}
 	
 //			MyText += "<div>";
