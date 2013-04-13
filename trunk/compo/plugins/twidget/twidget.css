@@ -26,10 +26,9 @@
 	text-align:center;
 	background-image:url('Static.gif');
 	margin:0px;
-	/*margin-top:4px;*/
-	height:173px;
-	/*border:0px;*/
+	height:171px;
 	border:4px solid #6441a5;
+	border-bottom:1px;
 }
 
 /* ***** ITEM SECTION ***** */
@@ -54,6 +53,7 @@
 	height:54px;
 	vertical-align:middle;
 	background-color:#ab95d7;
+	border-bottom:1px solid #AAAAAA;
 }
 
 #TTV .ItemSelected:hover {
@@ -76,6 +76,7 @@
 	clear:both;
 	height:54px;
 	vertical-align:middle;
+	border-bottom:1px solid #AAAAAA;
 }
 
 #TTV .Item A,#TTV .Item A:link,#TTV .Item A:visited,#TTV .Item A:active {
