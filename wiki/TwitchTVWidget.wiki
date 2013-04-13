@@ -18,3 +18,14 @@
 	InitTwitchTV();
 </script>
 }}}
+
+or to play nicer (??).
+
+{{{
+<script>
+	setTimeout( function(){
+			$("#TwitchTV").html( GetTwitchTVWidget() );
+			InitTwitchTV();
+		}, 1000 );
+</script>
+}}}
