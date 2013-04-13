@@ -98,7 +98,7 @@ function GetTwitchTVStreams() {
 		MyText += '<img class="Item_Image" src="' + Stream.preview.small + '" width="80" height="50" />';
 		MyText += '<span class="Item_Body">';
 		MyText += '<span class="Item_Name">' + Name + '</span><br />';
-		MyText += 'Viewers: <b>" + Viewers + "</b>";
+		MyText += 'Viewers: <b>' + Viewers + '</b>';
 		MyText += ' (<a href="' + Stream.channel.url + '" target="_blank" onclick="OnTwitchTVStopProp(event)">link</a>)';
 		MyText += '</span>';
 		MyText += "</div>";
