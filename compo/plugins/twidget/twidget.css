@@ -16,10 +16,10 @@
 #TTV .Widget {
 	width:290px;
 	overflow:hidden;
-	/*background-color:#6441a5;*/
+	background-color:#6441a5;
 	background-image:url('wp-content/plugins/twidget/Static.gif');
 	margin:0px;
-	/*border:4px solid #6441a5;*/
+	border:4px solid #6441a5;
 }
 
 /* ***** HEADER ***** */
@@ -28,7 +28,7 @@
 	margin:0px;
 	margin-top:4px;
 	height:173px;
-	background-image:url('Static.gif');
+	border:0px;
 }
 
 /* ***** ITEM SECTION ***** */
