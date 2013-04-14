@@ -132,7 +132,7 @@ function LoadTwitchTVStreams() {
 		if (error) {
 			//console.log(error);
 			
-			MyText += "Streams " + error + ".<br />";
+			MyText += "Stream Fetch " + error + ".<br />";
 		}
 		else {
 			//console.log(list);
