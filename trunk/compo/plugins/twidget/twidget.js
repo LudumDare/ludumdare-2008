@@ -164,10 +164,10 @@ function InitTwitchTV() {
 			var svg = document.getElementById("TTV_Standby");
 			svg.addEventListener("load",function(){
 				var svgDoc = svg.contentDocument;
-				console.log( svgDoc );
-				//var Thing = svgDoc.getElementById("hey");
-				//Thing.setAttribute("onclick", "OnTwitchTVClicked(-1)");
-				//Thing.addEventListener("onclick", function(){OnTwitchTVClicked(-1);},false);
+//				console.log( svgDoc );
+				var Thing = svgDoc.getElementById("hey");
+//				Thing.setAttribute("onclick", "OnTwitchTVClicked(-1)");
+				Thing.addEventListener("onclick", function(){OnTwitchTVClicked(-1);},false);
 				
 				//$("#TTV_Standby").find('#Neat')[0].
 			},false);
