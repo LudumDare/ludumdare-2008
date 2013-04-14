@@ -13,6 +13,7 @@
 	}
 	.Neat:hover {
 		stroke:#FF41a5;
+		cursor:pointer;
 	}
 </style>
 <g class="Neat" id="TTV_Standby_Icon">
