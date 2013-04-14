@@ -185,7 +185,7 @@
 	vertical-align:middle;
 
 	position:relative;
-	top:-2px;
+	top:-4px;
 }
 
 #TTV .FootImg {
@@ -197,11 +197,14 @@
 	background-position: 0 0;
 	background-repeat:no-repeat;*/
 }
-
-#TTV .FootImg a:hover img {
+/*
+#TTV .FootImg a {position:relative; display:inline-block;}
+#TTV .FootImg a:after {content:""; position:absolute; top:0; left:0; bottom:0; right:0;}
+*/
+/*#TTV .FootImg a:hover img {
 	visibility:hidden;
-}
-
+}*/
+/*
 #TTV .ImgTwitch {
 	display:block;
 	vertical-align:middle;
@@ -215,17 +218,10 @@
 }
 
 #TTV .ImgTwitch:hover {
-/*	display:block;
-	vertical-align:middle;*/
-/*	width:24px;
-	height:24px;*/
 	background-image:url(TwitchGlitchHover.svg);
-/*	background-size: contain;
-	background-position: 0 0;
-	background-repeat:no-repeat;*/
 	cursor:pointer;
 }
-
+*/
 #TTV .FootImg2 {
 	display:inline-block;
 	vertical-align:middle;
@@ -233,12 +229,12 @@
 	position:relative;
 	left:-28px;
 	top:+6px;
-	background-image:url("StandbyHover.svg");
+/*	background-image:url("StandbyHover.svg");
 	background-size: contain;
 	background-position: 0 0;
-	background-repeat:no-repeat;
+	background-repeat:no-repeat;*/
 }
-
+/*
 #TTV .ImgPower {
 	float:right;
 	position:relative;
@@ -256,7 +252,7 @@
 	background-image:url(StandbyHover.svg);
 	cursor:pointer;
 }
-
+*/
 #TTV .FootEdge {
 	width:auto;
 	height:0;
