@@ -40,6 +40,17 @@
 	margin:4px;
 	margin-bottom:0px;
 	/*border-bottom:0px solid;*/
+	color:white;
+	text-shadow:
+		0px -2px black,
+		-1px -1px black,
+		0px +2px black,
+		-1px +1px black,
+		-2px 0px black,
+		+1px -1px black,
+		+2px 0px black,
+		+1px +1px black;
+	font-size: 14px;
 }
 
 /* ***** ITEM SECTION ***** */
@@ -71,6 +82,7 @@
 	/*background-color:#6441FF;*/
 	background-color:#6441a5;
 	cursor:pointer;
+	color:#ffffff;
 }
 
 #TTV .ItemSelected A,#TTV .ItemSelected A:link,#TTV .ItemSelected A:visited,#TTV .ItemSelected A:active {
@@ -97,6 +109,7 @@
 #TTV .Item:hover {
 	background-color:#6441FF;
 	cursor:pointer;
+	color:#ffffff;
 }
 
 #TTV .Item:hover A,#TTV .Item:hover A:link,#TTV .Item:hover A:visited,#TTV .Item:hover A:active {
