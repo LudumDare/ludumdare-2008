@@ -40,7 +40,7 @@ function ShowTwitchTVVideo( AutoStart ) {
 		var Name = Stream.channel.display_name;
 		var Viewers = Stream.viewers;
 
-		MyText += GetTwitchTVPlayer( Stream.channel.name, 282, 171, AutoStart, 25 );
+		MyText += GetTwitchTVPlayer( Stream.channel.name, 282, 188, AutoStart, 25 );
 	}
 	else {
 		//MyText += '<img src="'+TwitchTV_BaseDir+'TVStatic.gif" width="282" height="171" />';
@@ -99,8 +99,8 @@ function GetTwitchTVStreams() {
 		MyText += '<img class="Item_Image" src="' + Stream.preview.small + '" width="80" height="50" />';
 		MyText += '<span class="Item_Body">';
 		MyText += '<span class="Item_Name">' + Name + '</span><br />';
-		MyText += 'Viewers: <b>' + Viewers + '</b>';
-		MyText += ' (<a href="' + Stream.channel.url + '" target="_blank" onclick="OnTwitchTVStopProp(event)">link</a>)';
+		MyText += '<span class="Item_Viewers">Viewers: <b>' + Viewers + '</b></span>';
+		MyText += '<span class="Item_Link">( <a href="' + Stream.channel.url + '" target="_blank" onclick="OnTwitchTVStopProp(event)">...</a> )</span>';
 		MyText += '</span>';
 		MyText += "</div>";
 	}

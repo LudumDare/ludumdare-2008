@@ -26,14 +26,16 @@
 	text-align:center;
 	background-image:url('Static.gif');
 	margin:0px;
-	height:171px;
-	border:4px solid #6441a5;
-	border-bottom:1px;
+	height:188px;
+	/*border:4px solid #6441a5;*/
+	margin:4px;
+	margin-bottom:0px;
+	/*border-bottom:0px solid;*/
 }
 
 /* ***** ITEM SECTION ***** */
 #TTV .Body {
-	height:250px;
+	height:254px;
 	overflow-y:auto;
 	overflow-x:hidden;
 	white-space:nowrap;
@@ -53,7 +55,7 @@
 	height:54px;
 	vertical-align:middle;
 	background-color:#ab95d7;
-	border-bottom:1px solid #AAAAAA;
+	border-bottom:1px solid #DDDDDD;
 }
 
 #TTV .ItemSelected:hover {
@@ -76,7 +78,7 @@
 	clear:both;
 	height:54px;
 	vertical-align:middle;
-	border-bottom:1px solid #AAAAAA;
+	border-bottom:1px solid #DDDDDD;
 }
 
 #TTV .Item A,#TTV .Item A:link,#TTV .Item A:visited,#TTV .Item A:active {
@@ -122,9 +124,13 @@
 }
 
 /* ***** ITEM CONTENTS ***** */
+#TTV .Item_Body {
+}
+
 #TTV .Item_Image {
 	float:left;
 	margin:2px;
+	margin-right:4px;
 }
 
 #TTV .Item_Name {
@@ -132,7 +138,15 @@
 	font-weight: bold;
 }
 
-#TTV .Item_Body {
+#TTV .Item_Viewers {
+	float:left;
+}
+
+#TTV .Item_Link {
+	font-size: 13px;
+	font-weight: bold;
+	float:right;
+	margin-right:4px;
 }
 
 
@@ -142,12 +156,12 @@
 	color:white;
 	margin:2px;
 	vertical-align:middle;
-	height:24px;
+	height:26px;
 }	
 
 #TTV .FootImage {
 	float:left;
-	margin:0px;
+	margin:1px;
 	margin-right:4px;
 }
 	
