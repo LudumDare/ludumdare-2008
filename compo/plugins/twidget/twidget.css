@@ -83,7 +83,7 @@
 
 /* ***** ITEM SECTION ***** */
 #TTV .Body {
-	height:252px;
+	height:248px;
 	overflow-y:auto;
 	overflow-x:hidden;
 	white-space:nowrap;
@@ -156,24 +156,52 @@
 
 /* ***** MORE ITEM ***** */
 #TTV .ItemMore {
-	text-align:center;
 	clear:both;
-	margin:6px;
-	font-size: 18px;
-}
-
-#TTV .ItemMore_Button {
-	margin:3px;
-	padding:3px;
-	padding-left:9px;
-	padding-right:9px;
-	background-color:#6441a5;
-	border-style:solid;
-	border-width:1px;
-	border-color:#ab95d7;
+	text-align:center;
+	height:32px;
 	cursor:pointer;
 	color:white;
 }
+
+#TTV .ItemMore_Body {
+	display:inline-block;
+}
+
+#TTV .ItemMore_Button {
+	background-color:#6441a5;
+	height:32px;
+	float:left;
+	margin-bottom:-4px;
+}
+
+#TTV .ItemMore_Text {
+	border:0;
+	margin:0;
+	padding:0;
+	font-size: 18px;
+	position:relative;
+	top:+3px;
+	margin-bottom:-4px;
+}
+
+#TTV .ItemMore_ButtonLeft {
+	width: 0;
+	height: 0;
+	border-bottom: 32px solid #6441a5; 
+	border-left: 32px solid transparent;
+	float:left;
+	margin-bottom:-4px;
+}
+
+#TTV .ItemMore_ButtonRight {
+	width: 0;
+	height: 0;
+	border-top: 32px solid #6441a5; 
+	border-right: 32px solid transparent;
+	float:left;
+	margin-bottom:-4px;
+}
+
 
 #TTV .ItemMore_Button:hover {
 	color:#FF41a5;
@@ -213,12 +241,6 @@
 	margin:0px;
 	width:290px;
 	height:0;
-}	
-
-#TTV .FootImage {
-/*	float:left;*/
-	margin:4px;
-/*	margin-right:6px;*/
 }
 
 #TTV .FootBody {
@@ -239,36 +261,8 @@
 	display:inline-block;
 	vertical-align:middle;
 	margin:4px;
-/*	background-image:url("TwitchGlitchHover.svg");
-	background-size: contain;
-	background-position: 0 0;
-	background-repeat:no-repeat;*/
-}
-/*
-#TTV .FootImg a {position:relative; display:inline-block;}
-#TTV .FootImg a:after {content:""; position:absolute; top:0; left:0; bottom:0; right:0;}
-*/
-/*#TTV .FootImg a:hover img {
-	visibility:hidden;
-}*/
-/*
-#TTV .ImgTwitch {
-	display:block;
-	vertical-align:middle;
-	text-indent: -99999px;
-	width:24px;
-	height:24px;
-	background-image:url(TwitchGlitch.svg);
-	background-size: contain;
-	background-position: 0 0;
-	background-repeat:no-repeat;
 }
 
-#TTV .ImgTwitch:hover {
-	background-image:url(TwitchGlitchHover.svg);
-	cursor:pointer;
-}
-*/
 #TTV .FootImg2 {
 	display:inline-block;
 	vertical-align:middle;
@@ -276,30 +270,8 @@
 	position:relative;
 	left:-28px;
 	top:+4px;
-/*	background-image:url("StandbyHover.svg");
-	background-size: contain;
-	background-position: 0 0;
-	background-repeat:no-repeat;*/
-}
-/*
-#TTV .ImgPower {
-	float:right;
-	position:relative;
-	left:-28px;
-	top:+7px;
-	width:16px;
-	height:16px;
-	background-image:url(Standby.svg);
-	background-size: contain;
-	background-position: 0 0;
-	background-repeat:no-repeat;
 }
 
-#TTV .ImgPower:hover {
-	background-image:url(StandbyHover.svg);
-	cursor:pointer;
-}
-*/
 #TTV .FootEdge {
 	width:auto;
 	height:0;

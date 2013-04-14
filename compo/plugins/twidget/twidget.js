@@ -110,12 +110,16 @@ function GetTwitchTVStreams() {
 	}
 	
 	if ( TwitchTV_HasMoreStreams ) {
-		MyText += '<div id="TTV_More" class="ItemMore"><span class="ItemMore_Button" onclick="LoadTwitchTVStreamsButton()">More</span></div>';
+		MyText += '<div class="ItemMore">';
+			MyText += '<div class="ItemMore_Body" onclick="LoadTwitchTVStreamsButton()">';
+				MyText += '<div class="ItemMore_ButtonLeft"></div>';
+				MyText += '<div id="TTV_More" class="ItemMore_Button">';
+					MyText += '<div class="ItemMore_Text">More</div>';
+				MyText += '</div>';
+				MyText += '<div class="ItemMore_ButtonRight"></div>';
+			MyText += '</div>';
+		MyText += '</div>\n';
 	}
-	
-//			MyText += "<div>";
-//			MyText += '<a href="http://www.twitch.tv/directory/game/' + encodeURI( TwitchTV_Game ) + '">View All Streams</a>';
-//			MyText += "</div><br/>";
 
 	return MyText;			
 }
@@ -208,7 +212,7 @@ function GetTwitchTVWidget() {
 				MyText += '<span class="FootText">';
 					MyText += '<a href="' + TwitchTV_FAQ + '">FAQ</a>';
 				MyText += '</span>';
-				MyText += Bullet;
+//				MyText += Bullet;
 //				MyText += Bullet;
 //				MyText += Bullet;
 				MyText += '<span class="FootImg2">';
