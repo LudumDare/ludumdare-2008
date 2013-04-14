@@ -168,6 +168,8 @@ function InitTwitchTV() {
 
 function GetTwitchTVWidget() {
 	var MyText = "";
+//	var Bullet = "&bull;";
+	var Bullet = "&nbsp;&nbsp;&nbsp;&nbsp;";
 	
 	MyText += '<div id="TTV">';
 		MyText += '<div class="Widget">';
@@ -176,11 +178,10 @@ function GetTwitchTVWidget() {
 		MyText += '</div>';
 		MyText += '<div class="Foot">';
 			MyText += '<div class="FootBody">';
-				MyText += '<a href="http://twitch.tv" target="_blank"><img src="'+TwitchTV_BaseDir+'WhiteTwitch.png" width="24" height="24" class="FootImage" /></a><a href="http://www.twitch.tv/directory/game/' + encodeURI( TwitchTV_Game ) + '" target="_blank"> View All Streams</a> &bull; <a href="' + TwitchTV_FAQ + '">FAQ</a>';
+				MyText += '<a href="http://twitch.tv" target="_blank"><img src="'+TwitchTV_BaseDir+'TwitchGlitch.svgz" height="24" class="FootImage" /></a><a href="http://www.twitch.tv/directory/game/' + encodeURI( TwitchTV_Game ) + '" target="_blank"> View All Streams</a>' + Bullet + '<a href="' + TwitchTV_FAQ + '">FAQ</a>' + Bullet + '<img src="'+TwitchTV_BaseDir+'Standby.svg" height="15" />';
 			MyText += '</div>';
 			MyText += '<div class="FootEdge"></div>';
 		MyText += '</div>';
-//		MyText += '<div class="Done"></div>';
 		MyText += '<br />';
 	MyText += '</div>';
 	

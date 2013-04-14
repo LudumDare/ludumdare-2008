@@ -1,6 +1,15 @@
+
+@font-face{
+	font-family:"Korolev-Bold";
+	src:url("webfonts/22AE77_0_0.eot");
+	src:url("webfonts/22AE77_0_0.eot?#iefix") format("embedded-opentype"),
+	url("webfonts/22AE77_0_0.woff") format("woff"),
+	url("webfonts/22AE77_0_0.ttf") format("truetype");
+}
+
 #TTV {
 	color:#322060;
-	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family:"Korolev-Bold","HelveticaNeue-CondensedBold","ArialNarrow-Bold","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size: 16px;
 	text-rendering: optimizelegibility;
 }
@@ -35,7 +44,7 @@
 
 /* ***** ITEM SECTION ***** */
 #TTV .Body {
-	height:254px;
+	height:256px;
 	overflow-y:auto;
 	overflow-x:hidden;
 	white-space:nowrap;
@@ -177,8 +186,4 @@
 	height:0;
 	border-top:28px solid #6441a5;
 	border-right:28px solid transparent;
-}
-
-#TTV .Done {
-	clear:both;
 }
