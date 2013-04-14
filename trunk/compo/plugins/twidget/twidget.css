@@ -83,6 +83,7 @@
 
 /* ***** ITEM SECTION ***** */
 #TTV .Body {
+	position:relative;
 	height:248px;
 	overflow-y:auto;
 	overflow-x:hidden;
@@ -211,13 +212,10 @@
 	height: 0;
 	border-bottom: 16px solid #6441a5; 
 	border-left: 16px solid transparent;
-	float:right;
 	margin-bottom:-4px;
-/*	position:relative;
-	top:+16px;*/
 	position:absolute;
 	top:232px;
-	left:278px;
+	left:266px;
 }
 
 /* ***** ITEM CONTENTS ***** */
