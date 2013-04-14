@@ -168,7 +168,7 @@ function InitTwitchTV() {
 				var Thing = svgDoc.getElementById("TTV_Standby_Icon");
 				console.log( Thing );
 //				Thing.setAttribute("onclick", "OnTwitchTVClicked(-1)");
-				Thing.addEventListener("onclick", function(){console.log("Yep");OnTwitchTVClicked(-1);},false);
+				Thing.addEventListener("click", function(){console.log("Yep");OnTwitchTVClicked(-1);},false);
 				console.log( "I did it" );
 				
 				//$("#TTV_Standby").find('#Neat')[0].
