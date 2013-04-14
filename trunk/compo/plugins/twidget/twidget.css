@@ -23,7 +23,7 @@
 }
 
 #TTV .Widget {
-/*	position:relative;*/
+	position:relative;
 	width:290px;
 	overflow:hidden;
 	background-color:#6441a5;
@@ -104,8 +104,10 @@
 	border-left: 16px solid transparent;
 	margin-bottom:-4px;
 	position:absolute;
-	top:432px;
-	left:278px;
+	top:424px;
+	left:270px;
+/*	top:432px;
+	left:278px;*/
 /*	top:232px;
 	left:266px;*/
 }
