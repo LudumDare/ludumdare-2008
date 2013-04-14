@@ -57,27 +57,31 @@ function OnTwitchTVStopProp( e ) {
 
 function OnTwitchTVClicked( ClickId ) {
 	var Streams = TwitchTV_Streams;
-	var Index = +ClickId.replace("TTV_ItemId_","");
-
-	var New = $("#"+ClickId);
 
 	if ( (TwitchTV_CurrentStream >= 0) && (TwitchTV_CurrentStream < Streams.length) ) {
 		var Old = $("#TTV_ItemId_" + TwitchTV_CurrentStream);
-		
-//		if ( Old != New ) {
-			Old.removeClass( 'ItemSelected' );
-			Old.addClass( 'Item' );
-//		}
-	}
-	
-	if ( (Index >= 0) && (Index < Streams.length) ) {
-		New.removeClass( 'Item' );
-		New.addClass( 'ItemSelected' );
+
+		Old.removeClass( 'ItemSelected' );
+		Old.addClass( 'Item' );
 	}
 		
-	TwitchTV_CurrentStream = Index;
+	if ( ClickId != null ) {
+		var Index = +ClickId.replace("TTV_ItemId_","");
 	
-	ShowTwitchTVVideo( true );
+		var New = $("#"+ClickId);
+	
+		if ( (Index >= 0) && (Index < Streams.length) ) {
+			New.removeClass( 'Item' );
+			New.addClass( 'ItemSelected' );
+		}
+			
+		TwitchTV_CurrentStream = Index;
+		
+		ShowTwitchTVVideo( true );
+	}
+	else {
+		ShowTwitchTVVideo( false );
+	}
 }
 
 function GetTwitchTVStreams() {
@@ -163,15 +167,13 @@ function InitTwitchTV() {
 		else {
 			var svg = document.getElementById("TTV_Standby");
 			svg.addEventListener("load",function(){
-				var svgDoc = svg.contentDocument;
-				console.log( svgDoc );
-				var Thing = svgDoc.getElementById("TTV_Standby_Icon");
-				console.log( Thing );
-//				Thing.setAttribute("onclick", "OnTwitchTVClicked(-1)");
-				Thing.addEventListener("click", function(){console.log("Yep");OnTwitchTVClicked(-1);},false);
-				console.log( "I did it" );
-				
-				//$("#TTV_Standby").find('#Neat')[0].
+				try {
+					var svgDoc = svg.contentDocument;
+					var Thing = svgDoc.getElementById("TTV_Standby_Icon");
+					Thing.addEventListener("click", function(){OnTwitchTVClicked(null);},false);
+				}
+				catch (e) {	
+				}
 			},false);
 				
 			LoadTwitchTVStreams();
