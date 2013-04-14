@@ -178,7 +178,7 @@ function GetTwitchTVWidget() {
 		MyText += '</div>';
 		MyText += '<div class="Foot">';
 			MyText += '<div class="FootBody">';
-				MyText += '<a href="http://twitch.tv" target="_blank"><img src="'+TwitchTV_BaseDir+'TwitchGlitch.svgz" height="24" class="FootImage" /></a><a href="http://www.twitch.tv/directory/game/' + encodeURI( TwitchTV_Game ) + '" target="_blank"> View All Streams</a>' + Bullet + '<a href="' + TwitchTV_FAQ + '">FAQ</a>' + Bullet + '<img src="'+TwitchTV_BaseDir+'Standby.svg" height="15" />';
+				MyText += '<a href="http://twitch.tv" target="_blank"><img src="'+TwitchTV_BaseDir+'TwitchGlitch.svg" height="24" class="FootImage" /></a><a href="http://www.twitch.tv/directory/game/' + encodeURI( TwitchTV_Game ) + '" target="_blank"> View All Streams</a>' + Bullet + '<a href="' + TwitchTV_FAQ + '">FAQ</a>' + Bullet + '<img src="'+TwitchTV_BaseDir+'Standby.svg" height="16" />';
 			MyText += '</div>';
 			MyText += '<div class="FootEdge"></div>';
 		MyText += '</div>';
