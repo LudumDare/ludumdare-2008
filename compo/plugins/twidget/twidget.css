@@ -55,7 +55,7 @@
 
 /* ***** ITEM SECTION ***** */
 #TTV .Body {
-	height:256px;
+	height:252px;
 	overflow-y:auto;
 	overflow-x:hidden;
 	white-space:nowrap;
@@ -75,7 +75,7 @@
 	height:54px;
 	vertical-align:middle;
 	background-color:#ab95d7;
-	border-bottom:1px solid #DDDDDD;
+/*	border-bottom:1px solid #DDDDDD;*/
 }
 
 #TTV .ItemSelected:hover {
@@ -99,8 +99,12 @@
 	clear:both;
 	height:54px;
 	vertical-align:middle;
-	border-bottom:1px solid #DDDDDD;
 }
+
+#TTV .Item:nth-of-type(even) {
+	background-color:#EEDDFF;
+}
+
 
 #TTV .Item A,#TTV .Item A:link,#TTV .Item A:visited,#TTV .Item A:active {
 	color:#000000;
