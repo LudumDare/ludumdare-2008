@@ -43,7 +43,7 @@ function ShowTwitchTVVideo( AutoStart ) {
 		MyText += GetTwitchTVPlayer( Stream.channel.name, 282, 188, AutoStart, 25 );
 	}
 	else {
-		MyText += '<br /><img src="'+TwitchTV_BaseDir+'TwitchLogo.svg" width="100" /><br /><span style="font-size:28px;color:#FF41a5;">Live Streaming Video!</span><br />Click on a video to start playing<br /><br /><span style="font-size:18px;">To stream here, set your<br />Twitch game to <span style="color:#6441FF;">' + TwitchTV_Game + '</span></span>';
+		MyText += '<br /><span style="font-size:28px;color:#FF41a5;">Live Streaming Video!</span><br />Click on a video to start playing<br /><br /><span style="font-size:20px;">To stream here, set your<br /><img src="'+TwitchTV_BaseDir+'TwitchLogo.svg" height="30" style="vertical-align:middle;" /> game to <span style="color:#6441FF;">' + TwitchTV_Game + '</span></span>';
 	}
 
 	var Out = $("#TTV_Video");
