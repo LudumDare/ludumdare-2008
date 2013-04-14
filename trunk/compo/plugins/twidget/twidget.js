@@ -119,6 +119,7 @@ function GetTwitchTVStreams() {
 				MyText += '<div class="ItemMore_ButtonRight"></div>';
 			MyText += '</div>';
 		MyText += '</div>\n';
+		MyText += '<div class="ItemMore_FarEdge"></div>';
 	}
 
 	return MyText;			
@@ -129,12 +130,12 @@ function LoadTwitchTVStreams() {
 		var MyText = "";
 
 		if (error) {
-			console.log(error);
+			//console.log(error);
 			
-			MyText += "Streams: " + error + ".<br />";
+			MyText += "Streams " + error + ".<br />";
 		}
 		else {
-			console.log(list);
+			//console.log(list);
 			
 			if ( list.streams.length != TwitchTV_Limit ) {
 				TwitchTV_HasMoreStreams = false;
@@ -164,9 +165,9 @@ function InitTwitchTV() {
 	Twitch.init({clientId: TwitchTV_APIKey}, function(error, status) {
 		if (error) {
 			// error encountered while loading
-			console.log(error);
+			//console.log(error);
 			
-			MyText += "Twitch.TV API: " + error + ".<br />";
+			MyText += "Twitch API " + error + ".<br />";
 		}
 		else {
 			var svg = document.getElementById("TTV_Standby");
