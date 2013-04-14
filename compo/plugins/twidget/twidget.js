@@ -80,6 +80,7 @@ function OnTwitchTVClicked( ClickId ) {
 		ShowTwitchTVVideo( true );
 	}
 	else {
+		TwitchTV_CurrentStream = -1;
 		ShowTwitchTVVideo( false );
 	}
 }
