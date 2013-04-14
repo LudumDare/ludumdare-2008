@@ -118,8 +118,8 @@ function GetTwitchTVStreams() {
 				MyText += '</div>';
 				MyText += '<div class="ItemMore_ButtonRight"></div>';
 			MyText += '</div>';
-		MyText += '</div>\n';
-		MyText += '<div class="ItemMore_FarEdge"></div>';
+		MyText += '</div>';
+//		MyText += '<div class="ItemMore_FarEdge"></div>';
 	}
 
 	return MyText;			
@@ -195,6 +195,7 @@ function GetTwitchTVWidget() {
 		MyText += '<div class="Widget">';
 			MyText += '<div id="TTV_Video" class="Head"><br/>Loading...</div>';
 			MyText += '<div id="TTV_Streams" class="Body">Loading...</div>';
+			MyText += '<div class="FarEdge"></div>';
 		MyText += '</div>';
 		MyText += '<div class="Foot">';
 			MyText += '<div class="FootBody">';
