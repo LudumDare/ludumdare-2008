@@ -178,3 +178,7 @@
 	border-top:28px solid #6441a5;
 	border-right:28px solid transparent;
 }
+
+#TTV .Done {
+	clear:both;
+}
