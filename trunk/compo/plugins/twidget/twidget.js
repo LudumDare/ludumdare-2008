@@ -213,7 +213,7 @@ function GetTwitchTVWidget() {
 //				MyText += Bullet;
 //				MyText += Bullet;
 				MyText += '<span class="FootImg2">';
-					MyText += '<object id="TTV_Standby" data="'+TwitchTV_BaseDir+'ImgStandby.svg" width="16" height="16" type="image/svg+xml" />';
+					MyText += '<object id="TTV_Standby" data="'+TwitchTV_BaseDir+'ImgStandby.svg" width="22" height="22" type="image/svg+xml" />';
 //					MyText += '<img src="'+TwitchTV_BaseDir+'ImgStandby.svg" height="16" />';
 //					MyText += '<div class="ImgPower"><a href="http://twitch.tv" target="_blank"></a></div>';
 				MyText += '</span>';
