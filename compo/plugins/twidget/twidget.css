@@ -202,9 +202,22 @@
 	margin-bottom:-4px;
 }
 
-
 #TTV .ItemMore_Button:hover {
 	color:#FF41a5;
+}
+
+#TTV .ItemMore_FarEdge {
+	width: 0;
+	height: 0;
+	border-bottom: 16px solid #6441a5; 
+	border-left: 16px solid transparent;
+	float:right;
+	margin-bottom:-4px;
+/*	position:relative;
+	top:+16px;*/
+	position:absolute;
+	top:432px;
+	left:278px;
 }
 
 /* ***** ITEM CONTENTS ***** */
