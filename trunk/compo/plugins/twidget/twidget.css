@@ -23,6 +23,7 @@
 }
 
 #TTV .Widget {
+/*	position:relative;*/
 	width:290px;
 	overflow:hidden;
 	background-color:#6441a5;
@@ -83,7 +84,6 @@
 
 /* ***** ITEM SECTION ***** */
 #TTV .Body {
-	position:relative;
 	height:248px;
 	overflow-y:auto;
 	overflow-x:hidden;
@@ -95,6 +95,19 @@
 	border-width:0px;
 	border-left-width:4px;
 	border-right-width:4px;
+}
+
+#TTV .FarEdge {
+	width: 0;
+	height: 0;
+	border-bottom: 16px solid #6441a5; 
+	border-left: 16px solid transparent;
+	margin-bottom:-4px;
+	position:absolute;
+	top:432px;
+	left:278px;
+/*	top:232px;
+	left:266px;*/
 }
 
 /* ***** SELECTED ITEM ***** */
@@ -205,17 +218,6 @@
 
 #TTV .ItemMore_Button:hover {
 	color:#FF41a5;
-}
-
-#TTV .ItemMore_FarEdge {
-	width: 0;
-	height: 0;
-	border-bottom: 16px solid #6441a5; 
-	border-left: 16px solid transparent;
-	margin-bottom:-4px;
-	position:absolute;
-	top:232px;
-	left:266px;
 }
 
 /* ***** ITEM CONTENTS ***** */
