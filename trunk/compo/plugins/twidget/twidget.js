@@ -161,6 +161,17 @@ function InitTwitchTV() {
 			MyText += "Twitch.TV API: " + error + ".<br />";
 		}
 		else {
+			var svg = document.getElementById("TTV_Standby");
+			svg.addEventListener("load",function(){
+				var svgDoc = svg.contentDocument;
+				console.log( svgDoc );
+				//var Thing = svgDoc.getElementById("hey");
+				//Thing.setAttribute("onclick", "OnTwitchTVClicked(-1)");
+				//Thing.addEventListener("onclick", function(){OnTwitchTVClicked(-1);},false);
+				
+				//$("#TTV_Standby").find('#Neat')[0].
+			},false);
+				
 			LoadTwitchTVStreams();
 		}
 	});			
@@ -179,8 +190,11 @@ function GetTwitchTVWidget() {
 		MyText += '<div class="Foot">';
 			MyText += '<div class="FootBody">';
 				MyText += '<span class="FootImg">';
-//					MyText += '<a href="http://twitch.tv" target="_blank"><img src="'+TwitchTV_BaseDir+'TwitchGlitch.svg" height="24" /></a>';
-					MyText += '<div class="ImgTwitch"><a href="http://twitch.tv" target="_blank"></a></div>';
+					MyText += '<object data="'+TwitchTV_BaseDir+'ImgTwitchGlitch.svg" width="24" height="24" type="image/svg+xml" />';
+//					MyText += '<object data="'+TwitchTV_BaseDir+'ImgTwitchGlitch.svg" width="24" height="24" type="image/svg+xml" onclick="javascript:window.open(' + "'http://twitch.tv', '_blank'" + ')" />';
+//					MyText += '<a href="http://twitch.tv" target="_blank"><object data="'+TwitchTV_BaseDir+'ImgTwitchGlitch.svg" width="24" height="24" type="image/svg+xml" /></a>';
+//					MyText += '<a href="http://twitch.tv" target="_blank"><img src="'+TwitchTV_BaseDir+'ImgTwitchGlitch.svg" height="24" /></a>';
+//					MyText += '<div class="ImgTwitch"><a href="http://twitch.tv" target="_blank"></a></div>';
 				MyText += '</span>';
 				MyText += "&nbsp;&nbsp;";
 				MyText += '<span class="FootText">';
@@ -193,10 +207,11 @@ function GetTwitchTVWidget() {
 				MyText += Bullet;
 //				MyText += Bullet;
 //				MyText += Bullet;
-//				MyText += '<span class="FootImg">';
-//					MyText += '<img src="'+TwitchTV_BaseDir+'Standby.svg" height="16" />';
-					MyText += '<div class="ImgPower"><a href="http://twitch.tv" target="_blank"></a></div>';
-//				MyText += '</span>';
+				MyText += '<span class="FootImg2">';
+					MyText += '<object id="TTV_Standby" data="'+TwitchTV_BaseDir+'ImgStandby.svg" width="16" height="16" type="image/svg+xml" />';
+//					MyText += '<img src="'+TwitchTV_BaseDir+'ImgStandby.svg" height="16" />';
+//					MyText += '<div class="ImgPower"><a href="http://twitch.tv" target="_blank"></a></div>';
+				MyText += '</span>';
 			MyText += '</div>';
 			MyText += '<div class="FootEdge"></div>';
 		MyText += '</div>';
