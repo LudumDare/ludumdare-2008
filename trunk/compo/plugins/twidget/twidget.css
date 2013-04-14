@@ -74,13 +74,15 @@
 	clear:both;
 	height:54px;
 	vertical-align:middle;
-	background-color:#ab95d7;
+	/*background-color:#ab95d7;*/
+	background-color:#6441a5;
+	color:#FFFFFF;
 /*	border-bottom:1px solid #DDDDDD;*/
 }
 
 #TTV .ItemSelected:hover {
-	/*background-color:#6441FF;*/
-	background-color:#6441a5;
+	background-color:#6441FF;
+	/*background-color:#6441a5;*/
 	cursor:pointer;
 	color:#ffffff;
 }
