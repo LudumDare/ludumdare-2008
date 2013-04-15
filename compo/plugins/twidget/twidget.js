@@ -43,7 +43,7 @@ function ShowTwitchTVVideo( AutoStart ) {
 		MyText += GetTwitchTVPlayer( Stream.channel.name, 282, 188, AutoStart, 25 );
 	}
 	else {
-		MyText += '<br /><span class="Intense">Live Streaming Video!</span><br />Click on a video to start playing<br /><br /><span style="font-size:20px;">To stream here, set your<br /><img src="'+TwitchTV_BaseDir+'TwitchLogo.svg" height="30" style="vertical-align:middle;" /> game to <span class="Standout">' + TwitchTV_Game + '</span></span>';
+		MyText += '<div style="vertical-align:middle;display:table-cell;width:282px;height:188px;"><span class="Intense">Live Streaming Video!</span><br />Click on a video to start playing<br /><br /><span style="font-size:20px;">To stream here, set your<br /><img src="'+TwitchTV_BaseDir+'TwitchLogo.svg" height="30" style="vertical-align:middle;" /> game to <span class="Standout">' + TwitchTV_Game + '</span></span></div>';
 	}
 
 	var Out = $("#TTV_Video");
@@ -94,6 +94,23 @@ function GetTwitchTVStreams() {
 		var Name = Stream.channel.display_name.replace(new RegExp("_", 'g')," ");
 		var Viewers = Stream.viewers;
 		
+		//Stream.channel.display_name	// nice name (but still underscores) //
+		//Stream.channel.name			// lower case name slug //
+		//Stream.channel.status			// The full status string people set //
+		//Stream.channel.game			// The game (duh) //
+		//Stream.channel.created_at		// When created (e.g. "2012-07-14T15:14:34Z") //
+		//Stream.channel.mature			// null if not set //
+		//Stream.channel.updated_at		// When updated (e.g. "2013-04-15T20:51:46Z") //
+		//Stream.channel.logo			// 300x300 PNG image of the streamer's avatar //
+		//Stream.channel.url			// twitch url //
+		//background,banner,video_banner// more images (usually channel off images) //
+		//Stream.broadcaster			// Name of the app they are running (xsplit) //
+		//Stream.viewers				// How many viewers //
+		//Stream.name					// munged username (e.g. live_user_archonthwizard) //
+		//Stream.name					// Game again //
+		//Stream.channel.teams[]		// Array of Teams this player is part of (can be length 0) //
+		//display_name,name,info,created_at,updated_at,logo,background,banner -- same, but teams //
+		
 		if ( idx == TwitchTV_CurrentStream ) {
 			MyText += "<div class='ItemSelected' onclick='OnTwitchTVClicked(this.id)' id='TTV_ItemId_" + idx + "'>";
 		}
@@ -135,7 +152,7 @@ function LoadTwitchTVStreams() {
 			MyText += "Stream Fetch " + error + ".<br />";
 		}
 		else {
-			//console.log(list);
+			console.log(list);
 			
 			if ( list.streams.length != TwitchTV_Limit ) {
 				TwitchTV_HasMoreStreams = false;
@@ -193,7 +210,7 @@ function GetTwitchTVWidget() {
 	
 	MyText += '<div id="TTV">';
 		MyText += '<div class="Widget">';
-			MyText += '<div id="TTV_Video" class="Head"><br/>Loading...</div>';
+			MyText += '<div id="TTV_Video" class="Head"></div>';
 			MyText += '<div id="TTV_Streams" class="Body">Loading...</div>';
 			MyText += '<div class="FarEdge"></div>';
 		MyText += '</div>';
