@@ -6,6 +6,17 @@
 ]>
 <svg  version="1.1" id="Layer_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="792" height="262.493"
 	 viewBox="0 0 792 262.493" overflow="visible" enable-background="new 0 0 792 262.493" xml:space="preserve">
+<style>
+	.TwitchLogo {
+		fill:#000000;
+		pointer-events:all;
+	}
+	.TwitchLogo:hover {
+		fill:#6441A5;
+	}
+</style>
+<a xlink:href="http://twitch.tv" target="_blank">
+<g class="TwitchLogo">
 <polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="111.38,108.835 71.041,108.835 71.041,153.657 
 	111.38,153.657 111.38,202.964 53.112,202.964 21.736,171.587 21.736,19.191 71.041,19.191 71.041,59.529 111.38,59.529 "/>
 <polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="313.081,171.587 281.704,202.964 129.31,202.964 
@@ -37,4 +48,6 @@
 	615.497,153.875 615.497,203.659 538.558,203.659 506.877,171.979 506.877,90.515 538.558,58.833 615.497,58.833 "/>
 <polygon fill-rule="evenodd" clip-rule="evenodd" fill="#FFFFFF" points="773.898,203.66 724.115,203.66 724.115,108.618 
 	683.382,108.618 683.382,203.66 633.598,203.66 633.598,18.103 683.382,18.103 683.382,58.832 742.217,58.832 773.898,90.514 "/>
+</g>
+</a>
 </svg>
