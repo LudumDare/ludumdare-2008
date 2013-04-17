@@ -9,6 +9,8 @@ Author URI: http://www.sykhronics.com
 License: BSD
 */
 
+$TwidgetHasRun = false;
+
 class Twidget extends WP_Widget {
 	function __construct() {
 		parent::__construct(
@@ -65,6 +67,8 @@ class Twidget extends WP_Widget {
 		echo 'var TwitchTV_FAQ = "' . $faqurl . '";';
 		echo 'var TwitchTV_BaseDir = "' . $plugin_dir . '";';
 		echo '</script>';
+
+		TwidgetHasRun = true;
 		
 		echo $after_widget;
 	}
@@ -115,18 +119,20 @@ class Twidget extends WP_Widget {
 }
 
 function AddTTVScripts() {
-//	echo '<link rel="stylesheet" type="text/css" href="wp-content/plugins/twidget/twidget.css" />';
-	echo '<link rel="stylesheet" type="text/css" href="wp-content/plugins/twidget/twidget.min.css" />';
-	echo '<script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>';
-	echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>';
-//	echo '<script src="wp-content/plugins/twidget/jquery.min.js"></script>';
-//	echo '<script src="wp-content/plugins/twidget/twidget.js"></script>';
-	echo '<script src="wp-content/plugins/twidget/twidget.min.js"></script>';
-	echo '<script>';
-	echo '	setTimeout( function(){';
-	echo '			InitTwitchTV();';
-	echo '		}, 200 );';
-	echo '</script>';	
+	if ( $TwidgetHasRun ) {
+//	//	echo '<link rel="stylesheet" type="text/css" href="wp-content/plugins/twidget/twidget.css" />';
+		echo '<link rel="stylesheet" type="text/css" href="wp-content/plugins/twidget/twidget.min.css" />';
+		echo '<script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>';
+		echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>';
+//	//	echo '<script src="wp-content/plugins/twidget/jquery.min.js"></script>';
+//	//	echo '<script src="wp-content/plugins/twidget/twidget.js"></script>';
+		echo '<script src="wp-content/plugins/twidget/twidget.min.js"></script>';
+		echo '<script>';
+		echo '	setTimeout( function(){';
+		echo '			InitTwitchTV();';
+		echo '		}, 200 );';
+		echo '</script>';	
+	}
 }
 
 add_action( 'widgets_init', create_function( '', 'register_widget( "twidget" );' ) );
