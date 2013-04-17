@@ -28,10 +28,8 @@ class Twidget extends WP_Widget {
 		$faqurl = $instance['faqurl'];
 
 		echo $before_widget;
-
-		$Bullet = "&nbsp;&nbsp;&nbsp;&nbsp;";
 		
-		echo '<div id="TTV">';
+		echo '<div><div id="TTV">';
 			echo '<div class="Widget">';
 				echo '<div id="TTV_Video" class="Head"></div>';
 				echo '<div id="TTV_Streams" class="Body">Loading...</div>';
@@ -46,7 +44,7 @@ class Twidget extends WP_Widget {
 					echo '<span class="FootText">';
 						echo '<a href="http://www.twitch.tv/directory/game/' . rawurlencode($game) . '" target="_blank"> View All Streams</a>';
 					echo '</span>';
-					echo $Bullet;
+					echo "&nbsp;&nbsp;&nbsp;&nbsp;";
 					echo '<span class="FootText">';
 						echo '<a href="' . $faqurl . '">FAQ</a>';
 					echo '</span>';
@@ -56,7 +54,7 @@ class Twidget extends WP_Widget {
 				echo '</div>';
 				echo '<div class="FootEdge"></div>';
 			echo '</div>';
-			echo '<br />';
+//			echo '<br />';
 		echo '</div>';
 		
 		echo '<script>';
