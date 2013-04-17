@@ -42,11 +42,11 @@ class Twidget extends WP_Widget {
 					echo '<span class="FootImg">';
 						echo '<object data="' . $plugin_dir . 'ImgTwitchGlitch.svg" width="24" height="24" type="image/svg+xml" />';
 					echo '</span>';
-					echo "&nbsp;&nbsp;";
+					echo '&nbsp;&nbsp;';
 					echo '<span class="FootText">';
-						echo '<a href="http://www.twitch.tv/directory/game/' . $game . '" target="_blank"> View All Streams</a>';
+						echo '<a href="http://www.twitch.tv/directory/game/' . rawurlencode($game) . '" target="_blank"> View All Streams</a>';
 					echo '</span>';
-					echo "&nbsp;&nbsp;&nbsp;&nbsp;";
+					echo '&nbsp;&nbsp;&nbsp;&nbsp;';
 					echo '<span class="FootText">';
 						echo '<a href="' . $faqurl . '">FAQ</a>';
 					echo '</span>';
