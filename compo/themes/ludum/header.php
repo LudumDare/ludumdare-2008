@@ -10,7 +10,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 <head profile="http://gmpg.org/xfn/11">
 <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
 
-<title><?php bloginfo('name'); ?> <?php if ( is_single() ) { ?> &raquo; Blog Archive <?php } ?> <?php wp_title(); ?></title>
+<title><?php if ( is_single() ) { ?> Blog Archive &laquo; <?php } ?> <?php wp_title(); ?><?php bloginfo('name'); ?></title>
 
 <meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /> <!-- leave this for stats -->
 
