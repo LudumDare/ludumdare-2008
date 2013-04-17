@@ -1,7 +1,7 @@
 <?php
 
+/* Copy "settings-example.php" to "settings.php", and make your changes */
 include 'settings.php';
-
 $do_logging = false;
 
 /*
