@@ -340,7 +340,7 @@ body {
 .post {
 	background-color: #ffffff;
 	margin: 0 0 10px;
-	padding: 15px;
+	padding: 11px;
 	text-align: justify;
 	border-bottom: 1px solid #5e7582;
 	overflow:hidden;
@@ -349,9 +349,10 @@ body {
 .post-with-border {
 	background-color: #ffffff;
 	margin: 0 0 10px;
-	padding: 15px;
+	padding: 11px;
 	text-align: justify;
 	border: 1px solid #5e7582;
+	overflow:hidden;
 	}
 
 .post hr {
