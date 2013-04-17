@@ -127,8 +127,8 @@ if (isset($_GET['shit']))
 		if (($_GET['sort'])=='0') $sort = '(`up`-`down`) DESC';
 		if (($_GET['sort'])=='1') $sort = '(`theme`)';
 		if (($_GET['sort'])=='2') $sort = '(`up`) DESC';
-		if (($_GET['sort'])=='3') $sort = '(`down`)';
-		if (($_GET['sort'])=='4') $sort = '(`kill`)';
+		if (($_GET['sort'])=='3') $sort = '(`down`) DESC';
+		if (($_GET['sort'])=='4') $sort = '(`kill`) DESC';
 	}
 	$query = 'SELECT * FROM `themes` WHERE `id`<808080 ORDER BY '.$sort.' '.(($_GET['shit']=='all') ? '' : 'LIMIT 150').';';
 	$c=0;
