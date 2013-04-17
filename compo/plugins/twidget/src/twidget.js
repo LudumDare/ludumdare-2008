@@ -176,7 +176,7 @@ function LoadTwitchTVStreamsButton() {
 }
 
 function SetTwitchStandbyButton() {
-	$("#TTV_Standby_Container").html( '<object id="TTV_Standby" data="'+TwitchTV_BaseDir+'ImgStandby.svg" width="22" height="22" type="image/svg+xml" />' );
+	$("#TTV_Standby_Container").html( '<object id="TTV_Standby" data="'+TwitchTV_BaseDir+'ImgStandby.svg" width="22" height="22" type="image/svg+xml"></object>' );
 	
 	var svg = document.getElementById("TTV_Standby");
 	svg.addEventListener("load",function(){
@@ -220,7 +220,7 @@ function GetTwitchTVWidget() {
 		MyText += '<div class="Foot">';
 			MyText += '<div class="FootBody">';
 				MyText += '<span class="FootImg">';
-					MyText += '<object data="'+TwitchTV_BaseDir+'ImgTwitchGlitch.svg" width="24" height="24" type="image/svg+xml" />';
+					MyText += '<object data="'+TwitchTV_BaseDir+'ImgTwitchGlitch.svg" width="24" height="24" type="image/svg+xml"></object>';
 //					MyText += '<object data="'+TwitchTV_BaseDir+'ImgTwitchGlitch.svg" width="24" height="24" type="image/svg+xml" onclick="javascript:window.open(' + "'http://twitch.tv', '_blank'" + ')" />';
 //					MyText += '<a href="http://twitch.tv" target="_blank"><object data="'+TwitchTV_BaseDir+'ImgTwitchGlitch.svg" width="24" height="24" type="image/svg+xml" /></a>';
 //					MyText += '<a href="http://twitch.tv" target="_blank"><img src="'+TwitchTV_BaseDir+'ImgTwitchGlitch.svg" height="24" /></a>';
@@ -238,7 +238,7 @@ function GetTwitchTVWidget() {
 //				MyText += Bullet;
 //				MyText += Bullet;
 				MyText += '<span id="TTV_Standby_Container" class="FootImg2">';
-					MyText += '<object id="TTV_Standby" data="'+TwitchTV_BaseDir+'ImgStandby.svg" width="22" height="22" type="image/svg+xml" />';
+					MyText += '<object id="TTV_Standby" data="'+TwitchTV_BaseDir+'ImgStandby.svg" width="22" height="22" type="image/svg+xml"></object>';
 //					MyText += '<img src="'+TwitchTV_BaseDir+'ImgStandby.svg" height="16" />';
 //					MyText += '<div class="ImgPower"><a href="http://twitch.tv" target="_blank"></a></div>';
 				MyText += '</span>';
