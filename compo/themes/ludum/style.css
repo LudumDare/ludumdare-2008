@@ -617,6 +617,7 @@ select {
 .alt {
 	margin: 0;
 	padding: 10px;
+	overflow:hidden;
 	}
 
 .commentlist {
