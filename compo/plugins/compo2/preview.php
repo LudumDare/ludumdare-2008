@@ -287,7 +287,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	   	
 	   	echo '<meta name="twitter:title" content="'.htmlentities($ce["title"]).'">';
 	   	echo '<meta name="twitter:description" content="'.substr(htmlentities($ce["notes"]),0,200).'">';
-	   	echo '<meta name="twitter:title" content="'.htmlentities($firstshot).'">';	   	
+	   	echo '<meta name="twitter:image" content="'.get_bloginfo("url").'/wp-content/compo2/'.htmlentities($firstshot).'">';	   	
 	}
     //MK//
         
