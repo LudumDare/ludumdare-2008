@@ -184,7 +184,7 @@ if (isset($_GET['up']))
 //if (isset($_POST['up']))
 {
 	//die;
-	$up = settype( mysql_real_escape_string($_GET['up']), "integer" );
+	$up = strval(intval( mysql_real_escape_string($_GET['up']) ));
 
 	$query = 'UPDATE `themes` SET `up`=`up`+1, `time`='.time().' WHERE `id`='.$up.' AND `time`<'.(time()-20).';';
 	if (!mysql_query($query)) die('Query error: ' . mysql_error());
@@ -202,7 +202,7 @@ if (isset($_GET['up']))
 if ( isset($_GET['down']))
 {
 	//die;
-	$down = settype( mysql_real_escape_string($_GET['down']), "integer" );
+	$down = strval(intval( mysql_real_escape_string($_GET['down']) ));
 
 	$query = 'UPDATE `themes` SET `down`=`down`+1, `time`='.time().' WHERE `id`='.$down.' AND `time`<'.(time()-20).';';
 	if (!mysql_query($query)) die('Query error: ' . mysql_error());
@@ -220,7 +220,7 @@ if ( isset($_GET['down']))
 if ( isset($_GET['kill']))
 {
 	//die;
-	$kill = settype( mysql_real_escape_string($_GET['kill']), "integer" );
+	$kill = strval(intval( mysql_real_escape_string($_GET['kill']) ));
 
 	$query = 'UPDATE `themes` SET `kill`=`kill`+1, `time`='.time().' WHERE `id`='.$kill.' AND `time`<'.(time()-20).';';
 	if (!mysql_query($query)) die('Query error: ' . mysql_error());
