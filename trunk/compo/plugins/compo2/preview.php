@@ -280,7 +280,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	    echo '<meta name="twitter:card" content="summary">';
 	    echo '<meta name="twitter:site" content="@ludumdare">';
 	    
-	    $twitter = get_the_author_meta('twitter',2);//get_the_author_meta('twitter', $user["ID"]); 
+	    $twitter = get_the_author_meta('twitter','2');//get_the_author_meta('twitter', $user["ID"]); 
 	    if (($twitter != null) && ($twitter != '')) {
 	   		echo '<meta name="twitter:creator" content="@'.$twitter.'">';
 	   	}
