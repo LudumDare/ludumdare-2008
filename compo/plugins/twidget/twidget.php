@@ -68,8 +68,7 @@ class Twidget extends WP_Widget {
 		echo 'var TwitchTV_BaseDir = "' . $plugin_dir . '";';
 		echo '</script>';
 
-	echo 'TOMFA';
-		$TwidgetHasRun = true;
+		global $TwidgetHasRun = true;
 		
 		echo $after_widget;
 	}
@@ -120,8 +119,7 @@ class Twidget extends WP_Widget {
 }
 
 function AddTTVScripts() {
-	echo 'HOMGA';
-	if ( $TwidgetHasRun == true ) {
+	if ( global $TwidgetHasRun == true ) {
 //	//	echo '<link rel="stylesheet" type="text/css" href="wp-content/plugins/twidget/twidget.css" />';
 		echo '<link rel="stylesheet" type="text/css" href="wp-content/plugins/twidget/twidget.min.css" />';
 		echo '<script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>';
