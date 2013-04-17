@@ -21,12 +21,50 @@ class Twidget extends WP_Widget {
 	function widget($args, $instance) {
 		extract($args);
 		
-		//$title = apply_filters( 'widget_title', $instance['title'] );
+		$plugin_dir = 'wp-content/plugins/twidget/';
+		
+		$apikey = $instance['apikey'];
+		$game = $instance['game'];
+		$faqurl = $instance['faqurl'];
 
 		echo $before_widget;
-//		if ( ! empty( $title ) )
-//			echo $before_title . $title . $after_title;
-//		echo __( 'Hello, World!', 'text_domain' );
+
+		$Bullet = "&nbsp;&nbsp;&nbsp;&nbsp;";
+		
+		echo '<div id="TTV">';
+			echo '<div class="Widget">';
+				echo '<div id="TTV_Video" class="Head"></div>';
+				echo '<div id="TTV_Streams" class="Body">Loading...</div>';
+				echo '<div class="FarEdge"></div>';
+			echo '</div>';
+			echo '<div class="Foot">';
+				echo '<div class="FootBody">';
+					echo '<span class="FootImg">';
+						echo '<object data="' . $plugin_dir . 'ImgTwitchGlitch.svg" width="24" height="24" type="image/svg+xml" />';
+					echo '</span>';
+					echo "&nbsp;&nbsp;";
+					echo '<span class="FootText">';
+						echo '<a href="http://www.twitch.tv/directory/game/' . rawurlencode($game) . '" target="_blank"> View All Streams</a>';
+					echo '</span>';
+					echo $Bullet;
+					echo '<span class="FootText">';
+						echo '<a href="' . $faqurl . '">FAQ</a>';
+					echo '</span>';
+					echo '<span class="FootImg2">';
+						echo '<object id="TTV_Standby" data="' . $plugin_dir . 'ImgStandby.svg" width="22" height="22" type="image/svg+xml" />';
+					echo '</span>';
+				echo '</div>';
+				echo '<div class="FootEdge"></div>';
+			echo '</div>';
+			echo '<br />';
+		echo '</div>';
+		
+		echo '<script>';
+		echo 'var TwitchTV_APIKey = "' . $apikey . '";';
+		echo 'var TwitchTV_Game = "' . $game . '";';
+		echo 'var TwitchTV_FAQ = "' . $faqurl . '";';
+		echo '</script>';
+		
 		echo $after_widget;
 	}
 		
