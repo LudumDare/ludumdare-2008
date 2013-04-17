@@ -242,7 +242,7 @@ echo'<tr><td style="border:1px solid #555;padding:16px;text-align:center;" colsp
 //echo '</td>';
 echo '</tr>';
 echo '</table>';
-echo '<br/><h3>How this works:</h3><br/>';
+echo '<br/><font size="+2"><b>How this works:</b></font><br/>';
 echo '
 You get a theme, and click <b>GOOD</b> or <b>BAD</b>!<br/>
 If it\'s not a theme, click <b>SLAUGHTER</b><br/>
