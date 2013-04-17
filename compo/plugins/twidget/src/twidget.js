@@ -176,6 +176,8 @@ function LoadTwitchTVStreamsButton() {
 }
 
 function SetTwitchStandbyButton() {
+	$("#TTV_Standby_Container").html( '<object id="TTV_Standby" data="'+TwitchTV_BaseDir+'ImgStandby.svg" width="22" height="22" type="image/svg+xml" />' );
+	
 	var svg = document.getElementById("TTV_Standby");
 	svg.addEventListener("load",function(){
 		try {
@@ -235,7 +237,7 @@ function GetTwitchTVWidget() {
 //				MyText += Bullet;
 //				MyText += Bullet;
 //				MyText += Bullet;
-				MyText += '<span class="FootImg2">';
+				MyText += '<span id="TTV_Standby_Container" class="FootImg2">';
 					MyText += '<object id="TTV_Standby" data="'+TwitchTV_BaseDir+'ImgStandby.svg" width="22" height="22" type="image/svg+xml" />';
 //					MyText += '<img src="'+TwitchTV_BaseDir+'ImgStandby.svg" height="16" />';
 //					MyText += '<div class="ImgPower"><a href="http://twitch.tv" target="_blank"></a></div>';

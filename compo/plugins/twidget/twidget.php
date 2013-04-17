@@ -52,8 +52,8 @@ class Twidget extends WP_Widget {
 					echo '<span class="FootText">';
 						echo '<a href="' . $faqurl . '">FAQ</a>';
 					echo '</span>';
-					echo '<span class="FootImg2">';
-						echo '<object id="TTV_Standby" data="' . $plugin_dir . 'ImgStandby.svg" width="22" height="22" type="image/svg+xml"></object>';
+					echo '<span id="TTV_Standby_Container" class="FootImg2">';
+//						echo '<object id="TTV_Standby" data="' . $plugin_dir . 'ImgStandby.svg" width="22" height="22" type="image/svg+xml"></object>';
 					echo '</span>';
 				echo '</div>';
 				echo '<div class="FootEdge"></div>';
