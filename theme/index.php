@@ -230,8 +230,8 @@ if ( isset($_GET['kill']))
 	}
 }
 
-echo'<center style="font-family:sans-serif;"><img src="slaughter.gif"><br/><br /><table style="border:1px solid #555;font-size:250%;font-family:sans-serif;text-align:center;width:700px;">';
-echo'<tr><td style="border:1px solid #555;padding:16px;text-align:center;font-weight:bold;" colspan=2><a target="_blank" style="color:#4b7aa0;" href="https://www.google.com/search?q='.urlencode($themes[0]['theme']).'">'.$themes[0]['theme'].'</a></td></tr>';
+echo'<center style="font-family:sans-serif;"><img src="slaughter.gif"><br/><br /><table style="border:0px solid #555;font-size:250%;font-family:sans-serif;text-align:center;width:960px;">';
+echo'<tr><td style="border:1px solid #555;padding:18px;text-align:center;font-weight:bold;" colspan=2><a target="_blank" style="color:#4b7aa0;" href="https://www.google.com/search?q='.urlencode($themes[0]['theme']).'">'.$themes[0]['theme'].'</a></td></tr>';
 echo'<tr><td style="border:1px solid #555;padding:16px;text-align:center;width:50%;"><a style="color:#080;" href="?up='.$themes[0]['id'].'">GOOD</a></td>';
 echo'<td style="border:1px solid #555;padding:16px;text-align:center;width:50%;"><a style="color:#800;" href="?down='.$themes[0]['id'].'">BAD</a></td></tr>';
 echo'<tr><td style="border:1px solid #555;padding:16px;text-align:center;" colspan=2;><a style="color:#f00;" href="?kill='.$themes[0]['id'].'">SLAUGHTER</a></td></tr>';
