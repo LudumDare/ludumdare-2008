@@ -215,14 +215,15 @@ echo '<i style="font-size:50%">Target kill count: <del>100000</del> '.$target.'<
 echo '<div style="text-align:left;border:1px solid black; width:100%;"><img src="greenbar.png" width="'.$pixs.'%" height="32"></div>';
 echo '</td></tr>';
 echo '</table>';
-echo '<br/><br/><br/><br/><b>How does it work:</b><br/>';
+echo '<br/><br/><b>How does it work:</b><br/>';
 echo '
 You get a theme clickie <b>GOOD</b> or <b>BAD</b>!<br/>
 If it\'s not a theme, hit <b>SLAUGHTER</b><br/>
-<b>no hacking plz!</b><br/><br>
-<b style="color:#248;font-size:250%;">NOTE:</b><br/>
-<span style="color:#048;font-size:150%;">Stuff like <i>\'2-bit art\' or \'one button controls\' or \'racing game\'</i><br/>and any other implying genre, technical or any other limitations are <B>NOT THEMES</b><br/>Please vote them down. I will remove them regardless of votes anyways.</span>
-';
+<b>no hacking plz!</b><br/>';
+//<br>
+//<b style="color:#248;font-size:250%;">NOTE:</b><br/>
+//<span style="color:#048;font-size:150%;">Stuff like <i>\'2-bit art\' or \'one button controls\' or \'racing game\'</i><br/>and any other implying genre, technical or any other limitations are <B>NOT THEMES</b><br/>Please vote them down. I will remove them regardless of votes anyways.</span>
+//';
 mysql_free_result($result);
 mysql_free_result($result2);
 mysql_close($link);
