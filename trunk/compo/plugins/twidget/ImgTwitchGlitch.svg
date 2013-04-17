@@ -7,16 +7,16 @@
 <svg  version="1.1" id="Layer_1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" width="191.268" height="200"
 	 viewBox="0 0 191.268 200" overflow="visible" enable-background="new 0 0 191.268 200" xml:space="preserve">
 <style>
-	.Neat {
+	.TwitchGlitch {
 		fill:#FFFFFF;
 		pointer-events:all;
 	}
-	.Neat:hover {
+	.TwitchGlitch:hover {
 		fill:#6441A5;
 	}
 </style>
 <a xlink:href="http://twitch.tv" target="_blank">
-<g class="Neat">
+<g class="TwitchGlitch">
 	<path fill-rule="evenodd" clip-rule="evenodd" d="M139.096,173.9H99.978L73.902,200H47.804v-26.1H0V34.783L13.044,0
 	h178.224v121.749L139.096,173.9z M173.883,113.034V17.381H30.421v126.092h39.146v26.063l26.067-26.063h47.813L173.883,113.034z"/>
 	<path d="M126.06,104.352h17.387V52.183H126.06V104.352z M78.243,104.352h17.391V52.183H78.243V104.352z"/>
