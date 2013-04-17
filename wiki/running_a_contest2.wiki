@@ -99,7 +99,7 @@ This is only used for compos that are not being judged.  It merely closes the co
 Redirect the user to ?action=preview&uid=UID
 
 = Emergency Cache Mode =
-Edit wp-content/plugins/compo2/fcache.php .. The first few lines let you put the site into emergency mode.  This should reduce the load on the site considerably.  There are two steps:
+Edit wp-content/plugins/compo2/fcache.php .. The first few lines let you put the site into emergency mode.  This should reduce the load on the site considerably.  There are 4 steps:
 
 Step 1: in _compo2_fcache_admin add your IP address to the array.  So instead of array("127.0.0.1") it will say array("127.0.0.1","your_ip_address_goes_here");
 
