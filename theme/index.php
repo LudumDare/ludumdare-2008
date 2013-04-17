@@ -236,9 +236,9 @@ echo'<tr><td style="border:1px solid #555;padding:20px;text-align:center;width:5
 echo'<td style="border:1px solid #555;padding:20px;text-align:center;width:50%;"><a style="color:#800;" href="?down='.$themes[0]['id'].'">BAD</a></td></tr>';
 echo'<tr><td style="border:1px solid #555;padding:20px;text-align:center;" colspan=2;><a style="color:#f00;" href="?kill='.$themes[0]['id'].'">SLAUGHTER</a></td></tr>';
 echo '<tr><td style="border:1px solid #555;padding:20px;text-align:center;" colspan=2>';
-echo '<b>Slaughter progress:</b> '.sprintf("%1.4f",$pixs).'%<br/>';
-echo '<i style="font-size:50%">Target kill count: <del>100000</del> '.$target.'</i><br/>';
-echo '<div style="text-align:left;border:1px solid black; width:100%;"><img src="greenbar.png" width="'.$pixs.'%" height="32"></div>';
+//echo '<b>Slaughter progress:</b> '.sprintf("%1.4f",$pixs).'%<br/>';
+//echo '<i style="font-size:50%">Target kill count: <del>100000</del> '.$target.'</i><br/>';
+//echo '<div style="text-align:left;border:1px solid black; width:100%;"><img src="greenbar.png" width="'.$pixs.'%" height="32"></div>';
 echo '</td></tr>';
 echo '</table>';
 echo '<br/><br/><b>How does it work:</b><br/>';
