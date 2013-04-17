@@ -121,10 +121,10 @@ if (isset($_GET['shit']))
 {
 	//$number = ($_GET['view']='all');
 	mysql_free_result($result);
-	$sort = '(`up`-`down`) DESC';
+	$sort = '(`up`-`down`+`kill`+`kill`+`kill`) DESC';
 	if (isset($_GET['sort']))
 	{
-		if (($_GET['sort'])=='0') $sort = '(`up`-`down`) DESC';
+		//if (($_GET['sort'])=='0') $sort = '(`up`-`down`) DESC';
 		if (($_GET['sort'])=='1') $sort = '(`theme`)';
 		if (($_GET['sort'])=='2') $sort = '(`up`) DESC';
 		if (($_GET['sort'])=='3') $sort = '(`down`) DESC';
