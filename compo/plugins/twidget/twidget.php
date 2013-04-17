@@ -66,9 +66,9 @@ class Twidget extends WP_Widget {
 		echo 'var TwitchTV_BaseDir = "' . $plugin_dir . '";';
 		echo '</script>';
 
-		echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>'
+		echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>';
 		echo '<script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>';
-		echo '<link rel="stylesheet" type="text/css" href="wp-content/plugins/twidget/twidget.css" />'
+		echo '<link rel="stylesheet" type="text/css" href="wp-content/plugins/twidget/twidget.css" />';
 		echo '<script src="wp-content/plugins/twidget/twidget.js"></script>';
 		echo '<script>';
 		echo '	setTimeout( function(){';
