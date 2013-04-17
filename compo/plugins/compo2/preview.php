@@ -252,6 +252,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
     
     $shots = unserialize($ce["shots"]);
     $fname = array_shift($shots);
+    $firstshot = $fname;
         
     echo "<table>";
     $cols = 4; $n = 0;
@@ -271,7 +272,25 @@ function _compo2_preview_show($params,$uid,$comments=true) {
     }
     echo "<a href=\"../author/{$user["user_nicename"]}/\" target='_blank'>View all entries by {$user["display_name"]}</a>";
     echo "</p>";
+
     
+    //MK//
+    // Hi Phil, I added Twitter Card Meta tags here //
+    {
+	    echo '<meta name="twitter:card" content="summary">';
+	    echo '<meta name="twitter:site" content="@ludumdare">';
+	    
+	    $twitter = get_the_author_meta('twitter', $user["ID"]); 
+	    if (($twitter != null) && ($twitter != '')) {
+	   		echo '<meta name="twitter:creator" content="@'.$twitter.'">';
+	   	}
+	   	
+	   	echo '<meta name="twitter:title" content="'.htmlentities($ce["title"]).'">';
+	   	echo '<meta name="twitter:description" content="'.substr(htmlentities($ce["notes"]),0,200).'">';
+	   	echo '<meta name="twitter:title" content="'.htmlentities($firstshot).'">';	   	
+	}
+    //MK//
+        
     if ($params["state"] == "results" || $params["state"] == "admin") {
         _compo2_results_ratings($params,$uid);
     }
