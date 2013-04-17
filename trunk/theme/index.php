@@ -17,7 +17,12 @@ CREATE TABLE IF NOT EXISTS `themes` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=888889 DEFAULT CHARSET=utf8;
 
-LOAD DATA LOCAL INFILE '/path/beh.txt' INTO TABLE 'themes' LINES TERMINATED BY '\r\n';
+LOAD DATA LOCAL INFILE '/home/username/www/theme/ld26.txt' INTO TABLE themes LINES TERMINATED BY '\r\n';
+// The above didn't work for us. LOAD DATA wasn't enabled by our MySQL install. //
+
+// I ended up importing directly in to the table as a CSV file, but set my delimeters all to " (which it wouldn't find). //
+// The ' is way too common. Also, I imported it in to the 'theme' field of the table by making that my fields string. //
+
 */
 
 function get_ip() { 
@@ -114,7 +119,7 @@ if (isset($_GET['shit']))
 {
 	//$number = ($_GET['view']='all');
 	mysql_free_result($result);
-	$sort = '(`up`-`down`) DESC';
+	$sort = '(`up`-`down`-`kill`-`kill`-`kill`-`kill`) DESC';
 	if (isset($_GET['sort']))
 	{
 		if (($_GET['sort'])=='0') $sort = '(`up`-`down`) DESC';
@@ -195,15 +200,15 @@ if ( isset($_GET['down']))
 if ( isset($_GET['kill']))
 {
 	//die;
-	$down = mysql_real_escape_string($_GET['kill']);
+	$kill = mysql_real_escape_string($_GET['kill']);
 
-	$query = 'UPDATE `themes` SET `down`=`down`+10, `time`='.time().' WHERE `id`='.$down.' AND `time`<'.(time()-20).';';
+	$query = 'UPDATE `themes` SET `kill`=`kill`+1, `time`='.time().' WHERE `id`='.$kill.' AND `time`<'.(time()-20).';';
 	if (!mysql_query($query)) die('Query error: ' . mysql_error());
 	$query = 'UPDATE `themes` SET `up`=`up`+1 WHERE `id`=888888;';
 	if (!mysql_query($query)) die('Query error: ' . mysql_error());
 	
 	$ff = fopen('log.txt','a');
-	fwrite($ff,'IP: '.get_ip().' | KILL: '.$down.' | TIME: '.date('d-m-y H:i:s').' | ' . $agent . "\n");
+	fwrite($ff,'IP: '.get_ip().' | KILL: '.$kill.' | TIME: '.date('d-m-y H:i:s').' | ' . $agent . "\n");
 	fclose($ff);
 }
 
