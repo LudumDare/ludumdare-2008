@@ -133,7 +133,7 @@ function AddTTVScripts() {
 	echo '<script>';
 	echo '	setTimeout( function(){';
 	echo '			InitTwitchTV();';
-	echo '		}, 1000 );';
+	echo '		}, 500 );';
 	echo '</script>';	
 }
 
