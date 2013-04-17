@@ -12,7 +12,7 @@
 		pointer-events:all;
 	}
 	.TwitchGlitch:hover {
-		fill:#6441A5;
+		fill:#FF41a5;
 	}
 </style>
 <a xlink:href="http://twitch.tv" target="_blank">
