@@ -242,11 +242,11 @@ echo'<tr><td style="border:1px solid #555;padding:16px;text-align:center;" colsp
 //echo '</td>';
 echo '</tr>';
 echo '</table>';
-echo '<br/><b>How does it work:</b><br/>';
+echo '<br/><b>How this works:</b><br/>';
 echo '
-You get a theme clickie <b>GOOD</b> or <b>BAD</b>!<br/>
-If it\'s not a theme, hit <b>SLAUGHTER</b><br/>
-<b>no hacking plz!</b><br/>';
+You get a theme, then click <b>GOOD</b> or <b>BAD</b>!<br/>
+If it\'s not a theme, hit <b>SLAUGHTER</b><br/>';
+//<b>no hacking plz!</b><br/>';
 //<br>
 //<b style="color:#248;font-size:250%;">NOTE:</b><br/>
 //<span style="color:#048;font-size:150%;">Stuff like <i>\'2-bit art\' or \'one button controls\' or \'racing game\'</i><br/>and any other implying genre, technical or any other limitations are <B>NOT THEMES</b><br/>Please vote them down. I will remove them regardless of votes anyways.</span>
