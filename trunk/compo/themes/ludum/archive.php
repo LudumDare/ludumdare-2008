@@ -96,15 +96,15 @@ if (is_author() && is_category()) {
 
 		<?php while (have_posts()) : the_post(); ?>
 <?php if ( get_the_author_meta('display_name') == 'news' ) { ?>
-			<div class="post" style="background: #f0fff0 url('/compo/wp-content/themes/ludum/povimg/News.png') no-repeat top left;border: 1px solid #44ff88;">
+			<div class="post" style="background: #f0fff0 url('/compo/wp-content/themes/ludum/povimg/News.png') no-repeat top right;">
 <?php } else if ( get_the_author_meta('user_level') == 10 ) { ?>
-			<div class="post" style="background: #fffff0 url('/compo/wp-content/themes/ludum/povimg/Admin.png') no-repeat top left;border: 1px solid #ffcc44;">
+			<div class="post" style="background: #fffff0 url('/compo/wp-content/themes/ludum/povimg/Admin.png') no-repeat top right;">
 <?php } else if ( is_sticky() ) { ?>
-			<div class="post" style="background: #f7f0ff url('/compo/wp-content/themes/ludum/povimg/Featured.png') no-repeat top left;border: 1px solid #8844ff;">
+			<div class="post" style="background: #f7f0ff url('/compo/wp-content/themes/ludum/povimg/Featured.png') no-repeat top right;">
 <?php } else if ( get_post_meta(get_the_ID(), '_liked', true) >= 4 ) { ?>
-			<div class="post" style="background: #fff0f0 url('/compo/wp-content/themes/ludum/povimg/Heart.png') no-repeat top left;border: 1px solid #ff4444;">
+			<div class="post" style="background: #fff0f0 url('/compo/wp-content/themes/ludum/povimg/Heart.png') no-repeat top right;">
 <?php } else if ( get_the_author_meta('user_level') == 7 ) { ?>
-			<div class="post" style="background: #ffffff url('/compo/wp-content/themes/ludum/povimg/Moderator.png') no-repeat top left;">
+			<div class="post" style="background: #ffffff url('/compo/wp-content/themes/ludum/povimg/Moderator.png') no-repeat top right;">
 <?php } else { ?>
 			<div class="post">
 <?php } ?>
