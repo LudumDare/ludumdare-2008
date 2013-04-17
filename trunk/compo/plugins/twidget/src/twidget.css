@@ -1,10 +1,16 @@
 
 @font-face{
 	font-family:"Korolev-Bold";
+	src:url("http://www-cdn.jtvnw.net/webfonts/webfonts/22AE77_0_0.eot");
+	src:url("http://www-cdn.jtvnw.net/webfonts/webfonts/22AE77_0_0.eot?#iefix") format("embedded-opentype"),
+	url("http://www-cdn.jtvnw.net/webfonts/webfonts/22AE77_0_0.woff") format("woff"),
+	url("http://www-cdn.jtvnw.net/webfonts/webfonts/22AE77_0_0.ttf") format("truetype");
+/*
 	src:url("webfonts/22AE77_0_0.eot");
 	src:url("webfonts/22AE77_0_0.eot?#iefix") format("embedded-opentype"),
 	url("webfonts/22AE77_0_0.woff") format("woff"),
 	url("webfonts/22AE77_0_0.ttf") format("truetype");
+*/
 }
 
 #TTV {

@@ -149,7 +149,7 @@ function LoadTwitchTVStreams() {
 			MyText += "Stream Fetch " + error + ".<br />";
 		}
 		else {
-			console.log(list);
+			//console.log(list);
 			
 			if ( list.streams.length != TwitchTV_Limit ) {
 				TwitchTV_HasMoreStreams = false;
