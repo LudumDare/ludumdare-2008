@@ -1,5 +1,9 @@
 <?php
 
+include 'settings.php';
+
+$do_logging = false;
+
 /*
 CREATE DATABASE ludum_theme;
 CREATE USER 'ludum_theme'@'localhost' IDENTIFIED BY 'MYPASSWD';
@@ -24,8 +28,6 @@ LOAD DATA LOCAL INFILE '/home/username/www/theme/ld26.txt' INTO TABLE themes LIN
 // The ' is way too common. Also, I imported it in to the 'theme' field of the table by making that my fields string. //
 
 */
-
-$do_logging = false;
 
 function get_ip() { 
 $ip; 
@@ -82,14 +84,16 @@ foreach ($bans as $b)
 	
 }
 
-
 function get_db()
 {
-	$link = mysql_connect('localhost', 'ludum_theme', 'heyYOUGUYS!400ThanksForTEHDB');
+	global $login, $password, $database;
+	
+	$link = mysql_connect('localhost', $login, $password);
 	if (!$link) die('Could not connect: ' . mysql_error());
-	if (!mysql_select_db('ludum_theme')) die('Could not select database');
+	if (!mysql_select_db($database)) die('Could not select database');
 	return $link;
 }
+
 $themes = array();
 $link = get_db();
 $query = 'SELECT * FROM `themes` WHERE `id`<808080 ORDER BY rand() LIMIT 1;';
