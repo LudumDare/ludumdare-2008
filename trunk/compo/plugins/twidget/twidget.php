@@ -40,7 +40,7 @@ class Twidget extends WP_Widget {
 			echo '<div class="Foot">';
 				echo '<div class="FootBody">';
 					echo '<span class="FootImg">';
-						echo '<object data="' . $plugin_dir . 'ImgTwitchGlitch.svg" width="24" height="24" type="image/svg+xml" />';
+						echo '<object data="' . $plugin_dir . 'ImgTwitchGlitch.svg" width="24" height="24" type="image/svg+xml"></object>';
 					echo '</span>';
 					echo '&nbsp;&nbsp;';
 					echo '<span class="FootText">';
@@ -51,7 +51,7 @@ class Twidget extends WP_Widget {
 						echo '<a href="' . $faqurl . '">FAQ</a>';
 					echo '</span>';
 					echo '<span class="FootImg2">';
-						echo '<object id="TTV_Standby" data="' . $plugin_dir . 'ImgStandby.svg" width="22" height="22" type="image/svg+xml" />';
+						echo '<object id="TTV_Standby" data="' . $plugin_dir . 'ImgStandby.svg" width="22" height="22" type="image/svg+xml"></object>';
 					echo '</span>';
 				echo '</div>';
 				echo '<div class="FootEdge"></div>';
