@@ -45,7 +45,7 @@ function ShowTwitchTVVideo( AutoStart ) {
 			MyText += 'Click on a video to start playing<br />';
 			MyText += '<br />';
 			MyText += '<span style="font-size:20px;">To stream here, set your<br />';
-				MyText += '<object data="'+TwitchTV_BaseDir+'TwitchLogo.svg" height="30" style="vertical-align:middle;display:inline-block;" type="image/svg+xml"></object> game to <span class="Standout">' + TwitchTV_Game + '</span>';
+				MyText += '<object data="'+TwitchTV_BaseDir+'TwitchLogo.svg" width="91" height="30" style="vertical-align:middle;display:inline-block;" type="image/svg+xml"></object> game to <span class="Standout">' + TwitchTV_Game + '</span>';
 			MyText += '</span>';
 		MyText += '</div>';
 	}

@@ -8,7 +8,6 @@
 	 viewBox="0 0 792 262.493" overflow="visible" enable-background="new 0 0 792 262.493" xml:space="preserve">
 <style>
 	.TwitchLogo {
-		position:relative;
 		fill:#000000;
 		pointer-events:all;
 	}
