@@ -29,6 +29,8 @@ class Twidget extends WP_Widget {
 
 		echo $before_widget;
 		
+		error_reporting(-1);
+		
 		echo '<div><div id="TTV">';
 			echo '<div class="Widget">';
 				echo '<div id="TTV_Video" class="Head"></div>';
