@@ -242,7 +242,6 @@ function GetTwitchTVWidget() {
 			MyText += '</div>';
 			MyText += '<div class="FootEdge"></div>';
 		MyText += '</div>';
-		MyText += '<br />';
 	MyText += '</div>';
 	
 	return MyText;
