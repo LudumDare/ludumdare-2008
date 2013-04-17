@@ -13,6 +13,10 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 <title><?php wp_title('|',true,'right'); bloginfo('name'); ?></title>
 
 <meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /> <!-- leave this for stats -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@ludumdare" />
+<meta name="twitter:title" content="Ludum Dare" />
+<meta name="twitter:description" content="The worlds largest online game jam event. Join us every April, August, and December." />
 
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>?1" type="text/css" media="screen" />
 <link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
