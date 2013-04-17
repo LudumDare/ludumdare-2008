@@ -239,10 +239,10 @@ function _compo2_preview_show($params,$uid,$comments=true) {
     
     $user = unserialize($ce["get_user"]);
     
-    echo "<h3>".htmlentities($ce["title"])." - {$user["display_name"]}";
+    echo '<h3>'.htmlentities($ce["title"]).' - {$user["display_name"]}';
     $div = $ce["etype"];
-    echo " - <i>{$params["{$div}_title"]} Entry</i>";
-    echo "</h3>";
+    echo ' - <i>{$params["{$div}_title"]} Entry</i>';
+    echo '</h3>';
     
     echo "<p class='links'>";
     _compo2_preview_show_links($ce);
@@ -280,14 +280,16 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	    echo '<meta name="twitter:card" content="summary">';
 	    echo '<meta name="twitter:site" content="@ludumdare">';
 	    
-	    $twitter = get_the_author_meta('twitter', $user["ID"]); 
+	    $twitter = get_userdata($user["ID"])->twitter;//get_the_author_meta('twitter', $user["ID"]); 
 	    if (($twitter != null) && ($twitter != '')) {
 	   		echo '<meta name="twitter:creator" content="@'.$twitter.'">';
 	   	}
 	   	
-	   	echo '<meta name="twitter:title" content="'.htmlentities($ce["title"]).'">';
+	   	echo '<meta name="twitter:title" content="'.substr(htmlentities($ce["title"]),0,70).'">';
 	   	echo '<meta name="twitter:description" content="'.substr(htmlentities($ce["notes"]),0,200).'">';
-	   	echo '<meta name="twitter:image" content="'.get_bloginfo("url").'/wp-content/compo2/'.htmlentities($firstshot).'">';	   	
+	    if (($firstshot != null) && ($firstshot != '')) {
+		   	echo '<meta name="twitter:image" content="'.get_bloginfo("url").'/wp-content/compo2/'.htmlentities($firstshot).'">';
+		}
 	}
     //MK//
         
