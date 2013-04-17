@@ -67,14 +67,14 @@ class Twidget extends WP_Widget {
 		echo '</script>';
 
 //		echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>';
-		echo '<script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>';
-		echo '<link rel="stylesheet" type="text/css" href="wp-content/plugins/twidget/twidget.css" />';
-		echo '<script src="wp-content/plugins/twidget/twidget.js"></script>';
-		echo '<script>';
-		echo '	setTimeout( function(){';
-		echo '			InitTwitchTV();';
-		echo '		}, 1000 );';
-		echo '</script>';
+//		echo '<script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>';
+//		echo '<link rel="stylesheet" type="text/css" href="wp-content/plugins/twidget/twidget.css" />';
+//		echo '<script src="wp-content/plugins/twidget/twidget.js"></script>';
+//		echo '<script>';
+//		echo '	setTimeout( function(){';
+//		echo '			InitTwitchTV();';
+//		echo '		}, 1000 );';
+//		echo '</script>';
 		
 		echo $after_widget;
 	}
@@ -124,6 +124,18 @@ class Twidget extends WP_Widget {
 	}
 }
 
+function AddTTVScripts() {
+	echo '<script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>';
+	echo '<link rel="stylesheet" type="text/css" href="wp-content/plugins/twidget/twidget.css" />';
+	echo '<script src="wp-content/plugins/twidget/twidget.js"></script>';
+	echo '<script>';
+	echo '	setTimeout( function(){';
+	echo '			InitTwitchTV();';
+	echo '		}, 1000 );';
+	echo '</script>';	
+}
+
 add_action( 'widgets_init', create_function( '', 'register_widget( "twidget" );' ) );
+add_action( 'wp_footer', 'AddTTVScripts', 500 );
 
 ?>
