@@ -1,12 +1,17 @@
 <?php
 
 /*
+CREATE DATABASE ludum_theme;
+CREATE USER 'ludum_theme'@'localhost' IDENTIFIED BY 'MYPASSWD';
+
 DROP TABLE IF EXISTS `themes`;
+
 CREATE TABLE IF NOT EXISTS `themes` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `theme` tinytext NOT NULL,
   `up` int(11) NOT NULL DEFAULT '0',
   `down` int(11) NOT NULL DEFAULT '0',
+  `kill` int(11) NOT NULL DEFAULT '0',
   `time` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=888889 DEFAULT CHARSET=utf8;
@@ -70,9 +75,9 @@ foreach ($bans as $b)
 
 function get_db()
 {
-	$link = mysql_connect('localhost', 'me', '*****');
+	$link = mysql_connect('localhost', 'ludum_theme', 'heyYOUGUYS!400ThanksForTEHDB');
 	if (!$link) die('Could not connect: ' . mysql_error());
-	if (!mysql_select_db('themes')) die('Could not select database');
+	if (!mysql_select_db('ludum_theme')) die('Could not select database');
 	return $link;
 }
 $themes = array();
