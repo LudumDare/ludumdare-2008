@@ -122,9 +122,9 @@ function AddTTVScripts() {
 //	echo '<script src="wp-content/plugins/twidget/twidget.js"></script>';
 	echo '<script src="wp-content/plugins/twidget/twidget.min.js"></script>';
 	echo '<script>';
-	echo '	setTimeout( function(){';
+//	echo '	setTimeout( function(){';
 	echo '			InitTwitchTV();';
-	echo '		}, 500 );';
+//	echo '		}, 500 );';
 	echo '</script>';	
 }
 
