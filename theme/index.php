@@ -25,6 +25,8 @@ LOAD DATA LOCAL INFILE '/home/username/www/theme/ld26.txt' INTO TABLE themes LIN
 
 */
 
+$do_logging = false;
+
 function get_ip() { 
 $ip; 
 if (getenv("HTTP_CLIENT_IP")) 
@@ -119,15 +121,16 @@ if (isset($_GET['shit']))
 {
 	//$number = ($_GET['view']='all');
 	mysql_free_result($result);
-	$sort = '(`up`-`down`-`kill`-`kill`-`kill`-`kill`) DESC';
+	$sort = '(`up`-`down`) DESC';
 	if (isset($_GET['sort']))
 	{
 		if (($_GET['sort'])=='0') $sort = '(`up`-`down`) DESC';
 		if (($_GET['sort'])=='1') $sort = '(`theme`)';
 		if (($_GET['sort'])=='2') $sort = '(`up`) DESC';
 		if (($_GET['sort'])=='3') $sort = '(`down`)';
+		if (($_GET['sort'])=='4') $sort = '(`kill`)';
 	}
-	$query = 'SELECT * FROM `themes` WHERE `id`<808080 ORDER BY '.$sort.' '.(($_GET['shit']=='all') ? '' : 'LIMIT 100').';';
+	$query = 'SELECT * FROM `themes` WHERE `id`<808080 ORDER BY '.$sort.' '.(($_GET['shit']=='all') ? '' : 'LIMIT 150').';';
 	$c=0;
 	$result = mysql_query($query);
 	if (!$result) die('Query error: ' . mysql_error());
@@ -177,9 +180,12 @@ if (isset($_GET['up']))
 	$query = 'UPDATE `themes` SET `up`=`up`+1 WHERE `id`=888888;';
 	if (!mysql_query($query)) die('Query error: ' . mysql_error());
 	
-	$ff = fopen('log.txt','a');
-	fwrite($ff,'IP: '.get_ip().' | UP: '.$up.' | TIME: '.date('d-m-y H:i:s').' | ' . $agent . "\n");
-	fclose($ff);
+	global $do_logging;
+	if ( $do_logging == true ) {
+		$ff = fopen('log.txt','a');
+		fwrite($ff,'IP: '.get_ip().' | UP: '.$up.' | TIME: '.date('d-m-y H:i:s').' | ' . $agent . "\n");
+		fclose($ff);
+	}
 }
 
 if ( isset($_GET['down']))
@@ -192,9 +198,12 @@ if ( isset($_GET['down']))
 	$query = 'UPDATE `themes` SET `up`=`up`+1 WHERE `id`=888888;';
 	if (!mysql_query($query)) die('Query error: ' . mysql_error());
 	
-	$ff = fopen('log.txt','a');
-	fwrite($ff,'IP: '.get_ip().' | DOWN: '.$down.' | TIME: '.date('d-m-y H:i:s').' | ' . $agent . "\n");
-	fclose($ff);
+	global $do_logging;
+	if ( $do_logging == true ) {
+		$ff = fopen('log.txt','a');
+		fwrite($ff,'IP: '.get_ip().' | DOWN: '.$down.' | TIME: '.date('d-m-y H:i:s').' | ' . $agent . "\n");
+		fclose($ff);
+	}
 }
 
 if ( isset($_GET['kill']))
@@ -207,9 +216,12 @@ if ( isset($_GET['kill']))
 	$query = 'UPDATE `themes` SET `up`=`up`+1 WHERE `id`=888888;';
 	if (!mysql_query($query)) die('Query error: ' . mysql_error());
 	
-	$ff = fopen('log.txt','a');
-	fwrite($ff,'IP: '.get_ip().' | KILL: '.$kill.' | TIME: '.date('d-m-y H:i:s').' | ' . $agent . "\n");
-	fclose($ff);
+	global $do_logging;
+	if ( $do_logging == true ) {
+		$ff = fopen('log.txt','a');
+		fwrite($ff,'IP: '.get_ip().' | KILL: '.$kill.' | TIME: '.date('d-m-y H:i:s').' | ' . $agent . "\n");
+		fclose($ff);
+	}
 }
 
 echo'<center style="font-family:sans-serif;"><br/><br/><img src="slaughter.gif"><br/><br/><table style="border:1px solid #555;font-size:250%;font-family:sans-serif;text-align:center;width:700px;">';
