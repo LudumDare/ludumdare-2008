@@ -242,10 +242,10 @@ echo'<tr><td style="border:1px solid #555;padding:16px;text-align:center;" colsp
 //echo '</td>';
 echo '</tr>';
 echo '</table>';
-echo '<br/><b>How this works:</b><br/>';
+echo '<br/><h3>How this works:</h3><br/>';
 echo '
 You get a theme, and click <b>GOOD</b> or <b>BAD</b>!<br/>
-If it\'s not a theme, hit <b>SLAUGHTER</b><br/>
+If it\'s not a theme, click <b>SLAUGHTER</b><br/>
 Repeat. Every click helps.';
 //<b>no hacking plz!</b><br/>';
 //<br>
