@@ -204,7 +204,7 @@ if ( isset($_GET['kill']))
 	fclose($ff);
 }
 
-echo'<center style="font-family:sans-serif;"><br/><br/><img src="SLAUGHTER.gif"><br/><br/><table style="border:1px solid #555;font-size:250%;font-family:sans-serif;text-align:center;width:700px;">';
+echo'<center style="font-family:sans-serif;"><br/><br/><img src="slaughter.gif"><br/><br/><table style="border:1px solid #555;font-size:250%;font-family:sans-serif;text-align:center;width:700px;">';
 echo'<tr><td style="border:1px solid #555;padding:20px;text-align:center;" colspan=2><a target="_blank" style="color:#4b7aa0;" href="https://www.google.com/search?q='.urlencode($themes[0]['theme']).'">'.$themes[0]['theme'].'</a></td></tr>';
 echo'<tr><td style="border:1px solid #555;padding:20px;text-align:center;width:50%;"><a style="color:#080;" href="?up='.$themes[0]['id'].'">GOOD</a></td>';
 echo'<td style="border:1px solid #555;padding:20px;text-align:center;width:50%;"><a style="color:#800;" href="?down='.$themes[0]['id'].'">BAD</a></td></tr>';
@@ -213,7 +213,6 @@ echo '<tr><td style="border:1px solid #555;padding:20px;text-align:center;" cols
 echo '<b>Slaughter progress:</b> '.sprintf("%1.4f",$pixs).'%<br/>';
 echo '<i style="font-size:50%">Target kill count: <del>100000</del> '.$target.'</i><br/>';
 echo '<div style="text-align:left;border:1px solid black; width:100%;"><img src="greenbar.png" width="'.$pixs.'%" height="32"></div>';
-echo '<span style="color:#501;font-size:50%;">Slaughter ends on friday the 7th regardless of this bar</span>';
 echo '</td></tr>';
 echo '</table>';
 echo '<br/><br/><br/><br/><b>How does it work:</b><br/>';
