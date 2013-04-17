@@ -290,6 +290,11 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	    if (($firstshot != null) && ($firstshot != '')) {
 		   	echo '<meta name="twitter:image" content="'.get_bloginfo("url").'/wp-content/compo2/'.htmlentities($firstshot).'" />';
 		}
+		
+		echo '<script>';
+		echo 'var Elm = document.getElementsByTagName("title")[0];';
+		echo 'Elm.innerHTML = "'.htmlentities($ce["title"]).' by ' . $user["display_name"] . ' | " + Elm.innerHTML;';
+		echo '</script>';
 	}
     //MK//
         
