@@ -244,8 +244,9 @@ echo '</tr>';
 echo '</table>';
 echo '<br/><b>How this works:</b><br/>';
 echo '
-You get a theme, then click <b>GOOD</b> or <b>BAD</b>!<br/>
-If it\'s not a theme, hit <b>SLAUGHTER</b><br/>';
+You get a theme, and click <b>GOOD</b> or <b>BAD</b>!<br/>
+If it\'s not a theme, hit <b>SLAUGHTER</b><br/>
+Repeat. Every click helps.';
 //<b>no hacking plz!</b><br/>';
 //<br>
 //<b style="color:#248;font-size:250%;">NOTE:</b><br/>
