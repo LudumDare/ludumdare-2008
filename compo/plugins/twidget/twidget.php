@@ -56,6 +56,8 @@ class Twidget extends WP_Widget {
 			echo '</div>';
 //			echo '<br />';
 		echo '</div>';
+		echo '</div>';
+		echo '</div>';
 		
 		echo '<script>';
 		echo 'var TwitchTV_APIKey = "' . $apikey . '";';
