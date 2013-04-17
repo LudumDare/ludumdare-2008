@@ -10,11 +10,15 @@ License: BSD
 */
 
 class Twidget extends WP_Widget {
-	function RandomPostWidget() {
-		$widget_ops = array('classname' => 'Twidget', 'description' => 'Twitch.tv widget' );
-		$this->WP_Widget('Twidget', 'Twitch.tv widget', $widget_ops);
+	function __construct() {
+		
 	}
 	
+//	function RandomPostWidget() {
+//		$widget_ops = array('classname' => 'Twidget', 'description' => 'Twitch.tv widget' );
+//		$this->WP_Widget('Twidget', 'Twitch.tv widget', $widget_ops);
+//	}
+//	
 	function form($instance) {
 		$instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
 		$title = $instance['title'];
