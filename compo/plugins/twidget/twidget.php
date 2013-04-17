@@ -29,9 +29,9 @@ class Twidget extends WP_Widget {
 
 		echo $before_widget;
 		
-		error_reporting(-1);
+//		error_reporting(-1);
 		
-		echo '<div><div id="TTV">';
+		echo '<div id="TTV">';
 			echo '<div class="Widget">';
 				echo '<div id="TTV_Video" class="Head"></div>';
 				echo '<div id="TTV_Streams" class="Body">Loading...</div>';
@@ -58,8 +58,6 @@ class Twidget extends WP_Widget {
 			echo '</div>';
 //			echo '<br />';
 		echo '</div>';
-		echo '</div>';
-		echo '</div>';
 		
 		echo '<script>';
 		echo 'var TwitchTV_APIKey = "' . $apikey . '";';
@@ -68,7 +66,7 @@ class Twidget extends WP_Widget {
 		echo 'var TwitchTV_BaseDir = "' . $plugin_dir . '";';
 		echo '</script>';
 
-		echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>';
+//		echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>';
 		echo '<script src="https://ttv-api.s3.amazonaws.com/twitch.min.js"></script>';
 		echo '<link rel="stylesheet" type="text/css" href="wp-content/plugins/twidget/twidget.css" />';
 		echo '<script src="wp-content/plugins/twidget/twidget.js"></script>';
