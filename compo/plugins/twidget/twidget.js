@@ -37,9 +37,6 @@ function ShowTwitchTVVideo( AutoStart ) {
 	if ( (TwitchTV_CurrentStream >= 0) && (TwitchTV_CurrentStream < Streams.length) ) {			
 		var Stream = Streams[TwitchTV_CurrentStream];
 
-		var Name = Stream.channel.display_name;
-		var Viewers = Stream.viewers;
-
 		MyText += GetTwitchTVPlayer( Stream.channel.name, 282, 188, AutoStart, 25 );
 	}
 	else {
