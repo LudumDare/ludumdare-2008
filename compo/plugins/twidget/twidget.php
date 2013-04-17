@@ -68,7 +68,7 @@ class Twidget extends WP_Widget {
 		echo 'var TwitchTV_BaseDir = "' . $plugin_dir . '";';
 		echo '</script>';
 
-		TwidgetHasRun = true;
+		$TwidgetHasRun = true;
 		
 		echo $after_widget;
 	}
