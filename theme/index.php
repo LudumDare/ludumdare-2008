@@ -142,27 +142,33 @@ if (isset($_GET['shit']))
 <td width=40><b><a href="?shit='.$_GET['shit'].'&sort=0">RANK</a></b></td>
 <td width=200><b><a href="?shit='.$_GET['shit'].'&sort=1">THEME</a></b></td>
 <td width=600><b><a href="?shit='.$_GET['shit'].'&sort=2">VOTES</a></b></td>
-<td><b><a href="?shit='.$_GET['shit'].'&sort=3">DOWNVOTES</a></b></td></tr>';
+<td><b><a href="?shit='.$_GET['shit'].'&sort=3">DOWN VOTES</a></b></td>
+<td><b><a href="?shit='.$_GET['shit'].'&sort=4">KILL VOTES</a></b></td></tr>';
 	$c=0;
 	$ups=0;
 	$downs=0;
+	$kills=0;
 	while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
 	{
-	$votes = $line['up'];
-	$downvotes = $line['down'];
+		$votes = $line['up'];
+		$downvotes = $line['down'];
+		$killvotes = $line['kill'];
 			
 		echo '<tr style="background:'. (($c&1) ? '#eee' : '#ddd').';">
-	<td width=40><center><b>'.($c+1).'.</b></center></td>
-	<td width=200>'.$line['theme'].'</td>
-	<td><img src="'.(($votes > 500 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($votes > 500 ) ? 500 : $votes).'" height="20"/>&nbsp;'.$votes.'</td>
-	<td><img src="'.(($downvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($downvotes > 100 ) ? 100 : $downvotes).'" height="20"/>&nbsp;'.$downvotes.'</td></tr>';
+		<td width=40><center><b>'.($c+1).'.</b></center></td>
+		<td width=200>'.$line['theme'].'</td>
+		<td><img src="'.(($votes > 500 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($votes > 500 ) ? 500 : $votes).'" height="20"/>&nbsp;'.$votes.'</td>
+		<td><img src="'.(($downvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($downvotes > 100 ) ? 100 : $downvotes).'" height="20"/>&nbsp;'.$downvotes.'</td>
+		<td><img src="'.(($killvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($killvotes > 100 ) ? 100 : $killvotes).'" height="20"/>&nbsp;'.$killvotes.'</td></tr>';
 		$c++;
 		$ups+=$line['up'];
 		$downs+=$line['down'];
+		$kills+=$line['kill'];
 	}
 	echo '</table>';
 	echo '<b style="color:#4f8;font-family:sans-serif;text-align:center;display:block;">'.$ups.' upvotes given</b>';	
 	echo '<b style="color:#f84;font-family:sans-serif;text-align:center;display:block;">'.$downs.' downvotes given</b>';	
+	echo '<b style="color:#f84;font-family:sans-serif;text-align:center;display:block;">'.$kills.' killvotes given</b>';	
 		mysql_free_result($result);
 		mysql_free_result($result2);
 		mysql_close($link);
