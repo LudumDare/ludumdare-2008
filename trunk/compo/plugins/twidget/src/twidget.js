@@ -192,6 +192,7 @@ function InitTwitchTV() {
 					Thing.addEventListener("click", function(){OnTwitchTVClicked(null);},false);
 				}
 				catch (e) {	
+					console.log("Unable to bind function to Standby");
 				}
 			},false);
 				
