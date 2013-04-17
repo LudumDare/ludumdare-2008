@@ -175,6 +175,20 @@ function LoadTwitchTVStreamsButton() {
 	LoadTwitchTVStreams();
 }
 
+function SetTwitchStandbyButton() {
+	var svg = document.getElementById("TTV_Standby");
+	svg.addEventListener("load",function(){
+		try {
+			var svgDoc = svg.contentDocument;
+			var Thing = svgDoc.getElementById("TTV_Standby_Icon");
+			Thing.addEventListener("click", function(){OnTwitchTVClicked(null);},false);
+		}
+		catch (e) {	
+			console.log("Unable to bind function to Standby");
+		}
+	},false);
+}
+
 function InitTwitchTV() {
 	Twitch.init({clientId: TwitchTV_APIKey}, function(error, status) {
 		if (error) {
@@ -184,18 +198,7 @@ function InitTwitchTV() {
 			MyText += "Twitch API " + error + ".<br />";
 		}
 		else {
-			var svg = document.getElementById("TTV_Standby");
-			svg.addEventListener("load",function(){
-				try {
-					var svgDoc = svg.contentDocument;
-					var Thing = svgDoc.getElementById("TTV_Standby_Icon");
-					Thing.addEventListener("click", function(){OnTwitchTVClicked(null);},false);
-				}
-				catch (e) {	
-					console.log("Unable to bind function to Standby");
-				}
-			},false);
-				
+			SetTwitchStandbyButton();
 			LoadTwitchTVStreams();
 		}
 	});			
