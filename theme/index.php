@@ -2,7 +2,10 @@
 
 /* Copy "settings-example.php" to "settings.php", and make your changes */
 include 'settings.php';
-$do_logging = false;
+
+$do_logging = true;//false;
+$log_file = 'logs/log.txt';
+
 
 /*
 CREATE DATABASE ludum_theme;
@@ -104,6 +107,7 @@ while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
 	$themes[$c]=$line;
 	$c++;
 }
+/*
 $total = array();
 $query = 'SELECT * FROM `themes` WHERE `id`=888888;';
 $result2 = mysql_query($query);
@@ -115,7 +119,7 @@ while ($line = mysql_fetch_array($result2, MYSQL_ASSOC))
 $target=500000;
 $pixs = ($total['up'])/($target/100);
 //if ($pixs>100) $pixs=100;
-
+*/
 //echo'<center style="font-family:sans-serif;"><br/><br/><h1>IT ENDED, the slaughter!</H1></CENTER>';
 //echo'<center style="font-family:sans-serif;"><br/><br/><h1>'.$total['up'].' votes were given</H1></CENTER>';
 //echo'<center style="font-family:sans-serif;"><br/><br/><h1>I am too sleepy to do post results tonight.</H1></CENTER>';
@@ -181,19 +185,18 @@ if (isset($_GET['shit']))
 $agent = "BOT BOT BOT BOT BOT BOT";
 if (isset($_SERVER['HTTP_USER_AGENT'])) $agent = $_SERVER['HTTP_USER_AGENT'];
 if (isset($_GET['up']))
-//if (isset($_POST['up']))
 {
 	//die;
 	$up = strval(intval( mysql_real_escape_string($_GET['up']) ));
 
 	$query = 'UPDATE `themes` SET `up`=`up`+1, `time`='.time().' WHERE `id`='.$up.' AND `time`<'.(time()-20).';';
 	if (!mysql_query($query)) die('Query error: ' . mysql_error());
-	$query = 'UPDATE `themes` SET `up`=`up`+1 WHERE `id`=888888;';
-	if (!mysql_query($query)) die('Query error: ' . mysql_error());
+//	$query = 'UPDATE `themes` SET `up`=`up`+1 WHERE `id`=888888;';
+//	if (!mysql_query($query)) die('Query error: ' . mysql_error());
 	
-	global $do_logging;
+	global $do_logging,$log_file;
 	if ( $do_logging == true ) {
-		$ff = fopen('log.txt','a');
+		$ff = fopen($log_file,'a');
 		fwrite($ff,'IP: '.get_ip().' | UP: '.$up.' | TIME: '.date('d-m-y H:i:s').' | ' . $agent . "\n");
 		fclose($ff);
 	}
@@ -206,12 +209,12 @@ if ( isset($_GET['down']))
 
 	$query = 'UPDATE `themes` SET `down`=`down`+1, `time`='.time().' WHERE `id`='.$down.' AND `time`<'.(time()-20).';';
 	if (!mysql_query($query)) die('Query error: ' . mysql_error());
-	$query = 'UPDATE `themes` SET `up`=`up`+1 WHERE `id`=888888;';
-	if (!mysql_query($query)) die('Query error: ' . mysql_error());
+//	$query = 'UPDATE `themes` SET `up`=`up`+1 WHERE `id`=888888;';
+//	if (!mysql_query($query)) die('Query error: ' . mysql_error());
 	
-	global $do_logging;
+	global $do_logging,$log_file;
 	if ( $do_logging == true ) {
-		$ff = fopen('log.txt','a');
+		$ff = fopen($log_file,'a');
 		fwrite($ff,'IP: '.get_ip().' | DOWN: '.$down.' | TIME: '.date('d-m-y H:i:s').' | ' . $agent . "\n");
 		fclose($ff);
 	}
@@ -224,12 +227,12 @@ if ( isset($_GET['kill']))
 
 	$query = 'UPDATE `themes` SET `kill`=`kill`+1, `time`='.time().' WHERE `id`='.$kill.' AND `time`<'.(time()-20).';';
 	if (!mysql_query($query)) die('Query error: ' . mysql_error());
-	$query = 'UPDATE `themes` SET `up`=`up`+1 WHERE `id`=888888;';
-	if (!mysql_query($query)) die('Query error: ' . mysql_error());
+//	$query = 'UPDATE `themes` SET `up`=`up`+1 WHERE `id`=888888;';
+//	if (!mysql_query($query)) die('Query error: ' . mysql_error());
 	
-	global $do_logging;
+	global $do_logging,$log_file;
 	if ( $do_logging == true ) {
-		$ff = fopen('log.txt','a');
+		$ff = fopen($log_file,'a');
 		fwrite($ff,'IP: '.get_ip().' | KILL: '.$kill.' | TIME: '.date('d-m-y H:i:s').' | ' . $agent . "\n");
 		fclose($ff);
 	}
