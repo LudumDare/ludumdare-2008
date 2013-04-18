@@ -153,7 +153,7 @@ if (isset($_GET['shit']))
 	<tr>
 		<td width=40><b><a href="?shit='.$_GET['shit'].'&sort=0">RANK</a></b></td>
 		<td width=200><b><a href="?shit='.$_GET['shit'].'&sort=1">THEME</a></b></td>
-		<td width=600><b><a href="?shit='.$_GET['shit'].'&sort=2">VOTES</a></b></td>
+		<td width=550><b><a href="?shit='.$_GET['shit'].'&sort=2">VOTES</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=3">DOWN VOTES</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=4">KILL VOTES</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=0">TOTAL (weighted)</a></b></td>
@@ -172,13 +172,14 @@ if (isset($_GET['shit']))
 		$killvotes = $line['kill'];
 			
 		echo '
-			<tr style="background:'. (($c&1) ? '#eee' : '#ddd').';">
+		<tr style="background:'. (($c&1) ? '#eee' : '#ddd').';">
 			<td width=40><center><b>'.($c+1).'.</b></center></td>
 			<td width=200>'.$line['theme'].'</td>
 			<td><img src="'.(($votes > 500 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($votes > 500 ) ? 500 : $votes).'" height="20"/>&nbsp;'.$votes.'</td>
 			<td><img src="'.(($downvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($downvotes > 100 ) ? 100 : $downvotes).'" height="20"/>&nbsp;'.$downvotes.'</td>
-			<td><img src="'.(($killvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($killvotes > 100 ) ? 100 : $killvotes).'" height="20"/>&nbsp;'.$killvotes.'</td></tr>
-			<td>'.($votes-$downvotes-($killvotes*$killvote_weight)).'</td></tr>
+			<td><img src="'.(($killvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($killvotes > 100 ) ? 100 : $killvotes).'" height="20"/>&nbsp;'.$killvotes.'</td>
+			<td>'.($votes-$downvotes-($killvotes*$killvote_weight)).'</td>
+		</tr>
 		';
 		$c++;
 		$ups+=$line['up'];
