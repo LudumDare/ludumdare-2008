@@ -176,12 +176,17 @@ if (isset($_GET['shit']))
 		<tr style="background:'. (($c&1) ? '#eee' : '#ddd').';">
 			<td width=40><center><b>'.($c+1).'.</b></center></td>
 			<td width=200>'.$line['theme'].'</td>
-			<td><img src="'.(($votes > 500 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($votes > 500 ) ? 500 : $votes).'" height="20"/>&nbsp;'.$votes.'</td>
+			<td><div style="background-color:green;width:'.(($votes > 500 ) ? 500 : $votes).'px;height;20px;"></div>&nbsp;'.$votes.'</td>
 			<td><img src="'.(($downvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($downvotes > 100 ) ? 100 : $downvotes).'" height="20"/>&nbsp;'.$downvotes.'</td>
 			<td><img src="'.(($killvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($killvotes > 100 ) ? 100 : $killvotes).'" height="20"/>&nbsp;'.$killvotes.'</td>
 			<td><center><b>'.($votes-$downvotes-($killvotes*$killvote_weight)).'</b></center></td>
 		</tr>
 		';
+
+//			<td><img src="'.(($votes > 500 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($votes > 500 ) ? 500 : $votes).'" height="20"/>&nbsp;'.$votes.'</td>
+//			<td><img src="'.(($downvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($downvotes > 100 ) ? 100 : $downvotes).'" height="20"/>&nbsp;'.$downvotes.'</td>
+//			<td><img src="'.(($killvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($killvotes > 100 ) ? 100 : $killvotes).'" height="20"/>&nbsp;'.$killvotes.'</td>
+
 		$c++;
 		$ups+=$line['up'];
 		$downs+=$line['down'];
