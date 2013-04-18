@@ -178,7 +178,7 @@ if (isset($_GET['shit']))
 	echo '<b style="color:#f84;font-family:sans-serif;text-align:center;display:block;">'.$downs.' downvotes given</b>';	
 	echo '<b style="color:#f84;font-family:sans-serif;text-align:center;display:block;">'.$kills.' killvotes given</b>';	
 		mysql_free_result($result);
-		mysql_free_result($result2);
+//		mysql_free_result($result2);
 		mysql_close($link);
 		die;
 }
