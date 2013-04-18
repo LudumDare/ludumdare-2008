@@ -3,7 +3,7 @@
 /* Copy "settings-example.php" to "settings.php", and make your changes */
 include 'settings.php';
 
-$do_logging = false;
+$do_logging = true;
 $log_file = 'logs/log.txt';
 
 
