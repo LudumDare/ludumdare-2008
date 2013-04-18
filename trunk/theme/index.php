@@ -131,7 +131,7 @@ if (isset($_GET['shit']))
 	global $killvote_weight;
 	//$number = ($_GET['view']='all');
 	mysql_free_result($result);
-	$sort = '(`up`-`down`-(`kill`*'.$killvote_weight.') DESC';
+	$sort = '(`up`-`down`-(`kill`*'.strval($killvote_weight).') DESC';
 	if (isset($_GET['sort']))
 	{
 		//if (($_GET['sort'])=='0') $sort = '(`up`-`down`) DESC';
