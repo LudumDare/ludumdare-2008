@@ -3,7 +3,7 @@
 /* Copy "settings-example.php" to "settings.php", and make your changes */
 include 'settings.php';
 
-$do_logging = true;//false;
+$do_logging = false;
 $log_file = 'logs/log.txt';
 
 
@@ -268,6 +268,6 @@ Repeat. Every click helps.';
 //<span style="color:#048;font-size:150%;">Stuff like <i>\'2-bit art\' or \'one button controls\' or \'racing game\'</i><br/>and any other implying genre, technical or any other limitations are <B>NOT THEMES</b><br/>Please vote them down. I will remove them regardless of votes anyways.</span>
 //';
 mysql_free_result($result);
-mysql_free_result($result2);
+//mysql_free_result($result2);
 mysql_close($link);
 ?>
