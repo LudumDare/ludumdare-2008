@@ -146,7 +146,8 @@ if (isset($_GET['shit']))
 	$result = mysql_query($query);
 	if (!$result) die('Query error: ' . mysql_error());
 	echo '<h1 style="color:red;font-family:sans-serif;text-align:center;">THEME KILLING RESULTS!</h1>';              
-	echo '<b style="color:#48f;font-family:sans-serif;text-align:center;display:block;">'.$total['up'].' votes given</b>';  
+//	echo '<b style="color:#48f;font-family:sans-serif;text-align:center;display:block;">'.$total['up'].' votes given</b>';  
+	echo '<b style="color:#48f;font-family:sans-serif;text-align:center;display:block;">Killvote Weight: '.$killvote_weight.'</b>';  
 
 	echo '<table style="width:90%;font-family:sans-serif;">';
 	echo '
