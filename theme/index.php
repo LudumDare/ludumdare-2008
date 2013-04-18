@@ -6,6 +6,7 @@ include 'settings.php';
 $do_logging = false;
 $log_file = 'logs/log.txt';
 
+$killvote_weight = 3;
 
 /*
 CREATE DATABASE ludum_theme;
@@ -127,9 +128,10 @@ $pixs = ($total['up'])/($target/100);
 //$_GET['shit']='all';
 if (isset($_GET['shit']))
 {
+	global $killvote_weight;
 	//$number = ($_GET['view']='all');
 	mysql_free_result($result);
-	$sort = '(`up`-`down`-`kill`-`kill`-`kill`) DESC';
+	$sort = '(`up`-`down`-(`kill`*'.$killvote_weight.') DESC';
 	if (isset($_GET['sort']))
 	{
 		//if (($_GET['sort'])=='0') $sort = '(`up`-`down`) DESC';
@@ -146,28 +148,37 @@ if (isset($_GET['shit']))
 	echo '<b style="color:#48f;font-family:sans-serif;text-align:center;display:block;">'.$total['up'].' votes given</b>';  
 
 	echo '<table style="width:90%;font-family:sans-serif;">';
-	echo '<tr>
-<td width=40><b><a href="?shit='.$_GET['shit'].'&sort=0">RANK</a></b></td>
-<td width=200><b><a href="?shit='.$_GET['shit'].'&sort=1">THEME</a></b></td>
-<td width=600><b><a href="?shit='.$_GET['shit'].'&sort=2">VOTES</a></b></td>
-<td><b><a href="?shit='.$_GET['shit'].'&sort=3">DOWN VOTES</a></b></td>
-<td><b><a href="?shit='.$_GET['shit'].'&sort=4">KILL VOTES</a></b></td></tr>';
+	echo '
+	<tr>
+		<td width=40><b><a href="?shit='.$_GET['shit'].'&sort=0">RANK</a></b></td>
+		<td width=200><b><a href="?shit='.$_GET['shit'].'&sort=1">THEME</a></b></td>
+		<td width=600><b><a href="?shit='.$_GET['shit'].'&sort=2">VOTES</a></b></td>
+		<td><b><a href="?shit='.$_GET['shit'].'&sort=3">DOWN VOTES</a></b></td>
+		<td><b><a href="?shit='.$_GET['shit'].'&sort=4">KILL VOTES</a></b></td>
+		<td><b><a href="?shit='.$_GET['shit'].'&sort=0">TOTAL (weighted)</a></b></td>
+	</tr>
+	';
 	$c=0;
 	$ups=0;
 	$downs=0;
 	$kills=0;
+	
+	global $killvote_weight;
 	while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
 	{
 		$votes = $line['up'];
 		$downvotes = $line['down'];
 		$killvotes = $line['kill'];
 			
-		echo '<tr style="background:'. (($c&1) ? '#eee' : '#ddd').';">
-		<td width=40><center><b>'.($c+1).'.</b></center></td>
-		<td width=200>'.$line['theme'].'</td>
-		<td><img src="'.(($votes > 500 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($votes > 500 ) ? 500 : $votes).'" height="20"/>&nbsp;'.$votes.'</td>
-		<td><img src="'.(($downvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($downvotes > 100 ) ? 100 : $downvotes).'" height="20"/>&nbsp;'.$downvotes.'</td>
-		<td><img src="'.(($killvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($killvotes > 100 ) ? 100 : $killvotes).'" height="20"/>&nbsp;'.$killvotes.'</td></tr>';
+		echo '
+			<tr style="background:'. (($c&1) ? '#eee' : '#ddd').';">
+			<td width=40><center><b>'.($c+1).'.</b></center></td>
+			<td width=200>'.$line['theme'].'</td>
+			<td><img src="'.(($votes > 500 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($votes > 500 ) ? 500 : $votes).'" height="20"/>&nbsp;'.$votes.'</td>
+			<td><img src="'.(($downvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($downvotes > 100 ) ? 100 : $downvotes).'" height="20"/>&nbsp;'.$downvotes.'</td>
+			<td><img src="'.(($killvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($killvotes > 100 ) ? 100 : $killvotes).'" height="20"/>&nbsp;'.$killvotes.'</td></tr>
+			<td>'.($votes-$downvotes-($killvotes*$killvote_weight)).'</td></tr>
+		';
 		$c++;
 		$ups+=$line['up'];
 		$downs+=$line['down'];
