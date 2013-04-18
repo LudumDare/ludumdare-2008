@@ -177,7 +177,7 @@ if (isset($_GET['shit']))
 			<td width=40><center><b>'.($c+1).'.</b></center></td>
 			<td width=200>'.$line['theme'].'</td>
 			<td><div style="display:inline-block;background-color:green;width:'.(($votes > 500 ) ? 500 : $votes).'px;height:20px;"></div>&nbsp;'.$votes.'</td>
-			<td><div style="display:inline-block;background-color:red;width:'.(($downvotes > 100 ) ? 100 : $downvotes).'px;height:20px;"></div>&nbsp;'.$downvotes.'</td>
+			<td><div style="display:inline-block;background-color:#A00;width:'.(($downvotes > 100 ) ? 100 : $downvotes).'px;height:20px;"></div>&nbsp;'.$downvotes.'</td>
 			<td><div style="display:inline-block;background-color:#F00;width:'.(($killvotes > 100 ) ? 100 : $killvotes).'px;height:20px;"></div>&nbsp;'.$killvotes.'</td>
 			<td><center><b>'.($votes-$downvotes-($killvotes*$killvote_weight)).'</b></center></td>
 		</tr>
