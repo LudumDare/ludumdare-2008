@@ -179,7 +179,7 @@ if (isset($_GET['shit']))
 			<td><img src="'.(($votes > 500 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($votes > 500 ) ? 500 : $votes).'" height="20"/>&nbsp;'.$votes.'</td>
 			<td><img src="'.(($downvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($downvotes > 100 ) ? 100 : $downvotes).'" height="20"/>&nbsp;'.$downvotes.'</td>
 			<td><img src="'.(($killvotes > 100 ) ? 'redbar.png' : 'greenbar.png').'" width="'.(($killvotes > 100 ) ? 100 : $killvotes).'" height="20"/>&nbsp;'.$killvotes.'</td>
-			<td>'.($votes-$downvotes-($killvotes*$killvote_weight)).'</td>
+			<td><center><b>'.($votes-$downvotes-($killvotes*$killvote_weight)).'</b></center></td>
 		</tr>
 		';
 		$c++;
