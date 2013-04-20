@@ -142,6 +142,7 @@ if (isset($_GET['shit']))
 		if (($_GET['sort'])=='4') $sort = '(`kill`) DESC';
 		if (($_GET['sort'])=='5') $sort = '(`up`+`down`+`kill`) DESC';
 		if (($_GET['sort'])=='6') $sort = '(`up`-`down`) DESC';
+		if (($_GET['sort'])=='7') $sort = '(`up`-`down`-`kill`) DESC';
 	}
 	$query = 'SELECT * FROM `themes` WHERE `id`<808080 ORDER BY '.$sort.' '.(($_GET['shit']=='all') ? '' : 'LIMIT 250').';';
 	$c=0;
@@ -156,12 +157,13 @@ if (isset($_GET['shit']))
 	<tr>
 		<td width=40><b><a href="?shit='.$_GET['shit'].'&sort=0">RANK</a></b></td>
 		<td width=250><b><a href="?shit='.$_GET['shit'].'&sort=1">THEME</a></b></td>
-		<td width=400><b><a href="?shit='.$_GET['shit'].'&sort=2">VOTES</a></b></td>
+		<td width=350><b><a href="?shit='.$_GET['shit'].'&sort=2">VOTES</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=3">DOWN VOTES</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=4">KILL VOTES</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=5">SUM</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=6">UP-DOWN</a></b></td>
-		<td><b><a href="?shit='.$_GET['shit'].'&sort=0">TOTAL (weighted)</a></b></td>
+		<td><b><a href="?shit='.$_GET['shit'].'&sort=7">WEIGHTLESS</a></b></td>
+		<td><b><a href="?shit='.$_GET['shit'].'&sort=0">TOTAL (WEIGHTED)</a></b></td>
 	</tr>
 	';
 	$c=0;
@@ -177,6 +179,7 @@ if (isset($_GET['shit']))
 		$killvotes = $line['kill'];
 		$sum = $votes + $downvotes + $killvotes;
 		$updown = $votes - $downvotes;
+		$updownkill = $votes - $downvotes - $killvotes;
 			
 		echo '
 		<tr style="background:'. (($c&1) ? '#eee' : '#ddd').';">
@@ -187,6 +190,7 @@ if (isset($_GET['shit']))
 			<td><div style="display:inline-block;background-color:#F00;width:'.(($killvotes > 60 ) ? 60 : $killvotes).'px;height:20px;"></div>&nbsp;'.$killvotes.'</td>
 			<td>&nbsp;'.$sum.'</td>
 			<td>&nbsp;'.$updown.'</td>
+			<td>&nbsp;'.$updownkill.'</td>
 			<td><center><b>'.($votes-$downvotes-($killvotes*$killvote_weight)).'</b></center></td>
 		</tr>
 		';
