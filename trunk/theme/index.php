@@ -182,7 +182,7 @@ if (isset($_GET['shit']))
 			<td><div style="display:inline-block;background-color:green;width:'.(($votes > 400 ) ? 80 : $votes).'px;height:20px;"></div>&nbsp;'.$votes.'</td>
 			<td><div style="display:inline-block;background-color:#A00;width:'.(($downvotes > 80 ) ? 80 : $downvotes).'px;height:20px;"></div>&nbsp;'.$downvotes.'</td>
 			<td><div style="display:inline-block;background-color:#F00;width:'.(($killvotes > 80 ) ? 80 : $killvotes).'px;height:20px;"></div>&nbsp;'.$killvotes.'</td>
-			<td><div style="display:inline-block;background-color:#F00;width:'.(($sum > 50 ) ? 50 : $sum).'px;height:20px;"></div>&nbsp;'.$sum.'</td>
+			<td><div style="display:inline-block;background-color:#000;width:'.(($sum > 50 ) ? 50 : $sum).'px;height:20px;"></div>&nbsp;'.$sum.'</td>
 			<td><center><b>'.($votes-$downvotes-($killvotes*$killvote_weight)).'</b></center></td>
 		</tr>
 		';
