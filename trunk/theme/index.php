@@ -157,13 +157,13 @@ if (isset($_GET['shit']))
 	<tr>
 		<td width=40><b><a href="?shit='.$_GET['shit'].'&sort=0">RANK</a></b></td>
 		<td width=250><b><a href="?shit='.$_GET['shit'].'&sort=1">THEME</a></b></td>
-		<td width=300><b><a href="?shit='.$_GET['shit'].'&sort=2">VOTES</a></b></td>
-		<td><b><a href="?shit='.$_GET['shit'].'&sort=3">DOWN VOTES</a></b></td>
-		<td><b><a href="?shit='.$_GET['shit'].'&sort=4">KILL VOTES</a></b></td>
+		<td width=300><b><a href="?shit='.$_GET['shit'].'&sort=2">UP VOTES</a></b></td>
+		<td><b><a href="?shit='.$_GET['shit'].'&sort=3">DOWN</a></b></td>
+		<td><b><a href="?shit='.$_GET['shit'].'&sort=4">KILL</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=5">SUM</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=6">UP-DOWN</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=7">WEIGHTLESS</a></b></td>
-		<td><b><a href="?shit='.$_GET['shit'].'&sort=0">TOTAL (WEIGHTED)</a></b></td>
+		<td><b><a href="?shit='.$_GET['shit'].'&sort=0">TOTAL <font size="-2">(WEIGHTED)</font></a></b></td>
 	</tr>
 	';
 	$c=0;
