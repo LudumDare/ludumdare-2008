@@ -140,6 +140,7 @@ if (isset($_GET['shit']))
 		if (($_GET['sort'])=='2') $sort = '(`up`) DESC';
 		if (($_GET['sort'])=='3') $sort = '(`down`) DESC';
 		if (($_GET['sort'])=='4') $sort = '(`kill`) DESC';
+		if (($_GET['sort'])=='5') $sort = '(`up`+`down`+`kill`) DESC';
 	}
 	$query = 'SELECT * FROM `themes` WHERE `id`<808080 ORDER BY '.$sort.' '.(($_GET['shit']=='all') ? '' : 'LIMIT 250').';';
 	$c=0;
@@ -154,9 +155,10 @@ if (isset($_GET['shit']))
 	<tr>
 		<td width=40><b><a href="?shit='.$_GET['shit'].'&sort=0">RANK</a></b></td>
 		<td width=200><b><a href="?shit='.$_GET['shit'].'&sort=1">THEME</a></b></td>
-		<td width=550><b><a href="?shit='.$_GET['shit'].'&sort=2">VOTES</a></b></td>
+		<td width=500><b><a href="?shit='.$_GET['shit'].'&sort=2">VOTES</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=3">DOWN VOTES</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=4">KILL VOTES</a></b></td>
+		<td><b><a href="?shit='.$_GET['shit'].'&sort=5">SUM</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=0">TOTAL (weighted)</a></b></td>
 	</tr>
 	';
@@ -171,6 +173,7 @@ if (isset($_GET['shit']))
 		$votes = $line['up'];
 		$downvotes = $line['down'];
 		$killvotes = $line['kill'];
+		$sum = $votes + $downvotes + $killvotes;
 			
 		echo '
 		<tr style="background:'. (($c&1) ? '#eee' : '#ddd').';">
@@ -179,6 +182,7 @@ if (isset($_GET['shit']))
 			<td><div style="display:inline-block;background-color:green;width:'.(($votes > 500 ) ? 500 : $votes).'px;height:20px;"></div>&nbsp;'.$votes.'</td>
 			<td><div style="display:inline-block;background-color:#A00;width:'.(($downvotes > 100 ) ? 100 : $downvotes).'px;height:20px;"></div>&nbsp;'.$downvotes.'</td>
 			<td><div style="display:inline-block;background-color:#F00;width:'.(($killvotes > 100 ) ? 100 : $killvotes).'px;height:20px;"></div>&nbsp;'.$killvotes.'</td>
+			<td><div style="display:inline-block;background-color:#F00;width:'.(($sum > 100 ) ? 100 : $sum).'px;height:20px;"></div>&nbsp;'.$sum.'</td>
 			<td><center><b>'.($votes-$downvotes-($killvotes*$killvote_weight)).'</b></center></td>
 		</tr>
 		';
