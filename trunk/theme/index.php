@@ -157,7 +157,7 @@ if (isset($_GET['shit']))
 	<tr>
 		<td width=40><b><a href="?shit='.$_GET['shit'].'&sort=0">RANK</a></b></td>
 		<td width=250><b><a href="?shit='.$_GET['shit'].'&sort=1">THEME</a></b></td>
-		<td width=350><b><a href="?shit='.$_GET['shit'].'&sort=2">VOTES</a></b></td>
+		<td width=300><b><a href="?shit='.$_GET['shit'].'&sort=2">VOTES</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=3">DOWN VOTES</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=4">KILL VOTES</a></b></td>
 		<td><b><a href="?shit='.$_GET['shit'].'&sort=5">SUM</a></b></td>
@@ -185,7 +185,7 @@ if (isset($_GET['shit']))
 		<tr style="background:'. (($c&1) ? '#eee' : '#ddd').';">
 			<td width=40><center><b>'.($c+1).'.</b></center></td>
 			<td width=200>'.$line['theme'].'</td>
-			<td><div style="display:inline-block;background-color:green;width:'.(($votes > 300 ) ? 300 : $votes).'px;height:20px;"></div>&nbsp;'.$votes.'</td>
+			<td><div style="display:inline-block;background-color:green;width:'.(($votes > 250 ) ? 250 : $votes).'px;height:20px;"></div>&nbsp;'.$votes.'</td>
 			<td><div style="display:inline-block;background-color:#A00;width:'.(($downvotes > 60 ) ? 60 : $downvotes).'px;height:20px;"></div>&nbsp;'.$downvotes.'</td>
 			<td><div style="display:inline-block;background-color:#F00;width:'.(($killvotes > 60 ) ? 60 : $killvotes).'px;height:20px;"></div>&nbsp;'.$killvotes.'</td>
 			<td>&nbsp;'.$sum.'</td>
