@@ -1,0 +1,430 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Countdown Timer v3.0 Beta 2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-15 23:10-0800\n"
+"PO-Revision-Date: 2012-06-14 23:48-0800\n"
+"Last-Translator: Andrew Ferguson <andrew@fergcorp.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: NETHERLANDS\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:200
+msgid "Are you sure you wish to delete"
+msgstr "Ben je zeker dat je dit wenst te verwijderen?"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:247
+msgid "Plugin Homepage"
+msgstr "Plugin homepagina"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:248
+msgid "Support Forum"
+msgstr "Forum voor ondersteuning"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:249
+msgid "Amazon Wishlist"
+msgstr "Amazon wensenlijst"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:253
+msgid "I've coded and supported this plugin for several years now, however I am a full-time engineer with a real, full-time job and really only do this programming thing on the side for the love of it. If you would like to continue to see updates, please consider donating above."
+msgstr "Ik heb gecodeerd en ondersteund deze plugin voor enkele jaren, maar ik ben een full-time ingenieur met een echte, full-time job en eigenlijk alleen deze programmering te doen aan de zijkant voor de liefde van haar. Als u wilt blijven om updates te zien, kunt u overwegen om een schenking hierboven."
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:256
+msgid "Resources"
+msgstr "Bronnen"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:469
+#, php-format
+msgid "Countdown timer uses <a %s>PHP's strtotime function</a> and will parse about any English textual datetime description."
+msgstr "De Countdown Timer gebruikt <a %s>PHP's strtotime function</a> en 'will parse about any English textual datetime description.' "
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:470
+msgid "Examples of some (but not all) valid dates"
+msgstr "Voorbeelden van enkele (maar niet alle) gevalideerde datums."
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:479
+#, fuzzy, php-format, php-format, php-format
+msgid "To insert the Countdown Timer into your sidebar, you can use the <a %s>Countdown Timer Widget</a>."
+msgstr "Je bent er bijna. Om de 'Countdown Timer' te implementeren in de zijbalk gebruik je volgende code <a %s>Countdown Timer Widget</a>. "
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:481
+#, php-format
+msgid "If you want to insert the Countdown Timer into a page or post, you can use the following <abbr %s %s>shortcodes</abbr> to return all or a limited number of Countdown Timers, respectively:"
+msgstr "Als je de 'Countdown Timer' wil toevoegen in een bericht, gebruik dan volgende code: <abbr %s %s>shortcodes>/abbr>. Je kan alle of een beperkt aantal timers invoegen:"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:481
+msgid "A shortcode is a WordPress-specific code that lets you do nifty things with very little effort. Shortcodes can embed files or create objects that would normally require lots of complicated, ugly code in just one line. Shortcode = shortcut."
+msgstr "Een 'shortcode' is een WordPress specifieke en vernuftige code dat je leuke zaken laat doen in een minimum van tijd. 'Shortcodes' kan bestanden insluiten of objecten creeëren waarvoor normaal veel, gecompliceerde en lelijke code voor nodig is. Shortcode = shortcut"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:488
+msgid "Where <em>##</em> is maximum number of results to be displayed - ordered by date."
+msgstr "Waar <em>##</em> het maximum aantal resultaten is dat getoond mag worden, gerangschikt volgens datum."
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:489
+msgid "If you want to insert individual countdown timers, such as in posts or on pages, you can use the following shortcode:"
+msgstr "Als je individueel de timers wilt beheren, zoals in posts op pagina's, gebruik dan volgende code:"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:491
+msgid "Time until my birthday:"
+msgstr "Tijd tot mijn verjaardag:"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:495
+#, fuzzy, php-format, php-format, php-format
+msgid "Where <em>ENTER_DATE_HERE</em> uses <a %s>PHP's strtotime function</a> and will parse about any English textual datetime description."
+msgstr "De Countdown Timer gebruikt <a %s>PHP's strtotime function</a> en 'will parse about any English textual datetime description.' "
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:270
+#, fuzzy
+msgid "Installation and Usage Notes"
+msgstr "Installatie nota's"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:333
+msgid "Delete"
+msgstr "Verwijder"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:334
+msgid "Event Date"
+msgstr "Datum evenement"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:335
+msgid "Event Title"
+msgstr "Titel evenement"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:336
+msgid "Link"
+msgstr "Link"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:337
+msgid "Display \"Time since\""
+msgstr "Weergave \"Tijd sinds\" "
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:435
+msgid "Automatically delete 'One Time Events' after they have occured?"
+msgstr "Verwijder automatisch 'eenmalige gebeurtenissen' nadat ze zijn verschenen?"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:444
+#: fergcorp_countdownTimer.php:1163
+msgid "Yes"
+msgstr "Ja"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:454
+#: fergcorp_countdownTimer.php:1173
+msgid "No"
+msgstr "Nee"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:271
+msgid "One Time Events"
+msgstr "Eenmalige gebeurtenissen"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:510
+msgid "How long the timer remain visable if \"Display 'Time Since'\" is ticked:"
+msgstr "Hoe lang de teller zichtbaar blijft nadat \"Weergave 'Tijd sinds'\" is ingegeven:"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:520
+msgid "(0 = infinite; 86400 seconds = 1 day; 604800 seconds = 1 week)"
+msgstr "(0 = oneindig; 86400 seconden = 1 dag; 604800 seconden = 1 week)"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:522
+msgid "Enable JavaScript countdown:"
+msgstr "Activeer JavaScript countdown."
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:529
+msgid "By default, WordPress does not parse shortcodes that are in excerpts. If you want to enable this functionality, you can do so here. Note that this will enable the parsing of <em>all</em> shortcodes in the excerpt, not just the ones associated with Countdown Timer."
+msgstr "Door standaard WordPress niet parse shortcodes die in fragmenten. Als u deze functie wilt inschakelen, kunt u dat hier doen. Merk op dat dit zal kunnen Timer het parseren van <em>alle</em> shortcodes in het uittreksel, niet alleen degenen die verband houden met Countdown."
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:530
+msgid "Enable shortcodes in the_excerpt:"
+msgstr "Activeer shortcodes in the_excerpt:"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:272
+msgid "Management"
+msgstr "Beheer"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:305
+msgid "This setting controls what units of time are displayed."
+msgstr "De instellingen controleren welke tijdselementen er worden weergegeven."
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:307
+msgid "Years:"
+msgstr "Jaren:"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:308
+msgid "Months:"
+msgstr "Maanden:"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:310
+msgid "Days:"
+msgstr "Dagen:"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:311
+msgid "Hours:"
+msgstr "Uren:"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:312
+msgid "Minutes:"
+msgstr "Minuten:"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:313
+#: fergcorp_countdownTimer.php:511
+msgid "Seconds:"
+msgstr "Seconden:"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:314
+msgid "Strip non-significant zeros:"
+msgstr "Verwijder niet relevante nullen"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:273
+msgid "Countdown Time Display"
+msgstr "Teller tijdsweergave"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:551
+#, php-format
+msgid "If you set 'onHover Time Format', hovering over the time left will show the user what the date of the event is. onHover Time Format uses <a %s>PHP's Date() function</a>."
+msgstr "Als je 'onHover Tijdsweergave' gebruikt, wordt de datum van het event weergegeven bij een mouseOver. onHover Tijdsweergave gebruiken <a %s>PHP's Date() function</a>."
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:552
+msgid "Examples"
+msgstr "Voorbeelden"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:554
+#: fergcorp_countdownTimer.php:555
+msgid "goes to"
+msgstr "Gaat naar"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:274
+#: fergcorp_countdownTimer.php:557
+msgid "onHover Time Format"
+msgstr "onHover Tijdsweergave "
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:582
+msgid "This setting allows you to customize how each event is styled and wrapped."
+msgstr "Deze instellingen laten je toe elk event te stijlen"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:583
+msgid "<strong>Title Suffix</strong> sets the content that appears immediately after title and before the timer."
+msgstr "<strong>Titel achtervoegsel (suffix)</strong> zet het 'HTML Style attribute' voor elke teller. "
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:584
+msgid "Examples/Defaults"
+msgstr "Voorbeelden/ standaard instellingen"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:586
+#: fergcorp_countdownTimer.php:588
+msgid "Title Suffix"
+msgstr "Titel achtervoegsel (Suffix)"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:275
+msgid "Display Format Options"
+msgstr "Toon weergave opties"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:276
+msgid "Example Display"
+msgstr "Voorbeeld weergave"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:283
+msgid "Save Changes"
+msgstr "Wijzigingen opslaan"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:668
+msgid "No dates present"
+msgstr "Geen data beschikbaar"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:713
+#: fergcorp_countdownTimer.php:1044
+#, php-format
+msgid "%s ago"
+msgstr "%s geleden, "
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:721
+#: fergcorp_countdownTimer.php:1045
+#, php-format
+msgid "in %s"
+msgstr "over %s"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:1291
+msgid "Maximum # of events to show:"
+msgstr "Maximum # evenementen te tonen:"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:1293
+msgid "Notes:"
+msgstr "Nota's:"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:1293
+msgid "Set 'Maximum # of events' to '-1' if you want no limit."
+msgstr "Zet 'Maximum # evenementen' op '-1' als je geen limiet wenst."
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:1273
+msgid "Adds the Countdown Timer"
+msgstr "Voegt de Countdown Timer toe"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:174
+msgid "Countdown Timer Settings"
+msgstr ""
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:174
+#: fergcorp_countdownTimer.php:1284
+msgid "Countdown Timer"
+msgstr ""
+
+#@ fergcorp_countdownTimer
+#. gettext fix: duplicate plural forms found, that may be ambiguous! Please check the code!
+#: fergcorp_countdownTimer.php:781
+#: fergcorp_countdownTimer.php:1022
+#: fergcorp_countdownTimer.php:1023
+#: fergcorp_countdownTimer.php:893
+#, php-format
+msgid "%d year,"
+msgid_plural "%d years,"
+msgstr[0] "%d jaar,"
+msgstr[1] "%d jaar,"
+
+#@ fergcorp_countdownTimer
+#. gettext fix: duplicate plural forms found, that may be ambiguous! Please check the code!
+#: fergcorp_countdownTimer.php:793
+#: fergcorp_countdownTimer.php:1025
+#: fergcorp_countdownTimer.php:1026
+#: fergcorp_countdownTimer.php:890
+#, php-format
+msgid "%d month,"
+msgid_plural "%d months,"
+msgstr[0] "%d maand,"
+msgstr[1] "%d maanden,"
+
+#@ fergcorp_countdownTimer
+#. gettext fix: duplicate plural forms found, that may be ambiguous! Please check the code!
+#: fergcorp_countdownTimer.php:820
+#: fergcorp_countdownTimer.php:1028
+#: fergcorp_countdownTimer.php:1029
+#: fergcorp_countdownTimer.php:887
+#, php-format
+msgid "%d week,"
+msgid_plural "%d weeks,"
+msgstr[0] "%d week,"
+msgstr[1] "%d weken,"
+
+#@ fergcorp_countdownTimer
+#. gettext fix: duplicate plural forms found, that may be ambiguous! Please check the code!
+#: fergcorp_countdownTimer.php:831
+#: fergcorp_countdownTimer.php:1031
+#: fergcorp_countdownTimer.php:1032
+#: fergcorp_countdownTimer.php:884
+#, php-format
+msgid "%d day,"
+msgid_plural "%d days,"
+msgstr[0] "%d dag,"
+msgstr[1] "%d dagen,"
+
+#@ fergcorp_countdownTimer
+#. gettext fix: duplicate plural forms found, that may be ambiguous! Please check the code!
+#: fergcorp_countdownTimer.php:844
+#: fergcorp_countdownTimer.php:1034
+#: fergcorp_countdownTimer.php:1035
+#: fergcorp_countdownTimer.php:881
+#, php-format
+msgid "%d hour,"
+msgid_plural "%d hours,"
+msgstr[0] "%d uur,"
+msgstr[1] "%d uren,"
+
+#@ fergcorp_countdownTimer
+#. gettext fix: duplicate plural forms found, that may be ambiguous! Please check the code!
+#: fergcorp_countdownTimer.php:857
+#: fergcorp_countdownTimer.php:1037
+#: fergcorp_countdownTimer.php:1038
+#: fergcorp_countdownTimer.php:878
+#, php-format
+msgid "%d minute,"
+msgid_plural "%d minutes,"
+msgstr[0] "%d minuut,"
+msgstr[1] "%d minuten,"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:869
+#: fergcorp_countdownTimer.php:875
+#: fergcorp_countdownTimer.php:1040
+#: fergcorp_countdownTimer.php:1041
+#, php-format
+msgid "%d second,"
+msgid_plural "%d seconds,"
+msgstr[0] "%d seconde,"
+msgstr[1] "%d seconden,"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:1289
+msgid "Title:"
+msgstr "Titel"
+
+#@ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:309
+msgid "Weeks:"
+msgstr "Weken:"
+

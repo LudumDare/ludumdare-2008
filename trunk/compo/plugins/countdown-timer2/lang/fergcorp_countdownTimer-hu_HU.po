@@ -1,0 +1,426 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Countdown Timer v3.0 Build (2012.6.10.16.23)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-15 23:09-0800\n"
+"PO-Revision-Date: 2012-06-15 05:35:58+0000\n"
+"Last-Translator: Andrew Ferguson <andrew@fergcorp.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Hungarian\n"
+"X-Poedit-Country: HUNGARY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: fergcorp_countdownTimer.php:181
+#@ fergcorp_countdownTimer
+msgid "Are you sure you wish to delete"
+msgstr "Biztosan törölni akarod"
+
+#: fergcorp_countdownTimer.php:228
+#@ fergcorp_countdownTimer
+msgid "Plugin Homepage"
+msgstr "Plugin honlapja"
+
+#: fergcorp_countdownTimer.php:229
+#@ fergcorp_countdownTimer
+msgid "Support Forum"
+msgstr "Támogató fórum"
+
+#: fergcorp_countdownTimer.php:230
+#@ fergcorp_countdownTimer
+msgid "Amazon Wishlist"
+msgstr "Amazon Kívánságlista"
+
+#: fergcorp_countdownTimer.php:234
+#@ fergcorp_countdownTimer
+msgid "I've coded and supported this plugin for several years now, however I am a full-time engineer with a real, full-time job and really only do this programming thing on the side for the love of it. If you would like to continue to see updates, please consider donating above."
+msgstr "Én már kódolt, és támogatta ezt a plugin több éve, de én vagyok a nappali tagozatos mérnök egy igazi, teljes munkaidős állás, és tényleg csak ezt programozási dolog az oldalán a szeretet is. Ha szeretné, hogy továbbra is lássa a frissítéseket, kérjük, fontolja meg a fent ajándékozó."
+
+#: fergcorp_countdownTimer.php:237
+#@ fergcorp_countdownTimer
+msgid "Resources"
+msgstr "Források"
+
+#: fergcorp_countdownTimer.php:450
+#, php-format
+#@ fergcorp_countdownTimer
+msgid "Countdown timer uses <a %s>PHP's strtotime function</a> and will parse about any English textual datetime description."
+msgstr "A Visszaszámláló a <a %s>PHP strtotime függvényét</a> használja, és majdnem bármilyen angol dátumformátumot fogad."
+
+#: fergcorp_countdownTimer.php:451
+#@ fergcorp_countdownTimer
+msgid "Examples of some (but not all) valid dates"
+msgstr "Néhány (nem az összes) helyes példa"
+
+#: fergcorp_countdownTimer.php:460
+#, fuzzy, php-format, php-format, php-format
+#@ fergcorp_countdownTimer
+msgid "To insert the Countdown Timer into your sidebar, you can use the <a %s>Countdown Timer Widget</a>."
+msgstr "Eddig eljutottál. A Visszaszámláló sidebarba illesztéséhez használhatod a Visszaszámláló Widgetet, ha a widgetek engedélyezve vannak (vagy engedélyezhetõek)."
+
+#: fergcorp_countdownTimer.php:462
+#, php-format
+#@ fergcorp_countdownTimer
+msgid "If you want to insert the Countdown Timer into a page or post, you can use the following <abbr %s %s>shortcodes</abbr> to return all or a limited number of Countdown Timers, respectively:"
+msgstr "Ha be szeretné szúrni az Időzítés egy oldalra, vagy postai úton, akkor a következő <abbr %s %s>shortcodes</abbr> vissza az összes, vagy korlátozott számú Visszaszámlálás Timers, illetve:"
+
+#: fergcorp_countdownTimer.php:462
+#@ fergcorp_countdownTimer
+msgid "A shortcode is a WordPress-specific code that lets you do nifty things with very little effort. Shortcodes can embed files or create objects that would normally require lots of complicated, ugly code in just one line. Shortcode = shortcut."
+msgstr "A hiány a WordPress-specifikus kódot, amivel nem klassz dolog nagyon kevés erőfeszítéssel. Shortcodes beágyazható fájlokat, illetve új objektumok létrehozásához szükséges, hogy az egyébként rengeteg bonyolult, csúnya kód csak egy sorban. Hiány = parancsikon."
+
+#: fergcorp_countdownTimer.php:469
+#@ fergcorp_countdownTimer
+msgid "Where <em>##</em> is maximum number of results to be displayed - ordered by date."
+msgstr "Ahol <em># #</em> a maximális száma az eredmények megjelennek - rendelhető dátum."
+
+#: fergcorp_countdownTimer.php:470
+#, fuzzy
+#@ fergcorp_countdownTimer
+msgid "If you want to insert individual countdown timers, such as in posts or on pages, you can use the following shortcode:"
+msgstr "Ha egyenként akarod a visszaszámlálókat beállítani, úgy mint postokban vagy oldalakon, használhatod ezt a kódot:"
+
+#: fergcorp_countdownTimer.php:472
+#@ fergcorp_countdownTimer
+msgid "Time until my birthday:"
+msgstr "A születésnapomig fennmaradt idõ:"
+
+#: fergcorp_countdownTimer.php:476
+#, fuzzy, php-format, php-format, php-format
+#@ fergcorp_countdownTimer
+msgid "Where <em>ENTER_DATE_HERE</em> uses <a %s>PHP's strtotime function</a> and will parse about any English textual datetime description."
+msgstr "A Visszaszámláló a <a %s>PHP strtotime függvényét</a> használja, és majdnem bármilyen angol dátumformátumot fogad."
+
+#: fergcorp_countdownTimer.php:251
+#, fuzzy
+#@ fergcorp_countdownTimer
+msgid "Installation and Usage Notes"
+msgstr "Telepítési jegyzetek"
+
+#: fergcorp_countdownTimer.php:314
+#@ fergcorp_countdownTimer
+msgid "Delete"
+msgstr "Törlés"
+
+#: fergcorp_countdownTimer.php:315
+#@ fergcorp_countdownTimer
+msgid "Event Date"
+msgstr "Esemény dátuma"
+
+#: fergcorp_countdownTimer.php:316
+#@ fergcorp_countdownTimer
+msgid "Event Title"
+msgstr "Esemény címe"
+
+#: fergcorp_countdownTimer.php:317
+#@ fergcorp_countdownTimer
+msgid "Link"
+msgstr "Link"
+
+#: fergcorp_countdownTimer.php:318
+#@ fergcorp_countdownTimer
+msgid "Display \"Time since\""
+msgstr "\"Eltelt idõ\" megjelenítése"
+
+#: fergcorp_countdownTimer.php:416
+#@ fergcorp_countdownTimer
+msgid "Automatically delete 'One Time Events' after they have occured?"
+msgstr "Kívánja az Egy-Idõ Eseményeket automatikusan törölni, miután azok megtörténtek?"
+
+#: fergcorp_countdownTimer.php:425
+#: fergcorp_countdownTimer.php:1135
+#@ fergcorp_countdownTimer
+msgid "Yes"
+msgstr "Igen"
+
+#: fergcorp_countdownTimer.php:435
+#: fergcorp_countdownTimer.php:1145
+#@ fergcorp_countdownTimer
+msgid "No"
+msgstr "Nem"
+
+#: fergcorp_countdownTimer.php:252
+#@ fergcorp_countdownTimer
+msgid "One Time Events"
+msgstr "Egy-Idõ Események"
+
+#: fergcorp_countdownTimer.php:491
+#@ fergcorp_countdownTimer
+msgid "How long the timer remain visable if \"Display 'Time Since'\" is ticked:"
+msgstr "Mennyi ideig maradjon a számláló látható, ha a \"'Eltelt idõ' megjelenítése\" megtörtént: "
+
+#: fergcorp_countdownTimer.php:501
+#@ fergcorp_countdownTimer
+msgid "(0 = infinite; 86400 seconds = 1 day; 604800 seconds = 1 week)"
+msgstr "(0 = végtelen; 86400 másodperc = 1 nap; 604800 másodperc = 1 hét)"
+
+#: fergcorp_countdownTimer.php:503
+#@ fergcorp_countdownTimer
+msgid "Enable JavaScript countdown:"
+msgstr "JavaScript-visszaszámlálás engedélyezése:"
+
+#: fergcorp_countdownTimer.php:510
+#@ fergcorp_countdownTimer
+msgid "By default, WordPress does not parse shortcodes that are in excerpts. If you want to enable this functionality, you can do so here. Note that this will enable the parsing of <em>all</em> shortcodes in the excerpt, not just the ones associated with Countdown Timer."
+msgstr "Alapértelmezés szerint a WordPress nem sikerült feldolgozni shortcodes, hogy vannak részletek. Ha engedélyezni szeretné ezt a funkciót, akkor megteheti itt. Megjegyzendő, hogy ez lehetővé teszi az elemzési <em>összes</em> shortcodes a kivonat, nem csak a egyek kapcsolódó Időzítés."
+
+#: fergcorp_countdownTimer.php:511
+#@ fergcorp_countdownTimer
+msgid "Enable shortcodes in the_excerpt:"
+msgstr "Lehetővé teszi a shortcodes the_excerpt:"
+
+#: fergcorp_countdownTimer.php:253
+#@ fergcorp_countdownTimer
+msgid "Management"
+msgstr "Beállítások"
+
+#: fergcorp_countdownTimer.php:286
+#@ fergcorp_countdownTimer
+msgid "This setting controls what units of time are displayed."
+msgstr "Ez a beállítás határozza meg, hogy mely elemek jelenjenek meg."
+
+#: fergcorp_countdownTimer.php:288
+#@ fergcorp_countdownTimer
+msgid "Years:"
+msgstr "Évek:"
+
+#: fergcorp_countdownTimer.php:289
+#@ fergcorp_countdownTimer
+msgid "Months:"
+msgstr "Hónapok:"
+
+#: fergcorp_countdownTimer.php:291
+#@ fergcorp_countdownTimer
+msgid "Days:"
+msgstr "Napok:"
+
+#: fergcorp_countdownTimer.php:292
+#@ fergcorp_countdownTimer
+msgid "Hours:"
+msgstr "Órák:"
+
+#: fergcorp_countdownTimer.php:293
+#@ fergcorp_countdownTimer
+msgid "Minutes:"
+msgstr "Percek:"
+
+#: fergcorp_countdownTimer.php:294
+#: fergcorp_countdownTimer.php:492
+#@ fergcorp_countdownTimer
+msgid "Seconds:"
+msgstr "Másodpercek:"
+
+#: fergcorp_countdownTimer.php:295
+#@ fergcorp_countdownTimer
+msgid "Strip non-significant zeros:"
+msgstr "Non-szignifikáns nullák eltávolítása:"
+
+#: fergcorp_countdownTimer.php:254
+#@ fergcorp_countdownTimer
+msgid "Countdown Time Display"
+msgstr "Visszaszámlált idõ megjelenítése"
+
+#: fergcorp_countdownTimer.php:532
+#, fuzzy, php-format, php-format, php-format
+#@ fergcorp_countdownTimer
+msgid "If you set 'onHover Time Format', hovering over the time left will show the user what the date of the event is. onHover Time Format uses <a %s>PHP's Date() function</a>."
+msgstr "Ha beállítod az 'onHover idõformátum'-ot, az számláló fölött egerészve a felhasználó láthatja az esemény dátumát. Az onHover idõformátum ezt használja"
+
+#: fergcorp_countdownTimer.php:533
+#@ fergcorp_countdownTimer
+msgid "Examples"
+msgstr "Példák"
+
+#: fergcorp_countdownTimer.php:535
+#: fergcorp_countdownTimer.php:536
+#@ fergcorp_countdownTimer
+msgid "goes to"
+msgstr "megy"
+
+#: fergcorp_countdownTimer.php:255
+#: fergcorp_countdownTimer.php:538
+#@ fergcorp_countdownTimer
+msgid "onHover Time Format"
+msgstr "onHover idõformátum"
+
+#: fergcorp_countdownTimer.php:563
+#@ fergcorp_countdownTimer
+msgid "This setting allows you to customize how each event is styled and wrapped."
+msgstr "Ez a beállítás segít egyedivé tenni az egyes eseményeket."
+
+#: fergcorp_countdownTimer.php:564
+#@ fergcorp_countdownTimer
+msgid "<strong>Title Suffix</strong> sets the content that appears immediately after title and before the timer."
+msgstr "A <strong>cím szuffixum</strong> állítja be azt a tartalmat, amely a cím után, de az számláló elõtt van. "
+
+#: fergcorp_countdownTimer.php:565
+#@ fergcorp_countdownTimer
+msgid "Examples/Defaults"
+msgstr "Példák/Alapbeállítások"
+
+#: fergcorp_countdownTimer.php:567
+#: fergcorp_countdownTimer.php:569
+#@ fergcorp_countdownTimer
+msgid "Title Suffix"
+msgstr "Cím szuffixum"
+
+#: fergcorp_countdownTimer.php:256
+#@ fergcorp_countdownTimer
+msgid "Display Format Options"
+msgstr "Megjelenítési beállítások"
+
+#: fergcorp_countdownTimer.php:257
+#@ fergcorp_countdownTimer
+msgid "Example Display"
+msgstr "Megjelenítési példa"
+
+#: fergcorp_countdownTimer.php:264
+#@ fergcorp_countdownTimer
+msgid "Save Changes"
+msgstr "Változtatások mentése"
+
+#: fergcorp_countdownTimer.php:649
+#@ fergcorp_countdownTimer
+msgid "No dates present"
+msgstr "Nincsenek dátumok"
+
+#: fergcorp_countdownTimer.php:694
+#: fergcorp_countdownTimer.php:1026
+#, php-format
+#@ fergcorp_countdownTimer
+msgid "%s ago"
+msgstr "%s ezelõtt "
+
+#: fergcorp_countdownTimer.php:702
+#: fergcorp_countdownTimer.php:1027
+#, php-format
+#@ fergcorp_countdownTimer
+msgid "in %s"
+msgstr "%s-kor"
+
+#: fergcorp_countdownTimer.php:1259
+#@ fergcorp_countdownTimer
+msgid "Maximum # of events to show:"
+msgstr "Maximum # esemény megjelenítése:"
+
+#: fergcorp_countdownTimer.php:1261
+#@ fergcorp_countdownTimer
+msgid "Notes:"
+msgstr "Megjegyzések:"
+
+#: fergcorp_countdownTimer.php:1261
+#@ fergcorp_countdownTimer
+msgid "Set 'Maximum # of events' to '-1' if you want no limit."
+msgstr "A 'Maximum # esemény' -1 esetén korlátlant jelent."
+
+#: fergcorp_countdownTimer.php:1241
+#, fuzzy
+#@ fergcorp_countdownTimer
+msgid "Adds the Countdown Timer"
+msgstr "Visszaszámlált idõ megjelenítése"
+
+#: fergcorp_countdownTimer.php:155
+#@ fergcorp_countdownTimer
+msgid "Countdown Timer Settings"
+msgstr ""
+
+#: fergcorp_countdownTimer.php:155
+#: fergcorp_countdownTimer.php:1252
+#@ fergcorp_countdownTimer
+msgid "Countdown Timer"
+msgstr ""
+
+#: fergcorp_countdownTimer.php:290
+#@ fergcorp_countdownTimer
+msgid "Week:"
+msgstr "Hetek:"
+
+#. gettext fix: duplicate plural forms found, that may be ambiguous! Please check the code!
+#: fergcorp_countdownTimer.php:763
+#: fergcorp_countdownTimer.php:1004
+#: fergcorp_countdownTimer.php:1005
+#: fergcorp_countdownTimer.php:875
+#, php-format
+#@ fergcorp_countdownTimer
+msgid "%d year,"
+msgid_plural "%d years,"
+msgstr[0] "%d év,"
+
+#. gettext fix: duplicate plural forms found, that may be ambiguous! Please check the code!
+#: fergcorp_countdownTimer.php:775
+#: fergcorp_countdownTimer.php:1007
+#: fergcorp_countdownTimer.php:1008
+#: fergcorp_countdownTimer.php:872
+#, php-format
+#@ fergcorp_countdownTimer
+msgid "%d month,"
+msgid_plural "%d months,"
+msgstr[0] "%d hónap,"
+
+#. gettext fix: duplicate plural forms found, that may be ambiguous! Please check the code!
+#: fergcorp_countdownTimer.php:802
+#: fergcorp_countdownTimer.php:1010
+#: fergcorp_countdownTimer.php:1011
+#: fergcorp_countdownTimer.php:869
+#, php-format
+#@ fergcorp_countdownTimer
+msgid "%d week,"
+msgid_plural "%d weeks,"
+msgstr[0] "%d hét,"
+
+#. gettext fix: duplicate plural forms found, that may be ambiguous! Please check the code!
+#: fergcorp_countdownTimer.php:813
+#: fergcorp_countdownTimer.php:1013
+#: fergcorp_countdownTimer.php:1014
+#: fergcorp_countdownTimer.php:866
+#, php-format
+#@ fergcorp_countdownTimer
+msgid "%d day,"
+msgid_plural "%d days,"
+msgstr[0] "%d nap,"
+
+#. gettext fix: duplicate plural forms found, that may be ambiguous! Please check the code!
+#: fergcorp_countdownTimer.php:826
+#: fergcorp_countdownTimer.php:1016
+#: fergcorp_countdownTimer.php:1017
+#: fergcorp_countdownTimer.php:863
+#, php-format
+#@ fergcorp_countdownTimer
+msgid "%d hour,"
+msgid_plural "%d hours,"
+msgstr[0] "%d óra,"
+
+#. gettext fix: duplicate plural forms found, that may be ambiguous! Please check the code!
+#: fergcorp_countdownTimer.php:839
+#: fergcorp_countdownTimer.php:1019
+#: fergcorp_countdownTimer.php:1020
+#: fergcorp_countdownTimer.php:860
+#, php-format
+#@ fergcorp_countdownTimer
+msgid "%d minute,"
+msgid_plural "%d minutes,"
+msgstr[0] "%d perc,"
+
+#: fergcorp_countdownTimer.php:851
+#: fergcorp_countdownTimer.php:857
+#: fergcorp_countdownTimer.php:1022
+#: fergcorp_countdownTimer.php:1023
+#, php-format
+#@ fergcorp_countdownTimer
+msgid "%d second,"
+msgid_plural "%d seconds,"
+msgstr[0] "%d másodperc,"
+
+#: fergcorp_countdownTimer.php:1257
+#@ fergcorp_countdownTimer
+msgid "Title:"
+msgstr "Cím:"
+
