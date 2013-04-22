@@ -42,7 +42,7 @@ function GetPropertyByString(stringRepresentation) {
 
 function fergcorp_countdownTimer_js ()
 {
-		jQuery("abbr.fergcorp_countdownTimer_event_time").each(function (i) {
+		jQuery("span.fergcorp_countdownTimer_event_time").each(function (i) {
 			var nowDate = new Date();
 			var targetDate = new Date(GetPropertyByString("fergcorp_countdown_timer_jsEvents." + this.id)*1000);
 			
