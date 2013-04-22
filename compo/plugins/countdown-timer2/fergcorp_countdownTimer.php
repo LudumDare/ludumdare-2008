@@ -732,7 +732,7 @@ class Fergcorp_Countdown_Timer{
 		if ($this->timeFormat == "") {
 			$this->timeFormat = get_option('date_format') . ", " . get_option('time_format');
 		}
-		$timePrefix = "<abbr title = \"".date_i18n($this->timeFormat, $thisEvent->getTimestamp()+(3600*(get_option('gmt_offset'))), TRUE)."\" id = '".$thisEvent->getUID()."' class = 'fergcorp_countdownTimer_event_time'>";
+		$timePrefix = "";//"<abbr title = \"".date_i18n($this->timeFormat, $thisEvent->getTimestamp()+(3600*(get_option('gmt_offset'))), TRUE)."\" id = '".$thisEvent->getUID()."' class = 'fergcorp_countdownTimer_event_time'>";
 
 		if ( 	( $time_left <= 0 ) &&
 					( ( ( $thisEvent->getTimeSince() ) &&
