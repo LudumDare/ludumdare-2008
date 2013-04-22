@@ -754,7 +754,7 @@ class Fergcorp_Countdown_Timer{
 			if($thisEvent->getTitle()){
 				$content .= $eventTitle;
 			}
-			$content .= $timePrefix.sprintf(__("in %s", 'fergcorp_countdownTimer'), $this->fuzzyDate($thisEvent->getTimestamp(), time() ) )."</abbr>";
+			$content .= $timePrefix.sprintf(__("in %s", 'fergcorp_countdownTimer'), $this->fuzzyDate($thisEvent->getTimestamp(), time() ) )."</span>";//"</abbr>";
 		}
 		else{
 			return NULL;
