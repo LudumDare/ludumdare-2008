@@ -1,0 +1,409 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: fergcorp_countdownTimer\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/countdown-timer\n"
+"POT-Creation-Date: 2012-05-15 22:52-0800\n"
+"PO-Revision-Date: 2012-05-15 22:52-0800\n"
+"Last-Translator: Andrew Ferguson <andrew@fergcorp.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e;_n\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../fergcorp_countdownTimer.php:54
+msgid "Are you sure you wish to delete"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:94
+msgid "Plugin Homepage"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:95
+msgid "Support Forum"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:96
+msgid "Amazon Wishlist"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:100
+msgid "I've coded and supported this plugin for several years now, however I am a full-time engineer with a real, full-time job and really only do this programming thing on the side for the love of it. If you would like to continue to see updates, please consider donating above."
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:103
+msgid "Resources"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:116
+#, php-format
+msgid "Countdown timer uses <a %s>PHP's strtotime function</a> and will parse about any English textual datetime description."
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:117
+msgid "Examples of some (but not all) valid dates"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:126
+#, php-format
+msgid "To insert the Countdown Timer into your sidebar, you can use the <a %s>Countdown Timer Widget</a>."
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:127
+msgid "Alternatively, you can also use this code in your sidebar.php file:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:137
+#, php-format
+msgid "If you want to insert the Countdown Timer into a page or post, you can use the following <abbr %s %s>shortcodes</abbr> to return all or a limited number of Countdown Timers, respectively:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:137
+msgid "A shortcode is a WordPress-specific code that lets you do nifty things with very little effort. Shortcodes can embed files or create objects that would normally require lots of complicated, ugly code in just one line. Shortcode = shortcut."
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:144
+msgid "Where <em>##</em> is maximum number of results to be displayed - ordered by date."
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:145
+msgid "If you want to insert individual countdown timers, such as in posts or on pages, you can use the following shortcode:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:147
+msgid "Time until my birthday:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:151
+#, php-format
+msgid "Where <em>ENTER_DATE_HERE</em> uses <a %s>PHP's strtotime function</a> and will parse about any English textual datetime description."
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:154
+msgid "Installation and Usage Notes"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:170
+msgid "Delete"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:171
+msgid "Event Date"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:172
+msgid "Event Title"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:173
+msgid "Link"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:174
+msgid "Display \"Time since\""
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:206
+msgid "Automatically delete 'One Time Events' after they have occured?"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:206
+#: ../fergcorp_countdownTimer.php:215
+#: ../fergcorp_countdownTimer.php:217
+#: ../fergcorp_countdownTimer.php:233
+#: ../fergcorp_countdownTimer.php:234
+#: ../fergcorp_countdownTimer.php:235
+#: ../fergcorp_countdownTimer.php:236
+#: ../fergcorp_countdownTimer.php:237
+#: ../fergcorp_countdownTimer.php:238
+#: ../fergcorp_countdownTimer.php:239
+#: ../fergcorp_countdownTimer.php:240
+msgid "Yes"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:206
+#: ../fergcorp_countdownTimer.php:215
+#: ../fergcorp_countdownTimer.php:217
+#: ../fergcorp_countdownTimer.php:233
+#: ../fergcorp_countdownTimer.php:234
+#: ../fergcorp_countdownTimer.php:235
+#: ../fergcorp_countdownTimer.php:236
+#: ../fergcorp_countdownTimer.php:237
+#: ../fergcorp_countdownTimer.php:238
+#: ../fergcorp_countdownTimer.php:239
+#: ../fergcorp_countdownTimer.php:240
+msgid "No"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:209
+msgid "One Time Events"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:213
+msgid "How long the timer remain visable if \"Display 'Time Since'\" is ticked:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:214
+msgid "Seconds: "
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:214
+msgid "(0 = infinite; 86400 seconds = 1 day; 604800 seconds = 1 week)"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:215
+msgid "Enable JavaScript countdown:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:216
+msgid "By default, WordPress does not parse shortcodes that are in excerpts. If you want to enable this functionality, you can do so here. Note that this will enable the parsing of <em>all</em> shortcodes in the excerpt, not just the ones associated with Countdown Timer."
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:217
+msgid "Enable shortcodes in the_excerpt:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:225
+msgid "Management"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:231
+msgid "This setting controls what units of time are displayed."
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:233
+msgid "Years:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:234
+msgid "Months:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:235
+msgid "Weeks:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:236
+msgid "Days:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:237
+msgid "Hours:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:238
+msgid "Minutes:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:239
+msgid "Seconds:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:240
+msgid "Strip non-significant zeros:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:244
+msgid "Countdown Time Display"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:248
+#, php-format
+msgid "If you set 'onHover Time Format', hovering over the time left will show the user what the date of the event is. onHover Time Format uses <a %s>PHP's Date() function</a>."
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:249
+msgid "Examples"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:251
+#: ../fergcorp_countdownTimer.php:252
+msgid "goes to"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:254
+#: ../fergcorp_countdownTimer.php:257
+msgid "onHover Time Format"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:261
+msgid "This setting allows you to customize how each event is styled and wrapped."
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:262
+msgid "<strong>Title Suffix</strong> sets the content that appears immediately after title and before the timer."
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:263
+msgid "Examples/Defaults"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:265
+#: ../fergcorp_countdownTimer.php:267
+msgid "Title Suffix"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:270
+msgid "Display Format Options"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:280
+msgid "Example Display"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:287
+msgid "Save Changes"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:366
+#: ../fergcorp_countdownTimer.php:369
+msgid "No dates present"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:418
+#: ../fergcorp_countdownTimer.php:921
+#, php-format
+msgid "%s ago"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:431
+#: ../fergcorp_countdownTimer.php:922
+#, php-format
+msgid "in %s"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:528
+#, php-format
+msgid "%d year,"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:540
+#, php-format
+msgid "%d month,"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:570
+#, php-format
+msgid "%d week,"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:581
+#, php-format
+msgid "%d day,"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:594
+#, php-format
+msgid "%d hour,"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:607
+#, php-format
+msgid "%d minute,"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:619
+#, php-format
+msgid "%d second,"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:625
+#: ../fergcorp_countdownTimer.php:920
+#, php-format
+msgid "%d seconds, "
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:628
+#: ../fergcorp_countdownTimer.php:918
+#, php-format
+msgid "%d minutes, "
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:631
+#: ../fergcorp_countdownTimer.php:916
+#, php-format
+msgid "%d hours, "
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:634
+#: ../fergcorp_countdownTimer.php:914
+#, php-format
+msgid "%d days, "
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:637
+#: ../fergcorp_countdownTimer.php:912
+#, php-format
+msgid "%d weeks, "
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:640
+#: ../fergcorp_countdownTimer.php:910
+#, php-format
+msgid "%d months, "
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:643
+#: ../fergcorp_countdownTimer.php:908
+#, php-format
+msgid "%d years, "
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:835
+msgid "Widget title:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:836
+msgid "Maximum # of events to show:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:838
+msgid "Notes:"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:838
+msgid "Set 'Maximum # of events' to '-1' if you want no limit."
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:871
+msgid "Adds the Countdown Timer"
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:907
+#, php-format
+msgid "%d year, "
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:909
+#, php-format
+msgid "%d month, "
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:911
+#, php-format
+msgid "%d week, "
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:913
+#, php-format
+msgid "%d day, "
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:915
+#, php-format
+msgid "%d hour, "
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:917
+#, php-format
+msgid "%d minute, "
+msgstr ""
+
+#: ../fergcorp_countdownTimer.php:919
+#, php-format
+msgid "%d second, "
+msgstr ""
+

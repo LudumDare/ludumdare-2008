@@ -1,0 +1,413 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Countdown Timer v3.0 Build (2012.6.10.16.23)\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-14 23:29-0800\n"
+"PO-Revision-Date: 2012-06-14 23:30-0800\n"
+"Last-Translator: Andrew Ferguson <andrew@fergcorp.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Poedit-Basepath: ../\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:174
+msgid "Countdown Timer Settings"
+msgstr ""
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:174
+#: fergcorp_countdownTimer.php:1284
+msgid "Countdown Timer"
+msgstr ""
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:200
+msgid "Are you sure you wish to delete"
+msgstr "你确定要删除嘛"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:247
+msgid "Plugin Homepage"
+msgstr "主页"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:248
+msgid "Support Forum"
+msgstr "支持"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:249
+msgid "Amazon Wishlist"
+msgstr "Amazon 列表"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:253
+#, fuzzy
+msgid "I've coded and supported this plugin for several years now, however I am a full-time engineer with a real, full-time job and really only do this programming thing on the side for the love of it. If you would like to continue to see updates, please consider donating above."
+msgstr "我已经编码，支持这几年这个插件，但我是一个真正的，全职工作的全职工程师，实际上只在旁边做了它喜欢这个节目的事情。如果您想继续看到更新，请考虑捐赠以上。"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:256
+#, fuzzy
+msgid "Resources"
+msgstr "来源"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:270
+#, fuzzy
+msgid "Installation and Usage Notes"
+msgstr "安装方法"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:271
+msgid "One Time Events"
+msgstr "发生一次的时间"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:272
+msgid "Management"
+msgstr "管理"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:273
+msgid "Countdown Time Display"
+msgstr "显示倒计时"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:274
+#: fergcorp_countdownTimer.php:557
+msgid "onHover Time Format"
+msgstr "时间格式"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:275
+msgid "Display Format Options"
+msgstr "显示格式选项"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:276
+msgid "Example Display"
+msgstr "例子"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:283
+msgid "Save Changes"
+msgstr "保存更改"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:305
+msgid "This setting controls what units of time are displayed."
+msgstr "时间显示单元"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:307
+msgid "Years:"
+msgstr "年"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:308
+msgid "Months:"
+msgstr "月"
+
+#: fergcorp_countdownTimer.php:309
+msgid "Weeks:"
+msgstr "周"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:310
+msgid "Days:"
+msgstr "日"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:311
+msgid "Hours:"
+msgstr "时"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:312
+msgid "Minutes:"
+msgstr "分"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:313
+#: fergcorp_countdownTimer.php:511
+msgid "Seconds:"
+msgstr "秒"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:314
+msgid "Strip non-significant zeros:"
+msgstr "出去无意义的0"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:333
+msgid "Delete"
+msgstr "删除"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:334
+msgid "Event Date"
+msgstr "时间"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:335
+msgid "Event Title"
+msgstr "标题"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:336
+msgid "Link"
+msgstr "链接"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:337
+msgid "Display \"Time since\""
+msgstr "显示\"还有时间\""
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:435
+msgid "Automatically delete 'One Time Events' after they have occured?"
+msgstr "到期后制动删除\"一次发生时间\"?"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:444
+#: fergcorp_countdownTimer.php:1163
+msgid "Yes"
+msgstr "是"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:454
+#: fergcorp_countdownTimer.php:1173
+msgid "No"
+msgstr "否"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:469
+#, php-format
+msgid "Countdown timer uses <a %s>PHP's strtotime function</a> and will parse about any English textual datetime description."
+msgstr "倒计时板使用<a %s>PHP's strtotime function</a> 而且会显示描述性语言"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:470
+msgid "Examples of some (but not all) valid dates"
+msgstr "一些合法的时间例子"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:479
+#, fuzzy, php-format
+msgid "To insert the Countdown Timer into your sidebar, you can use the <a %s>Countdown Timer Widget</a>."
+msgstr "已经成功安装,你可以到后台添加相应的侧栏"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:481
+#, php-format
+msgid "If you want to insert the Countdown Timer into a page or post, you can use the following <abbr %s %s>shortcodes</abbr> to return all or a limited number of Countdown Timers, respectively:"
+msgstr "如果你想成为一个网页或邮寄至插入倒计时，您可以使用下列<abbr %s %s>简码</缩写>返回“全部或倒数计时器，分别限制数量："
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:481
+msgid "A shortcode is a WordPress-specific code that lets you do nifty things with very little effort. Shortcodes can embed files or create objects that would normally require lots of complicated, ugly code in just one line. Shortcode = shortcut."
+msgstr "阿简码是一个WordPress特定的代码，可以让你用很少的努力，漂亮的东西。简码可嵌入文件或创建对象，将通常需要在短短1线复杂，丑陋的大量代码。简码=快捷方式。"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:488
+msgid "Where <em>##</em> is maximum number of results to be displayed - ordered by date."
+msgstr "其中<em>＃＃</em>是结果的最大数目，显示 - 按日期排列。"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:489
+#, fuzzy
+msgid "If you want to insert individual countdown timers, such as in posts or on pages, you can use the following shortcode:"
+msgstr "如果你想随意的展示Countdown.比如在文章中或者页面中,可以使用下面的代码"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:491
+msgid "Time until my birthday:"
+msgstr "距离我的生日还有"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:495
+#, fuzzy, php-format
+msgid "Where <em>ENTER_DATE_HERE</em> uses <a %s>PHP's strtotime function</a> and will parse about any English textual datetime description."
+msgstr "倒计时板使用<a %s>PHP's strtotime function</a> 而且会显示描述性语言"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:510
+msgid "How long the timer remain visable if \"Display 'Time Since'\" is ticked:"
+msgstr "如果\"display Time Since\"被选中,则显示还剩余时间"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:520
+msgid "(0 = infinite; 86400 seconds = 1 day; 604800 seconds = 1 week)"
+msgstr "0=无限;86400秒=1天;604800秒=1周"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:522
+msgid "Enable JavaScript countdown:"
+msgstr "开启JavaScript倒计时"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:529
+msgid "By default, WordPress does not parse shortcodes that are in excerpts. If you want to enable this functionality, you can do so here. Note that this will enable the parsing of <em>all</em> shortcodes in the excerpt, not just the ones associated with Countdown Timer."
+msgstr "默认情况下，WordPress的并不在摘录的解析简码。如果你要启用此功能，在这里你可以这样做。请注意，这将使<em>所有</em>简码中的摘录，而不仅仅是与倒计时相关的解析"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:530
+msgid "Enable shortcodes in the_excerpt:"
+msgstr "在the_excerpt启用简码："
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:551
+#, fuzzy, php-format
+msgid "If you set 'onHover Time Format', hovering over the time left will show the user what the date of the event is. onHover Time Format uses <a %s>PHP's Date() function</a>."
+msgstr "如果你设置的时间格式,将会显示你所设定时间发生的时间"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:552
+msgid "Examples"
+msgstr "比如"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:554
+#: fergcorp_countdownTimer.php:555
+msgid "goes to"
+msgstr "到"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:582
+msgid "This setting allows you to customize how each event is styled and wrapped."
+msgstr "设置时间显示风格"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:583
+msgid "<strong>Title Suffix</strong> sets the content that appears immediately after title and before the timer."
+msgstr "<strong>Title Suffix</strong>将显示在题题目后和时间前"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:584
+msgid "Examples/Defaults"
+msgstr "例子/默认"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:586
+#: fergcorp_countdownTimer.php:588
+msgid "Title Suffix"
+msgstr "标题后缀"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:668
+msgid "No dates present"
+msgstr "当前无日期"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:713
+#: fergcorp_countdownTimer.php:1044
+#, php-format
+msgid "%s ago"
+msgstr "%s 之前"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:721
+#: fergcorp_countdownTimer.php:1045
+#, php-format
+msgid "in %s"
+msgstr "在 %s"
+
+#: fergcorp_countdownTimer.php:781
+#: fergcorp_countdownTimer.php:893
+#: fergcorp_countdownTimer.php:1022
+#: fergcorp_countdownTimer.php:1023
+#, php-format
+msgid "%d year,"
+msgid_plural "%d years,"
+msgstr[0] "%d 年"
+
+#: fergcorp_countdownTimer.php:793
+#: fergcorp_countdownTimer.php:890
+#: fergcorp_countdownTimer.php:1025
+#: fergcorp_countdownTimer.php:1026
+#, php-format
+msgid "%d month,"
+msgid_plural "%d months,"
+msgstr[0] "%d 月"
+
+#: fergcorp_countdownTimer.php:820
+#: fergcorp_countdownTimer.php:887
+#: fergcorp_countdownTimer.php:1028
+#: fergcorp_countdownTimer.php:1029
+#, php-format
+msgid "%d week,"
+msgid_plural "%d weeks,"
+msgstr[0] "%d 周"
+
+#: fergcorp_countdownTimer.php:831
+#: fergcorp_countdownTimer.php:884
+#: fergcorp_countdownTimer.php:1031
+#: fergcorp_countdownTimer.php:1032
+#, php-format
+msgid "%d day,"
+msgid_plural "%d days,"
+msgstr[0] "%d 日"
+
+#: fergcorp_countdownTimer.php:844
+#: fergcorp_countdownTimer.php:881
+#: fergcorp_countdownTimer.php:1034
+#: fergcorp_countdownTimer.php:1035
+#, php-format
+msgid "%d hour,"
+msgid_plural "%d hours,"
+msgstr[0] "%d 时"
+
+#: fergcorp_countdownTimer.php:857
+#: fergcorp_countdownTimer.php:878
+#: fergcorp_countdownTimer.php:1037
+#: fergcorp_countdownTimer.php:1038
+#, php-format
+msgid "%d minute,"
+msgid_plural "%d minutes,"
+msgstr[0] "%d 分"
+
+#: fergcorp_countdownTimer.php:869
+#: fergcorp_countdownTimer.php:875
+#: fergcorp_countdownTimer.php:1040
+#: fergcorp_countdownTimer.php:1041
+#, php-format
+msgid "%d second,"
+msgid_plural "%d seconds,"
+msgstr[0] "%d 秒"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:1273
+#, fuzzy
+msgid "Adds the Countdown Timer"
+msgstr "显示倒计时"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:1289
+msgid "Title:"
+msgstr ""
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:1291
+msgid "Maximum # of events to show:"
+msgstr "最大的一些事件显示："
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:1293
+msgid "Notes:"
+msgstr "说明"
+
+# @ fergcorp_countdownTimer
+#: fergcorp_countdownTimer.php:1293
+msgid "Set 'Maximum # of events' to '-1' if you want no limit."
+msgstr "集的最大数量的事件'，以'-1'如果你想要没有限制。"
+
