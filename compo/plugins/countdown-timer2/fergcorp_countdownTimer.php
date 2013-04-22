@@ -732,7 +732,8 @@ class Fergcorp_Countdown_Timer{
 		if ($this->timeFormat == "") {
 			$this->timeFormat = get_option('date_format') . ", " . get_option('time_format');
 		}
-		$timePrefix = "";//"<abbr title = \"".date_i18n($this->timeFormat, $thisEvent->getTimestamp()+(3600*(get_option('gmt_offset'))), TRUE)."\" id = '".$thisEvent->getUID()."' class = 'fergcorp_countdownTimer_event_time'>";
+//		$timePrefix = "<abbr title = \"".date_i18n($this->timeFormat, $thisEvent->getTimestamp()+(3600*(get_option('gmt_offset'))), TRUE)."\" id = '".$thisEvent->getUID()."' class = 'fergcorp_countdownTimer_event_time'>";
+		$timePrefix = "<span class='fergcorp_countdownTimer_event_time'>";
 
 		if ( 	( $time_left <= 0 ) &&
 					( ( ( $thisEvent->getTimeSince() ) &&
@@ -745,7 +746,7 @@ class Fergcorp_Countdown_Timer{
 			if ( $thisEvent->getTitle() ) {
 				$content .= $eventTitle;
 			}
-			$content .= $timePrefix.sprintf(__("%s ago", 'fergcorp_countdownTimer'), $this->fuzzyDate( time(), $thisEvent->getTimestamp() ) )."</abbr>";
+			$content .= $timePrefix.sprintf(__("%s ago", 'fergcorp_countdownTimer'), $this->fuzzyDate( time(), $thisEvent->getTimestamp() ) )."</span>";//"</abbr>";
 		}
 		elseif($time_left > 0){ //If the event has not yet happened yet
 			$this->eventsPresent = TRUE; //Set to TRUE so we know there's an event to display
