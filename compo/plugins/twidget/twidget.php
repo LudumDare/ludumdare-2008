@@ -23,7 +23,7 @@ class Twidget extends WP_Widget {
 	function widget($args, $instance) {
 		extract($args);
 		
-		$plugin_dir = 'wp-content/plugins/twidget/';
+		$plugin_dir = '/compo/wp-content/plugins/twidget/';
 		
 		$apikey = $instance['apikey'];
 		$game = $instance['game'];
