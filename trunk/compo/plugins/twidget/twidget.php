@@ -9,6 +9,8 @@ Author URI: http://www.sykhronics.com
 License: BSD
 */
 
+$plugin_dir = '/compo/wp-content/plugins/twidget/';
+
 $TwidgetHasRun = false;
 
 class Twidget extends WP_Widget {
@@ -23,7 +25,7 @@ class Twidget extends WP_Widget {
 	function widget($args, $instance) {
 		extract($args);
 		
-		$plugin_dir = '/compo/wp-content/plugins/twidget/';
+		global $plugin_dir;
 		
 		$apikey = $instance['apikey'];
 		$game = $instance['game'];
@@ -120,7 +122,7 @@ class Twidget extends WP_Widget {
 }
 
 function AddTTVScripts() {
-	global $TwidgetHasRun;
+	global $TwidgetHasRun, $plugin_dir;
 	if ( $TwidgetHasRun == true ) {
 //	//	echo '<link rel="stylesheet" type="text/css" href="' .$plugin_dir. 'twidget.css" />';
 		echo '<link rel="stylesheet" type="text/css" href="' .$plugin_dir. 'twidget.min.css" />';
