@@ -757,6 +757,7 @@ a img {
 	text-align: center;
 	margin-top: 10px;
 	margin-bottom: 32px;
+	overflow:auto;
 	}
 /* End Various Tags & Classes*/
 
