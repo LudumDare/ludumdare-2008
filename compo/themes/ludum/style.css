@@ -98,6 +98,9 @@ body {
 
 #content img {
     max-width: 550px;
+/* TODO: Try this... but not today */
+/*	max-width:100%;
+	height:auto;*/
 }
 
 .widecolumn .entry p {
