@@ -1,5 +1,7 @@
 <?php
 
+ini_set("memory_limit","128M");
+
 function _compo2_results($params) {
     $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"default";
     
