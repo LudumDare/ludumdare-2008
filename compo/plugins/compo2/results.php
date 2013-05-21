@@ -2,6 +2,8 @@
 
 ini_set("memory_limit","128M");
 
+$NUM_RESULTS = 100;
+
 function _compo2_results($params) {
     $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"default";
     
@@ -365,7 +367,8 @@ function _compo2_results_top($params) {
         echo "<div class='notes'>".str_replace("\n","<br/>",htmlentities(substr($ce["notes"],0,140)))." ...</div>";
         echo "<td valign=top $klass>";
         asort($e["places"]);
-        foreach ($e["places"] as $cat=>$nn) if ($nn <= 50 && $nn !=0) {
+        extern $NUM_RESULTS;
+        foreach ($e["places"] as $cat=>$nn) if ($nn <= $NUM_RESULTS && $nn !=0) {
             $img = "inone.gif";
             echo "<div><nobr>";
             if ($nn <= 3) {
@@ -378,8 +381,7 @@ function _compo2_results_top($params) {
             echo "</nobr></div>";
         }
 
-
-        if ($t >= 50 && !strlen($_REQUEST["more"])) { $last = $n; }
+        if ($t >= $NUM_RESULTS && !strlen($_REQUEST["more"])) { $last = $n; }
         $t += 1;
 //         echo "<tr><td>&nbsp;";
     }
