@@ -2,8 +2,6 @@
 
 ini_set("memory_limit","128M");
 
-$NUM_RESULTS = 100;
-
 function _compo2_results($params) {
     $action = isset($_REQUEST["action"])?$_REQUEST["action"]:"default";
     
@@ -288,6 +286,8 @@ function _compo2_get_top($params) {
 */
 
 function _compo2_results_top($params) {
+	$NUM_RESULTS = 100;
+
     $cat = $_REQUEST["cat"];
     $params["cats"][] = "Coolness";
     if (!in_array($cat,$params["cats"])) { $cat = $params["topcat"]; } // HACK: why overall? who knows!
