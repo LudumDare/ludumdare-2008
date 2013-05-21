@@ -1,5 +1,7 @@
 <?php
 
+set_time_limit(120);
+
 function _compo2_rate($params) {
     if (!$params["uid"]) {
         echo "<p class='message'>You must sign in to vote.</p>";
