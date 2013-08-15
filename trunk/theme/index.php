@@ -31,6 +31,8 @@ LOAD DATA LOCAL INFILE '/home/username/www/theme/ld26.txt' INTO TABLE themes LIN
 // I ended up importing directly in to the table as a CSV file, but set my delimeters all to " (which it wouldn't find). //
 // The ' is way too common. Also, I imported it in to the 'theme' field of the table by making that my fields string. //
 
+// NOTE: haha, I was getting an error on LD27. Problem was that there was a theme suggestion "NULL".
+//   I also removed all the "s from the theme suggestions replacing them 's. The real problem was NULL though.
 */
 
 function get_ip() { 
