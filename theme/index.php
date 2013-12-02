@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS `themes` (
   `kill` int(11) NOT NULL DEFAULT '0',
   `time` int(11) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=888889 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 LOAD DATA LOCAL INFILE '/home/username/www/theme/ld26.txt' INTO TABLE themes LINES TERMINATED BY '\r\n';
 // The above didn't work for us. LOAD DATA wasn't enabled by our MySQL install. //
