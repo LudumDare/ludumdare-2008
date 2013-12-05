@@ -1,0 +1,206 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ludum Dare - Home</title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<STYLE TYPE="text/css">
+<!--
+BODY
+{
+font-family:arial,verdana,sans-serif;
+}
+-->
+
+#twitter_div {
+    background: #90745e;
+    padding-top: 5px;
+    margin-bottom: 5px;
+}
+ 
+#twitter_div ul {
+    margin:0px;padding:0px;
+      list-style-type: none;
+
+}
+
+#ld_on_twitter {
+    margin: 10px 180px 5px 180px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #a4866a;
+}
+ 
+#twitter_div ul li {
+    padding: 10px;
+    font-size:15px;
+    border-top: 1px solid #a4866a;
+    margin: 0px 80px 0px 80px;
+}
+ 
+#twitter_div ul li a {
+    font-size:16px;
+}
+
+#twitter_div #t_0 {
+    font-size:24px;
+    border-top: 0px;
+    padding-top: 3px;
+}
+#twitter_div #t_0 a {
+    font-size:24px;
+}
+#twitter_div .t_time {
+    padding-top: 5px;
+}
+#twitter_div .t_time a {
+    color: #b4977c;
+    font-size: 12px;
+}
+
+
+#twitter_div #t_0 .t_time a {
+    color: #b4977c;
+    font-size: 12px;
+}
+
+#twitter_div ul li a:hover {
+}
+ 
+#twitter_div p {
+}
+</STYLE>
+
+
+<script type="text/javascript">
+
+// http://twitter.com/javascripts/blogger.js
+
+function twitterCallback2(twitters) {
+  var statusHTML = [];
+  for (var i=0; i<twitters.length; i++){
+    var username = twitters[i].user.screen_name;
+    var status = twitters[i].text.replace(/((https?|s?ftp|ssh)\:\/\/[^"\s\<\>]*[^.,;'">\:\s\<\>\)\]\!])/g, function(url) {
+      return '<a href="'+url+'">'+url+'</a>';
+    }).replace(/\B@([_a-z0-9]+)/ig, function(reply) {
+      return  reply.charAt(0)+'<a href="http://twitter.com/'+reply.substring(1)+'">'+reply.substring(1)+'</a>';
+    });
+//     <a class="t_username" href="http://twitter.com/'+username+'">@'+username+'</a> 
+    statusHTML.push('<li id="t_'+i+'"><span>'+status+'</span><div class="t_time"><a href="http://twitter.com/'+username+'/statuses/'+twitters[i].id_str+'">'+relative_time(twitters[i].created_at)+'</a></div></li>');
+  }
+  document.getElementById('twitter_update_list').innerHTML = statusHTML.join('');
+}
+
+function relative_time(time_value) {
+  var values = time_value.split(" ");
+  time_value = values[1] + " " + values[2] + ", " + values[5] + " " + values[3];
+  var parsed_date = Date.parse(time_value);
+  var relative_to = (arguments.length > 1) ? arguments[1] : new Date();
+  var delta = parseInt((relative_to.getTime() - parsed_date) / 1000);
+  delta = delta + (relative_to.getTimezoneOffset() * 60);
+
+  if (delta < 60) {
+    return 'less than a minute ago';
+  } else if(delta < 120) {
+    return 'about a minute ago';
+  } else if(delta < (60*60)) {
+    return (parseInt(delta / 60)).toString() + ' minutes ago';
+  } else if(delta < (120*60)) {
+    return 'about an hour ago';
+  } else if(delta < (24*60*60)) {
+    return 'about ' + (parseInt(delta / 3600)).toString() + ' hours ago';
+  } else if(delta < (48*60*60)) {
+    return '1 day ago';
+  } else {
+    return (parseInt(delta / 86400)).toString() + ' days ago';
+  }
+}
+</script>
+
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2932135-5']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+</head>
+<body bgcolor="#5f4f43" text="#ffffff" link="#f3bb11" alink="#ffffff" vlink="#f3bb11" TOPMARGIN="0" LEFTMARGIN="0" MARGINHEIGHT="0" MARGINWIDTH="0">
+
+<table height="99%" width="100%" cellpadding="0" border="0">
+	<td valign="middle" align="right" width="100%">
+		<table cellspacing="0" cellpadding="0" border="0" width="100%">
+			<td align="center">
+				<table cellspacing="0" cellpadding="0" border="0" width="707">
+					<tr>
+						<td align="center">
+							<img src="hub/hub-header.png" /><br />
+						</td>
+					</tr>
+				</table>
+
+				<table cellspacing="0" cellpadding="6" border="0" width="707">
+					<tr>
+						<td align="center" valign="top" bgcolor="#a4866a">
+							<font size="-1">		
+							<br />
+							<a href="compo/"><img src="hub/hub-compo.png" border="0"></a><br />
+							Home of the Ludum Dare game making competition<br />
+							<br />
+							<a href="planet/"><img src="hub/hub-planet.png" border="0"></a><br />
+							Syndicated blogs from the Ludum Dare community<br />
+							<br />
+							<a href="http://twitter.com/ludumdare"><img src="hub/twitter.png" border="0"></a><br />
+							Follow Ludum Dare on Twitter. Use hashtag <a href="http://search.twitter.com/search?q=%23LD48" style="text-decoration:none">#LD48</a><br />
+							<br />
+							</font>
+						</td>
+						<td align="center" valign="top" bgcolor="#a4866a">
+							<font size="-1">	
+							<br />
+							<a href="compo/about-ludum-dare/"><img src="hub/hub-about.png" border="0" /></a><br />
+							What is Ludum Dare, and what is it about?<br />
+							<br />
+							<a href="http://www.gamecompo.com/mailing-list/"><img src="hub/hub-mailinglist.png" border="0" /></a><br />
+							The latest event news delivered to your mailbox<br />
+							<br />
+							<a href="compo/irc/"><img src="hub/hub-irc.png" border="0"></a><br />
+							Join us live in #ludumdare on irc.afternet.org<br />
+							<br />
+							</font>
+						</td>
+					</tr>
+				</table>
+<div><img src="hub/grad-bar.png"></div>
+				<table cellspacing="0" cellpadding="0" border="0" width="707" bgcolor="#90745e">
+				<tr><td>
+					<div id='ld_on_twitter'><center><a href="http://twitter.com/ludumdare"><img src="hub/ld-on-twitter.png" border="0" /></a></center></div>
+				<br />
+<!-- TWITTER -->
+					<div style="text-align:center;">
+						<a class="twitter-timeline"  href="https://twitter.com/ludumdare"  data-widget-id="408705501921173504">Tweets by @ludumdare</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+					</div>
+<!-- END TWITTER -->
+				<br />
+                </td></tr></table>
+
+				<table cellspacing="0" cellpadding="0" border="0" width="707">
+					<tr>
+						<td align="center" bgcolor="#4f3f33">
+							<span style="text-decoration:none;font-weight:bold;color:#90745e;Font-size:12px">(c) 2002-20XX <a style="text-decoration:none" href="http://www.towlr.com">+</a> The Ludum Dare Community</span><br />
+							<img src="hub/grad-single.png"><br/>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</table>
+	</td>
+</table>
+</body>
+</html>
