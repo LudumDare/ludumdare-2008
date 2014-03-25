@@ -1,0 +1,4 @@
+= Project Logan =
+
+== v1 ==
+Edit/rename login.php and wp-includes/general-template.php. 
