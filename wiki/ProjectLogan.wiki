@@ -7,5 +7,7 @@ NOTE: confirm link is broken (sabre)
 = Project Sober =
 
 Edit classes/sabre_class.php for internal logic
+
 Edit sabre.php for e-mail response (above bug)
+
 One small change in sabre_class.php for the confirmation success email.
