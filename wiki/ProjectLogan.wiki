@@ -11,3 +11,7 @@ Edit classes/sabre_class.php for internal logic
 Edit sabre.php for e-mail response (above bug)
 
 One small change in sabre_class.php for the confirmation success email.
+
+= Phase 2 =
+
+Edit login.php and wp-admin/include/user.php, changing $POST['user_login'] only!
