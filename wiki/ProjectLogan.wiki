@@ -15,3 +15,5 @@ One small change in sabre_class.php for the confirmation success email.
 = Phase 2 =
 
 Edit login.php and wp-admin/include/user.php, changing $POST['user_login'] only!
+
+Find registerform in login.php, add bait.
