@@ -536,7 +536,7 @@ html>body .entry li {
 	}
 
 .entry ul li:before, #sidebar ul ul li:before {
-	content: "\00B7 \0020";
+	content: "\2022 \0020";
 	}
 
 .entry ol {
