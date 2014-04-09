@@ -329,7 +329,7 @@ body {
 	float: left;
 	padding: 0 0 5px 20px;
 	margin: 0px 0 0;
-	width: 614px;
+	width: 620px;
 	}
 
 .widecolumn {
@@ -670,8 +670,8 @@ select {
 /* Begin Sidebar */
 #sidebar
 {
-	padding: 2px 0 2px 0;
-	margin-left: 647px;
+/*	padding: 2px 0 2px 0;*/
+	margin-left: 650px;
 	width: 292px;
 	}
 
