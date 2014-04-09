@@ -60,7 +60,7 @@ if ( !$withcomments && !is_single() ) {
 <div id="header">
 	<div id="headerimg">
 		<h1 style="text-align:left; font-size:70px"><a href="<?php echo get_option('home'); ?>/"><?php /* bloginfo('name'); */ echo str_repeat("&nbsp;",30); ?></a></h1><br />
-		<center><a href="http://www.ludumdare.com/"><strong>Home</strong></a> | <a href="http://www.ludumdare.com/compo/rules/"><strong>Rules and Guide</strong></a> | <a href="http://www.ludumdare.com/compo/wp-login.php"><strong>Sign In/Create Account</strong></a> | <a href="http://www.ludumdare.com/compo/wp-admin/post-new.php"><strong>Write a Post</strong></a> | <a href="http://www.reddit.com/r/ludumdare/"><img src="/web/20130508125219im_/http://www.ludumdare.com/compo/wp-content/uploads/2011/11/reddit.ico" width="16"> <strong>Reddit</strong></a> | <strong>#ludumdare</strong> on <strong>irc.afternet.org (<a href="http://www.ludumdare.com/compo/irc/">Info</a>)</strong></center>
+		<span style="text-align:center;"><a href="http://www.ludumdare.com/"><strong>Home</strong></a> | <a href="http://www.ludumdare.com/compo/rules/"><strong>Rules and Guide</strong></a> | <a href="http://www.ludumdare.com/compo/wp-login.php"><strong>Sign In/Create Account</strong></a> | <a href="http://www.ludumdare.com/compo/wp-admin/post-new.php"><strong>Write a Post</strong></a> | <a href="http://www.reddit.com/r/ludumdare/"><img src="http://www.ludumdare.com/compo/wp-content/uploads/2011/11/reddit.ico" width="16"> <strong>Reddit</strong></a> | <strong>#ludumdare</strong> on <strong>irc.afternet.org (<a href="http://www.ludumdare.com/compo/irc/">Info</a>)</strong></span>
 		<!--<div class="description"><?php bloginfo('description'); ?></div>-->
 	</div>
 </div>
