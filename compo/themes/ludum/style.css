@@ -83,7 +83,7 @@ body {
 	}
 
 #header {
-	background: url('povimg/LDLogo2009.png') no-repeat bottom center;
+	background: url('povimg/LDLogo2009.png') no-repeat top center;
 	}
 
 #headerimg 	{
@@ -310,13 +310,13 @@ body {
 	background-color: #5e7582;
 	margin: 0 0 0 1px;
 	padding: 0;
-	height: 104px;
+	/*height: 104px;*/
 	width: 958px;
 	}
 
 #headerimg {
 	margin: 0;
-	height: 104px;
+	/*height: 104px;*/
 	width: 100%;
 	}
 

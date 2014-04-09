@@ -61,12 +61,12 @@ if ( !$withcomments && !is_single() ) {
 	<div id="headerimg">
 		<a href="<?php echo get_option('home'); ?>/"><img src="wp-content/themes/ludum/images/blank.gif" width="900" height="100" /></a></br />
 		<!--<h1 style="text-align:left; font-size:70px"><a href="<?php echo get_option('home'); ?>/"><?php /* bloginfo('name'); */ echo str_repeat("&nbsp;",30); ?></a></h1><br />-->
-		<center><a href="http://www.ludumdare.com/"><strong>Home</strong></a> | <a href="http://www.ludumdare.com/compo/rules/"><strong>Rules and Guide</strong></a> | <a href="http://www.ludumdare.com/compo/wp-login.php"><strong>Sign In/Create Account</strong></a> | <a href="http://www.ludumdare.com/compo/wp-admin/post-new.php"><strong>Write a Post</strong></a> | <a href="http://www.reddit.com/r/ludumdare/"><img src="http://www.ludumdare.com/compo/wp-content/uploads/2011/11/reddit.ico" width="16"> <strong>Reddit</strong></a> | <strong>#ludumdare</strong> on <strong>irc.afternet.org (<a href="http://www.ludumdare.com/compo/irc/">Info</a>)</strong></center>
 		<!--<div class="description"><?php bloginfo('description'); ?></div>-->
 	</div>
 </div>
-<hr />
-
+<div id='compo-navigation'>
+	<center><a href="http://www.ludumdare.com/"><strong>Home</strong></a> | <a href="http://www.ludumdare.com/compo/rules/"><strong>Rules and Guide</strong></a> | <a href="http://www.ludumdare.com/compo/wp-login.php"><strong>Sign In/Create Account</strong></a> | <a href="http://www.ludumdare.com/compo/wp-admin/post-new.php"><strong>Write a Post</strong></a> | <a href="http://www.reddit.com/r/ludumdare/"><img src="http://www.ludumdare.com/compo/wp-content/uploads/2011/11/reddit.ico" width="16"> <strong>Reddit</strong></a> | <strong>#ludumdare</strong> on <strong>irc.afternet.org (<a href="http://www.ludumdare.com/compo/irc/">Info</a>)</strong></center>
+</div>
 <div id='compo-status'><?php
 global $wpdb;
 $e = array_pop(compo_query("select * from {$wpdb->posts} where post_name = ? and post_type =?",array("status","page")));
