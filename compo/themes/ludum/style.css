@@ -60,8 +60,8 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 
 #compo-status {
-    margin: 12px 24px 12px 24px;
-    border: 1px solid #aaaaaa;
+    margin: 10px 20px 10px 20px;
+    border-bottom: 1px solid #ffffff;
     background: #eeeeee;
     padding: 4px;
     font-size: 1.2em;
