@@ -223,7 +223,7 @@ h2, h2 a, h2 a:hover, h2 a:visited, h3, h3 a, h3 a:hover, h3 a:visited, #sidebar
 	}
 
 .entry p a:visited {
-	color: #b85b5a;
+	color: #44C;
 	}
 
 .sticky {
@@ -291,7 +291,7 @@ acronym, abbr, span.caps
 	}
 
 a, h2 a:hover, h3 a:hover {
-	color: #66c;
+	color: #44C;
 	text-decoration: none;
 	}
 
