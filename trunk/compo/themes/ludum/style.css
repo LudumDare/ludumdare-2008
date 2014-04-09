@@ -37,6 +37,13 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	margin:0px !important;
 }
 
+.thickbox a, .thickbox a:visited {
+	color:#447;
+}
+.thickbox a:hover {
+	color:#CCF;
+}
+
 .thickbox div {
 	padding:2px;	
 }
