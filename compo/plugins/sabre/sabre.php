@@ -4,12 +4,14 @@
 Plugin Name: SABRE
 Plugin URI: http://wordpress.org/extend/plugins/sabre
 Description: Simple Anti Bot Registration Engine
-Version: 1.2.2
+Version: 1.5.0
 Author: Didier Lorphelin
 Author URI: 
 */
 
 /*  Copyright 2011  Didier Lorphelin  (email : )
+
+	Was Sable 1.2.2, but unsupported.
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
