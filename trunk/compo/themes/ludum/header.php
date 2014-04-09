@@ -59,7 +59,7 @@ if ( !$withcomments && !is_single() ) {
 
 <div id="header">
 	<div id="headerimg">
-		<a href="<?php echo get_option('home'); ?>/"><img src="wp-content/themes/ludum/images/blank.gif" width="900" height="104" /></a></br />
+		<a href="<?php echo get_option('home'); ?>/"><img src="/compo/wp-content/themes/ludum/images/blank.gif" width="900" height="104" border="0" /></a></br />
 	</div>
 </div>
 <div id="compo-navigation">
