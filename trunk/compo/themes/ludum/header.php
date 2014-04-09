@@ -27,12 +27,12 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 
 <?php
 // Checks to see whether it needs a sidebar or not
-if ( !$withcomments && !is_single() ) {
+//if ( !$withcomments && !is_single() ) {
 ?>
 	#page { background: url("<?php bloginfo('stylesheet_directory'); ?>/povimg/LDBack.png") repeat-y top; border: none; }
-<?php } else { // No sidebar ?>
+<?php/* } else { // No sidebar ?>
 	#page { background: url("<?php bloginfo('stylesheet_directory'); ?>/povimg/LDBackWide.png") repeat-y top; border: none; }
-<?php } ?>
+<?php }*/ ?>
 
 </style>
 
