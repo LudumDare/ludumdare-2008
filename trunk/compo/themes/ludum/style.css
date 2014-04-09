@@ -25,12 +25,15 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .thickbox {
 	border:4px solid #88A;
 	background-color:#AAC;
-	padding:2px
 }
 
 .thickbox h2 {
 	background-color:#88A;
 	color:#FFF;
+}
+
+.thickbox div {
+	padding:2px;	
 }
 
 /* various warnings and things */
