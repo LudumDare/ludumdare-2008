@@ -100,7 +100,7 @@ if (is_author() && is_category()) {
 <?php } else if ( get_the_author_meta('user_level') == 10 ) { ?>
 			<div class="post" style="background: #fffff0 url('/compo/wp-content/themes/ludum/povimg/Admin.png') no-repeat top right;">
 <?php } else if ( is_sticky() ) { ?>
-			<div class="post" style="background: #f7f0ff url('/compo/wp-content/themes/ludum/povimg/Featured.png') no-repeat top right;">
+			<div class="post" style="background: #f8f8ff url('/compo/wp-content/themes/ludum/povimg/Featured.png') no-repeat top right;">
 <?php } else if ( get_post_meta(get_the_ID(), '_liked', true) >= 4 ) { ?>
 			<div class="post" style="background: #fff0f0 url('/compo/wp-content/themes/ludum/povimg/Heart.png') no-repeat top right;">
 <?php } else if ( get_the_author_meta('user_level') == 7 ) { ?>
