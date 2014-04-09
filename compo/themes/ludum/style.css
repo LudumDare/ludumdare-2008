@@ -67,6 +67,10 @@ Tags: blue, custom header, fixed width, two columns, widgets
     font-size: 1.2em;
 }
 
+#compo-navigation {
+    font-size: 1.2em;
+}
+
 /* Begin Typography & Colors */
 body {
 	font-size: 62.5%; /* Resets 1em to 10px */
