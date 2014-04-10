@@ -75,7 +75,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	padding:2px;
 }
 
-.trophylist .cell:nth-child(4n-2), .trophylist .cell:nth-child(4n-3) {
+.trophylist .cell:nth-child(4n-1), .trophylist .cell:nth-child(4n-2) {
 	background-color:#bbd;
 }
 
