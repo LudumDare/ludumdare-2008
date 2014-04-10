@@ -79,7 +79,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background-color:#bbd;
 }
 .trophylist .cell:nth-child(4n-0), .trophylist .cell:nth-child(4n-3) {
-	border-color:#bbd;
+	border:1px solid #bbd;
 }
 
 /* ************ */
