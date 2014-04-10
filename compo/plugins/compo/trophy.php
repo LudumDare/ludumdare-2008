@@ -99,17 +99,14 @@ function compo_trophy_sidebar() {
     $table = $compo["trophy.table"];
     $topurl = get_bloginfo("url");
     $r = compo_query("select * from $table order by time desc limit 12");
-//    echo "<table cellspacing=16>";
-    echo '<div class="trophylist">';
+    echo '<p class="trophylist">';
     foreach ($r as $e) {
-//        echo "<tr><td align=center>";
         echo '<div class="cell"><div class="inner">';
         $auth = get_userdata($e["to_uid"]);
         echo "<div class='name'><a href='$topurl/author/{$auth->user_nicename}/'>{$auth->display_name}</a></div>";
         compo_trophy_show($e);
 	    echo "</div></div>";
     }
-//    echo "</table>";
     echo "</div>";
     
     // CACHE ///////////////////////////////////////////////////////////////
