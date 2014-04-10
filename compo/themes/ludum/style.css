@@ -447,6 +447,7 @@ body {
 .postmetadata {
 	clear: both;
 	border-top: 1px dashed;
+	text-align:center;
 }
 
 .clear {

@@ -24,7 +24,7 @@
 				<?php the_tags( '<p>Tags: ', ', ', '</p>'); ?>
 				<div style="float: right;border: 1px solid #eee;padding: 2px;background: #fff;"><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?></div>
 
-				<p class="postmetadata alt">
+				<p class="postmetadata">
 					<small>
 						This entry was posted
 						<?php /* This is commented, because it requires a little adjusting sometimes.
