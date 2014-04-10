@@ -46,7 +46,7 @@
 					<div class="postmetadata"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> |<?php edit_post_link(' Edit', '', ' |'); ?><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></div>
 				<?php } ?>
 				<?php else { ?>
-					<small><?php the_time('F jS, Y g:i a') ?> - <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></small>				
+					<small><?php the_time('F jS, Y g:i a') ?> - <?php echo comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></small>				
 				<?php } ?>
 			</div>
 
