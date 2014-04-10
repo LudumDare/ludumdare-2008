@@ -75,6 +75,10 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	padding:2px;
 }
 
+.trophylist:nth-child(2n+1) {
+	background-color:#bbd;
+}
+
 /* ************ */
 
 /* various warnings and things */
