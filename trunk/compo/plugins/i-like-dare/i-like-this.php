@@ -296,6 +296,14 @@ function getILikeThis($arg) {
 	return getILikeDare($arg);
 }
 
+function getILikeCount($arg) {
+	global $wpdb;
+	$post_ID = get_the_ID();
+	
+    $liked = get_post_meta($post_ID, '_liked', true) != '' ? get_post_meta($post_ID, '_liked', true) : '0';	
+    return $liked;
+}
+
 if (get_option('ilt_onPage') == '1') {
 	function putILikeDare($content) {
 		if(!is_feed() && !is_page()) {
