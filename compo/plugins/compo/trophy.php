@@ -99,7 +99,7 @@ function compo_trophy_sidebar() {
     $table = $compo["trophy.table"];
     $topurl = get_bloginfo("url");
     $r = compo_query("select * from $table order by time desc limit 12");
-    echo '<p class="trophylist">';
+    echo '<div class="trophylist">';
     foreach ($r as $e) {
         echo '<div class="cell"><div class="inner">';
         $auth = get_userdata($e["to_uid"]);
