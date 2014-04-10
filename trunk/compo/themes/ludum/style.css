@@ -54,13 +54,14 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .trophylist {
 	overflow:hidden;
+	padding:4px 0;
 }
 
 .trophylist .cell {
 	width:50%;
 	float:left;
 	position:relative;
-	height:150px;
+	height:160px;
 	text-align:center;
 }
 
