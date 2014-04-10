@@ -62,11 +62,13 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	position:relative;
 	height:160px;
 	text-align:center;
-	
+
+/*	width:50%;*/
+
 /*	width:144px;*/
 /*	border:1px solid #bbd;*/
 
-	width:50%;
+	width:144px;
 	margin:1px;
 }
 
