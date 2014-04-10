@@ -34,7 +34,7 @@
                        		<div>Posted by <?php the_author_posts_link(); ?><?php $aff = get_the_author_meta('affiliation', get_the_author_ID()); if (($aff != null) && ($aff != '')) { echo ' of ' . $aff; } ?><?php $twitter = get_the_author_meta('twitter', get_the_author_ID()); if (($twitter != null) && ($twitter != '')) { echo ' (twitter: <a target="_blank" href="http://twitter.com/' . $twitter . '">@' . $twitter . '</a>)'; } ?></div>
 				<small><?php the_time('F jS, Y g:i a') ?> <!-- by <?php the_author() ?> --></small>
 
-				<?php $minimize = get_post_meta($post->ID,'minimize',false); echo $minimize; ?>
+				<?php $minimize = get_post_meta($post->ID,'minimize',false); echo $minimize; echo count($minimize); ?>
 				<?php if ( strcmp($minimize,"true") != 0 ) { ?>
 					<?php echo my_get_buttons(); ?>
 					<div class="entry">
