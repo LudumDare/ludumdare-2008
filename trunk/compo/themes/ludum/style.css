@@ -66,6 +66,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .trophylist .cell .inner {
 	top:0%;
 	position:absolute;
+	width:100%;
 }
 
 .trophylist .cell .inner div {
