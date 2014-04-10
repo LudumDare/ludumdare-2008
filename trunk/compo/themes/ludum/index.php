@@ -35,7 +35,7 @@
 				<small><?php the_time('F jS, Y g:i a') ?> <!-- by <?php the_author() ?> --></small>
 
 				<?php $minimize = get_post_meta($post->ID,'minimize',false); ?>
-				<?php if ( count($minimize) != 0 ) { ?>
+				<?php if ( count($minimize) == 0 ) { ?>
 					<?php echo my_get_buttons(); ?>
 					<div class="entry">
 						<?php the_content('Read the rest of this entry &raquo;'); ?>
