@@ -296,16 +296,18 @@ echo'<tr><td style="border:1px solid #555;padding:16px;text-align:center;" colsp
 //echo '</td>';
 echo '</tr>';
 echo '</table>';
-echo '<br/><font size="+2"><b>How this works:</b></font><br/>';
+echo '<br/><font size="+2"><b>How this works:</b></font><br />';
 echo '
-You get a theme, and click <b>GOOD</b> or <b>BAD</b>!<br/>
-If it\'s not a theme, click <b>SLAUGHTER</b><br/>
-Repeat. Every click helps.';
+You get a theme, and click <b>GOOD</b> or <b>BAD</b>!<br />
+If it\'s not a theme, click <b>SLAUGHTER</b><br />
+Repeat. Every click helps.<br />';
 //<b>no hacking plz!</b><br/>';
 //<br>
 //<b style="color:#248;font-size:250%;">NOTE:</b><br/>
 //<span style="color:#048;font-size:150%;">Stuff like <i>\'2-bit art\' or \'one button controls\' or \'racing game\'</i><br/>and any other implying genre, technical or any other limitations are <B>NOT THEMES</b><br/>Please vote them down. I will remove them regardless of votes anyways.</span>
 //';
+echo '<br />
+Special thanks to <a href="http://twitter.com/Sosowski">Sos</a> for creating the Slaughter';
 mysql_free_result($result);
 //mysql_free_result($result2);
 mysql_close($link);
