@@ -101,7 +101,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 body {
 	font-size: 62.5%; /* Resets 1em to 10px */
 	font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
-	background: #5e7582 url('povimg/LDBackColor.png');
+	background: #5d4d69 url('povimg/LDBackColor.png');
 	color: #000;
 	text-align: center;
 	}
@@ -329,7 +329,7 @@ body {
 
 #page {
 	background-color: white;
-	margin: 20px auto;
+	margin: 0px auto;
 	margin-bottom: 0;
 	padding: 0;
 	width: 960px;
