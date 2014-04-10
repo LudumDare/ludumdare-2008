@@ -299,7 +299,7 @@ echo '</table>';
 echo '<br/><font size="+2"><b>How this works:</b></font><br />';
 echo '
 You get a theme, and click <b>GOOD</b> or <b>BAD</b>!<br />
-If you feel a theme is inappropriate, click <b>SLAUGHTER</b><br />
+If you feel a theme is inappropriate (or just hate it), click <b>SLAUGHTER</b><br />
 Repeat. Every click helps!<br />';
 //<b>no hacking plz!</b><br/>';
 //<br>
