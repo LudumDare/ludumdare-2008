@@ -63,6 +63,8 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	position:relative;
 	height:160px;
 	text-align:center;
+	
+	border:1px solid #bbd;
 }
 
 .trophylist .cell .inner {
@@ -78,8 +80,8 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .trophylist .cell:nth-child(4n-1), .trophylist .cell:nth-child(4n-2) {
 	background-color:#bbd;
 }
-.trophylist .cell:nth-child(4n-0) inner, .trophylist .cell:nth-child(4n-3) inner {
-	border:1px solid #bbd;
+.trophylist .cell:nth-child(4n-0), .trophylist .cell:nth-child(4n-3) {
+/*	border:1px solid #bbd;*/
 }
 
 /* ************ */
