@@ -22,6 +22,8 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	list-style-type:none;
 }
 
+/* ************ */
+
 .thickbox {
 	border:4px solid #88A;
 	background-color:#AAC;
@@ -47,6 +49,30 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .thickbox div {
 	padding:2px;	
 }
+
+/* ************ */
+
+.trophylist {
+	overflow:hidden;
+}
+
+.trophylist .cell {
+	width:50%;
+	float:left;
+	position:relative;
+	height:150px;
+}
+
+.trophylist .cell .inner {
+	top:0%;
+	position:absolute;
+}
+
+.trophylist .cell .inner div {
+	padding:2px;
+}
+
+/* ************ */
 
 /* various warnings and things */
 .error, .content .error {

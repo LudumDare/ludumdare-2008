@@ -99,14 +99,18 @@ function compo_trophy_sidebar() {
     $table = $compo["trophy.table"];
     $topurl = get_bloginfo("url");
     $r = compo_query("select * from $table order by time desc limit 12");
-    echo "<table cellspacing=16>";
+//    echo "<table cellspacing=16>";
+    echo '<div class="trophylist">';
     foreach ($r as $e) {
-        echo "<tr><td align=center>";
+//        echo "<tr><td align=center>";
+        echo '<div class="cell"><div class="inner">';
         $auth = get_userdata($e["to_uid"]);
-        echo "<div><a href='$topurl/author/{$auth->user_nicename}/'>{$auth->display_name}</a></div>";
+        echo "<div class='name'><a href='$topurl/author/{$auth->user_nicename}/'>{$auth->display_name}</a></div>";
         compo_trophy_show($e);
+	    echo "</div></div>";
     }
-    echo "</table>";
+//    echo "</table>";
+    echo "</div>";
     
     // CACHE ///////////////////////////////////////////////////////////////
     $cres = ob_get_contents();
@@ -117,11 +121,11 @@ function compo_trophy_sidebar() {
 }
 
 function compo_trophy_show($e) {
-    echo "<div><img height=64 src='".get_bloginfo("url")."/wp-content/compo/{$e["img"]}'></div>";
-    echo "<div><b>".htmlentities($e["title"])."</b></div>";
+    echo "<div class='image'><img height=64 src='".get_bloginfo("url")."/wp-content/compo/{$e["img"]}'></div>";
+    echo "<div class='title'><b>".htmlentities($e["title"])."</b></div>";
     $from = get_userdata($e["from_uid"]);
     $link = get_bloginfo("url")."/author/{$from->user_nicename}/";
-    echo "<div>Awarded by <a href='$link'>{$from->display_name}</a> on ".date("F j, Y",$e["time"])."</div>";
+    echo "<div class='from'>Awarded by <a href='$link'>{$from->display_name}</a><br />on ".date("F j, Y",$e["time"])."</div>";
 }
 
 ?>
