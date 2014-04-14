@@ -1,6 +1,6 @@
 
-var TwitchTV_Limit = 4;				// Number of Streams to get //
-var TwitchTV_CurrentStream = -1;		// Current Stream (default 0) //
+var TwitchTV_Limit = 8;				// Number of Streams to get //
+var TwitchTV_CurrentStream = -1;	// Current Stream (default 0) //
 var TwitchTV_VideoActive = false;	// Has the video been activated once //
 var TwitchTV_HasMoreStreams = true; // Show the More button //
 
