@@ -128,7 +128,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
     echo "<h4>Screenshots</h4>";
     
-    echo "<p>You must include at least one screenshot.</p>";
+    echo "<p>You must include <i>at least</i> one screenshot.</p>";
     
     $shots = unserialize($ce["shots"]);
 //     print_r($shots);
