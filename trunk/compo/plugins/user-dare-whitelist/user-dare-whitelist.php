@@ -79,8 +79,6 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
       <div class="wrap">
       <form method="post" action="<?php echo $_SERVER['REQUEST_URI'] ?>" >
         <h2>User Domain Whitelist/Blacklist</h2>
-        <p>This plugin limits user registration to only registrants with an email address from the domain white list below <strong>OR</strong> prevents registrants with an email address from the domain black list below from registering. For example, <em>hortense@example.com</em> would only be allowed to register if <em>example.com</em> appeared in the domain white list. Conversely,  <em>hortense@example.com</em> would <strong>not</strong> be allowed to register if <em>example.com</em> appeared in the domain black list. Anyone attempting to register using an email address outside the white list or inside te black list will receive the error message below.</p>
-        <p>Obviously you will either use the white list or the black list below, there is no value in placing values in both lists.</p>
         <p><label>Mode: </label><br />
           <?php
           $modeStatus = array(
@@ -132,9 +130,11 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
         $isValidEmailDomain = false;
         foreach( $validDomains as $domain ){
           if( !empty( $domain ) ){
-            $domainLength = strlen( $domain );
-            $emailDomain = strtolower( substr( $email, -($domainLength), $domainLength ) );
-            if( $emailDomain == strtolower( $domain ) ){
+          	$check = strtolower( $badDomain );
+//            $domainLength = strlen( $domain );
+//            $emailDomain = strtolower( substr( $email, -($domainLength), $domainLength ) );
+//            if( $emailDomain == strtolower( $domain ) ){
+            if ( strpos( $email, $check ) != FALSE ) {
               $isValidEmailDomain = true;
               break;
             }
