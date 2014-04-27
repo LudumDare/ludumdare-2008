@@ -19,7 +19,8 @@ function _compo2_preview_me($params) {
 function _compo2_preview($params,$_link="?action=preview") {
     if (isset($_REQUEST["uid"])) {
         echo "<p>";
-        echo "<a href='?action=preview'>Back to Browse Entries *</a>";
+        echo "<a href='?action=preview'>Back to Browse Entries</a>";
+        $user = wp_get_current_user();
         if ($user->user_level >= 10) {
 		    if ($params["uid"]) {
 	        	 $ce = compo2_entry_load($params["cid"],$params["uid"]);
