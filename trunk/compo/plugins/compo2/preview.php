@@ -19,9 +19,12 @@ function _compo2_preview_me($params) {
 function _compo2_preview($params,$_link="?action=preview") {
     if (isset($_REQUEST["uid"])) {
         echo "<p>";
-        echo "<a href='?action=preview'>Back to Browse Entries</a>";
+        echo "<a href='?action=preview'>Back to Browse Entries *</a>";
         if ($user->user_level >= 10) {
-        	 echo " | <strong><a href='?action=edit&admin=1'>ADMIN EDIT</a></strong>";
+		    if ($params["uid"]) {
+	        	 $ce = compo2_entry_load($params["cid"],$params["uid"]);
+	        	 echo " | <strong><a href='?action=edit&uid={$ce["uid"]}&admin=1'>ADMIN EDIT</a></strong>";
+	        }
         }
         echo "</p>";
         _compo2_preview_show($params,intval($_REQUEST["uid"]));
