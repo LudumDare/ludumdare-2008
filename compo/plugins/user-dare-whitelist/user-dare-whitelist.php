@@ -110,22 +110,7 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
       $pluginOptions = $this->getAdminOptions();
       $validDomains = split( "\r\n", $pluginOptions['domain_whitelist'] );
       $invalidDomains = split( "\r\n", $pluginOptions['domain_blacklist'] );
-      if( $pluginOptions['mode'] == 'black' ){
-        // use backlist
-        $isValidEmailDomain = true;
-        foreach( $invalidDomains as $badDomain ){
-          if( !empty( $badDomain ) ){
-          	$check = strtolower( $badDomain );
-//            $domainLength = strlen( $badDomain );
-//            $emailDomain = strtolower( substr( $email, -($domainLength), $domainLength ) );
-//            if( $emailDomain == strtolower( $badDomain ) ){
-            if ( strpos( $email, $check ) != FALSE ) {
-              $isValidEmailDomain = false;
-              break;
-            }
-          }
-        }
-      }else{
+      if( $pluginOptions['mode'] == 'white' ){
         // use whitelist (default)
         $isValidEmailDomain = false;
         foreach( $validDomains as $domain ){
@@ -136,6 +121,21 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
 //            if( $emailDomain == strtolower( $domain ) ){
             if ( strpos( $email, $check ) != FALSE ) {
               $isValidEmailDomain = true;
+              break;
+            }
+          }
+        }
+      }else{
+        // use backlist
+        $isValidEmailDomain = true;
+        foreach( $invalidDomains as $badDomain ){
+          if( !empty( $badDomain ) ){
+          	$check = strtolower( $badDomain );
+//            $domainLength = strlen( $badDomain );
+//            $emailDomain = strtolower( substr( $email, -($domainLength), $domainLength ) );
+//            if( $emailDomain == strtolower( $badDomain ) ){
+            if ( strpos( $email, $check ) != FALSE ) {
+              $isValidEmailDomain = false;
               break;
             }
           }
