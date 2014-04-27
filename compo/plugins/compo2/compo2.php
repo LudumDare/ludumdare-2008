@@ -74,7 +74,7 @@ function compo2_entry_load($cid,$uid) {
 function compo2_cache_read($cid,$name,$ts=-1) {
     if (isset($_REQUEST["cache"])) {
         $user = wp_get_current_user();
-        if ($user->user_level >= 10) { return false; }
+        if ($user->user_level >= 7) { return false; }
     }
     
     if ($ts==-1) {

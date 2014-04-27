@@ -108,7 +108,7 @@ function _compo2_main($m) {
     elseif ($state == "misc") { _compo2_misc($params); }
     elseif ($state == "closed") { _compo2_closed($params); }
     else { compo2_error("compo2 - Invalid state: $state"); }
-    if ($user->user_level >= 10) {
+    if ($user->user_level >= 7) {
         echo "<p><a href='?admin=1'>Enter admin mode</a></p>";
     }
     $r = ob_get_contents();
@@ -116,7 +116,7 @@ function _compo2_main($m) {
     
     // output the content
     compo2_log("_compo2_main",microtime(true)-$tm);
-    if (1 && $user->user_level >= 10) {
+    if (1 && $user->user_level >= 7) {
         ob_start();
         
         $log = $compo2["log"];
