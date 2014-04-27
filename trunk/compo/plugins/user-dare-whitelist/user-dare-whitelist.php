@@ -161,7 +161,7 @@ if( !function_exists( 'HMUserDomainWhitelist_op' ) ){
       return;
     }
     if( function_exists( 'add_options_page' ) ){
-      add_options_page( 'User Domain Whitelist/Blacklist', 'User Domain Whitelist/Blacklist', 'manage_options', basename( __FILE__ ), array( &$hmUserDomainWhitelist, 'displayAdminPage' ) );
+      add_options_page( 'User Dare Whitelist/Blacklist', 'User Dare Whitelist/Blacklist', 'manage_options', basename( __FILE__ ), array( &$hmUserDomainWhitelist, 'displayAdminPage' ) );
     }
   }
 }
