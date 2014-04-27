@@ -91,7 +91,7 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
           ?>
           <input type="radio" name="mode" <?php echo $modeStatus['white']; ?> value="white" />Whitelist
           <input type="radio" name="mode" <?php echo $modeStatus['black']; ?> value="black" />Blacklist
-          <p><h1>NOTE! THIS IS VERY DELICATE! DO NOT DELETE, AND BE CAREFUL WHAT YOU USE FOR PATTERNS!</h2></p>
+          <p><h1>NOTE! THIS IS VERY DELICATE!<br />DO NOT DELETE, AND BE CAREFUL WHAT YOU USE FOR PATTERNS!</h2></p>
         <p><label for="enable">Domain Pattern Whitelist (<em>one per line</em>): </label><br />
           <textarea class="domain-list" name="domain_whitelist" id="domain_whitelist"><?php echo $pluginOptions['domain_whitelist']; ?></textarea></p>
         <p><label for="enable">Domain Pattern Blacklist (<em>one per line</em>): </label><br />
