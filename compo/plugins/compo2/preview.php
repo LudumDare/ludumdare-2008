@@ -23,7 +23,7 @@ function _compo2_preview($params,$_link="?action=preview") {
         $user = wp_get_current_user();
         if ($user->user_level >= 10) {
 		    if ($params["uid"]) {
-	        	 $ce = compo2_entry_load($params["cid"],$params["uid"]);
+	        	 $ce = compo2_entry_load($params["cid"],intval($_REQUEST["uid"]));
 	        	 echo " | <strong><a href='?action=edit&uid=" . $ce["uid"] . "&admin=1'>ADMIN EDIT</a></strong>";
 	        }
         }
