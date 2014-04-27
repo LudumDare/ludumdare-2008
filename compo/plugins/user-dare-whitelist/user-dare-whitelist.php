@@ -116,11 +116,11 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
         $isValidEmailDomain = true;
         foreach( $invalidDomains as $badDomain ){
           if( !empty( $badDomain ) ){
-          	$check = strtolower( $badDomain );
-            //$domainLength = strlen( $badDomain );
-            //$emailDomain = strtolower( substr( $email, -($domainLength), $domainLength ) );
-            //if( $emailDomain == strtolower( $badDomain ) ){
-            if ( strpos( $email, $check ) != FALSE ) {
+ //         	$check = strtolower( $badDomain );
+            $domainLength = strlen( $badDomain );
+            $emailDomain = strtolower( substr( $email, -($domainLength), $domainLength ) );
+            if( $emailDomain == strtolower( $badDomain ) ){
+//            if ( strpos( $email, $check ) != FALSE ) {
               $isValidEmailDomain = false;
               break;
             }
