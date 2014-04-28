@@ -172,7 +172,7 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
           	$check = strtolower( $badIP );
 
 		    echo "<!-- HEY MOM " . $check . " vs " . $clientIP . "(" . $forwardIP .")-->\n";
-            if ( strpos( $clientIP, $check ) != FALSE ) {
+            if ( strpos( $clientIP, $check ) !== FALSE ) {
             	echo "<!-- HELLO SON -->\n";
               $isValidEmailDomain = false;
               break;
