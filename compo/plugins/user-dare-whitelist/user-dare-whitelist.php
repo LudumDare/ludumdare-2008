@@ -127,7 +127,7 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
       $invalidIPs = split( "\r\n", $pluginOptions['ip_blacklist'] );
       
       echo "<!-- HEY MIKE";
-      echo $_POST;
+      print_r( $_POST );
       echo "-->";
       
       if( $pluginOptions['mode'] == 'white' ){
