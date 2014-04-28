@@ -25,6 +25,8 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
         'mode' => 'white', 
         'domain_whitelist' => '', 
         'domain_blacklist' => '', 
+        'ip_whitelist' => '', 
+        'ip_blacklist' => '', 
         'bad_domain_message' => 'The email address entered is not within an allowed domain.'
       );
       $pluginOptions = get_option( $this->adminOptionsName );
@@ -58,6 +60,12 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
         }
         if( isset( $_POST['domain_blacklist'] ) ){
           $pluginOptions['domain_blacklist'] = $_POST['domain_blacklist'];
+        }
+        if( isset( $_POST['ip_whitelist'] ) ){
+          $pluginOptions['ip_whitelist'] = $_POST['ip_whitelist'];
+        }
+        if( isset( $_POST['ip_blacklist'] ) ){
+          $pluginOptions['ip_blacklist'] = $_POST['ip_blacklist'];
         }
         if( isset( $_POST['bad_domain_message'] ) ){
           $pluginOptions['bad_domain_message'] = $_POST['bad_domain_message'];
@@ -94,6 +102,10 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
           <textarea class="domain-list" name="domain_whitelist" id="domain_whitelist"><?php echo $pluginOptions['domain_whitelist']; ?></textarea></p>
         <p><label for="enable">Domain Pattern Blacklist (<em>one per line</em>): </label><br />
           <textarea class="domain-list" name="domain_blacklist" id="domain_blacklist"><?php echo $pluginOptions['domain_blacklist']; ?></textarea></p>
+        <p><label for="enable">IP Pattern Whitelist (<em>one per line</em>): </label><br />
+          <textarea class="domain-list" name="ip_whitelist" id="ip_whitelist"><?php echo $pluginOptions['ip_whitelist']; ?></textarea></p>
+        <p><label for="enable">IP Pattern Blacklist (<em>one per line</em>): </label><br />
+          <textarea class="domain-list" name="ip_blacklist" id="ip_blacklist"><?php echo $pluginOptions['ip_blacklist']; ?></textarea></p>
         <p><label for="enable">Disallowed email domain error message: </label><br />
           <textarea name="bad_domain_message" id="bad_domain_message"><?php echo $pluginOptions['bad_domain_message']; ?></textarea></p>
         <div class="submit">
@@ -110,6 +122,10 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
       $pluginOptions = $this->getAdminOptions();
       $validDomains = split( "\r\n", $pluginOptions['domain_whitelist'] );
       $invalidDomains = split( "\r\n", $pluginOptions['domain_blacklist'] );
+      
+      $validIPs = split( "\r\n", $pluginOptions['ip_whitelist'] );
+      $invalidIPs = split( "\r\n", $pluginOptions['ip_blacklist'] );
+      
       if( $pluginOptions['mode'] == 'white' ){
         // use whitelist (default)
         $isValidEmailDomain = false;
@@ -171,6 +187,8 @@ function register_hmUDWsettings(){
   register_setting( 'domain_whitelist', 'mode' );
   register_setting( 'domain_whitelist', 'domain_whitelist' );
   register_setting( 'domain_whitelist', 'domain_blacklist' );
+  register_setting( 'domain_whitelist', 'ip_whitelist' );
+  register_setting( 'domain_whitelist', 'ip_blacklist' );
   register_setting( 'domain_whitelist', 'bad_domain_message' );
 }
 
