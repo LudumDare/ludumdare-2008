@@ -126,11 +126,11 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
       $validIPs = split( "\r\n", $pluginOptions['ip_whitelist'] );
       $invalidIPs = split( "\r\n", $pluginOptions['ip_blacklist'] );
       
-      echo "<!-- HEY MIKE\n";
-      echo $_SERVER['REMOTE_ADDR'];
-      echo "\n";
-      print_r( $invalidIPs );
-      echo "\n-->";
+//      echo "<!-- HEY MIKE\n";
+//      echo $_SERVER['REMOTE_ADDR'];
+//      echo "\n";
+//      print_r( $invalidIPs );
+//      echo "\n-->";
       
       if( $pluginOptions['mode'] == 'white' ){
         // use whitelist (default)
@@ -165,16 +165,31 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
       }
       
       $clientIP = strtolower( $_SERVER['REMOTE_ADDR'] );
-      $forwardIP = strtolower( $_SERVER['HTTP_X_FORWARDED_FOR'] );
+      //$forwardIP = strtolower( $_SERVER['HTTP_X_FORWARDED_FOR'] );
+      
+      // IP Pattern Blacklist //
       {
         foreach( $invalidIPs as $badIP ){
           if( !empty( $badIP ) ){
           	$check = strtolower( $badIP );
 
-		    echo "<!-- HEY MOM " . $check . " vs " . $clientIP . "(" . $forwardIP .")-->\n";
+		    //echo "<!-- HEY MOM " . $check . " vs " . $clientIP . "(" . $forwardIP .")-->\n";
             if ( strpos( $clientIP, $check ) !== FALSE ) {
-            	echo "<!-- HELLO SON -->\n";
+              //echo "<!-- HELLO SON -->\n";
               $isValidEmailDomain = false;
+              break;
+            }
+          }
+        }
+      }
+
+	  // IP Pattern Whitelist //
+      {
+        foreach( $validIPs as $badIP ){
+          if( !empty( $badIP ) ){
+          	$check = strtolower( $badIP );
+            if ( strpos( $clientIP, $check ) !== FALSE ) {
+              $isValidEmailDomain = true;
               break;
             }
           }
