@@ -166,7 +166,7 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
       
       $clientIP = $_SERVER['REMOTE_ADDR'];
       
-      if ( true ) {
+      {
         foreach( $invalidIPs as $badIP ){
           if( !empty( $badIP ) ){
           	$check = strtolower( $badIP );
