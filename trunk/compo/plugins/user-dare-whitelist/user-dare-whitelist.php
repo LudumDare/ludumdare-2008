@@ -127,8 +127,6 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
       $invalidIPs = split( "\r\n", $pluginOptions['ip_blacklist'] );
       
       echo "<!-- HEY MIKE\n";
-//      print_r( $_POST );
-//      echo "\n";
       echo $_SERVER['REMOTE_ADDR'];
       echo "\n";
       print_r( $invalidIPs );
@@ -166,11 +164,13 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
         }
       }
       
-      $clientIP = $_SERVER['REMOTE_ADDR'];
+      $clientIP = "" . $_SERVER['REMOTE_ADDR'];
       
       {
         foreach( $invalidIPs as $badIP ){
           if( !empty( $badIP ) ){
+		      echo "<!-- HEY MOM " . $badIP . "-->\n";
+
           	$check = strtolower( $badIP );
             if ( strpos( $clientIP, $check ) != FALSE ) {
               $isValidEmailDomain = false;
