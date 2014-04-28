@@ -168,9 +168,9 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
       {
         foreach( $invalidIPs as $badIP ){
           if( !empty( $badIP ) ){
-		      echo "<!-- HEY MOM " . $badIP . " vs " . $clientIP . "-->\n";
-
           	$check = strtolower( $badIP );
+
+		    echo "<!-- HEY MOM " . $check . " vs " . $clientIP . "-->\n";
             if ( strpos( $clientIP, $check ) != FALSE ) {
               $isValidEmailDomain = false;
               break;
