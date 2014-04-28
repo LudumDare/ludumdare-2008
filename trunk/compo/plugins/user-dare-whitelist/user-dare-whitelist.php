@@ -128,7 +128,7 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
       
       echo "<!-- HEY MIKE";
       echo $_POST;
-      echo "-->"
+      echo "-->";
       
       if( $pluginOptions['mode'] == 'white' ){
         // use whitelist (default)
