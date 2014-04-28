@@ -126,11 +126,13 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
       $validIPs = split( "\r\n", $pluginOptions['ip_whitelist'] );
       $invalidIPs = split( "\r\n", $pluginOptions['ip_blacklist'] );
       
-//      echo "<!-- HEY MIKE\n";
+      echo "<!-- HEY MIKE\n";
 //      print_r( $_POST );
 //      echo "\n";
-//      echo $_SERVER['REMOTE_ADDR'];
-//      echo "\n-->";
+      echo $_SERVER['REMOTE_ADDR'];
+      echo "\n";
+      print_r( $invalidIPs );
+      echo "\n-->";
       
       if( $pluginOptions['mode'] == 'white' ){
         // use whitelist (default)
