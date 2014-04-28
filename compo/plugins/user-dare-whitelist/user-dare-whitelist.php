@@ -164,16 +164,14 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
         }
       }
       
-      $clientIP = "" . $_SERVER['REMOTE_ADDR'];
-      
+      $clientIP = strtolower( $_SERVER['REMOTE_ADDR'] );
       {
         foreach( $invalidIPs as $badIP ){
           if( !empty( $badIP ) ){
-//		      echo "<!-- HEY MOM " . $badIP . "-->\n";
+		      echo "<!-- HEY MOM " . $badIP . " vs " . $clientIP . "-->\n";
 
           	$check = strtolower( $badIP );
             if ( strpos( $clientIP, $check ) != FALSE ) {
-            	echo "<!-- HEY MOM " . $badIP . "-->\n";
               $isValidEmailDomain = false;
               break;
             }
