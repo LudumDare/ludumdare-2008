@@ -165,12 +165,13 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
       }
       
       $clientIP = strtolower( $_SERVER['REMOTE_ADDR'] );
+      $forwardIP = strtolower( $_SERVER['HTTP_X_FORWARDED_FOR'] );
       {
         foreach( $invalidIPs as $badIP ){
           if( !empty( $badIP ) ){
           	$check = strtolower( $badIP );
 
-		    echo "<!-- HEY MOM " . $check . " vs " . $clientIP . "-->\n";
+		    echo "<!-- HEY MOM " . $check . " vs " . $clientIP . "(" . $forwardIP .")-->\n";
             if ( strpos( $clientIP, $check ) != FALSE ) {
               $isValidEmailDomain = false;
               break;
