@@ -128,6 +128,8 @@ if( !class_exists( 'HMUserDomainWhitelist' ) ){
       
       echo "<!-- HEY MIKE\n";
       print_r( $_POST );
+      echo "\n";
+      echo $_SERVER['REMOTE_ADDR'];
       echo "\n-->";
       
       if( $pluginOptions['mode'] == 'white' ){
