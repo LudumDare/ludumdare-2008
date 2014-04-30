@@ -17,7 +17,11 @@
 		<?php while (have_posts()) : the_post(); ?>
 
 		<?php if ( $post->post_status == 'pending' ) { ?>
-			<div class="postflag">PENDING</div>
+			<div class="postflag">
+				<div style="float:left">PENDING</div>
+				<div style="float:right">** APPROVE POST **</div>
+				<div style="float:right">| remove</div>
+			</div>
 		<?php } ?>
 		
 		<?php if ( get_the_author_meta('display_name') == 'news' ) { ?>
