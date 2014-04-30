@@ -8,6 +8,8 @@ Description: Inlined Pending Post Moderation (Spammers have driven us to this).
 
 */
 
+require_once( ABSPATH . "wp-includes/pluggable.php" );
+
 //function to print publish button
 function show_publish_button(){
 	Global $post;
