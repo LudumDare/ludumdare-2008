@@ -417,12 +417,15 @@ body {
 	}
 
 .postflag {
-	background-color: #5BD;
+	background-color: #7CF;
 	margin: 0 0 0px;
 	padding: 11px;
 	text-align: justify;
 	overflow:hidden;
+	
 	font-size: 16px;
+	font-weight:bold;
+	color: #fff;
 	}
 
 .post {
