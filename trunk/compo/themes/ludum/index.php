@@ -25,7 +25,7 @@
 		<?php if ( $post->post_status == 'pending' ) { ?>
 			<div class="postflag">
 				<div style="float:left">PENDING</div>
-				<div style="float:right">APPROVE POST | remove</div>
+				<div style="float:right"><?php show_publish_button(); ?> APPROVE POST | remove</div>
 			</div>
 		<?php } ?>
 		
