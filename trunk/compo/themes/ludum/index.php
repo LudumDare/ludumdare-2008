@@ -33,7 +33,7 @@
 				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
                 	<div>Posted by <?php the_author_posts_link(); ?><?php $aff = get_the_author_meta('affiliation', get_the_author_ID()); if (($aff != null) && ($aff != '')) { echo ' of ' . $aff; } ?><?php $twitter = get_the_author_meta('twitter', get_the_author_ID()); if (($twitter != null) && ($twitter != '')) { echo ' (twitter: <a target="_blank" href="http://twitter.com/' . $twitter . '">@' . $twitter . '</a>)'; } ?></div>
 
-				<?php if ( is_admin() ) { print_r( $post ); echo "***PENDING***"; } ?>
+				<?php if ( get_the_author_meta('user_level') == 3 ) { print_r( $post ); echo "***PENDING***"; } ?>
 
 				<?php $minimize = get_post_meta($post->ID,'minimize',false); ?>
 				<?php if ( count($minimize) == 0 ) { ?>
