@@ -16,6 +16,10 @@
 
 		<?php while (have_posts()) : the_post(); ?>
 
+		<?php if ( $post->post_status == 'pending' ) { ?>
+			<div class="postflag">PENDING</div>
+		<?php } ?>
+		
 		<?php if ( get_the_author_meta('display_name') == 'news' ) { ?>
 			<div class="post" style="background: #f0fff0 url('/compo/wp-content/themes/ludum/povimg/News.png') no-repeat top right;" id="post-<?php the_ID(); ?>">
 		<?php } else if ( get_the_author_meta('user_level') == 10 ) { ?>
