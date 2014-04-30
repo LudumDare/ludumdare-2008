@@ -16,11 +16,16 @@
 
 		<?php while (have_posts()) : the_post(); ?>
 
+		<?php if ( get_the_author_meta('user_level') == 1 ) { ?>
+			<div class="postflag" style="background-color: #D64;">
+				<div style="float:left">NEW USER</div>
+				<div style="float:right">Promote to Author | QUARANTINE | delete</div>
+			</div>
+		<?php } ?>
 		<?php if ( $post->post_status == 'pending' ) { ?>
 			<div class="postflag">
 				<div style="float:left">PENDING</div>
-				<div style="float:right">** APPROVE POST **</div>
-				<div style="float:right">| remove</div>
+				<div style="float:right">APPROVE POST | remove</div>
 			</div>
 		<?php } ?>
 		
