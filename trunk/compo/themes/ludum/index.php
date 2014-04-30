@@ -16,17 +16,19 @@
 
 		<?php while (have_posts()) : the_post(); ?>
 
-		<?php if ( get_the_author_meta('user_level') == 1 ) { ?>
-			<div class="postflag" style="background-color: #D64;">
-				<div style="float:left">NEW USER</div>
-				<div style="float:right">Promote to Author | QUARANTINE | delete</div>
-			</div>
-		<?php } ?>
-		<?php if ( $post->post_status == 'pending' ) { ?>
-			<div class="postflag">
-				<div style="float:left">PENDING</div>
-				<div style="float:right"><?php show_publish_button(); ?> APPROVE POST | remove</div>
-			</div>
+		<?php if ( current_user_can('edit_others_posts') ) { ?>
+			<?php if ( get_the_author_meta('user_level') == 1 ) { ?>
+				<div class="postflag" style="background-color: #D64;">
+					<div style="float:left">NEW USER</div>
+					<div style="float:right">Promote to Author | QUARANTINE | delete</div>
+				</div>
+			<?php } ?>
+			<?php if ( $post->post_status == 'pending' ) { ?>
+				<div class="postflag">
+					<div style="float:left">PENDING</div>
+					<div style="float:right"><?php show_publish_button(); ?> APPROVE POST | remove</div>
+				</div>
+			<?php } ?>
 		<?php } ?>
 		
 		<?php if ( get_the_author_meta('display_name') == 'news' ) { ?>
