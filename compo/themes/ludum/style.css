@@ -416,6 +416,14 @@ body {
 	width: 920px;
 	}
 
+.postflag {
+	background-color: #fac;
+	margin: 0 0 0px;
+	padding: 11px;
+	text-align: justify;
+	overflow:hidden;
+	}
+
 .post {
 	background-color: #ffffff;
 	margin: 0 0 10px;
