@@ -14,11 +14,16 @@ require_once( ABSPATH . "wp-includes/pluggable.php" );
 function show_publish_button(){
 	Global $post;
 	//only print fi admin
-	if (current_user_can('manage_options')){
+	if (current_user_can('edit_others_posts')){
 		echo '
 		<form action="" method="POST" name="front_end_publish"><input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 		<input id="FE_PUBLISH" type="hidden" name="FE_PUBLISH" value="FE_PUBLISH" />
-		<input id="submit" type="submit" name="submit" value="Publish" /></form>';
+		<input id="submit" type="submit" name="submit" value="Publish Post" /></form>';
+
+		echo '
+		<form action="" method="POST" name="front_end_trash"><input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
+		<input id="FE_TRASH" type="hidden" name="FE_TRASH" value="FE_TRASH" />
+		<input id="submit" type="submit" name="submit" value="Remove" /></form>';
 	}
 }
 	
@@ -32,6 +37,11 @@ function change_post_status($post_id,$status){
 if (isset($_POST['FE_PUBLISH']) && $_POST['FE_PUBLISH'] == 'FE_PUBLISH'){
 	if (isset($_POST['pid']) && !empty($_POST['pid'])){
 		change_post_status((int)$_POST['pid'],'publish');
+	}
+}
+if (isset($_POST['FE_TRASH']) && $_POST['FE_TRASH'] == 'FE_TRASH'){
+	if (isset($_POST['pid']) && !empty($_POST['pid'])){
+		change_post_status((int)$_POST['pid'],'trash');
 	}
 }
 
