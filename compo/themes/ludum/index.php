@@ -20,13 +20,13 @@
 			<?php if ( get_the_author_meta('user_level') == 1 ) { ?>
 				<div class="postflag" style="background-color: #D64;">
 					<div style="float:left">NEW USER</div>
-					<div style="float:right"><?php show_promote_buttons(); ?> Promote to Author | QUARANTINE | delete</div>
+					<div style="float:right"><?php show_promote_buttons(); ?> | delete</div>
 				</div>
 			<?php } ?>
 			<?php if ( $post->post_status == 'pending' ) { ?>
 				<div class="postflag">
 					<div style="float:left">PENDING</div>
-					<div style="float:right"><?php show_publish_buttons(); ?> APPROVE POST | remove</div>
+					<div style="float:right"><?php show_publish_buttons(); ?></div>
 				</div>
 			<?php } ?>
 		<?php } ?>

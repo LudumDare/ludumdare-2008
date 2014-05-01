@@ -21,6 +21,8 @@ function show_publish_buttons(){
 			<input id="submit" type="submit" name="submit" value="Publish Post" class="promobutton" />
 		</form>';
 
+		echo ' | ';
+
 		echo '
 		<form action="" method="POST" name="front_end_trash" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
@@ -40,6 +42,8 @@ function show_promote_buttons(){
 			<input id="FE_USER_PROMOTE" type="hidden" name="FE_USER_PROMOTE" value="FE_USER_PROMOTE" />
 			<input id="submit" type="submit" name="submit" value="Promote to Author" class="promobutton" />
 		</form>';
+
+		echo ' | ';
 		
 		echo '
 		<form action="" method="POST" name="front_end_demote" class="promoform">
