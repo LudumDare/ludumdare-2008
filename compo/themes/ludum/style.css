@@ -445,6 +445,20 @@ body {
 	color: #a8c;
 }
 
+.promobutton2 {
+	border: none;
+	background: none;
+	color: #00f;
+	cursor: pointer;
+	display: in-line;
+	margin: 0px;
+	padding: 0px;
+
+	font-size: 16px;
+	font-weight:bold;
+	color: #c78;
+}
+
 .post {
 	background-color: #ffffff;
 	margin: 0 0 10px;
