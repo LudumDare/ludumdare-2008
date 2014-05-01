@@ -116,6 +116,8 @@ function _compo2_main($m) {
     
     // output the content
     compo2_log("_compo2_main",microtime(true)-$tm);
+/*    
+	// The red logging display at the bottom of all Compo2 pages //
     if (1 && $user->user_level >= 7) {
         ob_start();
         
@@ -138,7 +140,7 @@ function _compo2_main($m) {
         $v = get_option($compo2["version.key"]);
         $r .= "<p>compo2: $v</p>";
     }
-    
+*/   
     
     return "<div id='compo2'>$r</div>";
 }
