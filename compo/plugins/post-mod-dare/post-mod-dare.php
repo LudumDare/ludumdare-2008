@@ -15,14 +15,18 @@ function show_publish_buttons(){
 	//only print fi admin
 	if (current_user_can('edit_others_posts')){
 		echo '
-		<form action="" method="POST" name="front_end_publish"><input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
-		<input id="FE_PUBLISH" type="hidden" name="FE_PUBLISH" value="FE_PUBLISH" />
-		<input id="submit" type="submit" name="submit" value="Publish Post" /></form>';
+		<form action="" method="POST" name="front_end_publish">
+			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
+			<input id="FE_PUBLISH" type="hidden" name="FE_PUBLISH" value="FE_PUBLISH" />
+			<input id="submit" type="submit" name="submit" value="Publish Post" />
+		</form>';
 
 		echo '
-		<form action="" method="POST" name="front_end_trash"><input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
-		<input id="FE_TRASH" type="hidden" name="FE_TRASH" value="FE_TRASH" />
-		<input id="submit" type="submit" name="submit" value="Remove" /></form>';
+		<form action="" method="POST" name="front_end_trash">
+			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
+			<input id="FE_TRASH" type="hidden" name="FE_TRASH" value="FE_TRASH" />
+			<input id="submit" type="submit" name="submit" value="Remove" />
+		</form>';
 	}
 }
 
@@ -31,9 +35,18 @@ function show_promote_buttons(){
 	//only print fi admin
 	if (current_user_can('edit_others_posts')){
 		echo '
-		<form action="" method="POST" name="front_end_promote"><input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
-		<input id="FE_USER_PROMOTE" type="hidden" name="FE_USER_PROMOTE" value="FE_USER_PROMOTE" />
-		<input id="submit" type="submit" name="submit" value="Promote to Author" /></form>';
+		<form action="" method="POST" name="front_end_promote">
+			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
+			<input id="FE_USER_PROMOTE" type="hidden" name="FE_USER_PROMOTE" value="FE_USER_PROMOTE" />
+			<input id="submit" type="submit" name="submit" value="Promote to Author" />
+		</form>';
+		
+		echo '
+		<form action="" method="POST" name="front_end_demote">
+			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
+			<input id="FE_USER_DEMOTE" type="hidden" name="FE_USER_DEMOTE" value="FE_USER_DEMOTE" />
+			<input id="submit" type="submit" name="submit" value="QUARANTINE" />
+		</form>';
 	}
 }
 
