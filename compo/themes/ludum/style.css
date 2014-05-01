@@ -427,6 +427,18 @@ body {
 	font-weight:bold;
 	color: #fff;
 	}
+	
+.promobuttons {
+	border: none;
+	background: none;
+	color: #00f;
+	text-decoration: underline;
+	cursor: pointer;
+	display: in-line;
+	margin: 0px;
+	padding: 0px;
+	display:inline-block;
+}
 
 .post {
 	background-color: #ffffff;

@@ -15,14 +15,14 @@ function show_publish_buttons(){
 	//only print fi admin
 	if (current_user_can('edit_others_posts')){
 		echo '
-		<form action="" method="POST" name="front_end_publish">
+		<form action="" method="POST" name="front_end_publish" class="promobuttons">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_PUBLISH" type="hidden" name="FE_PUBLISH" value="FE_PUBLISH" />
 			<input id="submit" type="submit" name="submit" value="Publish Post" />
 		</form>';
 
 		echo '
-		<form action="" method="POST" name="front_end_trash">
+		<form action="" method="POST" name="front_end_trash" class="promobuttons">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_TRASH" type="hidden" name="FE_TRASH" value="FE_TRASH" />
 			<input id="submit" type="submit" name="submit" value="Remove" />
@@ -35,14 +35,14 @@ function show_promote_buttons(){
 	//only print fi admin
 	if (current_user_can('edit_others_posts')){
 		echo '
-		<form action="" method="POST" name="front_end_promote">
+		<form action="" method="POST" name="front_end_promote" class="promobuttons">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_USER_PROMOTE" type="hidden" name="FE_USER_PROMOTE" value="FE_USER_PROMOTE" />
 			<input id="submit" type="submit" name="submit" value="Promote to Author" />
 		</form>';
 		
 		echo '
-		<form action="" method="POST" name="front_end_demote">
+		<form action="" method="POST" name="front_end_demote" class="promobuttons">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_USER_DEMOTE" type="hidden" name="FE_USER_DEMOTE" value="FE_USER_DEMOTE" />
 			<input id="submit" type="submit" name="submit" value="QUARANTINE" />
