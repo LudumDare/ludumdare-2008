@@ -27,7 +27,7 @@ function show_publish_buttons(){
 		<form action="" method="POST" name="front_end_trash" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_TRASH" type="hidden" name="FE_TRASH" value="FE_TRASH" />
-			<input id="submit" type="submit" name="submit" value="Remove" class="promobutton" />
+			<input id="submit" type="submit" name="submit" value="remove" class="promobutton" />
 		</form>';
 	}
 }
@@ -40,7 +40,7 @@ function show_promote_buttons(){
 		<form action="" method="POST" name="front_end_promote" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_USER_PROMOTE" type="hidden" name="FE_USER_PROMOTE" value="FE_USER_PROMOTE" />
-			<input id="submit" type="submit" name="submit" value="Promote to Author" class="promobutton" />
+			<input id="submit" type="submit" name="submit" value="Promote to Author" class="promobutton2" />
 		</form>';
 
 		echo ' | ';
@@ -49,8 +49,10 @@ function show_promote_buttons(){
 		<form action="" method="POST" name="front_end_demote" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_USER_DEMOTE" type="hidden" name="FE_USER_DEMOTE" value="FE_USER_DEMOTE" />
-			<input id="submit" type="submit" name="submit" value="QUARANTINE" class="promobutton" />
+			<input id="submit" type="submit" name="submit" value="QUARANTINE" class="promobutton2" />
 		</form>';
+		
+		echo " | delete';
 	}
 }
 
