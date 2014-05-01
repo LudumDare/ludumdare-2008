@@ -52,7 +52,7 @@ function show_promote_buttons(){
 			<input id="submit" type="submit" name="submit" value="QUARANTINE" class="promobutton2" />
 		</form>';
 		
-		echo " | delete';
+		echo ' | delete';
 	}
 }
 
