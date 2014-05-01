@@ -14,7 +14,7 @@ $compo2 = array(
     "plugin"=>__FILE__,
     "entry_load_cache"=>array(),
     "log"=>array(),
-    "log.enabled"=>false,//true,
+    "log.enabled"=>true,
 );
 
 function compo2_error($msg) {
