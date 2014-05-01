@@ -15,17 +15,17 @@ function show_publish_buttons(){
 	//only print fi admin
 	if (current_user_can('edit_others_posts')){
 		echo '
-		<form action="" method="POST" name="front_end_publish" class="promobuttons">
+		<form action="" method="POST" name="front_end_publish" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_PUBLISH" type="hidden" name="FE_PUBLISH" value="FE_PUBLISH" />
-			<input id="submit" type="submit" name="submit" value="Publish Post" />
+			<input id="submit" type="submit" name="submit" value="Publish Post" class="promobutton" />
 		</form>';
 
 		echo '
-		<form action="" method="POST" name="front_end_trash" class="promobuttons">
+		<form action="" method="POST" name="front_end_trash" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_TRASH" type="hidden" name="FE_TRASH" value="FE_TRASH" />
-			<input id="submit" type="submit" name="submit" value="Remove" />
+			<input id="submit" type="submit" name="submit" value="Remove" class="promobutton" />
 		</form>';
 	}
 }
@@ -35,17 +35,17 @@ function show_promote_buttons(){
 	//only print fi admin
 	if (current_user_can('edit_others_posts')){
 		echo '
-		<form action="" method="POST" name="front_end_promote" class="promobuttons">
+		<form action="" method="POST" name="front_end_promote" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_USER_PROMOTE" type="hidden" name="FE_USER_PROMOTE" value="FE_USER_PROMOTE" />
-			<input id="submit" type="submit" name="submit" value="Promote to Author" />
+			<input id="submit" type="submit" name="submit" value="Promote to Author" class="promobutton" />
 		</form>';
 		
 		echo '
-		<form action="" method="POST" name="front_end_demote" class="promobuttons">
+		<form action="" method="POST" name="front_end_demote" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_USER_DEMOTE" type="hidden" name="FE_USER_DEMOTE" value="FE_USER_DEMOTE" />
-			<input id="submit" type="submit" name="submit" value="QUARANTINE" />
+			<input id="submit" type="submit" name="submit" value="QUARANTINE" class="promobutton" />
 		</form>';
 	}
 }

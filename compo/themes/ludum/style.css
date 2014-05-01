@@ -427,8 +427,11 @@ body {
 	font-weight:bold;
 	color: #fff;
 	}
-	
-.promobuttons {
+
+.promoform {
+	display:inline-block;
+}
+.promobutton {
 	border: none;
 	background: none;
 	color: #00f;
@@ -437,7 +440,6 @@ body {
 	display: in-line;
 	margin: 0px;
 	padding: 0px;
-	display:inline-block;
 }
 
 .post {
