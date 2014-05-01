@@ -18,7 +18,7 @@ function show_publish_buttons(){
 		<form action="" method="POST" name="front_end_publish" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_PUBLISH" type="hidden" name="FE_PUBLISH" value="FE_PUBLISH" />
-			<input id="submit" type="submit" name="submit" value="Publish Post" class="promobutton" />
+			<input id="submit" type="submit" name="submit" value="Publish Post" class="promobutton" onclick="return confirm(\'Are you sure you want to Publish this Post?\')" />
 		</form>';
 
 		echo ' | ';
@@ -27,7 +27,7 @@ function show_publish_buttons(){
 		<form action="" method="POST" name="front_end_trash" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_TRASH" type="hidden" name="FE_TRASH" value="FE_TRASH" />
-			<input id="submit" type="submit" name="submit" value="remove" class="promobutton" />
+			<input id="submit" type="submit" name="submit" value="remove" class="promobutton" onclick="return confirm(\'Are you sure you want to Remove this Post?\')" />
 		</form>';
 	}
 }
@@ -40,7 +40,7 @@ function show_promote_buttons(){
 		<form action="" method="POST" name="front_end_promote" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_USER_PROMOTE" type="hidden" name="FE_USER_PROMOTE" value="FE_USER_PROMOTE" />
-			<input id="submit" type="submit" name="submit" value="Promote to Author" class="promobutton2" />
+			<input id="submit" type="submit" name="submit" value="Promote to Author" class="promobutton2" onclick="return confirm(\'Are you sure you want to Promote this user to an Author?\')" />
 		</form>';
 
 		echo ' | ';
@@ -49,14 +49,7 @@ function show_promote_buttons(){
 		<form action="" method="POST" name="front_end_demote" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_USER_DEMOTE" type="hidden" name="FE_USER_DEMOTE" value="FE_USER_DEMOTE" />
-			<input id="submit" type="submit" name="submit" value="QUARANTINE" class="promobutton2" onclick="return confirm(\"Are you sure you want to QUARANTINE this user?\")" />
-		</form>';
-
-		echo '
-		<form action="" method="POST" name="front_end_stupid" class="promoform">
-			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
-			<input id="FE_USER_CHUBBY" type="hidden" name="FE_USER_CHUBBY" value="FE_USER_CHUBBY" />
-			<input id="submit" type="submit" name="submit" value="test" class="promobutton2" onclick="return confirm(\'Are you sure you want to QUARANTINE this user?\')" />
+			<input id="submit" type="submit" name="submit" value="QUARANTINE" class="promobutton2" onclick="return confirm(\'Are you sure you want to QUARANTINE this user?\')" />
 		</form>';
 		
 		echo ' | delete';
