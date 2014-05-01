@@ -56,7 +56,7 @@ function compo2_query($sql,$params=array()) {
         compo2_error("compo2 - Error in query: $sql");
     }
     
-    compo2_log("compo2_query",microtime(true)-$tm,$sql);
+//    compo2_log("compo2_query",microtime(true)-$tm,$sql);
     
     if (!$r) { return array(); }
     return $r;
@@ -189,7 +189,7 @@ function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
         `$cmd`;
     }
     
-    compo2_log("compo2_thumb",microtime(true)-$tm);
+//    compo2_log("compo2_thumb",microtime(true)-$tm);
 
     return get_bloginfo("url")."/wp-content/compo2/thumb/$dst";
 }
@@ -198,7 +198,7 @@ function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
 function compo2_get_user($uid) {
     $tm = microtime(true);
     $r = get_userdata($uid);
-    compo2_log("compo2_get_user",microtime(true)-$tm);
+//    compo2_log("compo2_get_user",microtime(true)-$tm);
     return $r;
 }
 
