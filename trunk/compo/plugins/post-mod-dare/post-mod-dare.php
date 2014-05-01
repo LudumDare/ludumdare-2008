@@ -51,6 +51,13 @@ function show_promote_buttons(){
 			<input id="FE_USER_DEMOTE" type="hidden" name="FE_USER_DEMOTE" value="FE_USER_DEMOTE" />
 			<input id="submit" type="submit" name="submit" value="QUARANTINE" class="promobutton2" onclick="return confirm(\"Are you sure you want to QUARANTINE this user?\")" />
 		</form>';
+
+		echo '
+		<form action="" method="POST" name="front_end_stupid" class="promoform">
+			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
+			<input id="FE_USER_CHUBBY" type="hidden" name="FE_USER_CHUBBY" value="FE_USER_CHUBBY" />
+			<input id="submit" type="submit" name="submit" value="test" class="promobutton2" onclick="return confirm("Are you sure you want to QUARANTINE this user?")" />
+		</form>';
 		
 		echo ' | delete';
 	}
