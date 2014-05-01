@@ -8,6 +8,21 @@
 			<div class="alignright"><?php next_post_link('%link &raquo;') ?></div>
 		</div>
 
+		<?php if ( current_user_can('edit_others_posts') ) { ?>
+			<?php if ( get_the_author_meta('user_level') == 1 ) { ?>
+				<div class="postflag" style="background-color: #D64;">
+					<div style="float:left">NEW USER</div>
+					<div style="float:right"><?php show_promote_buttons(); ?></div>
+				</div>
+			<?php } ?>
+			<?php if ( $post->post_status == 'pending' ) { ?>
+				<div class="postflag">
+					<div style="float:left">PENDING</div>
+					<div style="float:right"><?php show_publish_buttons(); ?></div>
+				</div>
+			<?php } ?>
+		<?php } ?>
+
 		<div class="post" id="post-<?php the_ID(); ?>">
 			<div style="float: right;"><?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?></div>
 			<h2><a href="<?php echo get_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
