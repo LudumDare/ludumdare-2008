@@ -107,6 +107,13 @@ function init_postmoddare() {
 add_action('plugins_loaded','init_postmoddare');
 
 
+function custom_login_message() {
+	$message = '<p class="message">Registration/Login Problems? A bug with user registrations was introduced earlier this week. It was fixed late Friday May 2nd, but we had to remove all users affected by the bug. That might be you! If so, simply re-register. It should work now.</p><br />';
+	return $message;
+}
+add_filter('login_message', 'custom_login_message');
+
+
 /* http://wordpress.stackexchange.com/questions/103938/how-to-display-pending-posts-on-the-homepage-only-for-editors */
 // If the user is of high enough level, modify the query to return both pending and published posts // 
 function allow_pending_posts_wpse_103938($qry) {
