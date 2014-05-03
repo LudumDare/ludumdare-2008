@@ -8,7 +8,8 @@ Description: Inlined Pending Post Moderation (Spammers have driven us to this).
 
 */
 
-require_once( ABSPATH . "wp-includes/pluggable.php" );
+// NEVER DO THIS AS IT BREAKS PLUGGABLES (function overloading) //
+//require_once( ABSPATH . "wp-includes/pluggable.php" );
 
 function show_publish_buttons(){
 	Global $post;
