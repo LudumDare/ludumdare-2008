@@ -8,7 +8,7 @@ Description: Inlined Pending Post Moderation (Spammers have driven us to this).
 
 */
 
-// NEVER DO THIS AS IT BREAKS PLUGGABLES (function overloading) //
+// NEVER DO THIS AS IT BREAKS PLUGGABLES (function overloading. Sabre tweaks e-mails sent with it) //
 //require_once( ABSPATH . "wp-includes/pluggable.php" );
 
 function show_publish_buttons(){
@@ -57,7 +57,6 @@ function show_promote_buttons(){
 	}
 }
 
-	
 // Update the post status
 function change_post_status($post_id,$status){
 	$current_post = get_post( $post_id, 'ARRAY_A' );
@@ -70,37 +69,43 @@ function change_user_level($user_id,$status){
 	$newuser->set_role( $status );
 }
 
-// Responses to Post Status Changes //	
-if (isset($_POST['FE_PUBLISH']) && $_POST['FE_PUBLISH'] == 'FE_PUBLISH'){
-	if (isset($_POST['pid']) && !empty($_POST['pid'])){
-		change_post_status((int)$_POST['pid'],'publish');
+
+function init_postmoddare() {	
+	// Responses to Post Status Changes //	
+	if (isset($_POST['FE_PUBLISH']) && $_POST['FE_PUBLISH'] == 'FE_PUBLISH'){
+		if (isset($_POST['pid']) && !empty($_POST['pid'])){
+			change_post_status((int)$_POST['pid'],'publish');
+		}
 	}
-}
-if (isset($_POST['FE_TRASH']) && $_POST['FE_TRASH'] == 'FE_TRASH'){
-	if (isset($_POST['pid']) && !empty($_POST['pid'])){
-		change_post_status((int)$_POST['pid'],'trash');
+	if (isset($_POST['FE_TRASH']) && $_POST['FE_TRASH'] == 'FE_TRASH'){
+		if (isset($_POST['pid']) && !empty($_POST['pid'])){
+			change_post_status((int)$_POST['pid'],'trash');
+		}
+	}
+	
+	// Responses to User Level Changes //
+	if (isset($_POST['FE_USER_PROMOTE']) && $_POST['FE_USER_PROMOTE'] == 'FE_USER_PROMOTE'){
+		if (isset($_POST['pid']) && !empty($_POST['pid'])) {
+			$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
+			change_user_level( $current_post['post_author'], 'author' );
+		}
+	}
+	if (isset($_POST['FE_USER_DEMOTE']) && $_POST['FE_USER_DEMOTE'] == 'FE_USER_DEMOTE'){
+		if (isset($_POST['pid']) && !empty($_POST['pid'])) {
+			$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
+			change_user_level( $current_post['post_author'], 'subscriber' );
+		}
+	}
+	if (isset($_POST['FE_USER_RESET']) && $_POST['FE_USER_RESET'] == 'FE_USER_RESET'){
+		if (isset($_POST['pid']) && !empty($_POST['pid'])) {
+			$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
+			change_user_level( $current_post['post_author'], 'contributor' );
+		}
 	}
 }
 
-// Responses to User Level Changes //
-if (isset($_POST['FE_USER_PROMOTE']) && $_POST['FE_USER_PROMOTE'] == 'FE_USER_PROMOTE'){
-	if (isset($_POST['pid']) && !empty($_POST['pid'])) {
-		$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
-		change_user_level( $current_post['post_author'], 'author' );
-	}
-}
-if (isset($_POST['FE_USER_DEMOTE']) && $_POST['FE_USER_DEMOTE'] == 'FE_USER_DEMOTE'){
-	if (isset($_POST['pid']) && !empty($_POST['pid'])) {
-		$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
-		change_user_level( $current_post['post_author'], 'subscriber' );
-	}
-}
-if (isset($_POST['FE_USER_RESET']) && $_POST['FE_USER_RESET'] == 'FE_USER_RESET'){
-	if (isset($_POST['pid']) && !empty($_POST['pid'])) {
-		$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
-		change_user_level( $current_post['post_author'], 'contributor' );
-	}
-}
+// Call the above function after plugins have loaded (to make sure we have all the relied upon functions) //
+add_action('plugins_loaded','init_postmoddare');
 
 
 /* http://wordpress.stackexchange.com/questions/103938/how-to-display-pending-posts-on-the-homepage-only-for-editors */
