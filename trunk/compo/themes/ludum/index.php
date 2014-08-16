@@ -23,6 +23,12 @@
 					<div style="float:right"><?php show_promote_buttons(); ?></div>
 				</div>
 			<?php } ?>
+			<?php else if ( current_user_can('delete_users') ) { ?>
+				<div class="postflag" style="background-color: #46D;">
+					<div style="float:left">EXISTING USER</div>
+					<div style="float:right"><?php show_murder_buttons(); ?></div>
+				</div>
+			<?php } ?>
 			<?php if ( $post->post_status == 'pending' ) { ?>
 				<div class="postflag">
 					<div style="float:left">PENDING</div>
