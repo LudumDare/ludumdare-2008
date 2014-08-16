@@ -65,7 +65,7 @@ function show_murder_buttons(){
 		<form action="" method="POST" name="front_end_trash" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_TRASH" type="hidden" name="FE_TRASH" value="FE_TRASH" />
-			<input id="submit" type="submit" name="submit" value="remove" class="promobutton" onclick="return confirm(\'Are you sure you want to Remove this Post?\')" />
+			<input id="submit" type="submit" name="submit" value="Delete Post" class="promobutton" onclick="return confirm(\'Are you sure you want to Remove this Post?\')" />
 		</form>';
 
 		echo ' | ';
