@@ -23,7 +23,7 @@
 					<div style="float:right"><?php show_promote_buttons(); ?></div>
 				</div>
 			<?php } elseif ( current_user_can('delete_users') ) { ?>
-				<div class="postflag" style="background-color: #46D;">
+				<div class="postflag" style="background-color: #6D4;">
 					<div style="float:left">EXISTING USER</div>
 					<div style="float:right"><?php show_murder_buttons(); ?></div>
 				</div>
