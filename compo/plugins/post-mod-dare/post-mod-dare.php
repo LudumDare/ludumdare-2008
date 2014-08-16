@@ -35,7 +35,7 @@ function show_publish_buttons(){
 
 function show_promote_buttons(){
 	Global $post;
-	//only print fi admin
+	//only print if admin
 	if (current_user_can('edit_others_posts')){
 		echo '
 		<form action="" method="POST" name="front_end_promote" class="promoform">
@@ -46,6 +46,30 @@ function show_promote_buttons(){
 
 		echo ' | ';
 		
+		echo '
+		<form action="" method="POST" name="front_end_demote" class="promoform">
+			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
+			<input id="FE_USER_DEMOTE" type="hidden" name="FE_USER_DEMOTE" value="FE_USER_DEMOTE" />
+			<input id="submit" type="submit" name="submit" value="QUARANTINE" class="promobutton2" onclick="return confirm(\'Are you sure you want to QUARANTINE this user?\')" />
+		</form>';
+		
+		echo ' | delete';
+	}
+}
+
+function show_murder_buttons(){
+	Global $post;
+	//only print if admin
+	if (current_user_can('delete_users')){	
+		echo '
+		<form action="" method="POST" name="front_end_trash" class="promoform">
+			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
+			<input id="FE_TRASH" type="hidden" name="FE_TRASH" value="FE_TRASH" />
+			<input id="submit" type="submit" name="submit" value="remove" class="promobutton" onclick="return confirm(\'Are you sure you want to Remove this Post?\')" />
+		</form>';
+
+		echo ' | ';
+
 		echo '
 		<form action="" method="POST" name="front_end_demote" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
