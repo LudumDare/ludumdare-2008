@@ -22,7 +22,7 @@
 					<div style="float:left">NEW USER</div>
 					<div style="float:right"><?php show_promote_buttons(); ?></div>
 				</div>
-			<?php } elseif ( current_user_can('delete_users') ) { ?>
+			<?php } elseif ( current_user_can('delete_users') && ($_GET["admin"] === "1") ) { ?>
 				<div class="postflag" style="background-color: #555;">
 					<div style="float:left">EXISTING USER</div>
 					<div style="float:right"><?php show_murder_buttons(); ?></div>
