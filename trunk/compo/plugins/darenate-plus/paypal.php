@@ -56,13 +56,35 @@ $sysname 		= "Donate Plus - Paypal IPN Transaction";
 # Convert Super globals For backward compatibility
 if(phpversion() <= "4.0.6") {$_POST=($HTTP_POST_VARS);}
 
+# MK START #
+# Better response code PHP Shim, from here: 
+# http://stackoverflow.com/questions/3258634/php-how-to-send-http-response-code
+// For 4.3.0 <= PHP <= 5.4.0
+if (!function_exists('http_response_code'))
+{
+    function http_response_code($newcode = NULL)
+    {
+        static $code = 200;
+        if($newcode !== NULL)
+        {
+            header('X-PHP-Response-Code: '.$newcode, true, $newcode);
+            if(!headers_sent())
+                $code = $newcode;
+        }       
+        return $code;
+    }
+}
+# MK END #
+
 # Check for IPN post if non then return 404 error.
 if (!$_POST['txn_type']){
 	if( $email_IPN_results ) send_mail($send_mail_to,$sysname." [ERROR - 404]","IPN Fail: 404 error!","",__LINE__);
-	header("Status: 404 Not Found");
+#MK	header("Status: 404 Not Found");
+	http_response_code(404); #MK
 	die();
 }else{
-	header("Status: 200 OK");
+#MK	header("Status: 200 OK");
+	http_response_code(200); #MK
 }
 
 # Now we Read the Posted IPN
