@@ -89,6 +89,13 @@ function rest_post($request) {
 	}
 	
 	if ( $data ) {
+		// 200 - OK (everything fine) //
+		// 201 - Created (okay and I did something)
+		// 202 - Accepted (okay but unprocessed)
+		http_response_code(201);
+		
+		// * * * //
+
 		$keys = $data[0];	// First row contains key names //
 		
 		// Build a list of keys (in case the CSV changes) //
@@ -113,13 +120,7 @@ function rest_post($request) {
 		
 		// * * * //
 	
-		// 200 - OK (everything fine) //
-		// 201 - Created (okay and I did something)
-		// 202 - Accepted (okay but unprocessed)
-		http_response_code(201);
 		echo "thanks bro\n";
-		
-		print_r($data[0]);
 	}
 	else {
 		http_response_code(400);
