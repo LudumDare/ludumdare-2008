@@ -1,4 +1,4 @@
-<?PHP
+<?php
 // - ----------------------------------------------------------------------------------------- - //
 # Shim for PHP <= 5.4.0, from here: http://stackoverflow.com/a/12018482
 if (!function_exists('http_response_code')) {
@@ -74,6 +74,11 @@ if (!function_exists('str_getcsv')) {
 # PHP Shim End #
 // - ----------------------------------------------------------------------------------------- - //
 
+// If standalone, we need a config //
+#require "config.php";
+
+// Otherwise, use Wordpress DB access //
+
 
 // - ----------------------------------------------------------------------------------------- - //
 // HTTP POST response function //
@@ -117,10 +122,11 @@ function rest_post($request) {
 			}
 		}
 		
-		
 		// * * * //
 	
 		echo "thanks bro\n";
+		
+		echo hash( "sha512", "coolstorybro" );
 	}
 	else {
 		http_response_code(400);
@@ -155,6 +161,7 @@ function rest_error($request) {
 // - ----------------------------------------------------------------------------------------- - //
 // START! //
 // - ----------------------------------------------------------------------------------------- - //
+// http://stackoverflow.com/a/897311
 $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
 $rest_func = 'rest_'.strtolower($_SERVER['REQUEST_METHOD']);
