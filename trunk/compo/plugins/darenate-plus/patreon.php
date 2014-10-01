@@ -91,7 +91,7 @@ function rest_post($request) {
 			
 			$rows = str_getcsv($datafile, "\n"); //parse the rows 
 			foreach($rows as &$row) {
-				$row = str_getcsv($row, ",");
+				$row = str_getcsv($row, ";");
 			}
 			
 			print_r($rows);
