@@ -17,7 +17,7 @@ if (!function_exists('http_response_code')) {
 # PHP Shim End #
 
 
-function rest_put($request) {
+function rest_post($request) {
 	
 	
 	// 200 - OK (everything fine) //
@@ -25,6 +25,8 @@ function rest_put($request) {
 	// 202 - Accepted (okay but unprocessed)
 	http_response_code(201);
 	echo "thanks bro\n";
+	
+	print_r($_POST);
 }
 
 function rest_head($request) {
