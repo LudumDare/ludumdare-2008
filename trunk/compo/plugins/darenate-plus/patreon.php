@@ -27,6 +27,7 @@ function rest_post($request) {
 	echo "thanks bro\n";
 	
 	print_r($_POST);
+	print_r($_FILES);
 }
 
 function rest_head($request) {
