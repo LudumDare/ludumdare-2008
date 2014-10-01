@@ -104,8 +104,10 @@ function rest_post($request) {
 		$key_complete = array_search('Complete',$keys);
 
 		$data_size = count($data);
-		for ($idx = 2; $idx < $data_size; $idx++ ) {
-			echo $idx . $data[$idx][$key_name] . "\n";
+		for ($idx = 1; $idx < $data_size; $idx++ ) {
+			if ( count($data[$idx]) > 3 ) {
+				echo $idx . " - " . $data[$idx][$key_name] . " - " . $data[$idx][$key_pledge] . "\n";
+			}
 		}
 		
 		
