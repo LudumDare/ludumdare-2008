@@ -88,13 +88,9 @@ function rest_post($request) {
 	if ( $_FILES['uploadedfile']['error'] == UPLOAD_ERR_OK ) {
 		if ( is_uploaded_file($_FILES['uploadedfile']['tmp_name'])) {
 			$datafile = file_get_contents($_FILES['uploadedfile']['tmp_name']);
+			$row = str_getcsv($datafile);
 			
-			$rows = str_getcsv($datafile);//, "\n"); //parse the rows 
-//			foreach($rows as &$row) {
-//				$row = str_getcsv($row);
-//			}
-			
-			print_r($rows);
+			print_r($row[0]);
 		}
 	}
 }
