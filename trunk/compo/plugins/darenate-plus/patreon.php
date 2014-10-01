@@ -135,11 +135,13 @@ function rest_post($request) {
 		if ( $db ) {
 			$ret = mysqli_query($db,"SELECT * FROM wp_links");
 			
-			while($oot = mysqli_fetch_array($ret)) {
-				print_r($oot);
-				echo "\n";
-			}
-			//print_r( $ret );
+			print_r( mysqli_fetch_array($ret) );
+			
+//			while($oot = mysqli_fetch_array($ret)) {
+//				print_r($oot);
+//				echo "\n";
+//			}
+//			//print_r( $ret );
 			
 			mysqli_close($db);
 		}
