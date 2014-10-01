@@ -89,9 +89,9 @@ function rest_post($request) {
 		if ( is_uploaded_file($_FILES['uploadedfile']['tmp_name'])) {
 			$datafile = file_get_contents($_FILES['uploadedfile']['tmp_name']);
 			
-			$rows = str_getcsv($datafile, "\n"); //parse the rows 
+			$rows = str_getcsv($datafile);//, "\n"); //parse the rows 
 //			foreach($rows as &$row) {
-//				$row = str_getcsv($row, ";");
+//				$row = str_getcsv($row);
 //			}
 			
 			print_r($rows);
