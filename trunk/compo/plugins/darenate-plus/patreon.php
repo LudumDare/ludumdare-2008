@@ -92,7 +92,7 @@ function rest_post($request) {
 		// 200 - OK (everything fine) //
 		// 201 - Created (okay and I did something)
 		// 202 - Accepted (okay but unprocessed)
-		http_response_code(201);
+		http_response_code(202); // 202 because we process below //
 		
 		// * * * //
 
