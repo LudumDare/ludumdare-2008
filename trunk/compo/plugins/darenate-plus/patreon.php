@@ -130,16 +130,21 @@ function rest_post($request) {
 		
 		//echo hash( "md5", "coolstorybro" );
 		
-		echo DB_USER;
-		
 		$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 		
 		if ( $db ) {
 			$ret = mysqli_query($db,"SELECT * FROM wp_links");
-			print_r( $ret );
+			
+			while($oot = mysqli_fetch_array($ret)) {
+				print_r($oot);
+				echo "\n";
+			}
+			//print_r( $ret );
 			
 			mysqli_close($db);
 		}
+		
+		echo "\n";
 	}
 	else {
 		http_response_code(400);
