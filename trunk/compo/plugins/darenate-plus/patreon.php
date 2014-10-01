@@ -26,8 +26,11 @@ function rest_post($request) {
 	http_response_code(201);
 	echo "thanks bro\n";
 	
-	print_r($_POST);
-	print_r($_FILES);
+	if ( $_FILES['uploadedfile']['error'] == UPLOAD_ERR_OK ) {
+		if ( is_uploaded_file($_FILES['uploadedfile']['tmp_name'])) {
+			echo file_get_contents($_FILES['uploadedfile']['tmp_name']);
+		}
+	}
 }
 
 function rest_head($request) {
