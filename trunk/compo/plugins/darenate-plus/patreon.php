@@ -1,6 +1,5 @@
 <?PHP
-
-
+// - ----------------------------------------------------------------------------------------- - //
 # Shim for PHP <= 5.4.0, from here: http://stackoverflow.com/a/12018482
 if (!function_exists('http_response_code')) {
 	function http_response_code($newcode = NULL) {
@@ -14,7 +13,7 @@ if (!function_exists('http_response_code')) {
 	}
 }
 # PHP Shim End #
-
+// - ----------------------------------------------------------------------------------------- - //
 # Shim for PHP < 5.3, from http://php.net/manual/en/function.str-getcsv.php#98088
 if (!function_exists('str_getcsv')) { 
     function str_getcsv($input, $delimiter = ',', $enclosure = '"', $escape = '\\', $eol = '\n') { 
@@ -73,47 +72,93 @@ if (!function_exists('str_getcsv')) {
     } 
 }
 # PHP Shim End #
+// - ----------------------------------------------------------------------------------------- - //
 
 
-
+// - ----------------------------------------------------------------------------------------- - //
+// HTTP POST response function //
 function rest_post($request) {
-	
-	
-	// 200 - OK (everything fine) //
-	// 201 - Created (okay and I did something)
-	// 202 - Accepted (okay but unprocessed)
-	http_response_code(201);
-	echo "thanks bro\n";
+	$datafile = NULL;
+	$data = NULL;
 	
 	if ( $_FILES['uploadedfile']['error'] == UPLOAD_ERR_OK ) {
 		if ( is_uploaded_file($_FILES['uploadedfile']['tmp_name'])) {
 			$datafile = file_get_contents($_FILES['uploadedfile']['tmp_name']);
-			$row = str_getcsv($datafile);
-			
-			print_r($row[0]);
+			$data = str_getcsv($datafile);
 		}
 	}
-}
+	
+	if ( $data ) {
+		$keys = $data[0];	// First row contains key names //
+		
+		// Build a list of keys (in case the CSV changes) //
+		$key_name = array_search('Name',$keys);
+		$key_email = array_search('Email',$keys);
+		$key_pledge = array_search('Pledge',$keys);
+		$key_lifetime = array_search('Lifetime',$keys);
+		$key_status = array_search('Status',$keys);
+		$key_twitter = array_search('Twitter',$keys);
+		$key_shipping = array_search('Shipping',$keys);
+		$key_start = array_search('Start',$keys);
+		$key_maxamount = array_search('MaxAmount',$keys);
+		$key_complete = array_search('Complete',$keys);
 
+		$data_size = count($data);
+		for ($idx = 2; $idx < $data_size; $idx++ ) {
+			echo $idx . $data[$idx][$key_name] . "\n";
+		}
+		
+		
+		// * * * //
+	
+		// 200 - OK (everything fine) //
+		// 201 - Created (okay and I did something)
+		// 202 - Accepted (okay but unprocessed)
+		http_response_code(201);
+		echo "thanks bro\n";
+		
+		print_r($data[0]);
+	}
+	else {
+		http_response_code(400);
+	}
+	
+	// Cleanup //
+	if ( $datafile ) {
+		// delete temp file //
+	}
+}
+// - ----------------------------------------------------------------------------------------- - //
+// HTTP HEAD response //
 function rest_head($request) {
 	http_response_code(200);
 }
+// HTTP GET response //
 function rest_get($request) {
 	rest_head($request);
+	
 	// ... //
+	
 	echo "do something bro\n";
 }
-
+// - ----------------------------------------------------------------------------------------- - //
+// HTTP ERROR response //
 function rest_error($request) {
 	http_response_code(400);
 }
+// - ----------------------------------------------------------------------------------------- - //
 
 
+// - ----------------------------------------------------------------------------------------- - //
+// START! //
+// - ----------------------------------------------------------------------------------------- - //
 $request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
 $rest_func = 'rest_'.strtolower($_SERVER['REQUEST_METHOD']);
 if (function_exists($rest_func)) {
+	// Call the appropriate HTTP response function //
 	call_user_func($rest_func, $request);
 }
+// - ----------------------------------------------------------------------------------------- - //
 
 ?>
