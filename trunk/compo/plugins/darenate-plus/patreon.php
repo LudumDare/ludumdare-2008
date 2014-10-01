@@ -74,11 +74,13 @@ if (!function_exists('str_getcsv')) {
 # PHP Shim End #
 // - ----------------------------------------------------------------------------------------- - //
 
-// If standalone, we need a config //
-#require "config.php";
+// Use Wordpress config.
+include "../../../wp-config.php";
 
-// Otherwise, use Wordpress DB access //
-
+//if ( !$DB_NAME ) {
+//	// If standalone, we need a config //
+//	require "config.php";
+//}
 
 // - ----------------------------------------------------------------------------------------- - //
 // HTTP POST response function //
@@ -126,7 +128,14 @@ function rest_post($request) {
 	
 		echo "thanks bro\n";
 		
-		echo hash( "sha512", "coolstorybro" );
+		//echo hash( "md5", "coolstorybro" );
+		
+		$db = mysqli_connect($DB_HOST,$DB_USER,$DB_PASSWORD,$DB_NAME);
+		
+		$ret = mysqli_query($db,"SELECT * FROM wp_links");
+		print_r( $ret );
+		
+		mysqli_close($db);
 	}
 	else {
 		http_response_code(400);
