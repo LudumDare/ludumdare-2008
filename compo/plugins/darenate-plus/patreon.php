@@ -75,7 +75,7 @@ if (!function_exists('str_getcsv')) {
 // - ----------------------------------------------------------------------------------------- - //
 
 // Use Wordpress config.
-include "../../../wp-config.php";
+require "../../../wp-config.php";
 
 //if ( !$DB_NAME ) {
 //	// If standalone, we need a config //
@@ -130,14 +130,16 @@ function rest_post($request) {
 		
 		//echo hash( "md5", "coolstorybro" );
 		
-		echo $DB_USER;
+		echo DB_USER;
 		
-		$db = mysqli_connect($DB_HOST,$DB_USER,$DB_PASSWORD,$DB_NAME);
+		$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 		
-		$ret = mysqli_query($db,"SELECT * FROM wp_links");
-		print_r( $ret );
-		
-		mysqli_close($db);
+		if ( $db ) {
+			$ret = mysqli_query($db,"SELECT * FROM wp_links");
+			print_r( $ret );
+			
+			mysqli_close($db);
+		}
 	}
 	else {
 		http_response_code(400);
