@@ -24,7 +24,7 @@ function rest_put($request) {
 	// 201 - Created (okay and I did something)
 	// 202 - Accepted (okay but unprocessed)
 	http_response_code(201);
-	echo 'thanks bro\n';
+	echo "thanks bro\n";
 }
 
 function rest_head($request) {
@@ -33,7 +33,7 @@ function rest_head($request) {
 function rest_get($request) {
 	rest_head($request);
 	// ... //
-	echo 'do something bro\n';
+	echo "do something bro\n";
 }
 
 function rest_error($request) {
