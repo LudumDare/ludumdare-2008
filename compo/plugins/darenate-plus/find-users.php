@@ -94,7 +94,8 @@ function rest_get($request) {
 		$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 		
 		if ( $db ) {
-			$donations = mysqli_query($db,"SELECT * FROM wp_donations");
+			$result = mysqli_query($db,"SELECT * FROM wp_donations");
+			$donations = mysqli_fetch_array($result);
 			
 			mysqli_close($db);
 		}
