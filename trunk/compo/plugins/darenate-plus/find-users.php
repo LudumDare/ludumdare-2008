@@ -101,7 +101,7 @@ function rest_get($request) {
 		}
 	}
 	
-	print_r( $donations[0] );
+	print_r( $donations );
 	
 	echo "\n";
 }
