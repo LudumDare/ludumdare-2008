@@ -87,60 +87,91 @@ function rest_get($request) {
 	rest_head($request);
 	
 	// ... //
-	
-	// Get Donations //
-	$donation = NULL;
-	{
-		$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
-		
-		if ( $db ) {
+
+	$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+
+	// ... //
+
+	if ( $db ) {	
+		// Get Donations //
+		$donation = NULL;
+		{
 			$result = mysqli_query($db,"SELECT * FROM wp_donations");
 			while ($row = mysqli_fetch_array($result)) {
 				$donation[] = $row;	// same as array_push(...), but faster;
 			}
-			
-			mysqli_close($db);
 		}
-	}
-	
-	echo "Total: " . count($donation) . "\n";
-	
-	// Eliminate duplicate e-mail addresses, to build database of users // 
-	$byAddress = array();
-	{
-		$donation_count = count($donation);
-		for ($idx = 0; $idx < $donation_count; $idx++ ) {
-			$mail = strtolower( $donation[$idx]["email"] );
-			
-			if ( array_key_exists($mail,$byAddress) ) {
-				$byAddress[$mail]['total'] += floatval($donation[$idx]["amount"]);
-				$byAddress[$mail]['donations'] ++;
-				if ( $byAddress[$mail]['user'] ) {
-					$byAddress[$mail]['user'] = intval($donation[$idx]["user_id"]);
+		
+		echo "Total: " . count($donation) . "\n";
+		
+		// Eliminate duplicate e-mail addresses, to build database of users // 
+		$byAddress = array();
+		{
+			$donation_count = count($donation);
+			for ($idx = 0; $idx < $donation_count; $idx++ ) {
+				$mail = strtolower( $donation[$idx]["email"] );
+				
+				if ( array_key_exists($mail,$byAddress) ) {
+					$byAddress[$mail]['total'] += floatval($donation[$idx]["amount"]);
+					$byAddress[$mail]['donations'] ++;
+					if ( $byAddress[$mail]['user'] ) {
+						$byAddress[$mail]['user'] = intval($donation[$idx]["user_id"]);
+					}
+				}
+				else {
+					$byAddress[$mail] = array(
+						id => $idx,
+						donation_id => intval($donation[$idx]["ID"]),
+						user => intval($donation[$idx]["user_id"]),
+						total => 0.0 + floatval($donation[$idx]["amount"]),
+						donations => 1,
+						newuser => 0
+					);
 				}
 			}
-			else {
-				$byAddress[$mail] = array(
-					id => $idx,
-					donation_id => intval($donation[$idx]["ID"]),
-					user => intval($donation[$idx]["user_id"]),
-					total => 0.0 + floatval($donation[$idx]["amount"]),
-					donations => 1
-				);
+		}
+		
+		// Search all missing users //
+		{
+			$byAddress_values = array_keys($byAddress);
+			$byAddress_count = count($byAddress);
+			for ($idx = 0; $idx < $byAddress_count; $idx++ ) {
+				$key = $byAddress_values[$idx];
+				$item = $byAddress[$key];
+				
+				// If no user set, Search //
+				if ( $item["user"] === 0 ) {
+					if ( $item["newuser"] === 0 ) {
+						$result = mysqli_query($db,"SELECT ID FROM wp_users WHERE user_email=".$key );
+						while ($row = mysqli_fetch_array($result)) {
+							$item["newuser"] = $row['ID'];
+						}
+						
+					}
+				}
 			}
 		}
-	}
+		
+		// Output //
+		{
+			echo "Unique: " . count($byAddress) . "\n\n";
+			$byAddress_values = array_keys($byAddress);
+			$byAddress_count = count($byAddress);
+			for ($idx = 0; $idx < $byAddress_count; $idx++ ) {
+				$key = $byAddress_values[$idx];
+				$item = $byAddress[$key];
+				echo "[".$idx."] " . $key . " [" . $item["id"] . "] = " . $item["total"] . " (" . $item["donations"] . ")" . 
+					" -- " . $item["user"] . " [" . $item["newuser"] . "]". ($item["total"] > 200 ? " * * * *" : "") . "\n";
+			}
+		}
 	
-	echo "Unique: " . count($byAddress) . "\n\n";
-	$byAddress_values = array_keys($byAddress);
-	//foreach ($byAddress as $key) {
-	$byAddress_count = count($byAddress);
-	for ($idx = 0; $idx < $byAddress_count; $idx++ ) {
-		$key = $byAddress_values[$idx];
-		$item = $byAddress[$key];
-		echo "[".$idx."] " . $key . " [" . $item["id"] . "] = " . $item["total"] . " (" . $item["donations"] . ")" . ( $item["total"] > 200 ? " * * * *" : "" ) . " -- " . $item["user"] . "\n";
+		// * * * //
+		
+		mysqli_close($db);
+
+		// * * * //
 	}
-	
+		
 	echo "\n";
 }
 // - ----------------------------------------------------------------------------------------- - //
