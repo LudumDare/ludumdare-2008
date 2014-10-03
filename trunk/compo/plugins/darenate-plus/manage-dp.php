@@ -75,6 +75,7 @@ if( !class_exists('ManageDarenatePlus') ):
 	<th scope="col" id="cb" class="manage-column column-cb check-column" style=""><input type="checkbox" /></th>
 	<th scope="col" id="donorname" class="manage-column column-donorname" style=""><?php _e('Donor Name', 'dplus');?></th>
 	<th scope="col" id="amount" class="manage-column column-amount" style=""><?php _e('Amount', 'dplus');?></th>
+	<th scope="col" id="fee" class="manage-column column-fee" style=""><?php _e('Fee', 'dplus');?></th>
     <th scope="col" id="comment" class="manage-column column-comment" style=""><?php _e('Comment', 'dplus');?></th>
 	<th scope="col" id="date" class="manage-column column-date" style=""><?php _e('Date', 'dplus');?></th>
   </tr>
@@ -86,6 +87,7 @@ if( !class_exists('ManageDarenatePlus') ):
 	<th scope="col" class="manage-column column-cb check-column" style=""><input type="checkbox" /></th>
 	<th scope="col" class="manage-column column-donorname" style=""><?php _e('Donor Name', 'dplus');?></th>
 	<th scope="col" class="manage-column column-amount" style=""><?php _e('Amount', 'dplus');?></th>
+	<th scope="col" class="manage-column column-fee" style=""><?php _e('Fee', 'dplus');?></th>
     <th scope="col" class="manage-column column-comment" style=""><?php _e('Comment', 'dplus');?></th>
 	<th scope="col" class="manage-column column-date" style=""><?php _e('Date', 'dplus');?></th>
   </tr>
@@ -109,10 +111,12 @@ if( !class_exists('ManageDarenatePlus') ):
                     <div class="comment"><?php echo $dn->comment;?></div>
                     <div class="diplay"><?php echo $dn->display;?></div>
                     <div class="amount"><?php echo $dn->amount;?></div>
+                    <div class="fee"><?php echo $dn->fee;?></div>
                     <div class="currency"><?php echo $dn->currency;?></div>
                     <div class="date"><?php echo $dn->date;?></div>
                     <div class="user_id"><?php echo $dn->user_id;?></div>
                     <div class="status"><?php echo $dn->status;?></div>
+                    <div class="purpose"><?php echo $dn->purpose;?></div>
                     <div class="txn_id"><?php echo $dn->txn_id;?></div>
                 </div></td>
                 <td class="amount"><?php echo $dn->amount.' '.$dn->currency;?></td>
@@ -144,9 +148,9 @@ if( !class_exists('ManageDarenatePlus') ):
 			//USE SECURE INSERT!
 			$wpdb->query(
 				$wpdb->prepare("INSERT INTO $table_name
-				( name, email, url, comment, display, amount, currency, date, user_id, status, txn_id )
+				( name, email, url, comment, display, amount, fee, currency, date, user_id, status, purpose, txn_id )
 				VALUES ( %s, %s, %s, %s, %d, %s, %s, %s, %d, %s, %s )", 
-			    $_POST['name'], $_POST['email'], $_POST['url'], strip_tags($_POST['comment']), $_POST['display'], $_POST['amount'], $_POST['currency'], date('Y-m-d H:i:s'), $uID, $status, $txn_id )
+			    $_POST['name'], $_POST['email'], $_POST['url'], strip_tags($_POST['comment']), $_POST['display'], $_POST['amount'], $_POST['fee'], $_POST['currency'], date('Y-m-d H:i:s'), $uID, $status, $_POST['purpose'], $txn_id )
 		    );
 
 			$_POST['notice'] = 'Donation Proxy Added';
@@ -188,6 +192,10 @@ if( !class_exists('ManageDarenatePlus') ):
                         <tr valign="top">
                     		<th scope="row"><label for="amount"><?php _e('Donation Amount', 'dplus');?></label></th>
                    			<td><input name="amount" id="amount" value="" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="fee"><?php _e('Donation Fee', 'dplus');?></label></th>
+                   			<td><input name="fee" id="fee" value="" class="regular-text" type="text"></td>
                    		</tr>
                         <tr valign="top">
                     		<th scope="row"><label for="currency"><?php _e('Donation Currency', 'dplus');?></label></th>
@@ -243,6 +251,10 @@ if( !class_exists('ManageDarenatePlus') ):
                    			<td><input name="amount" id="amount" value="<?php echo $donor->amount;?>" class="regular-text" type="text"></td>
                    		</tr>
                         <tr valign="top">
+                    		<th scope="row"><label for="fee"><?php _e('Donation Fee', 'dplus');?></label></th>
+                   			<td><input name="fee" id="fee" value="<?php echo $donor->fee;?>" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
                     		<th scope="row"><label for="currency"><?php _e('Donation Currency', 'dplus');?></label></th>
                    			<td><input name="currency" id="currency" value="<?php echo $donor->currency;?>" class="regular-text" type="text"></td>
                    		</tr>
@@ -257,6 +269,10 @@ if( !class_exists('ManageDarenatePlus') ):
                         <tr valign="top">
                     		<th scope="row"><label for="status"><?php _e('Payment Status', 'dplus');?></label></th>
                    			<td><input name="status" id="status" value="<?php echo $donor->status;?>" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="purpose"><?php _e('Payment Purpose', 'dplus');?></label></th>
+                   			<td><input name="purpose" id="purpose" value="<?php echo $donor->purpose;?>" class="regular-text" type="text"></td>
                    		</tr>
                     </tbody>
                     </table>

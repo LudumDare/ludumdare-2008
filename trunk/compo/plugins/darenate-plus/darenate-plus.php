@@ -829,13 +829,16 @@ jQuery(function(){
 						  url VARCHAR(200) NOT NULL,
 						  comment text NOT NULL,
 						  display int(11) NOT NULL DEFAULT 0,
-						  amount bigint(200) NOT NULL DEFAULT 0,
+						  amount decimal(19,2) NOT NULL DEFAULT 0,
+						  fee decimal(19,2) NOT NULL DEFAULT 0,
 						  currency VARCHAR(200) NOT NULL,
 						  date datetime DEFAULT '000-00-00 00:00:00',
 						  user_id bigint(20) NOT NULL DEFAULT 0,
 						  status VARCHAR(100) NOT NULL,
+						  purpose int(11) NOT NULL DEFAULT 0,
 						  txn_id VARCHAR(100) NOT NULL,		  
-						  UNIQUE KEY ID (ID)
+						  UNIQUE KEY ID (ID),
+						  INDEX (purpose)
 						);";
 					
 					require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
@@ -855,7 +858,7 @@ jQuery(function(){
 						  url VARCHAR(200) NOT NULL,
 						  comment text NOT NULL,
 						  display int(11) NOT NULL DEFAULT 0,
-						  amount bigint(200) NOT NULL DEFAULT 0,
+						  amount decimal(19,2) NOT NULL DEFAULT 0,
 						  currency VARCHAR(200) NOT NULL,
 						  date datetime DEFAULT '000-00-00 00:00:00',
 						  user_id bigint(20) NOT NULL DEFAULT 0,

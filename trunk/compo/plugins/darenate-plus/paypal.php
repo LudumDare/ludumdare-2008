@@ -282,9 +282,9 @@ if (!$port && !$error){
 			//USE SECURE INSERT!
 			$wpdb->query(
 				$wpdb->prepare("INSERT INTO $table_name
-				( name, email, url, comment, display, amount, currency, date, user_id, status, txn_id )
-				VALUES ( %s, %s, %s, %s, %d, %s, %s, %s, %d, %s, %s )", 
-			    $option_name1, $option_selection1, $url, strip_tags($option_selection2), $display, $mc_gross, $mc_currency, date('Y-m-d H:i:s'), $uID, $tmp_payment_status, $txn_id )
+				( name, email, url, comment, display, amount, fee, currency, date, user_id, status, purpose, txn_id )
+				VALUES ( %s, %s, %s, %s, %d, %s, %s, %s, %s, %d, %s, %d, %s )", 
+			    $option_name1, $option_selection1, $url, strip_tags($option_selection2), $display, $payment_gross, $payment_fee, $mc_currency, date('Y-m-d H:i:s'), intval($custom)/*$uID*/, $tmp_payment_status, 1, $txn_id )
 		    );
 			//send payer thank you email about where to download
 			global $currency;
