@@ -139,7 +139,7 @@ function rest_get($request) {
 			$byAddress_count = count($byAddress);
 			for ($idx = 0; $idx < $byAddress_count; $idx++ ) {
 				$key = $byAddress_values[$idx];
-				$item = $byAddress[$key];
+				$item = &$byAddress[$key];
 				
 				// If no user set, Search //
 				if ( $item["user"] === 0 ) {
