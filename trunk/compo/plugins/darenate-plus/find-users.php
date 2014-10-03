@@ -105,7 +105,7 @@ function rest_get($request) {
 	
 	echo "Total: " . count($donation) . "\n";
 	
-	// For 
+	// Eliminate duplicate e-mail addresses, to build database of users // 
 	$byAddress = array();
 	{
 		$donation_count = count($donation);
@@ -115,10 +115,15 @@ function rest_get($request) {
 			if ( array_key_exists($mail,$byAddress) ) {
 				$byAddress[$mail]['total'] += floatval($donation[$idx]["amount"]);
 				$byAddress[$mail]['donations'] ++;
+				if ( $byAddress[$mail]['user'] ) {
+					$byAddress[$mail]['user'] = intval($donation[$idx]["user_id"]);
+				}
 			}
 			else {
 				$byAddress[$mail] = array(
 					id => $idx,
+					donation_id => intval($donation[$idx]["ID"]),
+					user => intval($donation[$idx]["user_id"]),
 					total => 0.0 + floatval($donation[$idx]["amount"]),
 					donations => 1
 				);
@@ -133,7 +138,7 @@ function rest_get($request) {
 	for ($idx = 0; $idx < $byAddress_count; $idx++ ) {
 		$key = $byAddress_values[$idx];
 		$item = $byAddress[$key];
-		echo "[".$idx."] " . $key . " [" . $item["id"] . "] = " . $item["total"] . " (" . $item["donations"] . ")" . ( $item["total"] > 200 ? " * * * *" : "" ) . "\n";
+		echo "[".$idx."] " . $key . " [" . $item["id"] . "] = " . $item["total"] . " (" . $item["donations"] . ")" . ( $item["total"] > 200 ? " * * * *" : "" ) . " -- " . $item["user"] . "\n";
 	}
 	
 	echo "\n";
