@@ -142,7 +142,7 @@ function rest_get($request) {
 				// If no user set, Search //
 				if ( $item["user"] === 0 ) {
 					if ( $item["newuser"] === 0 ) {
-						$result = mysqli_query($db,"SELECT ID FROM wp_users WHERE user_email=".$key );
+						$result = mysqli_query($db,"SELECT ID FROM wp_users WHERE user_email='".$key."'" );
 						while ($row = mysqli_fetch_array($result)) {
 							$item["newuser"] = $row['ID'];
 						}
