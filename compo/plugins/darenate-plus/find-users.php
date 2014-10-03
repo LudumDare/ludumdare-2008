@@ -132,6 +132,8 @@ function rest_get($request) {
 		}
 		
 		// Search all missing users //
+		$userless = 0;
+		$newusers = 0;
 		{
 			$byAddress_values = array_keys($byAddress);
 			$byAddress_count = count($byAddress);
@@ -141,11 +143,13 @@ function rest_get($request) {
 				
 				// If no user set, Search //
 				if ( $item["user"] === 0 ) {
+					$userless++;
 					if ( $item["newuser"] === 0 ) {
 						$result = mysqli_query($db,"SELECT ID FROM wp_users WHERE user_email='".$key."'" );
 						while ($row = mysqli_fetch_array($result)) {
-							print_r($row);
-							//$item["newuser"] = $row['ID'];
+							//print_r($row);
+							$item["newuser"] = $row['ID'];
+							$newusers++;
 						}
 						
 					}
@@ -164,6 +168,9 @@ function rest_get($request) {
 				echo "[".$idx."] " . $key . " [" . $item["id"] . "] = " . $item["total"] . " (" . $item["donations"] . ")" . 
 					" -- " . $item["user"] . " [" . $item["newuser"] . "]". ($item["total"] > 200 ? " * * * *" : "") . "\n";
 			}
+			
+			echo "Userless: " . $userless . "\n";
+			echo "New Users Found: " . $newusers . "\n";
 		}
 	
 		// * * * //
