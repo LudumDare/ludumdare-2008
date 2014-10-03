@@ -114,11 +114,13 @@ function rest_get($request) {
 			
 			if ( array_key_exists($mail,$byAddress) ) {
 				$byAddress[$mail]['total'] += floatval($donation[$idx]["amount"]);
+				$byAddress[$mail]['donations'] ++;
 			}
 			else {
 				$byAddress[$mail] = array(
 					id => $idx,
-					total => 0.0 + floatval($donation[$idx]["amount"])
+					total => 0.0 + floatval($donation[$idx]["amount"]),
+					donations => 1
 				);
 			}
 		}
@@ -126,7 +128,10 @@ function rest_get($request) {
 	
 	echo "Unique: " . count($byAddress) . "\n\n";
 	$byAddress_values = array_keys($byAddress);
-	foreach ($byAddress as $key => $idx) {
+	//foreach ($byAddress as $key) {
+	$byAddress_count = count($byAddress);
+	for ($idx = 0; $idx < $byAddress_count; $idx++ ) {
+		$key = $byAddress_values[$idx];
 		echo "[".$idx." - ".$key."] \n" ;//. $byAddress_values[$key] . "\n";//" : " . $byAddress[$idx]["id"] . " = " . $byAddress[$idx]["total"] . "\n";
 	}
 	
