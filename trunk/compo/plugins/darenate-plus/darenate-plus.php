@@ -664,6 +664,7 @@ if( !class_exists('DarenatePlus') ):
 			<p class="donor_url"><label for="donor_url"><strong>'.__('Website', 'dplus').'</strong>:</label><br /><input type="text" name="on1" id="donor_url" /><br /><small>A link to you. Be sure to include http://</small></p>
 			
 			<input type="hidden" name="item_number" value="1" />
+			<input type="hidden" name="custom" value="'.$user_ID.'" />
 			';
 
 				$output .='<input type="hidden" id="cmd" name="cmd" value="_donations">
