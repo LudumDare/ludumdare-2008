@@ -125,6 +125,11 @@ function rest_get($request) {
 	}
 	
 	echo "Unique: " . count($byAddress) . "\n";
+	$byAddress_count = count($byAddress);
+	$byAddress_values = array_values($byAddress);
+	for ($idx = 0; $idx < $byAddress_count; $idx++ ) {
+		echo $byAddress_values[$idx] . " : " . $byAddress[$idx]["id"] . " = " . $byAddress[$idx]["total"] . "\n";
+	}
 	
 	echo "\n";
 }
