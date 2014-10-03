@@ -103,7 +103,9 @@ function rest_get($request) {
 		}
 	}
 	
-	print_r( $donations );
+	echo "count: " . count($donations);
+	
+	//print_r( $donations );
 	
 	echo "\n";
 }
