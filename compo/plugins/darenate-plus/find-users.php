@@ -132,7 +132,8 @@ function rest_get($request) {
 	$byAddress_count = count($byAddress);
 	for ($idx = 0; $idx < $byAddress_count; $idx++ ) {
 		$key = $byAddress_values[$idx];
-		echo "[".$idx."] " . $key . " : " . $byAddress[$idx]["id"] . " = " . $byAddress[$idx]["total"] . "\n";
+		$item = $byAddress[$key];
+		echo "[".$idx."] " . $key . " : " . $item["id"] . " = " . $item["total"] . "\n";
 	}
 	
 	echo "\n";
