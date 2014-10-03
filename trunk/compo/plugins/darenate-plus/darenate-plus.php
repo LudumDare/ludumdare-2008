@@ -827,6 +827,7 @@ jQuery(function(){
 						  ID bigint(20) NOT NULL AUTO_INCREMENT,
 						  name tinytext NOT NULL,
 						  email VARCHAR(100) NOT NULL,
+						  email2 VARCHAR(100) NOT NULL,
 						  url VARCHAR(200) NOT NULL,
 						  comment text NOT NULL,
 						  display int(11) NOT NULL DEFAULT 0,
@@ -839,7 +840,8 @@ jQuery(function(){
 						  purpose int(11) NOT NULL DEFAULT 0,
 						  txn_id VARCHAR(100) NOT NULL,		  
 						  UNIQUE KEY ID (ID),
-						  INDEX (purpose)
+						  INDEX (purpose),
+						  INDEX (display)
 						);";
 					
 					require_once(ABSPATH . 'wp-admin/includes/upgrade.php');

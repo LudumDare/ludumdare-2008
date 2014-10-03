@@ -107,6 +107,7 @@ if( !class_exists('ManageDarenatePlus') ):
                 <div class="hidden" id="inline_<?php echo $dn->ID;?>">
                 	<div class="name"><?php echo $dn->name;?></div>
                     <div class="email"><?php echo $dn->email;?></div>
+                    <div class="email2"><?php echo $dn->email2;?></div>
                     <div class="url"><?php echo $dn->url;?></div>
                     <div class="comment"><?php echo $dn->comment;?></div>
                     <div class="diplay"><?php echo $dn->display;?></div>
@@ -148,9 +149,9 @@ if( !class_exists('ManageDarenatePlus') ):
 			//USE SECURE INSERT!
 			$wpdb->query(
 				$wpdb->prepare("INSERT INTO $table_name
-				( name, email, url, comment, display, amount, fee, currency, date, user_id, status, purpose, txn_id )
-				VALUES ( %s, %s, %s, %s, %d, %s, %s, %s, %d, %s, %s )", 
-			    $_POST['name'], $_POST['email'], $_POST['url'], strip_tags($_POST['comment']), $_POST['display'], $_POST['amount'], $_POST['fee'], $_POST['currency'], date('Y-m-d H:i:s'), $uID, $status, $_POST['purpose'], $txn_id )
+				( name, email, email2, url, comment, display, amount, fee, currency, date, user_id, status, purpose, txn_id )
+				VALUES ( %s, %s, %s, %s, %s, %d, %s, %s, %s, %d, %s, %s )", 
+			    $_POST['name'], $_POST['email'], $_POST['email2'], $_POST['url'], strip_tags($_POST['comment']), $_POST['display'], $_POST['amount'], $_POST['fee'], $_POST['currency'], date('Y-m-d H:i:s'), $uID, $status, $_POST['purpose'], $txn_id )
 		    );
 
 			$_POST['notice'] = 'Donation Proxy Added';
@@ -176,6 +177,10 @@ if( !class_exists('ManageDarenatePlus') ):
                         <tr valign="top">
                     		<th scope="row"><label for="email"><?php _e('Donor Email', 'dplus');?></label></th>
                    			<td><input name="email" id="email" value="" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="email2"><?php _e('Donor Email2', 'dplus');?></label></th>
+                   			<td><input name="email2" id="email2" value="" class="regular-text" type="text"></td>
                    		</tr>
                         <tr valign="top">
                     		<th scope="row"><label for="url"><?php _e('Donor URL', 'dplus');?></label></th>
@@ -233,6 +238,10 @@ if( !class_exists('ManageDarenatePlus') ):
                         <tr valign="top">
                     		<th scope="row"><label for="email"><?php _e('Donor Email', 'dplus');?></label></th>
                    			<td><input name="email" id="email" value="<?php echo $donor->email;?>" class="regular-text" type="text"></td>
+                   		</tr>
+                        <tr valign="top">
+                    		<th scope="row"><label for="email2"><?php _e('Donor Email2', 'dplus');?></label></th>
+                   			<td><input name="email2" id="email2" value="<?php echo $donor->email2;?>" class="regular-text" type="text"></td>
                    		</tr>
                         <tr valign="top">
                     		<th scope="row"><label for="url"><?php _e('Donor URL', 'dplus');?></label></th>
