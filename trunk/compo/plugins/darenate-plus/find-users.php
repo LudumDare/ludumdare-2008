@@ -89,23 +89,42 @@ function rest_get($request) {
 	// ... //
 	
 	// Get Donations //
-	$donations = Array();
+	$donation = NULL;
 	{
 		$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 		
 		if ( $db ) {
 			$result = mysqli_query($db,"SELECT * FROM wp_donations");
 			while ($row = mysqli_fetch_array($result)) {
-				$donations[] = $row;	// same as array_push(...), but faster;
+				$donation[] = $row;	// same as array_push(...), but faster;
 			}
 			
 			mysqli_close($db);
 		}
 	}
 	
-	echo "count: " . count($donations);
+	echo "Total: " . count($donation) . "\n";
 	
-	//print_r( $donations );
+	// For 
+	$byAddress = array();
+	{
+		$donation_count = count($donation);
+		for ($idx = 0; $idx < $donation_count; $idx++ ) {
+			$mail = $strtolower($donation[$idx]["email"]);
+			
+			if ( array_key_exists($mail,$byAddress) ) {
+				$byAddress[$mail] += floatval($donation[$idx]["amount"]);
+			}
+			else {
+				$byAddress[] = array(
+					id => $idx,
+					total => 0.0 + floatval($donation[$idx]["amount"]);
+				);
+			}
+		}
+	}
+	
+	echo "Unique: " . count($byAddress) . "\n";
 	
 	echo "\n";
 }
