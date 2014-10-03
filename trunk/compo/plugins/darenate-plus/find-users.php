@@ -116,7 +116,7 @@ function rest_get($request) {
 				$byAddress[$mail]['total'] += floatval($donation[$idx]["amount"]);
 			}
 			else {
-				$byAddress[] = array(
+				$byAddress[$mail] = array(
 					id => $idx,
 					total => 0.0 + floatval($donation[$idx]["amount"])
 				);
