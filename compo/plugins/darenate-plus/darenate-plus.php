@@ -626,6 +626,8 @@ if( !class_exists('DarenatePlus') ):
 				$output .= '</tr>';
 			endforeach;
 			$output.="</table>";
+			
+			$output.="</div>";
 
 			return $output;
 		}	
