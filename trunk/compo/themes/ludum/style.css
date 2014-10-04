@@ -26,6 +26,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .thickbox {
 	border:4px solid #88A;
+	border-top:0;
 	background-color:#AAC;
 }
 
