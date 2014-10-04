@@ -46,8 +46,8 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	color:#FFF;
 }
 
-.thickbox div {
-	padding:2px;	
+.thickbox div .pad {
+	padding:4px;
 }
 
 /* ************ */
