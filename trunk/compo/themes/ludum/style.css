@@ -30,6 +30,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background-color:#AAC;
 }
 
+.thickbox h1 {
+	font-size: 24px;
+	/*color:#000;*/
+	margin:4px !important;
+}
+
 .thickbox h2 {
 	background-color:#88A;
 	color:#FFF;
