@@ -1,12 +1,35 @@
 <?php
 
+// http://upskill.co.in/content/how-convert-simplexml-object-array-php
+function xml2array($xml) {
+	$arr = array();
+
+	foreach ($xml->children() as $r) {
+		$t = array();
+
+		if (count($r->children()) == 0) {
+			$arr[$r->getName()] = strval($r);
+		}
+		else {
+			$arr[$r->getName()][] = xml2array($r);
+		} 
+	}
+	return $arr;
+}
+
+
 echo "XML Grab\n";
 {
 	$url = "http://steamcommunity.com/groups/ludum/memberslistxml/?xml=1";
 	$xml = simplexml_load_file($url);
-	//print_r($xml);
+	$arr = xml2array($xml);
 	
-	print_r( $xml->children()['groupDetails'] );
+	print_r($arr['groupDetails']);
+	
+//	print_r( $xml->children()['groupDetails'] );
+	
+	
+
 }
 
 require "simple_html_dom.php";
