@@ -13,7 +13,7 @@ echo "HTML Grab\n";
 {
 	$html = file_get_html( "http://store.steampowered.com/curator/537829/" );
 	
-	print_r( $html->find('.num_followers') );
+	echo "Followers: " . $html->find('.num_followers', 0)->plaintext;
 }
 
 //echo "HTTP Grab\n";
