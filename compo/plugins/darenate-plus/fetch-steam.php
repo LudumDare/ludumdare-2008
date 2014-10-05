@@ -7,7 +7,7 @@ echo "XML Grab\n";
 	print_r($xml);
 }
 
-require "simple_html_dom.php"
+require "simple_html_dom.php";
 
 echo "HTML Grab\n";
 {
