@@ -6,7 +6,7 @@ echo "XML Grab\n";
 	$xml = simplexml_load_file($url);
 	//print_r($xml);
 	
-	print_r( $xml['groupDetails'] );
+	print_r( $xml->children()['groupDetails'] );
 }
 
 require "simple_html_dom.php";
@@ -15,7 +15,7 @@ echo "HTML Grab\n";
 {
 	$html = file_get_html( "http://store.steampowered.com/curator/537829/" );
 	
-	echo "Followers: " . $html->find('.num_followers', 0)->plaintext;
+	echo "Followers: " . $html->find('.num_followers', 0)->plaintext . "\n";
 }
 
 //echo "HTTP Grab\n";
