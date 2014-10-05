@@ -4,7 +4,9 @@ echo "XML Grab\n";
 {
 	$url = "http://steamcommunity.com/groups/ludum/memberslistxml/?xml=1";
 	$xml = simplexml_load_file($url);
-	print_r($xml);
+	//print_r($xml);
+	
+	print_r( $xml['groupDetails'] );
 }
 
 require "simple_html_dom.php";
