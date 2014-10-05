@@ -18,23 +18,25 @@ function xml2array($xml) {
 }
 
 
-echo "XML Grab\n";
+echo "Steam Group\n";
 {
 	$url = "http://steamcommunity.com/groups/ludum/memberslistxml/?xml=1";
 	$xml = simplexml_load_file($url);
 	$arr = xml2array($xml);
 	
-	print_r($arr['groupDetails']);
+	//print_r($arr['groupDetails'][0]);
 	
-//	print_r( $xml->children()['groupDetails'] );
+	$group = &$arr['groupDetails'][0];
 	
-	
-
+	echo "Members: " . $group['memberCount'] . 
+		" [In Game: " . $group['membersInGame'] . "] [Online: " . $group['membersOnline'] . "]\n";
 }
+
+echo "\n";
 
 require "simple_html_dom.php";
 
-echo "HTML Grab\n";
+echo "Curator\n";
 {
 	$html = file_get_html( "http://store.steampowered.com/curator/537829/" );
 	
