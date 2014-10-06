@@ -133,11 +133,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .steambox .soon :after {
 	content: "COMING SOON";
+	white-space:nowrap;
 	/*float: right;*/
 	/*display: block;*/
 	position: absolute;
 	/*z-index: 10;*/
-	left: 187px;
+	left: 127px;
 	top: -12px;
 	/*text-align:left;*/
 	background: rgba(128,64,192,0.8);
