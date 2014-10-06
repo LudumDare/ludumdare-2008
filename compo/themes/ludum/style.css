@@ -81,6 +81,15 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	font-weight: bold;
 }
 
+.steambox .notop {
+	margin-top: 0;
+	padding-top: 0;
+}
+.steambox .nobottom {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+
 /* ************ */
 
 .thickbox {
