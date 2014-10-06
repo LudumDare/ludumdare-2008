@@ -135,7 +135,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	position: absolute;
 	white-space:nowrap;
 	left: 0px;
-	background: rgba(128,64,192,0.8);
+	background: rgba(128,64,192,0.7);
 	padding: 4px 8px;
 	color: #FFF;
 	font-weight: bold;
@@ -143,6 +143,17 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	border-bottom-right-radius: 8px;
 /*	border-top-left-radius: 8px;
 	border-top: 1px solid #FFF;*/
+}
+
+.steambox .countbox {
+	text-align: center;
+}
+.steambox .countbox .count {
+	font-size: 30px;
+	line-height: 30px;
+}
+.steambox .countbox .label {
+	font-size: 12px;
 }
 
 /* ************ */
