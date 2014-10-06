@@ -211,6 +211,8 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	border-radius: 2px;
 	border: none;
 	padding: 1px;
+	margin-left:12px;
+	margin-top:6px;
 	cursor: pointer;
 	text-decoration: none !important;
 	color: #D2E885 !important;
