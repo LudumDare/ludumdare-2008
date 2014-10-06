@@ -70,7 +70,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .steambox .avatar {
 	width: 80px;
 	height: 80px;
-	padding-right: 12px;
+	margin-right: 12px;
 	float: left;
 	border-radius: 5px;
 /*	border-top: 1px solid rgba(255,255,255,0.6);
@@ -82,7 +82,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .steambox .avatar_small {
 	width: 32px;
 	height: 32px;
-	padding-right: 12px;
+	margin-right: 12px;
 	float: left;
 	border-radius: 5px;
 /*	border-top: 1px solid rgba(255,255,255,0.6);
