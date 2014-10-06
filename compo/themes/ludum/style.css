@@ -94,10 +94,17 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .steambox .banner {
 	text-align: center;
+	position: relative;
 }
 
 .steambox .banner a:hover:before {
-	content: "OH SHEET!";
+	content: "open on Steam";
+	float: right;
+	display: block;
+	position: absolute;
+	background-color: #546;
+	color: #FFF;
+	padding: 2px 8px;
 }
 
 /* ************ */
