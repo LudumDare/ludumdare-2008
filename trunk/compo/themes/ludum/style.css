@@ -152,6 +152,9 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .steambox .countbox {
 	text-align: center;
 	float: left;
+	background: rgba(0,0,0,0.4);
+	margin: 8px;
+	border-radius: 8px;
 }
 .steambox .countbox .count {
 	font-size: 30px;
