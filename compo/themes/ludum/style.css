@@ -131,6 +131,24 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	border-top: 1px solid #FFF;
 }
 
+.steambox .soon :after {
+	content: "COMING SOON";
+	/*float: right;*/
+	/*display: block;*/
+	position: absolute;
+	/*z-index: 10;*/
+	left: 187px;
+	top: -12px;
+	/*text-align:left;*/
+	background: rgba(128,64,192,0.8);
+	padding: 4px 8px;
+	color: #FFF;
+	font-weight: bold;
+	border-top-left-radius: 8px;
+	/*border-left: 1px solid #000*/;
+	border-top: 1px solid #FFF;
+}
+
 /* ************ */
 
 .thickbox {
