@@ -72,12 +72,24 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	height: 80px;
 	float: left;
 	border-radius: 5px;
-	border-top: 1px solid rgba(255,255,255,0.6);
-	border-bottom: 1px solid rgba(0,0,0,0.6);
+/*	border-top: 1px solid rgba(255,255,255,0.6);
+	border-bottom: 1px solid rgba(0,0,0,0.6);*/
 	
 	background:no-repeat url( 'http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/bc/bc95ab155de58fb8f78de92585ccef3dca260f65_full.jpg' );
 	background-size: 80px 80px;
 }
+.steambox .avatar_small {
+	width: 32px;
+	height: 32px;
+	float: left;
+	border-radius: 5px;
+/*	border-top: 1px solid rgba(255,255,255,0.6);
+	border-bottom: 1px solid rgba(0,0,0,0.6);*/
+	
+	background:no-repeat url( 'http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/bc/bc95ab155de58fb8f78de92585ccef3dca260f65_full.jpg' );
+	background-size: 32px 32px;
+}
+
 
 .steambox .headline_small {
 	font-size: 10px;
