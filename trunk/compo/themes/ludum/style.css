@@ -27,6 +27,9 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .steambox {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
+}
+
+.steambox .overflow {
 	overflow: auto;
 }
 
