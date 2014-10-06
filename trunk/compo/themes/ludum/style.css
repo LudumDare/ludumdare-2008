@@ -24,6 +24,37 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 /* ************ */
 
+.steambox {
+}
+
+.steambox .rule {
+	height: 1px;
+	background-color: #333333;
+	border-top: 1px solid #000000;
+}
+
+.steambox .content {
+	padding: 16px 14px;
+	background:repeat-y url( 'steam/rightcol_box_repeat.png' );
+}
+
+.steambox .header {
+	background-position:top;
+	height: 4px;
+}
+.steambox .footer {
+	background-position:bottom;
+	height: 5px;
+	/*margin-bottom: 18px;*/
+}
+
+.steambox .header, .steambox .footer {
+	background:no-repeat url( 'steam/rightcol_box_topbtm.png' );
+	width: 292px;
+}
+
+/* ************ */
+
 .thickbox {
 	border:4px solid #88A;
 	border-top:0;
