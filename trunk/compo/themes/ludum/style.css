@@ -53,6 +53,13 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	/*margin-bottom: 18px;*/
 }
 
+.steambox .logo {
+	width: 176px;
+	height: 44px;
+	background:no-repeat url ( 'steam/globalheader_logo.png' );
+	float:right;
+}
+
 /* ************ */
 
 .thickbox {
