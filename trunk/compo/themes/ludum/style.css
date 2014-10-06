@@ -31,6 +31,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	height: 1px;
 	background-color: #333333;
 	border-top: 1px solid #000000;
+	width: 290px;
 }
 
 .steambox .content {
@@ -40,17 +41,16 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .steambox .header {
 	background-position:top;
+	background:no-repeat url( 'steam/rightcol_box_topbtm.png' );
+	width: 292px;
 	height: 4px;
 }
 .steambox .footer {
 	background-position:bottom;
-	height: 5px;
-	/*margin-bottom: 18px;*/
-}
-
-.steambox .header, .steambox .footer {
 	background:no-repeat url( 'steam/rightcol_box_topbtm.png' );
 	width: 292px;
+	height: 5px;
+	/*margin-bottom: 18px;*/
 }
 
 /* ************ */
