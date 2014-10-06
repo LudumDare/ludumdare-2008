@@ -122,6 +122,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .steambox .banner a {
 	position: relative;
 }
+/*
 .steambox .banner a:hover:before {
 	content: attr(title);
 	position: absolute;
@@ -133,6 +134,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	border-bottom: 1px solid #000;
 	border-bottom-right-radius: 8px;
 }
+*/
 
 .steambox .new :before {
 	content: "NEW";
@@ -195,6 +197,31 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 .steambox .countbox .label {
 	font-size: 12px;
+}
+
+
+.steambox .follow_button {
+	border-radius: 2px;
+	border: none;
+	padding: 1px;
+	cursor: pointer;
+	text-decoration: none !important;
+	color: #D2E885 !important;
+	
+	/* Gradients */
+	background: rgba(121,153,5,1);
+	background: -moz-linear-gradient(top, rgba(121,153,5,1) 5%, rgba(83,105,4,1) 95%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,rgba(121,153,5,1)), color-stop(95%,rgba(83,105,4,1)));
+	background: -webkit-linear-gradient(top, rgba(121,153,5,1) 5%,rgba(83,105,4,1) 95%);
+	background: -o-linear-gradient(top, rgba(121,153,5,1) 5%,rgba(83,105,4,1) 95%);
+	background: -ms-linear-gradient(top, rgba(121,153,5,1) 5%,rgba(83,105,4,1) 95%);
+	background: linear-gradient(to bottom, rgba(121,153,5,1) 5%,rgba(83,105,4,1) 95%);
+}
+
+.steambox .follow_button > span {
+	padding: 0 15px;
+	font-size: 15px;
+	line-height: 30px;	
 }
 
 /* ************ */
