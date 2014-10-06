@@ -119,16 +119,16 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	/*display: block;*/
 	position: absolute;
 	/*z-index: 10;*/
-	left: 186px;
+	left: 187px;
 	top: -12px;
 	/*text-align:left;*/
-	background: rgba(96,255,64,0.8);
+	background: rgba(128,224,64,0.8);
 	padding: 4px 8px;
-	color: #000;
+	color: #FFF;
 	font-weight: bold;
 	border-top-left-radius: 8px;
-	border-left: 1px solid #000;
-	border-top: 1px solid #000;
+	/*border-left: 1px solid #000*/;
+	border-top: 1px solid #FFF;
 }
 
 /* ************ */
