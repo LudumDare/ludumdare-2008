@@ -35,7 +35,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 
 .steambox .content {
-	padding: 16px 14px;
+	padding: 8px 12px;
 	background:repeat-y url( 'steam/rightcol_box_repeat.png' );
 }
 
@@ -58,6 +58,25 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	height: 44px;
 	background:no-repeat url( 'steam/globalheader_logo.png' );
 	float:right;
+}
+
+.steambox .avatar {
+	width: 80px;
+	height: 80px;
+	float: left;
+	border-radius: 5px;
+	border-bottom: 1px solid #000;
+	
+	background:no-repeat url( 'http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/bc/bc95ab155de58fb8f78de92585ccef3dca260f65_full.jpg' );
+}
+
+.steambox .headline_small {
+	font-size: 10px;
+	margin-left: 10px;
+}
+.steambox .headline_big {
+	font-size: 22px;	
+	margin-left: 10px;
 }
 
 /* ************ */
