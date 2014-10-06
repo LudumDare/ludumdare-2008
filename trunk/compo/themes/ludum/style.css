@@ -73,11 +73,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .steambox .headline_small {
 	font-size: 10px;
-	margin-left: 10px;
+	margin-left: 90px;
 }
 .steambox .headline_big {
 	font-size: 22px;	
-	margin-left: 10px;
+	margin-left: 90px;
+	font-weight: bold;
 }
 
 /* ************ */
