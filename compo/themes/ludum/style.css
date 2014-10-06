@@ -77,11 +77,11 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .steambox .headline_small {
 	font-size: 10px;
-	margin-left: 94px;
+	margin-left: 92px;
 }
 .steambox .headline_big {
 	font-size: 22px;	
-	margin-left: 94px;
+	margin-left: 92px;
 	font-weight: bold;
 }
 
@@ -105,41 +105,44 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 .steambox .banner a:hover:before {
 	content: attr(title);
-	float: right;
-	display: block;
 	position: absolute;
-	background-color: rgba(64,64,192,0.7);
-	color: #FFF;
+	white-space:nowrap;
+	left: 0px;
+	background-color: rgba(64,64,192,0.8);
 	padding: 4px 8px;
+	color: #FFF;
 	border-bottom: 1px solid #000;
 	border-bottom-right-radius: 8px;
 }
 
-.steambox .new :after {
+.steambox .new :before {
 	content: "NEW";
 	position: absolute;
-	left: 187px;
-	top: -12px;
+	white-space:nowrap;
+	left: 0px;
 	background: rgba(128,224,64,0.8);
 	padding: 4px 8px;
 	color: #FFF;
 	font-weight: bold;
-	border-top-left-radius: 8px;
-	border-top: 1px solid #FFF;
+	border-bottom: 1px solid #000;
+	border-bottom-right-radius: 8px;
+/*	border-top-left-radius: 8px;
+	border-top: 1px solid #FFF;*/
 }
 
-.steambox .soon :after {
+.steambox .soon :before {
 	content: "COMING SOON";
-	white-space:nowrap;
 	position: absolute;
-	left: 127px;
-	top: -12px;
+	white-space:nowrap;
+	left: 0px;
 	background: rgba(128,64,192,0.8);
 	padding: 4px 8px;
 	color: #FFF;
 	font-weight: bold;
-	border-top-left-radius: 8px;
-	border-top: 1px solid #FFF;
+	border-bottom: 1px solid #000;
+	border-bottom-right-radius: 8px;
+/*	border-top-left-radius: 8px;
+	border-top: 1px solid #FFF;*/
 }
 
 /* ************ */
