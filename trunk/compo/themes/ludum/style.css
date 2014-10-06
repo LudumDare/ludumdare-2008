@@ -152,22 +152,26 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .steambox .span1 {
 	float:left;
 	width:33%;
+	text-align:center;
 }
 .steambox .span2 {
 	float:left;
 	width:66%;
+	text-align:center;
 }
 .steambox .span3 {
 	float:left;
 	width:99%;
+	text-align:center;
 }
 
 .steambox .countbox {
 	text-align: center;
-	float: left;
-	background: rgba(0,0,0,0.4);
+	display: inline-block;
+	background: rgba(0,0,0,0.3);
 	padding: 8px;
 	border-radius: 8px;
+	border-top: 1px solid rgba(255,255,255,0.6);
 }
 .steambox .countbox .count {
 	font-size: 30px;
