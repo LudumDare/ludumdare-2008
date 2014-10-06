@@ -102,7 +102,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	position: relative;
 }
 .steambox .banner a:hover:before {
-	content: "open on STEAM ";
+	content: "open on STEAM";
 	float: right;
 	display: block;
 	position: absolute;
@@ -111,6 +111,13 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	padding: 2px 8px;
 	border-bottom: 1px solid #000;
 	border-bottom-right-radius: 8px;
+}
+
+.steambox .banner .new img:before {
+	content: "NEW";
+	float: right;
+	display: block;
+	position: absolute;
 }
 
 /* ************ */
