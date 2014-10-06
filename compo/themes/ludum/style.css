@@ -118,10 +118,10 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .steambox .new :after {
 	content: "NEW";
 	position: absolute;
-	left: 183px;
+	left: 187px;
 	top: -12px;
 	background: rgba(128,224,64,0.8);
-	padding: 4px 8px 4px 12px;
+	padding: 4px 4px 4px 12px;
 	color: #FFF;
 	font-weight: bold;
 	border-top-left-radius: 8px;
@@ -132,10 +132,10 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	content: "COMING SOON";
 	white-space:nowrap;
 	position: absolute;
-	left: 123px;
+	left: 127px;
 	top: -12px;
 	background: rgba(128,64,192,0.8);
-	padding: 4px 8px 4px 12px;
+	padding: 4px 4px 4px 12px;
 	color: #FFF;
 	font-weight: bold;
 	border-top-left-radius: 8px;
