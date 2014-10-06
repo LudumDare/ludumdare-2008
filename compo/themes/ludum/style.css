@@ -210,7 +210,9 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .steambox .follow_button {
 	border-radius: 6px;
 	border: none;
-	padding: 1px;
+	padding: 1px 17px;
+	font-size: 15px;
+	line-height: 32px
 	cursor: pointer;
 	text-decoration: none !important;
 	color: #D2E885 !important;
