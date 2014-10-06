@@ -102,7 +102,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	position: relative;
 }
 .steambox .banner a:hover:before {
-	content: "open on STEAM";
+	content: "open on STEAM ";
 	float: right;
 	display: block;
 	position: absolute;
