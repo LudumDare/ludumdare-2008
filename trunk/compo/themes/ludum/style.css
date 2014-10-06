@@ -182,6 +182,13 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	text-align:center;
 }
 
+.steambox .left {
+	float:left;
+}
+.steambox .right {
+	float:left;
+}
+
 .steambox .countbox {
 	text-align: center;
 	display: inline-block;
