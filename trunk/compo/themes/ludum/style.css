@@ -91,9 +91,11 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	margin-bottom: 0;
 	padding-bottom: 0;
 }
+.steambox .center {
+	text-align: center;
+}
 
 .steambox .banner {
-	text-align: center;
 	position: relative;
 }
 
