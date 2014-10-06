@@ -211,8 +211,8 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	border-radius: 2px;
 	border: none;
 	padding: 1px;
-	margin-left:12px;
-	margin-top:6px;
+/*	margin-left:12px;
+	margin-top:6px;*/
 	cursor: pointer;
 	text-decoration: none !important;
 	color: #D2E885 !important;
@@ -228,9 +228,9 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 
 .steambox .follow_button > span {
-	padding: 0 15px;
+	padding: 0 16px;
 	font-size: 15px;
-	line-height: 30px;	
+	line-height: 32px;	
 }
 
 /* ************ */
