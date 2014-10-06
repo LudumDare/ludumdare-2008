@@ -113,11 +113,22 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	border-bottom-right-radius: 8px;
 }
 
-.steambox .new img:before {
+.steambox .new :after {
 	content: "NEW";
-	float: right;
-	display: block;
+	/*float: right;*/
+	/*display: block;*/
 	position: absolute;
+	/*z-index: 10;*/
+	left: 186px;
+	top: -12px;
+	/*text-align:left;*/
+	background: rgba(96,255,64,0.8);
+	padding: 4px 8px;
+	color: #000;
+	font-weight: bold;
+	border-top-left-radius: 8px;
+	border-left: 1px solid #000;
+	border-top: 1px solid #000;
 }
 
 /* ************ */
