@@ -25,11 +25,13 @@ Tags: blue, custom header, fixed width, two columns, widgets
 /* ************ */
 
 .steambox {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
 }
 
 .steambox .rule {
 	height: 1px;
-	background-color: #333333;
+	background-color: #DDD; /*#333333;*/
 	border-top: 1px solid #000000;
 	width: 291px;
 }
@@ -88,6 +90,14 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .steambox .nobottom {
 	margin-bottom: 0;
 	padding-bottom: 0;
+}
+
+.steambox .banner {
+	text-align: center;
+}
+
+.steambox .banner a:hover:before {
+	content: "OH SHEET!";
 }
 
 /* ************ */
