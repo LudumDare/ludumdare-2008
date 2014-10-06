@@ -31,6 +31,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .steambox .rule {
 	height: 1px;
+	color: #000;
 	background-color: #DDD; /*#333333;*/
 	border-top: 1px solid #000000;
 	width: 291px;
@@ -68,6 +69,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	float: left;
 	border-radius: 5px;
 	border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
 	
 	background:no-repeat url( 'http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/bc/bc95ab155de58fb8f78de92585ccef3dca260f65_full.jpg' );
 	background-size: 80px 80px;
@@ -75,11 +77,11 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .steambox .headline_small {
 	font-size: 10px;
-	margin-left: 90px;
+	margin-left: 94px;
 }
 .steambox .headline_big {
 	font-size: 22px;	
-	margin-left: 90px;
+	margin-left: 94px;
 	font-weight: bold;
 }
 
@@ -115,38 +117,28 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .steambox .new :after {
 	content: "NEW";
-	/*float: right;*/
-	/*display: block;*/
 	position: absolute;
-	/*z-index: 10;*/
 	left: 187px;
 	top: -12px;
-	/*text-align:left;*/
 	background: rgba(128,224,64,0.8);
 	padding: 4px 8px;
 	color: #FFF;
 	font-weight: bold;
 	border-top-left-radius: 8px;
-	/*border-left: 1px solid #000*/;
 	border-top: 1px solid #FFF;
 }
 
 .steambox .soon :after {
 	content: "COMING SOON";
 	white-space:nowrap;
-	/*float: right;*/
-	/*display: block;*/
 	position: absolute;
-	/*z-index: 10;*/
 	left: 127px;
 	top: -12px;
-	/*text-align:left;*/
 	background: rgba(128,64,192,0.8);
 	padding: 4px 8px;
 	color: #FFF;
 	font-weight: bold;
 	border-top-left-radius: 8px;
-	/*border-left: 1px solid #000*/;
 	border-top: 1px solid #FFF;
 }
 
