@@ -40,14 +40,14 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 
 .steambox .header {
-	background-position:top;
 	background:no-repeat url( 'steam/rightcol_box_topbtm.png' );
+	background-position:top;
 	width: 292px;
 	height: 4px;
 }
 .steambox .footer {
-	background-position:bottom;
 	background:no-repeat url( 'steam/rightcol_box_topbtm.png' );
+	background-position:bottom;
 	width: 292px;
 	height: 5px;
 	/*margin-bottom: 18px;*/
