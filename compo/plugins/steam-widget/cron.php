@@ -26,7 +26,7 @@ require "../../../wp-config.php";
 			$query = 
 				"CREATE TABLE " . $table_name . " (
 					ID bigint NOT NULL AUTO_INCREMENT,
-					PRIMARY_KEY (ID),
+					PRIMARY KEY (ID),
 					
 					timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 						ON UPDATE CURRENT_TIMESTAMP,
