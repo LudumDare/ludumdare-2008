@@ -28,14 +28,14 @@ require "../../../wp-config.php";
 					ID bigint NOT NULL AUTO_INCREMENT,
 					PRIMARY KEY (ID),
 					
-					timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-						ON UPDATE CURRENT_TIMESTAMP,
 					
 					key VARCHAR(64) NOT NULL,
 					value text NOT NULL
 				);";
 			
 			// NOTE: key is NOT indexed, since this table will almost always be fully queried. //
+//					timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+//						ON UPDATE CURRENT_TIMESTAMP,
 			
 			if ( mysqli_query($db,$query) ) {
 				echo "Table Created.\n";
