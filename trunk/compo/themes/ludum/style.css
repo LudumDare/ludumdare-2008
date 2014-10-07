@@ -249,7 +249,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	top:0;
 	left:0;
 	z-index:1;
-	background:none;
+	background:none !important;
 }
 
 
