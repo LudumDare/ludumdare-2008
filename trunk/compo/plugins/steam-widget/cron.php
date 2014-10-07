@@ -25,11 +25,11 @@ require "../../../wp-config.php";
 			// Does not exist, so create it //
 			$query = 
 				"CREATE TABLE " . $table_name . " (
-					ID bigint NOT NULL AUTO_INCREMENT,
-					timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+					'ID' bigint NOT NULL AUTO_INCREMENT,
+					'timestamp' TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 						ON UPDATE CURRENT_TIMESTAMP,
-					key VARCHAR(64) NOT NULL,
-					value text NOT NULL,
+					'key' VARCHAR(64) NOT NULL,
+					'value' text NOT NULL,
 					PRIMARY_KEY (ID)
 				);";
 			
