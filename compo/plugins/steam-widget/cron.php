@@ -37,6 +37,7 @@ require "../../../wp-config.php";
 			
 			// NOTE: name is NOT indexed, since this table will almost always be fully queried. //
 			// NOTE: 'key' is a reserved word in SQL. Need to use backticks `key` to get it, but meh //
+			//   http://stackoverflow.com/a/2889884 //
 			
 			if ( mysqli_query($db,$query) ) {
 				echo "Table Created.\n";
