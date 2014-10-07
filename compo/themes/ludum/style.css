@@ -224,16 +224,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .imagebox {	
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
-}
-
-
-.imagebox > div > div {
 	display:table;
 }
-.imagebox > div > div > div {
+.imagebox > div {
 	display:table-row;
 }
-.imagebox > div > div > div > div {
+.imagebox > div > div {
 	display:table-cell;
 	vertical-align:middle;
 }
@@ -241,8 +237,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .imagebox img {
 	padding: 4px 8px 4px 0px;
-	/*float:left;*/
-	/*display:table-cell;*/
+	display:table-cell;
 }
 
 .imagebox .headline {
