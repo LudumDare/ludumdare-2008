@@ -10,6 +10,48 @@ if (php_sapi_name() !== "cli") {
 	exit(1);
 }
 
-echo "Greetings!\n";
+// Get Wordpress Setup Variables //
+require "../../../wp-config.php";
+
+{
+	$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+		
+	if ( $db ) {
+		$table_name = $table_prefix . "steam_info";
+		// Check if Table exists //
+		if( mysqli_num_rows(mysqli_query("SHOW TABLES LIKE '".$table_name."'") ) == 0) {
+			echo "Nope!\n";
+			
+			// Does not exist, so create it //
+			$query = 
+				"CREATE TABLE " . $table_name . " (
+					ID bigint NOT NULL AUTO_INCREMENT,
+					timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+						ON UPDATE CURRENT_TIMESTAMP,
+					key VARCHAR(64) NOT NULL,
+					value text NOT NULL,
+					PRIMARY_KEY (ID)
+				);";
+			
+			// NOTE: key is NOT indexed, since this table will almost always be fully queried. //
+			
+			$ret = mysqli_query($db,$query);
+		}
+		else {
+			echo "Got it\n";
+		}
+		
+		$ret = mysqli_query($db,"SELECT * FROM " . $table_name );
+		print_r( mysqli_fetch_array($ret) );
+		
+//		while($oot = mysqli_fetch_array($ret)) {
+//			print_r($oot);
+//			echo "\n";
+//		}
+//		//print_r( $ret );
+		
+		mysqli_close($db);
+	}
+}
 
 ?>
