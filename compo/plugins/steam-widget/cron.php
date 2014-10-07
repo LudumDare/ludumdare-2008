@@ -19,7 +19,7 @@ require "../../../wp-config.php";
 	if ( $db ) {
 		$table_name = $table_prefix . "steam_info";
 		// Check if Table exists //
-		if( mysqli_num_rows(mysqli_query("SHOW TABLES LIKE '".$table_name."'") ) == 0) {
+		if( mysqli_num_rows(mysqli_query($db,"SHOW TABLES LIKE '".$table_name."'") ) == 0) {
 			echo "Nope!\n";
 			
 			// Does not exist, so create it //
