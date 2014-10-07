@@ -235,7 +235,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	vertical-align:middle;
 }
 
-.imagebox .div :hover {
+.imagebox :hover {
 	background: #78E;
 }
 
