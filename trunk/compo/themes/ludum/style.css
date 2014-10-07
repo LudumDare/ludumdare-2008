@@ -241,7 +241,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	color: #FFF;
 }
 
-.imagebox a {
+.imagebox > div > div a {
 	width:100%;
 	height:100%;
 	position:absolute;
