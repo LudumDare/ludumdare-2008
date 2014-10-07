@@ -63,7 +63,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	</div>
 </div>
 <div id="compo-navigation">
-	<center><a href="/compo/about/"><strong>About</strong></a> | <a href="/compo/rules/"><strong>Rules and Guide</strong></a> | <a href="/compo/wp-login.php"><strong>Sign In/Create Account</strong></a> | <a href="/compo/wp-admin/post-new.php"><strong>Write a Post</strong></a></center>
+	<center><a href="/compo/about-ludum-dare/"><strong>About</strong></a> | <a href="/compo/rules/"><strong>Rules and Guide</strong></a> | <a href="/compo/wp-login.php"><strong>Sign In/Create Account</strong></a> | <a href="/compo/wp-admin/post-new.php"><strong>Write a Post</strong></a></center>
 </div>
 <div id="compo-status"><?php
 global $wpdb;
