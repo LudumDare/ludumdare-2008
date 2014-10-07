@@ -233,6 +233,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .imagebox > div > div {
 	display:table-cell;
 	vertical-align:middle;
+	position: relative;
 }
 
 .imagebox :hover {
