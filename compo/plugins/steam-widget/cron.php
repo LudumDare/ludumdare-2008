@@ -39,7 +39,7 @@ require "../../../wp-config.php";
 				echo "Table Created.\n";
 			}
 			else {
-				echo "Error Creating Table!\n";
+				echo "Error Creating Table: ". mysqli_error($db) ."\n";
 				exit(1);
 			}
 		}
