@@ -238,6 +238,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .imagebox :hover {
 	background: #8AE;
 	cursor: pointer;
+	color: #FFF;
 }
 
 
