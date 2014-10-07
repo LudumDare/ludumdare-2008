@@ -226,13 +226,23 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	font-size: 12px;
 }
 
-.imagebox > div > div {
-	overflow: auto;
+
+.imagebox > div {
+	display:table;
 }
+.imagebox > div > div {
+	display:table-row;
+}
+.imagebox > div > div > div {
+	display:table-cell;
+	vertical-align:middle;
+}
+
 
 .imagebox img {
 	padding: 4px 8px 4px 0px;
-	float:left;
+	/*float:left;*/
+	/*display:table-cell;*/
 }
 
 .imagebox .headline {
