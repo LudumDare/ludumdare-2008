@@ -35,7 +35,13 @@ require "../../../wp-config.php";
 			
 			// NOTE: key is NOT indexed, since this table will almost always be fully queried. //
 			
-			$ret = mysqli_query($db,$query);
+			if ( mysqli_query($db,$query) ) {
+				echo "Table Created.\n";
+			}
+			else {
+				echo "Error Creating Table!\n";
+				exit(1);
+			}
 		}
 		else {
 			echo "Got it\n";
