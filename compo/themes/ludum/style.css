@@ -232,7 +232,8 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 
 .imagebox .headline {
-	font-size: 22px;
+	font-size: 18px;
+	font-weight: bold;
 }
 
 /* ************ */
