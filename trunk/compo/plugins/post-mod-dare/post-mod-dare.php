@@ -139,13 +139,13 @@ function custom_login_message() {
 add_filter('login_message', 'custom_login_message');
 
 
-/* http://wordpress.stackexchange.com/questions/103938/how-to-display-pending-posts-on-the-homepage-only-for-editors */
+/* 	 */
 // If the user is of high enough level, modify the query to return both pending and published posts // 
 function allow_pending_posts_wpse_103938($qry) {
   if (!is_admin() && current_user_can('edit_others_posts')) {
-    $qry->set('post_status', array('publish','pending'));
+//    $qry->set('post_status', array('publish','pending'));
   }
 }
-//add_action('pre_get_posts','allow_pending_posts_wpse_103938');
+add_action('pre_get_posts','allow_pending_posts_wpse_103938');
 
 ?>
