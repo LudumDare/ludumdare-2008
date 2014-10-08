@@ -38,6 +38,14 @@ function steam_group_get( $group_id ) {
 // http://simplehtmldom.sourceforge.net/manual.htm
 require "simple_html_dom.php";
 
+// Float Sleep //
+function fsleep( $val ) {
+	usleep( $val * 1000000.0 );
+}
+// Random Sleep //
+function rsleep( $val, $pre = 0.1 ) {
+	usleep( ($pre * 1.0) + (((rand()*1.0)/(getrandmax()*1.0)) * ($val*1.0)) );
+}
 
 // NO API, so an HTTP Get //
 function steam_curator_get( $curator_id ) {
@@ -49,28 +57,33 @@ function steam_curator_get( $curator_id ) {
 	$ret = array();
 	$ret['followers'] = $main_html->find('.num_followers', 0)->plaintext;
 	$ret['avatar'] = $main_html->find('.curator_avatar', 0)->src;
+	
+	rsleep( 0.3 );
 
-	// Use AJAX
+	// Use AJAX to get a 'next page' response, but of the first page w/ 20 elements //
 	// http://store.steampowered.com/curators/ajaxgetcuratorrecommendations/537829//?query=&start=0&count=20
 	$game_url = "http://store.steampowered.com/curators/ajaxgetcuratorrecommendations/". $curator_id ."//?query=&start=0&count=20";
 	$game_json = json_decode(file_get_contents($game_url));
-	//print_r( $game_json );
 	$game_html = str_get_html( $game_json->results_html );
 
-	//$game_html = file_get_html( "http://store.steampowered.com/curators/ajaxgetcuratorrecommendations/". $curator_id ."//?query=&start=0&count=20" );
-
-	
-	// http://store.steampowered.com/apphoverpublic/201040?l=english&pagev6=true
-	
 	$ret['games'] = array();
 	foreach( $game_html->find('.recommendation') as $elm ) {
-		//$ret['games'][] = $elm->attr['data-ds-appid'];
+		$appid = $elm->attr['data-ds-appid'];
+		
+		rsleep( 0.2 );
+		// http://store.steampowered.com/apphoverpublic/201040?l=english&pagev6=true
+		$more_url = "http://store.steampowered.com/apphoverpublic/" . $appid . "?l=english&pagev6=true";
+		$more_html = file_get_html( $more_url );
+		 
 		$ret['games'][] = Array(
-			'appid' => $elm->attr['data-ds-appid'],
+			'appid' => $appid,
 			'banner' => $elm->find('.recommendation_app_small_cap',0)->src,
 			'url' => $elm->find('a',0)->href,
-			'desc' => trim($elm->find('.recommendation_desc',0)->plaintext),
-			'read_url' => $elm->find('.recommendation_readmore',0)->find('a',0)->href
+			'info' => trim($elm->find('.recommendation_desc',0)->plaintext),
+			'read_url' => $elm->find('.recommendation_readmore',0)->find('a',0)->href,
+			'name' => $more_html->find('h4',0)->plaintext,
+			'released' => trim($more_html->find('.hover_release',0)->plaintext),
+			'desc' => trim($more_html->find('#hover_desc',0)->plaintext)
 		);
 	}
 	
