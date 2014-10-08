@@ -3,6 +3,7 @@
 
 echo getcwd() . "\n";
 echo dirname(__FILE__) . "\n";
+echo $_SERVER['REQUEST_URI'] . "\n";
 
 // Only allow script to execute if via PHP-CLI (i.e. Cron Job) //
 if (php_sapi_name() !== "cli") {
