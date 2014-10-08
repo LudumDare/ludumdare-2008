@@ -10,10 +10,20 @@ if (php_sapi_name() !== "cli") {
 	exit(1);
 }
 
+// My Steam Data Fetching Library //
+require "fetch-steam.php";
+
 // Get Wordpress Setup Variables //
 require "../../../wp-config.php";
 
 {
+	
+	$steam_group = steam_group_get( "ludum" );
+	$steam_curator = steam_curator_get( "537829" );
+	
+	print_r( $steam_group );
+	print_r( $steam_curator );
+	
 	$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 	
 	if ( $db ) {
@@ -54,7 +64,16 @@ require "../../../wp-config.php";
 		$ret = mysqli_query($db,"SELECT * FROM " . $table_name );
 		$data = mysqli_fetch_array($ret);
 		echo "Size: " . count($data) . "\n";
-		print_r( mysqli_fetch_array($ret) );
+		print_r( $data );
+		
+		$ds = array();
+		
+		// Build Associative List //
+//		{
+//			$ds[] = 
+//		}
+
+		
 		
 //		while($oot = mysqli_fetch_array($ret)) {
 //			print_r($oot);
