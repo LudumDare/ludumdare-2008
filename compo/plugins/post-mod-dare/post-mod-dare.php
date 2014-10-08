@@ -143,7 +143,7 @@ add_filter('login_message', 'custom_login_message');
 // If the user is of high enough level, modify the query to return both pending and published posts // 
 function allow_pending_posts_wpse_103938($query) {
 	$_status = ($query->get('post_status') === 'publish');
-	echo $_status;
+	echo $_status . ' ' . gettype($_status);
 	if (!is_admin() && current_user_can('edit_others_posts')) {
 		//$po_status = $query->get('post_status');
 		//if ( $po_status === 'publish' ) {
