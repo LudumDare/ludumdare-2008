@@ -144,7 +144,7 @@ add_filter('login_message', 'custom_login_message');
 function allow_pending_posts_wpse_103938($query) {
 	if (!is_admin() && current_user_can('edit_others_posts')) {
 		$post_status = $query->get('post_status');
-		print_r( $post_status );
+		print_r( $query );
 		$_status = ($post_status == 'publish');
 		//echo "[" . $post_status . "](".$_status . ') ' . gettype($_status) . "*";
 
