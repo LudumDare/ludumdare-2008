@@ -2,6 +2,7 @@
 
 
 	<div id="content" class="narrowcolumn">
+		SHALBY ZHOT
 <?php /* <!--
 <?php if (isset($_REQUEST["mythumb_nav"])): ?>
 <p><div id='mythumb'><?php mythumb_nav(); ?></div></p>
