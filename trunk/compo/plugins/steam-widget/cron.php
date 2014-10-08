@@ -1,6 +1,9 @@
 #!/usr/bin/php
 <?php
 
+echo getcwd() . "\n";
+echo dirname(__FILE__) . "\n";
+
 // Only allow script to execute if via PHP-CLI (i.e. Cron Job) //
 if (php_sapi_name() !== "cli") {
 	// Jurassic Park //
@@ -17,13 +20,23 @@ require "fetch-steam.php";
 require "../../../wp-config.php";
 
 {
-	
+	// Fetch Steam Data //
 	$steam_group = steam_group_get( "ludum" );
 	$steam_curator = steam_curator_get( "537829" );
 	
+	if ( $steam_group === NULL ) {
+		echo "Failed to fetch Steam Group data\n";
+		exit(1);
+	}
+	if ( $steam_curator === NULL ) {
+		echo "Failed to fetch Steam Curator data\n";
+		exit(1);
+	}
+	
 	print_r( $steam_group );
 	print_r( $steam_curator );
-	
+
+	// Open Database //	
 	$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 	
 	if ( $db ) {
