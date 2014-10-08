@@ -1,6 +1,8 @@
 #!/usr/bin/php
 <?php
 
+print_r($_SERVER);
+
 echo getcwd() . "\n";
 echo dirname(__FILE__) . "\n";
 echo $_SERVER['REQUEST_URI'] . "\n";
