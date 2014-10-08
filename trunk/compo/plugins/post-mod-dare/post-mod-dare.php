@@ -144,12 +144,9 @@ add_filter('login_message', 'custom_login_message');
 function allow_pending_posts_wpse_103938($qry) {
   if (!is_admin() && current_user_can('edit_others_posts')) {
   	$post_status = $qry->get('post_status');
-  	echo gettype( $post_status ) . " * ";
-  	print_r( $post_status );
-  	echo $post_status == 'publish';
-//  	if ( $qry->get('post_status') == 'publish' ) {
-//      $qry->set('post_status', array('publish','pending'));
-//    }
+  	if ( $post_status == 'publish' ) {
+      $qry->set('post_status', array('publish','pending'));
+    }
   }
 }
 add_action('pre_get_posts','allow_pending_posts_wpse_103938');
