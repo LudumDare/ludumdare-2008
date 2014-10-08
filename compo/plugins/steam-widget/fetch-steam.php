@@ -52,7 +52,10 @@ function steam_curator_get( $curator_id ) {
 		//$ret['games'][] = $elm->attr['data-ds-appid'];
 		$ret['games'][] = Array(
 			'appid' => $elm->attr['data-ds-appid'],
-			'possum' => 'yum'
+			'banner' => $elm->find('.recommendation_app_small_cap',0)->src,
+			'url' => $elm->find('a',0)->href,
+			'desc' => $elm->find('.recommendation_desc',0)->plaintext,
+			'read_url' => $elm->find('.recommendation_readmore',0)->find('a',0)->href
 		);
 	}
 	
