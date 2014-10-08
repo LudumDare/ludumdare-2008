@@ -77,13 +77,18 @@ function steam_curator_get( $curator_id ) {
 		
 		$rateup = 0;
 		$comments = 0;
+		$curator_url = "";
 		
 		foreach ( $elm->find('.recommendation_stats',0)->find('.recommendation_stat') as $stat ) {
 			if ( strpos($stat->find('img',0)->src,'rateup') !== FALSE ) {
-				$rateup = intval( trim($stat->find('a',0)->plaintext) );
+				$a = &$stat->find('a',0);
+				$curator_url = $a->href;
+				$rateup = intval( trim($a->plaintext) );
 			}
 			else if ( strpos($stat->find('img',0)->src,'comment') !== FALSE ) {
-				$comments = intval( trim($stat->find('a',0)->plaintext) );
+				$a = &$stat->find('a',0);
+				$curator_url = $a->href;
+				$comments = intval( trim($a->plaintext) );
 			}
 		}
 				 
@@ -97,14 +102,12 @@ function steam_curator_get( $curator_id ) {
 			'released' => trim($more_html->find('.hover_release',0)->plaintext),
 			'desc' => trim($more_html->find('#hover_desc',0)->plaintext),
 			'rateup' => $rateup,
-			'comments' => $comments
+			'comments' => $comments,
+			'curator_url' => $curator_url
 		);
 		
 		// If I want, I can build URLs like this to go to our personal curation comment pages.
 		// http://steamcommunity.com/groups/ludum/curation/app/202730/
-		
-		// Thumbs up and Comment numbers are weird, both 'recommendation_stat' classes. //
-		// The only way to differentiate is to look at the image URLs that follow them. //
 	}
 	
 	return $ret;
