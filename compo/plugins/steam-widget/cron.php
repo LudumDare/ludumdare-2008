@@ -1,11 +1,7 @@
 #!/usr/bin/php
 <?php
 
-print_r($_SERVER);
-
-echo getcwd() . "\n";
-echo dirname(__FILE__) . "\n";
-echo $_SERVER['REQUEST_URI'] . "\n";
+echo dirname($_SERVER['REQUEST_URI']) . "\n";
 
 // Only allow script to execute if via PHP-CLI (i.e. Cron Job) //
 if (php_sapi_name() !== "cli") {
