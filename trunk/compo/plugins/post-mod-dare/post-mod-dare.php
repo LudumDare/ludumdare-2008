@@ -143,7 +143,9 @@ add_filter('login_message', 'custom_login_message');
 // If the user is of high enough level, modify the query to return both pending and published posts // 
 function allow_pending_posts_wpse_103938($qry) {
   if (!is_admin() && current_user_can('edit_others_posts')) {
-//    $qry->set('post_status', array('publish','pending'));
+  	if ( $qrl->get('post_status') === 'publish' ) {
+      $qry->set('post_status', array('publish','pending'));
+    }
   }
 }
 add_action('pre_get_posts','allow_pending_posts_wpse_103938');
