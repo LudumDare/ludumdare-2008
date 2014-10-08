@@ -58,7 +58,7 @@ function steam_curator_get( $curator_id ) {
 	$ret['followers'] = $main_html->find('.num_followers', 0)->plaintext;
 	$ret['avatar'] = $main_html->find('.curator_avatar', 0)->src;
 	
-	rsleep( 0.3 );
+	rsleep( 0.3 );	// Random Sleep, to make me less obvious I am a bot. //
 
 	// Use AJAX to get a 'next page' response, but of the first page w/ 20 elements //
 	// http://store.steampowered.com/curators/ajaxgetcuratorrecommendations/537829//?query=&start=0&count=20
@@ -70,11 +70,23 @@ function steam_curator_get( $curator_id ) {
 	foreach( $game_html->find('.recommendation') as $elm ) {
 		$appid = $elm->attr['data-ds-appid'];
 		
-		rsleep( 0.2 );
+		rsleep( 0.2 );	// Random Sleep, to make it less obvious I am a bot. //
 		// http://store.steampowered.com/apphoverpublic/201040?l=english&pagev6=true
 		$more_url = "http://store.steampowered.com/apphoverpublic/" . $appid . "?l=english&pagev6=true";
 		$more_html = file_get_html( $more_url );
-		 
+		
+		$rateup = 0;
+		$comments = 0;
+		
+		foreach ( $elm->find('.recommendation_stats',0)->find('.recommendation_stat') as $stat ) {
+			if ( strpos($stat->find('img',0)->src,'rateup') !== FALSE ) {
+				$rateup = intval( trim($stat->find('a',0)->plaintext) );
+			}
+			else if ( strpos($stat->find('img',0)->src,'comment') !== FALSE ) {
+				$comments = intval( trim($stat->find('a',0)->plaintext) );
+			}
+		}
+				 
 		$ret['games'][] = Array(
 			'appid' => $appid,
 			'banner' => $elm->find('.recommendation_app_small_cap',0)->src,
@@ -83,8 +95,16 @@ function steam_curator_get( $curator_id ) {
 			'read_url' => $elm->find('.recommendation_readmore',0)->find('a',0)->href,
 			'name' => $more_html->find('h4',0)->plaintext,
 			'released' => trim($more_html->find('.hover_release',0)->plaintext),
-			'desc' => trim($more_html->find('#hover_desc',0)->plaintext)
+			'desc' => trim($more_html->find('#hover_desc',0)->plaintext),
+			'rateup' => $rateup,
+			'comments' => $comments
 		);
+		
+		// If I want, I can build URLs like this to go to our personal curation comment pages.
+		// http://steamcommunity.com/groups/ludum/curation/app/202730/
+		
+		// Thumbs up and Comment numbers are weird, both 'recommendation_stat' classes. //
+		// The only way to differentiate is to look at the image URLs that follow them. //
 	}
 	
 	return $ret;
