@@ -49,7 +49,8 @@ function steam_curator_get( $curator_id ) {
 	
 	$ret['games'] = array();
 	foreach( $html->find('.recommendation') as $elm ) {
-		$ret['games'][] = $elm['data-ds-appid'];
+		echo $elm->innertext;
+		$ret['games'][] = $elm->data-ds-appid;
 	}
 	
 	return $ret;
