@@ -147,6 +147,7 @@ function allow_pending_posts_wpse_103938($qry) {
 		if ( $post_status === 'publish' ) {
 			echo 'ZoMBIES! (' . $post_status . ')';
 			$qry->set('post_status', array('publish','pending'));
+			print_r( $qry->get('post_status') );
 		}
 	}
 }
