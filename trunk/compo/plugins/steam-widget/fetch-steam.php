@@ -45,6 +45,7 @@ function steam_curator_get( $curator_id ) {
 	
 	$ret = array();
 	$ret['followers'] = $html->find('.num_followers', 0)->plaintext;
+	$ret['avatar'] = $html->find('.curator_avatar', 0)->src;
 	
 	return $ret;
 }
