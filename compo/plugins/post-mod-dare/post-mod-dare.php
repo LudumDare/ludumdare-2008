@@ -141,13 +141,13 @@ add_filter('login_message', 'custom_login_message');
 
 /* 	 */
 // If the user is of high enough level, modify the query to return both pending and published posts // 
-function allow_pending_posts_wpse_103938($qry) {
+function allow_pending_posts_wpse_103938($query) {
 	if (!is_admin() && current_user_can('edit_others_posts')) {
-		$post_status = $qry->get('post_status');
-		if ( $post_status === 'publish' ) {
-			echo 'ZoMBIES! (' . $post_status . ')';
-			$qry->set('post_status', array('publish','pending'));
-			print_r( $qry->get('post_status') );
+		$po_status = $query->get('post_status');
+		if ( $po_status === 'publish' ) {
+			echo 'ZoMBIES! (' . $po_status . ')';
+			$query->set('post_status', array('publish','pending'));
+			print_r( $query->get('post_status') );
 		}
 	}
 }
