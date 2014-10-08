@@ -128,7 +128,7 @@ function init_postmoddare() {
 	}
 }
 // Call the above function after plugins have loaded (to make sure we have all the relied upon functions) //
-add_action('plugins_loaded','init_postmoddare');
+//add_action('plugins_loaded','init_postmoddare');
 
 
 function custom_login_message() {
