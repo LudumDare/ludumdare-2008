@@ -139,25 +139,12 @@ function custom_login_message() {
 add_filter('login_message', 'custom_login_message');
 
 
-/* 	 */
+/* MK: Had to add a check if not preview. Input $query is different depending on who call this. */
 // If the user is of high enough level, modify the query to return both pending and published posts // 
 function allow_pending_posts_wpse_103938($query) {
 	if (!is_admin() && current_user_can('edit_others_posts') && !$query->get('preview')) {
-//		$post_status = $query->get('post_status');
-//		print_r( $query );
-//		$_status = ($post_status == 'publish');
-//		//echo "[" . $post_status . "](".$_status . ') ' . gettype($_status) . "*";
-//
-//		//$po_status = $query->get('post_status');
-//		//if ( $po_status === 'publish' ) {
-//		if ( $_status ) {
-		//	echo 'ZoMBIES! (' . $po_status . ')';
-			$query->set('post_status', array('publish','pending'));
-		//	print_r( $query->get('post_status') );
-//		}
+		$query->set('post_status', array('publish','pending'));
 	}
-	
-	return $query;
 }
 add_action('pre_get_posts','allow_pending_posts_wpse_103938');
 
