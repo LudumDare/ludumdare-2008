@@ -145,6 +145,7 @@ function allow_pending_posts_wpse_103938($qry) {
   if (!is_admin() && current_user_can('edit_others_posts')) {
   	$post_status = $qry->get('post_status');
   	if ( $post_status == 'publish' ) {
+  		echo 'ZoMBIES!';
       $qry->set('post_status', array('publish','pending'));
     }
   }
