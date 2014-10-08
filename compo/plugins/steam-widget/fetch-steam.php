@@ -54,11 +54,12 @@ function steam_curator_get( $curator_id ) {
 	// http://store.steampowered.com/curators/ajaxgetcuratorrecommendations/537829//?query=&start=0&count=20
 	$game_url = "http://store.steampowered.com/curators/ajaxgetcuratorrecommendations/". $curator_id ."//?query=&start=0&count=20";
 	$game_json = json_decode(file_get_contents($game_url));
-	print_r( $game_json );
+	//print_r( $game_json );
+	$game_html = str_get_html( $game_json['response_html'] );
 
 	//$game_html = file_get_html( "http://store.steampowered.com/curators/ajaxgetcuratorrecommendations/". $curator_id ."//?query=&start=0&count=20" );
 
-/*	
+	
 	// http://store.steampowered.com/apphoverpublic/201040?l=english&pagev6=true
 	
 	$ret['games'] = array();
@@ -72,7 +73,7 @@ function steam_curator_get( $curator_id ) {
 			'read_url' => $elm->find('.recommendation_readmore',0)->find('a',0)->href
 		);
 	}
-*/	
+	
 	return $ret;
 }
 
