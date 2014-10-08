@@ -128,7 +128,7 @@ function init_postmoddare() {
 	}
 }
 // Call the above function after plugins have loaded (to make sure we have all the relied upon functions) //
-//add_action('plugins_loaded','init_postmoddare');
+add_action('plugins_loaded','init_postmoddare');
 
 
 function custom_login_message() {
@@ -146,6 +146,6 @@ function allow_pending_posts_wpse_103938($qry) {
     $qry->set('post_status', array('publish','pending'));
   }
 }
-add_action('pre_get_posts','allow_pending_posts_wpse_103938');
+//add_action('pre_get_posts','allow_pending_posts_wpse_103938');
 
 ?>
