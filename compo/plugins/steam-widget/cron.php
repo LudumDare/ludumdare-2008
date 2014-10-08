@@ -40,7 +40,7 @@ require "../../../wp-config.php";
 		$table_name = $table_prefix . "steam_info";
 		// Check if Table exists //
 		if( mysqli_num_rows(mysqli_query($db,"SHOW TABLES LIKE '".$table_name."'") ) == 0) {
-			echo "Nope!\n";
+			//echo "No Table!\n";
 			
 			// Does not exist, so create it //
 			$query = 
@@ -60,7 +60,7 @@ require "../../../wp-config.php";
 			//   http://stackoverflow.com/a/2889884 //
 			
 			if ( mysqli_query($db,$query) ) {
-				echo "Table Created.\n";
+				//echo "Table Created.\n";
 			}
 			else {
 				echo "Error Creating Table:\n". mysqli_error($db) ."\n";
@@ -68,7 +68,7 @@ require "../../../wp-config.php";
 			}
 		}
 		else {
-			echo "Got it\n";
+			//echo "Got it\n";
 		}
 				
 		$ret = mysqli_query($db,"SELECT * FROM " . $table_name );
