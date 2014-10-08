@@ -142,10 +142,12 @@ add_filter('login_message', 'custom_login_message');
 /* 	 */
 // If the user is of high enough level, modify the query to return both pending and published posts // 
 function allow_pending_posts_wpse_103938($query) {
-	$post_status = $query->get('post_status');
-	$_status = ($post_status == 'publish');
-	//echo "[" . $post_status . "](".$_status . ') ' . gettype($_status) . "*";
 	if (!is_admin() && current_user_can('edit_others_posts')) {
+		$post_status = $query->get('post_status');
+		print_r( $post_status );
+		$_status = ($post_status == 'publish');
+		//echo "[" . $post_status . "](".$_status . ') ' . gettype($_status) . "*";
+
 		//$po_status = $query->get('post_status');
 		//if ( $po_status === 'publish' ) {
 		if ( $_status ) {
@@ -154,6 +156,8 @@ function allow_pending_posts_wpse_103938($query) {
 		//	print_r( $query->get('post_status') );
 		}
 	}
+	
+	return $query;
 }
 add_action('pre_get_posts','allow_pending_posts_wpse_103938');
 
