@@ -1,14 +1,12 @@
 #!/usr/bin/php
 <?php
 
-echo dirname($_SERVER['REQUEST_URI']) . "\n";
-
 // Only allow script to execute if via PHP-CLI (i.e. Cron Job) //
 if (php_sapi_name() !== "cli") {
 	// Jurassic Park //
 	echo "Clever girl.\n";
-	echo "<br /><br /><img src='http://img1.wikia.nocookie.net/__cb20140408111011/jurassicpark/images/5/53/Raptor_-_Clever_Girl.gif' />";
-//	echo "<br /><br /><img src='/compo/wp-content/plugins/steam-widget/hacking.gif' />";
+//	echo "<br /><br /><img src='http://img1.wikia.nocookie.net/__cb20140408111011/jurassicpark/images/5/53/Raptor_-_Clever_Girl.gif' />";
+	echo "<br /><br /><img src='" . dirname($_SERVER["REQUEST_URI"]) . "/hacking.gif' />";
 	exit(1);
 }
 
