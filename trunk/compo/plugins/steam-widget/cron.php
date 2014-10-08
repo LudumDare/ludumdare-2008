@@ -15,7 +15,7 @@ require "../../../wp-config.php";
 
 {
 	$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
-		
+	
 	if ( $db ) {
 		$table_name = $table_prefix . "steam_info";
 		// Check if Table exists //
@@ -43,15 +43,17 @@ require "../../../wp-config.php";
 				echo "Table Created.\n";
 			}
 			else {
-				echo "Error Creating Table: ". mysqli_error($db) ."\n";
+				echo "Error Creating Table:\n". mysqli_error($db) ."\n";
 				exit(1);
 			}
 		}
 		else {
 			echo "Got it\n";
 		}
-		
+				
 		$ret = mysqli_query($db,"SELECT * FROM " . $table_name );
+		$data = mysqli_fetch_array($ret);
+		echo "Size: " . count($data) . "\n";
 		print_r( mysqli_fetch_array($ret) );
 		
 //		while($oot = mysqli_fetch_array($ret)) {
