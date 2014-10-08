@@ -1,7 +1,6 @@
 <?php get_header(); ?>
 
 <div id="content" class="narrowcolumn">
-	SHEBBY MUTE
 <?php
 /*
  	  <?php $meta = eup_get_extended_profile(); // call all new meta values
