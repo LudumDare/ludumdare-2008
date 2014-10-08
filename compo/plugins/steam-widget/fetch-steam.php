@@ -47,11 +47,11 @@ function steam_curator_get( $curator_id ) {
 	$ret['followers'] = $html->find('.num_followers', 0)->plaintext;
 	$ret['avatar'] = $html->find('.curator_avatar', 0)->src;
 	
-	print_r($html->find('.num_followers', 0)->attr);
+//	print_r($html->find('.num_followers', 0)->attr);
 	
 	$ret['games'] = array();
 	foreach( $html->find('.recommendation') as $elm ) {
-		//echo $elm->outertext;
+		print_r($elm->attr);
 		$ret['games'][] = $elm->data-ds-appid;
 	}
 	
