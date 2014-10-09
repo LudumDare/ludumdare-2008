@@ -69,7 +69,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 global $wpdb;
 $e = array_pop(compo_query("select * from {$wpdb->posts} where post_name = ? and post_type =?",array("status","page")));
 ?>
-<div style="float:right;width: 200px;height: 184px;background: #668;border-radius:8px; color: #CCE;font-size:10px;text-align:center"><img style="padding:6px" src="http://ludumdare.com/compo/wp-content/uploads/2011/11/Construction.png" alt="Construction" width="130" height="130" class="aligncenter size-full wp-image-395090" /><strong>1990's Internet Montage? No!</strong><br />Please excuse the site weirdness. Mike is fixing things. <span style="display:inline-block;vertical-align:top">:D</span></div>
+<div style="float:right;width: 200px;height: 184px;background: #668;border-radius:8px; color: #CCE;font-size:10px;text-align:center"><img style="padding:6px" src="http://ludumdare.com/compo/wp-content/uploads/2011/11/Construction.png" alt="Construction" width="130" height="130" class="aligncenter size-full wp-image-395090" /><strong>1990's Internet Montage? No!</strong><br />Please excuse the site weirdness. Mike is fixing things. Sit tight!<span style="display:inline-block;vertical-align:top"><img src="http://ludumdare.com/compo/wp-includes/images/smilies/icon_biggrin.gif"></span></div>
 <?php
 echo apply_filters('the_content',str_replace("\n","<br>",$e["post_content"]));
 
