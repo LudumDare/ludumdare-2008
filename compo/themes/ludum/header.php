@@ -65,12 +65,13 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 <div id="compo-navigation">
 	<center><a href="/compo/about-ludum-dare/"><strong>About</strong></a> | <a href="/compo/rules/"><strong>Rules and Guide</strong></a> | <a href="/compo/wp-login.php"><strong>Sign In/Create Account</strong></a> | <a href="/compo/wp-admin/post-new.php"><strong>Write a Post</strong></a></center>
 </div>
-<div id="compo-status"><?php
-global $wpdb;
-$e = array_pop(compo_query("select * from {$wpdb->posts} where post_name = ? and post_type =?",array("status","page")));
 ?>
 <div style="float:right;width: 200px;height: 184px;background: #668;border-radius:8px; color: #CCE;font-size:10px;text-align:center"><img style="padding:6px" src="http://ludumdare.com/compo/wp-content/uploads/2011/11/Construction.png" alt="Construction" width="130" height="130" class="aligncenter size-full wp-image-395090" /><strong>1990's Internet Montage? No!</strong><br />Please excuse the site weirdness. Mike is fixing things. Sit tight!<span style="display:inline-block;vertical-align:top"><img src="http://ludumdare.com/compo/wp-includes/images/smilies/icon_biggrin.gif"></span></div>
 <?php
+<div id="compo-status"><?php
+global $wpdb;
+$e = array_pop(compo_query("select * from {$wpdb->posts} where post_name = ? and post_type =?",array("status","page")));
+
 echo apply_filters('the_content',str_replace("\n","<br>",$e["post_content"]));
 
 ?></div>
