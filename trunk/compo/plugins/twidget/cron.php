@@ -33,8 +33,8 @@ function http_find_header($headers,$header) {
 
 // TODO: Send Client-ID (to make sure Twitch doesn't rate limit us) //
 function twitch_streams_get( $game_name ) {
-	$limit = 50;				// Number of streams we request per query //
-	$max_loops = 50;			// Maximum number of loops before this code fails. //
+	$limit = 50;				// Number of streams we request per query (Max 100) //
+	$max_loops = 100;			// Maximum number of loops before this code fails. //
 
 	$loops = 0;
 	$offset = 0;
@@ -48,7 +48,7 @@ function twitch_streams_get( $game_name ) {
 			if ( $loops === 0 ) {
 				rsleep(1.0,0.5);
 			}
-			// NOTE: If we ever reach 2,500 streamers, this will always fail. //
+			// NOTE: If we ever reach 5,000 streamers, this error will trigger. //
 			else if ( $loops === $max_loops ) {
 				echo "ERROR: Safe Twitch stream request limit exceeded. Are there nearly ".($limit*$loops)." streams? If so, you need to up the limit.\n";
 				return NULL;
@@ -136,13 +136,11 @@ function twitch_streams_get( $game_name ) {
 	
 	// * * * //
 	
-	
-	
 	// TODO:
 	// - Save Streamer Data (twitch_streams table)
 	// - Save Current Twitch Stats (twitch_info table)
 	
-/*	
+	
 	// Open Database //	
 	$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 	
@@ -213,7 +211,6 @@ function twitch_streams_get( $game_name ) {
 
 		mysqli_close($db);
 	}
-*/
 }
 
 ?>
