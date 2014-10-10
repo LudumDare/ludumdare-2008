@@ -124,6 +124,8 @@ function twitch_streams_get( $game_name ) {
 		exit(1);
 	}
 	
+	// * * * //
+	
 	$streams = twitch_streams_get( $game_name );
 	print_r( $streams );
 	
@@ -131,6 +133,10 @@ function twitch_streams_get( $game_name ) {
 		echo "ERROR: Unable to get Twitch stream data.\n";
 		exit(1);
 	}
+	
+	// * * * //
+	
+	
 	
 	// TODO:
 	// - Save Streamer Data (twitch_streams table)
