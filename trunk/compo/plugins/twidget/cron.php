@@ -24,7 +24,8 @@ function rsleep( $val, $pre = 0.1 ) {
 function http_find_header($headers,$header) {
 	foreach ( $headers as $key => $r) {
 		if (stripos($r, $header) !== FALSE) {
-			return trim(explode(":", $r)[1]);
+			$var = explode(":", $r);
+			return trim($var[1]);
 		}
 	}
 	return NULL;
