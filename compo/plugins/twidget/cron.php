@@ -8,7 +8,7 @@ if (php_sapi_name() !== "cli") {
 
 
 // Get Wordpress Setup Variables //
-//require "../../../wp-config.php";
+require "../../../wp-config.php";
 
 // Float Sleep //
 function fsleep( $val ) {
