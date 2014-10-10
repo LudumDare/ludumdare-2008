@@ -6,6 +6,46 @@ if (php_sapi_name() !== "cli") {
 	exit(1);
 }
 
+
+// SHIM FROM: http://php.net/manual/en/function.http-parse-headers.php#112986 //
+if (!function_exists('http_parse_headers')) {
+	function http_parse_headers($raw_headers) {
+		$headers = array();
+		$key = ''; // [+]
+
+		foreach(explode("\n", $raw_headers) as $i => $h) {
+			$h = explode(':', $h, 2);
+
+			if (isset($h[1])) {
+				if (!isset($headers[$h[0]]))
+					$headers[$h[0]] = trim($h[1]);
+				elseif (is_array($headers[$h[0]])) {
+					// $tmp = array_merge($headers[$h[0]], array(trim($h[1]))); // [-]
+					// $headers[$h[0]] = $tmp; // [-]
+					$headers[$h[0]] = array_merge($headers[$h[0]], array(trim($h[1]))); // [+]
+				}
+				else {
+					// $tmp = array_merge(array($headers[$h[0]]), array(trim($h[1]))); // [-]
+					// $headers[$h[0]] = $tmp; // [-]
+					$headers[$h[0]] = array_merge(array($headers[$h[0]]), array(trim($h[1]))); // [+]
+				}
+
+				$key = $h[0]; // [+]
+			}
+			else { // [+]
+				if (substr($h[0], 0, 1) == "\t") // [+]
+					$headers[$key] .= "\r\n\t".trim($h[0]); // [+]
+				elseif (!$key) // [+]
+					$headers[0] = trim($h[0]);trim($h[0]); // [+]
+			} // [+]
+		}
+
+		return $headers;
+	}
+}
+// END SHIM //
+
+
 // Get Wordpress Setup Variables //
 //require "../../../wp-config.php";
 
@@ -21,8 +61,11 @@ function rsleep( $val, $pre = 0.1 ) {
 
 // TODO: Send Client-ID (to make sure Twitch doesn't rate limit us) //
 function twitch_streams_get( $game_name ) {
-	$limit = 50;		// Number of streams we request per query //
-	$max_loops = 50;	// Maximum number of loops before this code fails. //
+	$expected_api_version = 3;	// What Twitch API version we are expecting //
+
+	$limit = 50;				// Number of streams we request per query //
+	$max_loops = 50;			// Maximum number of loops before this code fails. //
+
 	$loops = 0;
 	$offset = 0;
 	$ret_data = NULL;
@@ -50,7 +93,7 @@ function twitch_streams_get( $game_name ) {
 			if ( $api_response === FALSE ) {
 				continue;
 			}
-
+			
 			// Decode the Data //
 			$json_data = json_decode($api_response, true);		
 		} while ( ($json_data === NULL) && ($retry !== 0) );
@@ -63,6 +106,19 @@ function twitch_streams_get( $game_name ) {
 		
 		// If we currently have no data //
 		if ( $ret_data === NULL ) {
+			
+			// Confirm that the response matches our expected API version. Stored in the response header. //
+			{
+				$headers = http_parse_headers( $http_response_header );
+				print_r( $headers );
+//				$index = $array_search( 'X-API-Version', $http_response_header );
+//				if ( $index !== NULL ) {
+//					
+//				}
+			}			
+			
+			
+			
 			// Copy all Data //
 			$ret_data = $json_data;
 			// Keep a count of the number of requests that were needed to complete this query. //
@@ -108,6 +164,11 @@ function twitch_streams_get( $game_name ) {
 		echo "ERROR: Unable to get Twitch stream data.\n";
 		exit(1);
 	}
+	
+	// TODO:
+	// - Save Streamer Data (twitch_streams table)
+	// - Save Current Twitch Stats (twitch_info table)
+	
 /*	
 	// Open Database //	
 	$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
