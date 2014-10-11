@@ -1,3 +1,4 @@
+#!/bin
 <?php
 
 // Only allow script to execute if via PHP-CLI (i.e. Cron Job) //
@@ -267,8 +268,8 @@ require "fetch-streams.php";
 					service_id TINYINT UNSIGNED NOT NULL,
 					PRIMARY KEY ID (service_id,timestamp),
 
-					streams BIGINT UNSIGNED NOT NULL,
-					viewers BIGINT UNSIGNED NOT NULL
+					streams INT UNSIGNED NOT NULL,
+					viewers INT UNSIGNED NOT NULL
 				);";
 			
 			// service_id: 1. Twitch, 2. Hitbox, 3. ??? (Azubu, MLG, YouTube)
