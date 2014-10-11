@@ -10,22 +10,25 @@ var TwitchTV_Streams = [];			// The Array of Streams returned by TwitchAPI //
 
 function GetTwitchTVPlayer( ChannelName, Width, Height, AutoStart, Volume ) {
 	var MyText = "";
-	
-	// height=378 width=620
 
-	MyText += '<object type="application/x-shockwave-flash" height="';
-	MyText += Height;
-	MyText += '" width="';
-	MyText += Width;
-	MyText += '" id="live_embed_player_flash" data="http://www.twitch.tv/widgets/live_embed_player.swf?channel=';
-	MyText += ChannelName;
-	MyText += '" bgcolor="#000000"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" /><param name="flashvars" value="hostname=www.twitch.tv&channel=';
-	MyText += ChannelName;
-	MyText += '&auto_play=';
-	MyText += AutoStart;
-	MyText += '&start_volume=';
-	MyText += Volume;
-	MyText += '" /></object>';
+	// height=378 width=620
+	
+	MyText += '<iframe src="http://www.twitch.tv/' + ChannelName + '/embed" frameborder="0" scrolling="no" ';
+	MyText += 'height="' + Height + '" width="' + Width +'"></iframe>';
+
+//	MyText += '<object type="application/x-shockwave-flash" height="';
+//	MyText += Height;
+//	MyText += '" width="';
+//	MyText += Width;
+//	MyText += '" id="live_embed_player_flash" data="http://www.twitch.tv/widgets/live_embed_player.swf?channel=';
+//	MyText += ChannelName;
+//	MyText += '" bgcolor="#000000"><param name="allowFullScreen" value="true" /><param name="allowScriptAccess" value="always" /><param name="allowNetworking" value="all" /><param name="movie" value="http://www.twitch.tv/widgets/live_embed_player.swf" /><param name="flashvars" value="hostname=www.twitch.tv&channel=';
+//	MyText += ChannelName;
+//	MyText += '&auto_play=';
+//	MyText += AutoStart;
+//	MyText += '&start_volume=';
+//	MyText += Volume;
+//	MyText += '" /></object>';
 
 	return MyText;			
 }
