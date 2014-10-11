@@ -10,123 +10,7 @@ if (php_sapi_name() !== "cli") {
 // Get Wordpress Setup Variables //
 require "../../../wp-config.php";
 
-
 require "fetch-streams.php"
-
-// Float Sleep //
-function fsleep( $val ) {
-	usleep( $val * 1000000.0 );
-}
-// Random Sleep //
-function rsleep( $val, $pre = 0.1 ) {
-	usleep( ($pre * 1.0) + (((rand()*1.0)/(getrandmax()*1.0)) * ($val*1.0)) );
-}
-
-
-// Scan through $headers for a $header. Returns the value, or NULL. //
-function http_find_header($headers,$header) {
-	foreach ( $headers as $key => $r) {
-		if (stripos($r, $header) !== FALSE) {
-			$var = explode(":", $r);
-			return trim($var[1]);
-		}
-	}
-	return NULL;
-}
-
-
-// TODO: Send Client-ID (to make sure Twitch doesn't rate limit us) //
-function twitch_streams_get( $game_name ) {
-	$limit = 50;				// Number of streams we request per query (Max 100) //
-	$max_loops = 100;			// Maximum number of loops before this code fails. //
-
-	$loops = 0;
-	$offset = 0;
-	$ret_data = NULL;
-	do {
-		$retry = 4;
-		$json_data = NULL;
-		do {
-			$retry--;
-			// Assuming it's not the first loop, delay for 0.5-1.5 seconds, to play nice //
-			if ( $loops === 0 ) {
-				rsleep(1.0,0.5);
-			}
-			// NOTE: If we ever reach 5,000 streamers, this error will trigger. //
-			else if ( $loops === $max_loops ) {
-				echo "ERROR: Safe Twitch stream request limit exceeded. Are there nearly ".($limit*$loops)." streams? If so, you need to up the limit.\n";
-				return NULL;
-			}
-			$loops++;
-	
-			// API only supports 100 streams per request //
-			$api_url = "https://api.twitch.tv/kraken/streams/?game=" . $game_name . "&limit=" . $limit . "&offset=" . $offset;
-			$api_response = @file_get_contents($api_url); // @ surpresses PHP error: http://stackoverflow.com/a/15685966
-
-			// If we didn't get a correct response, then don't attempt to json decode. //
-			if ( $api_response === FALSE ) {
-				continue;
-			}
-			
-			// Decode the Data //
-			$json_data = json_decode($api_response, true);		
-		} while ( ($json_data === NULL) && ($retry !== 0) );
-
-		if ( $json_data === NULL ) {
-			// If we can't get a complete set of Twitch streams, assume Twitch is down. //
-			echo "ERROR: Unable to retieve streams via Twitch API (".$loops.")\n";
-			return NULL;
-		}
-		
-		// If we currently have no data //
-		if ( $ret_data === NULL ) {
-			{
-				// Confirm that the response matches our expected API version. Stored in the response header. //
-				$expected_api_version = 3;
-				$api_version = intval(http_find_header($http_response_header,'API-Version'));
-
-				if ( $api_version !== $expected_api_version ) {
-					echo "WARNING: Twitch API version mismatch. Expected: " . $expected_api_version . " Got: " . $api_version . "\n";
-				}
-			}
-			
-			// Copy all Data //
-			$ret_data = $json_data;
-			// Keep a count of the number of requests that were needed to complete this query. //
-			$ret_data['requests'] = 1;
-		}
-		// If we have some data //
-		else {
-			// Update the total //
-			$ret_data['_total'] = $json_data['_total'];
-			// Append our list of streams to the returns list //
-			$ret_data['streams'] = array_merge( $ret_data['streams'], $json_data['streams'] );
-			// One more request was made //			
-			$ret_data['requests']++;
-		}
-		
-		// Always increment our offset
-		$offset += $limit;
-	} while ( $ret_data['_total'] > count($ret_data['streams']) );
-
-	return $ret_data;
-}
-
-
-function hitbox_streams_get( $game_name ) {
-	$api_url = "http://api.hitbox.tv/media?game=" . $game_name;
-	$api_response = @file_get_contents($api_url); // @ surpresses PHP error: http://stackoverflow.com/a/15685966
-
-	// Sadly, Hitbox 404's on no livestreams, rather than confirming a transaction. //
-	if ( $api_response === FALSE ) {
-		return Array( livestream => Array() );
-	}
-	
-	// Decode the Data //
-	$json_data = json_decode($api_response, true);		
-	
-	return $json_data;
-}
 
 
 // MAIN //
@@ -184,33 +68,35 @@ function hitbox_streams_get( $game_name ) {
 			// Does not exist, so create it //
 			$query = 
 				"CREATE TABLE " . $streams_table_name . " (
-					ID BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+					service_id TINYINT UNSIGNED NOT NULL,
+					user_id BIGINT UNSIGNED NOT NULL,
+					PRIMARY KEY ID (service_id,user_id)
 					
 					timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 						ON UPDATE CURRENT_TIMESTAMP,
 						INDEX (timestamp),
 					
-					service_id SMALLINT NOT NULL,
 					name VARCHAR(32) NOT NULL,
 					display_name VARCHAR(32) NOT NULL,					
-					user_id BIGINT NOT NULL,
-					local_id BIGINT NOT NULL,
-					followers BIGINT NOT NULL,
+					site_id BIGINT UNSIGNED NOT NULL,
+					followers BIGINT UNSIGNED NOT NULL,
 					avatar TEXT NOT NULL,
 					url TEXT NOT NULL,
 					mature BOOLEAN NOT NULL,
 					
-					media_id BIGINT NOT NULL,
-					media_viewers BIGINT NOT NULL,
+					media_id BIGINT UNSIGNED NOT NULL,
+					media_viewers BIGINT UNSIGNED NOT NULL,
 					
-					units BIGINT NOT NULL
+					units BIGINT UNSIGNED NOT NULL
 				);";
+
+//					ID SERIAL PRIMARY KEY,
 
 			// service_id: 1. Twitch, 2. Hitbox, 3. ???
 			// name: slug version of name (Twitch has a 26 character limit as of 2014)
 			// display_name: printed version of name.
 			// user_id: the user/channel ID.
-			// local_id: the local website ID of the user
+			// site_id: the local website ID of the user
 			// followers: number of followers.
 			// avatar: URL to an image.
 			// url: URL to channel.
@@ -232,6 +118,29 @@ function hitbox_streams_get( $game_name ) {
 		else {
 			//echo "Got it\n";
 		}
+
+//		foreach ( ) {
+//			$query = 
+//				"INSERT INTO " . $streams_table_name . "
+//					(service_id,user_id, name)
+//					VALUES (" .
+//						
+//					")
+//					ON DUPLICATE KEY UPDATE 
+//					name=VALUES(name),";
+//			
+//			if ( mysqli_query($db,$query) ) {
+//			}
+//			else {
+//				echo "Error Inserting in to Table:\n". mysqli_error($db) ."\n";
+//				exit(1);
+//			}
+//		}
+//						
+//		INSERT INTO table (Value, UserID, VoteID)
+//		VALUES (100, 600, 78)
+//		ON DUPLICATE KEY UPDATE Value = 100
+		
 		
 
 		$activity_table_name = $table_prefix . "broadcast_activity";
@@ -242,9 +151,9 @@ function hitbox_streams_get( $game_name ) {
 				"CREATE TABLE " . $activity_table_name . " (
 					timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP PRIMARY KEY,
 					
-					service_id SMALLINT NOT NULL,
-					streams BIGINT NOT NULL,
-					viewers BIGINT NOT NULL
+					service_id TINYINT UNSIGNED NOT NULL,
+					streams BIGINT UNSIGNED NOT NULL,
+					viewers BIGINT UNSIGNED NOT NULL
 				);";
 			
 			// service_id: 1. Twitch, 2. Hitbox, 3. ??? (Azubu, MLG, YouTube)
