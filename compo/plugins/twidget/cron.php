@@ -131,6 +131,12 @@ require "fetch-streams.php";
 			$channel_url = trim($value['channel']['url']);
 			$channel_mature = intval($value['channel']['mature']);
 			
+			// http://stackoverflow.com/questions/7825739/epoch-time-and-mysql-query
+			// http://stackoverflow.com/a/1677388 - strtotime understands TZ formatted dates
+			// http://dev.mysql.com/doc/refman/5.1/en/date-and-time-functions.html#function_utc-timestamp
+			// http://stackoverflow.com/questions/5331026/is-it-possible-to-create-a-column-with-a-unix-timestamp-default-in-mysql
+			//$some_date = strtotime(
+			
 			$units = $update_time;
 			
 			$query = 
@@ -254,9 +260,10 @@ require "fetch-streams.php";
 			// Does not exist //
 			$query = 
 				"CREATE TABLE " . $activity_table_name . " (
-					timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP PRIMARY KEY,
-					
+					timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,					
 					service_id TINYINT UNSIGNED NOT NULL,
+					PRIMARY KEY ID (service_id,timestamp),
+
 					streams BIGINT UNSIGNED NOT NULL,
 					viewers BIGINT UNSIGNED NOT NULL
 				);";
@@ -279,6 +286,43 @@ require "fetch-streams.php";
 			// Table Exists //
 		}
 
+
+
+		// Store Streams Snapshot //
+		{
+			$service_id = 1;	// Twitch.tv //
+			$streams = intval($steam_streams['_total']);
+			$viewers = 0;
+
+			foreach ( $steam_streams['stream'] as $value ) {
+				$viewers += intval($value['viewers']);
+			}
+			
+			$query = 
+				"INSERT INTO " . $activity_table_name . " (
+						service_id,
+
+						streams,
+						viewers
+					)
+					VALUES (
+						{$service_id},
+
+						{$streams},
+						{$viewers}
+					)
+					ON DUPLICATE KEY UPDATE 
+						streams=VALUES(streams),
+						viewers=VALUES(viewers)
+					";
+
+			if ( mysqli_query($db,$query) ) {
+			}
+			else {
+				echo "Error Inserting in to Table:\n". mysqli_error($db) ."\n";
+				exit(1);
+			}	
+		}
 		
 		
 		
@@ -294,6 +338,8 @@ require "fetch-streams.php";
 		
 		
 		// Do Stuff //
+		
+		// http://dev.mysql.com/doc/refman/5.5/en/multiple-column-indexes.html
 
 		mysqli_close($db);
 	}
