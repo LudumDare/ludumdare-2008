@@ -291,10 +291,10 @@ require "fetch-streams.php";
 		// Store Streams Snapshot //
 		{
 			$service_id = 1;	// Twitch.tv //
-			$streams = intval($steam_streams['_total']);
+			$streams = intval($twitch_streams['_total']);
 			$viewers = 0;
 
-			foreach ( $steam_streams['stream'] as $value ) {
+			foreach ( $twitch_streams['stream'] as $value ) {
 				$viewers += intval($value['viewers']);
 			}
 			
