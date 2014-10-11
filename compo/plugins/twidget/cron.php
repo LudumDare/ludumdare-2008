@@ -11,6 +11,8 @@ if (php_sapi_name() !== "cli") {
 require "../../../wp-config.php";
 
 
+require "fetch-streams.php"
+
 // Float Sleep //
 function fsleep( $val ) {
 	usleep( $val * 1000000.0 );
@@ -113,14 +115,11 @@ function twitch_streams_get( $game_name ) {
 
 function hitbox_streams_get( $game_name ) {
 	$api_url = "http://api.hitbox.tv/media?game=" . $game_name;
-	echo $api_url . "\n";
 	$api_response = @file_get_contents($api_url); // @ surpresses PHP error: http://stackoverflow.com/a/15685966
 
-	// If we didn't get a correct response, then don't attempt to json decode. //
+	// Sadly, Hitbox 404's on no livestreams, rather than confirming a transaction. //
 	if ( $api_response === FALSE ) {
-		return Array(
-				livestream => Array()
-			);
+		return Array( livestream => Array() );
 	}
 	
 	// Decode the Data //
