@@ -70,7 +70,7 @@ require "fetch-streams.php";
 				"CREATE TABLE " . $streams_table_name . " (
 					service_id TINYINT UNSIGNED NOT NULL,
 					user_id BIGINT UNSIGNED NOT NULL,
-					PRIMARY KEY ID (service_id,user_id)
+					PRIMARY KEY ID (service_id,user_id),
 					
 					timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 						ON UPDATE CURRENT_TIMESTAMP,
