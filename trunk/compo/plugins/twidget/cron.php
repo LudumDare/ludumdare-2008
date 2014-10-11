@@ -126,7 +126,7 @@ require "fetch-streams.php";
 					VALUES (" .
 						1 . ',' .
 						intval($value['channel']['_id']) . ',' .
-						trim($value['channel']['name']) .
+						'\"' . trim($value['channel']['name']) . '\"' .
 					")
 					ON DUPLICATE KEY UPDATE 
 					name=VALUES(name)";
