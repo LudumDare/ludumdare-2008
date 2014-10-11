@@ -124,9 +124,9 @@ require "fetch-streams.php";
 				"INSERT INTO " . $streams_table_name . "
 					(service_id,user_id, name)
 					VALUES (" .
-						1,
-						intval($value['channel']['_id']),
-						trim($value->channel->name)
+						1 . ',' .
+						intval($value['channel']['_id']) . ',' .
+						trim($value->channel->name) .
 					")
 					ON DUPLICATE KEY UPDATE 
 					name=VALUES(name)";
