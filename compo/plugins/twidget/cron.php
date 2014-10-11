@@ -118,7 +118,9 @@ require "fetch-streams.php";
 			//echo "Got it\n";
 		}
 
+		// Update Twitch Streams //
 		foreach ( $twitch_streams['streams'] as $value ) {
+			$service_id = 1;	// Twitch.tv //
 			$channel_id = intval($value['channel']['_id']);
 			$channel_name = trim($value['channel']['name']);
 			$channel_display_name = trim($value['channel']['display_name']);
@@ -148,7 +150,7 @@ require "fetch-streams.php";
 						units
 					)
 					VALUES (
-						1,
+						{$service_id},
 						{$channel_id},
 						\"{$channel_name}\",
 						\"{$channel_display_name}\",
@@ -179,12 +181,72 @@ require "fetch-streams.php";
 				exit(1);
 			}
 		}
+
+
+		// Update Hitbox Streams //
+		foreach ( $hitbox_streams['livestream'] as $value ) {
+			$service_id = 2;	// Hitbox.tv //
+			$channel_id = intval($value['channel']['user_id']);
+			$channel_name = trim($value['media_name']);
+			$channel_display_name = trim($value['media_user_name']);
+			$media_id = intval($value['media_id']);
+			$channel_followers = intval($value['channel']['followers']);
+			$media_viewers = intval($value['media_views']);
+			$channel_avatar = trim($value['channel']['user_logo']);
+			$channel_url = trim($value['channel']['channel_link']);
+			$channel_mature = FALSE;
+			
+			$units = $update_time;
+			
+			$query = 
+				"INSERT INTO " . $streams_table_name . " (
+						service_id,
+						user_id,
 						
-//		INSERT INTO table (Value, UserID, VoteID)
-//		VALUES (100, 600, 78)
-//		ON DUPLICATE KEY UPDATE Value = 100
-		
-		
+						name,
+						display_name,
+						media_id,
+						followers,
+						viewers,
+						avatar,
+						url,
+						mature,
+						
+						units
+					)
+					VALUES (
+						{$service_id},
+						{$channel_id},
+						\"{$channel_name}\",
+						\"{$channel_display_name}\",
+						{$media_id},
+						{$channel_followers},
+						{$media_viewers},
+						\"{$channel_avatar}\",
+						\"{$channel_url}\",
+						{$channel_mature},
+						{$units}
+					)
+					ON DUPLICATE KEY UPDATE 
+						name=VALUES(name),
+						display_name=VALUES(display_name),
+						media_id=VALUES(media_id),
+						followers=VALUES(followers),
+						viewers=VALUES(viewers),
+						avatar=VALUES(avatar),
+						url=VALUES(url),
+						mature=VALUES(mature),
+						units=units+VALUES(units)
+					";
+			
+			if ( mysqli_query($db,$query) ) {
+			}
+			else {
+				echo "Error Inserting in to Table:\n". mysqli_error($db) ."\n";
+				exit(1);
+			}	
+		}
+
 
 		$activity_table_name = $table_prefix . "broadcast_activity";
 		// Check if Table exists //
