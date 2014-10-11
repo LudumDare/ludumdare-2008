@@ -182,7 +182,7 @@ function hitbox_streams_get( $game_name ) {
 			// Does not exist, so create it //
 			$query = 
 				"CREATE TABLE " . $streams_table_name . " (
-					ID UNSIGNED BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+					ID BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 					
 					timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 						ON UPDATE CURRENT_TIMESTAMP,
@@ -191,17 +191,17 @@ function hitbox_streams_get( $game_name ) {
 					service_id UNSIGNED SMALLINT NOT NULL,
 					name VARCHAR(32) NOT NULL,
 					display_name VARCHAR(32) NOT NULL,					
-					user_id UNSIGNED BIGINT NOT NULL,
-					local_id UNSIGNED BIGINT NOT NULL,
-					followers UNSIGNED BIGINT NOT NULL,
+					user_id BIGINT NOT NULL,
+					local_id BIGINT NOT NULL,
+					followers BIGINT NOT NULL,
 					avatar TEXT NOT NULL,
 					url TEXT NOT NULL,
 					mature BOOLEAN NOT NULL,
 					
-					media_id UNSIGNED BIGINT NOT NULL,
-					media_viewers UNSIGNED BIGINT NOT NULL,
+					media_id BIGINT NOT NULL,
+					media_viewers BIGINT NOT NULL,
 					
-					units UNSIGNED BIGINT NOT NULL,
+					units BIGINT NOT NULL,
 				);";
 
 			// service_id: 1. Twitch, 2. Hitbox, 3. ???
@@ -241,8 +241,8 @@ function hitbox_streams_get( $game_name ) {
 					timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP PRIMARY KEY,
 					
 					service_id UNSIGNED SMALLINT NOT NULL,
-					streams UNSIGNED BIGINT NOT NULL,
-					viewers UNSIGNED BIGINT NOT NULL
+					streams BIGINT NOT NULL,
+					viewers BIGINT NOT NULL
 				);";
 			
 			// service_id: 1. Twitch, 2. Hitbox, 3. ??? (Azubu, MLG, YouTube)
