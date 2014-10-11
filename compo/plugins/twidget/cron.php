@@ -111,6 +111,23 @@ function twitch_streams_get( $game_name ) {
 }
 
 
+function hitbox_streams_get( $game_name ) {
+	$api_url = "http://api.hitbox.tv/media?game=" . $game_name . "&limit=" . $limit . "&offset=" . $offset;
+	$api_response = @file_get_contents($api_url); // @ surpresses PHP error: http://stackoverflow.com/a/15685966
+
+	// If we didn't get a correct response, then don't attempt to json decode. //
+	if ( $api_response === FALSE ) {
+		print_r( $http_response_header );
+		return NULL;
+	}
+	
+	// Decode the Data //
+	$json_data = json_decode($api_response, true);		
+	
+	return $json_data;
+}
+
+
 // MAIN //
 {
 	if ( count($argv) < 3 ) {
@@ -135,6 +152,15 @@ function twitch_streams_get( $game_name ) {
 	if ( $streams === NULL ) {
 		echo "ERROR: Unable to get Twitch stream data.\n";
 		exit(1);
+	}
+	
+	// * * * //
+	
+	$streams = hitbox_streams_get( $game_name );
+	
+	if ( $streams === NULL ) {
+		echo "ERROR: Unable to get Hitbox stream data.\n";
+		//exit(1);
 	}
 	
 	// * * * //
@@ -164,8 +190,9 @@ function twitch_streams_get( $game_name ) {
 					
 					service_id SHORT NOT NULL,
 					name VARCHAR(32) NOT NULL,
-					display_name VARCHAR(32) NOT NULL,
+					display_name VARCHAR(32) NOT NULL,					
 					user_id BIGINT NOT NULL,
+					local_id BIGINT NOT NULL,
 					followers BIGINT NOT NULL,
 					avatar TEXT NOT NULL,
 					url TEXT NOT NULL,
@@ -181,6 +208,7 @@ function twitch_streams_get( $game_name ) {
 			// name: slug version of name (Twitch has a 26 character limit as of 2014)
 			// display_name: printed version of name.
 			// user_id: the user/channel ID.
+			// local_id: the local website ID of the user
 			// followers: number of followers.
 			// avatar: URL to an image.
 			// url: URL to channel.
@@ -244,6 +272,9 @@ function twitch_streams_get( $game_name ) {
 		// Twitch URL
 		// http://www.twitch.tv/{name}		
 		
+		
+		// Hitbox //
+		// http://edge.hitbox.tv/static/img/channel/povrazor_54389b72a3583_large.png
 		
 		
 		// Do Stuff //
