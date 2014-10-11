@@ -188,7 +188,7 @@ function hitbox_streams_get( $game_name ) {
 						ON UPDATE CURRENT_TIMESTAMP,
 						INDEX (timestamp),
 					
-					service_id UNSIGNED SMALLINT NOT NULL,
+					service UNSIGNED SMALLINT NOT NULL,
 					name VARCHAR(32) NOT NULL,
 					display_name VARCHAR(32) NOT NULL,					
 					user_id BIGINT NOT NULL,
@@ -240,7 +240,7 @@ function hitbox_streams_get( $game_name ) {
 				"CREATE TABLE " . $activity_table_name . " (
 					timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP PRIMARY KEY,
 					
-					service_id UNSIGNED SMALLINT NOT NULL,
+					service UNSIGNED SMALLINT NOT NULL,
 					streams BIGINT NOT NULL,
 					viewers BIGINT NOT NULL
 				);";
