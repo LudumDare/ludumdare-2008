@@ -294,7 +294,7 @@ require "fetch-streams.php";
 			$streams = intval($twitch_streams['_total']);
 			$viewers = 0;
 
-			foreach ( $twitch_streams['stream'] as $value ) {
+			foreach ( $twitch_streams['streams'] as $value ) {
 				$viewers += intval($value['viewers']);
 			}
 			
