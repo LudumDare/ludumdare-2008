@@ -79,32 +79,31 @@ require "fetch-streams.php";
 					name VARCHAR(32) NOT NULL,
 					display_name VARCHAR(32) NOT NULL,					
 					site_id BIGINT UNSIGNED NOT NULL,
+					media_id BIGINT UNSIGNED NOT NULL,
 					followers BIGINT UNSIGNED NOT NULL,
+					viewers BIGINT UNSIGNED NOT NULL,
 					avatar TEXT NOT NULL,
 					url TEXT NOT NULL,
 					mature BOOLEAN NOT NULL,
-					
-					media_id BIGINT UNSIGNED NOT NULL,
-					media_viewers BIGINT UNSIGNED NOT NULL,
-					
+										
 					units BIGINT UNSIGNED NOT NULL
 				);";
 
 //					ID SERIAL PRIMARY KEY,
 
 			// service_id: 1. Twitch, 2. Hitbox, 3. ???
+			// user_id: the user/channel ID.
+
 			// name: slug version of name (Twitch has a 26 character limit as of 2014)
 			// display_name: printed version of name.
-			// user_id: the user/channel ID.
 			// site_id: the local website ID of the user
+			// media_id: stream/media ID. Most services have a 2nd ID.
 			// followers: number of followers.
+			// viewers: how many people are viewing the stream/media.
 			// avatar: URL to an image.
 			// url: URL to channel.
 			// mature: channel contains mature content.
 			
-			// media_id: stream/media ID. Most services have a 2nd ID.
-			// media_viewers: how many people are viewing the stream/media.
-
 			// units: how many minutes the user has streamed our game.
 						
 			if ( mysqli_query($db,$query) ) {
@@ -123,18 +122,55 @@ require "fetch-streams.php";
 			$channel_id = intval($value['channel']['_id']);
 			$channel_name = trim($value['channel']['name']);
 			$channel_display_name = trim($value['channel']['display_name']);
+			$media_id = intval($value['_id']);
+			$channel_followers = intval($value['channel']['followers']);
+			$media_viewers = intval($value['viewers']);
+			$channel_avatar = trim($value['channel']['logo']);
+			$channel_url = trim($value['channel']['url']);
+			$channel_mature = intval($value['channel']['mature']);
+			
+			$units = $update_time;
 			
 			$query = 
-				"INSERT INTO " . $streams_table_name . "
-					(service_id,user_id, name,display_name)
+				"INSERT INTO " . $streams_table_name . " (
+						service_id,
+						user_id,
+						
+						name,
+						display_name,
+						media_id,
+						followers,
+						viewers,
+						avatar,
+						url,
+						mature,
+						
+						units
+					)
 					VALUES (
 						1,
 						{$channel_id},
 						\"{$channel_name}\",
-						\"{$channel_display_name}\"
+						\"{$channel_display_name}\",
+						{$media_id},
+						{$channel_followers},
+						{$media_viewers},
+						\"{$channel_avatar}\",
+						\"{$channel_url}\",
+						{$channel_mature},
+						{$units}
 					)
 					ON DUPLICATE KEY UPDATE 
-					name=VALUES(name),display_name=VALUES(display_name)";
+						name=VALUES(name),
+						display_name=VALUES(display_name),
+						media_id=VALUES(media_id),
+						followers=VALUES(followers),
+						viewers=VALUES(viewers),
+						avatar=VALUES(avatar),
+						url=VALUES(url),
+						mature=VALUES(mature),
+						units=units+VALUES(units)
+					";
 			
 			if ( mysqli_query($db,$query) ) {
 			}
