@@ -194,7 +194,7 @@ require "fetch-streams.php";
 			$media_viewers = intval($value['media_views']);
 			$channel_avatar = trim($value['channel']['user_logo']);
 			$channel_url = trim($value['channel']['channel_link']);
-			$channel_mature = FALSE;
+			$channel_mature = 0;
 			
 			$units = $update_time;
 			
