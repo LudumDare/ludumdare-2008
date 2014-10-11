@@ -147,19 +147,20 @@ function hitbox_streams_get( $game_name ) {
 	
 	// * * * //
 	
-	$streams = twitch_streams_get( $game_name );
-	print_r( $streams );
+	$twitch_streams = twitch_streams_get( $game_name );
+	print_r( $twitch_streams );
 	
-	if ( $streams === NULL ) {
+	if ( $twitch_streams === NULL ) {
 		echo "ERROR: Unable to get Twitch stream data.\n";
 		exit(1);
 	}
 	
 	// * * * //
 	
-	$streams = hitbox_streams_get( $game_name );
+	$hitbox_streams = hitbox_streams_get( $game_name );
+	print_r( $hitbox_streams );
 	
-	if ( $streams === NULL ) {
+	if ( $hitbox_streams === NULL ) {
 		echo "ERROR: Unable to get Hitbox stream data.\n";
 		//exit(1);
 	}
