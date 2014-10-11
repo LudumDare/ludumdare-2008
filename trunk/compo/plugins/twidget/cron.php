@@ -201,7 +201,7 @@ function hitbox_streams_get( $game_name ) {
 					media_id BIGINT NOT NULL,
 					media_viewers BIGINT NOT NULL,
 					
-					units BIGINT NOT NULL,
+					units BIGINT NOT NULL
 				);";
 
 			// service_id: 1. Twitch, 2. Hitbox, 3. ???
