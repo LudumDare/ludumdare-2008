@@ -120,16 +120,21 @@ require "fetch-streams.php";
 		}
 
 		foreach ( $twitch_streams['streams'] as $value ) {
+			$channel_id = intval($value['channel']['_id']);
+			$channel_name = trim($value['channel']['name']);
+			$channel_display_name = trim($value['channel']['display_name']);
+			
 			$query = 
 				"INSERT INTO " . $streams_table_name . "
-					(service_id,user_id, name)
-					VALUES (" .
-						1 . "," .
-						intval($value['channel']['_id']) . "," .
-						"\"" . trim($value['channel']['name']) . "\"" .
-					")
+					(service_id,user_id, name,display_name)
+					VALUES (
+						1,
+						{$channel_id},
+						\"{$channel_name}\",
+						\"{$channel_display_name}\"
+					)
 					ON DUPLICATE KEY UPDATE 
-					name=VALUES(name)";
+					name=VALUES(name),display_name=VALUES(display_name)";
 			
 			if ( mysqli_query($db,$query) ) {
 			}
