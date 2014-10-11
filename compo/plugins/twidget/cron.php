@@ -32,7 +32,7 @@ require "fetch-streams.php";
 	// * * * //
 	
 	$twitch_streams = twitch_streams_get( $game_name );
-	print_r( $twitch_streams );
+//	print_r( $twitch_streams );
 	
 	if ( $twitch_streams === NULL ) {
 		echo "ERROR: Unable to get Twitch stream data.\n";
@@ -42,7 +42,7 @@ require "fetch-streams.php";
 	// * * * //
 	
 	$hitbox_streams = hitbox_streams_get( $game_name );
-	print_r( $hitbox_streams );
+//	print_r( $hitbox_streams );
 	
 	if ( $hitbox_streams === NULL ) {
 		echo "ERROR: Unable to get Hitbox stream data.\n";
