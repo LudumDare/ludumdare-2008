@@ -288,7 +288,7 @@ require "fetch-streams.php";
 
 
 
-		// Store Streams Snapshot //
+		// Store Twitch Snapshot //
 		{
 			$service_id = 1;	// Twitch.tv //
 			$streams = intval($twitch_streams['_total']);
@@ -296,6 +296,42 @@ require "fetch-streams.php";
 
 			foreach ( $twitch_streams['streams'] as $value ) {
 				$viewers += intval($value['viewers']);
+			}
+			
+			$query = 
+				"INSERT INTO " . $activity_table_name . " (
+						service_id,
+
+						streams,
+						viewers
+					)
+					VALUES (
+						{$service_id},
+
+						{$streams},
+						{$viewers}
+					)
+					ON DUPLICATE KEY UPDATE 
+						streams=VALUES(streams),
+						viewers=VALUES(viewers)
+					";
+
+			if ( mysqli_query($db,$query) ) {
+			}
+			else {
+				echo "Error Inserting in to Table:\n". mysqli_error($db) ."\n";
+				exit(1);
+			}
+		}
+
+		// Store Hitbox Snapshot //
+		{
+			$service_id = 2;	// Hitbox.tv //
+			$streams = count($hitbox_streams['livestream']);
+			$viewers = 0;
+
+			foreach ( $hitbox_streams['livestream'] as $value ) {
+				$viewers += intval($value['media_views']);
 			}
 			
 			$query = 
