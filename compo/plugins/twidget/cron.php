@@ -10,6 +10,7 @@ if (php_sapi_name() !== "cli") {
 // Get Wordpress Setup Variables //
 require "../../../wp-config.php";
 
+
 // Float Sleep //
 function fsleep( $val ) {
 	usleep( $val * 1000000.0 );
@@ -109,6 +110,7 @@ function twitch_streams_get( $game_name ) {
 	return $ret_data;
 }
 
+
 // MAIN //
 {
 	if ( count($argv) < 3 ) {
@@ -146,47 +148,48 @@ function twitch_streams_get( $game_name ) {
 	$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 	
 	if ( $db ) {
-		$table_name = $table_prefix . "twitch_streams";
+		$streams_table_name = $table_prefix . "broadcast_streams";
 		// Check if Table exists //
-		if( mysqli_num_rows(mysqli_query($db,"SHOW TABLES LIKE '".$table_name."'") ) == 0) {
+		if( mysqli_num_rows(mysqli_query($db,"SHOW TABLES LIKE '".$streams_table_name."'") ) == 0) {
 			//echo "No Table!\n";
 			
 			// Does not exist, so create it //
 			$query = 
-				"CREATE TABLE " . $table_name . " (
-					ID bigint NOT NULL AUTO_INCREMENT,
-					PRIMARY KEY (ID),
+				"CREATE TABLE " . $streams_table_name . " (
+					ID bigint NOT NULL AUTO_INCREMENT PRIMARY KEY,
 					
 					timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 						ON UPDATE CURRENT_TIMESTAMP,
+						INDEX (timestamp),
 					
+					service_id SHORT NOT NULL,
 					name VARCHAR(32) NOT NULL,
 					display_name VARCHAR(32) NOT NULL,
-					twitch_id bigint NOT NULL,
-					followers bigint NOT NULL,
-					views bigint NOT NULL,
-					partner BOOLEAN NOT NULL,
+					user_id BIGINT NOT NULL,
+					followers BIGINT NOT NULL,
+					avatar TEXT NOT NULL,
+					url TEXT NOT NULL,
 					mature BOOLEAN NOT NULL,
-					language VARCHAR(2) NOT NULL,
-					logo text NOT NULL,
 					
-					stream_id bigint NOT NULL,
-					stream_viewers bigint NOT NULL,
+					media_id BIGINT NOT NULL,
+					media_viewers BIGINT NOT NULL,
 					
-					units bigint NOT NULL
+					units BIGINT NOT NULL,
 				);";
-			
-			// name: Twitch User Names (slugs) seem to have a 26 character limit (as of 2014).
-			// display_name: Display Names are the username with custom case.
-			// twitch_id: the Channel ID.
-			// followers: number of Twitch followers.
-			// views: number of total views.
-			// language: en, fr, ...
-			// partner: Twitch Partner status (usually false).	
-			// mature: Mature Content Flag (true, false, null)
-			// logo: avatar.
 
-			// units: how many 15 minute blocks of time have they streamed 'Ludum Dare'.
+			// service_id: 1. Twitch, 2. Hitbox, 3. ???
+			// name: slug version of name (Twitch has a 26 character limit as of 2014)
+			// display_name: printed version of name.
+			// user_id: the user/channel ID.
+			// followers: number of followers.
+			// avatar: URL to an image.
+			// url: URL to channel.
+			// mature: channel contains mature content.
+			
+			// media_id: stream/media ID. Most services have a 2nd ID.
+			// media_viewers: how many people are viewing the stream/media.
+
+			// units: how many minutes the user has streamed our game.
 						
 			if ( mysqli_query($db,$query) ) {
 				//echo "Table Created.\n";
@@ -199,6 +202,41 @@ function twitch_streams_get( $game_name ) {
 		else {
 			//echo "Got it\n";
 		}
+		
+
+		$activity_table_name = $table_prefix . "broadcast_activity";
+		// Check if Table exists //
+		if( mysqli_num_rows(mysqli_query($db,"SHOW TABLES LIKE '".$activity_table_name."'") ) == 0) {
+			// Does not exist //
+			$query = 
+				"CREATE TABLE " . $activity_table_name . " (
+					timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP PRIMARY KEY,
+					
+					service_id SHORT NOT NULL,
+					streams BIGINT NOT NULL,
+					viewers BIGINT NOT NULL
+				);";
+			
+			// service_id: 1. Twitch, 2. Hitbox, 3. ??? (Azubu, MLG, YouTube)
+			// streams: Total Streams
+			// viewers: Total Viewers of all Streams
+			
+			// TODO (Maybe): Index Stream and Viewers tables, to speed up finding records for those stats.
+						
+			if ( mysqli_query($db,$query) ) {
+				// Table Created //
+			}
+			else {
+				echo "Error Creating Activity Table:\n". mysqli_error($db) ."\n";
+				exit(1);
+			}
+		}
+		else {
+			// Table Exists //
+		}
+
+		
+		
 		
 		// Stream Preview Images (defaults: 80x50, 320x200, 640x400)
 		// http://static-cdn.jtvnw.net/previews-ttv/live_user_{name}-{width}x{height}.jpg
