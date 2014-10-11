@@ -118,8 +118,9 @@ function hitbox_streams_get( $game_name ) {
 
 	// If we didn't get a correct response, then don't attempt to json decode. //
 	if ( $api_response === FALSE ) {
-		print_r( $http_response_header );
-		return NULL;
+		return Array(
+				livestream => Array()
+			);
 	}
 	
 	// Decode the Data //
