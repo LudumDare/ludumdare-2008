@@ -192,7 +192,7 @@ require "fetch-streams.php";
 			$media_id = intval($value['media_id']);
 			$channel_followers = intval($value['channel']['followers']);
 			$media_viewers = intval($value['media_views']);
-			$channel_avatar = trim($value['channel']['user_logo']);
+			$channel_avatar = 'http://edge.hitbox.tv' . trim($value['channel']['user_logo']);
 			$channel_url = trim($value['channel']['channel_link']);
 			$channel_mature = 0;
 			
@@ -238,7 +238,7 @@ require "fetch-streams.php";
 						mature=VALUES(mature),
 						units=units+VALUES(units)
 					";
-			echo $query;
+
 			if ( mysqli_query($db,$query) ) {
 			}
 			else {
