@@ -10,7 +10,7 @@ if (php_sapi_name() !== "cli") {
 // Get Wordpress Setup Variables //
 require "../../../wp-config.php";
 
-require "fetch-streams.php"
+require "fetch-streams.php";
 
 
 // MAIN //
