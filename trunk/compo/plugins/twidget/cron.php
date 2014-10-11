@@ -238,7 +238,7 @@ require "fetch-streams.php";
 						mature=VALUES(mature),
 						units=units+VALUES(units)
 					";
-			
+			echo $query;
 			if ( mysqli_query($db,$query) ) {
 			}
 			else {
