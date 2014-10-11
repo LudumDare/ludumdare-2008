@@ -2,7 +2,7 @@
 
 // Only allow script to execute if via PHP-CLI (i.e. Cron Job) //
 if (php_sapi_name() !== "cli") {
-	echo "Clever girl.\n";
+	echo "Clever girl (".php_sapi_name().")\n";
 	exit(1);
 }
 
