@@ -6,6 +6,9 @@ if (php_sapi_name() !== "cli") {
 	exit(1);
 }
 
+// Change Working Directory to where I am //
+chdir(dirname(__FILE__));
+
 
 // Get Wordpress Setup Variables //
 require "../../../wp-config.php";
