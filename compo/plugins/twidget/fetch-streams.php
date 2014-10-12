@@ -106,7 +106,7 @@ function hitbox_streams_get( $game_name ) {
 
 	// Sadly, Hitbox 404's on no livestreams, rather than confirming a transaction. //
 	if ( $api_response === FALSE ) {
-		return Array( livestream => Array() );
+		return Array( 'livestream' => Array() );
 	}
 	
 	// Decode the Data //
@@ -136,7 +136,7 @@ function youtube_streams_get( $game_name, $api_key ) {
 	$ret_data = json_decode($api_response, true);
 
 	// Bail if there are no streams //
-	if ( count($ret_data->items) === 0 )
+	if ( count($ret_data['items']) === 0 )
 		return $ret_data;
 
 	// * * * //
