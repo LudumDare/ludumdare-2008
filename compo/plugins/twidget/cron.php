@@ -275,6 +275,73 @@ require "fetch-streams.php";
 		}
 
 
+		// Update YouTube Streams //
+		if ( $youtube_streams !== NULL ) {
+			foreach ( $youtube_streams['items'] as $value ) {
+				$service_id = 3;	// YouTube //
+				$channel_id = trim($value['snippet']['channelId']);
+				$channel_name = trim($value['snippet']['channelTitle']);
+				$channel_display_name = trim($value['channel']['snippet']['title']);
+				$media_id = intval($value['id']['videoId']);
+				$channel_followers = intval($value['channel']['statistics']['subscriberCount']);
+				$media_viewers = intval($value['liveStreamingDetails']['concurrentViewers']);
+				$channel_avatar = trim($value['channel']['snippet']['thumbnails']['high']);
+				$channel_url = "http://youtube.com/" . $channel_name;
+				$channel_mature = 0;
+				
+				$units = $update_time;
+				
+				$query = 
+					"INSERT INTO " . $streams_table_name . " (
+							service_id,
+							user_id,
+							
+							name,
+							display_name,
+							media_id,
+							followers,
+							viewers,
+							avatar,
+							url,
+							mature,
+							
+							units
+						)
+						VALUES (
+							{$service_id},
+							{$channel_id},
+							\"{$channel_name}\",
+							\"{$channel_display_name}\",
+							{$media_id},
+							{$channel_followers},
+							{$media_viewers},
+							\"{$channel_avatar}\",
+							\"{$channel_url}\",
+							{$channel_mature},
+							{$units}
+						)
+						ON DUPLICATE KEY UPDATE 
+							name=VALUES(name),
+							display_name=VALUES(display_name),
+							media_id=VALUES(media_id),
+							followers=VALUES(followers),
+							viewers=VALUES(viewers),
+							avatar=VALUES(avatar),
+							url=VALUES(url),
+							mature=VALUES(mature),
+							units=units+VALUES(units)
+						";
+	
+				if ( mysqli_query($db,$query) ) {
+				}
+				else {
+					echo "Error Inserting in to Table:\n". mysqli_error($db) ."\n";
+					exit(1);
+				}	
+			}
+		}
+
+
 		// * * * * * * * * * * //		
 
 
