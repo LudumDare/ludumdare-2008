@@ -85,7 +85,7 @@ require "fetch-streams.php";
 			$query = 
 				"CREATE TABLE " . $streams_table_name . " (
 					service_id TINYINT UNSIGNED NOT NULL,
-					user_id BIGINT UNSIGNED NOT NULL,
+					user_id VARCHAR(32) NOT NULL,
 					PRIMARY KEY ID (service_id,user_id),
 					
 					timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -95,7 +95,7 @@ require "fetch-streams.php";
 					name VARCHAR(32) NOT NULL,
 					display_name VARCHAR(32) NOT NULL,					
 					site_id BIGINT UNSIGNED NOT NULL,
-					media_id BIGINT UNSIGNED NOT NULL,
+					media_id VARCHAR(32) NOT NULL,
 					followers BIGINT UNSIGNED NOT NULL,
 					viewers BIGINT UNSIGNED NOT NULL,
 					avatar TEXT NOT NULL,
