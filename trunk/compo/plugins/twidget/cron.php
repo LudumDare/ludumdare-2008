@@ -202,7 +202,7 @@ require "fetch-streams.php";
 							viewers=VALUES(viewers),
 							avatar=VALUES(avatar),
 							url=VALUES(url),
-							embed_url=VALUES(embed_url)
+							embed_url=VALUES(embed_url),
 							status=VALUES(status),
 							mature=VALUES(mature),
 							units=units+VALUES(units)
@@ -277,7 +277,7 @@ require "fetch-streams.php";
 							viewers=VALUES(viewers),
 							avatar=VALUES(avatar),
 							url=VALUES(url),
-							embed_url=VALUES(embed_url)
+							embed_url=VALUES(embed_url),
 							status=VALUES(status),
 							mature=VALUES(mature),
 							units=units+VALUES(units)
@@ -359,7 +359,7 @@ require "fetch-streams.php";
 							viewers=VALUES(viewers),
 							avatar=VALUES(avatar),
 							url=VALUES(url),
-							embed_url=VALUES(embed_url)
+							embed_url=VALUES(embed_url),
 							status=VALUES(status),
 							mature=VALUES(mature),
 							units=units+VALUES(units)
