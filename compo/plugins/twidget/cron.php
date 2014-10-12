@@ -175,7 +175,7 @@ require "fetch-streams.php";
 						)
 						VALUES (
 							{$service_id},
-							{$channel_id},
+							\"{$channel_id}\",
 							\"{$channel_name}\",
 							\"{$channel_display_name}\",
 							{$media_id},
@@ -242,7 +242,7 @@ require "fetch-streams.php";
 						)
 						VALUES (
 							{$service_id},
-							{$channel_id},
+							\"{$channel_id}\",
 							\"{$channel_name}\",
 							\"{$channel_display_name}\",
 							{$media_id},
@@ -309,7 +309,7 @@ require "fetch-streams.php";
 						)
 						VALUES (
 							{$service_id},
-							{$channel_id},
+							\"{$channel_id}\",
 							\"{$channel_name}\",
 							\"{$channel_display_name}\",
 							{$media_id},
