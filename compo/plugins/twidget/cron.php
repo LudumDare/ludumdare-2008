@@ -32,8 +32,7 @@ require "fetch-streams.php";
 	$game_name = $argv[1];
 	$update_time = intval($argv[2]);
 	if ( $update_time < 1 ) {
-		echo "ERROR: Bad update time \"".$argv[2]."\"\n";
-		exit(1);
+		echo "WARNING: Update time \"".$argv[2]."\"\n";
 	}
 	$youtube_key = NULL;
 	if ( count($argv) > 3 ) {
