@@ -12,7 +12,7 @@ chdir(dirname(__FILE__));
 
 
 // Get Wordpress Setup Variables //
-require "../../../wp-config.php";
+@include "../../../wp-config.php";
 
 require "fetch-streams.php";
 
@@ -60,6 +60,12 @@ require "fetch-streams.php";
 	}
 		
 	// * * * //
+	
+	// Bail if no DB_NAME is set //
+	if ( defined('DB_NAME') ) {
+		echo "WARNING: No DB_NAME is set. Are you running local?\n";
+		exit(0);
+	}
 	
 	// Open Database //	
 	$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
