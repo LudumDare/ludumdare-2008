@@ -50,12 +50,17 @@ require "fetch-streams.php";
 	$hitbox_streams = hitbox_streams_get( $game_name );
 
 	$youtube_streams = youtube_streams_get( $game_name, $youtube_key );
-	print_r( $youtube_streams );
 	
 	// * * * //
 	
 	// Special case: if update_time is ever 0, then don't do any database work //
 	if ( $update_time === 0 ) {
+		echo "Twitch:\n";
+		print_r( $twitch_streams );
+		echo "Hitbox:\n";
+		print_r( $hitbox_streams );
+		echo "YouTube:\n";
+		print_r( $youtube_streams );
 		exit(0);
 	}
 		
