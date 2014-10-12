@@ -67,7 +67,7 @@ require "fetch-streams.php";
 	// * * * //
 	
 	// Bail if no DB_NAME is set //
-	if ( defined('DB_NAME') ) {
+	if ( !defined('DB_NAME') ) {
 		echo "WARNING: No DB_NAME is set. Are you running local?\n";
 		exit(0);
 	}
