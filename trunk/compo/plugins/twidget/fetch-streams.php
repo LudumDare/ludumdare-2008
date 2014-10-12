@@ -23,7 +23,7 @@ function http_find_header($headers,$header) {
 
 
 // TODO: Send Client-ID (to make sure Twitch doesn't rate limit us) //
-function twitch_streams_get( $game_name ) {
+function twitch_streams_get( $game_name, $api_key => NULL ) {
 	$limit = 50;				// Number of streams we request per query (Max 100) //
 	$max_loops = 100;			// Maximum number of loops before this code fails. //
 
@@ -110,9 +110,50 @@ function hitbox_streams_get( $game_name ) {
 	}
 	
 	// Decode the Data //
-	$json_data = json_decode($api_response, true);		
+	$json_data = json_decode($api_response, true);
 	
 	return $json_data;
+}
+
+
+function youtube_streams_get( $game_name, $api_key ) {
+	$limit = 50;		// Number of streams we request per query (Max 50) //
+	
+	// I can't do my job without an API key //
+	if ( $api_key === NULL )
+		return NULL;
+	
+	// 1. Search Query //
+	$api_url = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=date&eventType=live&type=video" .
+		"&maxResults=" . $limit . "&q=" . $game_name . "&key=" . $api_key;
+	$api_response = @file_get_contents($api_url); // @ surpresses PHP error: http://stackoverflow.com/a/15685966
+
+	if ( $api_response === FALSE ) {
+		echo "ERROR: Unable to retieve streams via YouTube API\n";
+		return NULL;
+	}
+	
+	$ret_data = json_decode($api_response, true);
+
+	// Bail if there are no streams //
+	if ( count($ret_data->items) === 0 )
+		return $ret_data;
+
+	// * * * //
+	
+	$video_ids = Array();
+	$channel_ids = Array();
+	foreach ( $ret_data->items as $item ) {
+		$video_ids[] = $item->id->videoId;	// ZWp-n7fNA2c //
+		$channel_ids[] = $item->snippet->channelId; // UCpS5yDJb_8b4rZX8poIAaCw //
+	}
+
+	// * * * //
+	
+	// 2. Video Query //
+	
+
+	return $ret_data;
 }
 
 ?>
