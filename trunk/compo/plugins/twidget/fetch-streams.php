@@ -125,7 +125,9 @@ function youtube_streams_get( $game_name, $api_key ) {
 	
 	// 1. Search Query //
 	$api_url = "https://www.googleapis.com/youtube/v3/search?part=snippet&order=date&eventType=live&type=video" .
-		"&maxResults=" . $limit . "&q=" . $game_name . "&key=" . $api_key;
+		"&maxResults=" . $limit . 
+		"&q=" . $game_name . 
+		"&key=" . $api_key;
 	$api_response = @file_get_contents($api_url); // @ surpresses PHP error: http://stackoverflow.com/a/15685966
 
 	if ( $api_response === FALSE ) {
@@ -133,6 +135,7 @@ function youtube_streams_get( $game_name, $api_key ) {
 		return NULL;
 	}
 	
+	// Decode the Data //
 	$ret_data = json_decode($api_response, true);
 
 	// Bail if there are no streams //
@@ -143,15 +146,64 @@ function youtube_streams_get( $game_name, $api_key ) {
 	
 	$video_ids = Array();
 	$channel_ids = Array();
-	foreach ( $ret_data->items as $item ) {
-		$video_ids[] = $item->id->videoId;	// ZWp-n7fNA2c //
-		$channel_ids[] = $item->snippet->channelId; // UCpS5yDJb_8b4rZX8poIAaCw //
+	foreach ( $ret_data['items'] as $item ) {
+		$video_ids[] = $item['id']['videoId'];	// ZWp-n7fNA2c //
+		$channel_ids[] = $item['snippet']['channelId']; // UCpS5yDJb_8b4rZX8poIAaCw //
 	}
 
 	// * * * //
 	
 	// 2. Video Query //
 	
+	$api_url = "https://www.googleapis.com/youtube/v3/videos?part=contentDetails%2Cstatistics%2CliveStreamingDetails" .
+		"&maxResults=" . $limit . 
+		"&id=" . implode(",",$video_ids) . 
+		"&key=" . $api_key;
+	$api_response = @file_get_contents($api_url); // @ surpresses PHP error: http://stackoverflow.com/a/15685966
+
+	if ( $api_response === FALSE ) {
+		echo "ERROR: Unable to retieve videos by id via YouTube API\n";
+		return NULL;
+	}
+	
+	// Decode the Data //
+	$json_data = json_decode($api_response, true);
+	
+	// * * * //
+	
+	$video_count = count( $json_data['items'] );
+	for ( $idx = 0; $idx < $video_count; $idx++ ) {
+		$ret_data['items'][$idx]['contentDetails'] = $json_data['items'][$idx]['contentDetails'];
+		$ret_data['items'][$idx]['statistics'] = $json_data['items'][$idx]['statistics'];
+		$ret_data['items'][$idx]['liveStreamingDetails'] = $json_data['items'][$idx]['liveStreamingDetails'];
+	}
+	
+	// * * * //
+
+	// 3. Channel Query //
+	
+	$api_url = "https://www.googleapis.com/youtube/v3/channels?part=snippet%2Cstatistics" .
+		"&maxResults=" . $limit . 
+		"&id=" . implode(",",$channel_ids) . 
+		"&key=" . $api_key;
+	$api_response = @file_get_contents($api_url); // @ surpresses PHP error: http://stackoverflow.com/a/15685966
+
+	if ( $api_response === FALSE ) {
+		echo "ERROR: Unable to retieve channels by id via YouTube API\n";
+		return NULL;
+	}
+	
+	// Decode the Data //
+	$json_data = json_decode($api_response, true);
+	
+	// * * * //
+	
+	$channel_count = count( $json_data['items'] );
+	for ( $idx = 0; $idx < $channel_count; $idx++ ) {
+		$ret_data['items'][$idx]['channel'] = $json_data['items'][$idx];
+	}
+	
+	// * * * //
 
 	return $ret_data;
 }
