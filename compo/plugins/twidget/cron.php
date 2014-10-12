@@ -55,6 +55,12 @@ require "fetch-streams.php";
 	
 	// * * * //
 	
+	// Special case: if update_time is ever 0, then don't do any database work //
+	if ( $update_time === 0 ) {
+		exit(0);
+	}
+		
+	// * * * //
 	
 	// Open Database //	
 	$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
