@@ -282,7 +282,7 @@ require "fetch-streams.php";
 				$channel_id = trim($value['snippet']['channelId']);
 				$channel_name = trim($value['snippet']['channelTitle']);
 				$channel_display_name = trim($value['channel']['snippet']['title']);
-				$media_id = intval($value['id']['videoId']);
+				$media_id = trim($value['id']['videoId']);
 				$channel_followers = intval($value['channel']['statistics']['subscriberCount']);
 				$media_viewers = intval($value['liveStreamingDetails']['concurrentViewers']);
 				$channel_avatar = trim($value['channel']['snippet']['thumbnails']['high']);
