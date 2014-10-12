@@ -285,7 +285,7 @@ require "fetch-streams.php";
 				$media_id = trim($value['id']['videoId']);
 				$channel_followers = intval($value['channel']['statistics']['subscriberCount']);
 				$media_viewers = intval($value['liveStreamingDetails']['concurrentViewers']);
-				$channel_avatar = trim($value['channel']['snippet']['thumbnails']['high']);
+				$channel_avatar = trim($value['channel']['snippet']['thumbnails']['high']['url']);
 				$channel_url = "http://youtube.com/" . $channel_name;
 				$channel_mature = 0;
 				
