@@ -1,0 +1,197 @@
+
+.steambox {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.steambox .overflow {
+	overflow: auto;
+}
+
+.steambox .rule {
+	height: 1px;
+	color: #000;
+	background-color: #DDD; /*#333333;*/
+	border-top: 1px solid #000000;
+	width: 291px;
+}
+
+.steambox .content {
+	padding: 8px 12px;
+	background:repeat-y url( 'steam/rightcol_box_repeat.png' );
+}
+
+.steambox .header {
+	background:no-repeat url( 'steam/rightcol_box_topbtm.png' );
+	background-position:top;
+	width: 292px;
+	height: 4px;
+}
+.steambox .footer {
+	background:no-repeat url( 'steam/rightcol_box_topbtm.png' );
+	background-position:bottom;
+	width: 292px;
+	height: 5px;
+}
+
+.steambox .logo {
+	width: 176px;
+	height: 44px;
+	background:no-repeat url( 'steam/globalheader_logo.png' );
+	float:right;
+	padding-bottom: 4px;
+}
+
+.steambox .avatar {
+	width: 80px;
+	height: 80px;
+	margin-right: 12px;
+	float: left;
+	border-radius: 5px;
+	
+	background:no-repeat url( 'http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/bc/bc95ab155de58fb8f78de92585ccef3dca260f65_full.jpg' );
+	background-size: 80px 80px;
+}
+.steambox .avatar_small {
+	width: 34px;
+	height: 34px;
+	margin-right: 12px;
+	float: left;
+	border-radius: 5px;
+	
+	background:no-repeat url( 'http://cdn.akamai.steamstatic.com/steamcommunity/public/images/avatars/bc/bc95ab155de58fb8f78de92585ccef3dca260f65_full.jpg' );
+	background-size: 34px 34px;
+}
+
+
+.steambox .headline_small {
+	font-size: 10px;
+}
+.steambox .headline_big {
+	font-size: 22px;	
+	font-weight: bold;
+}
+
+.steambox .notop {
+	margin-top: 0;
+	padding-top: 0;
+}
+.steambox .nobottom {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.steambox .center {
+	text-align: center;
+}
+
+.steambox .banner {
+}
+
+.steambox .banner a {
+	position: relative;
+}
+/*
+.steambox .banner a:hover:before {
+	content: attr(title);
+	position: absolute;
+	white-space:nowrap;
+	left: 0px;
+	background-color: rgba(64,64,192,0.8);
+	padding: 4px 8px;
+	color: #FFF;
+	border-bottom: 1px solid #000;
+	border-bottom-right-radius: 8px;
+}
+*/
+
+.steambox .new :before {
+	content: "NEW";
+	position: absolute;
+	white-space:nowrap;
+	left: 0px;
+	background: rgba(128,224,64,0.8);
+	padding: 4px 8px;
+	color: #FFF;
+	font-weight: bold;
+	border-bottom: 1px solid #000;
+	border-bottom-right-radius: 8px;
+/*	border-top-left-radius: 8px;
+	border-top: 1px solid #FFF;*/
+}
+
+.steambox .soon :before {
+	content: "COMING SOON";
+	position: absolute;
+	white-space:nowrap;
+	left: 0px;
+	background: rgba(128,64,192,0.7);
+	padding: 4px 8px;
+	color: #FFF;
+	font-weight: bold;
+	border-bottom: 1px solid #000;
+	border-bottom-right-radius: 8px;
+}
+
+.steambox .span1 {
+	float:left;
+	width:33%;
+	text-align:center;
+}
+.steambox .span2 {
+	float:left;
+	width:66%;
+	text-align:center;
+}
+.steambox .span3 {
+	float:left;
+	width:99%;
+	text-align:center;
+}
+
+.steambox .left {
+	float:left;
+}
+.steambox .right {
+	float:right;
+}
+
+.steambox .countbox {
+	text-align: center;
+	display: inline-block;
+	background: rgba(0,0,0,0.3);
+	padding: 8px;
+	border-radius: 8px;
+	border-bottom: 1px solid rgba(255,255,255,0.6);
+	border-top: 1px solid rgba(0,0,0,0.6);
+}
+.steambox .countbox .count {
+	font-size: 30px;
+	line-height: 30px;
+}
+.steambox .countbox .label {
+	font-size: 12px;
+}
+
+
+.steambox .follow_button {
+	border-radius: 6px;
+	border: none;
+	padding: 1px 16px;
+	font-size: 15px;
+	line-height: 32px;
+	cursor: pointer;
+	text-decoration: none !important;
+	color: #D2E885 !important;
+	border-bottom: 1px solid #000;	
+	
+	/* Gradients */
+	background: rgba(121,153,5,1);
+	background: -moz-linear-gradient(top, rgba(121,153,5,1) 5%, rgba(83,105,4,1) 95%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,rgba(121,153,5,1)), color-stop(95%,rgba(83,105,4,1)));
+	background: -webkit-linear-gradient(top, rgba(121,153,5,1) 5%,rgba(83,105,4,1) 95%);
+	background: -o-linear-gradient(top, rgba(121,153,5,1) 5%,rgba(83,105,4,1) 95%);
+	background: -ms-linear-gradient(top, rgba(121,153,5,1) 5%,rgba(83,105,4,1) 95%);
+	background: linear-gradient(to bottom, rgba(121,153,5,1) 5%,rgba(83,105,4,1) 95%);
+}
+
+/* ************ */

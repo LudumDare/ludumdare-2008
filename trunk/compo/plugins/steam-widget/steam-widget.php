@@ -1,3 +1,39 @@
+<?php
+/*
+Plugin Name: steam-widget
+Plugin URI: http://ludumdare.com/
+Description: Steam Group and Curator widget
+Version: 1.0
+Author: Mike Kasprzak
+Author URI: http://www.sykhronics.com
+License: BSD
+*/
+// - ----------------------------------------------------------------------------------------- - //
+// Store the current directory part of the requested URL (for building paths to files) //
+@$http_dir = dirname($_SERVER["REQUEST_URI"]);
+chdir(dirname(__FILE__));	// Change Working Directory to where I am (for my local paths) //
+// - ----------------------------------------------------------------------------------------- - //
+
+function wp_steam_info_get( $more_query => "" ) {
+	global $wpdb;
+	return $wpdb->get_results("
+		SELECT *
+		FROM `wp_steam_info`
+		{$more_query};
+	", ARRAY_A);
+}
+
+function wp_steam_games_get( $more_query => "" ) {
+	global $wpdb;
+	return $wpdb->get_results("
+		SELECT *
+		FROM `wp_steam_games`
+		{$more_query};
+	", ARRAY_A);	
+}
+
+
+/*
 <div class="header"></div>
 <div class="content nobottom">
   <div class="logo"></div>
@@ -52,3 +88,12 @@
   </div></div>
 </div>
 <div class="footer"></div>
+*/
+
+add_action( 'wp_enqueue_scripts', 'prefix_add_my_stylesheet' );
+function prefix_add_my_stylesheet() {
+    wp_register_style( 'steam-style', plugins_url('style.css', __FILE__) );
+    wp_enqueue_style( 'steam-style' );
+}
+
+?>
