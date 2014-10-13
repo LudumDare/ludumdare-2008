@@ -91,8 +91,7 @@ function steam_curator_get( $curator_id ) {
 		// Steam can be vague about what it returns for release dates, so have PHP parse it //
 		$released_text = $more_html->find('.hover_release',0)->plaintext;
 		$released = strtotime(trim(substr($released_text,strpos($released_text,":")+1)));
-		if ( $released !== NULL ) {
-			var_dump($released);
+		if ( $released ) {
 			$released = date('Y-m-d', $released);
 		}
 		
