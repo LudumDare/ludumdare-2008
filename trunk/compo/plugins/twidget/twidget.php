@@ -176,7 +176,7 @@ function broadcast_list_func( $attr ) {
 	);
 	
 	$dev_patterns = Array(
-		"dev","developing","deving","code","coding"
+		"dev","developing","deving","code","coding","create","creating","make","making"
 	);
 	$play_patterns = Array(
 		"play","playing"
@@ -214,19 +214,20 @@ function broadcast_list_func( $attr ) {
 			$units = floor($units_value/60) . ":" . str_pad($units_value%60, 2, '0', STR_PAD_LEFT);
 			
 			$status = $row['status'];
+			$status_lower = strtolower($status);
 			$mode = 0;
 			if ( $mode === 0 ) {
-				foreach( $dev_patterns as $word ) {
-					if ( strpos($status,$word) !== FALSE ) {
-						$mode = 1;
+				foreach( $play_patterns as $word ) {
+					if ( strpos($status_lower,$word) !== FALSE ) {
+						$mode = 2;
 						break;
 					}
 				}
 			}
 			if ( $mode === 0 ) {
-				foreach( $play_patterns as $word ) {
-					if ( strpos($status,$word) !== FALSE ) {
-						$mode = 2;
+				foreach( $dev_patterns as $word ) {
+					if ( strpos($status_lower,$word) !== FALSE ) {
+						$mode = 1;
 						break;
 					}
 				}
