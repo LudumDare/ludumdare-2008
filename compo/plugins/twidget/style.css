@@ -1,0 +1,12 @@
+
+.broadcast_table {
+	display:table;
+}
+
+.broadcast_table row {
+	display:table-row;
+}
+
+.broadcast_table row > div {
+	display:table-cell;
+}

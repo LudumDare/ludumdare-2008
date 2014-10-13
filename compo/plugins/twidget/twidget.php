@@ -181,6 +181,16 @@ function broadcast_list_func( $attr ) {
 			$units_value = intval($row['units']);
 			$units = floor($units_value/60) . ":" . str_pad($units_value%60, 2, '0', STR_PAD_LEFT);
 
+			$out .= "<div class='row header'>";
+				$out .= "<div class='service'>Service</div>";
+				//$out .= "<div class='name'>Name</div>";
+				$out .= "<div class='name'>Name</div>";
+				$out .= "<div class='last_online'>Online</div>";
+				$out .= "<div class='viewers'>Viewers</div>";
+				$out .= "<div class='status'>Status</div>";
+				$out .= "<div class='units'>Time Streaming</div>";
+			$out .= "</div>";
+
 			// Build Page //
 			$out .= "<div class='row" . ($row['live'] ? " live" : "") ."'>";
 				$out .= "<div class='service{$row['service_id']}'></div>";
@@ -200,7 +210,13 @@ function broadcast_list_func( $attr ) {
 }
 add_shortcode( 'broadcast_list', 'broadcast_list_func' );
 
-// SELECT * FROM `wp_broadcast_streams` WHERE timestamp > (NOW() - INTERVAL 12 HOUR) ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H')) DESC, units DESC;
+
+// Add Local Style Sheet style.css //
+add_action( 'wp_enqueue_scripts', 'prefix_add_my_stylesheet' );
+function prefix_add_my_stylesheet() {
+    wp_register_style( 'broadcast-style', plugins_url('style.css', __FILE__) );
+    wp_enqueue_style( 'broadcast-style' );
+}
 
 
 add_action( 'widgets_init', create_function( '', 'register_widget( "twidget" );' ) );
