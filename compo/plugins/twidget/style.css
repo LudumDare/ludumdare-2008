@@ -56,7 +56,12 @@
 }
 
 .broadcast_table .avatar {
-	padding:0px !important;
+	padding:0px 4px !important;
 	width:24px;
 	height:24px;
+}
+
+
+.broadcast_table .live .last_online {
+	font-weight:bold;
 }
