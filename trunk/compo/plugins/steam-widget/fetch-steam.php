@@ -24,12 +24,8 @@ function steam_group_get( $group_id ) {
 	$xml = simplexml_load_file($url);
 	$arr = __xml2array($xml);
 	
-	$group = &$arr['groupDetails'][0];
-			
-	$ret = array();
-	$ret['member_count'] = $group['memberCount'];
-	$ret['members_in_game'] = $group['membersInGame'];
-	$ret['members_online'] = $group['membersOnline'];
+	$ret = $arr['groupDetails'][0];
+	$ret['groupID'] = $arr['groupID64'];
 	
 	return $ret;
 }

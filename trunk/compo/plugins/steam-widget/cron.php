@@ -1,7 +1,7 @@
 <?php
 // - ----------------------------------------------------------------------------------------- - //
 // Store the current directory part of the requested URL (for building paths to files) //
-$http_dir = dirname($_SERVER["REQUEST_URI"]);
+@$http_dir = dirname($_SERVER["REQUEST_URI"]);
 chdir(dirname(__FILE__));	// Change Working Directory to where I am (for my local paths) //
 // - ----------------------------------------------------------------------------------------- - //
 // Only allow script to execute if via PHP-CLI (i.e. Cron Job) //
@@ -74,13 +74,12 @@ require "fetch-steam.php";
 			// Does not exist, so create it //
 			$query = 
 				"CREATE TABLE " . $table_name . " (
-					ID bigint NOT NULL AUTO_INCREMENT,
-					PRIMARY KEY (ID),
+					ID SERIAL PRIMARY KEY,
 					
 					timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 						ON UPDATE CURRENT_TIMESTAMP,
 					
-					name VARCHAR(64) NOT NULL,
+					name VARCHAR(32) NOT NULL,
 					value text NOT NULL
 				);";
 			
