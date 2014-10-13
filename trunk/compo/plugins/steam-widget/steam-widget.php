@@ -13,7 +13,6 @@ License: BSD
 @$http_dir = dirname($_SERVER["REQUEST_URI"]);
 chdir(dirname(__FILE__));	// Change Working Directory to where I am (for my local paths) //
 // - ----------------------------------------------------------------------------------------- - //
-
 function wp_steam_info_get( $more_query = "" ) {
 	global $wpdb;
 	return $wpdb->get_results("
@@ -22,7 +21,7 @@ function wp_steam_info_get( $more_query = "" ) {
 		{$more_query};
 	", ARRAY_A);
 }
-
+// - ----------------------------------------------------------------------------------------- - //
 function wp_steam_games_get( $more_query = "" ) {
 	global $wpdb;
 	return $wpdb->get_results("
@@ -31,9 +30,7 @@ function wp_steam_games_get( $more_query = "" ) {
 		{$more_query};
 	", ARRAY_A);	
 }
-
-
-
+// - ----------------------------------------------------------------------------------------- - //
 class SteamWidget extends WP_Widget {
 	public function __construct() {
 		parent::__construct(
@@ -126,13 +123,17 @@ class SteamWidget extends WP_Widget {
 		// processes widget options to be saved
 	}
 }
+// - ----------------------------------------------------------------------------------------- - //
+add_action('widgets_init',
+     create_function('', 'return register_widget("SteamWidget");')
+);
+// - ----------------------------------------------------------------------------------------- - //
 
-
-
+// - ----------------------------------------------------------------------------------------- - //
 add_action( 'wp_enqueue_scripts', 'steam_add_my_stylesheet' );
 function steam_add_my_stylesheet() {
     wp_register_style( 'steam-style', plugins_url('style.css', __FILE__) );
     wp_enqueue_style( 'steam-style' );
 }
-
+// - ----------------------------------------------------------------------------------------- - //
 ?>
