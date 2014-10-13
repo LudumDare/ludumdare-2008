@@ -1,25 +1,45 @@
-#!/usr/bin/php
 <?php
-
+// - ----------------------------------------------------------------------------------------- - //
+// Store the current directory part of the requested URL (for building paths to files) //
+$http_dir = dirname($_SERVER["REQUEST_URI"]);
+chdir(dirname(__FILE__));	// Change Working Directory to where I am (for my local paths) //
+// - ----------------------------------------------------------------------------------------- - //
 // Only allow script to execute if via PHP-CLI (i.e. Cron Job) //
 if (php_sapi_name() !== "cli") {
-	// Jurassic Park //
 	echo "Clever girl.\n";
-//	echo "<br /><br /><img src='http://img1.wikia.nocookie.net/__cb20140408111011/jurassicpark/images/5/53/Raptor_-_Clever_Girl.gif' />";
-	echo "<br /><br /><img src='" . dirname($_SERVER["REQUEST_URI"]) . "/hacking.gif' />";
+	echo "<br /><br /><img src='" . $http_dir . "/hacking.gif' />";
 	exit(1);
 }
-
+// - ----------------------------------------------------------------------------------------- - //
+// Get Wordpress Setup Variables (optional... sort of) //
+@include "../../../wp-config.php";
+// - ----------------------------------------------------------------------------------------- - //
 // My Steam Data Fetching Library //
 require "fetch-steam.php";
+// - ----------------------------------------------------------------------------------------- - //
 
-// Get Wordpress Setup Variables //
-require "../../../wp-config.php";
 
+// - ----------------------------------------------------------------------------------------- - //
 {
+	$group_name = "ludum";
+	$curator_id = "537829";
+/*
+	if ( count($argv) < 2 ) {
+		echo "\nUsage: " . $argv[0] . " group_name curator_id\n";
+		echo "  group_name: name of the Steam group\n";
+		echo "  curator_id: \n";
+		echo "\nSample: php ". $argv[0] . " ludum 537829\n\n";
+		exit(1);
+	}
+	$group_name = trim($argv[1]);
+	$curator_id = trim($argv[2]);
+*/
+
+	// * * * //
+
 	// Fetch Steam Data //
-	$steam_group = steam_group_get( "ludum" );
-	$steam_curator = steam_curator_get( "537829" );
+	$steam_group = steam_group_get( $group_name );
+	$steam_curator = steam_curator_get( $curator_id );
 	
 	if ( $steam_group === NULL ) {
 		echo "Failed to fetch Steam Group data\n";
@@ -30,8 +50,17 @@ require "../../../wp-config.php";
 		exit(1);
 	}
 	
-	print_r( $steam_group );
-	print_r( $steam_curator );
+	// * * * //
+
+	// Bail if no DB_NAME is set //
+	if ( !defined('DB_NAME') ) {
+		echo "WARNING: No DB_NAME is set. Assuming local.\n";
+		echo "Steam Group ({$group_name}):\n";
+		print_r( $steam_group );
+		echo "Steam Curator ({$curator_id}):\n";
+		print_r( $steam_curator );
+		exit(0);
+	}
 
 	// Open Database //	
 	$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
