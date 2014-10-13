@@ -116,8 +116,75 @@ require "fetch-steam.php";
 		SetInfo( "group_members_online", $steam_group['membersOnline'] );
 		SetInfo( "group_avatar", $steam_group['avatarFull'] );
 		
-		
 		// Store Curator Values //
+		SetInfo( "curator_followers", $steam_curator['followers'] );
+		SetInfo( "curator_avatar", $steam_curator['avatar'] );
+
+		// * * * //
+
+		$game_table = $table_prefix . "steam_games";
+		// Check if Table exists, and Create //
+		if( mysqli_num_rows(mysqli_query($db,"SHOW TABLES LIKE '{$game_table}'")) === 0) {
+			// Does not exist, so create it //
+			$query = 
+				"CREATE TABLE {$game_table} (
+					appid VARCHAR(32) UNIQUE NOT NULL,
+					name text NOT NULL,
+					released text NOT NULL,
+					info text NOT NULL,
+					url text NOT NULL,
+					banner text NOT NULL,
+					ratings int NOT NULL,
+					comments int NOT NULL
+				);";
+			
+			// NOTE: name is NOT indexed, since this table will almost always be fully queried. //
+			// NOTE: 'key' is a reserved word in SQL. Need to use backticks `key` to get it, but meh //
+			//   http://stackoverflow.com/a/2889884 //
+			
+			if ( !mysqli_query($db,$query) ) {
+				echo "Error Creating Table:\n". mysqli_error($db) ."\n";
+				exit(1);
+			}
+		}
+		
+		foreach( $steam_curator['games'] as $game ) {
+			$query = 
+				"INSERT INTO {$game_table} (
+						appid,
+						name,
+						released,
+						info,
+						url,
+						banner,
+						ratings,
+						comments
+					)
+					VALUES (
+						\"{$game['appid']}\",
+						\"{$game['name']}\",
+						\"{$game['released']}\",
+						\"{$game['info']}\",
+						\"{$game['url']}\",
+						\"{$game['banner']}\",
+						{$game['rateup']},
+						{$game['comments']}
+					)
+					ON DUPLICATE KEY UPDATE 
+						name=VALUES(name),
+						released=VALUES(released),
+						info=VALUES(info),
+						url=VALUES(url),
+						banner=VALUES(banner),
+						ratings=VALUES(ratings),
+						comments=VALUES(comments)
+					";
+
+			if ( !mysqli_query($db,$query) ) {
+				echo "Error setting/updating {$name} in to Table:\n". mysqli_error($db) ."\n";
+				exit(1);
+			}
+		}
 
 				
 //		$ret = mysqli_query($db,"SELECT * FROM " . $info_table );
