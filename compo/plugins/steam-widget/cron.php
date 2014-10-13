@@ -132,7 +132,8 @@ require "fetch-steam.php";
 					released datetime NOT NULL,
 					info text NOT NULL,
 					url text NOT NULL,
-					banner text NOT NULL
+					banner text NOT NULL,
+					discount VARCHAR(16) NOT NULL
 				);";
 
 //					ratings int NOT NULL,
@@ -154,7 +155,8 @@ require "fetch-steam.php";
 						released,
 						info,
 						url,
-						banner
+						banner,
+						discount
 					)
 					VALUES (
 						\"{$game['appid']}\",
@@ -162,14 +164,16 @@ require "fetch-steam.php";
 						\"{$game['released']}\",
 						\"{$info}\",
 						\"{$game['url']}\",
-						\"{$game['banner']}\"
+						\"{$game['banner']}\",
+						\"{$game['discount']}\"
 					)
 					ON DUPLICATE KEY UPDATE 
 						name=VALUES(name),
 						released=VALUES(released),
 						info=VALUES(info),
 						url=VALUES(url),
-						banner=VALUES(banner)
+						banner=VALUES(banner),
+						discount=VALUES(discount)
 					";
 
 //						ratings,

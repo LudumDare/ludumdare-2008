@@ -87,6 +87,12 @@ function steam_curator_get( $curator_id ) {
 				$comments = intval( trim($a->plaintext) );
 			}
 		}
+
+		$discount = "";
+		$discount_available = $elm->find('.discount_pct',0);
+		if ( $discount_available ) {
+			$discount = trim($discount_available->plaintext);
+		}
 		
 		// Steam can be vague about what it returns for release dates, so have PHP parse it //
 		$released_text = $more_html->find('.hover_release',0)->plaintext;
@@ -106,6 +112,7 @@ function steam_curator_get( $curator_id ) {
 			'desc' => trim($more_html->find('#hover_desc',0)->plaintext),
 			'rateup' => $rateup,
 			'comments' => $comments,
+			'discount' => $discount,
 			'curator_url' => $curator_url
 		);
 		
