@@ -47,7 +47,8 @@
 .broadcast_table .service > div {
 	width:24px;
 	height:24px;
-	margin:1px;
+	/*margin:1px;*/
+	display:inline-block;
 }
 
 .broadcast_table .service1 {
