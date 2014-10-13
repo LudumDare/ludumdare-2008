@@ -65,10 +65,10 @@
 	font-weight:bold;
 }
 
-.broadcast_table .viewers {
+.broadcast_table .viewers, .broadcast_table .viewers_header {
 	text-align:center;
 }
-.broadcast_table .online {
+.broadcast_table .online, .broadcast_table .online_header {
 	text-align:center;
 }
 .broadcast_table .units, .broadcast_table .units_header {
