@@ -90,8 +90,8 @@ function wp_steam_games_get( $more_query = "" ) {
 <div class="footer"></div>
 */
 
-add_action( 'wp_enqueue_scripts', 'prefix_add_my_stylesheet' );
-function prefix_add_my_stylesheet() {
+add_action( 'wp_enqueue_scripts', 'steam_add_my_stylesheet' );
+function steam_add_my_stylesheet() {
     wp_register_style( 'steam-style', plugins_url('style.css', __FILE__) );
     wp_enqueue_style( 'steam-style' );
 }
