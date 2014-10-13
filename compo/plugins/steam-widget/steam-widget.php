@@ -83,9 +83,9 @@ class SteamWidget extends WP_Widget {
 				<div class='content center'>
 		";
 			
-					<div class='banner new'><a href='somehting' title='open on STEAM'><img src='http://cdn.akamai.steamstatic.com/steam/apps/274290/capsule_231x87.jpg' /></a></div>
-					<div class='banner soon'><a href='somehting' title='open on STEAM'><img src='http://cdn.akamai.steamstatic.com/steam/apps/321560/capsule_231x87.jpg' /></a></div>
-					<div class='banner'><a href='somehting' title='open on STEAM'><img src='http://cdn.akamai.steamstatic.com/steam/apps/274190/capsule_231x87.jpg' /></a></div>
+//					<div class='banner new'><a href='somehting' title='open on STEAM'><img src='http://cdn.akamai.steamstatic.com/steam/apps/274290/capsule_231x87.jpg' /></a></div>
+//					<div class='banner soon'><a href='somehting' title='open on STEAM'><img src='http://cdn.akamai.steamstatic.com/steam/apps/321560/capsule_231x87.jpg' /></a></div>
+//					<div class='banner'><a href='somehting' title='open on STEAM'><img src='http://cdn.akamai.steamstatic.com/steam/apps/274190/capsule_231x87.jpg' /></a></div>
 		echo "
 				</div>
 				<div class='rule'></div>
