@@ -15,6 +15,12 @@
 }
 
 
+.broadcast_table .row .mature {
+	font-weight:bold;
+	color:#F00 !important;
+}
+
+
 .broadcast_table .header {
 	background:#888;
 	color:#FFF;

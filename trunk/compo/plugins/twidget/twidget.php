@@ -164,7 +164,7 @@ function broadcast_list_func( $attr ) {
 		
 	$out .= "<div class='broadcast_table'>";
 		$out .= "<div class='row header'>";
-			$out .= "<div class='service'>Service</div>";
+			$out .= "<div class='service'></div>";
 			//$out .= "<div class='name'>Name</div>";
 			$out .= "<div class='name'>Name</div>";
 			$out .= "<div class='last_online'>Online</div>";
@@ -195,7 +195,7 @@ function broadcast_list_func( $attr ) {
 			$out .= "<div class='row" . ($row['live'] ? " live" : "") ."'>";
 				$out .= "<div class='service{$row['service_id']}'></div>";
 				//$out .= "<div class='name'>{$row['display_name']}</div>";
-				$out .= "<div class='name'><a href='{$row['url']}'>{$row['display_name']}</a> [{$row['followers']}]".($row['mature']?" [M]":"")."</div>";
+				$out .= "<div class='name'><a href='{$row['url']}'>{$row['display_name']}</a> [{$row['followers']}]".($row['mature']?" <span class='mature'>[M]</span>":"")."</div>";
 				$out .= "<div class='last_online'>{$last_online}</div>";
 				$out .= "<div class='viewers'>{$row['viewers']}</div>";
 				$out .= "<div class='status'>{$row['status']}</div>";
