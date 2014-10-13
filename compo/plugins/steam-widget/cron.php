@@ -21,9 +21,9 @@ require "fetch-steam.php";
 
 // - ----------------------------------------------------------------------------------------- - //
 {
-	$group_name = "ludum";
-	$curator_id = "537829";
-/*
+//	$group_name = "ludum";
+//	$curator_id = "537829";
+
 	if ( count($argv) < 2 ) {
 		echo "\nUsage: " . $argv[0] . " group_name curator_id\n";
 		echo "  group_name: name of the Steam group\n";
@@ -33,7 +33,6 @@ require "fetch-steam.php";
 	}
 	$group_name = trim($argv[1]);
 	$curator_id = trim($argv[2]);
-*/
 
 	// * * * //
 
@@ -194,7 +193,7 @@ require "fetch-steam.php";
 		}
 		echo "Size: " . count($data) . "\n";
 		print_r( $data );
-//		
+
 //		$ds = array();
 //		
 //		// Build Associative List //
