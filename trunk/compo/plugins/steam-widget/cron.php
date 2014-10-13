@@ -74,14 +74,14 @@ require "fetch-steam.php";
 			// Does not exist, so create it //
 			$query = 
 				"CREATE TABLE " . $table_name . " (
-					ID SERIAL PRIMARY KEY,
-					
-					timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-						ON UPDATE CURRENT_TIMESTAMP,
-					
-					name VARCHAR(32) NOT NULL,
+					name VARCHAR(32) UNIQUE NOT NULL PRIMARY KEY,
 					value text NOT NULL
 				);";
+
+//					ID SERIAL PRIMARY KEY,
+//					
+//					timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+//						ON UPDATE CURRENT_TIMESTAMP,
 			
 			// NOTE: name is NOT indexed, since this table will almost always be fully queried. //
 			// NOTE: 'key' is a reserved word in SQL. Need to use backticks `key` to get it, but meh //
