@@ -6,19 +6,22 @@
 
 .broadcast_table .row {
 	display:table-row;
+	background:#DDD;
 }
 
 .broadcast_table .row > div {
 	display:table-cell;
+	padding:4px;
 }
 
 
 .broadcast_table .header {
-	background:#CCC;
+	background:#888;
+	color:#FFF;
 	font-weight:bold;
 }
 
 .broadcast_table .live {
-	background:#CFC;
+	background:#FFF !important;
 }
 
