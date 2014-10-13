@@ -155,7 +155,7 @@ function broadcast_list_func( $attr ) {
 	$result = $wpdb->get_results("
 		SELECT *, 
 			(timestamp > (NOW() - INTERVAL 9 MINUTE)) AS live,
-			(TIMESTAMPDIFF(MINUTE,timestamp,NOW())) AS last_online
+			(TIMESTAMPDIFF(MINUTE,timestamp,NOW())) AS online
 		FROM `wp_broadcast_streams`
 		WHERE timestamp > (NOW() - INTERVAL {$attr['hours']} HOUR) 
 		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
@@ -168,7 +168,7 @@ function broadcast_list_func( $attr ) {
 			$out .= "<div class='avatar_header'></div>";
 			//$out .= "<div class='name'>Name</div>";
 			$out .= "<div class='name_header'>Name</div>";
-			$out .= "<div class='last_online_header'>Online</div>";
+			$out .= "<div class='online_header'>Online</div>";
 			$out .= "<div class='viewers_header'>Viewers</div>";
 			$out .= "<div class='status_header'>Status</div>";
 			$out .= "<div class='units_header'>Sum Total</div>";
@@ -176,17 +176,17 @@ function broadcast_list_func( $attr ) {
 
 		foreach( $result as $row ) {
 			// Figure out when we were last online //
-			$last_online_time = intval($row['last_online']);
-			if ( $last_online_time <= 9 ) {
-				$last_online = "NOW";
+			$online_time = intval($row['online']);
+			if ( $online_time <= 9 ) {
+				$online = "NOW";
 			}
-			else if ( $last_online_time >= 60 ) {
-				$hours = floor($last_online_time / 60);
-				$last_online = "{$hours} hour".($hours > 1 ? "s":"")." ago";
+			else if ( $online_time >= 60 ) {
+				$hours = floor($online_time / 60);
+				$online = "{$hours} hour".($hours > 1 ? "s":"")." ago";
 			}
 			else {
-				$minutes = floor($last_online_time);
-				$last_online = "{$minutes} minutes ago";	// Always Greater than 9 )
+				$minutes = floor($online_time);
+				$online = "{$minutes} minutes ago";	// Always Greater than 9 )
 			}
 			
 			$units_value = intval($row['units']);
@@ -198,7 +198,7 @@ function broadcast_list_func( $attr ) {
 				$out .= "<div class='avatar'><img src='{$row['avatar']}' width='24' height='24'></div>";
 				//$out .= "<div class='name'>{$row['display_name']}</div>";
 				$out .= "<div class='name'><a href='{$row['url']}'>{$row['display_name']}</a> [{$row['followers']}]".($row['mature']?" <span class='mature'>[M]</span>":"")."</div>";
-				$out .= "<div class='last_online'>{$last_online}</div>";
+				$out .= "<div class='online'>{$online}</div>";
 				$out .= "<div class='viewers'>{$row['viewers']}</div>";
 				$out .= "<div class='status'>{$row['status']}</div>";
 				$out .= "<div class='units'>{$units}</div>";
