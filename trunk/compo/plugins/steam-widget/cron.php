@@ -88,6 +88,8 @@ require "fetch-steam.php";
 
 		// Function to simplify Key/Value setting //
 		function SetInfo( $table, $name, $value ) {
+			global $db;
+			
 			$query = 
 				"INSERT INTO {$table} (
 						name,
