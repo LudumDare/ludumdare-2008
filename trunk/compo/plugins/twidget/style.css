@@ -39,7 +39,7 @@
 }
 
 
-.broadcast_table .service {
+.broadcast_table .row .service {
 	padding:0px !important;
 	background:#888;
 }
@@ -51,20 +51,20 @@
 	display:inline-block;
 }
 
-.broadcast_table .service1 {
+.broadcast_table .row .service1 {
 	background-image: url(service_twitch.png);
 }
-.broadcast_table .service2 {
+.broadcast_table .row .service2 {
 	background-image: url(service_hitbox.png);
 }
-.broadcast_table .service3 {
+.broadcast_table .row .service3 {
 	background-image: url(service_youtube.png);
 }
 
-.broadcast_table .avatar {
+.broadcast_table .row .avatar {
 	padding:0px 4px !important;
 }
-.broadcast_table .avatar img {
+.broadcast_table .row .avatar img {
 	max-width:24px;
 	max-height:24px;
 }
@@ -73,19 +73,19 @@
 	font-weight:bold;
 }
 
-.broadcast_table .viewers, .broadcast_table .viewers_header {
+.broadcast_table .row .viewers, .broadcast_table .row .viewers_header {
 	text-align:center;
 }
-.broadcast_table .online, .broadcast_table .online_header {
+.broadcast_table .row .online, .broadcast_table .row .online_header {
 	text-align:center;
 }
-.broadcast_table .units, .broadcast_table .units_header {
+.broadcast_table .row .units, .broadcast_table .row .units_header {
 	text-align:right;
 }
 
 
-.broadcast_table .service_header, 
-.broadcast_table .avatar_header {
+.broadcast_table .row .service_header, 
+.broadcast_table .row .avatar_header {
 	text-align:center;
 	padding:4px 0px !important;
 }
