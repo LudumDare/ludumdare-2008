@@ -11,6 +11,7 @@ License: BSD
 // - ----------------------------------------------------------------------------------------- - //
 // Store the current directory part of the requested URL (for building paths to files) //
 @$http_dir = dirname($_SERVER["REQUEST_URI"]);
+$http_request_time = $_SERVER['REQUEST_TIME'];
 chdir(dirname(__FILE__));	// Change Working Directory to where I am (for my local paths) //
 // - ----------------------------------------------------------------------------------------- - //
 function wp_steam_info_get( $more_query = "" ) {
@@ -85,15 +86,15 @@ class SteamWidget extends WP_Widget {
 
 		foreach( $steam_games as $game ) {
 			$release = strtotime($game['released']);
-			//echo $release . " " . $game['released'];
+			echo $release . " " . $game['released'];
 			$banner_class = "";
 			if ( $release <= 0 ) {
 				$banner_class = "soon";
 			}
-			else if ( $release > time() ) {
+			else if ( $release > $http_request_time ) {
 				$banner_class = "soon";
 			}
-			else if ( $release > (time() - 60*24*60*60) ) {
+			else if ( $release > ($http_request_time - 60*24*60*60) ) {
 				$banner_class = "new";
 			}
 				
