@@ -74,6 +74,9 @@
 	font-weight:bold;
 }
 
+.broadcast_table .row .mode, .broadcast_table .row .mode_header {
+	text-align:center;
+}
 .broadcast_table .row .viewers, .broadcast_table .row .viewers_header {
 	text-align:center;
 }
