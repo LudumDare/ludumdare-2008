@@ -44,6 +44,8 @@ class SteamWidget extends WP_Widget {
 		$steam_info = wp_steam_info_get();
 		$steam_games = wp_steam_games_get( "ORDER BY RAND() LIMIT 3" );
 		
+		print_r($steam_info);
+		
 		echo '
 			<div class="steambox">
 				<div class="header"></div>
