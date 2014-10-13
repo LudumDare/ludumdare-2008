@@ -168,6 +168,19 @@ function broadcast_list_func( $attr ) {
 		2=>'hitbox',
 		3=>'youtube'
 	);
+	
+	$modes = Array(
+		0=>"",
+		1=>"Dev",
+		2=>"Play"
+	);
+	
+	$dev_patterns = Array(
+		"dev","developing","deving","code","coding"
+	);
+	$play_patterns = Array(
+		"play","playing"
+	);
 		
 	$out .= "<div class='broadcast_table'>";
 		$out .= "<div class='header row'>";
@@ -177,6 +190,7 @@ function broadcast_list_func( $attr ) {
 			$out .= "<div class='name_header'>Name</div>";
 			$out .= "<div class='online_header'>Online</div>";
 			$out .= "<div class='viewers_header'>Viewers</div>";
+			$out .= "<div class='mode'>Mode</div>";
 			$out .= "<div class='status_header'>Status</div>";
 			$out .= "<div class='units_header'>Total</div>";
 		$out .= "</div>";
@@ -198,6 +212,25 @@ function broadcast_list_func( $attr ) {
 			
 			$units_value = intval($row['units']);
 			$units = floor($units_value/60) . ":" . str_pad($units_value%60, 2, '0', STR_PAD_LEFT);
+			
+			$status = $row['status'];
+			$mode = 0;
+			if ( $mode === 0 ) {
+				foreach( $dev_patterns as $word ) {
+					if ( strpos($status,$word) !== FALSE ) {
+						$mode = 1;
+						break;
+					}
+				}
+			}
+			if ( $mode === 0 ) {
+				foreach( $play_patterns as $word ) {
+					if ( strpos($status,$word) !== FALSE ) {
+						$mode = 2;
+						break;
+					}
+				}
+			}
 
 			// Build Page //
 			$out .= "<div class='" . ($row['live'] ? "live " : "") ."row'>";
@@ -208,7 +241,8 @@ function broadcast_list_func( $attr ) {
 				$out .= "<div class='name'><a href='{$row['url']}'>{$row['display_name']}</a> [{$row['followers']}]".($row['mature']?" <span class='mature'>[M]</span>":"")."</div>";
 				$out .= "<div class='online'>{$online}</div>";
 				$out .= "<div class='viewers'>{$row['viewers']}</div>";
-				$out .= "<div class='status'>{$row['status']}</div>";
+				$out .= "<div class='mode'>{$modes[$mode]}</div>";
+				$out .= "<div class='status'>{$status}</div>";
 				$out .= "<div class='units'>{$units}</div>";
 			$out .= "</div>";
 		}
