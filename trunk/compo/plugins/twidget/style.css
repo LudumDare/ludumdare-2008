@@ -18,6 +18,7 @@
 	text-overflow:ellipsis;
 	vertical-align:middle;
 	border-bottom:1px solid #FFF;
+	max-width:400px;
 }
 
 
