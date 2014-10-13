@@ -176,7 +176,8 @@ function broadcast_list_func( $attr ) {
 	);
 	
 	$dev_patterns = Array(
-		"dev","developing","deving","code","coding","create","creating","make","making"
+		"dev","developing","deving","code","coding","create","creating",
+		"make","making","art","draw","compose","composing"
 	);
 	$play_patterns = Array(
 		"play","playing"
@@ -217,11 +218,11 @@ function broadcast_list_func( $attr ) {
 			$status_lower = strtolower($status);
 			$mode = 0;
 			// Force DEV or PLAY mode //
-			if ( strpos($status,"[DEV]") !== FALSE ) {
-				$mode = 1;
-			}
-			else if ( strpos($status,"[PLAY]") !== FALSE ) {
+			if ( strpos($status,"[PLAY]") !== FALSE ) {
 				$mode = 2;
+			}
+			else if ( strpos($status,"[DEV]") !== FALSE ) {
+				$mode = 1;
 			}
 			// Detect DEV or PLAY mode //
 			if ( $mode === 0 ) {
