@@ -37,23 +37,20 @@
 }
 
 
-
-.broadcast_table .service1 {
+.broadcast_table .service {
 	padding:0px !important;
 	width:24px;
 	height:24px;
+	background:#888;
+}
+
+.broadcast_table .service1 {
 	background-image: url(service_twitch.png);
 }
 .broadcast_table .service2 {
-	padding:0px !important;
-	width:24px;
-	height:24px;
 	background-image: url(service_hitbox.png);
 }
 .broadcast_table .service3 {
-	padding:0px !important;
-	width:24px;
-	height:24px;
 	background-image: url(service_youtube.png);
 }
 

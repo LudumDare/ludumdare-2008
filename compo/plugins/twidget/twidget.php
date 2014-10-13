@@ -164,14 +164,14 @@ function broadcast_list_func( $attr ) {
 		
 	$out .= "<div class='broadcast_table'>";
 		$out .= "<div class='row header'>";
-			$out .= "<div class='service'></div>";
-			$out .= "<div class='avatar'></div>";
+			$out .= "<div class='service_header'></div>";
+			$out .= "<div class='avatar_header'></div>";
 			//$out .= "<div class='name'>Name</div>";
-			$out .= "<div class='name'>Name</div>";
-			$out .= "<div class='last_online'>Online</div>";
-			$out .= "<div class='viewers'>Viewers</div>";
-			$out .= "<div class='status'>Status</div>";
-			$out .= "<div class='units'>Total</div>";
+			$out .= "<div class='name_header'>Name</div>";
+			$out .= "<div class='last_online_header'>Online</div>";
+			$out .= "<div class='viewers_header'>Viewers</div>";
+			$out .= "<div class='status_header'>Status</div>";
+			$out .= "<div class='units_header'>Total</div>";
 		$out .= "</div>";
 
 		foreach( $result as $row ) {
@@ -194,7 +194,7 @@ function broadcast_list_func( $attr ) {
 
 			// Build Page //
 			$out .= "<div class='row" . ($row['live'] ? " live" : "") ."'>";
-				$out .= "<div class='service{$row['service_id']}'></div>";
+				$out .= "<div class='service service{$row['service_id']}'></div>";
 				$out .= "<div class='avatar'><img src='{$row['avatar']}' width='24' height='24'></div>";
 				//$out .= "<div class='name'>{$row['display_name']}</div>";
 				$out .= "<div class='name'><a href='{$row['url']}'>{$row['display_name']}</a> [{$row['followers']}]".($row['mature']?" <span class='mature'>[M]</span>":"")."</div>";
