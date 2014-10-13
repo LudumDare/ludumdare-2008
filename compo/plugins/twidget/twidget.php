@@ -154,19 +154,36 @@ function broadcast_list_func( $attr ) {
 	global $wpdb;
 	$result = $wpdb->get_results("
 		SELECT *, 
-			(timestamp > (NOW() - INTERVAL 2 HOUR)) AS live
+			(timestamp > (NOW() - INTERVAL 9 MINUTE)) AS live,
+			(TIME_TO_SEC(TIMEDIFF(NOW(),timestamp))) AS last_online
 		FROM `wp_broadcast_streams`
 		WHERE timestamp > (NOW() - INTERVAL {$attr['hours']} HOUR) 
-		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H')) DESC,
+		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
 			units DESC;
 	", ARRAY_A);
 	
-	foreach( $result as $row ) {
-		$out .= "[{$row['service_id']}] {$row['display_name']} = {$row['live']}";
-		$out .= "<br />";
+	// Figure out when we were last online //
+	$last_online_time = intval($row['last_online']) / 60;
+	if ( $last_online_time <= 9 ) {
+		$last_online = "NOW";
 	}
-
-	$out .= "Well, this sucks.";
+	else if ( $last_online_time >= 60 ) {
+		$last_online = ($last_online_time / 60) . " hours ago";
+	}
+	else {
+		$last_online = $last_online_time . " minutes ago";
+	}
+	
+	$out .= "<div class='broadcast_table'>";
+		foreach( $result as $row ) {
+			$out .= "<div class='row" . ($row['live'] ? " live" : "") ."'>";
+				$out .= "<div class='service{$row['service_id']}'></div>";
+				$out .= "<div class='name'>{$row['display_name']}</div>";
+				$out .= "<div class='last_online'>{$last_online}</div>";
+				$out .= "<br />";
+			$out .= "</div>";
+		}
+	$out .= "</div>";
 	
 	// * * * //
 	
