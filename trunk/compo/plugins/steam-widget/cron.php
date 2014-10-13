@@ -185,6 +185,13 @@ require "fetch-steam.php";
 			}
 		}
 
+
+		$result = mysqli_query($db,"SELECT COUNT(`appid`) AS `count` FROM {$game_table}" );
+		echo $result."\n";
+
+
+//		SetInfo( "curator_games", $result );
+
 				
 //		$result = mysqli_query($db,"SELECT * FROM {$game_table}" );
 //		$data = Array();
