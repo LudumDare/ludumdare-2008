@@ -68,7 +68,7 @@ require "fetch-steam.php";
 	if ( $db ) {
 		$info_table = $table_prefix . "steam_info";
 		// Check if Table exists, and Create //
-		if( mysqli_num_rows(mysqli_query($db,"SHOW TABLES LIKE {$info_table}")) == 0) {
+		if( mysqli_num_rows(mysqli_query($db,"SHOW TABLES LIKE '{$info_table}'")) === 0) {
 			// Does not exist, so create it //
 			$query = 
 				"CREATE TABLE " . $info_table . " (
