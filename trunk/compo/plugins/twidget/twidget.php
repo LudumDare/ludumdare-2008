@@ -164,8 +164,8 @@ function broadcast_list_func( $attr ) {
 		
 	$out .= "<div class='broadcast_table'>";
 		$out .= "<div class='row header'>";
-			$out .= "<div class='service_header'></div>";
-			$out .= "<div class='avatar_header'></div>";
+			$out .= "<div class='service_header'>SV</div>";
+			$out .= "<div class='avatar_header'>A</div>";
 			//$out .= "<div class='name'>Name</div>";
 			$out .= "<div class='name_header'>Name</div>";
 			$out .= "<div class='online_header'>Online</div>";

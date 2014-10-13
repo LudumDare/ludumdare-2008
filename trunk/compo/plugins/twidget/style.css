@@ -74,3 +74,9 @@
 .broadcast_table .units, .broadcast_table .units_header {
 	text-align:right;
 }
+
+
+.broadcast_table .service_header, 
+.broadcast_table .avatar_header {
+	text-align:center;
+}
