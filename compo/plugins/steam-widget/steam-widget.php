@@ -93,7 +93,7 @@ class SteamWidget extends WP_Widget {
 			else if ( $release > time() ) {
 				$banner_class = "soon";
 			}
-			else if ( $release > (time() - 60*24*60*60) ) {)
+			else if ( $release > (time() - 60*24*60*60) ) {
 				$banner_class = "new";
 			}
 				
