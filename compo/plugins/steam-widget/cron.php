@@ -130,7 +130,7 @@ require "fetch-steam.php";
 				"CREATE TABLE {$game_table} (
 					appid VARCHAR(32) UNIQUE NOT NULL,
 					name text NOT NULL,
-					released text NOT NULL,
+					released datetime,
 					info text NOT NULL,
 					url text NOT NULL,
 					banner text NOT NULL

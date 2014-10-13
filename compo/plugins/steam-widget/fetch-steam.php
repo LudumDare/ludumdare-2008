@@ -90,6 +90,12 @@ function steam_curator_get( $curator_id ) {
 		
 		$released_text = $more_html->find('.hover_release',0)->plaintext;
 		$released = strtotime(trim(substr($released_text,strpos($released_text,":")+1)));
+		if ( $released !== NULL ) {
+			$released_str = date('Y-m-d', $released);
+		}
+		else {
+			$released_str = "NULL";
+		}
 		
 		$ret['games'][] = Array(
 			'appid' => $appid,
@@ -98,7 +104,7 @@ function steam_curator_get( $curator_id ) {
 			'info' => trim($elm->find('.recommendation_desc',0)->plaintext),
 			'read_url' => $elm->find('.recommendation_readmore',0)->find('a',0)->href,
 			'name' => $more_html->find('h4',0)->plaintext,
-			'released' => $released,
+			'released' => $released_str,
 			'desc' => trim($more_html->find('#hover_desc',0)->plaintext),
 			'rateup' => $rateup,
 			'comments' => $comments,
