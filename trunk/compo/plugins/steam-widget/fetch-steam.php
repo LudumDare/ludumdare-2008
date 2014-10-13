@@ -95,7 +95,7 @@ function steam_curator_get( $curator_id ) {
 			$released = date('Y-m-d', $released);
 		}
 		else {
-			$released = NULL;//'NULL';
+			$released = 'NULL';
 		}
 		
 		$ret['games'][] = Array(
