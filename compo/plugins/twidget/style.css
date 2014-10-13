@@ -40,8 +40,9 @@
 
 
 .broadcast_table .row .service {
-	padding:0px !important;
-	background:#888;
+	/*padding:0px !important;*/
+	/*background:#888;*/
+	text-align:center;
 }
 
 .broadcast_table .service > div {
