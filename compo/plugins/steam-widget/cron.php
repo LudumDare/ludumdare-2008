@@ -187,8 +187,11 @@ require "fetch-steam.php";
 		}
 
 				
-		$ret = mysqli_query($db,"SELECT * FROM " . $info_table );
-		$data = mysqli_fetch_array($ret);
+		$result = mysqli_query($db,"SELECT * FROM " . $games_table );
+		$data = Array();
+		while ( $row = mysqli_fetch_array($result) ) {
+			data[] = $row;
+		}
 		echo "Size: " . count($data) . "\n";
 		print_r( $data );
 //		
