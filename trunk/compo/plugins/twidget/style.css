@@ -1,6 +1,7 @@
 
 .broadcast_table {
 	display:table;
+	width:100%;
 }
 
 .broadcast_table .row {
@@ -10,3 +11,14 @@
 .broadcast_table .row > div {
 	display:table-cell;
 }
+
+
+.broadcast_table .header {
+	background:#CCC;
+	font-weight:bold;
+}
+
+.broadcast_table .live {
+	background:#CFC;
+}
+
