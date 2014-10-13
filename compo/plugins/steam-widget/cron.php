@@ -187,10 +187,10 @@ require "fetch-steam.php";
 		}
 
 				
-//		$ret = mysqli_query($db,"SELECT * FROM " . $info_table );
-//		$data = mysqli_fetch_array($ret);
-//		echo "Size: " . count($data) . "\n";
-//		print_r( $data );
+		$ret = mysqli_query($db,"SELECT * FROM " . $info_table );
+		$data = mysqli_fetch_array($ret);
+		echo "Size: " . count($data) . "\n";
+		print_r( $data );
 //		
 //		$ds = array();
 //		
