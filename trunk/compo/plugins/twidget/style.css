@@ -65,8 +65,8 @@
 	padding:0px 4px !important;
 }
 .broadcast_table .avatar > img {
-	width:24px;
-	height:24px;
+	max-width:24px;
+	max-height:24px;
 }
 
 .broadcast_table .live .online {
