@@ -187,7 +187,7 @@ require "fetch-steam.php";
 		}
 
 				
-		$result = mysqli_query($db,"SELECT * FROM " . $games_table );
+		$result = mysqli_query($db,"SELECT * FROM {$game_table}" );
 		$data = Array();
 		while ( $row = mysqli_fetch_array($result) ) {
 			$data[] = $row;
