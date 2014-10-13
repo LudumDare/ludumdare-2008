@@ -165,7 +165,7 @@ function broadcast_list_func( $attr ) {
 	// Figure out when we were last online //
 	$last_online_time = intval($row['last_online']) / 60;
 	if ( $last_online_time <= 9 ) {
-		$last_online = "NOW";
+		$last_online = "NOW " . $row['last_online'];
 	}
 	else if ( $last_online_time >= 60 ) {
 		$last_online = ($last_online_time / 60) . " hours ago";
