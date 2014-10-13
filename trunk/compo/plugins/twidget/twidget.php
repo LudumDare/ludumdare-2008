@@ -152,11 +152,11 @@ function broadcast_list_func( $atts ) {
 	$out = "";
 
 	global $wpdb;
-	$result = $wpdb->query("
+	$result = $wpdb->get_results("
 		SELECT * FROM `wp_broadcast_streams`
 		WHERE timestamp > (NOW() - INTERVAL 12 HOUR) 
 		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H')) DESC, units DESC;
-	");
+	", ARRAY_A);
 	
 	foreach( $result as $row ) {
 		$out .= "[{$row['service_id']}] {$row['display_name']}";
