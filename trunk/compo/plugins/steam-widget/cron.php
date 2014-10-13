@@ -160,7 +160,7 @@ require "fetch-steam.php";
 					VALUES (
 						\"{$game['appid']}\",
 						\"{$game['name']}\",
-						\'{$game['released']}\',
+						{$game['released']},
 						\"{$info}\",
 						\"{$game['url']}\",
 						\"{$game['banner']}\"
