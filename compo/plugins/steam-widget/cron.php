@@ -66,51 +66,69 @@ require "fetch-steam.php";
 	$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 	
 	if ( $db ) {
-		$table_name = $table_prefix . "steam_info";
-		// Check if Table exists //
-		if( mysqli_num_rows(mysqli_query($db,"SHOW TABLES LIKE '".$table_name."'") ) == 0) {
-			//echo "No Table!\n";
-			
+		$info_table = $table_prefix . "steam_info";
+		// Check if Table exists, and Create //
+		if( mysqli_num_rows(mysqli_query($db,"SHOW TABLES LIKE {$info_table}")) == 0) {
 			// Does not exist, so create it //
 			$query = 
-				"CREATE TABLE " . $table_name . " (
+				"CREATE TABLE " . $info_table . " (
 					name VARCHAR(32) UNIQUE NOT NULL,
 					value text NOT NULL
 				);";
-
-//					ID SERIAL PRIMARY KEY,
-//					
-//					timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-//						ON UPDATE CURRENT_TIMESTAMP,
 			
 			// NOTE: name is NOT indexed, since this table will almost always be fully queried. //
 			// NOTE: 'key' is a reserved word in SQL. Need to use backticks `key` to get it, but meh //
 			//   http://stackoverflow.com/a/2889884 //
 			
-			if ( mysqli_query($db,$query) ) {
-				//echo "Table Created.\n";
-			}
-			else {
+			if ( !mysqli_query($db,$query) ) {
 				echo "Error Creating Table:\n". mysqli_error($db) ."\n";
 				exit(1);
 			}
 		}
-		else {
-			//echo "Got it\n";
-		}
-				
-		$ret = mysqli_query($db,"SELECT * FROM " . $table_name );
-		$data = mysqli_fetch_array($ret);
-		echo "Size: " . count($data) . "\n";
-		print_r( $data );
-		
-		$ds = array();
-		
-		// Build Associative List //
-//		{
-//			$ds[] = 
-//		}
 
+		// Function //
+		function SetInfo( $table, $name, $value ) {
+			$query = 
+				"INSERT INTO {$table} (
+						name,
+						value
+					)
+					VALUES (
+						{$name},
+						{$value}
+					)
+					ON DUPLICATE KEY UPDATE 
+						value=VALUES(value)
+					";
+
+			if ( !mysqli_query($db,$query) ) {
+				echo "Error setting/updating {$name} in to Table:\n". mysqli_error($db) ."\n";
+				exit(1);
+			}
+		}
+		
+		// Store Group Values //
+		SetInfo( $info_table, "group_members", $steam_group['memberCount'];
+		SetInfo( $info_table, "group_members_in_game", $steam_group['membersInGame'];
+		SetInfo( $info_table, "group_members_online", $steam_group['membersOnline'];
+		SetInfo( $info_table, "group_avatar", $steam_group['avatarFull'];
+		
+		
+		// Store Curator Values //
+
+				
+//		$ret = mysqli_query($db,"SELECT * FROM " . $info_table );
+//		$data = mysqli_fetch_array($ret);
+//		echo "Size: " . count($data) . "\n";
+//		print_r( $data );
+//		
+//		$ds = array();
+//		
+//		// Build Associative List //
+////		{
+////			$ds[] = 
+////		}
+//
 		
 		
 //		while($oot = mysqli_fetch_array($ret)) {
