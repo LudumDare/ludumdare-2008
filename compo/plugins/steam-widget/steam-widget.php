@@ -15,11 +15,19 @@ chdir(dirname(__FILE__));	// Change Working Directory to where I am (for my loca
 // - ----------------------------------------------------------------------------------------- - //
 function wp_steam_info_get( $more_query = "" ) {
 	global $wpdb;
-	return $wpdb->get_results("
+	$results = $wpdb->get_results("
 		SELECT *
 		FROM `wp_steam_info`
 		{$more_query};
 	", ARRAY_A);
+	
+	$ret = Array();
+	
+	foreach ( $results as $pair ) {
+		$ret[$pair['name']] = $pair['value'];
+	}
+	
+	return $ret;
 }
 // - ----------------------------------------------------------------------------------------- - //
 function wp_steam_games_get( $more_query = "" ) {
