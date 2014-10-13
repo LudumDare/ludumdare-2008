@@ -17,6 +17,7 @@
 	text-overflow:ellipsis;
 	vertical-align:middle;
 	border-bottom:1px solid #FFF;
+	color:#555;
 }
 
 
@@ -34,6 +35,7 @@
 
 .broadcast_table .live {
 	background:#FFF !important;
+	color: #000;
 }
 
 
