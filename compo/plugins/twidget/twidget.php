@@ -161,21 +161,22 @@ function broadcast_list_func( $attr ) {
 		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
 			units DESC;
 	", ARRAY_A);
-	
-	// Figure out when we were last online //
-	$last_online_time = intval($row['last_online']) / 60;
-	if ( $last_online_time <= 9 ) {
-		$last_online = "NOW " . $row['last_online'];
-	}
-	else if ( $last_online_time >= 60 ) {
-		$last_online = ($last_online_time / 60) . " hours ago";
-	}
-	else {
-		$last_online = $last_online_time . " minutes ago";
-	}
-	
+		
 	$out .= "<div class='broadcast_table'>";
 		foreach( $result as $row ) {
+			// Figure out when we were last online //
+			$last_online_time = intval($row['last_online']) / 60;
+			if ( $last_online_time <= 9 ) {
+				$last_online = "NOW " . $row['last_online'];
+			}
+			else if ( $last_online_time >= 60 ) {
+				$last_online = ($last_online_time / 60) . " hours ago";
+			}
+			else {
+				$last_online = $last_online_time . " minutes ago";
+			}
+
+			// Build Page //
 			$out .= "<div class='row" . ($row['live'] ? " live" : "") ."'>";
 				$out .= "<div class='service{$row['service_id']}'></div>";
 				$out .= "<div class='name'>{$row['display_name']}</div>";
