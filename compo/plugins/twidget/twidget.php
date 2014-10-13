@@ -161,6 +161,13 @@ function broadcast_list_func( $attr ) {
 		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
 			units DESC;
 	", ARRAY_A);
+	
+	$services = Array(
+		0=>'null',
+		1=>'twitch',
+		2=>'hitbox',
+		3=>'youtube'
+	);
 		
 	$out .= "<div class='broadcast_table'>";
 		$out .= "<div class='header row'>";
@@ -194,7 +201,8 @@ function broadcast_list_func( $attr ) {
 
 			// Build Page //
 			$out .= "<div class='" . ($row['live'] ? "live " : "") ."row'>";
-				$out .= "<div class='service service{$row['service_id']}'></div>";
+				//$out .= "<div class='service service{$row['service_id']}'></div>";
+				$out .= "<div class='service'><img src='{$services[$row['service_id']]}' width='24' height='24'></div>";
 				$out .= "<div class='avatar'><img src='{$row['avatar']}' width='24' height='24'></div>";
 				//$out .= "<div class='name'>{$row['display_name']}</div>";
 				$out .= "<div class='name'><a href='{$row['url']}'>{$row['display_name']}</a> [{$row['followers']}]".($row['mature']?" <span class='mature'>[M]</span>":"")."</div>";
