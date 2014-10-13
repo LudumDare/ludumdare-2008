@@ -165,15 +165,15 @@ function broadcast_list_func( $attr ) {
 	$out .= "<div class='broadcast_table'>";
 		foreach( $result as $row ) {
 			// Figure out when we were last online //
-			$last_online_time = intval($row['last_online']) / 60;
+			$last_online_time = intval($row['last_online']);
 			if ( $last_online_time <= 9 ) {
-				$last_online = "NOW " . $row['last_online'];
+				$last_online = "NOW";
 			}
 			else if ( $last_online_time >= 60 ) {
-				$last_online = ($last_online_time / 60) . " hours ago";
+				$last_online = floor($last_online_time / 60) . " hours ago";
 			}
 			else {
-				$last_online = $last_online_time . " minutes ago";
+				$last_online = floor($last_online_time . " minutes ago";
 			}
 
 			// Build Page //
