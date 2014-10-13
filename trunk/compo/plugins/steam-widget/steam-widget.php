@@ -84,7 +84,7 @@ class SteamWidget extends WP_Widget {
 		";
 
 		foreach( $steam_games as $game ) {
-			$release = strtotime($game['release']);
+			$release = strtotime($game['released']);
 			echo $release;
 			$banner_class = "";
 			if ( $release === 0 ) {
