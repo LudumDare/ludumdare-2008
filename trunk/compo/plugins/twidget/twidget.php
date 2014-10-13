@@ -170,10 +170,12 @@ function broadcast_list_func( $attr ) {
 				$last_online = "NOW";
 			}
 			else if ( $last_online_time >= 60 ) {
-				$last_online = floor($last_online_time / 60) . " hours ago";
+				$hours = floor($last_online_time / 60);
+				$last_online = "{$hours} hour".($hours > 1 ? "s":"")." ago";
 			}
 			else {
-				$last_online = floor($last_online_time) . " minutes ago";
+				$minutes = floor($last_online_time);
+				$last_online = "{$minutes} minutes ago";	// Always Greater than 9 )
 			}
 
 			// Build Page //
