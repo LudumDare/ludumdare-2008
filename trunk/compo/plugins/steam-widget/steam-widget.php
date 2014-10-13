@@ -52,8 +52,6 @@ class SteamWidget extends WP_Widget {
 		$steam_info = wp_steam_info_get();
 		$steam_games = wp_steam_games_get( "ORDER BY RAND() LIMIT 3" );
 		
-		print_r($steam_info);
-		
 		echo '
 			<div class="steambox">
 				<div class="header"></div>
@@ -66,7 +64,7 @@ class SteamWidget extends WP_Widget {
 				<div class="content nobottom">Steam games created during Ludum Dare events. <strong>Follow us!</strong> Help share LD with everyone!</div>
 				<div class="content overflow">
 					<div class="left"><div class="countbox" style="color:#8bc53f">
-						<div class="count">13</div>
+						<div class="count">{$steam_info["curator_games"]}</div>
 						<div class="label">GAMES</div>
 					</div></div>
 					<div class="right"><div class="countbox" style="color:#62a7e3">
@@ -74,7 +72,7 @@ class SteamWidget extends WP_Widget {
 							<div class="follow_button" style="margin-left:12px;margin-top:5px">Follow</div>
 						</span>
 						<span class="left">
-							<div class="count">2,000</div>
+							<div class="count">{$steam_info["curator_followers"]}</div>
 							<div class="label">FOLLOWERS</div>
 						</span>
 					</div></div>
@@ -97,15 +95,15 @@ class SteamWidget extends WP_Widget {
 				<div class="content nobottom">Dev together. Play together.</div>
 				<div class="content overflow">
 					<div class="left"><div class="countbox" style="color:#9a9a9a">
-						<div class="count">555</div>
+						<div class="count">{$steam_info["group_members"]}</div>
 						<div class="label">MEMBERS</div>
 					</div></div>
 					<div class="right"><div class="countbox" style="color:#62a7e3">
-						<div class="count">55</div>
+						<div class="count">{$steam_info["group_members_online"]}</div>
 						<div class="label">ONLINE</div>
 					</div></div>
 					<div class="center"><div class="countbox" style="color:#8bc53f">
-						<div class="count">5</div>
+						<div class="count">{$steam_info["group_members_in_game"]}</div>
 						<div class="label">IN-GAME</div>
 					</div></div>
 				</div>
