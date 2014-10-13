@@ -91,7 +91,7 @@
 	position: relative;
 }
 
-.steambox .banner > img {
+.steambox .banner ~ img {
 	width:231px;
 	height:87px;
 }
