@@ -139,6 +139,41 @@ function AddTTVScripts() {
 	}
 }
 
+// * * * //
+
+function broadcast_list_func( $atts ) {
+	// Default Attributes (Arguments) //
+	$atts = shortcode_atts( Array(
+		'test' => true
+	), $atts );
+	
+	// * * * //
+
+	$out = "";
+
+	global $wpdb;
+	$result = $wpdb->query("
+		SELECT * FROM `wp_broadcast_streams`
+		WHERE timestamp > (NOW() - INTERVAL 12 HOUR) 
+		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H')) DESC, units DESC;
+	");
+	
+	foreach( $result as $row ) {
+		$out .= "[{$row['service_id']}] {$row['display_name']}";
+		$out .= "<br />";
+	}
+
+	$out .= "Well, this sucks.";
+	
+	// * * * //
+	
+	return $out;
+}
+add_shortcode( 'broadcast_list', 'broadcast_list_func' );
+
+// SELECT * FROM `wp_broadcast_streams` WHERE timestamp > (NOW() - INTERVAL 12 HOUR) ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H')) DESC, units DESC;
+
+
 add_action( 'widgets_init', create_function( '', 'register_widget( "twidget" );' ) );
 add_action( 'wp_footer', 'AddTTVScripts', 500 );
 
