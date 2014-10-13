@@ -155,7 +155,7 @@ function broadcast_list_func( $attr ) {
 	$result = $wpdb->get_results("
 		SELECT *, 
 			(timestamp > (NOW() - INTERVAL 9 MINUTE)) AS live,
-			(TIMEDIFF(NOW(),timestamp)) AS last_online
+			(DATEDIFF(NOW(),timestamp)) AS last_online
 		FROM `wp_broadcast_streams`
 		WHERE timestamp > (NOW() - INTERVAL {$attr['hours']} HOUR) 
 		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
