@@ -154,7 +154,7 @@ function broadcast_list_func( $attr ) {
 	global $wpdb;
 	$result = $wpdb->get_results("
 		SELECT *, 
-			(timestamp > (NOW() - INTERVAL 10 MINUTE)) AS live
+			(timestamp > (NOW() - INTERVAL 2 HOUR)) AS live
 		FROM `wp_broadcast_streams`
 		WHERE timestamp > (NOW() - INTERVAL {$attr['hours']} HOUR) 
 		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H')) DESC,
