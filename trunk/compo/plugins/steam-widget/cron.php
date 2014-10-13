@@ -86,7 +86,7 @@ require "fetch-steam.php";
 			}
 		}
 
-		// Function //
+		// Function to simplify Key/Value setting //
 		function SetInfo( $table, $name, $value ) {
 			$query = 
 				"INSERT INTO {$table} (
@@ -108,10 +108,10 @@ require "fetch-steam.php";
 		}
 		
 		// Store Group Values //
-		SetInfo( $info_table, "group_members", $steam_group['memberCount'];
-		SetInfo( $info_table, "group_members_in_game", $steam_group['membersInGame'];
-		SetInfo( $info_table, "group_members_online", $steam_group['membersOnline'];
-		SetInfo( $info_table, "group_avatar", $steam_group['avatarFull'];
+		SetInfo( $info_table, "group_members", $steam_group['memberCount'] );
+		SetInfo( $info_table, "group_members_in_game", $steam_group['membersInGame'] );
+		SetInfo( $info_table, "group_members_online", $steam_group['membersOnline'] );
+		SetInfo( $info_table, "group_avatar", $steam_group['avatarFull'] );
 		
 		
 		// Store Curator Values //
