@@ -60,7 +60,7 @@ class SteamWidget extends WP_Widget {
 				<div class='header'></div>
 				<div class='content nobottom'>
 					<div class='logo'></div>
-					<div class='avatar'></div>
+					<a href='http://store.steampowered.com/curator/537829-Ludum-Dare/' target='_blank'><div class='avatar'></div></a>
 					<div class='headline_small'>STEAM CURATOR</div>
 					<div class='headline_big'>Ludum Dare</div>
 				</div>
@@ -72,7 +72,7 @@ class SteamWidget extends WP_Widget {
 					</div></div>
 					<div class='right'><div class='countbox' style='color:#62a7e3'>
 						<span class='right'>
-							<div class='follow_button' style='margin-left:12px;margin-top:5px'>Follow</div>
+							<a href='http://store.steampowered.com/curator/537829-Ludum-Dare/' target='_blank'><div class='follow_button' style='margin-left:12px;margin-top:5px'>Follow</div></a>
 						</span>
 						<span class='left'>
 							<div class='count'>{$steam_info['curator_followers']}</div>
