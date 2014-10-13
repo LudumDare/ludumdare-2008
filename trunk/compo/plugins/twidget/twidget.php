@@ -171,7 +171,7 @@ function broadcast_list_func( $attr ) {
 			$out .= "<div class='last_online'>Online</div>";
 			$out .= "<div class='viewers'>Viewers</div>";
 			$out .= "<div class='status'>Status</div>";
-			$out .= "<div class='units'>Time Streaming</div>";
+			$out .= "<div class='units'>Total</div>";
 		$out .= "</div>";
 
 		foreach( $result as $row ) {
