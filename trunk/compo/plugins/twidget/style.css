@@ -64,7 +64,7 @@
 .broadcast_table .avatar {
 	padding:0px 4px !important;
 }
-.broadcast_table .avatar > img {
+.broadcast_table .avatar img {
 	max-width:24px;
 	max-height:24px;
 }
