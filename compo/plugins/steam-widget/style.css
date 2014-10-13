@@ -90,6 +90,12 @@
 .steambox .banner a {
 	position: relative;
 }
+
+.steambox .banner img {
+	width:231px;
+	height:87px;
+}
+
 /*
 .steambox .banner a:hover:before {
 	content: attr(title);
