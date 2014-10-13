@@ -149,6 +149,8 @@ require "fetch-steam.php";
 		}
 		
 		foreach( $steam_curator['games'] as $game ) {
+			$info = addslashes($game['info']);
+			
 			$query = 
 				"INSERT INTO {$game_table} (
 						appid,
@@ -164,7 +166,7 @@ require "fetch-steam.php";
 						\"{$game['appid']}\",
 						\"{$game['name']}\",
 						\"{$game['released']}\",
-						\"{$game['info']}\",
+						\"{$info}\",
 						\"{$game['url']}\",
 						\"{$game['banner']}\",
 						{$game['rateup']},
@@ -181,7 +183,7 @@ require "fetch-steam.php";
 					";
 
 			if ( !mysqli_query($db,$query) ) {
-				echo "Error setting/updating {$name} in to Table:\n". mysqli_error($db) ."\n";
+				echo "Error setting/updating Game Table:\n". mysqli_error($db) ."\n";
 				exit(1);
 			}
 		}
