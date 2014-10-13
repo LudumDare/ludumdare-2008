@@ -84,6 +84,7 @@ class SteamWidget extends WP_Widget {
 				<div class='content center'>
 		";
 
+		echo $http_request_time . "***";
 		foreach( $steam_games as $game ) {
 			$release = strtotime($game['released']);
 			echo $release . " " . $game['released'];
