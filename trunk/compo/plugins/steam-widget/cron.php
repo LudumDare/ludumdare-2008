@@ -189,7 +189,7 @@ require "fetch-steam.php";
 				
 		$result = mysqli_query($db,"SELECT * FROM {$game_table}" );
 		$data = Array();
-		while ( $row = mysqli_fetch_array($result) ) {
+		while ( $row = mysqli_fetch_array($result,MYSQLI_ASSOC) ) {	// I don't care about MYSQLI_BOTH
 			$data[] = $row;
 		}
 		echo "Size: " . count($data) . "\n";
