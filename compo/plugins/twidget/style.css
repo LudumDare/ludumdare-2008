@@ -41,9 +41,13 @@
 
 .broadcast_table .service {
 	padding:0px !important;
+	background:#888;
+}
+
+.broadcast_table .service > div {
 	width:24px;
 	height:24px;
-	background:#888;
+	margin:1px;
 }
 
 .broadcast_table .service1 {
@@ -58,10 +62,11 @@
 
 .broadcast_table .avatar {
 	padding:0px 4px !important;
+}
+.broadcast_table .avatar img {
 	width:24px;
 	height:24px;
 }
-
 
 .broadcast_table .live .online {
 	font-weight:bold;
