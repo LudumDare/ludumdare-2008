@@ -61,10 +61,16 @@
 }
 
 
-.broadcast_table .live .last_online {
+.broadcast_table .live .online {
 	font-weight:bold;
 }
 
-.broadcast_table .units {
+.broadcast_table .viewers {
+	text-align:center;
+}
+.broadcast_table .online {
+	text-align:center;
+}
+.broadcast_table .units, .broadcast_table .units_header {
 	text-align:right;
 }
