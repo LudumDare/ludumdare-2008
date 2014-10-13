@@ -163,7 +163,7 @@ function broadcast_list_func( $attr ) {
 	", ARRAY_A);
 		
 	$out .= "<div class='broadcast_table'>";
-		$out .= "<div class='row header'>";
+		$out .= "<div class='header row'>";
 			$out .= "<div class='service_header'>SV</div>";
 			$out .= "<div class='avatar_header'>A</div>";
 			//$out .= "<div class='name'>Name</div>";
@@ -193,7 +193,7 @@ function broadcast_list_func( $attr ) {
 			$units = floor($units_value/60) . ":" . str_pad($units_value%60, 2, '0', STR_PAD_LEFT);
 
 			// Build Page //
-			$out .= "<div class='row" . ($row['live'] ? " live" : "") ."'>";
+			$out .= "<div class='" . ($row['live'] ? "live " : "") ."row'>";
 				$out .= "<div class='service service{$row['service_id']}'></div>";
 				$out .= "<div class='avatar'><img src='{$row['avatar']}' width='24' height='24'></div>";
 				//$out .= "<div class='name'>{$row['display_name']}</div>";
