@@ -85,12 +85,18 @@ class SteamWidget extends WP_Widget {
 
 		foreach( $steam_games as $game ) {
 			$release = strtotime($game['released']);
-			echo $release . " " . $game['released'];
+			//echo $release . " " . $game['released'];
 			$banner_class = "";
-			if ( $release === 0 ) {
+			if ( $release <= 0 ) {
 				$banner_class = "soon";
 			}
-			
+			else if ( $release > time() ) {
+				$banner_class = "soon";
+			}
+			else if ( $release > (time() - 60*24*60*60) ) {)
+				$banner_class = "new";
+			}
+				
 			echo "	<div class='banner {$banner_class}'>
 						<a href='{$game['url']}' title='{$game['name']}' target='_blank'><img src='{$game['banner']}' /></a>
 					</div>";
