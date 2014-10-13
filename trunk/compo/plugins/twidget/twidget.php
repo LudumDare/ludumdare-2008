@@ -266,8 +266,8 @@ add_shortcode( 'broadcast_list', 'broadcast_list_func' );
 
 
 // Add Local Style Sheet style.css //
-add_action( 'wp_enqueue_scripts', 'prefix_add_my_stylesheet' );
-function prefix_add_my_stylesheet() {
+add_action( 'wp_enqueue_scripts', 'broadcast_add_my_stylesheet' );
+function broadcast_add_my_stylesheet() {
     wp_register_style( 'broadcast-style', plugins_url('style.css', __FILE__) );
     wp_enqueue_style( 'broadcast-style' );
 }

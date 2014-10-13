@@ -1,23 +1,25 @@
 #!/bin
 <?php
-
+// - ----------------------------------------------------------------------------------------- - //
+// Store the current directory part of the requested URL (for building paths to files) //
+@$http_dir = dirname($_SERVER["REQUEST_URI"]);
+chdir(dirname(__FILE__));	// Change Working Directory to where I am (for my local paths) //
+// - ----------------------------------------------------------------------------------------- - //
 // Only allow script to execute if via PHP-CLI (i.e. Cron Job) //
 if (php_sapi_name() !== "cli") {
 	echo "Clever girl (".php_sapi_name().")\n";
 	exit(1);
 }
-
-// Change Working Directory to where I am //
-chdir(dirname(__FILE__));
-
-
-// Get Wordpress Setup Variables //
+// - ----------------------------------------------------------------------------------------- - //
+// Get Wordpress Setup Variables (optional... sort of) //
 @include "../../../wp-config.php";
-
+// - ----------------------------------------------------------------------------------------- - //
+// My Stream Fetching Library //
 require "fetch-streams.php";
+// - ----------------------------------------------------------------------------------------- - //
 
 
-
+// - ----------------------------------------------------------------------------------------- - //
 // MAIN //
 {
 	if ( count($argv) < 3 ) {
