@@ -2,6 +2,8 @@
 .broadcast_table {
 	display:table;
 	width:100%;
+	background-repeat:no-repeat;
+	text-overflow:ellipsis;
 }
 
 .broadcast_table .row {
