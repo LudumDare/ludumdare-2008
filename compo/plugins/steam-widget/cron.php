@@ -75,7 +75,6 @@ require "fetch-steam.php";
 			$query = 
 				"CREATE TABLE " . $table_name . " (
 					name VARCHAR(32) UNIQUE NOT NULL,
-						INDEX (name),
 					value text NOT NULL
 				);";
 
