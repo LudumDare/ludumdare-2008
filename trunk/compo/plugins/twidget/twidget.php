@@ -144,7 +144,7 @@ function AddTTVScripts() {
 function broadcast_list_func( $atts ) {
 	// Default Attributes (Arguments) //
 	$atts = shortcode_atts( Array(
-		'test' => true
+		'hours' => 24
 	), $atts );
 	
 	// * * * //
@@ -154,7 +154,7 @@ function broadcast_list_func( $atts ) {
 	global $wpdb;
 	$result = $wpdb->get_results("
 		SELECT * FROM `wp_broadcast_streams`
-		WHERE timestamp > (NOW() - INTERVAL 12 HOUR) 
+		WHERE timestamp > (NOW() - INTERVAL {$attr['hours']} HOUR) 
 		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H')) DESC, units DESC;
 	", ARRAY_A);
 	
