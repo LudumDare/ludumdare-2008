@@ -179,7 +179,7 @@ function broadcast_list_func( $attr ) {
 			}
 			
 			$units_value = intval($row['units']);
-			$units = floor($units_value/60) . ":" . floor($units_value%60);
+			$units = floor($units_value/60) . ":" . str_pad($units_value%60, 2, '0', STR_PAD_LEFT);
 
 			// Build Page //
 			$out .= "<div class='row" . ($row['live'] ? " live" : "") ."'>";
