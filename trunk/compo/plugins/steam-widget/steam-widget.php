@@ -84,11 +84,9 @@ class SteamWidget extends WP_Widget {
 		";
 
 		foreach( $steam_games as $game ) {
-			$banner_class = "";
-			$title = "Open on STEAM";
-			
+			$banner_class = "";			
 			echo "	<div class='banner {$banner_class}'>
-						<a href='{$game['url']}' title='{$title}'><img src='{$game['banner']}' /></a>
+						<a href='{$game['url']}' title='{$game['name']}'><img src='{$game['banner']}' /></a>
 					</div>";
 		}
 
