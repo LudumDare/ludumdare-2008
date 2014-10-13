@@ -163,6 +163,16 @@ function broadcast_list_func( $attr ) {
 	", ARRAY_A);
 		
 	$out .= "<div class='broadcast_table'>";
+		$out .= "<div class='row header'>";
+			$out .= "<div class='service'>Service</div>";
+			//$out .= "<div class='name'>Name</div>";
+			$out .= "<div class='name'>Name</div>";
+			$out .= "<div class='last_online'>Online</div>";
+			$out .= "<div class='viewers'>Viewers</div>";
+			$out .= "<div class='status'>Status</div>";
+			$out .= "<div class='units'>Time Streaming</div>";
+		$out .= "</div>";
+
 		foreach( $result as $row ) {
 			// Figure out when we were last online //
 			$last_online_time = intval($row['last_online']);
@@ -180,16 +190,6 @@ function broadcast_list_func( $attr ) {
 			
 			$units_value = intval($row['units']);
 			$units = floor($units_value/60) . ":" . str_pad($units_value%60, 2, '0', STR_PAD_LEFT);
-
-			$out .= "<div class='row header'>";
-				$out .= "<div class='service'>Service</div>";
-				//$out .= "<div class='name'>Name</div>";
-				$out .= "<div class='name'>Name</div>";
-				$out .= "<div class='last_online'>Online</div>";
-				$out .= "<div class='viewers'>Viewers</div>";
-				$out .= "<div class='status'>Status</div>";
-				$out .= "<div class='units'>Time Streaming</div>";
-			$out .= "</div>";
 
 			// Build Page //
 			$out .= "<div class='row" . ($row['live'] ? " live" : "") ."'>";
