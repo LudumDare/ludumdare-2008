@@ -153,13 +153,16 @@ function broadcast_list_func( $attr ) {
 
 	global $wpdb;
 	$result = $wpdb->get_results("
-		SELECT * FROM `wp_broadcast_streams`
+		SELECT *, 
+			(timestamp > (NOW() - INTERVAL 10 MINUTE)) AS live
+		FROM `wp_broadcast_streams`
 		WHERE timestamp > (NOW() - INTERVAL {$attr['hours']} HOUR) 
-		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H')) DESC, units DESC;
+		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H')) DESC,
+			units DESC;
 	", ARRAY_A);
 	
 	foreach( $result as $row ) {
-		$out .= "[{$row['service_id']}] {$row['display_name']}";
+		$out .= "[{$row['service_id']}] {$row['display_name']} = {$row['live']}";
 		$out .= "<br />";
 	}
 
