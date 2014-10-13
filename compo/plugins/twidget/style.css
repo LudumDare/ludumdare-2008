@@ -2,6 +2,7 @@
 .broadcast_table {
 	display:table;
 	width:100%;
+	border-collapse:collapse;
 }
 
 .broadcast_table .row {
@@ -15,6 +16,7 @@
 	background-repeat:no-repeat;
 	text-overflow:ellipsis;
 	vertical-align:middle;
+	border-bottom:1px solid #FFF;
 }
 
 
