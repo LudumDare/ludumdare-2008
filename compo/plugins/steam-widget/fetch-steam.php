@@ -94,6 +94,9 @@ function steam_curator_get( $curator_id ) {
 		if ( $released ) {
 			$released = date('Y-m-d', $released);
 		}
+		else {
+			$released = NULL;//'NULL';
+		}
 		
 		$ret['games'][] = Array(
 			'appid' => $appid,
