@@ -49,11 +49,13 @@ class SteamWidget extends WP_Widget {
 		);
 	}
 
+	// TODO: Discounts //
+	// TODO: Hover FX (buttons, highlighted games) //
+	// TODO: Use Actual Avatars (stored in DB). CSS change. //
+	// TODO: Widget config (control panel) //
 	public function widget( $args, $instance ) {
 		$steam_info = wp_steam_info_get();
 		$steam_games = wp_steam_games_get( "ORDER BY RAND() LIMIT 3" );
-		
-//		print_r($steam_games);
 		
 		echo "
 			<div class='steambox'>
@@ -109,10 +111,10 @@ class SteamWidget extends WP_Widget {
 				</div>
 				<div class='rule'></div>
 				<div class='content nobottom'>
-					<span class='right'>
+					<a href='http://steamcommunity.com/groups/ludum' target='_blank'><span class='right'>
 						<div class='follow_button' style='float:right'>Join</div>
 					</span>
-					<div class='avatar_small'></div>
+					<div class='avatar_small'></div></a>
 					<div class='headline_small'>STEAM GROUP</div>
 					<div class='headline_big'>Ludum Dare</div>
 				</div>
