@@ -91,10 +91,10 @@ function steam_curator_get( $curator_id ) {
 		$released_text = $more_html->find('.hover_release',0)->plaintext;
 		$released = strtotime(trim(substr($released_text,strpos($released_text,":")+1)));
 		if ( $released !== NULL ) {
-			$released_str = date('Y-m-d', $released);
+			$released_str = "\"".date('Y-m-d', $released)."\"";
 		}
 		else {
-			$released_str = 'NULL';
+			$released_str = "\'NULL\'";
 		}
 		
 		$ret['games'][] = Array(
