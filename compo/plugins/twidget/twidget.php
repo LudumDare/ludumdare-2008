@@ -141,11 +141,11 @@ function AddTTVScripts() {
 
 // * * * //
 
-function broadcast_list_func( $atts ) {
+function broadcast_list_func( $attr ) {
 	// Default Attributes (Arguments) //
-	$atts = shortcode_atts( Array(
+	$attr = shortcode_atts( Array(
 		'hours' => 24
-	), $atts );
+	), $attr );
 	
 	// * * * //
 
