@@ -71,7 +71,7 @@ require "fetch-steam.php";
 		if( mysqli_num_rows(mysqli_query($db,"SHOW TABLES LIKE '{$info_table}'")) === 0) {
 			// Does not exist, so create it //
 			$query = 
-				"CREATE TABLE " . $info_table . " (
+				"CREATE TABLE {$info_table} (
 					name VARCHAR(32) UNIQUE NOT NULL,
 					value text NOT NULL
 				);";
@@ -87,17 +87,18 @@ require "fetch-steam.php";
 		}
 
 		// Function to simplify Key/Value setting //
-		function SetInfo( $table, $name, $value ) {
+		function SetInfo( $name, $value ) {
 			global $db;
+			global $info_table;
 			
 			$query = 
-				"INSERT INTO {$table} (
+				"INSERT INTO {$info_table} (
 						name,
 						value
 					)
 					VALUES (
-						{$name},
-						{$value}
+						\"{$name}\",
+						\"{$value}\"
 					)
 					ON DUPLICATE KEY UPDATE 
 						value=VALUES(value)
@@ -110,10 +111,10 @@ require "fetch-steam.php";
 		}
 		
 		// Store Group Values //
-		SetInfo( $info_table, "group_members", $steam_group['memberCount'] );
-		SetInfo( $info_table, "group_members_in_game", $steam_group['membersInGame'] );
-		SetInfo( $info_table, "group_members_online", $steam_group['membersOnline'] );
-		SetInfo( $info_table, "group_avatar", $steam_group['avatarFull'] );
+		SetInfo( "group_members", $steam_group['memberCount'] );
+		SetInfo( "group_members_in_game", $steam_group['membersInGame'] );
+		SetInfo( "group_members_online", $steam_group['membersOnline'] );
+		SetInfo( "group_avatar", $steam_group['avatarFull'] );
 		
 		
 		// Store Curator Values //
