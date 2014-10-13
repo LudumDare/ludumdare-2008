@@ -173,7 +173,7 @@ function broadcast_list_func( $attr ) {
 				$last_online = floor($last_online_time / 60) . " hours ago";
 			}
 			else {
-				$last_online = floor($last_online_time . " minutes ago";
+				$last_online = floor($last_online_time) . " minutes ago";
 			}
 
 			// Build Page //
