@@ -81,5 +81,5 @@
 .broadcast_table .service_header, 
 .broadcast_table .avatar_header {
 	text-align:center;
-	padding:0px 4px !important;
+	padding:4px 0px !important;
 }
