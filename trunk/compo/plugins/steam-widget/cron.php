@@ -187,7 +187,8 @@ require "fetch-steam.php";
 
 
 		$result = mysqli_query($db,"SELECT COUNT(`appid`) AS `count` FROM {$game_table}" );
-		$count = mysqli_fetch_array($result,MYSQLI_ASSOC)['count'];
+		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+		$count = $row['count'];
 
 
 		SetInfo( "curator_games", $count );
