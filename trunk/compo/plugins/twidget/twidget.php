@@ -171,8 +171,8 @@ function broadcast_list_func( $attr ) {
 	
 	$modes = Array(
 		0=>"",
-		1=>"Dev",
-		2=>"Play"
+		1=>"DEV",
+		2=>"PLAY"
 	);
 	
 	$dev_patterns = Array(
@@ -190,7 +190,7 @@ function broadcast_list_func( $attr ) {
 			$out .= "<div class='name_header'>Name</div>";
 			$out .= "<div class='online_header'>Online</div>";
 			$out .= "<div class='viewers_header'>Viewers</div>";
-			$out .= "<div class='mode'>Mode</div>";
+			$out .= "<div class='mode_header'>Mode</div>";
 			$out .= "<div class='status_header'>Status</div>";
 			$out .= "<div class='units_header'>Total</div>";
 		$out .= "</div>";
@@ -216,6 +216,14 @@ function broadcast_list_func( $attr ) {
 			$status = $row['status'];
 			$status_lower = strtolower($status);
 			$mode = 0;
+			// Force DEV or PLAY mode //
+			if ( strpos($status,"[DEV]") !== FALSE ) {
+				$mode = 1;
+			}
+			else if ( strpos($status,"[PLAY]") !== FALSE ) {
+				$mode = 2;
+			}
+			// Detect DEV or PLAY mode //
 			if ( $mode === 0 ) {
 				foreach( $play_patterns as $word ) {
 					if ( strpos($status_lower,$word) !== FALSE ) {
