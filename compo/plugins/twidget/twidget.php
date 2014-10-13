@@ -177,13 +177,19 @@ function broadcast_list_func( $attr ) {
 				$minutes = floor($last_online_time);
 				$last_online = "{$minutes} minutes ago";	// Always Greater than 9 )
 			}
+			
+			$units_value = intval($row['units']);
+			$units = floor($units_value/60) . ":" . floor($units_value%60);
 
 			// Build Page //
 			$out .= "<div class='row" . ($row['live'] ? " live" : "") ."'>";
 				$out .= "<div class='service{$row['service_id']}'></div>";
-				$out .= "<div class='name'>{$row['display_name']}</div>";
+				//$out .= "<div class='name'>{$row['display_name']}</div>";
+				$out .= "<div class='name'><a href='{$row['url']}'>{$row['display_name']}</a> [{$row['followers']}]".($row['mature']?" [M]":"")."</div>";
 				$out .= "<div class='last_online'>{$last_online}</div>";
-				$out .= "<br />";
+				$out .= "<div class='viewers'>{$row['viewers']}</div>";
+				$out .= "<div class='status'>{$row['status']}</div>";
+				$out .= "<div class='units'>{$units}</div>";
 			$out .= "</div>";
 		}
 	$out .= "</div>";
