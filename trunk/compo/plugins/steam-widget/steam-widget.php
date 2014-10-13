@@ -52,6 +52,8 @@ class SteamWidget extends WP_Widget {
 		$steam_info = wp_steam_info_get();
 		$steam_games = wp_steam_games_get( "ORDER BY RAND() LIMIT 3" );
 		
+		print_r($steam_games);
+		
 		echo "
 			<div class='steambox'>
 				<div class='header'></div>
@@ -79,9 +81,12 @@ class SteamWidget extends WP_Widget {
 				</div>
 				<div class='rule'></div>
 				<div class='content center'>
+		";
+			
 					<div class='banner new'><a href='somehting' title='open on STEAM'><img src='http://cdn.akamai.steamstatic.com/steam/apps/274290/capsule_231x87.jpg' /></a></div>
 					<div class='banner soon'><a href='somehting' title='open on STEAM'><img src='http://cdn.akamai.steamstatic.com/steam/apps/321560/capsule_231x87.jpg' /></a></div>
 					<div class='banner'><a href='somehting' title='open on STEAM'><img src='http://cdn.akamai.steamstatic.com/steam/apps/274190/capsule_231x87.jpg' /></a></div>
+		echo "
 				</div>
 				<div class='rule'></div>
 				<div class='content nobottom'>

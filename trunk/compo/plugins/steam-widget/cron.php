@@ -185,12 +185,12 @@ require "fetch-steam.php";
 			}
 		}
 
-
+		// Count the Number of Games //
 		$result = mysqli_query($db,"SELECT COUNT(`appid`) AS `count` FROM {$game_table}" );
 		$row = mysqli_fetch_array($result,MYSQLI_ASSOC);
 		$count = $row['count'];
 
-
+		// Store the Count //
 		SetInfo( "curator_games", $count );
 
 				
