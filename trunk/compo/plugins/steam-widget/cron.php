@@ -133,15 +133,12 @@ require "fetch-steam.php";
 					released text NOT NULL,
 					info text NOT NULL,
 					url text NOT NULL,
-					banner text NOT NULL,
-					ratings int NOT NULL,
-					comments int NOT NULL
+					banner text NOT NULL
 				);";
-			
-			// NOTE: name is NOT indexed, since this table will almost always be fully queried. //
-			// NOTE: 'key' is a reserved word in SQL. Need to use backticks `key` to get it, but meh //
-			//   http://stackoverflow.com/a/2889884 //
-			
+
+//					ratings int NOT NULL,
+//					comments int NOT NULL
+						
 			if ( !mysqli_query($db,$query) ) {
 				echo "Error Creating Table:\n". mysqli_error($db) ."\n";
 				exit(1);
@@ -158,9 +155,7 @@ require "fetch-steam.php";
 						released,
 						info,
 						url,
-						banner,
-						ratings,
-						comments
+						banner
 					)
 					VALUES (
 						\"{$game['appid']}\",
@@ -168,19 +163,22 @@ require "fetch-steam.php";
 						\"{$game['released']}\",
 						\"{$info}\",
 						\"{$game['url']}\",
-						\"{$game['banner']}\",
-						{$game['rateup']},
-						{$game['comments']}
+						\"{$game['banner']}\"
 					)
 					ON DUPLICATE KEY UPDATE 
 						name=VALUES(name),
 						released=VALUES(released),
 						info=VALUES(info),
 						url=VALUES(url),
-						banner=VALUES(banner),
-						ratings=VALUES(ratings),
-						comments=VALUES(comments)
+						banner=VALUES(banner)
 					";
+
+//						ratings,
+//						comments
+//						{$game['rateup']},
+//						{$game['comments']}
+//						ratings=VALUES(ratings),
+//						comments=VALUES(comments)
 
 			if ( !mysqli_query($db,$query) ) {
 				echo "Error setting/updating Game Table:\n". mysqli_error($db) ."\n";
