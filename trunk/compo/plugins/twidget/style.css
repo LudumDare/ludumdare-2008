@@ -86,6 +86,7 @@
 }
 .broadcast_table .row .units, .broadcast_table .row .units_header {
 	text-align:right;
+	white-space:nowrap;
 }
 
 
