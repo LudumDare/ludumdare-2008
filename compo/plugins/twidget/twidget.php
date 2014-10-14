@@ -184,7 +184,7 @@ function broadcast_query_func( $query ) {
 		foreach( $result as $row ) {
 			// Figure out when we were last online //
 			$online_time = intval($row['online']);
-			if ( $online_time <= 9 ) {
+			if ( $row['live'] ) {
 				$online = "NOW";
 			}
 			else if ( $online_time >= 60 ) {
