@@ -188,13 +188,12 @@ function broadcast_list_func( $attr ) {
 		$out .= "<div class='header row'>";
 			$out .= "<div class='service_header'>SV</div>";
 			$out .= "<div class='avatar_header'>A</div>";
-			//$out .= "<div class='name'>Name</div>";
 			$out .= "<div class='name_header'>Name</div>";
 			$out .= "<div class='online_header'>Online</div>";
 			$out .= "<div class='viewers_header'>Viewers</div>";
 			$out .= "<div class='mode_header'>Mode</div>";
 			$out .= "<div class='status_header'>Status</div>";
-			$out .= "<div class='units_header'>Total</div>";
+			$out .= "<div class='units_header'>Total H:MM</div>";
 		$out .= "</div>";
 
 		foreach( $result as $row ) {
@@ -245,11 +244,9 @@ function broadcast_list_func( $attr ) {
 
 			// Build Page //
 			$out .= "<div class='" . ($row['live'] ? "live " : "") ."row'>";
-				//$out .= "<div class='service service{$row['service_id']}'></div>";
 				$out .= "<div class='service'><div class='service{$row['service_id']}'></div></div>";
 				$out .= "<div class='avatar'>".($row['avatar']?"<img src='{$row['avatar']}'>":"")."</div>";
-				//$out .= "<div class='name'>{$row['display_name']}</div>";
-				$out .= "<div class='name'><a href='{$row['url']}'>{$row['display_name']}</a> [{$row['followers']}]".($row['mature']?" <span class='mature'>[M]</span>":"")."</div>";
+				$out .= "<div class='name'><a href='{$row['url']}'>{$row['display_name']}</a> [{$row['followers']}]".($row['mature']?" <span class='mature' title='Mature'>[M]</span>":"")."</div>";
 				$out .= "<div class='online'>{$online}</div>";
 				$out .= "<div class='viewers'>{$row['viewers']}</div>";
 				$out .= "<div class='mode'>{$modes[$mode]}</div>";
