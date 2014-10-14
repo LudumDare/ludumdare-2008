@@ -246,7 +246,7 @@ function broadcast_list_func( $attr ) {
 			$out .= "<div class='" . ($row['live'] ? "live " : "") ."row'>";
 				$out .= "<div class='service'><div class='service{$row['service_id']}'></div></div>";
 				$out .= "<div class='avatar'>".($row['avatar']?"<img src='{$row['avatar']}'>":"")."</div>";
-				$out .= "<div class='name'><a href='{$row['url']}'>{$row['display_name']}</a> [{$row['followers']}]".($row['mature']?" <span class='mature' title='Mature'>[M]</span>":"")."</div>";
+				$out .= "<div class='name'><a href='{$row['url']}'>{$row['display_name']}</a> <span title='Followers'>[{$row['followers']}]</span>".($row['mature']?" <span class='mature' title='Mature'>[M]</span>":"")."</div>";
 				$out .= "<div class='online'>{$online}</div>";
 				$out .= "<div class='viewers'>{$row['viewers']}</div>";
 				$out .= "<div class='mode'>{$modes[$mode]}</div>";
