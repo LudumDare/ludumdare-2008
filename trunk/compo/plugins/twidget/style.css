@@ -83,9 +83,13 @@
 }
 .broadcast_table .row .online, .broadcast_table .row .online_header {
 	text-align:center;
+	white-space:nowrap;
 }
 .broadcast_table .row .units, .broadcast_table .row .units_header {
 	text-align:right;
+	white-space:nowrap;
+}
+.broadcast_table .row .name, .broadcast_table .row .name_header {
 	white-space:nowrap;
 }
 
