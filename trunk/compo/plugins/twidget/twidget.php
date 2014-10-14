@@ -186,14 +186,14 @@ function broadcast_list_func( $attr ) {
 		
 	$out .= "<div class='broadcast_table'>";
 		$out .= "<div class='header row'>";
-			$out .= "<div class='service_header'>SV</div>";
-			$out .= "<div class='avatar_header'>A</div>";
+			$out .= "<div class='service_header' title='Service'>SV</div>";
+			$out .= "<div class='avatar_header' title='Avatar'>A</div>";
 			$out .= "<div class='name_header'>Name</div>";
 			$out .= "<div class='online_header'>Online</div>";
 			$out .= "<div class='viewers_header'>Viewers</div>";
 			$out .= "<div class='mode_header'>Mode</div>";
 			$out .= "<div class='status_header'>Status</div>";
-			$out .= "<div class='units_header'>Total H:MM</div>";
+			$out .= "<div class='units_header' title='Total Minutes (in Hours:Minutes)'>Total H:MM</div>";
 		$out .= "</div>";
 
 		foreach( $result as $row ) {
