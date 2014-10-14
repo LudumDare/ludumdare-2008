@@ -141,26 +141,11 @@ function AddTTVScripts() {
 
 // * * * //
 
-function broadcast_list_func( $attr ) {
-	// Default Attributes (Arguments) //
-	$attr = shortcode_atts( Array(
-		'hours' => 24
-	), $attr );
-	
-	// * * * //
-
+function broadcast_query_func( $query ) {
 	$out = "";
 
 	global $wpdb;
-	$result = $wpdb->get_results("
-		SELECT *, 
-			(timestamp > (NOW() - INTERVAL 9 MINUTE)) AS live,
-			(TIMESTAMPDIFF(MINUTE,timestamp,NOW())) AS online
-		FROM `wp_broadcast_streams`
-		WHERE timestamp > (NOW() - INTERVAL {$attr['hours']} HOUR) 
-		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
-			units DESC;
-	", ARRAY_A);
+	$result = $wpdb->get_results($query, ARRAY_A);
 	
 	$services = Array(
 		0=>'null',
@@ -193,7 +178,7 @@ function broadcast_list_func( $attr ) {
 			$out .= "<div class='viewers_header'>Viewers</div>";
 			$out .= "<div class='mode_header'>Mode</div>";
 			$out .= "<div class='status_header'>Status</div>";
-			$out .= "<div class='units_header' title='Total Minutes (in Hours:Minutes)'>Total H:MM</div>";
+			$out .= "<div class='units_header' title='Total Minutes (in Hours:Minutes)'>Total</div>";
 		$out .= "</div>";
 
 		foreach( $result as $row ) {
@@ -260,7 +245,49 @@ function broadcast_list_func( $attr ) {
 	
 	return $out;
 }
+
+function broadcast_list_func( $attr ) {
+	// Default Attributes (Arguments) //
+	$attr = shortcode_atts( Array(
+		'hours' => 24
+	), $attr );
+	
+	// * * * //
+
+	$query = "
+		SELECT *, 
+			(timestamp > (NOW() - INTERVAL 9 MINUTE)) AS live,
+			(TIMESTAMPDIFF(MINUTE,timestamp,NOW())) AS online
+		FROM `wp_broadcast_streams`
+		WHERE timestamp > (NOW() - INTERVAL {$attr['hours']} HOUR) 
+		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
+			units DESC;
+	";
+
+	return broadcast_query_func( $query );
+}
 add_shortcode( 'broadcast_list', 'broadcast_list_func' );
+
+function broadcast_top_func( $attr ) {
+	// Default Attributes (Arguments) //
+	$attr = shortcode_atts( Array(
+		'count' => 10
+	), $attr );
+	
+	// * * * //
+
+	$query = "
+		SELECT *, 
+			(timestamp > (NOW() - INTERVAL 9 MINUTE)) AS live,
+			(TIMESTAMPDIFF(MINUTE,timestamp,NOW())) AS online
+		FROM `wp_broadcast_streams`
+		ORDER BY units DESC
+		LIMIT ${attr['count']};
+	";
+
+	return broadcast_query_func( $query );
+}
+add_shortcode( 'broadcast_top', 'broadcast_top_func' );
 
 
 // Add Local Style Sheet style.css //
