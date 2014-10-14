@@ -177,7 +177,8 @@ function broadcast_list_func( $attr ) {
 	
 	$dev_patterns = Array(
 		"dev","developing","deving","code","coding","create","creating",
-		"make","making","art","draw","compose","composing"
+		"make","making","art","draw","compose","composing","program",
+		"unity","java","c++","c#","python","html","october challenge"
 	);
 	$play_patterns = Array(
 		"play","playing"
