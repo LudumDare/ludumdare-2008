@@ -76,6 +76,7 @@ require "fetch-streams.php";
 	
 	// Open Database //	
 	$db = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+	mysqli_set_charset($db,"utf8");
 	
 	if ( $db ) {
 		$streams_table_name = $table_prefix . "broadcast_streams";
