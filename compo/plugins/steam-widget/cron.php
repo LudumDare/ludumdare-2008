@@ -91,6 +91,8 @@ require "fetch-steam.php";
 			global $db;
 			global $info_table;
 			
+			$_value = mysqli_real_escape_string($db,$value);
+			
 			$query = 
 				"INSERT INTO {$info_table} (
 						name,
@@ -98,7 +100,7 @@ require "fetch-steam.php";
 					)
 					VALUES (
 						\"{$name}\",
-						\"{$value}\"
+						\"{$_value}\"
 					)
 					ON DUPLICATE KEY UPDATE 
 						value=VALUES(value)
@@ -147,8 +149,12 @@ require "fetch-steam.php";
 		}
 		
 		foreach( $steam_curator['games'] as $game ) {
-			$info = addslashes($game['info']);
-			
+			$name = mysqli_real_escape_string($db,$game['name']);
+			$info = mysqli_real_escape_string($db,$game['info']);
+			$url = mysqli_real_escape_string($db,$game['url']);
+			$banner = mysqli_real_escape_string($db,$game['banner']);
+			$discount = mysqli_real_escape_string($db,$game['discount']);
+									
 			$query = 
 				"INSERT INTO {$game_table} (
 						appid,
@@ -161,12 +167,12 @@ require "fetch-steam.php";
 					)
 					VALUES (
 						\"{$game['appid']}\",
-						\"{$game['name']}\",
+						\"{$name}\",
 						\"{$game['released']}\",
 						\"{$info}\",
-						\"{$game['url']}\",
-						\"{$game['banner']}\",
-						\"{$game['discount']}\"
+						\"{$url}\",
+						\"{$banner}\",
+						\"{$discount}\"
 					)
 					ON DUPLICATE KEY UPDATE 
 						name=VALUES(name),

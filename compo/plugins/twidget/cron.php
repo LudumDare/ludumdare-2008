@@ -145,15 +145,15 @@ require "fetch-streams.php";
 			foreach ( $twitch_streams['streams'] as $value ) {
 				$service_id = 1;	// Twitch.tv //
 				$channel_id = intval($value['channel']['_id']);
-				$channel_name = trim($value['channel']['name']);
-				$channel_display_name = trim($value['channel']['display_name']);
+				$channel_name = mysqli_real_escape_string($db,trim($value['channel']['name']));
+				$channel_display_name = mysqli_real_escape_string($db,trim($value['channel']['display_name']));
 				$media_id = intval($value['_id']);
 				$channel_followers = intval($value['channel']['followers']);
 				$media_viewers = intval($value['viewers']);
-				$channel_avatar = trim($value['channel']['logo']);
-				$channel_url = trim($value['channel']['url']);
-				$channel_embed_url = "http://www.twitch.tv/{$channel_name}/embed";
-				$channel_status = addslashes(trim($value['channel']['status']));
+				$channel_avatar = mysqli_real_escape_string($db,trim($value['channel']['logo']));
+				$channel_url = mysqli_real_escape_string($db,trim($value['channel']['url']));
+				$channel_embed_url = mysqli_real_escape_string($db,"http://www.twitch.tv/{$channel_name}/embed");
+				$channel_status = mysqli_real_escape_string($db,trim($value['channel']['status']));
 				$channel_mature = intval($value['channel']['mature']);
 				
 				// http://stackoverflow.com/questions/7825739/epoch-time-and-mysql-query
@@ -226,15 +226,15 @@ require "fetch-streams.php";
 			foreach ( $hitbox_streams['livestream'] as $value ) {
 				$service_id = 2;	// Hitbox.tv //
 				$channel_id = intval($value['channel']['user_id']);
-				$channel_name = trim($value['media_name']);
-				$channel_display_name = trim($value['media_user_name']);
+				$channel_name = mysqli_real_escape_string($db,trim($value['media_name']));
+				$channel_display_name = mysqli_real_escape_string($db,trim($value['media_user_name']));
 				$media_id = intval($value['media_id']);
 				$channel_followers = intval($value['channel']['followers']);
 				$media_viewers = intval($value['media_views']);
-				$channel_avatar = 'http://edge.hitbox.tv' . trim($value['channel']['user_logo']);
-				$channel_url = trim($value['channel']['channel_link']);
-				$channel_embed_url = "http://hitbox.tv/#!/embed/{$channel_name}";
-				$channel_status = addslashes(trim($value['media_status']));
+				$channel_avatar = mysqli_real_escape_string($db,'http://edge.hitbox.tv' . trim($value['channel']['user_logo']));
+				$channel_url = mysqli_real_escape_string($db,trim($value['channel']['channel_link']));
+				$channel_embed_url = mysqli_real_escape_string($db,"http://hitbox.tv/#!/embed/{$channel_name}");
+				$channel_status = mysqli_real_escape_string($db,trim($value['media_status']));
 				$channel_mature = 0;
 				
 				$units = $update_time;
@@ -301,16 +301,16 @@ require "fetch-streams.php";
 			foreach ( $youtube_streams['items'] as $value ) {
 				$service_id = 3;	// YouTube //
 				$channel_id = trim($value['snippet']['channelId']);
-				$channel_name = trim($value['snippet']['channelTitle']);
-				$channel_display_name = trim($value['channel']['snippet']['title']);
+				$channel_name = mysqli_real_escape_string($db,trim($value['snippet']['channelTitle']));
+				$channel_display_name = mysqli_real_escape_string($db,trim($value['channel']['snippet']['title']));
 				$media_id = trim($value['id']['videoId']);
 				$channel_followers = intval($value['channel']['statistics']['subscriberCount']);
 				$media_viewers = intval($value['liveStreamingDetails']['concurrentViewers']);
-				$channel_avatar = trim($value['channel']['snippet']['thumbnails']['high']['url']);
-				$channel_url = "http://youtube.com/" . $channel_name;
+				$channel_avatar = mysqli_real_escape_string($db,trim($value['channel']['snippet']['thumbnails']['high']['url']));
+				$channel_url = mysqli_real_escape_string($db,"http://youtube.com/" . $channel_name);
 				//www.youtube.com/embed/SNzlfSIBb8k?rel=0
-				$channel_embed_url = "//www.youtube.com/embed/{$media_id}?rel=0";
-				$channel_status = addslashes(trim($value['snippet']['title']));
+				$channel_embed_url = mysqli_real_escape_string($db,"//www.youtube.com/embed/{$media_id}?rel=0");
+				$channel_status = mysqli_real_escape_string($db,trim($value['snippet']['title']));
 				$channel_mature = 0;
 				// https://developers.google.com/youtube/v3/docs/videos#contentDetails.contentRating.ytRating
 				if ( array_key_exists("contentRating", $value['contentDetails']) ) {
