@@ -54,22 +54,36 @@ function steam_curator_get( $curator_id ) {
 	$ret['followers'] = $main_html->find('.num_followers', 0)->plaintext;
 	$ret['avatar'] = $main_html->find('.curator_avatar', 0)->src;
 	
-	rsleep( 0.3 );	// Random Sleep, to make me less obvious I am a bot. //
-
 	// Use AJAX to get a 'next page' response, but of the first page w/ 20 elements //
 	// http://store.steampowered.com/curators/ajaxgetcuratorrecommendations/537829//?query=&start=0&count=20
 	$game_url = "http://store.steampowered.com/curators/ajaxgetcuratorrecommendations/". $curator_id ."//?query=&start=0&count=20";
-	$game_json = json_decode(file_get_contents($game_url));
+	$game_data = NULL;
+	$retry = 4;
+	do {
+		rsleep( 0.3 );	// Random Sleep, to make me less obvious I am a bot. //
+		$game_data = @file_get_contents($game_url);
+	} while ( ($game_data === FALSE) && (--$retry) );
+	if ( $game_data === FALSE ) {
+		return NULL;
+	}
+	$game_json = json_decode($game_data);
 	$game_html = str_get_html( $game_json->results_html );
 
 	$ret['games'] = array();
 	foreach( $game_html->find('.recommendation') as $elm ) {
 		$appid = $elm->attr['data-ds-appid'];
 		
-		rsleep( 0.2 );	// Random Sleep, to make it less obvious I am a bot. //
 		// http://store.steampowered.com/apphoverpublic/201040?l=english&pagev6=true
 		$more_url = "http://store.steampowered.com/apphoverpublic/" . $appid . "?l=english&pagev6=true";
-		$more_html = file_get_html( $more_url );
+		$more_html = NULL;
+		$retry = 4;
+		do {
+			rsleep( 0.2 );	// Random Sleep, to make it less obvious I am a bot. //
+			$more_html = file_get_html( $more_url );
+		} while ( ($more_html === FALSE) && (--$retry) );
+		if ( $more_html === FALSE ) {
+			return NULL;
+		}
 		
 		$rateup = 0;
 		$comments = 0;
