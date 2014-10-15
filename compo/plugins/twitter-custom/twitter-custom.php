@@ -6,7 +6,7 @@ chdir(dirname(__FILE__));	// Change Working Directory to where I am (for my loca
 // - ----------------------------------------------------------------------------------------- - //
 
 {
-	https://cdn.syndication.twimg.com/widgets/timelines/408705501921173504
+	//https://cdn.syndication.twimg.com/widgets/timelines/408705501921173504
 
 	$api_url = "https://cdn.syndication.twimg.com/widgets/timelines/408705501921173504";
 	$api_response = @file_get_contents($api_url); // @ surpresses PHP error: http://stackoverflow.com/a/15685966
