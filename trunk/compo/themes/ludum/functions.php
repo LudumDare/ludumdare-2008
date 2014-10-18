@@ -31,6 +31,7 @@ function restrict_comment_editing( $caps, $cap, $user_id, $args ) {
 add_filter( 'map_meta_cap', 'restrict_comment_editing', 10, 4 );
 
 /** @ignore */
+/*
 function kubrick_head() {
 	$head = "<style type='text/css'>\n<!--";
 	$output = '';
@@ -282,11 +283,13 @@ function kubrick_theme_page_head() {
 	addLoadEvent(kInit);
 // ]]>
 </script>
+*/
+
 <style type='text/css'>
 	#headwrap {
 		text-align: center;
 	}
-	#kubrick-header {
+/*	#kubrick-header {
 		font-size: 80%;
 	}
 	#kubrick-header .hibrowser {
@@ -326,6 +329,7 @@ function kubrick_theme_page_head() {
 		width: 100%;
 		display: <?php echo kubrick_header_display_string(); ?>;
 	}
+*/
 	#jsForm {
 		display: none;
 		text-align: center;
@@ -404,7 +408,7 @@ function ludumtheme_comment($comment, $args, $depth) {
      </div>
 <?php
         }
-
+/*
 function kubrick_theme_page() {
 	if ( isset( $_REQUEST['saved'] ) ) echo '<div id="message" class="updated fade"><p><strong>'.__('Options saved.').'</strong></p></div>';
 ?>
@@ -465,4 +469,4 @@ function kubrick_theme_page() {
 		</div>
 	</div>
 </div>
-<?php } ?>
+<?php }*/ ?>
