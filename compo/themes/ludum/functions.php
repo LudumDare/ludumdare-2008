@@ -283,7 +283,6 @@ function kubrick_theme_page_head() {
 	addLoadEvent(kInit);
 // ]]>
 </script>
-*/
 
 <style type='text/css'>
 	#headwrap {
@@ -329,7 +328,6 @@ function kubrick_theme_page_head() {
 		width: 100%;
 		display: <?php echo kubrick_header_display_string(); ?>;
 	}
-*/
 	#jsForm {
 		display: none;
 		text-align: center;
@@ -380,7 +378,7 @@ function kubrick_theme_page_head() {
 </style>
 <?php
 }
-
+*/
 function ludumtheme_comment($comment, $args, $depth) {
    $GLOBALS['comment'] = $comment; ?>
    <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
