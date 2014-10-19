@@ -56,10 +56,10 @@ function choice($letters) {
 }
 
 
-function wordGenerator() {
-
- $this->__construct();
-}
+//function wordGenerator() {
+//
+// $this->__construct();
+//}
 
 function __construct() {
  
