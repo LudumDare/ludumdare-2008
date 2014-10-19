@@ -1614,10 +1614,9 @@ function dashboard_setup() {
 /* Let's go for the party !                                            */
 /***********************************************************************/
 
-function Sabre() {
-
-	$this->__construct();
-	}
+//function Sabre() {
+//	$this->__construct();
+//}
 
 function __construct() {
 
