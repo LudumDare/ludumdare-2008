@@ -6,10 +6,10 @@
 
 add_filter( 'wp_feed_cache_transient_lifetime', create_function('$a', 'return 900;') );
 
-if (WP_DEBUG && WP_DEBUG_DISPLAY) 
-{
-   ini_set('error_reporting', E_ALL & ~E_STRICT & ~E_DEPRECATED);
-}
+//if (WP_DEBUG && WP_DEBUG_DISPLAY) 
+//{
+//   ini_set('error_reporting', E_ALL & ~E_STRICT & ~E_DEPRECATED);
+//}
 
 automatic_feed_links();
 
