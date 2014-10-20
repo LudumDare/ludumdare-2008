@@ -67,27 +67,26 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 </div>
 
 <div id="compo-status"><?php
-	$cached = FALSE;
+	$out = FALSE;
 	
 	if ( function_exists('apcu_fetch') ) {
-		$cached = apcu_fetch('mk_Header_cache');
+		$out = apcu_fetch('mk_Header_cache');
 	}
 
-	if ( $cached === FALSE ) {
+	if ( $out === FALSE ) {
 		global $wpdb;
 		$e = array_pop(compo_query("select * from {$wpdb->posts} where post_name = ? and post_type =?",array("status","page")));
 		
-		$out = apply_filters('the_content',str_replace("\n","<br>",$e["post_content"]));
-		
-		echo $out;
+//		$out = apply_filters('the_content',str_replace("\n","<br>",$e["post_content"]));
+		$out = str_replace("\n","<br>",$e["post_content"]);
 	
 		if ( function_exists('apcu_store') ) {
 			apcu_store('mk_Header_cache', $out, 120);	// Store for 2 minutes //
 		}
 	}
-	else {
-		echo $cached;
-	}		
+
+	$out = apply_filters('the_content',$out);
+	echo $out;
 ?></div>
 
 <hr />
