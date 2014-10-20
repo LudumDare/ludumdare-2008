@@ -22,6 +22,12 @@ if ( function_exists('register_sidebar') ) {
 	));
 }
 
+
+function mk_run_optimizer( $data ) {
+	var_dump($data);
+}
+add_action('loop_start','mk_run_optimizer');
+
 // Remove Bad Actions //	
 //remove_action( 'admin_bar_menu', 'wp_admin_bar_comments_menu', 60 );
 //add_filter('show_admin_bar', '__return_false');
