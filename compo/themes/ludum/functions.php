@@ -34,7 +34,7 @@ function mk_run_optimizer( $data ) {
 add_action('loop_start','mk_run_optimizer');
 
 function mk_run_comment_optimizer( $data ) {
-	print_r($data);
+//	print_r($data);
 //	$users = Array();
 //	foreach ( $data->posts as $post ) {		
 //		$users[] = $post->post_author;
