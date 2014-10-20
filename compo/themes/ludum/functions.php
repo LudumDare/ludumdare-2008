@@ -24,10 +24,12 @@ if ( function_exists('register_sidebar') ) {
 
 
 function mk_run_optimizer( $data ) {
-//	print_r($data->posts);
+	$users = Array();
 	foreach ( $data->posts as $post ) {		
-		echo $post->post_author . "\n";
+		$users[] = $post->post_author;
 	}
+	
+	cache_users($users);
 }
 add_action('loop_start','mk_run_optimizer');
 
