@@ -33,6 +33,17 @@ function mk_run_optimizer( $data ) {
 }
 add_action('loop_start','mk_run_optimizer');
 
+function mk_run_comment_optimizer( $data ) {
+	print_r($data);
+//	$users = Array();
+//	foreach ( $data->posts as $post ) {		
+//		$users[] = $post->post_author;
+//	}
+//	
+//	cache_users($users);
+}
+//add_action('comment_loop_start','mk_run_comment_optimizer');
+
 // Remove Bad Actions //	
 //remove_action( 'admin_bar_menu', 'wp_admin_bar_comments_menu', 60 );
 //add_filter('show_admin_bar', '__return_false');

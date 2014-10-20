@@ -26,6 +26,10 @@
 	</div>
 
 	<ol class="commentlist">
+	<?php 
+		global $wp_query;
+		mk_run_comment_optimizer( $wp_query );
+	?>
 	<?php wp_list_comments( 'callback=ludumtheme_comment' ); ?>
 	</ol>
 
