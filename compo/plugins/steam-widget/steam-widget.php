@@ -54,10 +54,18 @@ class SteamWidget extends WP_Widget {
 	// TODO: Use Actual Avatars (stored in DB). CSS change. //
 	// TODO: Widget config (control panel) //
 	public function widget( $args, $instance ) {
+		if ( function_exists('apcu_fetch') ) {
+			$cached = apcu_fetch('mk_SteamWidget_cache');
+			if ( $cached !== FALSE ) {
+				echo $cached;
+				return;
+			}
+		}
+		
 		$steam_info = wp_steam_info_get();
 		$steam_games = wp_steam_games_get( "ORDER BY RAND() LIMIT 3" );
 		
-		echo "
+		$out = "
 			<div class='steambox'>
 				<div class='header'></div>
 				<div class='content nobottom'>
@@ -102,12 +110,12 @@ class SteamWidget extends WP_Widget {
 				$banner_class = "new";
 			}
 				
-			echo "	<div class='banner {$banner_class}'>
+			$out .= "	<div class='banner {$banner_class}'>
 						<a href='{$game['url']}' title='{$game['name']}' target='_blank'><img src='{$game['banner']}' /></a>
 					</div>";
 		}
 
-		echo "
+		$out .= "
 				</div>
 				<div class='rule'></div>
 				<div class='content nobottom'>
@@ -136,6 +144,12 @@ class SteamWidget extends WP_Widget {
 				<div class='footer'></div>
 			</div>
 		";
+		
+		echo $out;
+
+		if ( function_exists('apcu_store') ) {
+			apcu_store('mk_SteamWidget_cache', $out, 60);	// Store for 1 minute //
+		}
 	}
 
 	/**
