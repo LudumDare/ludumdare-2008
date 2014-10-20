@@ -24,7 +24,7 @@ if ( function_exists('register_sidebar') ) {
 
 
 function mk_run_optimizer( $data ) {
-//	print_r($data);
+	print_r($data->posts);
 //	foreach ( $data->query as $post ) {		
 //		echo $post->post_author . "\n";
 //	}
