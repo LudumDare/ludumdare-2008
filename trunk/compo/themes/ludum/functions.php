@@ -24,7 +24,10 @@ if ( function_exists('register_sidebar') ) {
 
 
 function mk_run_optimizer( $data ) {
-	var_dump($data);
+//	var_dump($data);
+	foreach ( $data->query as $post ) {		
+		echo $post->post_author . "\n";
+	}
 }
 add_action('loop_start','mk_run_optimizer');
 
