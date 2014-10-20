@@ -362,6 +362,13 @@ if( !class_exists('DarenatePlus') ):
 		}
 		
 		function DonateTotal($atts=false) {
+			if ( function_exists('apcu_fetch') ) {
+				$cached = apcu_fetch('mk_DarenatePlus_DonateTotal');
+				if ( $cached !== FALSE ) {
+					return $cached;
+				}
+			}
+			
 			global $wpdb, $currency;
 			extract( shortcode_atts( array( 'prefix' => true, 'suffix' => true, 'type' => false ), $atts ) );
 			$dplus = get_option( 'DarenatePlus' );
@@ -379,10 +386,22 @@ if( !class_exists('DarenatePlus') ):
 			$output .= $total;
 			if( $suffix ) $output .= ' '.$thecur;
 			if( $type ) $output .= ' '.$type;
+
+			if ( function_exists('apcu_store') ) {
+				apcu_store('mk_DarenatePlus_DonateTotal', $output, 60*5);	// Store for 5 minutes //
+			}
+
 			return $output;			
 		}
 		
 		function ExpenseTotal($atts=false) {
+			if ( function_exists('apcu_fetch') ) {
+				$cached = apcu_fetch('mk_DarenatePlus_ExpenseTotal');
+				if ( $cached !== FALSE ) {
+					return $cached;
+				}
+			}
+
 			global $wpdb, $currency;
 			extract( shortcode_atts( array( 'prefix' => true, 'suffix' => true, 'type' => false ), $atts ) );
 			$dplus = get_option( 'DarenatePlus' );
@@ -400,11 +419,23 @@ if( !class_exists('DarenatePlus') ):
 			$output .= $total;
 			if( $suffix ) $output .= ' '.$thecur;
 			if( $type ) $output .= ' '.$type;
+
+			if ( function_exists('apcu_store') ) {
+				apcu_store('mk_DarenatePlus_ExpenseTotal', $output, 60*5);	// Store for 5 minutes //
+			}
+
 			return $output;
 		}
 
 		
 		function FundsTotal($atts=false) {
+			if ( function_exists('apcu_fetch') ) {
+				$cached = apcu_fetch('mk_DarenatePlus_FundsTotal');
+				if ( $cached !== FALSE ) {
+					return $cached;
+				}
+			}
+
 			global $wpdb, $currency;
 			extract( shortcode_atts( array( 'prefix' => true, 'suffix' => true, 'type' => false ), $atts ) );
 			$dplus = get_option( 'DarenatePlus' );
@@ -435,10 +466,22 @@ if( !class_exists('DarenatePlus') ):
 			$output .= $total;
 			if( $suffix ) $output .= ' '.$thecur;
 			if( $type ) $output .= ' '.$type;
+
+			if ( function_exists('apcu_store') ) {
+				apcu_store('mk_DarenatePlus_FundsTotal', $output, 60*5);	// Store for 5 minutes //
+			}
+
 			return $output;
 		}
 		
 		function ExpenseDate($atts=false) {
+			if ( function_exists('apcu_fetch') ) {
+				$cached = apcu_fetch('mk_DarenatePlus_ExpenseDate');
+				if ( $cached !== FALSE ) {
+					return $cached;
+				}
+			}
+
 			global $wpdb;
 			$dplus = get_option( 'DarenatePlus' );
 			$table = $wpdb->prefix . 'expenses';
@@ -448,10 +491,22 @@ if( !class_exists('DarenatePlus') ):
 			foreach( $expenses as $expense ):
 				$output .= date('M j, Y', strtotime($expense->date) );
 			endforeach;
+
+			if ( function_exists('apcu_store') ) {
+				apcu_store('mk_DarenatePlus_ExpenseDate', $output, 60*5);	// Store for 5 minutes //
+			}
+
 			return $output;
 		}
 
 		function ExpenseWall($atts=false) {
+			if ( function_exists('apcu_fetch') ) {
+				$cached = apcu_fetch('mk_DarenatePlus_ExpenseWall');
+				if ( $cached !== FALSE ) {
+					return $cached;
+				}
+			}
+
 			global $wpdb, $currency;
 			extract( shortcode_atts( array( 'title' => '' ), $atts ) );
 			$dplus = get_option( 'DarenatePlus' );
@@ -475,10 +530,22 @@ if( !class_exists('DarenatePlus') ):
 				$output .= '<div class="donorbox"><p><cite><strong><a href="'.$donor->url.'" rel="external" class="name url">'.$donor->name.'</a></strong> '.$donation.' - Added <span class="date time"><a href="#expense-'.$donor->ID.'">'.$datetime.'</a></span></cite>.<blockquote class="comment">'.nl2br($donor->comment).'</blockquote></p></div>';
 			endforeach;
 			$output .= '</div>';
+
+			if ( function_exists('apcu_store') ) {
+				apcu_store('mk_DarenatePlus_ExpenseWall', $output, 60*5);	// Store for 5 minutes //
+			}
+
 			return $output;
 		}
 								
 		function DonorWall($atts=false) {
+			if ( function_exists('apcu_fetch') ) {
+				$cached = apcu_fetch('mk_DarenatePlus_DonorWall');
+				if ( $cached !== FALSE ) {
+					return $cached;
+				}
+			}
+
 			global $wpdb, $currency;
 			$output = '';
 
@@ -528,10 +595,21 @@ if( !class_exists('DarenatePlus') ):
 			$output.="</table>";
 // 			$output .= '</div>';
 
+			if ( function_exists('apcu_store') ) {
+				apcu_store('mk_DarenatePlus_DonorWall', $output, 60*5);	// Store for 5 minutes //
+			}
+
 			return $output;
 		}
 
 		function HighDonorWall($atts=false) {
+			if ( function_exists('apcu_fetch') ) {
+				$cached = apcu_fetch('mk_DarenatePlus_HighDonorWall');
+				if ( $cached !== FALSE ) {
+					return $cached;
+				}
+			}
+
 			global $wpdb, $currency;
 			$output = '';
 			
@@ -582,10 +660,21 @@ if( !class_exists('DarenatePlus') ):
 			$output .= "</table>";
 // 			$output .= '</div>';
 
+			if ( function_exists('apcu_store') ) {
+				apcu_store('mk_DarenatePlus_HighDonorWall', $output, 60*5);	// Store for 5 minutes //
+			}
+
 			return $output;
 		}
 	
 		function HighMonthlyDonorWall($atts=false) {
+			if ( function_exists('apcu_fetch') ) {
+				$cached = apcu_fetch('mk_DarenatePlus_HighMonthlyDonorWall');
+				if ( $cached !== FALSE ) {
+					return $cached;
+				}
+			}
+
 			global $wpdb, $currency;
 			$output = '';
 			
@@ -628,6 +717,10 @@ if( !class_exists('DarenatePlus') ):
 			$output.="</table>";
 			
 			$output.="</div>";
+
+			if ( function_exists('apcu_store') ) {
+				apcu_store('mk_DarenatePlus_HighMonthlyDonorWall', $output, 60*5);	// Store for 5 minutes //
+			}
 
 			return $output;
 		}	
