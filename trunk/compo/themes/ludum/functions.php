@@ -34,13 +34,13 @@ function mk_run_optimizer( $data ) {
 add_action('loop_start','mk_run_optimizer');
 
 function mk_run_comment_optimizer( $data ) {
-	print_r($data->comments);
-//	$users = Array();
-//	foreach ( $data->posts as $post ) {		
-//		$users[] = $post->post_author;
-//	}
-//	
-//	cache_users($users);
+//	print_r($data->comments);
+	$users = Array();
+	foreach ( $data->comments as $post ) {		
+		$users[] = $post->user_id;
+	}
+	
+	cache_users($users);
 }
 //add_action('comment_loop_start','mk_run_comment_optimizer');
 
