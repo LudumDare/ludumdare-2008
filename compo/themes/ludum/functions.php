@@ -22,6 +22,10 @@ if ( function_exists('register_sidebar') ) {
 	));
 }
 
+// Remove Bad Actions //
+remove_action( 'admin_bar_menu', 'wp_admin_bar_comments_menu', 60 );
+
+
 // MK - Hey. Cell informed me Authors could edit the comments of anyone that posted in their threads //
 //      This should fix that issue. //
 // http://scribu.net/wordpress/prevent-blog-authors-from-editing-comments.html
