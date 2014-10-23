@@ -49,9 +49,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 							// Not logged in.
 						} else {
 							// Logged in //
-							echo '<img src="';
 							echo get_avatar( $current_user->user_email, 64 );
-							echo '">';
 						}
 					?>
 				</div>
