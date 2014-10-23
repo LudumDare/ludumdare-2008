@@ -37,15 +37,15 @@
 			<?php } ?>
 			
 			<?php if ( get_the_author_meta('display_name') == 'news' ) { ?>
-				<div class="post ld-news" id="post-<?php the_ID(); ?>">
+				<div class="ld-news post" id="post-<?php the_ID(); ?>">
 			<?php } else if ( get_the_author_meta('user_level') == 10 ) { ?>
-				<div class="post ld-admin" id="post-<?php the_ID(); ?>">
+				<div class="ld-admin post" id="post-<?php the_ID(); ?>">
 			<?php } else if ( is_sticky() ) { ?>
-				<div class="post ld-sticky" id="post-<?php the_ID(); ?>">
+				<div class="ld-sticky post" id="post-<?php the_ID(); ?>">
 			<?php } else if ( get_post_meta(get_the_ID(), '_liked', true) >= 4 ) { ?>
-				<div class="post ld-love" id="post-<?php the_ID(); ?>" >
+				<div class="ld-love post" id="post-<?php the_ID(); ?>" >
 			<?php } else if ( get_the_author_meta('user_level') == 7 ) { ?>
-				<div class="post ld-mod" id="post-<?php the_ID(); ?>">
+				<div class="ld-mod post" id="post-<?php the_ID(); ?>">
 			<?php } else { ?>
 				<div class="post" id="post-<?php the_ID(); ?>" >
 			<?php } ?>
