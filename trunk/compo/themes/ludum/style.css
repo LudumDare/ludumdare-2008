@@ -109,6 +109,8 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 .event .navigation {
 	float:right;
+	margin:0;
+	padding:0;
 }
 
 /* ************ */
