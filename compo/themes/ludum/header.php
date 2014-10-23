@@ -47,9 +47,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 						$current_user = wp_get_current_user();
 						if ( 0 == $current_user->ID ) {
 							// Not logged in.
-							echo '<div class="info">';
-								echo '<div class=\"headline\"><a href="/compo/wp-login.php">Login/Create Account</a></div>';
-							echo '</div>';
+							echo '<div class="headline"><a href="/compo/wp-login.php"><strong>Login</strong> / Create Account</a></div>';
 						} else {
 							// Logged in //
 							echo '<div class="avatar"><a href="http://www.gravatar.com/" target="_blank">' . get_avatar( $current_user->user_email, 64 ) . "</a></div>";
