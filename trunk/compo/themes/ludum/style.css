@@ -475,6 +475,7 @@ body {
 }
 #header .login .avatar img:hover {
 	background: #FFF;
+	border-radius:0 0 0 8px;
 }
 
 #header .login .info {
