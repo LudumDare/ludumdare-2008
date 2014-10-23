@@ -64,7 +64,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			</div>
 		</div>
 		
-		<div id="compo-status"><?php
+		<div id="status"><?php
 			$out = FALSE;
 			
 			if ( function_exists('apcu_fetch') ) {
