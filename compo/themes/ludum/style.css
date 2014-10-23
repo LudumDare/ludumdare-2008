@@ -41,19 +41,19 @@ Tags: blue, custom header, fixed width, two columns, widgets
 */
 
 .ld-news {
-	background: #f0fff0 url('povimg/News.png') no-repeat top right;
+	background: #f0fff0 url('povimg/News.png') no-repeat top right !important;
 }
 .ld-admin {
-	background: #fffff0 url('povimg/Admin.png') no-repeat top right;
+	background: #fffff0 url('povimg/Admin.png') no-repeat top right !important;
 }
 .ld-sticky {
-	background: #f8f8ff url('povimg/Featured.png') no-repeat top right;
+	background: #f8f8ff url('povimg/Featured.png') no-repeat top right !important;
 }
 .ld-love {
-	background: #fff0f0 url('povimg/Heart.png') no-repeat top right;
+	background: #fff0f0 url('povimg/Heart.png') no-repeat top right !important;
 }
 .ld-mod {
-	background: #ffffff url('povimg/Moderator.png') no-repeat top right;
+	background: #ffffff url('povimg/Moderator.png') no-repeat top right !important;
 }
 
 /* ************ */
