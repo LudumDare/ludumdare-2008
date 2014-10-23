@@ -461,6 +461,11 @@ body {
 	border-bottom:4px solid #7d7387;
 }
 
+#header .login_not {
+	float: right;
+	white-space: nowrap;
+}
+
 #header .login .avatar {
 	float: left;
 }
