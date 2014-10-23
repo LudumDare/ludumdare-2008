@@ -294,13 +294,13 @@ img {
 body {
 	font-size: 62.5%; /* Resets 1em to 10px */
 	font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
-	background: #5d4d69 url('povimg/LDBackColor.png');
+	background: #5d4d69;/* url('povimg/LDBackColor.png');*/
 	color: #000;
 	text-align: center;
 	}
 
 #page { 
-	background: url("povimg/LDBack.png") repeat-y top; 
+	background: #ad90cb;/* url("povimg/LDBack.png") repeat-y top; */
 	border: none;
 	text-align: left;
 }
