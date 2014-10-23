@@ -213,7 +213,7 @@ body {
 	}
 
 #header {
-	background: url('povimg/LDHeader.png') no-repeat top center;
+	background: url('povimg/LDHeader.png') no-repeat top;
 }
 
 #content {
@@ -440,7 +440,7 @@ body {
 }
 
 #header .body {
-	margin: 0;
+	margin: 0 8px;
 	padding: 0;
 	width: 100%;
 }

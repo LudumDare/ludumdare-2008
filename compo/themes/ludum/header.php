@@ -53,7 +53,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	<div id="page">
 		<div id="header">
 			<div class="body">
-				<a href="<?php echo get_option('home'); ?>/"><img src="/compo/wp-content/themes/ludum/povimg/LDLogo2015.png" width="286" height="64" /></a>
+				<a href="<?php echo get_option('home'); ?>/"><img src="/compo/wp-content/themes/ludum/povimg/LDLogo2015.png" width="386" height="64" /></a>
 		<!--	<div id="headerimg">
 				<a href="<?php echo get_option('home'); ?>/"><img src="/compo/wp-content/themes/ludum/images/blank.gif" width="900" height="68" border="0" /></a></br />
 			</div>-->
