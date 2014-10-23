@@ -58,9 +58,9 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 
 
 <div id="header">
-	<div id="headerimg">
+<!--	<div id="headerimg">
 		<a href="<?php echo get_option('home'); ?>/"><img src="/compo/wp-content/themes/ludum/images/blank.gif" width="900" height="68" border="0" /></a></br />
-	</div>
+	</div>-->
 </div>
 <div id="compo-navigation">
 	<center><a href="/compo/about-ludum-dare/"><strong>About</strong></a> | <a href="/compo/rules/"><strong>Rules and Guide</strong></a> | <a href="/compo/wp-login.php"><strong>Sign In/Create Account</strong></a> | <a href="/compo/wp-admin/post-new.php"><strong>Write a Post</strong></a></center>
