@@ -210,7 +210,7 @@ body {
 
 #header {
 	background: url('povimg/LDHeader.png') no-repeat top center;
-	}
+}
 
 #headerimg 	{
 	margin: 7px 9px 0;
@@ -437,17 +437,15 @@ body {
 	}
 
 #header {
-	margin: 0 0 0 0px;
-	padding: 0;
-	/*height: 104px;*/
-	width: 958px;
-	}
-
-#headerimg {
 	margin: 0;
-	/*height: 104px;*/
+	padding: 0;
+}
+
+#header .body {
+	margin: 0;
+	padding: 0;
 	width: 100%;
-	}
+}
 
 .narrowcolumn {
 	float: left;
