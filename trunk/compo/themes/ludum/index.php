@@ -1,7 +1,10 @@
 <?php get_header(); ?>
 
 	<div id="content" class="narrowcolumn">
-		<div class="event">Special Section!</div>
+		<div class="event">
+			<div class="navigation"><a href="/compo/october-challenge-2014/?action=edit"><strong>Edit Submission</strong></a> | <a href="/compo/october-challenge-2014/?action=preview">View All</a></div>
+			On now: <a href="/compo/2014/09/29/october-challenge-2014/"><strong>October Challenge 2014</strong></a>
+		</div>
 	
 		<?php if (have_posts()) : ?>
 			<?php while (have_posts()) : the_post(); ?>
