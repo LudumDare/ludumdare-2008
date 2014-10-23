@@ -44,7 +44,18 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: #f0fff0 url('povimg/News.png') no-repeat top right !important;
 }
 .ld-admin {
-	background: #fffff0 url('povimg/Admin.png') no-repeat top right !important;
+	background-size:auto 100px;
+	
+	background: rgb(255,255,240) url('povimg/Admin.png') no-repeat top right !important; /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(255,255,240,1) 50%, rgba(255,255,255,1) 100%) url('povimg/Admin.png') no-repeat top right !important; /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,rgba(255,255,240,1)), color-stop(100%,rgba(255,255,255,1))) url('povimg/Admin.png') no-repeat top right !important; /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,240,1) 50%,rgba(255,255,255,1) 100%) url('povimg/Admin.png') no-repeat top right !important; /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,240,1) 50%,rgba(255,255,255,1) 100%) url('povimg/Admin.png') no-repeat top right !important; /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,240,1) 50%,rgba(255,255,255,1) 100%) url('povimg/Admin.png') no-repeat top right !important; /* IE10+ */
+	background: linear-gradient(to bottom,  rgba(255,255,240,1) 50%,rgba(255,255,255,1) 100%) url('povimg/Admin.png') no-repeat top right !important; /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffff0', endColorstr='#ffffff',GradientType=0 ) url('povimg/Admin.png') no-repeat top right !important; /* IE6-9 */
+
+/*	background: #fffff0 url('povimg/Admin.png') no-repeat top right !important;*/
 }
 .ld-sticky {
 	background: #f8f8ff url('povimg/Featured.png') no-repeat top right !important;
