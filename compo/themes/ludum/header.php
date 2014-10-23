@@ -22,8 +22,8 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css' />
-	
-<!--	<style type="text/css" media="screen">
+<!--	
+	<style type="text/css" media="screen">
 		<?php
 		// Checks to see whether it needs a sidebar or not
 		//if ( !$withcomments && !is_single() ) {
@@ -32,8 +32,8 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		<?php/* } else { // No sidebar ?>
 			#page { background: url("<?php bloginfo('stylesheet_directory'); ?>/povimg/LDBackWide.png") repeat-y top; border: none; }
 		<?php }*/ ?>
-	</style>-->
-	
+	</style>
+-->	
 	<?php wp_head(); ?>
 	
 	<!-- Google Analytics -->
