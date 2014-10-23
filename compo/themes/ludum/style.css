@@ -144,6 +144,10 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 /* ************ */
 
+img {
+	border: 0px;
+}
+
 /* various warnings and things */
 .error, .content .error {
     border: 2px solid #faa;
@@ -211,12 +215,6 @@ body {
 #header {
 	background: url('povimg/LDHeader.png') no-repeat top center;
 }
-
-#headerimg 	{
-	margin: 7px 9px 0;
-/*	height: 104px;*/
-	width: 960px;
-	}
 
 #content {
 	font-size: 1.2em;
