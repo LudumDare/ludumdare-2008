@@ -22,18 +22,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css' />
-<!--	
-	<style type="text/css" media="screen">
-		<?php
-		// Checks to see whether it needs a sidebar or not
-		//if ( !$withcomments && !is_single() ) {
-		?>
-			#page { background: url("<?php bloginfo('stylesheet_directory'); ?>/povimg/LDBack.png") repeat-y top; border: none; }
-		<?php/* } else { // No sidebar ?>
-			#page { background: url("<?php bloginfo('stylesheet_directory'); ?>/povimg/LDBackWide.png") repeat-y top; border: none; }
-		<?php }*/ ?>
-	</style>
--->	
+
 	<?php wp_head(); ?>
 	
 	<!-- Google Analytics -->
@@ -53,10 +42,20 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	<div id="page">
 		<div id="header">
 			<div class="body">
+				<div class="login">
+					<?php
+						$current_user = wp_get_current_user();
+						if ( 0 == $current_user->ID ) {
+							// Not logged in.
+						} else {
+							// Logged in //
+							echo '<img src="';
+							echo get_avatar( $current_user->user_email, 64 );
+							echo '">';
+						}
+					?>
+				</div>
 				<a href="<?php echo get_option('home'); ?>/"><img src="/compo/wp-content/themes/ludum/povimg/LDLogo2015.png" width="386" height="64" /></a>
-		<!--	<div id="headerimg">
-				<a href="<?php echo get_option('home'); ?>/"><img src="/compo/wp-content/themes/ludum/images/blank.gif" width="900" height="68" border="0" /></a></br />
-			</div>-->
 			</div>
 		</div>
 

@@ -453,6 +453,10 @@ body {
 	width: 100%;
 }
 
+#header .body .login {
+	float: right;
+}
+
 .narrowcolumn {
 	float: left;
 	padding: 0 0 5px 20px;
