@@ -457,11 +457,15 @@ body {
 	float: right;
 	background: #e6cdff;
 	white-space: nowrap;
+	border-radius:0 0 0 8px;
 }
 
 #header .login .avatar {
 	float: left;
-	padding:4px;
+}
+
+#header .login .avatar img {
+	padding:4px;	
 }
 
 #header .login .info {
@@ -474,6 +478,13 @@ body {
 	background: #7d7387;
 	padding:4px;
 }
+
+#header .login .info .action {
+	font-size:18px;
+	padding:4px;
+}
+
+
 
 .narrowcolumn {
 	float: left;
