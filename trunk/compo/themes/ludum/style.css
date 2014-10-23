@@ -515,6 +515,7 @@ body {
 	text-align: justify;
 	border-bottom: 1px solid #5e7582;
 	overflow:hidden;
+	border-radius: 3px 3px 8px 8px;
 	}
 
 .post-with-border {
