@@ -470,6 +470,8 @@ body {
 
 #header .login .info {
 	float: left;
+	height: 72px;
+	position:relative;
 }
 
 #header .login .info .headline {
@@ -482,6 +484,14 @@ body {
 #header .login .info .action {
 	font-size:18px;
 	padding:4px;
+	position:absolute;
+	bottom:0px;
+	right:0px;
+}
+
+#header .login a {
+	text-decoration:none;
+	color:#FFF;
 }
 
 
