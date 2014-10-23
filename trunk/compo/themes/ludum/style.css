@@ -476,11 +476,18 @@ body {
 }
 
 #header .login .info .headline {
-	color: #e6cdff;
 	font-size:18px;
 	background: #7d7387;
 	padding:4px;
 	border-radius:0 0 0 8px;
+}
+
+#header, #header a {
+	color: #7d7387;
+}
+
+#header .headline, #header .headline a {
+	color: #e6cdff;
 }
 
 #header .login .info .action {
