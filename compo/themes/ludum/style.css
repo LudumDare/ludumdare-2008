@@ -92,9 +92,8 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	font-size:15px;
 	padding:10px;
 	margin:0 0 10px;
-	border-radius:20px;
+	border-radius:24px;
 	border-top:1px solid #000;
-/*	border-bottom:1px solid #FFF;*/
 }
 
 .event a {
@@ -103,6 +102,10 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .event a:hover {
 	color:#FFF;	
+}
+
+.event .navigation {
+	float:right;
 }
 
 /* ************ */
