@@ -456,6 +456,7 @@ body {
 #header .login {
 	float: right;
 	background: #e6cdff;
+	white-space: nowrap;
 }
 
 #header .login .avatar {
