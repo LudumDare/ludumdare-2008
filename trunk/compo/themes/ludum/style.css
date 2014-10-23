@@ -473,6 +473,9 @@ body {
 #header .login .avatar img {
 	padding:4px;	
 }
+#header .login .avatar img:hover {
+	background: #FFF;
+}
 
 #header .login .info {
 	float: left;
