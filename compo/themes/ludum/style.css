@@ -450,11 +450,12 @@ body {
 #header .body {
 	margin: 0 8px;
 	padding: 0;
-	width: 100%;
+	width: 943px; /*100%;*/
 }
 
 #header .body .login {
 	float: right;
+	background: #d6adff;
 }
 
 .narrowcolumn {
