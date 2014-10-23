@@ -63,10 +63,6 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 				<a href="<?php echo get_option('home'); ?>/" title="Home"><img src="/compo/wp-content/themes/ludum/povimg/LDLogo2015.png" width="386" height="64" /></a>
 			</div>
 		</div>
-
-		<div id="compo-navigation">
-			<center><a href="/compo/about-ludum-dare/"><strong>About</strong></a> | <a href="/compo/rules/"><strong>Rules and Guide</strong></a></center>
-		</div>
 		
 		<div id="compo-status"><?php
 			$out = FALSE;
