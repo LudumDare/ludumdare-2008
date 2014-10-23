@@ -101,6 +101,34 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 /* ************ */
 
+.status {
+	width:960px;
+}
+
+.status .st1of8 { width:110px; margin:0 5px; }
+.status .st2of8 { width:230px; margin:0 5px; }
+.status .st3of8 { width:350px; margin:0 5px; }
+.status .st4of8 { width:470px; margin:0 5px; }
+.status .st5of8 { width:590px; margin:0 5px; }
+.status .st6of8 { width:710px; margin:0 5px; }
+.status .st7of8 { width:830px; margin:0 5px; }
+.status .st8of8 { width:950px; margin:0 5px; }
+
+.status .st1of6 { width:150px; margin:0 5px; }
+.status .st2of6 { width:310px; margin:0 5px; }
+.status .st3of6 { width:470px; margin:0 5px; }
+.status .st4of6 { width:630px; margin:0 5px; }
+.status .st5of6 { width:790px; margin:0 5px; }
+.status .st6of6 { width:950px; margin:0 5px; }
+
+.status .st1of5 { width:182px; margin:0 5px; }
+.status .st2of5 { width:374px; margin:0 5px; }
+.status .st3of5 { width:576px; margin:0 5px; }
+.status .st4of5 { width:786px; margin:0 5px; }
+.status .st5of5 { width:960px; margin:0 5px; }
+
+/* ************ */
+
 .imagebox {	
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
