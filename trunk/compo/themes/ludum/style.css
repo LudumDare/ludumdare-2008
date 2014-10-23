@@ -464,10 +464,13 @@ body {
 	padding:4px;
 }
 
-#header .login .headline {
+#header .login .info {
+	float: left;
+}
+
+#header .login .info .headline {
 	color: #e6cdff;
 	font-size:18px;
-	font-weight:bold;
 	background: #7d7387;
 	padding:4px;
 }
