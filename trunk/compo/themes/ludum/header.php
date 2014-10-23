@@ -51,7 +51,9 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 						} else {
 							// Logged in //
 							echo '<div class="avatar"><a href="http://www.gravatar.com/" target="_blank">' . get_avatar( $current_user->user_email, 64 ) . "</a></div>";
-							echo "<div class=\"headline\">Welcome {$current_user->display_name}!</div>";
+							echo "<div class=\"info\">"
+								echo "<div class=\"headline\">Welcome {$current_user->display_name}!</div>";
+							echo "<div>";
 						}
 					?>
 				</div>
