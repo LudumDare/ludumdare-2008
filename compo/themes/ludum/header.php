@@ -67,9 +67,9 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		<div id="status"><?php
 			$out = FALSE;
 			
-			if ( function_exists('apcu_fetch') ) {
-				$out = apcu_fetch('mk_Header_cache');
-			}
+//			if ( function_exists('apcu_fetch') ) {
+//				$out = apcu_fetch('mk_Header_cache');
+//			}
 		
 			if ( $out === FALSE ) {
 				global $wpdb;
