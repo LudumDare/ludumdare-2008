@@ -56,12 +56,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 .ld-love {
 	background: url('povimg/Heart.png') no-repeat top right, #fff0f0; /* Old browsers */
-	background: url('povimg/Heart.png') no-repeat top right, -moz-linear-gradient(top,  #fff0f0 25%, #ffffff 75%); /* FF3.6+ */
-	background: url('povimg/Heart.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(25%,#fff0f0), color-stop(75%,#ffffff)); /* Chrome,Safari4+ */
-	background: url('povimg/Heart.png') no-repeat top right, -webkit-linear-gradient(top,  #fff0f0 25%,#ffffff 75%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/Heart.png') no-repeat top right, -o-linear-gradient(top,  #fff0f0 25%,#ffffff 75%); /* Opera 11.10+ */
-	background: url('povimg/Heart.png') no-repeat top right, -ms-linear-gradient(top,  #fff0f0 25%,#ffffff 75%); /* IE10+ */
-	background: url('povimg/Heart.png') no-repeat top right, linear-gradient(to bottom,  #fff0f0 25%,#ffffff 75%); /* W3C */
+	background: url('povimg/Heart.png') no-repeat top right, -moz-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%, #ffffff 75%); /* FF3.6+ */
+	background: url('povimg/Heart.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffd8d8), color-stop(25%,#fff0f0), color-stop(75%,#ffffff)); /* Chrome,Safari4+ */
+	background: url('povimg/Heart.png') no-repeat top right, -webkit-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%,#ffffff 75%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Heart.png') no-repeat top right, -o-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%,#ffffff 75%); /* Opera 11.10+ */
+	background: url('povimg/Heart.png') no-repeat top right, -ms-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%,#ffffff 75%); /* IE10+ */
+	background: url('povimg/Heart.png') no-repeat top right, linear-gradient(to bottom, #ffd8d8 0%, #fff0f0 25%,#ffffff 75%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff0f0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 }
 .ld-mod {
