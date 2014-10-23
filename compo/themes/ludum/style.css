@@ -262,7 +262,7 @@ img {
 }
 
 #compo-status {
-    margin: 10px 20px 10px 20px;
+    margin: 10px;
     border-bottom: 1px solid #000;
     background: #eeeeee;
     padding: 4px;
@@ -594,9 +594,9 @@ body {
 
 .narrowcolumn {
 	float: left;
-	padding: 0 0 5px 20px;
+	padding: 0 0 5px 10px;
 	margin: 0px 0 0;
-	width: 620px;
+	width: 640px;
 	}
 
 .widecolumn {
@@ -607,9 +607,9 @@ body {
 
 .fullcolumn {
 	float: left;
-	padding: 0 0 5px 20px;
+	padding: 0 0 5px 10px;
 	margin: 0px 0 0;
-	width: 920px;
+	width: 940px;
 	}
 
 .postflag {
