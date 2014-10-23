@@ -47,7 +47,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 						if ( 0 == $current_user->ID ) {
 							// Not logged in.
 							echo '<div class="login_not">';
-								echo '<div class="headline"><a href="/compo/wp-login.php"><strong>Login</strong> / Create Account</a></div>';
+								echo '<div class="headline"><a href="/compo/wp-login.php"><strong>Login</strong></a> | <a href="/compo/wp-login.php?action=register">Create Account</a></div>';
 							echo '</div>';
 						} else {
 							// Logged in //
