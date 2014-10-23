@@ -206,11 +206,19 @@ body {
 	text-align: center;
 	}
 
+#page { 
+	background: url("povimg/LDBack.png") repeat-y top; 
+	border: none;
+	text-align: left;
+}
+
+/*
 #page {
 	background-color: white;
 	border: 1px solid #959596;
 	text-align: left;
 	}
+*/
 
 #header {
 	background: url('povimg/LDHeader.png') no-repeat top;
@@ -423,16 +431,16 @@ a:hover {
 body {
 	margin: 0 0 20px 0;
 	padding: 0;
-	}
-
+}
+	
 #page {
-	background-color: white;
+/*	background-color: white;*/
 	margin: 0px auto;
 	margin-bottom: 0;
 	padding: 0;
 	width: 960px;
-	border: 1px solid #959596;
-	}
+/*	border: 1px solid #959596;*/
+}
 
 #header {
 	margin: 0;
