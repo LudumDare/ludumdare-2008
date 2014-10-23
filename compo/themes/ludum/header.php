@@ -55,7 +55,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 								echo '<div class="avatar"><a href="http://www.gravatar.com/" target="_blank">' . get_avatar( $current_user->user_email, 64 ) . "</a></div>";
 								echo '<div class="info">';
 									echo "<div class=\"headline\">Welcome <a href=\"/compo/wp-admin/profile.php\"><strong>{$current_user->display_name}</strong></a>!</div>";
-									echo '<div class="action"><a href="/compo/wp-admin/post-new.php">+<strong>NEW POST</strong></a></div>';
+									echo '<div class="action"><a href="/compo/wp-admin/post-new.php">+<strong>New POST</strong></a></div>';
 								echo '</div>';
 							echo '</div>';
 						}
