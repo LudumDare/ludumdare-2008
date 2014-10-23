@@ -88,12 +88,21 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .event {
 	background-color:#5d4d69;
-	color:#DAF;
+	color:#A8D;
+	font-size:15px;
 	padding:10px;
 	margin:0 0 10px;
-	border-radius:10px;
+	border-radius:20px;
 	border-top:1px solid #000;
 /*	border-bottom:1px solid #FFF;*/
+}
+
+.event a {
+	color:#DAF;	
+}
+
+.event a:hover {
+	color:#FFF;	
 }
 
 /* ************ */
