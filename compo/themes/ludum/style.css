@@ -94,6 +94,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	margin:0 0 10px;
 	border-radius:24px 24px 0 0;
 	border-top:1px solid #000;
+	border-bottom:1px solid #DAF;
 }
 
 .event a {
