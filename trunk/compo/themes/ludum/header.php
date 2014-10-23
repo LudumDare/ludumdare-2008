@@ -60,7 +60,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 							echo '</div>';
 						}
 					?>
-				<a href="<?php echo get_option('home'); ?>/"><img src="/compo/wp-content/themes/ludum/povimg/LDLogo2015.png" width="386" height="64" /></a>
+				<a href="<?php echo get_option('home'); ?>/" title="Home"><img src="/compo/wp-content/themes/ludum/povimg/LDLogo2015.png" width="386" height="64" /></a>
 			</div>
 		</div>
 
