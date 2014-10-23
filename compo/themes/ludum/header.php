@@ -47,10 +47,10 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 						$current_user = wp_get_current_user();
 						if ( 0 == $current_user->ID ) {
 							// Not logged in.
-							echo '<a href="http://ludumdare.com/compo/wp-login.php">Login/Create Account"</a>';
+							echo '<a href="http://ludumdare.com/compo/wp-login.php">Login/Create Account</a>';
 						} else {
 							// Logged in //
-							echo get_avatar( $current_user->user_email, 64 );
+							echo '<a href="http://www.gravatar.com/" target="_blank">' . get_avatar( $current_user->user_email, 64 ) . "</a>";
 						}
 					?>
 				</div>
