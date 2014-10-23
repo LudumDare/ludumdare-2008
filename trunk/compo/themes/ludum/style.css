@@ -209,7 +209,7 @@ body {
 	}
 
 #header {
-	background: url('povimg/LDLogo2009.png') no-repeat top center;
+	background: url('povimg/LDHeader.png') no-repeat top center;
 	}
 
 #headerimg 	{
@@ -437,7 +437,7 @@ body {
 	}
 
 #header {
-	margin: 0 0 0 1px;
+	margin: 0 0 0 0px;
 	padding: 0;
 	/*height: 104px;*/
 	width: 958px;

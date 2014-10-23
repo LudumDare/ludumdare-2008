@@ -59,7 +59,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 
 <div id="header">
 	<div id="headerimg">
-		<a href="<?php echo get_option('home'); ?>/"><img src="/compo/wp-content/themes/ludum/images/blank.gif" width="900" height="104" border="0" /></a></br />
+		<a href="<?php echo get_option('home'); ?>/"><img src="/compo/wp-content/themes/ludum/images/blank.gif" width="900" height="68" border="0" /></a></br />
 	</div>
 </div>
 <div id="compo-navigation">
