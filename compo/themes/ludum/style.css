@@ -485,9 +485,10 @@ body {
 }
 
 #header .headline {
-	font-size:18px;
+	font-size:15px;
 	background: #7d7387;
 	padding:4px;
+	margin-left:4px;
 	border-radius:0 0 0 8px;
 }
 
