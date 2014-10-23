@@ -112,15 +112,15 @@ if (is_author() && is_category()) {
 		<?php } ?>
 
 		<?php if ( get_the_author_meta('display_name') == 'news' ) { ?>
-			<div class="post" style="background: #f0fff0 url('/compo/wp-content/themes/ludum/povimg/News.png') no-repeat top right;">
+			<div class="ld-news post">
 		<?php } else if ( get_the_author_meta('user_level') == 10 ) { ?>
-			<div class="post" style="background: #fffff0 url('/compo/wp-content/themes/ludum/povimg/Admin.png') no-repeat top right;">
+			<div class="ld-admin post">
 		<?php } else if ( is_sticky() ) { ?>
-			<div class="post" style="background: #f8f8ff url('/compo/wp-content/themes/ludum/povimg/Featured.png') no-repeat top right;">
+			<div class="ld-sticky post">
 		<?php } else if ( get_post_meta(get_the_ID(), '_liked', true) >= 4 ) { ?>
-			<div class="post" style="background: #fff0f0 url('/compo/wp-content/themes/ludum/povimg/Heart.png') no-repeat top right;">
+			<div class="ld-love post">
 		<?php } else if ( get_the_author_meta('user_level') == 7 ) { ?>
-			<div class="post" style="background: #ffffff url('/compo/wp-content/themes/ludum/povimg/Moderator.png') no-repeat top right;">
+			<div class="ld-mod post">
 		<?php } else { ?>
 			<div class="post">
 		<?php } ?>
