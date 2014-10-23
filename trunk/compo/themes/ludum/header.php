@@ -50,7 +50,8 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 							echo '<a href="http://ludumdare.com/compo/wp-login.php">Login/Create Account</a>';
 						} else {
 							// Logged in //
-							echo '<a href="http://www.gravatar.com/" target="_blank">' . get_avatar( $current_user->user_email, 64 ) . "</a>";
+							echo '<div class="avatar"><a href="http://www.gravatar.com/" target="_blank">' . get_avatar( $current_user->user_email, 64 ) . "</a></div>";
+							echo '<div class="headline">Welcome {$current_user->display_name}!</div>
 						}
 					?>
 				</div>

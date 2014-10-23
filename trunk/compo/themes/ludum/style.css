@@ -453,9 +453,22 @@ body {
 	width: 943px; /*100%;*/
 }
 
-#header .body .login {
+#header .login {
 	float: right;
 	background: #e6cdff;
+}
+
+#header .login .avatar {
+	float: left;
+	padding:4px;
+}
+
+#header .login .headline {
+	color: #e6cdff;
+	font-size:18px;
+	font-weight:bold;
+	background: #7d7387;
+	padding:4px;
 }
 
 .narrowcolumn {
