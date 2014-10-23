@@ -1,8 +1,8 @@
 	<hr />
 	<div id="footer">
-		<p style="color: #ffffff;">
-			<p>All posts, images, and comments are owned by their creators.</p>
-			<?php echo get_num_queries(); ?> queries. <?php timer_stop(1); ?> seconds.
+		<p style="color: #ffffff; text-align:center;">
+			All posts, images, and comments are owned by their creators.<br />
+			<?php echo get_num_queries(); ?> queries executed in <?php timer_stop(1); ?> seconds.
 		</p>
 	</div>
 </div>
