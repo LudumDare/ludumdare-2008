@@ -50,6 +50,10 @@ function steam_curator_get( $curator_id ) {
 	$main_url = "http://store.steampowered.com/curator/". $curator_id ."/";
 	$main_html = file_get_html( $main_url );
 	
+	if ( $main_html === FALSE ) {
+		return NULL;
+	}
+	
 	$ret = array();
 	$ret['followers'] = $main_html->find('.num_followers', 0)->plaintext;
 	$ret['avatar'] = $main_html->find('.curator_avatar', 0)->src;
