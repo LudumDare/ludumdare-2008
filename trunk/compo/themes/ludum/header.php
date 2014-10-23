@@ -42,7 +42,6 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	<div id="page">
 		<div id="header">
 			<div class="body">
-				<div class="login">
 					<?php
 						$current_user = wp_get_current_user();
 						if ( 0 == $current_user->ID ) {
@@ -50,14 +49,15 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 							echo '<div class="headline"><a href="/compo/wp-login.php"><strong>Login</strong> / Create Account</a></div>';
 						} else {
 							// Logged in //
-							echo '<div class="avatar"><a href="http://www.gravatar.com/" target="_blank">' . get_avatar( $current_user->user_email, 64 ) . "</a></div>";
-							echo '<div class="info">';
-								echo "<div class=\"headline\">Welcome <a href=\"/compo/wp-admin/profile.php\"><strong>{$current_user->display_name}</strong></a>!</div>";
-								echo '<div class="action"><a href="/compo/wp-admin/post-new.php">+<strong>NEW POST</strong></a></div>';
+							echo '<div class="login">';
+								echo '<div class="avatar"><a href="http://www.gravatar.com/" target="_blank">' . get_avatar( $current_user->user_email, 64 ) . "</a></div>";
+								echo '<div class="info">';
+									echo "<div class=\"headline\">Welcome <a href=\"/compo/wp-admin/profile.php\"><strong>{$current_user->display_name}</strong></a>!</div>";
+									echo '<div class="action"><a href="/compo/wp-admin/post-new.php">+<strong>NEW POST</strong></a></div>';
+								echo '</div>';
 							echo '</div>';
 						}
 					?>
-				</div>
 				<a href="<?php echo get_option('home'); ?>/"><img src="/compo/wp-content/themes/ludum/povimg/LDLogo2015.png" width="386" height="64" /></a>
 			</div>
 		</div>
