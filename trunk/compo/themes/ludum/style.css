@@ -503,7 +503,7 @@ body {
 	right:0px;
 }
 
-#header .login a:hover {
+#header a:hover {
 	text-decoration:none;
 	color:#FFF;
 }
