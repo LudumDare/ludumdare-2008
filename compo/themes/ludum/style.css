@@ -458,6 +458,7 @@ body {
 	background: #e6cdff;
 	white-space: nowrap;
 	border-radius:0 0 0 8px;
+	border-bottom:4px solid #7d7387;
 }
 
 #header .login .avatar {
@@ -479,6 +480,7 @@ body {
 	font-size:18px;
 	background: #7d7387;
 	padding:4px;
+	border-radius:0 0 0 8px;
 }
 
 #header .login .info .action {
