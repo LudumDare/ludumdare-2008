@@ -36,12 +36,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 .ld-admin {
 	background: url('povimg/Admin.png') no-repeat top right, #fffff0; /* Old browsers */
-	background: url('povimg/Admin.png') no-repeat top right, -moz-linear-gradient(top,  #fffff0 25%, #ffffff 75%); /* FF3.6+ */
-	background: url('povimg/Admin.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(25%,#fffff0), color-stop(75%,#ffffff)); /* Chrome,Safari4+ */
-	background: url('povimg/Admin.png') no-repeat top right, -webkit-linear-gradient(top,  #fffff0 25%,#ffffff 75%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/Admin.png') no-repeat top right, -o-linear-gradient(top,  #fffff0 25%,#ffffff 75%); /* Opera 11.10+ */
-	background: url('povimg/Admin.png') no-repeat top right, -ms-linear-gradient(top,  #fffff0 25%,#ffffff 75%); /* IE10+ */
-	background: url('povimg/Admin.png') no-repeat top right, linear-gradient(to bottom,  #fffff0 25%,#ffffff 75%); /* W3C */
+	background: url('povimg/Admin.png') no-repeat top right, -moz-linear-gradient(top,  #feedca 0%, #fffff0 25%, #ffffff 75%); /* FF3.6+ */
+	background: url('povimg/Admin.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feedca), color-stop(25%,#fffff0), color-stop(75%,#ffffff)); /* Chrome,Safari4+ */
+	background: url('povimg/Admin.png') no-repeat top right, -webkit-linear-gradient(top, #feedca 0%, #fffff0 25%,#ffffff 75%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Admin.png') no-repeat top right, -o-linear-gradient(top, #feedca 0%,  #fffff0 25%,#ffffff 75%); /* Opera 11.10+ */
+	background: url('povimg/Admin.png') no-repeat top right, -ms-linear-gradient(top, #feedca 0%,  #fffff0 25%,#ffffff 75%); /* IE10+ */
+	background: url('povimg/Admin.png') no-repeat top right, linear-gradient(to bottom, #feedca 0%,  #fffff0 25%,#ffffff 75%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffff0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 }
 .ld-sticky {
