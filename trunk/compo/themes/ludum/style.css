@@ -26,12 +26,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .ld-news {
 	background: url('povimg/News.png') no-repeat top right, #f0fff0; /* Old browsers */
-	background: url('povimg/News.png') no-repeat top right, -moz-linear-gradient(top,  #f0fff0 25%, #ffffff 75%); /* FF3.6+ */
-	background: url('povimg/News.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(25%,#f0fff0), color-stop(75%,#ffffff)); /* Chrome,Safari4+ */
-	background: url('povimg/News.png') no-repeat top right, -webkit-linear-gradient(top,  #f0fff0 25%,#ffffff 75%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/News.png') no-repeat top right, -o-linear-gradient(top,  #f0fff0 25%,#ffffff 75%); /* Opera 11.10+ */
-	background: url('povimg/News.png') no-repeat top right, -ms-linear-gradient(top,  #f0fff0 25%,#ffffff 75%); /* IE10+ */
-	background: url('povimg/News.png') no-repeat top right, linear-gradient(to bottom,  #f0fff0 25%,#ffffff 75%); /* W3C */
+	background: url('povimg/News.png') no-repeat top right, -moz-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%, #ffffff 75%); /* FF3.6+ */
+	background: url('povimg/News.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d9ffc3), color-stop(25%,#f0fff0), color-stop(75%,#ffffff)); /* Chrome,Safari4+ */
+	background: url('povimg/News.png') no-repeat top right, -webkit-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#ffffff 75%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/News.png') no-repeat top right, -o-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#ffffff 75%); /* Opera 11.10+ */
+	background: url('povimg/News.png') no-repeat top right, -ms-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#ffffff 75%); /* IE10+ */
+	background: url('povimg/News.png') no-repeat top right, linear-gradient(to bottom, #d9ffc3 0%, #f0fff0 25%,#ffffff 75%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fff0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 }
 .ld-admin {
