@@ -48,7 +48,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 						if ( 0 == $current_user->ID ) {
 							// Not logged in.
 							echo '<div class="info">';
-								echo '<div class=\"headline\"><a href="http://ludumdare.com/compo/wp-login.php">Login/Create Account</a></div>';
+								echo '<div class=\"headline\"><a href="/compo/wp-login.php">Login/Create Account</a></div>';
 							echo '</div>';
 						} else {
 							// Logged in //
