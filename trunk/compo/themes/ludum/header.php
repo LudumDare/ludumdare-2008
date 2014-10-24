@@ -43,7 +43,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		var cdClock;
 		var cdClock_time = [];
 		/*var cdServerClock = new Date(<?php echo gmmktime()*1000; ?>);*/
-		var cdServerClock = new Date(<?php echo $_SERVER['REQUEST_TIME']; ?>*1000);
+		var cdServerClock = new Date(Date.UTC(<?php echo $_SERVER['REQUEST_TIME']; ?>*1000));
 		var cdLocalClock = new Date();
 		var cdTimer;
 		function cdPadZero( num ) {
@@ -72,7 +72,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 				for (var idx = 0; idx < cdClock.length; idx++ ) {
 					var dateA = cdClock_time[idx];
 					var dateB = cdServerClock;//nowClock;
-					var diff = dateA;//new Date( cdDateDiff(dateA,dateB) );
+					var diff = new Date( cdDateDiff(dateA,dateB) );
 					
 					var sep = ":";
 					if ( diff.getMilliseconds() >= 500 ) {
