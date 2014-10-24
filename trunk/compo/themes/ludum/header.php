@@ -77,8 +77,9 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 					if ( diff.getMilliseconds() >= 500 ) {
 						sep = ";";
 					}
+					
 					var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-					var days = Math.round(diff/oneDay);
+					var days = Math.floor(diff.getTime()/oneDay);
 					//var diffDays = Math.round(Math.abs((dateA.getTime() - dateB.getTime())/(oneDay)));
 					
 					var dayText = "Days";
