@@ -45,6 +45,12 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		var cdServerClock = new Date(<?php echo time()*1000; ?>);
 		var cdLocalClock = new Date();
 		var cdTimer;
+		function cdPadZero( num ) {
+			if ( num < 10 ) {
+				return "0" + num;
+			}
+			return num;
+		}
 		function cdDateDiff( a, b ) {
 			if (b < a) {
 				b.setDate(b.getDate() + 1);
@@ -61,7 +67,11 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 				var nowClock = new Date();
 				for (var idx = 0; idx < cdClock.length; idx++ ) {
 					var diff = new Date( cdDateDiff(nowClock,cdClock_time[idx]) );
-					cdClock[idx].innerText = "X Days, " + diff.getHours() + ":" + diff.getMinutes() + ":" + diff.getSeconds();//;"X Days, 00:00:00";//cdClock_time[idx];
+					cdClock[idx].innerText =
+						"X Days, " +
+						cdPadZero(diff.getHours()) + ":" +
+						cdPadZero(diff.getMinutes()) + ":" +
+						cdPadZero(diff.getSeconds());
 				}
 			},1000);
 //var date1 = new Date(2000, 0, 1,  9, 0); // 9:00 AM
