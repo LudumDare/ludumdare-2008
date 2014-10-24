@@ -126,6 +126,9 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .section .cell {
 	background:#ccc;
 }
+.section .label {
+	text-align:right;
+}
 
 .section .s1of8 { width:110px; }
 .section .s2of8 { width:230px; }
