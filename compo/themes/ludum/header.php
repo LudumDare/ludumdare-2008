@@ -69,7 +69,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			cdTimer = setInterval(function(){
 				var nowClock = new Date();
 				for (var idx = 0; idx < cdClock.length; idx++ ) {
-					var dateA = nowClock;
+					var dateA = cdServerClock;//nowClock;
 					var dateB = cdClock_time[idx];
 					var diff = new Date( cdDateDiff(dateA,dateB) );
 					
