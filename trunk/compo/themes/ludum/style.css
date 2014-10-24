@@ -125,10 +125,41 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .section .cell {
 	background:#ccc;
+	position:absolute;
 }
 .section .label {
 	text-align:right;
 }
+
+.section .when {
+}
+.section .name {
+	font-weight:bold;
+	font-size:18px;
+}
+.section .desc {	
+}
+.section .botleft {	
+	position:relative;
+	left:0;
+	bottom:0;
+}
+.section .botright {	
+	position:relative;
+	right:0;
+	bottom:0;
+}
+
+@font-face {
+	font-family: LetsGoDigital;
+	src: url('LD2014/LetsGoDigital.ttf');
+}
+
+.section .clock {	
+	font-family: LetsGoDigital;
+	font-size:18px;
+}
+
 
 .section .s1of8 { width:110px; }
 .section .s2of8 { width:230px; }
