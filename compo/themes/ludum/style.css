@@ -175,7 +175,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .section .clock-desc {
 	color:#FFF;
 	background:rgba(0,0,0,0.4);
-	padding:0 4px;
+	padding:2px 4px;
 	border-top-right-radius:4px;
 }
 
