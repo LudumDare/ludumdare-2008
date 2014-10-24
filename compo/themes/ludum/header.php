@@ -52,12 +52,12 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			return num;
 		}
 		function cdDateDiff( a, b ) {
-			return a.getTime() - b.getTime();
+			//return a.getTime() - b.getTime();
 			//Math.round(Math.abs((dateA.getTime() - dateB.getTime())/(oneDay)));
-//			if (b < a) {
-//				b.setDate(b.getDate() + 1);
-//			}
-//			return b - a;
+			if (b < a) {
+				b.setDate(b.getDate() + 1);
+			}
+			return b - a;
 		}
 		window.addEventListener("load", function() {
 			console.log("Time to Clock!");
@@ -72,6 +72,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 					var dateA = cdClock_time[idx];
 					var dateB = nowClock;
 					var diff = new Date( cdDateDiff(dateA,dateB) );
+					
 					var sep = ":";
 					if ( diff.getMilliseconds() >= 500 ) {
 						sep = ";";
