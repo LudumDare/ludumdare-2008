@@ -72,7 +72,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 				for (var idx = 0; idx < cdClock.length; idx++ ) {
 					var dateA = cdClock_time[idx];
 					var dateB = cdServerClock;//nowClock;
-					var diff = new Date( cdDateDiff(dateA,dateB) );
+					var diff = dateA;//new Date( cdDateDiff(dateA,dateB) );
 					
 					var sep = ":";
 					if ( diff.getMilliseconds() >= 500 ) {
