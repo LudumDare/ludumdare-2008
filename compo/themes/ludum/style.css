@@ -137,6 +137,9 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 
 .section .when {
+	background:rgba(0,0,0,0.4);
+	color:#FFF;
+	padding:2px;
 }
 .section .name {
 	font-weight:bold;
@@ -148,11 +151,18 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	position:absolute;
 	left:0;
 	bottom:0;
+
+	color:#FFF;
+	padding:2px;
 }
 .section .botright {	
 	position:absolute;
 	right:0;
 	bottom:0;
+
+	background:rgba(0,0,0,0.4);
+	color:#FFF;
+	padding:2px;
 }
 
 @font-face {
