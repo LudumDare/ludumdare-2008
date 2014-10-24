@@ -139,7 +139,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .section .when {
 	background:rgba(0,0,0,0.5);
 	color:#FFF;
-	padding:2px 4px;
+	padding:2px 3px;
 	border-top:1px solid rgba(255,255,255,0.7)
 }
 .section .name {
@@ -183,7 +183,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .section .clock-desc {
 	color:#FFF;
 	background:rgba(0,0,0,0.4);
-	padding:2px 4px;
+	padding:2px 3px;
 	border-top-right-radius:4px;
 }
 
