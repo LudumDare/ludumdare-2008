@@ -139,7 +139,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .section .when {
 	background:rgba(0,0,0,0.5);
 	color:#FFF;
-	padding:2px;
+	padding:2px 4px;
 	border-top:1px solid rgba(255,255,255,0.7)
 }
 .section .name {
