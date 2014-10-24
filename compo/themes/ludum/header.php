@@ -59,10 +59,10 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			
 			cdTimer = setTimeout(function(){
 				for (var idx = 0; idx < cdClock.length; idx++ ) {
-					
-					cdClock[idx].innerText = "X Days, 00:00:00";//cdClock_time[idx];
+					var diff = cdDateDiff(cdServerClock,cdClock_time[idx]);
+					cdClock[idx].innerText = diff.getDays() + " Days, " + diff.getHours() + ":" + diff.getMinutes() + ":" + diff.getSeconds();//;"X Days, 00:00:00";//cdClock_time[idx];
 				}
-			},1000/60);
+			},1000);
 //var date1 = new Date(2000, 0, 1,  9, 0); // 9:00 AM
 //var date2 = new Date(2000, 0, 1, 17, 0); // 5:00 PM
 //if (date2 < date1) {
