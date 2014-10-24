@@ -82,30 +82,40 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 				for (var idx = 0; idx < cdClock.length; idx++ ) {
 					var dateA = cdServerClock;//nowClock;
 					var dateB = cdClock_time[idx];
-					var diffTime = cdDateDiff(dateA,dateB);
-					var diff = new Date( diffTime );
+					var diff = cdDateDiff(dateA,dateB);
+					//var diff = new Date( diffTime );
 
-					console.log( diffTime + " --- " + diff );
+					//console.log( diffTime + " --- " + diff );
+
+					var oneSecond = 1000;
+					var oneMinute = 60*1000;
+					var oneHour = 60*60*1000;
+					var oneDay = 24*60*60*1000;
+
+					var diffMS = diff % oneSecond;
+					var diffSeconds = diff / oneSecond % 60;
+					var diffMinutes = diff / oneMinute % 60;
+					var diffHours = diff / oneHour % 24;
+					var diffDays = Math.floor(diff / oneDay);
 					
 					var sep = ":";
-					if ( diff.getMilliseconds() >= 500 ) {
+					if ( diffMS >= 500 ) {
 						sep = ";";
 					}
 					
-					var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-					var days = Math.floor(diff.getTime()/oneDay);
+					//var days = Math.floor(diffTime/oneDay);
 					//var diffDays = Math.round(Math.abs((dateA.getTime() - dateB.getTime())/(oneDay)));
 					
 					var dayText = "Days";
-					if ( days == 1 ) {
+					if ( diffDays == 1 ) {
 						dayText = "Day";
 					}
 					
 					cdClock[idx].innerText =
-						days + " " + dayText + ", " +
-						cdPadZero(diff.getHours()) + sep +
-						cdPadZero(diff.getMinutes()) + sep +
-						cdPadZero(diff.getSeconds());
+						diffDays + " " + dayText + ", " +
+						cdPadZero(diffHours) + sep +
+						cdPadZero(diffMinutes) + sep +
+						cdPadZero(diffSeconds);
 				}
 			},500);
 		});
