@@ -44,7 +44,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		var cdClock_time = [];
 		/*var cdServerClock = new Date(<?php echo gmmktime()*1000; ?>);*/
 		var cdServerTime = <?php echo $_SERVER['REQUEST_TIME']; ?>;
-		console.log( cdServerTime + " -- " + Date(cdServerTime*1000) );
+		console.log( cdServerTime + " -- " + new Date(cdServerTime*1000) );
 		var cdServerClock = new Date(<?php echo $_SERVER['REQUEST_TIME']; ?>*1000);
 		var cdLocalClock = new Date();
 		var cdTimer;
@@ -67,7 +67,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			cdClock = document.getElementsByClassName('clock');
 			for (var idx = 0; idx < cdClock.length; idx++ ) {
 				var TargetTime = cdClock[idx].getAttribute('title');
-				console.log( TargetTime + " --- " + Date( TargetTime ) );
+				console.log( TargetTime + " --- " + new Date( TargetTime ) );
 				cdClock_time.push( new Date( TargetTime ) );
 			}
 			
