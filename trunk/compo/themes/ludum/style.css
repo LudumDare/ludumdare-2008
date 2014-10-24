@@ -22,7 +22,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	list-style-type:none;
 }
 
-a {
+a, a:hover {
 	text-decoration: none;
 }
 
@@ -172,7 +172,7 @@ a {
 	color:#000;
 }
 .section .timezone a:hover {
-	color:#FC2;
+	color:#D40;
 }
 
 .section .botleft {	
