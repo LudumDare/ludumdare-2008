@@ -140,7 +140,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background:rgba(0,0,0,0.5);
 	color:#FFF;
 	padding:2px 3px;
-	border-top:1px solid rgba(255,255,255,0.7)
+/*	border-top:1px solid rgba(255,255,255,0.7)*/
 }
 .section .name {
 	font-weight:bold;
@@ -181,10 +181,11 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	border-top-left-radius:4px;
 }
 .section .clock-desc {
-	color:#FFF;
-	background:rgba(0,0,0,0.4);
+	color:#F40;
+	background:rgba(0,0,0,0.6);
 	padding:2px 3px;
 	border-top-right-radius:4px;
+	text-shadow:0 +1px 0 #000;
 }
 
 .section .glow {
