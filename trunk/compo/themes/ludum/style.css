@@ -125,10 +125,15 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .section .cell {
 	background:#ccc;
-	position:absolute;
+	/*position:absolute;*/
 }
 .section .label {
 	text-align:right;
+}
+
+.section .bigcell {
+	background-size:246px auto;
+	height:80px;
 }
 
 .section .when {
