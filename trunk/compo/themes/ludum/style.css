@@ -144,9 +144,11 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .section .name {
 	font-weight:bold;
 	font-size:18px;
-	color:#F46;
+	color:#FC2;
+	padding:8px;
 }
-.section .desc {	
+.section .desc {
+	color:#FFF;
 }
 .section .botleft {	
 	position:absolute;
@@ -168,7 +170,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	font-family: LetsGoDigital;
 	font-size:21px;
 
-	color:#FA0;
+	color:#F80;
 	background:rgba(0,0,0,0.6);
 	padding:0 4px;
 	border-top-left-radius:4px;
