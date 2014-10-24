@@ -114,10 +114,13 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	display:block;
 	float:left;
 	margin:0 5px;
-	background:#ccc;
 }
 .section > p {
 	display:inline;
+}
+
+.section .cell {
+	background:#ccc;
 }
 
 .section .s1of8 { width:110px; }
