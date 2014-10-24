@@ -58,8 +58,9 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			}
 			
 			cdTimer = setTimeout(function(){
+				var nowClock = new Date();
 				for (var idx = 0; idx < cdClock.length; idx++ ) {
-					var diff = new Date( cdDateDiff(cdServerClock,cdClock_time[idx]) );
+					var diff = new Date( cdDateDiff(nowClock,cdClock_time[idx]) );
 					cdClock[idx].innerText = "X Days, " + diff.getHours() + ":" + diff.getMinutes() + ":" + diff.getSeconds();//;"X Days, 00:00:00";//cdClock_time[idx];
 				}
 			},1000);
