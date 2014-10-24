@@ -151,18 +151,11 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	position:absolute;
 	left:0;
 	bottom:0;
-
-	color:#FFF;
-	padding:2px;
 }
 .section .botright {	
 	position:absolute;
 	right:0;
 	bottom:0;
-
-	background:rgba(0,0,0,0.4);
-	color:#FFF;
-	padding:2px;
 }
 
 @font-face {
@@ -173,8 +166,18 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .section .clock {	
 	font-family: LetsGoDigital;
 	font-size:22px;
-}
 
+	color:#FAO;
+	background:rgba(0,0,0,0.6);
+	padding:0 5px;
+	border-top-left-radius:5px;
+}
+.section .clock-desc {
+	color:#FFF;
+	background:rgba(0,0,0,0.4);
+	padding:0 4px;
+	border-top-right-radius:4px;
+}
 
 .section .s1of8 { width:110px; }
 .section .s2of8 { width:230px; }
