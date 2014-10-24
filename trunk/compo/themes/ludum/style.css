@@ -118,7 +118,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .section > p {
 	display:inline;
 }
-.section > br {
+.section br {
 	display:none;
 	content:" ";
 }
