@@ -157,10 +157,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 .section .timezone {
 	color:#000;
-	padding:4px;
-	background:rgba(255,255,255,0.6);
+	padding:2px 4px;
+	margin:2px;
+	background:rgba(255,255,255,0.7);
 	display:inline-block;
 	border-radius:4px;
+	text-align:right;
 }
 
 .section .botleft {	
