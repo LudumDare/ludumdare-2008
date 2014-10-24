@@ -66,14 +66,29 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			cdTimer = setInterval(function(){
 				var nowClock = new Date();
 				for (var idx = 0; idx < cdClock.length; idx++ ) {
-					var diff = new Date( cdDateDiff(nowClock,cdClock_time[idx]) );
+					var dateA = nowClock;
+					var dateB = cdClock_time[idx];
+					var diff = new Date( cdDateDiff(dateA,dateB) );
+					var sep = ":";
+					if ( diff.getMilliseconds() >= 500 ) {
+						sep = ";";
+					}
+					var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
+					var days = Math.round(diff.getTime()/oneDay);
+					//var diffDays = Math.round(Math.abs((dateA.getTime() - dateB.getTime())/(oneDay)));
+					
+					var dayText = "Days";
+					if ( diffDays == 1 ) {
+						dayText = "Day";
+					}
+					
 					cdClock[idx].innerText =
-						"X Days, " +
-						cdPadZero(diff.getHours()) + ":" +
-						cdPadZero(diff.getMinutes()) + ":" +
+						days + " " + dayText + ", " +
+						cdPadZero(diff.getHours()) + sep +
+						cdPadZero(diff.getMinutes()) + sep +
 						cdPadZero(diff.getSeconds());
 				}
-			},1000);
+			},500);
 //var date1 = new Date(2000, 0, 1,  9, 0); // 9:00 AM
 //var date2 = new Date(2000, 0, 1, 17, 0); // 5:00 PM
 //if (date2 < date1) {
