@@ -22,10 +22,6 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	list-style-type:none;
 }
 
-a, a:hover {
-	text-decoration: none;
-}
-
 /* ************ */
 
 .ld-news {
@@ -169,9 +165,11 @@ a, a:hover {
 	text-align:right;
 }
 .section .timezone a {
+	text-decoration: none;
 	color:#000;
 }
 .section .timezone a:hover {
+	text-decoration: none;
 	color:#D40;
 }
 
