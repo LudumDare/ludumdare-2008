@@ -22,6 +22,10 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	list-style-type:none;
 }
 
+a {
+	text-decoration: none;
+}
+
 /* ************ */
 
 .ld-news {
@@ -163,6 +167,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	display:inline-block;
 	border-radius:4px;
 	text-align:right;
+}
+.section .timezone a {
+	color:#000;
+}
+.section .timezone a:hover {
+	color:#FC2;
 }
 
 .section .botleft {	
