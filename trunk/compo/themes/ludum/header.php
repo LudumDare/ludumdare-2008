@@ -53,12 +53,12 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			return num;
 		}
 		function cdDateDiff( a, b ) {
-			//return b.getTime() - a.getTime();
+			return b.getTime() - a.getTime();
 			//Math.round(Math.abs((dateA.getTime() - dateB.getTime())/(oneDay)));
-			if (b < a) {
-				b.setDate(b.getDate() + 1);
-			}
-			return b - a;
+//			if (b < a) {
+//				b.setDate(b.getDate() + 1);
+//			}
+//			return b - a;
 		}
 		window.addEventListener("load", function() {
 			console.log("Time to Clock!");
