@@ -45,15 +45,19 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		/*var cdServerClock = new Date(<?php echo gmmktime()*1000; ?>);*/
 		var cdServerTime = <?php echo $_SERVER['REQUEST_TIME']; ?>;
 		console.log( cdServerTime + " -- " + new Date(cdServerTime*1000) );
-		var cdServerClock = new Date(<?php echo $_SERVER['REQUEST_TIME']; ?>*1000);
+		var cdServerClock = new Date(cdServerTime*1000);
 		var cdLocalClock = new Date();
 		var cdTimer;
+		
+		// Zero Pad Digits //
 		function cdPadZero( num ) {
 			if ( num < 10 ) {
 				return "0" + num;
 			}
 			return num;
 		}
+		
+		// Subtract B - A //
 		function cdDateDiff( a, b ) {
 			return b.getTime() - a.getTime();
 			//Math.round(Math.abs((dateA.getTime() - dateB.getTime())/(oneDay)));
@@ -62,6 +66,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 //			}
 //			return b - a;
 		}
+		
 		window.addEventListener("load", function() {
 			console.log("Time to Clock!");
 			cdClock = document.getElementsByClassName('clock');
@@ -73,10 +78,14 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			
 			cdTimer = setInterval(function(){
 				var nowClock = new Date();
+				
 				for (var idx = 0; idx < cdClock.length; idx++ ) {
 					var dateA = cdClock_time[idx];
 					var dateB = cdServerClock;//nowClock;
-					var diff = new Date( cdDateDiff(dateA,dateB) );
+					var diffTime = cdDateDiff(dateA,dateB);
+					var diff = new Date( diffTime );
+
+					console.log( diffTime + " --- " + diff );
 					
 					var sep = ":";
 					if ( diff.getMilliseconds() >= 500 ) {
