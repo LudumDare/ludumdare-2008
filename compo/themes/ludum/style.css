@@ -173,6 +173,13 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	color:#000;
 }
 
+.section .announce {
+	font-size:18px;
+	padding:6px;
+	background:#FA0;
+	color:#400;
+}
+
 .section .botleft {	
 	position:absolute;
 	left:0;
