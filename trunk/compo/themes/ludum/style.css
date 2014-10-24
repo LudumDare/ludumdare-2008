@@ -125,7 +125,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .section .cell {
 	background:#ccc;
-	/*position:absolute;*/
+	position:relative;
 }
 .section .label {
 	text-align:right;
@@ -145,12 +145,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .section .desc {	
 }
 .section .botleft {	
-	position:relative;
+	position:absolute;
 	left:0;
 	bottom:0;
 }
 .section .botright {	
-	position:relative;
+	position:absolute;
 	right:0;
 	bottom:0;
 }
