@@ -42,8 +42,11 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	<script type="text/javascript">
 		var cdClock = document.getElementsByClassName('clock');
 		console.log( cdClock );
-		console.log("HOY: " + cdClock.length );
-//		var cdClock_time = cdClock
+		(function() {
+			for (var idx = 0; idx < cdClock.length; idx++ ) {				
+				console.log("" + idx + ": " + cdClock[idx].innerText );
+			}
+		})();	
 	</script>
 </head>
 <body>
