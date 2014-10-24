@@ -173,13 +173,6 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	color:#000;
 }
 
-.section .announce {
-	font-size:18px;
-	padding:6px;
-	background:#FA0;
-	color:#400;
-}
-
 .section .botleft {	
 	position:absolute;
 	left:0;
@@ -289,6 +282,17 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .section .s13of15 { width:822px; }
 .section .s14of15 { width:886px; }
 .section .s15of15 { width:950px; }
+
+/* ************ */
+
+.announce {
+	font-size:16px;
+	padding:4px;
+	background:#5F1;
+	color:#260;
+	width:960px;
+	text-align:center;
+}
 
 /* ************ */
 
