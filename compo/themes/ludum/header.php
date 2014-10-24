@@ -42,7 +42,8 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	<script type="text/javascript">
 		var cdClock;
 		var cdClock_time = [];
-		var cdServerClock = new Date(<?php echo gmmktime()*1000; ?>);
+		/*var cdServerClock = new Date(<?php echo gmmktime()*1000; ?>);*/
+		var cdServerClock = new Date(<?php echo $_SERVER['REQUEST_TIME']*1000; ?>);
 		var cdLocalClock = new Date();
 		var cdTimer;
 		function cdPadZero( num ) {
