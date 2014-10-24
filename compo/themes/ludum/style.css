@@ -179,6 +179,16 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	border-top-right-radius:4px;
 }
 
+.section .glow {
+  color: white;
+  text-shadow:
+    -1px -1px 0 #FFF,
+    1px -1px 0 #FFF,
+    -1px 1px 0 #FFF,
+    1px 1px 0 #FFF;  
+}
+
+
 .section .s1of8 { width:110px; }
 .section .s2of8 { width:230px; }
 .section .s3of8 { width:350px; }
