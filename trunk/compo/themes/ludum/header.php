@@ -92,10 +92,10 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 					var oneHour = 60*60*1000;
 					var oneDay = 24*60*60*1000;
 
-					var diffMS = diff % oneSecond;
-					var diffSeconds = diff / oneSecond % 60;
-					var diffMinutes = diff / oneMinute % 60;
-					var diffHours = diff / oneHour % 24;
+					var diffMS = Math.floor(diff % oneSecond);
+					var diffSeconds = Math.floor(diff / oneSecond) % 60;
+					var diffMinutes = Math.floor(diff / oneMinute) % 60;
+					var diffHours = Math.floor(diff / oneHour) % 24;
 					var diffDays = Math.floor(diff / oneDay);
 					
 					var sep = ":";
