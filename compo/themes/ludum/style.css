@@ -164,13 +164,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	border-radius:4px;
 	text-align:right;
 }
-.section .timezone a {
+.section .timezone:hover {
+	background:rgba(180,200,255,0.7);
+}
+.section .timezone a, .section .timezone a:hover {
 	text-decoration: none;
 	color:#000;
-}
-.section .timezone a:hover {
-	text-decoration: none;
-	color:#D40;
 }
 
 .section .botleft {	
