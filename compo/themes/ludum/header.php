@@ -42,9 +42,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	<script type="text/javascript">
 		var cdClock;
 		var cdClock_time = [];
-		/*var cdServerClock = new Date(<?php echo gmmktime()*1000; ?>);*/
 		var cdServerTime = <?php echo $_SERVER['REQUEST_TIME']; ?>;
-		console.log( cdServerTime + " -- " + new Date(cdServerTime*1000) );
 		var cdServerClock = new Date(cdServerTime*1000);
 		var cdLocalClock = new Date();
 		var cdTimer;
@@ -60,11 +58,6 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		// Subtract B - A //
 		function cdDateDiff( a, b ) {
 			return b.getTime() - a.getTime();
-			//Math.round(Math.abs((dateA.getTime() - dateB.getTime())/(oneDay)));
-//			if (b < a) {
-//				b.setDate(b.getDate() + 1);
-//			}
-//			return b - a;
 		}
 		
 		window.addEventListener("load", function() {
@@ -80,12 +73,9 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 				var nowClock = new Date();
 				
 				for (var idx = 0; idx < cdClock.length; idx++ ) {
-					var dateA = cdServerClock;//nowClock;
+					var dateA = nowClock;//cdServerClock;//nowClock;
 					var dateB = cdClock_time[idx];
 					var diff = cdDateDiff(dateA,dateB);
-					//var diff = new Date( diffTime );
-
-					//console.log( diffTime + " --- " + diff );
 
 					var oneSecond = 1000;
 					var oneMinute = 60*1000;
@@ -103,16 +93,16 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 						sep = ";";
 					}
 					
-					//var days = Math.floor(diffTime/oneDay);
-					//var diffDays = Math.round(Math.abs((dateA.getTime() - dateB.getTime())/(oneDay)));
-					
-					var dayText = "Days";
+					var dayText = diffDays + " Days, ";
 					if ( diffDays == 1 ) {
-						dayText = "Day";
+						dayText = "1 Day, ";
+					}
+					else if ( diffDays == 0 ) {
+						dayText = "";
 					}
 					
 					cdClock[idx].innerText =
-						diffDays + " " + dayText + ", " +
+						dayText +
 						cdPadZero(diffHours) + sep +
 						cdPadZero(diffMinutes) + sep +
 						cdPadZero(diffSeconds);
