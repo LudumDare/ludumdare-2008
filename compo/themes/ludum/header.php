@@ -78,7 +78,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 					//var diffDays = Math.round(Math.abs((dateA.getTime() - dateB.getTime())/(oneDay)));
 					
 					var dayText = "Days";
-					if ( diffDays == 1 ) {
+					if ( days == 1 ) {
 						dayText = "Day";
 					}
 					
