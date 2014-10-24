@@ -165,12 +165,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .section .clock {	
 	font-family: LetsGoDigital;
-	font-size:22px;
+	font-size:21px;
 
-	color:#FAO;
+	color:#FA0;
 	background:rgba(0,0,0,0.6);
-	padding:0 5px;
-	border-top-left-radius:5px;
+	padding:0 4px;
+	border-top-left-radius:4px;
 }
 .section .clock-desc {
 	color:#FFF;
