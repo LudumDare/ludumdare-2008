@@ -41,13 +41,34 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	<!-- Countdown Clocks -->
 	<script type="text/javascript">
 		var cdClock;
+		var cdClock_time = [];
+		var cdServerClock = new Date(<?php echo time()*1000; ?>);
+		var cdLocalClock = new Date();
+		var cdTimer;
+		function cdDateDiff( a, b ) {
+			if (b < a) {
+				b.setDate(b.getDate() + 1);
+			}
+			return b - a;
+		}
 		window.addEventListener("load", function() {
 			cdClock = document.getElementsByClassName('clock');
-			console.log( cdClock );
-			console.log( cdClock.length );
-			for (var idx = 0; idx < cdClock.length; idx++ ) {				
-				console.log("" + idx + ": " + cdClock[idx].innerText );
+			for (var idx = 0; idx < cdClock.length; idx++ ) {
+				cdClock_time.push( new Date( cdClock[idx].innerText ) );
 			}
+			
+			cdTimer = setTimeout(function(){
+				for (var idx = 0; idx < cdClock.length; idx++ ) {
+					
+					cdClock[idx].innerText = "X Days, 00:00:00";//cdClock_time[idx];
+				}
+			},1000/60);
+//var date1 = new Date(2000, 0, 1,  9, 0); // 9:00 AM
+//var date2 = new Date(2000, 0, 1, 17, 0); // 5:00 PM
+//if (date2 < date1) {
+//date2.setDate(date2.getDate() + 1);
+//}
+//var diff = date2 - date1;
 		});
 	</script>
 </head>
