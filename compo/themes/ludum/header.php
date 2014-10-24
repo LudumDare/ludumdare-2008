@@ -55,7 +55,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			//return b.getTime() - a.getTime();
 			//Math.round(Math.abs((dateA.getTime() - dateB.getTime())/(oneDay)));
 			if (b < a) {
-				b.setDate(b.getDate() - 1);
+				b.setDate(b.getDate() + 1);
 			}
 			return b - a;
 		}
@@ -78,7 +78,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 						sep = ";";
 					}
 					var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
-					var days = Math.round(diff.getTime()/oneDay);
+					var days = Math.round(diff/oneDay);
 					//var diffDays = Math.round(Math.abs((dateA.getTime() - dateB.getTime())/(oneDay)));
 					
 					var dayText = "Days";
