@@ -40,7 +40,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	
 	<!-- Countdown Clocks -->
 	<script type="text/javascript">
-		var cdClock = document.querySelectorAll('.clock');
+		var cdClock = document.querySelectorAll('div.clock');
 		console.log("HOY: " + cdClock.length );
 //		var cdClock_time = cdClock
 	</script>
