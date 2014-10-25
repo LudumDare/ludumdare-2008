@@ -40,15 +40,9 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	
 	<!-- Countdown Clocks -->
 	<script type="text/javascript">
-		var cdClock;
-		var cdClock_time = [];
-		var cdServerTime = <?php echo $_SERVER['REQUEST_TIME']; ?>;
-		var cdServerClock = new Date(cdServerTime*1000);
-		var cdLocalClock = new Date();
-		var cdTimer;
-		
+	(function() {
 		// Zero Pad Digits //
-		function cdPadZero( num ) {
+		function PadZero( num ) {
 			if ( num < 10 ) {
 				return "0" + num;
 			}
@@ -56,26 +50,35 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		}
 		
 		// Subtract B - A //
-		function cdDateDiff( a, b ) {
+		function DateDiff( a, b ) {
 			return b.getTime() - a.getTime();
 		}
+
+		var clockElm;
+		var clockElm_time = [];
+		var serverTime = <?php echo $_SERVER['REQUEST_TIME']; ?>;
+		var serverClock = new Date(serverTime*1000);
+		var localClock = new Date();
+		var timerHandle;
 		
-		window.addEventListener("load", function() {
+		window.addEventListener("load", function(e) {
 			console.log("Time to Clock!");
-			cdClock = document.getElementsByClassName('clock');
-			for (var idx = 0; idx < cdClock.length; idx++ ) {
-				var TargetTime = cdClock[idx].getAttribute('title');
+			clockElm = document.getElementsByClassName('clock');
+			for (var idx = 0; idx < clockElm.length; idx++ ) {
+				var TargetTime = clockElm[idx].getAttribute('title');
 				console.log( TargetTime + " --- " + new Date( TargetTime ) );
-				cdClock_time.push( new Date( TargetTime ) );
+				clockElm_time.push( new Date( TargetTime ) );
 			}
 			
-			cdTimer = setInterval(function(){
+			timerHandle = setInterval(function(){
 				var nowClock = new Date();
 				
-				for (var idx = 0; idx < cdClock.length; idx++ ) {
-					var dateA = nowClock;//cdServerClock;//nowClock;
-					var dateB = cdClock_time[idx];
-					var diff = cdDateDiff(dateA,dateB);
+				console.log("Tick");
+				
+				for (var idx = 0; idx < clockElm.length; idx++ ) {
+					var dateA = nowClock;
+					var dateB = clockElm_time[idx];
+					var diff = DateDiff(dateA,dateB);
 
 					var oneSecond = 1000;
 					var oneMinute = 60*1000;
@@ -101,14 +104,15 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 						dayText = "";
 					}
 					
-					cdClock[idx].innerText =
+					clockElm[idx].innerText =
 						dayText +
-						cdPadZero(diffHours) + sep +
-						cdPadZero(diffMinutes) + sep +
-						cdPadZero(diffSeconds);
+						PadZero(diffHours) + sep +
+						PadZero(diffMinutes) + sep +
+						PadZero(diffSeconds);
 				}
 			},500);
 		});
+	})();
 	</script>
 </head>
 <body>
