@@ -105,11 +105,13 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	width:960px;
 }
 
-.section, .section:after {
-	clear:both;
+.section {
 	padding:0;
 	margin:0;
+	overflow:auto;
+	width:100%;
 }
+
 .section > div {
 	display:block;
 	float:left;
