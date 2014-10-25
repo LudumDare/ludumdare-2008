@@ -111,6 +111,10 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .event .navigation a {
 	color:#A20;	
 }
+.event .navigation a:hover {
+	text-decoration:none;
+	color:#FF0;
+}
 
 /* ************ */
 
