@@ -129,7 +129,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 						}
 						else {
 							if ( Math.abs(diff % 1000) >= 500 ) {
-								clockElm[idx].innerHTML = clockElm[idx].getAttribute('end');
+								clockElm[idx].innerHTML = clockElm[idx].getAttribute('msg');
 							}
 							else {
 								clockElm[idx].innerHTML = "";
