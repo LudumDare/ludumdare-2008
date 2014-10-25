@@ -94,20 +94,22 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .event a {
 	color:#F40;	
 }
-
 .event a:hover {
 	text-decoration:none;
 	color:#FFF;	
 }
 
 .event .name {
-	text-shadow:0 1px 0 rgba(0,0,0,0.5);
+/*	text-shadow:0 1px 0 rgba(0,0,0,0.5);*/
 }
 .event .navigation {
 	float:right;
 	margin:0;
 	padding:0;
 	font-size:13px;
+}
+.event .navigation a {
+	color:#A20;	
 }
 
 /* ************ */
