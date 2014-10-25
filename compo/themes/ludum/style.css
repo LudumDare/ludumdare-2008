@@ -92,7 +92,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 
 .event a {
-	color:#F82;	
+	color:#F40;	
 }
 
 .event a:hover {
@@ -230,7 +230,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	text-shadow:0 +1px 0 #000;
 }
 
-.section .glow {
+.glow {
   text-shadow:
     -1px 0px 0 #FFF,
     1px 0px 0 #FFF,
@@ -238,7 +238,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
     1px 2px 0 #FFF,
     0 -1px 0 #FFF; 
 }
-.section .shadow {
+.shadow {
   text-shadow:
     -1px 0px 0 #000,
     1px 0px 0 #000,
