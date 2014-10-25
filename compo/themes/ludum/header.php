@@ -133,12 +133,14 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 				}
 			};
 
-			window.mkClocksShow = function(e) {
+			window.mkClocksFocus = function(e) {
+				console.log("Foc");
 				if ( timerHandle === null ) {
 					timerHandle = setInterval( window._mkClocksFunc,500);
 				}
 			};
-			window.mkClocksHide = function(e) {
+			window.mkClocksBlur = function(e) {
+				console.log("Blu");
 				if ( timerHandle ) {
 					clearInterval( timerHandle );
 					timerHandle = null;
@@ -146,6 +148,8 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			};
 			
 			window.addEventListener("load", window.mkClocksUpdate);
+			window.addEventListener("focus", window.mkClocksFocus);
+			window.addEventListener("blur", window.mkClocksBlur);
 		}
 	})();
 	</script>
