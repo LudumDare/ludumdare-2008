@@ -62,18 +62,18 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		var timerHandle;
 		
 		window.addEventListener("load", function(e) {
-			console.log("Time to Clock!");
+			//console.log("Time to Clock!");
 			clockElm = document.getElementsByClassName('clock');
 			for (var idx = 0; idx < clockElm.length; idx++ ) {
 				var TargetTime = clockElm[idx].getAttribute('title');
-				console.log( TargetTime + " --- " + new Date( TargetTime ) );
+				//console.log( TargetTime + " --- " + new Date( TargetTime ) );
 				clockElm_time.push( new Date( TargetTime ) );
 			}
 			
 			timerHandle = setInterval(function(){
 				var nowClock = new Date();
 				
-				console.log("Tick");
+				//console.log("Tick");
 				
 				for (var idx = 0; idx < clockElm.length; idx++ ) {
 					var dateA = nowClock;
@@ -104,6 +104,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 						dayText = "";
 					}
 					
+					// NOTE: innerText not supported in Firefox, textContent supported IE 9+ //
 					clockElm[idx].textContent =
 						dayText +
 						PadZero(diffHours) + sep +
