@@ -72,15 +72,15 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .event {
 	/*background-color:#FC8;*/
-	
-	background: #ffcc88; /* Old browsers */
-	background: -moz-linear-gradient(top,  #ffcc88 0%, #ff6666 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc88), color-stop(100%,#ff6666)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #ffcc88 0%,#ff6666 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #ffcc88 0%,#ff6666 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #ffcc88 0%,#ff6666 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #ffcc88 0%,#ff6666 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc88', endColorstr='#ff6666',GradientType=0 ); /* IE6-9 */
+
+	background: #ffc57a; /* Old browsers */
+	background: -moz-linear-gradient(left,  #ffc57a 0%, #ff8484 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffc57a), color-stop(100%,#ff8484)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left,  #ffc57a 0%,#ff8484 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left,  #ffc57a 0%,#ff8484 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left,  #ffc57a 0%,#ff8484 100%); /* IE10+ */
+	background: linear-gradient(to right,  #ffc57a 0%,#ff8484 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc57a', endColorstr='#ff8484',GradientType=1 ); /* IE6-9 */
 
 	color:#400;
 	font-size:15px;
