@@ -65,10 +65,12 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		var clocky = DateDiff(localClock,serverClock);
 		console.log(clocky);
 		if ( Math.abs(clocky) < 45*60*1000 ) {
-			clockElm = document.getElementsByClassName('clock');
-			for (var idx = 0; idx < clockElm.length; idx++ ) {
-				clockElm[idx].innerHTML = '<a href="/compo/faq/">Clock Error</a>';
-			}
+			window.addEventListener("load", function(e) {
+				clockElm = document.getElementsByClassName('clock');
+				for (var idx = 0; idx < clockElm.length; idx++ ) {
+					clockElm[idx].innerHTML = '<a href="/compo/faq/">Clock Error</a>';
+				}
+			});
 		}
 		// If Clock is Okay //
 		else {
