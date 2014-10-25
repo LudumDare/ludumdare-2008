@@ -54,31 +54,28 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			return b.getTime() - a.getTime();
 		}
 
-		var clockElm;
+		var clockElm = null;
 		var clockElm_time = [];
+
 		var serverTime = <?php echo $_SERVER['REQUEST_TIME']; ?>;
 		var serverClock = new Date(serverTime*1000);
 		var localClock = new Date();
-		var timerHandle;
+		if ( 
+
+		var timerHandle = null;
 		
 		window.addEventListener("load", function(e) {
-			//console.log("Time to Clock!");
 			clockElm = document.getElementsByClassName('clock');
 			for (var idx = 0; idx < clockElm.length; idx++ ) {
 				var TargetTime = clockElm[idx].getAttribute('title');
-				//console.log( TargetTime + " --- " + new Date( TargetTime ) );
 				clockElm_time.push( new Date( TargetTime ) );
 			}
 			
 			timerHandle = setInterval(function(){
 				var nowClock = new Date();
 				
-				//console.log("Tick");
-				
 				for (var idx = 0; idx < clockElm.length; idx++ ) {
-					var dateA = nowClock;
-					var dateB = clockElm_time[idx];
-					var diff = DateDiff(dateA,dateB);
+					var diff = DateDiff(nowClock,clockElm_time[idx]);
 
 					var oneSecond = 1000;
 					var oneMinute = 60*1000;
@@ -105,7 +102,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 					}
 					
 					// NOTE: innerText not supported in Firefox, textContent supported IE 9+ //
-					clockElm[idx].textContent =
+					clockElm[idx].innerHTML = //textContent =
 						dayText +
 						PadZero(diffHours) + sep +
 						PadZero(diffMinutes) + sep +
