@@ -62,7 +62,9 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		var localClock = new Date();
 
 		// If Clock is Bad //
-		if ( Math.abs(DateDiff(localClock,serverClock)) < 45*60*1000 ) {
+		var clocky = DateDiff(localClock,serverClock);
+		console.log(clocky);
+		if ( Math.abs(clocky) < 45*60*1000 ) {
 			clockElm = document.getElementsByClassName('clock');
 			for (var idx = 0; idx < clockElm.length; idx++ ) {
 				clockElm[idx].innerHTML = '<a href="/compo/faq/">Clock Error</a>';
