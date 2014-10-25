@@ -101,6 +101,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 
 .event .name {
+	text-shadow:0 1px 0 #820;
 }
 .event .navigation {
 	float:right;
