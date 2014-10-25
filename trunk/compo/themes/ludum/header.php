@@ -201,7 +201,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 				$e = array_pop(compo_query("select * from {$wpdb->posts} where post_name = ? and post_type =?",array("status","page")));
 				
 		//		$out = apply_filters('the_content',str_replace("\n","<br>",$e["post_content"]));
-				$out = str_replace("\n","<br>",$e["post_content"]);
+				$out = $e["post_content"];//str_replace("\n","<br>",$e["post_content"]);
 			
 				if ( function_exists('apcu_store') ) {
 					apcu_store('mk_Header_cache', $out, 120);	// Store for 2 minutes //
