@@ -94,37 +94,47 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 					
 					for (var idx = 0; idx < clockElm.length; idx++ ) {
 						var diff = DateDiff(nowClock,clockElm_time[idx]);
-	
-						var oneSecond = 1000;
-						var oneMinute = 60*1000;
-						var oneHour = 60*60*1000;
-						var oneDay = 24*60*60*1000;
-	
-						var diffMS = Math.floor(diff % oneSecond);
-						var diffSeconds = Math.floor(diff / oneSecond) % 60;
-						var diffMinutes = Math.floor(diff / oneMinute) % 60;
-						var diffHours = Math.floor(diff / oneHour) % 24;
-						var diffDays = Math.floor(diff / oneDay);
 						
-						var sep = ":";
-						if ( diffMS >= 500 ) {
-							sep = ";";
+						if ( diff >= 0 ) {
+							var oneSecond = 1000;
+							var oneMinute = 60*1000;
+							var oneHour = 60*60*1000;
+							var oneDay = 24*60*60*1000;
+		
+							var diffMS = Math.floor(diff % oneSecond);
+							var diffSeconds = Math.floor(diff / oneSecond) % 60;
+							var diffMinutes = Math.floor(diff / oneMinute) % 60;
+							var diffHours = Math.floor(diff / oneHour) % 24;
+							var diffDays = Math.floor(diff / oneDay);
+							
+							var sep = ":";
+							if ( diffMS >= 500 ) {
+								sep = ";";
+							}
+							
+							var dayText = diffDays + " Days, ";
+							if ( diffDays == 1 ) {
+								dayText = "1 Day, ";
+							}
+							else if ( diffDays == 0 ) {
+								dayText = "";
+							}
+							
+							// NOTE: innerText not supported in Firefox, textContent supported IE 9+ //
+							clockElm[idx].innerHTML = //textContent =
+								dayText +
+								PadZero(diffHours) + sep +
+								PadZero(diffMinutes) + sep +
+								PadZero(diffSeconds);
 						}
-						
-						var dayText = diffDays + " Days, ";
-						if ( diffDays == 1 ) {
-							dayText = "1 Day, ";
+						else {
+							if ( (diff % 1000) >= 500 ) {
+								clockElm[idx].innerHTML = clockElm[idx].getAttribute('end');
+							}
+							else {
+								clockElm[idx].innerHTML = "";
+							}
 						}
-						else if ( diffDays == 0 ) {
-							dayText = "";
-						}
-						
-						// NOTE: innerText not supported in Firefox, textContent supported IE 9+ //
-						clockElm[idx].innerHTML = //textContent =
-							dayText +
-							PadZero(diffHours) + sep +
-							PadZero(diffMinutes) + sep +
-							PadZero(diffSeconds);
 					}
 				};
 
