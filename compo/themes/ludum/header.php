@@ -87,7 +87,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 					var nowClock = new Date();
 					
 					for (var idx = 0; idx < clockElm.length; idx++ ) {
-						var diff = DateDiff(nowClock,clockElm[idx].getAttribute('title'));
+						var diff = DateDiff(nowClock,new Date(clockElm[idx].getAttribute('title')));
 						
 						if ( diff >= 0 ) {
 							var oneSecond = 1000;
