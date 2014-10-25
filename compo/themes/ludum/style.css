@@ -120,10 +120,6 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .section p {
 	display:inline;
 }
-/*.section br {
-	display:none;
-	content:" ";
-}*/
 
 .section .cell {
 	background:#ccc;
@@ -194,6 +190,13 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	position:absolute;
 	right:0;
 	top:0;
+}
+
+.section .botgap {
+	margin-bottom:10px;
+}
+.section .topgap {
+	margin-top:10px;
 }
 
 @font-face {
