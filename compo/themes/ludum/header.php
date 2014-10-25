@@ -68,6 +68,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 				var TargetTime = clockElm[idx].getAttribute('title');
 				console.log( TargetTime + " --- " + new Date( TargetTime ) );
 				clockElm_time.push( new Date( TargetTime ) );
+				clockElm_time[idx].innerText = "such";
 			}
 			
 			timerHandle = setInterval(function(){
