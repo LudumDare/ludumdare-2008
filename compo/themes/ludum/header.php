@@ -154,24 +154,24 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	<div id="page">
 		<div id="header">
 			<div class="body">
-					<?php
-						$current_user = wp_get_current_user();
-						if ( 0 == $current_user->ID ) {
-							// Not logged in.
-							echo '<div class="login_not">';
-								echo '<div class="headline"><a href="/compo/wp-login.php"><strong>Login</strong></a> | <a href="/compo/wp-login.php?action=register">Create Account</a></div>';
+				<?php
+					$current_user = wp_get_current_user();
+					if ( 0 == $current_user->ID ) {
+						// Not logged in.
+						echo '<div class="login_not">';
+							echo '<div class="headline"><a href="/compo/wp-login.php"><strong>Login</strong></a> | <a href="/compo/wp-login.php?action=register">Create Account</a></div>';
+						echo '</div>';
+					} else {
+						// Logged in //
+						echo '<div class="login">';
+							echo '<div class="avatar" title="Edit your Avatar on Gravatar (Click!)"><a href="http://www.gravatar.com/" target="_blank">' . get_avatar( $current_user->user_email, 52 ) . "</a></div>";
+							echo '<div class="info">';
+								echo "<div class=\"headline\">Welcome <a href=\"/compo/wp-admin/profile.php\" title=\"Edit your Profile\"><strong>{$current_user->display_name}</strong></a>!</div>";
+								echo '<div class="action"><a href="/compo/wp-admin/post-new.php" title="Make a new Blog Post">+<strong>New POST</strong></a></div>';
 							echo '</div>';
-						} else {
-							// Logged in //
-							echo '<div class="login">';
-								echo '<div class="avatar" title="Edit your Avatar on Gravatar (Click!)"><a href="http://www.gravatar.com/" target="_blank">' . get_avatar( $current_user->user_email, 52 ) . "</a></div>";
-								echo '<div class="info">';
-									echo "<div class=\"headline\">Welcome <a href=\"/compo/wp-admin/profile.php\" title=\"Edit your Profile\"><strong>{$current_user->display_name}</strong></a>!</div>";
-									echo '<div class="action"><a href="/compo/wp-admin/post-new.php" title="Make a new Blog Post">+<strong>New POST</strong></a></div>';
-								echo '</div>';
-							echo '</div>';
-						}
-					?>
+						echo '</div>';
+					}
+				?>
 				<a href="<?php echo get_option('home'); ?>/" title="Home"><img src="/compo/wp-content/themes/ludum/povimg/LDLogo2015.png" width="386" height="64" /></a>
 			</div>
 		</div>
@@ -198,5 +198,5 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			$out = apply_filters('the_content',$out);
 			echo $out;
 		?></div>
-		
+		<script type="text/javascript">mkClocksUpdate();</script>
 		<hr />
