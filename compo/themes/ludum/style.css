@@ -71,18 +71,28 @@ Tags: blue, custom header, fixed width, two columns, widgets
 /* ************ */
 
 .event {
-	background-color:#5d4d69;
-	color:#A8D;
+	/*background-color:#FC8;*/
+	
+	background: #ffcc88; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffcc88 0%, #ff6666 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffcc88), color-stop(100%,#ff6666)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffcc88 0%,#ff6666 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffcc88 0%,#ff6666 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffcc88 0%,#ff6666 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffcc88 0%,#ff6666 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffcc88', endColorstr='#ff6666',GradientType=0 ); /* IE6-9 */
+
+	color:#400;
 	font-size:15px;
 	padding:10px;
 	margin:0 0 10px;
 	border-radius:24px 24px 0 0;
-	border-top:1px solid #000;
-	border-bottom:1px solid #DAF;
+	border-top:1px solid #FF0;
+	border-bottom:1px solid #F80;
 }
 
 .event a {
-	color:#DAF;	
+	color:#F82;	
 }
 
 .event a:hover {
