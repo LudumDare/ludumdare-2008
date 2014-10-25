@@ -128,12 +128,12 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 								PadZero(diffSeconds);
 						}
 						else {
-							//if ( (diff % 1000) >= 500 ) {
+							if ( Math.abs(diff % 1000) >= 500 ) {
 								clockElm[idx].innerHTML = clockElm[idx].getAttribute('end');
-//							}
-//							else {
-//								clockElm[idx].innerHTML = "";
-//							}
+							}
+							else {
+								clockElm[idx].innerHTML = "";
+							}
 						}
 					}
 				};
