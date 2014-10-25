@@ -57,7 +57,6 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		var timerHandle = null;
 
 		var clockElm = null;
-		var clockElm_time = [];
 
 		var serverTime = <?php echo $_SERVER['REQUEST_TIME']; ?>;
 		var serverClock = new Date(serverTime*1000);
@@ -83,17 +82,12 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 				if ( clockElm.length === 0 ) {
 					return;
 				}
-
-				for (var idx = 0; idx < clockElm.length; idx++ ) {
-					var TargetTime = clockElm[idx].getAttribute('title');
-					clockElm_time.push( new Date( TargetTime ) );
-				}
 				
 				window._mkClocksFunc = function(){
 					var nowClock = new Date();
 					
 					for (var idx = 0; idx < clockElm.length; idx++ ) {
-						var diff = DateDiff(nowClock,clockElm_time[idx]);
+						var diff = DateDiff(nowClock,clockElm[idx].getAttribute('title'));
 						
 						if ( diff >= 0 ) {
 							var oneSecond = 1000;
