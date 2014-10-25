@@ -134,13 +134,11 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			};
 
 			window.mkClocksFocus = function(e) {
-				console.log("Foc");
 				if ( timerHandle === null ) {
 					timerHandle = setInterval( window._mkClocksFunc,500);
 				}
 			};
 			window.mkClocksBlur = function(e) {
-				console.log("Blu");
 				if ( timerHandle ) {
 					clearInterval( timerHandle );
 					timerHandle = null;
@@ -148,8 +146,9 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			};
 			
 			window.addEventListener("load", window.mkClocksUpdate);
-			window.addEventListener("focus", window.mkClocksFocus);
-			window.addEventListener("blur", window.mkClocksBlur);
+			/* In case people want us to be less wasteful */
+			//window.addEventListener("focus", window.mkClocksFocus);
+			//window.addEventListener("blur", window.mkClocksBlur);
 		}
 	})();
 	</script>
