@@ -54,6 +54,8 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			return b.getTime() - a.getTime();
 		}
 
+		var timerHandle = null;
+
 		var clockElm = null;
 		var clockElm_time = [];
 
@@ -73,16 +75,21 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		}
 		// If Clock is Okay //
 		else {
-			var timerHandle = null;
-			
-			window.addEventListener("load", function(e) {
+			// Store it in Window (global scope) //
+			window.mkClocksUpdate = function(e) {
 				clockElm = document.getElementsByClassName('clock');
+				
+				// If no clocks, bail //
+				if ( clockElm.length === 0 ) {
+					return;
+				}
+
 				for (var idx = 0; idx < clockElm.length; idx++ ) {
 					var TargetTime = clockElm[idx].getAttribute('title');
 					clockElm_time.push( new Date( TargetTime ) );
 				}
 				
-				timerHandle = setInterval(function(){
+				window._mkClocksFunc = function(){
 					var nowClock = new Date();
 					
 					for (var idx = 0; idx < clockElm.length; idx++ ) {
@@ -119,8 +126,26 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 							PadZero(diffMinutes) + sep +
 							PadZero(diffSeconds);
 					}
-				},500);
-			});
+				};
+
+				if ( timerHandle === null ) {
+					timerHandle = setInterval( window._mkClocksFunc,500);
+				}
+			};
+
+			window.mkClocksShow = function(e) {
+				if ( timerHandle === null ) {
+					timerHandle = setInterval( window._mkClocksFunc,500);
+				}
+			};
+			window.mkClocksHide = function(e) {
+				if ( timerHandle ) {
+					clearInterval( timerHandle );
+					timerHandle = null;
+				}
+			};
+			
+			window.addEventListener("load", window.mkClocksUpdate);
 		}
 	})();
 	</script>
