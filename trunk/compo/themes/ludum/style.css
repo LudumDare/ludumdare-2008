@@ -149,6 +149,11 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background-size:246px auto !important;
 	height:80px;
 }
+.section .smallcell {
+	background-size:182px auto !important;
+	height:35px;
+}
+
 
 .section .when {
 	background:rgba(0,0,0,0.5);
