@@ -62,9 +62,8 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		var localClock = new Date();
 
 		// If Clock is Bad //
-		var clocky = DateDiff(localClock,serverClock);
-		console.log(clocky);
-		if ( Math.abs(clocky) > 45*60*1000 ) {
+		var clockDiff = DateDiff(localClock,serverClock);
+		if ( Math.abs(clockDiff) > 45*60*1000 ) {	// If 45 minutes off (cache safe) then Error //
 			window.addEventListener("load", function(e) {
 				clockElm = document.getElementsByClassName('clock');
 				for (var idx = 0; idx < clockElm.length; idx++ ) {
