@@ -154,6 +154,9 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	height:35px;
 }
 
+.section .light {
+	font-size:15px;
+}
 
 .section .when {
 	background:rgba(0,0,0,0.5);
