@@ -33,7 +33,6 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: url('povimg/News.png') no-repeat top right, -o-linear-gradient(top, #DFB 0%, #EFE 25%); /* Opera 11.10+ */
 	background: url('povimg/News.png') no-repeat top right, -ms-linear-gradient(top, #DFB 0%, #EFE 25%); /* IE10+ */
 	background: url('povimg/News.png') no-repeat top right, linear-gradient(to bottom, #DFB 0%, #EFE 25%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#DFB', endColorstr='#EFE',GradientType=0 ); /* IE6-9 */
 }
 .ld-news .minimize {
 	background: url('povimg/News.png') no-repeat top right, #DFB; /* Old browsers */
@@ -43,7 +42,6 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: url('povimg/News.png') no-repeat top right, -o-linear-gradient(left, #EFE 0%, #DFB 25%); /* Opera 11.10+ */
 	background: url('povimg/News.png') no-repeat top right, -ms-linear-gradient(left, #EFE 0%, #DFB 25%); /* IE10+ */
 	background: url('povimg/News.png') no-repeat top right, linear-gradient(to right, #EFE 0%, #DFB 25%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EFE', endColorstr='#DFB',GradientType=0 ); /* IE6-9 */
 }
 .ld-news .header { }
 .ld-news .footer { background: #DFB; }
@@ -61,7 +59,6 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: url('povimg/Admin.png') no-repeat top right, -o-linear-gradient(top, #FEC 0%, #FFE 25%); /* Opera 11.10+ */
 	background: url('povimg/Admin.png') no-repeat top right, -ms-linear-gradient(top, #FEC 0%, #FFE 25%); /* IE10+ */
 	background: url('povimg/Admin.png') no-repeat top right, linear-gradient(to bottom, #FEC 0%, #FFE 25%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEC', endColorstr='#FFE',GradientType=0 ); /* IE6-9 */
 }
 .ld-admin .minimize {
 	background: url('povimg/Admin.png') no-repeat top right, #FEC; /* Old browsers */
@@ -71,7 +68,6 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: url('povimg/Admin.png') no-repeat top right, -o-linear-gradient(left, #FFE 0%, #FEC 25%); /* Opera 11.10+ */
 	background: url('povimg/Admin.png') no-repeat top right, -ms-linear-gradient(left, #FFE 0%, #FEC 25%); /* IE10+ */
 	background: url('povimg/Admin.png') no-repeat top right, linear-gradient(to right, #FFE 0%, #FEC 25%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFE', endColorstr='#FEC',GradientType=0 ); /* IE6-9 */
 }
 .ld-admin .header { }
 .ld-admin .footer { background: #FEC; }
@@ -88,7 +84,6 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: url('povimg/Featured.png') no-repeat top right, -o-linear-gradient(top, #f8e0fc 0%, #f8f8ff 25%,#EEE 75%); /* Opera 11.10+ */
 	background: url('povimg/Featured.png') no-repeat top right, -ms-linear-gradient(top, #f8e0fc 0%, #f8f8ff 25%,#EEE 75%); /* IE10+ */
 	background: url('povimg/Featured.png') no-repeat top right, linear-gradient(to bottom, #f8e0fc 0%, #f8f8ff 25%,#EEE 75%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8ff', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
 }
 .ld-sticky .header {
 	background: url('povimg/Featured.png') no-repeat top right, #f8e0fc;/*rgba(248,248,255,0.5);*/
@@ -104,7 +99,15 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: url('povimg/Heart.png') no-repeat top right, -o-linear-gradient(top, #FCC 0%, #FEE 25%); /* Opera 11.10+ */
 	background: url('povimg/Heart.png') no-repeat top right, -ms-linear-gradient(top, #FCC 0%, #FEE 25%); /* IE10+ */
 	background: url('povimg/Heart.png') no-repeat top right, linear-gradient(to bottom, #FCC 0%, #FEE 25%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FCC', endColorstr='#FEE',GradientType=0 ); /* IE6-9 */
+}
+.ld-love .minimize {
+	background: url('povimg/Heart.png') no-repeat top right, #FCC; /* Old browsers */
+	background: url('povimg/Heart.png') no-repeat top right, -moz-linear-gradient(left, #FEE 0%, #FCC 25%); /* FF3.6+ */
+	background: url('povimg/Heart.png') no-repeat top right, -webkit-gradient(linear, left top, right top, color-stop(0%,#FEE), color-stop(25%,#FCC)); /* Chrome,Safari4+ */
+	background: url('povimg/Heart.png') no-repeat top right, -webkit-linear-gradient(left, #FEE 0%, #FCC 25%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Heart.png') no-repeat top right, -o-linear-gradient(left, #FEE 0%, #FCC 25%); /* Opera 11.10+ */
+	background: url('povimg/Heart.png') no-repeat top right, -ms-linear-gradient(left, #FEE 0%, #FCC 25%); /* IE10+ */
+	background: url('povimg/Heart.png') no-repeat top right, linear-gradient(to right, #FEE 0%, #FCC 25%); /* W3C */
 }
 .ld-love .header { }
 .ld-love .footer { background: #FCC; }
@@ -128,7 +131,6 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: -o-linear-gradient(top, #DDD 0%, #EEE 25%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top, #DDD 0%, #EEE 25%); /* IE10+ */
 	background: linear-gradient(to bottom, #DDD 0%, #EEE 25%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFF', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
 }
 .ld-post .header {
 /*	background: #EEE;*/
@@ -149,7 +151,6 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: -o-linear-gradient(left,  #ffc57a 0%,#ffa384 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(left,  #ffc57a 0%,#ffa384 100%); /* IE10+ */
 	background: linear-gradient(to right,  #ffc57a 0%,#ffa384 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffc57a', endColorstr='#ffa384',GradientType=1 ); /* IE6-9 */
 
 	color:#400;
 	font-size:15px;
@@ -594,7 +595,6 @@ body {
 	background: -o-linear-gradient(top, #543 50%,#CCE 50%,#889 53%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top, #543 50%,#CCE 50%,#889 53%); /* IE10+ */
 	background: linear-gradient(to bottom,#543 50%,#CCE 50%,#889 53%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#543', endColorstr='#889',GradientType=0 ); /* IE6-9 */
 
 	margin:0;
 	padding:0;
