@@ -51,6 +51,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .ld-news .footer {
 	background: #DFB;
 }
+.ld-news a {
+	color:#4B2;
+}
+.ld-news a:hover {
+	color:#F84;
+}
 
 .ld-admin {
 	background: url('povimg/Admin.png') no-repeat top right, #fffff0; /* Old browsers */
