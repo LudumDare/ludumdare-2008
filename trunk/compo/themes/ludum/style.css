@@ -51,14 +51,14 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .ld-news .footer {
 	background: #DFB;
 }
-.ld-news a, .ld-news a:visited {
+.ld-news a /*, .ld-news a:visited*/ {
 	color:#4B2;
 }
 .ld-news a:hover, .ld-news h2 a:hover {
 	color:#F84;
 	text-decoration:none;
 }
-.ld-news h2 a, .ld-news h2 a:visited {
+.ld-news h2 a /*, .ld-news h2 a:visited*/ {
 	color:#361;
 }
 
@@ -454,7 +454,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	margin:0px !important;
 }
 
-.thickbox a, .thickbox a:visited {
+.thickbox a {/*, .thickbox a:visited {*/
 	color:#448;
 }
 .thickbox a:hover {
@@ -679,22 +679,22 @@ h3 {
 	font-size: 1.4em;
 	}
 
-h1, h1 a, h1 a:hover, h1 a:visited, #headerimg .description {
+h1, h1 a, h1 a:hover, /*h1 a:visited,*/ #headerimg .description {
 	text-decoration: none;
 	color: white;
 	}
 
-h2, h2 a, h2 a:visited, h3, h3 a, h3 a:visited {
+h2, h2 a, /*h2 a:visited,*/ h3, h3 a/*, h3 a:visited*/ {
 	color: #333;
 	}
 
-h2, h2 a, h2 a:hover, h2 a:visited, h3, h3 a, h3 a:hover, h3 a:visited, #sidebar h2, #wp-calendar caption, cite {
+h2, h2 a, h2 a:hover, /*h2 a:visited,*/ h3, h3 a, h3 a:hover, /*h3 a:visited,*/ #sidebar h2, #wp-calendar caption, cite {
 	text-decoration: none;
 	}
 
-.entry p a:visited {
+/*.entry p a:visited {
 	color: #44C;
-	}
+	}*/
 
 .sticky {
 	background: #f7f7f7;
