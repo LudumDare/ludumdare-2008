@@ -44,15 +44,15 @@
                         
             <?php echo my_get_buttons(); ?>
 		</div>
-		<div class="body">
+		<div class="body" style="position:relative">
 			<div class="entry">
 				<?php the_content('<p class="serif">Read the rest of this entry &raquo;</p>'); ?>
 
 				<?php wp_link_pages(array('before' => '<p><strong>Pages:</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
 				<?php echo my_get_buttons(); ?>
 				<?php the_tags( '<p>Tags: ', ', ', '</p>'); ?>
-				<div style="float: right;border: 1px solid #eee;padding: 2px;background: #fff;"><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?></div>
 			</div>
+			<div style="padding: 2px;position:absolute;right:0;bottom:0;"><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?></div>
 		</div>
 		<div class="footer">
 			<p class="postmetadata">
