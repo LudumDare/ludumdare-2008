@@ -919,7 +919,7 @@ a:hover {
 	border-radius: 0 0 10px 10px;
 	}
 
-.post .header {
+.post .header, .post .minimize {
 	padding: 10px;
 }
 .post .body {
