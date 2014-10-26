@@ -24,23 +24,13 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 /* ************ */
 
-.ld-newsy {
-	background: url('povimg/News.png') no-repeat top right, #f0fff0; /* Old browsers */
-	background: url('povimg/News.png') no-repeat top right, -moz-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%, #EEE 75%); /* FF3.6+ */
-	background: url('povimg/News.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d9ffc3), color-stop(25%,#f0fff0), color-stop(75%,#EEE)); /* Chrome,Safari4+ */
-	background: url('povimg/News.png') no-repeat top right, -webkit-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#EEE 75%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/News.png') no-repeat top right, -o-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#EEE 75%); /* Opera 11.10+ */
-	background: url('povimg/News.png') no-repeat top right, -ms-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#EEE 75%); /* IE10+ */
-	background: url('povimg/News.png') no-repeat top right, linear-gradient(to bottom, #d9ffc3 0%, #f0fff0 25%,#EEE 75%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fff0', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
-}
 .ld-news {
 	background: url('povimg/News.png') no-repeat top right, #f0fff0; /* Old browsers */
-	background: url('povimg/News.png') no-repeat top right, -moz-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%, #EEE 75%); /* FF3.6+ */
-	background: url('povimg/News.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d9ffc3), color-stop(25%,#f0fff0), color-stop(75%,#EEE)); /* Chrome,Safari4+ */
-	background: url('povimg/News.png') no-repeat top right, -webkit-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#EEE 75%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/News.png') no-repeat top right, -o-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#EEE 75%); /* Opera 11.10+ */
-	background: url('povimg/News.png') no-repeat top right, -ms-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#EEE 75%); /* IE10+ */
+	background: url('povimg/News.png') no-repeat top right, -moz-linear-gradient(top, #DFB 0%, #EFE 50%); /* FF3.6+ */
+	background: url('povimg/News.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DFB), color-stop(50%,#EFE)); /* Chrome,Safari4+ */
+	background: url('povimg/News.png') no-repeat top right, -webkit-linear-gradient(top, #DFB 0%, #EFE 50%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/News.png') no-repeat top right, -o-linear-gradient(top, #DFB 0%, #EFE 50%); /* Opera 11.10+ */
+	background: url('povimg/News.png') no-repeat top right, -ms-linear-gradient(top, #DFB 0%, #EFE 50%); /* IE10+ */
 	background: url('povimg/News.png') no-repeat top right, linear-gradient(to bottom, #DFB 0%, #EFE 50%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fff0', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
 }
@@ -53,9 +43,11 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: url('povimg/News.png') no-repeat top right, -ms-linear-gradient(left, #EFE 25%,#DFB 75%); /* IE10+ */
 	background: url('povimg/News.png') no-repeat top right, linear-gradient(to right, #EFE 25%,#DFB 75%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EFE', endColorstr='#DFB',GradientType=0 ); /* IE6-9 */
-
-/*	background: url('povimg/News.png') no-repeat top right, #d9ffc3 /*rgba(217,255,195,0.5);*/
 }
+.ld-news .footer {
+	background: #DFB;
+}
+
 .ld-admin {
 	background: url('povimg/Admin.png') no-repeat top right, #fffff0; /* Old browsers */
 	background: url('povimg/Admin.png') no-repeat top right, -moz-linear-gradient(top,  #feedca 0%, #fffff0 25%, #EEE 75%); /* FF3.6+ */
