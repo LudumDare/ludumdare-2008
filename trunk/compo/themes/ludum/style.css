@@ -865,14 +865,20 @@ a:hover {
 }
 
 .post {
-	background-color: #ffffff;
+	background-color: #EEE;
 	margin: 0 0 10px;
-	padding: 10px;
 	text-align: justify;
-	border-bottom: 1px solid #5e7582;
+	border-bottom: 1px solid #543;
 	overflow:hidden;
 	border-radius: 0 0 10px 10px;
 	}
+
+.post .header {
+	padding: 10px;	
+}
+.post .body {
+	padding: 10px;	
+}
 
 .post-with-border {
 	background-color: #ffffff;
