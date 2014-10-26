@@ -910,6 +910,9 @@ a:hover {
 .post .body {
 	padding: 10px;	
 }
+.post .footer {
+	padding: 10px;
+}
 
 .post-with-border {
 	background-color: #ffffff;
@@ -950,7 +953,7 @@ a:hover {
 
 .postmetadata {
 	clear: both;
-	border-top: 1px dashed;
+/*	border-top: 1px dashed;*/
 	text-align:center;
 }
 
