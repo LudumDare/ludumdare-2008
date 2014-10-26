@@ -26,43 +26,55 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .ld-news {
 	background: url('povimg/News.png') no-repeat top right, #f0fff0; /* Old browsers */
-	background: url('povimg/News.png') no-repeat top right, -moz-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%, #ffffff 75%); /* FF3.6+ */
-	background: url('povimg/News.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d9ffc3), color-stop(25%,#f0fff0), color-stop(75%,#ffffff)); /* Chrome,Safari4+ */
-	background: url('povimg/News.png') no-repeat top right, -webkit-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#ffffff 75%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/News.png') no-repeat top right, -o-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#ffffff 75%); /* Opera 11.10+ */
-	background: url('povimg/News.png') no-repeat top right, -ms-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#ffffff 75%); /* IE10+ */
-	background: url('povimg/News.png') no-repeat top right, linear-gradient(to bottom, #d9ffc3 0%, #f0fff0 25%,#ffffff 75%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fff0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	background: url('povimg/News.png') no-repeat top right, -moz-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%, #EEE 75%); /* FF3.6+ */
+	background: url('povimg/News.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d9ffc3), color-stop(25%,#f0fff0), color-stop(75%,#EEE)); /* Chrome,Safari4+ */
+	background: url('povimg/News.png') no-repeat top right, -webkit-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#EEE 75%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/News.png') no-repeat top right, -o-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#EEE 75%); /* Opera 11.10+ */
+	background: url('povimg/News.png') no-repeat top right, -ms-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#EEE 75%); /* IE10+ */
+	background: url('povimg/News.png') no-repeat top right, linear-gradient(to bottom, #d9ffc3 0%, #f0fff0 25%,#EEE 75%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fff0', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
+}
+.ld-news .header {
+	background: rgba(217,255,195,0.5);
 }
 .ld-admin {
 	background: url('povimg/Admin.png') no-repeat top right, #fffff0; /* Old browsers */
-	background: url('povimg/Admin.png') no-repeat top right, -moz-linear-gradient(top,  #feedca 0%, #fffff0 25%, #ffffff 75%); /* FF3.6+ */
-	background: url('povimg/Admin.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feedca), color-stop(25%,#fffff0), color-stop(75%,#ffffff)); /* Chrome,Safari4+ */
-	background: url('povimg/Admin.png') no-repeat top right, -webkit-linear-gradient(top, #feedca 0%, #fffff0 25%,#ffffff 75%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/Admin.png') no-repeat top right, -o-linear-gradient(top, #feedca 0%,  #fffff0 25%,#ffffff 75%); /* Opera 11.10+ */
-	background: url('povimg/Admin.png') no-repeat top right, -ms-linear-gradient(top, #feedca 0%,  #fffff0 25%,#ffffff 75%); /* IE10+ */
-	background: url('povimg/Admin.png') no-repeat top right, linear-gradient(to bottom, #feedca 0%,  #fffff0 25%,#ffffff 75%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffff0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	background: url('povimg/Admin.png') no-repeat top right, -moz-linear-gradient(top,  #feedca 0%, #fffff0 25%, #EEE 75%); /* FF3.6+ */
+	background: url('povimg/Admin.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feedca), color-stop(25%,#fffff0), color-stop(75%,#EEE)); /* Chrome,Safari4+ */
+	background: url('povimg/Admin.png') no-repeat top right, -webkit-linear-gradient(top, #feedca 0%, #fffff0 25%,#EEE 75%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Admin.png') no-repeat top right, -o-linear-gradient(top, #feedca 0%,  #fffff0 25%,#EEE 75%); /* Opera 11.10+ */
+	background: url('povimg/Admin.png') no-repeat top right, -ms-linear-gradient(top, #feedca 0%,  #fffff0 25%,#EEE 75%); /* IE10+ */
+	background: url('povimg/Admin.png') no-repeat top right, linear-gradient(to bottom, #feedca 0%,  #fffff0 25%,#EEE 75%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffff0', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
+}
+.ld-admin .header {
+	background: rgba(254,237,202,0.5);
 }
 .ld-sticky {
 	background: url('povimg/Featured.png') no-repeat top right, #f8f8ff; /* Old browsers */
-	background: url('povimg/Featured.png') no-repeat top right, -moz-linear-gradient(top, #f8e0fc 0%, #f8f8ff 25%, #ffffff 75%); /* FF3.6+ */
-	background: url('povimg/Featured.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8e0fc), color-stop(25%,#f8f8ff), color-stop(75%,#ffffff)); /* Chrome,Safari4+ */
-	background: url('povimg/Featured.png') no-repeat top right, -webkit-linear-gradient(top, #f8e0fc 0%, #f8f8ff 25%,#ffffff 75%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/Featured.png') no-repeat top right, -o-linear-gradient(top, #f8e0fc 0%, #f8f8ff 25%,#ffffff 75%); /* Opera 11.10+ */
-	background: url('povimg/Featured.png') no-repeat top right, -ms-linear-gradient(top, #f8e0fc 0%, #f8f8ff 25%,#ffffff 75%); /* IE10+ */
-	background: url('povimg/Featured.png') no-repeat top right, linear-gradient(to bottom, #f8e0fc 0%, #f8f8ff 25%,#ffffff 75%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8ff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	background: url('povimg/Featured.png') no-repeat top right, -moz-linear-gradient(top, #f8e0fc 0%, #f8f8ff 25%, #EEE 75%); /* FF3.6+ */
+	background: url('povimg/Featured.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8e0fc), color-stop(25%,#f8f8ff), color-stop(75%,#EEE)); /* Chrome,Safari4+ */
+	background: url('povimg/Featured.png') no-repeat top right, -webkit-linear-gradient(top, #f8e0fc 0%, #f8f8ff 25%,#EEE 75%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Featured.png') no-repeat top right, -o-linear-gradient(top, #f8e0fc 0%, #f8f8ff 25%,#EEE 75%); /* Opera 11.10+ */
+	background: url('povimg/Featured.png') no-repeat top right, -ms-linear-gradient(top, #f8e0fc 0%, #f8f8ff 25%,#EEE 75%); /* IE10+ */
+	background: url('povimg/Featured.png') no-repeat top right, linear-gradient(to bottom, #f8e0fc 0%, #f8f8ff 25%,#EEE 75%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8ff', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
+}
+.ld-sticky .header {
+	background: rgba(248,248,255,0.5);
 }
 .ld-love {
 	background: url('povimg/Heart.png') no-repeat top right, #fff0f0; /* Old browsers */
-	background: url('povimg/Heart.png') no-repeat top right, -moz-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%, #ffffff 75%); /* FF3.6+ */
-	background: url('povimg/Heart.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffd8d8), color-stop(25%,#fff0f0), color-stop(75%,#ffffff)); /* Chrome,Safari4+ */
-	background: url('povimg/Heart.png') no-repeat top right, -webkit-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%,#ffffff 75%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/Heart.png') no-repeat top right, -o-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%,#ffffff 75%); /* Opera 11.10+ */
-	background: url('povimg/Heart.png') no-repeat top right, -ms-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%,#ffffff 75%); /* IE10+ */
-	background: url('povimg/Heart.png') no-repeat top right, linear-gradient(to bottom, #ffd8d8 0%, #fff0f0 25%,#ffffff 75%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff0f0', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+	background: url('povimg/Heart.png') no-repeat top right, -moz-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%, #EEE 75%); /* FF3.6+ */
+	background: url('povimg/Heart.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffd8d8), color-stop(25%,#fff0f0), color-stop(75%,#EEE)); /* Chrome,Safari4+ */
+	background: url('povimg/Heart.png') no-repeat top right, -webkit-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%,#EEE 75%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Heart.png') no-repeat top right, -o-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%,#EEE 75%); /* Opera 11.10+ */
+	background: url('povimg/Heart.png') no-repeat top right, -ms-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%,#EEE 75%); /* IE10+ */
+	background: url('povimg/Heart.png') no-repeat top right, linear-gradient(to bottom, #ffd8d8 0%, #fff0f0 25%,#EEE 75%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff0f0', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
+}
+.ld-admin .header {
+	background: rgba(255,240,240,0.5);
 }
 .ld-mod {
 	background: url('povimg/Moderator.png') no-repeat top right, #ffffff;
@@ -874,7 +886,7 @@ a:hover {
 	}
 
 .post .header {
-	padding: 10px;	
+	padding: 10px;
 }
 .post .body {
 	padding: 10px;	
