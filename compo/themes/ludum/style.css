@@ -25,6 +25,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 /* ************ */
 
 .ld-news {
+	color: #342;
 	background: url('povimg/News.png') no-repeat top right, #DFB; /* Old browsers */
 	background: url('povimg/News.png') no-repeat top right, -moz-linear-gradient(top, #DFB 0%, #EFE 25%); /* FF3.6+ */
 	background: url('povimg/News.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DFB), color-stop(25%,#EFE)); /* Chrome,Safari4+ */
@@ -59,8 +60,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .ld-news h2 a {
 	color:#361;
 }
+.ld-news small {
+	color:#684;
+}
 
 .ld-admin {
+	color: #432;
 	background: url('povimg/Admin.png') no-repeat top right, #FEC; /* Old browsers */
 	background: url('povimg/Admin.png') no-repeat top right, -moz-linear-gradient(top, #FEC 0%, #FFE 25%); /* FF3.6+ */
 	background: url('povimg/Admin.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FEC), color-stop(25%,#FFE)); /* Chrome,Safari4+ */
@@ -94,6 +99,9 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 .ld-admin h2 a {
 	color:#631;
+}
+.ld-admin small {
+	color:#875;
 }
 
 .ld-sticky {
