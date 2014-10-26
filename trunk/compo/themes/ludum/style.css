@@ -35,7 +35,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fff0', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
 }
 .ld-news .header {
-	background: rgba(217,255,195,0.5);
+	background: url('povimg/News.png') no-repeat top right, #d9ffc3 /*rgba(217,255,195,0.5);*/
 }
 .ld-admin {
 	background: url('povimg/Admin.png') no-repeat top right, #fffff0; /* Old browsers */
@@ -48,7 +48,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffff0', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
 }
 .ld-admin .header {
-	background: rgba(254,237,202,0.5);
+	background: url('povimg/Admin.png') no-repeat top right, #feedca; /*rgba(254,237,202,0.5);*/
 }
 .ld-sticky {
 	background: url('povimg/Featured.png') no-repeat top right, #f8f8ff; /* Old browsers */
@@ -61,7 +61,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8ff', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
 }
 .ld-sticky .header {
-	background: rgba(248,248,255,0.5);
+	background: url('povimg/Featured.png') no-repeat top right, #f8e0fc;/*rgba(248,248,255,0.5);*/
 }
 .ld-love {
 	background: url('povimg/Heart.png') no-repeat top right, #fff0f0; /* Old browsers */
@@ -74,7 +74,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff0f0', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
 }
 .ld-admin .header {
-	background: rgba(255,240,240,0.5);
+	background: url('povimg/Heart.png') no-repeat top right, #ffd8d8;/*rgba(255,240,240,0.5);*/
 }
 .ld-mod {
 	background: url('povimg/Moderator.png') no-repeat top right, #ffffff;
@@ -84,7 +84,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: #EEE;
 }
 .ld-post .header {
-	background: rgba(255,255,255,0.5);
+	background: #FFF;/*rgba(255,255,255,0.5)*/
 }
 
 /* ************ */
