@@ -34,15 +34,17 @@
 	<?php } else if ( get_the_author_meta('user_level') == 7 ) { ?>
 		<div class="ld-mod post" id="post-<?php the_ID(); ?>">
 	<?php } else { ?>
-		<div class="post" id="post-<?php the_ID(); ?>" >
+		<div class="ld-post post" id="post-<?php the_ID(); ?>" >
 	<?php } ?>
+		<div class="header">
 			<div style="float: right;"><?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?></div>
 			<h2><a href="<?php echo get_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-                        <div>Posted by <?php the_author_posts_link(); ?><?php $aff = get_the_author_meta('affiliation', get_the_author_ID()); if (($aff != null) && ($aff != '')) { echo ' of ' . $aff; } ?><?php $twitter = get_the_author_meta('twitter', get_the_author_ID()); if (($twitter != null) && ($twitter != '')) { echo ' (twitter: <a target="_blank" href="http://twitter.com/' . $twitter . '">@' . $twitter . '</a>)'; } ?></div>
-                        <small><?php the_time('F jS, Y g:i a') ?></small>
+            <div>Posted by <?php the_author_posts_link(); ?><?php $aff = get_the_author_meta('affiliation', get_the_author_ID()); if (($aff != null) && ($aff != '')) { echo ' of ' . $aff; } ?><?php $twitter = get_the_author_meta('twitter', get_the_author_ID()); if (($twitter != null) && ($twitter != '')) { echo ' (twitter: <a target="_blank" href="http://twitter.com/' . $twitter . '">@' . $twitter . '</a>)'; } ?></div>
+            <small><?php the_time('F jS, Y g:i a') ?></small>
                         
             <?php echo my_get_buttons(); ?>
-
+		</div>
+		<div class="body">
 			<div class="entry">
 				<?php the_content('<p class="serif">Read the rest of this entry &raquo;</p>'); ?>
 
@@ -50,7 +52,8 @@
 				<?php echo my_get_buttons(); ?>
 				<?php the_tags( '<p>Tags: ', ', ', '</p>'); ?>
 				<div style="float: right;border: 1px solid #eee;padding: 2px;background: #fff;"><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?></div>
-
+			</div>
+			<div class="footer">
 				<p class="postmetadata">
 					<small>
 						This entry was posted
@@ -84,6 +87,7 @@
 				</p>
 
 			</div>
+		</div>
 		</div>
 
 	<?php comments_template(); ?>
