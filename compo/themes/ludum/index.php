@@ -48,10 +48,9 @@
 						<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 		                <div>Posted by <?php the_author_posts_link(); ?><?php $aff = get_the_author_meta('affiliation', get_the_author_ID()); if (($aff != null) && ($aff != '')) { echo ' of ' . $aff; } ?><?php $twitter = get_the_author_meta('twitter', get_the_author_ID()); if (($twitter != null) && ($twitter != '')) { echo ' (twitter: <a target="_blank" href="http://twitter.com/' . $twitter . '">@' . $twitter . '</a>)'; } ?></div>
 					<?php if ( count($minimize) == 0 ) { ?>
+						<small><?php the_time('F jS, Y g:i a') ?> <!-- by <?php the_author() ?> --></small>
 					</div>
 					<div class="body">
-						<small><?php the_time('F jS, Y g:i a') ?> <!-- by <?php the_author() ?> --></small>
-	
 						<?php echo my_get_buttons(); ?>
 						<div class="entry">
 							<?php the_content('Read the rest of this entry &raquo;'); ?>
