@@ -25,7 +25,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 /* ************ */
 
 .ld-news {
-	background: url('povimg/News.png') no-repeat top right, #f0fff0; /* Old browsers */
+	background: url('povimg/News.png') no-repeat top right, #DFB; /* Old browsers */
 	background: url('povimg/News.png') no-repeat top right, -moz-linear-gradient(top, #DFB 0%, #EFE 25%); /* FF3.6+ */
 	background: url('povimg/News.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DFB), color-stop(25%,#EFE)); /* Chrome,Safari4+ */
 	background: url('povimg/News.png') no-repeat top right, -webkit-linear-gradient(top, #DFB 0%, #EFE 25%); /* Chrome10+,Safari5.1+ */
@@ -61,18 +61,42 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 
 .ld-admin {
-	background: url('povimg/Admin.png') no-repeat top right, #fffff0; /* Old browsers */
-	background: url('povimg/Admin.png') no-repeat top right, -moz-linear-gradient(top,  #feedca 0%, #fffff0 25%, #EEE 75%); /* FF3.6+ */
-	background: url('povimg/Admin.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feedca), color-stop(25%,#fffff0), color-stop(75%,#EEE)); /* Chrome,Safari4+ */
-	background: url('povimg/Admin.png') no-repeat top right, -webkit-linear-gradient(top, #feedca 0%, #fffff0 25%,#EEE 75%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/Admin.png') no-repeat top right, -o-linear-gradient(top, #feedca 0%,  #fffff0 25%,#EEE 75%); /* Opera 11.10+ */
-	background: url('povimg/Admin.png') no-repeat top right, -ms-linear-gradient(top, #feedca 0%,  #fffff0 25%,#EEE 75%); /* IE10+ */
-	background: url('povimg/Admin.png') no-repeat top right, linear-gradient(to bottom, #feedca 0%,  #fffff0 25%,#EEE 75%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fffff0', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
+	background: url('povimg/Admin.png') no-repeat top right, #FEC; /* Old browsers */
+	background: url('povimg/Admin.png') no-repeat top right, -moz-linear-gradient(top, #FEC 0%, #FFE 25%); /* FF3.6+ */
+	background: url('povimg/Admin.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FEC), color-stop(25%,#FFE)); /* Chrome,Safari4+ */
+	background: url('povimg/Admin.png') no-repeat top right, -webkit-linear-gradient(top, #FEC 0%, #FFE 25%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Admin.png') no-repeat top right, -o-linear-gradient(top, #FEC 0%, #FFE 25%); /* Opera 11.10+ */
+	background: url('povimg/Admin.png') no-repeat top right, -ms-linear-gradient(top, #FEC 0%, #FFE 25%); /* IE10+ */
+	background: url('povimg/Admin.png') no-repeat top right, linear-gradient(to bottom, #FEC 0%, #FFE 25%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FEC', endColorstr='#FFE',GradientType=0 ); /* IE6-9 */
+}
+.ld-admin .minimize {
+	background: url('povimg/Admin.png') no-repeat top right, #FEC; /* Old browsers */
+	background: url('povimg/Admin.png') no-repeat top right, -moz-linear-gradient(left, #FFE 0%, #FEC 75%); /* FF3.6+ */
+	background: url('povimg/Admin.png') no-repeat top right, -webkit-gradient(linear, left top, right top, color-stop(0%,#FFE), color-stop(75%,#FEC)); /* Chrome,Safari4+ */
+	background: url('povimg/Admin.png') no-repeat top right, -webkit-linear-gradient(left, #FFE 0%, #FEC 75%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Admin.png') no-repeat top right, -o-linear-gradient(left, #FFE 0%, #FEC 75%); /* Opera 11.10+ */
+	background: url('povimg/Admin.png') no-repeat top right, -ms-linear-gradient(left, #FFE 0%, #FEC 75%); /* IE10+ */
+	background: url('povimg/Admin.png') no-repeat top right, linear-gradient(to right, #FFE 0%, #FEC 75%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFE', endColorstr='#FEC',GradientType=0 ); /* IE6-9 */
 }
 .ld-admin .header {
-	background: url('povimg/Admin.png') no-repeat top right, #feedca; /*rgba(254,237,202,0.5);*/
 }
+.ld-admin .footer {
+	background: #FEC;
+}
+.ld-admin a {
+	color:#4B2;
+}
+.ld-admin a:hover {
+	color:#FB0;
+	text-decoration:none;
+}
+.ld-admin h2 a {
+	color:#361;
+}
+
+
 .ld-sticky {
 	background: url('povimg/Featured.png') no-repeat top right, #f8f8ff; /* Old browsers */
 	background: url('povimg/Featured.png') no-repeat top right, -moz-linear-gradient(top, #f8e0fc 0%, #f8f8ff 25%, #EEE 75%); /* FF3.6+ */
