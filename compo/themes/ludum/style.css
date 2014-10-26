@@ -78,37 +78,43 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .ld-sticky .header {
 	background: url('povimg/Featured.png') no-repeat top right, #f8e0fc;/*rgba(248,248,255,0.5);*/
 }
+
 .ld-love {
 	background: url('povimg/Heart.png') no-repeat top right, #fff0f0; /* Old browsers */
-	background: url('povimg/Heart.png') no-repeat top right, -moz-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%, #EEE 75%); /* FF3.6+ */
-	background: url('povimg/Heart.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffd8d8), color-stop(25%,#fff0f0), color-stop(75%,#EEE)); /* Chrome,Safari4+ */
-	background: url('povimg/Heart.png') no-repeat top right, -webkit-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%,#EEE 75%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/Heart.png') no-repeat top right, -o-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%,#EEE 75%); /* Opera 11.10+ */
-	background: url('povimg/Heart.png') no-repeat top right, -ms-linear-gradient(top, #ffd8d8 0%, #fff0f0 25%,#EEE 75%); /* IE10+ */
-	background: url('povimg/Heart.png') no-repeat top right, linear-gradient(to bottom, #ffd8d8 0%, #fff0f0 25%,#EEE 75%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fff0f0', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
+	background: url('povimg/Heart.png') no-repeat top right, -moz-linear-gradient(top, #FDD 0%, #FEE 25%); /* FF3.6+ */
+	background: url('povimg/Heart.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FDD), color-stop(25%,#FEE)); /* Chrome,Safari4+ */
+	background: url('povimg/Heart.png') no-repeat top right, -webkit-linear-gradient(top, #FDD 0%, #FEE 25%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Heart.png') no-repeat top right, -o-linear-gradient(top, #FDD 0%, #FEE 25%); /* Opera 11.10+ */
+	background: url('povimg/Heart.png') no-repeat top right, -ms-linear-gradient(top, #FDD 0%, #FEE 25%); /* IE10+ */
+	background: url('povimg/Heart.png') no-repeat top right, linear-gradient(to bottom, #FDD 0%, #FEE 25%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FDD', endColorstr='#FEE',GradientType=0 ); /* IE6-9 */
 }
-.ld-admin .header {
-	background: url('povimg/Heart.png') no-repeat top right, #ffd8d8;/*rgba(255,240,240,0.5);*/
+.ld-love .header {
+/*	background: url('povimg/Heart.png') no-repeat top right, #ffd8d8;/*rgba(255,240,240,0.5);*/
 }
+.ld-love .footer {
+	background: #FDD;
+}
+
 .ld-mod {
 	background: url('povimg/Moderator.png') no-repeat top right, #EEE;
 }
 .ld-mod .header {
 	background: url('povimg/Moderator.png') no-repeat top right, #FFF;/*rgba(255,255,255,0.5)*/
 }
+
 .ld-post {
 	background: #EEE; /* Old browsers */
-	background: -moz-linear-gradient(top, #DDD 0%, #EEE 50%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DDD), color-stop(50%,#EEE)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #DDD 0%, #EEE 50%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #DDD 0%, #EEE 50%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #DDD 0%, #EEE 50%); /* IE10+ */
-	background: linear-gradient(to bottom, #DDD 0%, #EEE 50%); /* W3C */
+	background: -moz-linear-gradient(top, #DDD 0%, #EEE 25%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DDD), color-stop(25%,#EEE)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #DDD 0%, #EEE 25%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #DDD 0%, #EEE 25%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #DDD 0%, #EEE 25%); /* IE10+ */
+	background: linear-gradient(to bottom, #DDD 0%, #EEE 25%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFF', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
 }
 .ld-post .header {
-	background: linear-gradient(to right, #EEE 25%, #DDD 75%);/*#EEE;/*rgba(255,255,255,0.5)*/
+/*	background: #EEE;*/
 }
 .ld-post .footer {
 	background: #DDD;
