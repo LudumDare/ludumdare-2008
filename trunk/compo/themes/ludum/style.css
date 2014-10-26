@@ -77,11 +77,20 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: url('povimg/Heart.png') no-repeat top right, #ffd8d8;/*rgba(255,240,240,0.5);*/
 }
 .ld-mod {
-	background: url('povimg/Moderator.png') no-repeat top right, #ffffff;
+	background: url('povimg/Moderator.png') no-repeat top right, #EEE;
 }
-
+.ld-mod .header {
+	background: url('povimg/Moderator.png') no-repeat top right, #FFF;/*rgba(255,255,255,0.5)*/
+}
 .ld-post {
-	background: #EEE;
+	background: #EEE; /* Old browsers */
+	background: -moz-linear-gradient(top, #FFF 0%, #FFF 25%, #EEE 75%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFF), color-stop(25%,#FFF), color-stop(75%,#EEE)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #FFF 0%, #FFF 25%,#EEE 75%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #FFF 0%, #FFF 25%,#EEE 75%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #FFF 0%, #FFF 25%,#EEE 75%); /* IE10+ */
+	background: linear-gradient(to bottom, #FFF 0%, #FFF 25%,#EEE 75%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFF', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
 }
 .ld-post .header {
 	background: #FFF;/*rgba(255,255,255,0.5)*/
