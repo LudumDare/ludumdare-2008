@@ -26,12 +26,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 .ld-news {
 	background: url('povimg/News.png') no-repeat top right, #f0fff0; /* Old browsers */
-	background: url('povimg/News.png') no-repeat top right, -moz-linear-gradient(top, #DFB 0%, #EFE 50%); /* FF3.6+ */
-	background: url('povimg/News.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DFB), color-stop(50%,#EFE)); /* Chrome,Safari4+ */
-	background: url('povimg/News.png') no-repeat top right, -webkit-linear-gradient(top, #DFB 0%, #EFE 50%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/News.png') no-repeat top right, -o-linear-gradient(top, #DFB 0%, #EFE 50%); /* Opera 11.10+ */
-	background: url('povimg/News.png') no-repeat top right, -ms-linear-gradient(top, #DFB 0%, #EFE 50%); /* IE10+ */
-	background: url('povimg/News.png') no-repeat top right, linear-gradient(to bottom, #DFB 0%, #EFE 50%); /* W3C */
+	background: url('povimg/News.png') no-repeat top right, -moz-linear-gradient(top, #DFB 0%, #EFE 25%); /* FF3.6+ */
+	background: url('povimg/News.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DFB), color-stop(25%,#EFE)); /* Chrome,Safari4+ */
+	background: url('povimg/News.png') no-repeat top right, -webkit-linear-gradient(top, #DFB 0%, #EFE 25%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/News.png') no-repeat top right, -o-linear-gradient(top, #DFB 0%, #EFE 25%); /* Opera 11.10+ */
+	background: url('povimg/News.png') no-repeat top right, -ms-linear-gradient(top, #DFB 0%, #EFE 25%); /* IE10+ */
+	background: url('povimg/News.png') no-repeat top right, linear-gradient(to bottom, #DFB 0%, #EFE 25%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fff0', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
 }
 .ld-news .minimize {
@@ -46,6 +46,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 .ld-news .header {
 	background: url('povimg/News.png') no-repeat top right, #EFE;
+	border-bottom: 1px solid #DFB;
 }
 .ld-news .footer {
 	background: #DFB;
