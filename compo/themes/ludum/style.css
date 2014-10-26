@@ -45,24 +45,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: url('povimg/News.png') no-repeat top right, linear-gradient(to right, #EFE 0%, #DFB 25%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EFE', endColorstr='#DFB',GradientType=0 ); /* IE6-9 */
 }
-.ld-news .header {
-}
-.ld-news .footer {
-	background: #DFB;
-}
-.ld-news a {
-	color:#4B2;
-}
-.ld-news a:hover {
-	color:#FB0;
-	text-decoration:none;
-}
-.ld-news h2 a {
-	color:#361;
-}
-.ld-news small {
-	color:#684;
-}
+.ld-news .header { }
+.ld-news .footer { background: #DFB; }
+.ld-news small { color:#684; }
+.ld-news a { color:#4B2; }
+.ld-news a:hover { color:#FB0; text-decoration:none; }
+.ld-news h2 a {	color:#361; }
 
 .ld-admin {
 	color: #432;
@@ -85,24 +73,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: url('povimg/Admin.png') no-repeat top right, linear-gradient(to right, #FFE 0%, #FEC 25%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFE', endColorstr='#FEC',GradientType=0 ); /* IE6-9 */
 }
-.ld-admin .header {
-}
-.ld-admin .footer {
-	background: #FEC;
-}
-.ld-admin a {
-	color:#B42;
-}
-.ld-admin a:hover {
-	color:#0BF;
-	text-decoration:none;
-}
-.ld-admin h2 a {
-	color:#631;
-}
-.ld-admin small {
-	color:#875;
-}
+.ld-admin .header { }
+.ld-admin .footer { background: #FEC; }
+.ld-admin small { color:#875; }
+.ld-admin a { color:#B42; }
+.ld-admin a:hover { color:#0BF; text-decoration:none; }
+.ld-admin h2 a { color:#631; }
 
 .ld-sticky {
 	background: url('povimg/Featured.png') no-repeat top right, #f8f8ff; /* Old browsers */
@@ -118,7 +94,9 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: url('povimg/Featured.png') no-repeat top right, #f8e0fc;/*rgba(248,248,255,0.5);*/
 }
 
+
 .ld-love {
+	color: #422;
 	background: url('povimg/Heart.png') no-repeat top right, #FCC; /* Old browsers */
 	background: url('povimg/Heart.png') no-repeat top right, -moz-linear-gradient(top, #FCC 0%, #FEE 25%); /* FF3.6+ */
 	background: url('povimg/Heart.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FCC), color-stop(25%,#FEE)); /* Chrome,Safari4+ */
@@ -128,12 +106,12 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: url('povimg/Heart.png') no-repeat top right, linear-gradient(to bottom, #FCC 0%, #FEE 25%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FCC', endColorstr='#FEE',GradientType=0 ); /* IE6-9 */
 }
-.ld-love .header {
-/*	background: url('povimg/Heart.png') no-repeat top right, #ffd8d8;/*rgba(255,240,240,0.5);*/
-}
-.ld-love .footer {
-	background: #FCC;
-}
+.ld-love .header { }
+.ld-love .footer { background: #FCC; }
+.ld-love small { color:#855; }
+.ld-love a { color:#B42; }
+.ld-love a:hover { color:#0BF; text-decoration:none; }
+.ld-love h2 a { color:#631; }
 
 .ld-mod {
 	background: url('povimg/Moderator.png') no-repeat top right, #EEE;
