@@ -46,9 +46,9 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .ld-news .header { }
 .ld-news .footer { background: #DFB; }
 .ld-news small { color:#684; }
-.ld-news a { color:#4B2; }
+.ld-news a { color:#2A6; }
 .ld-news a:hover { color:#FB0; text-decoration:none; }
-.ld-news h2 a {	color:#361; }
+.ld-news h2 a {	color:#184; }
 
 .ld-admin {
 	color: #432;
@@ -72,9 +72,9 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .ld-admin .header { }
 .ld-admin .footer { background: #FEC; }
 .ld-admin small { color:#875; }
-.ld-admin a { color:#B42; }
+.ld-admin a { color:#F42; }
 .ld-admin a:hover { color:#0CF; text-decoration:none; }
-.ld-admin h2 a { color:#631; }
+.ld-admin h2 a { color:#820; }
 
 .ld-sticky {
 	background: url('povimg/Featured.png') no-repeat top right, #f8f8ff; /* Old browsers */
