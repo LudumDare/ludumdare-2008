@@ -95,6 +95,9 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .ld-post .header {
 	background: #FFF;/*rgba(255,255,255,0.5)*/
 }
+.ld-post .footer {
+	background: #DDD;
+}
 
 /* ************ */
 
