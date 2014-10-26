@@ -51,7 +51,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .ld-news .footer {
 	background: #DFB;
 }
-.ld-news a {
+.ld-news a, .ld-news a:visited {
 	color:#4B2;
 }
 .ld-news a:hover {
