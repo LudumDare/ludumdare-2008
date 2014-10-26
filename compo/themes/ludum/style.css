@@ -925,7 +925,12 @@ a:hover {
 	border-radius: 0 0 10px 10px;
 	}
 
-.post .header, .post .minimize {
+.post .header {
+	padding: 10px;
+	padding-bottom:0; /* Since we're not styling header bottoms, prefer magin. */
+	margin-bottom: 10px; /* for people that don't use <p> tags */
+}
+.post .minimize {
 	padding: 10px;
 }
 .post .body {
