@@ -141,7 +141,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	font-size:15px;
 	padding:10px;
 	margin:0 0 10px;
-	border-radius:5px 5px 5px 20px;
+	border-radius:5px 5px 5px 30px;
 	border-top:1px solid #FF4;
 	border-bottom:1px solid #432;
 }
@@ -919,14 +919,13 @@ a:hover {
 }
 
 .post {
-/*	background-color: #EEE;*/
 	margin: 0 0 10px;
 	text-align: justify;
 	border-bottom: 1px solid #543;
 	border-top: 1px solid #FFF;
 	overflow:hidden;
-	border-radius: 5px 5px 5px 20px;
-	}
+	border-radius: 5px 5px 5px 30px;
+}
 
 .post .header {
 	padding: 10px;
