@@ -93,7 +93,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFF', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
 }
 .ld-post .header {
-	background: #EEE;/*rgba(255,255,255,0.5)*/
+	background: linear-gradient(to right, #EEE 25%, #DDD 75%);/*#EEE;/*rgba(255,255,255,0.5)*/
 }
 .ld-post .footer {
 	background: #DDD;
