@@ -41,7 +41,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	background: url('povimg/News.png') no-repeat top right, -webkit-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#EEE 75%); /* Chrome10+,Safari5.1+ */
 	background: url('povimg/News.png') no-repeat top right, -o-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#EEE 75%); /* Opera 11.10+ */
 	background: url('povimg/News.png') no-repeat top right, -ms-linear-gradient(top, #d9ffc3 0%, #f0fff0 25%,#EEE 75%); /* IE10+ */
-	background: url('povimg/News.png') no-repeat top right, linear-gradient(to right, #f0fff0 25%,#EEE 75%); /* W3C */
+	background: url('povimg/News.png') no-repeat top right, linear-gradient(to left, #d9ffc3 25%,#EEE 75%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0fff0', endColorstr='#EEE',GradientType=0 ); /* IE6-9 */
 
 /*	background: url('povimg/News.png') no-repeat top right, #d9ffc3 /*rgba(217,255,195,0.5);*/
