@@ -55,6 +55,8 @@
 						<div class="entry">
 							<?php the_content('Read the rest of this entry &raquo;'); ?>
 						</div>
+					</div>
+					<div class="footer">
 						<?php echo my_get_buttons(); ?>
 		
 						<div class="postmetadata"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> |<?php edit_post_link(' Edit', '', ' |'); ?><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></div>
