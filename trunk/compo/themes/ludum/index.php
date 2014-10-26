@@ -39,7 +39,7 @@
 				<?php } else if ( get_the_author_meta('user_level') == 7 ) { ?>
 					<div class="ld-mod post" id="post-<?php the_ID(); ?>">
 				<?php } else { ?>
-					<div class="post" id="post-<?php the_ID(); ?>" >
+					<div class="ld-post post" id="post-<?php the_ID(); ?>" >
 				<?php } ?>
 					<?php $minimize = get_post_meta($post->ID,'minimize',false); ?>
 				
