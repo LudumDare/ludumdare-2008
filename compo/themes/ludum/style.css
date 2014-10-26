@@ -58,7 +58,7 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	color:#F84;
 	text-decoration:none;
 }
-.ld-news h2 a {
+.ld-news h2 a, .ld-news h2 a:visited {
 	color:#361;
 }
 
