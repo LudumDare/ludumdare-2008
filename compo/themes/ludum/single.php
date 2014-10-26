@@ -52,7 +52,7 @@
 				<?php echo my_get_buttons(); ?>
 				<?php the_tags( '<p>Tags: ', ', ', '</p>'); ?>
 			</div>
-			<div style="padding: 2px;position:absolute;right:0;bottom:0;"><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?></div>
+			<div style="padding-right:10px;position:absolute;right:0;bottom:0;"><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?></div>
 		</div>
 		<div class="footer">
 			<p class="postmetadata">
