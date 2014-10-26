@@ -112,9 +112,9 @@ Tags: blue, custom header, fixed width, two columns, widgets
 .ld-love .header { }
 .ld-love .footer { background: #FCC; }
 .ld-love small { color:#855; }
-.ld-love a { color:#B42; }
-.ld-love a:hover { color:#0BF; text-decoration:none; }
-.ld-love h2 a { color:#631; }
+.ld-love a { color:#B08; }
+.ld-love a:hover { color:#0F8; text-decoration:none; }
+.ld-love h2 a { color:#604; }
 
 .ld-mod {
 	background: url('povimg/Moderator.png') no-repeat top right, #EEE;
