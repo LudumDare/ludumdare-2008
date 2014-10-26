@@ -9,6 +9,43 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 */
 
+body {
+	margin: 0 0 20px 0;	/* Little Gap below all content */
+	padding: 0;
+
+	background: #543;
+
+	color: #876;
+	text-align: center;
+	font-size: 62.5%; /* Resets 1em to 10px */
+	font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+}
+
+#page { 
+	margin: 0px auto;	/* Center inside body */
+	padding: 0;
+	width: 960px;
+	border-radius:0 0 0 30px;
+	overflow:hidden;
+
+	background: #889;
+
+	color: #334;
+	text-align: left;
+}
+
+#header {
+	margin:0;
+	padding:0;
+
+	background: -moz-linear-gradient(top, #543 50%, #CCE 50%, #889 53%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#543), color-stop(50%,#CCE), color-stop(53%,#889)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #543 50%,#CCE 50%,#889 53%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #543 50%,#CCE 50%,#889 53%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #543 50%,#CCE 50%,#889 53%); /* IE10+ */
+	background: linear-gradient(to bottom,#543 50%,#CCE 50%,#889 53%); /* W3C */
+}
+
 /* ************ */
 
 .ld-news {
@@ -553,38 +590,6 @@ img {
 }
 
 /* Begin Typography & Colors */
-body {
-	font-size: 62.5%; /* Resets 1em to 10px */
-	font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
-	background: #543;
-	color: #000;
-	text-align: center;
-	margin: 0 0 20px 0;
-	padding: 0;
-}
-
-#page { 
-	background: #889;
-	border: none;
-	text-align: left;
-	margin: 0px auto;
-	margin-bottom: 0;
-	padding: 0;
-	width: 960px;
-	border-radius:0 0 0 30px;
-}
-
-#header {
-	background: -moz-linear-gradient(top, #543 50%, #CCE 50%, #889 53%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#543), color-stop(50%,#CCE), color-stop(53%,#889)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #543 50%,#CCE 50%,#889 53%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #543 50%,#CCE 50%,#889 53%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #543 50%,#CCE 50%,#889 53%); /* IE10+ */
-	background: linear-gradient(to bottom,#543 50%,#CCE 50%,#889 53%); /* W3C */
-
-	margin:0;
-	padding:0;
-}
 
 #content {
 	font-size: 1.2em;
