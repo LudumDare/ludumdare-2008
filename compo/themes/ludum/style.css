@@ -80,20 +80,20 @@ Tags: blue, custom header, fixed width, two columns, widgets
 }
 
 .ld-love {
-	background: url('povimg/Heart.png') no-repeat top right, #fff0f0; /* Old browsers */
-	background: url('povimg/Heart.png') no-repeat top right, -moz-linear-gradient(top, #FDD 0%, #FEE 25%); /* FF3.6+ */
-	background: url('povimg/Heart.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FDD), color-stop(25%,#FEE)); /* Chrome,Safari4+ */
-	background: url('povimg/Heart.png') no-repeat top right, -webkit-linear-gradient(top, #FDD 0%, #FEE 25%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/Heart.png') no-repeat top right, -o-linear-gradient(top, #FDD 0%, #FEE 25%); /* Opera 11.10+ */
-	background: url('povimg/Heart.png') no-repeat top right, -ms-linear-gradient(top, #FDD 0%, #FEE 25%); /* IE10+ */
-	background: url('povimg/Heart.png') no-repeat top right, linear-gradient(to bottom, #FDD 0%, #FEE 25%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FDD', endColorstr='#FEE',GradientType=0 ); /* IE6-9 */
+	background: url('povimg/Heart.png') no-repeat top right, #FCC; /* Old browsers */
+	background: url('povimg/Heart.png') no-repeat top right, -moz-linear-gradient(top, #FCC 0%, #FEE 25%); /* FF3.6+ */
+	background: url('povimg/Heart.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FCC), color-stop(25%,#FEE)); /* Chrome,Safari4+ */
+	background: url('povimg/Heart.png') no-repeat top right, -webkit-linear-gradient(top, #FCC 0%, #FEE 25%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Heart.png') no-repeat top right, -o-linear-gradient(top, #FCC 0%, #FEE 25%); /* Opera 11.10+ */
+	background: url('povimg/Heart.png') no-repeat top right, -ms-linear-gradient(top, #FCC 0%, #FEE 25%); /* IE10+ */
+	background: url('povimg/Heart.png') no-repeat top right, linear-gradient(to bottom, #FCC 0%, #FEE 25%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FCC', endColorstr='#FEE',GradientType=0 ); /* IE6-9 */
 }
 .ld-love .header {
 /*	background: url('povimg/Heart.png') no-repeat top right, #ffd8d8;/*rgba(255,240,240,0.5);*/
 }
 .ld-love .footer {
-	background: #FDD;
+	background: #FCC;
 }
 
 .ld-mod {
