@@ -58,6 +58,9 @@ Tags: blue, custom header, fixed width, two columns, widgets
 	color:#F84;
 	text-decoration:none;
 }
+.ld-news h2 a {
+	color:#361;
+}
 
 .ld-admin {
 	background: url('povimg/Admin.png') no-repeat top right, #fffff0; /* Old browsers */
