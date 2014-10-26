@@ -630,6 +630,7 @@ border: 1px solid #ddd;
 #footer {
 	background: #7d7387;/*url('povimg/LDFooter.png') no-repeat top;*/
 	border: none;
+	border-radius:0 0 0 30px;
 }
 
 small {
