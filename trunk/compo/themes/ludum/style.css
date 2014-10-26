@@ -9,19 +9,6 @@ Tags: blue, custom header, fixed width, two columns, widgets
 
 */
 
-/* Countdown Timer Stylings... maybe! */
-.fergcorp_countdownTimer_event_title { 
-	font-size:16px; 
-} 
-.fergcorp_countdownTimer_event_time { 
-	font-weight:bold;
-	font-size:16px; 
-	color:#FF5500;
-} 
-.fergcorp_countdownTimer_event_li { 
-	list-style-type:none;
-}
-
 /* ************ */
 
 .ld-news {
@@ -142,23 +129,21 @@ Tags: blue, custom header, fixed width, two columns, widgets
 /* ************ */
 
 .event {
-	/*background-color:#FC8;*/
+	background: #FC7; /* Old browsers */
+	background: -moz-linear-gradient(left, #FC7 0%, #FA8 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#FC7), color-stop(100%,#FA8)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, #FC7 0%, #FA8 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, #FC7 0%, #FA8 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, #FC7 0%, #FA8 100%); /* IE10+ */
+	background: linear-gradient(to right, #FC7 0%, #FA8 100%); /* W3C */
 
-	background: #ffc57a; /* Old browsers */
-	background: -moz-linear-gradient(left,  #ffc57a 0%, #ffa384 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ffc57a), color-stop(100%,#ffa384)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(left,  #ffc57a 0%,#ffa384 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(left,  #ffc57a 0%,#ffa384 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(left,  #ffc57a 0%,#ffa384 100%); /* IE10+ */
-	background: linear-gradient(to right,  #ffc57a 0%,#ffa384 100%); /* W3C */
-
-	color:#400;
+	color:#432;
 	font-size:15px;
 	padding:10px;
 	margin:0 0 10px;
 	border-radius:5px 5px 5px 20px;
-	border-top:1px solid #FF0;
-	border-bottom:1px solid #F80;
+	border-top:1px solid #FF4;
+	border-bottom:1px solid #432;
 }
 
 .event a {
