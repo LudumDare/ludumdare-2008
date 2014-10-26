@@ -933,6 +933,7 @@ a:hover {
 }
 .post .footer {
 	padding: 10px;
+	margin-top: 10px; /* for people that don't use <p> tags */
 }
 
 .post-with-border {
