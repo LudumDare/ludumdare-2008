@@ -111,7 +111,6 @@ body {
 	color:#F40;	
 }
 .event a:hover {
-	text-decoration:none;
 	color:#FFF;	
 }
 
@@ -127,7 +126,6 @@ body {
 	color:#A20;	
 }
 .event .navigation a:hover {
-	text-decoration:none;
 	color:#FF0;
 }
 
@@ -156,7 +154,7 @@ body {
 .ld-news .footer { background: #DFB; }
 .ld-news small { color:#684; }
 .ld-news a { color:#2A6; }
-.ld-news a:hover { color:#FB0; text-decoration:none; }
+.ld-news a:hover { color:#FB0; }
 .ld-news h2 a {	color:#184; }
 
 .ld-admin {
@@ -182,7 +180,7 @@ body {
 .ld-admin .footer { background: #FEC; }
 .ld-admin small { color:#875; }
 .ld-admin a { color:#F42; }
-.ld-admin a:hover { color:#0CF; text-decoration:none; }
+.ld-admin a:hover { color:#0CF; }
 .ld-admin h2 a { color:#820; }
 
 .ld-sticky {
@@ -222,7 +220,7 @@ body {
 .ld-love .footer { background: #FCC; }
 .ld-love small { color:#855; }
 .ld-love a { color:#A08; }
-.ld-love a:hover { color:#0BF; text-decoration:none; }
+.ld-love a:hover { color:#0BF; }
 .ld-love h2 a { color:#604; }
 
 .ld-mod {
@@ -317,7 +315,6 @@ body {
 	background:rgba(255,255,255,1);
 }
 .section .timezone a, .section .timezone a:hover {
-	text-decoration: none;
 	color:#000;
 }
 
@@ -462,6 +459,10 @@ body {
 }
 .section .link:hover {
 	background:#CEF;
+}
+.section .label {
+	line-height:24px;
+	font-size:16px;
 }
 
 /* ************ */
@@ -734,7 +735,6 @@ h3 {
 	}
 
 h1, h1 a, h1 a:hover, /*h1 a:visited,*/ #headerimg .description {
-	text-decoration: none;
 	color: white;
 	}
 
@@ -743,7 +743,6 @@ h2, h2 a, /*h2 a:visited,*/ h3, h3 a/*, h3 a:visited*/ {
 	}
 
 h2, h2 a, h2 a:hover, /*h2 a:visited,*/ h3, h3 a, h3 a:hover, /*h3 a:visited,*/ #sidebar h2, #wp-calendar caption, cite {
-	text-decoration: none;
 	}
 
 /*.entry p a:visited {
@@ -820,20 +819,10 @@ acronym, abbr, span.caps
 
 a, h2 a:hover, h3 a:hover {
 	color: #44C;
-	text-decoration: none;
-	}
-/*
-a:hover {
-	color: #147;
-	text-decoration: underline;
-	}*/
+}
 
 #wp-calendar #prev a, #wp-calendar #next a {
 	font-size: 9pt;
-	}
-
-#wp-calendar a {
-	text-decoration: none;
 	}
 
 #wp-calendar caption {
@@ -911,7 +900,6 @@ a:hover {
 }
 
 #header a:hover {
-	text-decoration:none;
 	color:#FFF;
 }
 
