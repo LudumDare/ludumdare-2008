@@ -208,4 +208,3 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			echo $out;
 		?></div>
 		<script type="text/javascript">mkClocksUpdate();</script>
-		<hr />
