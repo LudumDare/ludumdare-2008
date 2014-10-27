@@ -8,54 +8,48 @@
 			</div>
 		</div>
 	
-		<?php
-		if (have_posts()) :
-			while (have_posts()) : the_post();
-				if ( current_user_can('edit_others_posts') ) {
-					if ( get_the_author_meta('user_level') == 1 ) { 
-		?>
-			<div class="postflag" style="background-color: #D64;">
-				<div style="float:left">NEW USER</div>
-				<div style="float:right"><?php show_promote_buttons(); ?></div>
-			</div>
-		<?php 
-					} elseif ( current_user_can('delete_users') && ($_GET["admin"] === "1") ) { 
-		?>
+		
+<?php	if (have_posts()) :
+			while (have_posts()) : the_post(); ?>
+<?php			if ( current_user_can('edit_others_posts') ) {
+					if ( get_the_author_meta('user_level') == 1 ) { ?>
+		<div class="postflag" style="background-color: #D64;">
+			<div style="float:left">NEW USER</div>
+			<div style="float:right"><?php show_promote_buttons(); ?></div>
+		</div>
+<?php 				} elseif ( current_user_can('delete_users') && ($_GET["admin"] === "1") ) { ?>
 		<div class="postflag" style="background-color: #555;">
 			<div style="float:left">EXISTING USER</div>
 			<div style="float:right"><?php show_murder_buttons(); ?></div>
 		</div>
-		<?php 
-					}
+<?php 				} ?>
 					
-					if ( $post->post_status == 'pending' ) { 
-		?>
+<?php				if ( $post->post_status == 'pending' ) { ?>
 		<div class="postflag">
 			<div style="float:left">PENDING</div>
 			<div style="float:right"><?php show_publish_buttons(); ?></div>
 		</div>
-		<?php 
-					}
-				}
+<?php 				}
+				} /* can edit_other_posts */ ?>
 				
-				if ( get_the_author_meta('display_name') == 'news' ) {
-					echo '<div class="ld-news post" id="post-' . the_ID() . '">';
-				} else if ( get_the_author_meta('user_level') == 10 ) {
-					echo '<div class="ld-admin post" id="post-' . the_ID() . '">';
-				} else if ( is_sticky() ) {
-					echo '<div class="ld-sticky post" id="post-' . the_ID() . '">';
-				} else if ( get_post_meta(get_the_ID(), '_liked', true) >= 4 ) {
-					echo '<div class="ld-love post" id="post-' . the_ID() . '">';
-				} else if ( get_the_author_meta('user_level') == 7 ) {
-					echo '<div class="ld-mod post" id="post-' . the_ID() . '">';
-				} else {
-					echo '<div class="ld-post post" id="post-' . the_ID() . '">';
-				}
+<?php 			if ( get_the_author_meta('display_name') == 'news' ) { ?>
+		<div class="ld-news post" id="post-<?php the_ID(); ?>">
+<?php			} else if ( get_the_author_meta('user_level') == 10 ) { ?>
+		<div class="ld-admin post" id="post-<?php the_ID(); ?>">
+<?php 			} else if ( is_sticky() ) { ?>
+		<div class="ld-sticky post" id="post-<?php the_ID(); ?>">
+<?php 			} else if ( get_post_meta(get_the_ID(), '_liked', true) >= 4 ) { ?>
+		<div class="ld-love post" id="post-<?php the_ID(); ?>" >
+<?php 			} else if ( get_the_author_meta('user_level') == 7 ) { ?>
+		<div class="ld-mod post" id="post-<?php the_ID(); ?>">
+<?php 			} else { ?>
+		<div class="ld-post post" id="post-<?php the_ID(); ?>" >
+<?php			} ?>
+
+
+<?php			$minimize = get_post_meta($post->ID,'minimize',false);
 				
-				$minimize = get_post_meta($post->ID,'minimize',false);
-				
-				if ( count($minimize) == 0 ) { 
-		?>
+				if ( count($minimize) == 0 ) { ?>
 			<div class="header">
 				<div style="float: right;"><?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?></div>
 				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
