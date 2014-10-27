@@ -450,10 +450,12 @@ body {
 	display:inline-block;
 	white-space:nowrap;
 }
+
 .section .link {
 	background:#ABC;
 	border-radius:12px;
-	padding:6px 12px;
+	padding:0 12px;
+	line-height:24px;
 	
 	color:#678;
 }
