@@ -33,25 +33,22 @@
 		?>'s Trophies</h2>
 		<?php } ?>
 <div class="ld-post post" id="trophies">
-<div><?php
-if (is_author() && is_category()) {
-?></div>
-
+	<div>
 <?php
-    $uid = get_query_var("author");
-    $auth = get_userdata($uid);
-    $mylink = get_option('home')."/author/{$auth->user_nicename}/?compo_action=form";
-    echo "<form method=post action='$mylink'><input type='submit' value='Award a trophy!'></form>";
-    
-
-    compo_rate(get_query_var("cat"),get_query_var("author"));
-} elseif (is_author()) {
-    compo_trophy(get_query_var("author"));
-} elseif (is_category()) {
-    compo_results(get_query_var("cat"));
-}
-
+		if (is_author() && is_category()) {
+		    $uid = get_query_var("author");
+		    $auth = get_userdata($uid);
+		    $mylink = get_option('home')."/author/{$auth->user_nicename}/?compo_action=form";
+		    echo "<form method=post action='$mylink'><input type='submit' value='Award a trophy!'></form>";
+		    
+		    compo_rate(get_query_var("cat"),get_query_var("author"));
+		} elseif (is_author()) {
+		    compo_trophy(get_query_var("author"));
+		} elseif (is_category()) {
+		    compo_results(get_query_var("cat"));
+		}
 ?>
+	</div>
 </div>
 
  	  <?php /* If this is a category archive */ if (is_category()) { ?>
