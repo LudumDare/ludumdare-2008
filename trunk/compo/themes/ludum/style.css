@@ -456,15 +456,22 @@ body {
 	border-radius:12px;
 	padding:0 12px;
 	line-height:24px;
-	
-	color:#678;
 }
 .section .link:hover {
 	background:#CEF;
+	cursor: pointer;
 }
+.section .link a {
+	color:#678;
+}
+.section .link a:hover {
+	color:#FFF;
+}
+
 .section .label {
 	line-height:24px;
 	font-size:16px;
+	vertical-align:middle;
 }
 
 /* ************ */
