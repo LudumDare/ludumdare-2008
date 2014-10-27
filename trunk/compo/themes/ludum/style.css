@@ -184,6 +184,7 @@ body {
 .ld-admin h2 a { color:#820; }
 
 .ld-sticky {
+	color: #324;
 	background: url('povimg/Featured.png') no-repeat top right, #DBE; /* Old browsers */
 	background: url('povimg/Featured.png') no-repeat top right, -moz-linear-gradient(top, #DBE 0%, #FEF 25%); /* FF3.6+ */
 	background: url('povimg/Featured.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DBE), color-stop(25%,#FEF)); /* Chrome,Safari4+ */
@@ -191,6 +192,15 @@ body {
 	background: url('povimg/Featured.png') no-repeat top right, -o-linear-gradient(top, #DBE 0%, #FEF 25%); /* Opera 11.10+ */
 	background: url('povimg/Featured.png') no-repeat top right, -ms-linear-gradient(top, #DBE 0%, #FEF 25%); /* IE10+ */
 	background: url('povimg/Featured.png') no-repeat top right, linear-gradient(to bottom, #DBE 0%, #FEF 25%); /* W3C */
+}
+.ld-sticky .minimize {
+	background: url('povimg/Featured.png') no-repeat top right, #DBE; /* Old browsers */
+	background: url('povimg/Featured.png') no-repeat top right, -moz-linear-gradient(left, #FEF 0%, #DBE 25%); /* FF3.6+ */
+	background: url('povimg/Featured.png') no-repeat top right, -webkit-gradient(linear, left top, right top, color-stop(0%,#FEF), color-stop(25%,#DBE)); /* Chrome,Safari4+ */
+	background: url('povimg/Featured.png') no-repeat top right, -webkit-linear-gradient(left, #FEF 0%, #DBE 25%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Featured.png') no-repeat top right, -o-linear-gradient(left, #FEF 0%, #DBE 25%); /* Opera 11.10+ */
+	background: url('povimg/Featured.png') no-repeat top right, -ms-linear-gradient(left, #FEF 0%, #DBE 25%); /* IE10+ */
+	background: url('povimg/Featured.png') no-repeat top right, linear-gradient(to right, #FEF 0%, #DBE 25%); /* W3C */
 }
 .ld-sticky .header { }
 .ld-sticky .footer { background: #DBE; }
