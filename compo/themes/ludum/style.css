@@ -943,17 +943,21 @@ a:hover {
 
 .post .header {
 	padding: 10px;
+	padding-left: 20px;
 	padding-bottom:0; /* Since we're not styling header bottoms, prefer magin. */
 	margin-bottom: 10px; /* for people that don't use <p> tags */
 }
 .post .minimize {
 	padding: 10px;
+	padding-left: 20px;
 }
 .post .body {
 	padding: 0 10px;	
+	padding-left: 20px;
 }
 .post .footer {
 	padding: 10px;
+	padding-left: 20px;
 	margin-top: 10px; /* for people that don't use <p> tags */
 }
 
