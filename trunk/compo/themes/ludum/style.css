@@ -25,10 +25,6 @@ body {
 	margin: 0px auto;	/* Center inside body */
 	padding: 0;
 	width: 960px;
-	border-radius:0 0 0 30px;
-/*	overflow:hidden;*/
-
-	background: #889;
 
 	color: #334;
 	text-align: left;
@@ -44,6 +40,14 @@ body {
 	background: -o-linear-gradient(top, #543 50%,#CCE 50%,#889 53%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top, #543 50%,#CCE 50%,#889 53%); /* IE10+ */
 	background: linear-gradient(to bottom,#543 50%,#CCE 50%,#889 53%); /* W3C */
+}
+
+#body {
+	background: #889;	
+}
+
+#footer {
+	border-radius:0 0 0 30px;	
 }
 
 /* ************ */
