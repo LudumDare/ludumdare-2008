@@ -909,7 +909,7 @@ a:hover {
 	width: 940px;
 }
 
-.fullcolumn > div {
+.fullcolumn > div > div {
 	margin:10px;
 }
 
