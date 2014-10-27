@@ -906,14 +906,14 @@ a:hover {
 
 .widecolumn {
 	padding: 10px 0 5px 0;
-	margin: 5px 0 0 160px;
+	margin: 0 0 0 160px;
 	width: 640px;
 	}
 
 .fullcolumn {
 	float: left;
 	padding: 0 0 5px 10px;
-	margin: 0px 0 0;
+	margin: 0;
 	width: 940px;
 	}
 
