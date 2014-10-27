@@ -437,6 +437,12 @@ body {
 .section .s14of15 { width:886px; }
 .section .s15of15 { width:950px; }
 
+.section .left {
+	float:left;
+}
+.section .right {
+	float:right;
+}
 .section .free {
 	padding:6px 12px;
 }
