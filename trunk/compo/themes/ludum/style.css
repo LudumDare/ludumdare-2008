@@ -866,7 +866,7 @@ a:hover {
 	float: left;
 	padding: 0 0 5px 10px;
 	margin: 0;
-	width: 640px;
+	width: 660px;
 	}
 
 .widecolumn {
@@ -927,12 +927,18 @@ a:hover {
 
 .post {
 	margin: 0 0 10px;
-	text-align: justify;
 	border-bottom: 1px solid #543;
 	border-top: 1px solid #FFF;
 	overflow:hidden;
+
+	text-align: justify;
 	border-radius: 5px 5px 5px 30px;
 }
+
+.narrowcolumn .post {
+	position:relative;
+	left:-20px;
+}	
 
 .post .header {
 	padding: 10px;
