@@ -944,9 +944,9 @@ a:hover {
 .narrowcolumn .post, .narrowcolumn .event {
 	position:relative;
 	left:-20px;
-	width:650px;
+	width:660px;
 }
-.event div {
+.post div {
 	padding-left:20px;
 }
 
