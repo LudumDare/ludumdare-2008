@@ -447,13 +447,14 @@ body {
 }
 .section .free {
 	padding:6px 12px;
+	display:inline-block;
 }
 .section .link {
-	background:#BBC;
+	background:#ABC;
 	border-radius:12px;
 }
 .section .link:hover {
-	background:#CCF;
+	background:#CEF;
 }
 
 /* ************ */
