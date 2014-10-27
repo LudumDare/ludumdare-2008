@@ -86,7 +86,7 @@ body {
 	margin:0 0 10px;
 	border-radius:30px 5px 5px 5px;
 	border-top:1px solid #FF4;
-	border-bottom:1px solid #432;
+	border-bottom:3px solid #432;
 
 	background: #FC7; /* Old browsers */
 	background: -moz-linear-gradient(left, #FC7 0%, #FA8 100%); /* FF3.6+ */
@@ -977,7 +977,7 @@ a, h2 a:hover, h3 a:hover {
 
 .post {
 	margin: 0 0 10px;
-	border-bottom: 1px solid #543;
+	border-bottom: 3px solid #543;
 	border-top: 1px solid #FFF;
 	overflow:hidden;
 
