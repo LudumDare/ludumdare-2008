@@ -455,10 +455,13 @@ body {
 	background:#ABC;
 	border-radius:12px;
 	padding:0 12px;
-	line-height:24px;
+	line-height:22px;
+	border-top:2px solid #678;
 }
 .section .link:hover {
 	background:#CEF;
+	border-top:0;
+	border-bottom:2px solid #ABC;
 	cursor: pointer;
 }
 .section .link, .section .link:hover, .section .link a, .section .link a:hover {
