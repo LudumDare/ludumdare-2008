@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+<div id="body">
 	<div id="content" class="fullcolumn">
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -15,7 +15,5 @@
 		<?php endwhile; endif; ?>
 	<?php edit_post_link('Edit this entry.', '<p>', '</p>'); ?>
 	</div>
-
-<?php /*get_sidebar();*/ ?>
-
+</div>
 <?php get_footer(); ?>
