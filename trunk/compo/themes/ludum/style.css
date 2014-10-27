@@ -547,7 +547,7 @@ body {
 	font-size: 18px;
 	font-weight: bold;
 	color: #6CF;
-	text-shadow:0 1px #456;
+	text-shadow:0 1px #543;
 }
 
 /* ************ */
@@ -876,10 +876,10 @@ a, h2 a:hover, h3 a:hover {
 
 #header .login {
 	float: right;
-	background: #e6cdff;
+	background: #CCE;
 	white-space: nowrap;
 	border-radius:0 0 0 8px;
-	border-bottom:4px solid #7d7387;
+	border-bottom:4px solid #543;
 }
 
 #header .login_not {
@@ -907,18 +907,18 @@ a, h2 a:hover, h3 a:hover {
 
 #header .headline {
 	font-size:15px;
-	background: #7d7387;
+	background: #CCE;
 	padding:4px 8px;
 	margin-left:4px;
 	border-radius:0 0 0 8px;
 }
 
 #header, #header a {
-	color: #7d7387;
+	color: #889;
 }
 
 #header .headline, #header .headline a {
-	color: #e6cdff;
+	color: #CCE;
 }
 
 #header .login .info .action {
