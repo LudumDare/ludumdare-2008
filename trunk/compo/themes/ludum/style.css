@@ -822,11 +822,11 @@ a, h2 a:hover, h3 a:hover {
 	color: #44C;
 	text-decoration: none;
 	}
-
+/*
 a:hover {
 	color: #147;
 	text-decoration: underline;
-	}
+	}*/
 
 #wp-calendar #prev a, #wp-calendar #next a {
 	font-size: 9pt;
