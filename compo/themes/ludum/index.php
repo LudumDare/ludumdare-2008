@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+<div id="body">
 	<div id="content" class="narrowcolumn">
 		<div class="event">
 			<div class="info">
@@ -86,5 +86,7 @@
 			<?php include (TEMPLATEPATH . "/searchform.php"); ?>
 		<?php endif; ?>
 	</div>
-<?php get_sidebar(); ?>
+	
+	<?php get_sidebar(); ?>
+</div>
 <?php get_footer(); ?>

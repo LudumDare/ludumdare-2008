@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+<div id="body">
 	<div id="content" class="widecolumn">
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -90,14 +90,10 @@
 		</div>
 		</div>
 
-	<?php comments_template(); ?>
-
-	<?php endwhile; else: ?>
-
-		<p>Sorry, no posts matched your criteria.</p>
-
-<?php endif; ?>
-
+		<?php comments_template(); ?>	
+		<?php endwhile; else: ?>
+			<p>Sorry, no posts matched your criteria.</p>
+		<?php endif; ?>
 	</div>
-
+</div>
 <?php get_footer(); ?>
