@@ -935,11 +935,11 @@ a:hover {
 	border-radius: 5px 5px 5px 30px;
 }
 
-.narrowcolumn .post {
+.narrowcolumn .post, .narrowcolumn .event {
 	position:relative;
 	left:-20px;
 	width:660px;
-}	
+}
 
 .post .header {
 	padding: 10px;
