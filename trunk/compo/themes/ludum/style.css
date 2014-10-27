@@ -918,7 +918,7 @@ a, h2 a:hover, h3 a:hover {
 }
 
 #header .headline, #header .headline a {
-	color: #CCE;
+	color: #CCE; /**/
 }
 
 #header .login .info .action {
