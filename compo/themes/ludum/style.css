@@ -267,6 +267,7 @@ body {
 .section .cell {
 	background:#ccc;
 	position:relative;
+	display:block;
 }
 
 .section .bigcell {
