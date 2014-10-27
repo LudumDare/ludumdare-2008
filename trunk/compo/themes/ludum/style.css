@@ -47,8 +47,13 @@ body {
 }
 
 #footer {
+	padding:10px;
 	border-radius:0 0 0 30px;
+	clear:both;
+	
 	background: #778;
+	
+	text-align: center;
 }
 /*
 #footer {
