@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-
+<div id="body">
 <div id="content" class="narrowcolumn">
 <?php
 /*
@@ -157,5 +157,5 @@ if (is_author() && is_category()) {
 	</div>
 
 <?php get_sidebar(); ?>
-
+</div>
 <?php get_footer(); ?>
