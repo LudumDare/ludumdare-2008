@@ -1,11 +1,11 @@
 /*
 Theme Name: Ludum Dare
 Theme URI: http://ludumdare.com/
-Description: We hacked the Kuberick.
+Description: Custom
 Version: 0.1
-Author: PoV probably
+Author: PoV
 Author URI: 
-Tags: blue, custom header, fixed width, two columns, widgets
+Tags: goat
 
 */
 
@@ -984,7 +984,7 @@ a:hover {
 }
 
 .post .header {
-	padding: 10px;
+	padding: 10px !important;
 	padding-bottom:0; /* Since we're not styling header bottoms, prefer magin. */
 	margin-bottom: 10px; /* for people that don't use <p> tags */
 }
