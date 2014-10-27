@@ -69,8 +69,8 @@ body {
 	color:#432;
 	font-size:15px;
 }
-.event > div > div {
-	padding-left:20px;
+.event div div {
+	padding-left:10px;
 }
 
 .event a {
@@ -946,7 +946,7 @@ a:hover {
 	left:-20px;
 	width:650px;
 }
-.event > div > div {
+.event div div {
 	padding-left:20px;
 }
 
