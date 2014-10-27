@@ -1300,7 +1300,7 @@ select {
 /* Begin Sidebar */
 #sidebar {
 	float:right;
-	padding-right:10px;
+	padding-right:8px;
 /*	margin-left: 660px;*/
 	width: 292px;
 }
