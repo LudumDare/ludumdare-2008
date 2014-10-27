@@ -47,8 +47,22 @@ body {
 }
 
 #footer {
-	border-radius:0 0 0 30px;	
+	border-radius:0 0 0 30px;
+	background: #778;
 }
+/*
+#footer {
+	padding: 0;
+	margin: 0 auto;
+	width: 960px;
+	clear: both;
+	}
+
+#footer p {
+	margin: 0;
+	padding: 10px 0;
+	text-align: center;
+	}*/
 
 /* ************ */
 
@@ -644,11 +658,6 @@ border: 1px solid #ddd;
 	border-left: 1px solid #ddd;
 }
 
-#footer {
-	background: #7d7387;/*url('povimg/LDFooter.png') no-repeat top;*/
-	border: none;
-}
-
 small {
 	font-family: Arial, Helvetica, Sans-Serif;
 	font-size: 0.9em;
@@ -1017,18 +1026,6 @@ a:hover {
 	clear: both;
 }
 
-#footer {
-	padding: 0;
-	margin: 0 auto;
-	width: 960px;
-	clear: both;
-	}
-
-#footer p {
-	margin: 0;
-	padding: 10px 0;
-	text-align: center;
-	}
 /* End Structure */
 
 
