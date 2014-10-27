@@ -528,6 +528,7 @@ body {
 	display:table-cell;
 	vertical-align:middle;
 	width:228px;
+	padding-left:4px;
 }
 .imagebox > div:hover {
 	background: #44F;
@@ -546,6 +547,7 @@ body {
 	font-size: 18px;
 	font-weight: bold;
 	color: #6CF;
+	text-shadow:0 1px #456;
 }
 
 /* ************ */
