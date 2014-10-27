@@ -122,7 +122,7 @@ if (is_author() && is_category()) {
 		<?php } else if ( get_the_author_meta('user_level') == 7 ) { ?>
 			<div class="ld-mod post">
 		<?php } else { ?>
-			<div class="post">
+			<div class="ld-post post">
 		<?php } ?>
 			<div style="float: right;"><?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?></div>
 			<h2 id="post-<?php the_ID(); ?>"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
