@@ -2,8 +2,10 @@
 
 	<div id="content" class="narrowcolumn">
 		<div class="event">
-			<div class="navigation"><a href="/compo/october-challenge-2014/?action=edit">Submit (<strong>Edit</strong>)</a> | <a href="http://www.ludumdare.com/compo/2014/09/29/october-2014-resources-and-opportunities/">Resources</a> | <a href="/compo/october-challenge-2014/?action=preview">View All</a></div>
-			<div class="name">Now: <a href="/compo/2014/09/29/october-challenge-2014/"><strong>October Challenge 2014</strong></a></div>
+			<div class="info">
+				<div class="navigation"><a href="/compo/october-challenge-2014/?action=edit">Submit (<strong>Edit</strong>)</a> | <a href="http://www.ludumdare.com/compo/2014/09/29/october-2014-resources-and-opportunities/">Resources</a> | <a href="/compo/october-challenge-2014/?action=preview">View All</a></div>
+				<div class="name">Now: <a href="/compo/2014/09/29/october-challenge-2014/"><strong>October Challenge 2014</strong></a></div>
+			</div>
 		</div>
 	
 		<?php if (have_posts()) : ?>

@@ -50,7 +50,6 @@ body {
 
 .event {
 	margin:0 0 10px;
-	padding:10px;
 	border-radius:30px 5px 5px 5px;
 	border-top:1px solid #FF4;
 	border-bottom:1px solid #432;
@@ -62,6 +61,10 @@ body {
 	background: -o-linear-gradient(left, #FC7 0%, #FA8 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(left, #FC7 0%, #FA8 100%); /* IE10+ */
 	background: linear-gradient(to right, #FC7 0%, #FA8 100%); /* W3C */
+}
+
+.event .info {
+	padding:10px;	
 
 	color:#432;
 	font-size:15px;
@@ -938,7 +941,7 @@ a:hover {
 .narrowcolumn .post, .narrowcolumn .event {
 	position:relative;
 	left:-20px;
-	width:660px;
+	width:650px;
 	padding-left:10px;
 }
 
