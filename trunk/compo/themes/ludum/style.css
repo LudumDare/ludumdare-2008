@@ -184,17 +184,16 @@ body {
 .ld-admin h2 a { color:#820; }
 
 .ld-sticky {
-	background: url('povimg/Featured.png') no-repeat top right, #f8f8ff; /* Old browsers */
-	background: url('povimg/Featured.png') no-repeat top right, -moz-linear-gradient(top, #f8e0fc 0%, #f8f8ff 25%, #EEE 75%); /* FF3.6+ */
-	background: url('povimg/Featured.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8e0fc), color-stop(25%,#f8f8ff), color-stop(75%,#EEE)); /* Chrome,Safari4+ */
-	background: url('povimg/Featured.png') no-repeat top right, -webkit-linear-gradient(top, #f8e0fc 0%, #f8f8ff 25%,#EEE 75%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/Featured.png') no-repeat top right, -o-linear-gradient(top, #f8e0fc 0%, #f8f8ff 25%,#EEE 75%); /* Opera 11.10+ */
-	background: url('povimg/Featured.png') no-repeat top right, -ms-linear-gradient(top, #f8e0fc 0%, #f8f8ff 25%,#EEE 75%); /* IE10+ */
-	background: url('povimg/Featured.png') no-repeat top right, linear-gradient(to bottom, #f8e0fc 0%, #f8f8ff 25%,#EEE 75%); /* W3C */
+	background: url('povimg/Featured.png') no-repeat top right, #EDF; /* Old browsers */
+	background: url('povimg/Featured.png') no-repeat top right, -moz-linear-gradient(top, #EDF 0%, #EEE 25%); /* FF3.6+ */
+	background: url('povimg/Featured.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EDF), color-stop(25%,#EEE)); /* Chrome,Safari4+ */
+	background: url('povimg/Featured.png') no-repeat top right, -webkit-linear-gradient(top, #EDF 0%, #EEE 25%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Featured.png') no-repeat top right, -o-linear-gradient(top, #EDF 0%, #EEE 25%); /* Opera 11.10+ */
+	background: url('povimg/Featured.png') no-repeat top right, -ms-linear-gradient(top, #EDF 0%, #EEE 25%); /* IE10+ */
+	background: url('povimg/Featured.png') no-repeat top right, linear-gradient(to bottom, #EDF 0%, #EEE 25%); /* W3C */
 }
-.ld-sticky .header {
-	background: url('povimg/Featured.png') no-repeat top right, #f8e0fc;/*rgba(248,248,255,0.5);*/
-}
+.ld-sticky .header { }
+.ld-admin .footer { background: #EDF; }
 
 
 .ld-love {
@@ -256,8 +255,8 @@ body {
 }
 .ld-post small { color:#555; }
 .ld-post a { color:#04C; }
-.ld-post a:hover { color:#FB0; }
-.ld-post h2 a { color:#037; }
+.ld-post a:hover { color:#FA0; }
+.ld-post h2 a { color:#026; }
 
 
 /* ************ */
