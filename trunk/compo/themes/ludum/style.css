@@ -231,6 +231,7 @@ body {
 }
 
 .ld-post {
+	color: #222;
 	background: #EEE; /* Old browsers */
 	background: -moz-linear-gradient(top, #DDD 0%, #EEE 25%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DDD), color-stop(25%,#EEE)); /* Chrome,Safari4+ */
@@ -239,12 +240,24 @@ body {
 	background: -ms-linear-gradient(top, #DDD 0%, #EEE 25%); /* IE10+ */
 	background: linear-gradient(to bottom, #DDD 0%, #EEE 25%); /* W3C */
 }
+.ld-post .minimize {
+	background: #EEE; /* Old browsers */
+	background: -moz-linear-gradient(left, #EEE 0%, #DDD 25%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, right top, color-stop(0%,#EEE), color-stop(25%,#DDD)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(left, #EEE 0%, #DDD 25%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(left, #EEE 0%, #DDD 25%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(left, #EEE 0%, #DDD 25%); /* IE10+ */
+	background: linear-gradient(to right, #EEE 0%, #DDD 25%); /* W3C */
+}
 .ld-post .header {
-/*	background: #EEE;*/
 }
 .ld-post .footer {
 	background: #DDD;
 }
+.ld-post small { color:#555; }
+.ld-post a { color:#04C; }
+.ld-post a:hover { color:#FB0; }
+.ld-post h2 a { color:#037; }
 
 
 /* ************ */
