@@ -264,9 +264,6 @@ body {
 	background:#ccc;
 	position:relative;
 }
-.section .label {
-	text-align:right;
-}
 
 .section .bigcell {
 	background-size:246px auto !important;
@@ -439,6 +436,16 @@ body {
 .section .s13of15 { width:822px; }
 .section .s14of15 { width:886px; }
 .section .s15of15 { width:950px; }
+
+.section .free {
+	padding:6px 12px;
+}
+.section .link {
+	background:#BBC;
+}
+.section .link:hover {
+	background:#CCF;
+}
 
 /* ************ */
 
