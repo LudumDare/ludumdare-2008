@@ -898,19 +898,17 @@ a:hover {
 	margin: 0;
 	width: 640px;
 }
-
 .widecolumn {
-	padding: 10px 0 5px 0;
-	margin: 0 0 0 160px;
+	padding: 10px 0 5px 160px;
+	margin: 0;
 	width: 640px;
 }
-
 .fullcolumn {
-	float: left;
 	padding: 0 0 5px 10px;
 	margin: 0;
 	width: 940px;
-	}
+}
+
 
 .postflag {
 	background-color: #5d4d69;
