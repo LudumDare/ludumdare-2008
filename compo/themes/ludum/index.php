@@ -56,13 +56,13 @@
 <?php /* BEGIN */
 				$PostAge = "RIGHT NOW!";
 				if ( $TimeDiff > (24*60*60) ) {
-					$PostAge = floor($TimeDiff / (24*60*60)) + " days ago";
+					$PostAge = floor($TimeDiff / (24*60*60)) . " days ago";
 				}
 				else if ( $TimeDiff > (60*60) ) {
-					$PostAge = floor($TimeDiff / (60*60)) + " hours ago";
+					$PostAge = floor($TimeDiff / (60*60)) . " hours ago";
 				}
 				else if ( $TimeDiff > (2*60) ) {
-					$PostAge = floor($TimeDiff / (1*60)) + " minutes ago";
+					$PostAge = floor($TimeDiff / (1*60)) . " minutes ago";
 				}
 				$IsNew = false;
 				if ( $TimeDiff < (2*24*60*60) ) {
