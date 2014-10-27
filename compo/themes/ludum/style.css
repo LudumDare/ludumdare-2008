@@ -345,6 +345,12 @@ body {
 .topgap {
 	margin-top:10px;
 }
+.botpad {
+	padding-bottom:10px;
+}
+.toppad {
+	padding-top:10px;
+}
 
 @font-face {
 	font-family: LetsGoDigital;
