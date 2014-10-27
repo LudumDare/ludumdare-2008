@@ -522,14 +522,14 @@ body {
 	display:table;
 	border-radius:5px;
 	overflow:auto;
+	width:100%;
 }
 .imagebox > div > div {
 	display:table-cell;
 	vertical-align:middle;
 }
-
 .imagebox > div:hover {
-	background: #44F;/*#8AE;*/
+	background: #44F;
 	cursor: pointer;
 	color: #FFF !important;
 }
