@@ -1,17 +1,17 @@
 <?php get_header(); ?>
 <div id="body">
 	<div id="content" class="narrowcolumn">
+		<!-- Event -->
 		<div class="event">
 			<div class="info">
 				<div class="navigation"><a href="/compo/october-challenge-2014/?action=edit">Submit (<strong>Edit</strong>)</a> | <a href="http://www.ludumdare.com/compo/2014/09/29/october-2014-resources-and-opportunities/">Resources</a> | <a href="/compo/october-challenge-2014/?action=preview">View All</a></div>
 				<div class="name">Now: <a href="/compo/2014/09/29/october-challenge-2014/"><strong>October Challenge 2014</strong></a></div>
 			</div>
 		</div>
-	
-		
-<?php	if (have_posts()) {
-			while (have_posts()) { 
-				the_post(); ?>
+		<!-- Posts -->
+<?php	if (have_posts()) { ?>
+<?php		while (have_posts()) { ?>
+<?php			the_post(); ?>
 <?php			if ( current_user_can('edit_others_posts') ) {
 					if ( get_the_author_meta('user_level') == 1 ) { ?>
 		<div class="postflag" style="background-color: #D64;">
@@ -30,8 +30,8 @@
 			<div style="float:left">PENDING</div>
 			<div style="float:right"><?php show_publish_buttons(); ?></div>
 		</div>
-<?php 				}
-				} /* can edit_other_posts */ ?>
+<?php 				} ?>
+<?php			} /* can edit_other_posts */ ?>
 				
 <?php 			if ( get_the_author_meta('display_name') == 'news' ) { ?>
 		<div class="ld-news post" id="post-<?php the_ID(); ?>">
@@ -48,9 +48,9 @@
 <?php			} ?>
 
 
-<?php			$minimize = get_post_meta($post->ID,'minimize',false);
+<?php			$minimize = get_post_meta($post->ID,'minimize',false); ?>
 				
-				if ( count($minimize) == 0 ) { ?>
+<?php			if ( count($minimize) == 0 ) { ?>
 			<div class="header">
 				<div style="float: right;">
 					<?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?>
@@ -90,11 +90,14 @@
 		</div>
 	
 <?php	} else { ?>
+		<div id="error">
 			<h2 class="center">Not Found</h2>
 			<p class="center">Sorry, but you are looking for something that isn't here.</p>
 			<?php include (TEMPLATEPATH . "/searchform.php"); ?>
+		</div>
 <?php	} /*endif;*/ ?>
 	</div>
+	<!-- Side Bar -->
 	<?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>
