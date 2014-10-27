@@ -184,16 +184,16 @@ body {
 .ld-admin h2 a { color:#820; }
 
 .ld-sticky {
-	background: url('povimg/Featured.png') no-repeat top right, #EDF; /* Old browsers */
-	background: url('povimg/Featured.png') no-repeat top right, -moz-linear-gradient(top, #EDF 0%, #EEE 25%); /* FF3.6+ */
-	background: url('povimg/Featured.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EDF), color-stop(25%,#EEE)); /* Chrome,Safari4+ */
-	background: url('povimg/Featured.png') no-repeat top right, -webkit-linear-gradient(top, #EDF 0%, #EEE 25%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/Featured.png') no-repeat top right, -o-linear-gradient(top, #EDF 0%, #EEE 25%); /* Opera 11.10+ */
-	background: url('povimg/Featured.png') no-repeat top right, -ms-linear-gradient(top, #EDF 0%, #EEE 25%); /* IE10+ */
-	background: url('povimg/Featured.png') no-repeat top right, linear-gradient(to bottom, #EDF 0%, #EEE 25%); /* W3C */
+	background: url('povimg/Featured.png') no-repeat top right, #DCF; /* Old browsers */
+	background: url('povimg/Featured.png') no-repeat top right, -moz-linear-gradient(top, #DCF 0%, #EEF 25%); /* FF3.6+ */
+	background: url('povimg/Featured.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DCF), color-stop(25%,#EEF)); /* Chrome,Safari4+ */
+	background: url('povimg/Featured.png') no-repeat top right, -webkit-linear-gradient(top, #DCF 0%, #EEF 25%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Featured.png') no-repeat top right, -o-linear-gradient(top, #DCF 0%, #EEF 25%); /* Opera 11.10+ */
+	background: url('povimg/Featured.png') no-repeat top right, -ms-linear-gradient(top, #DCF 0%, #EEF 25%); /* IE10+ */
+	background: url('povimg/Featured.png') no-repeat top right, linear-gradient(to bottom, #DCF 0%, #EEF 25%); /* W3C */
 }
 .ld-sticky .header { }
-.ld-admin .footer { background: #EDF; }
+.ld-sticky .footer { background: #EDF; }
 
 
 .ld-love {
