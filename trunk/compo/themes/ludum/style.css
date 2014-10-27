@@ -193,8 +193,11 @@ body {
 	background: url('povimg/Featured.png') no-repeat top right, linear-gradient(to bottom, #DCF 0%, #EEF 25%); /* W3C */
 }
 .ld-sticky .header { }
-.ld-sticky .footer { background: #EDF; }
-
+.ld-sticky .footer { background: #DCF; }
+.ld-sticky small { color:#87A; }
+.ld-sticky a { color:#42C; }
+.ld-sticky a:hover { color:#FC0; }
+.ld-sticky h2 a { color:#206; }
 
 .ld-love {
 	color: #422;
@@ -253,7 +256,7 @@ body {
 .ld-post .footer {
 	background: #DDD;
 }
-.ld-post small { color:#555; }
+.ld-post small { color:#777; }
 .ld-post a { color:#04C; }
 .ld-post a:hover { color:#FA0; }
 .ld-post h2 a { color:#026; }
