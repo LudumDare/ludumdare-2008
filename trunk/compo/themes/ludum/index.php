@@ -1,5 +1,8 @@
 <?php get_header(); ?>
 <div id="body">
+	<!-- Side Bar -->
+	<?php get_sidebar(); ?>
+	<!-- Content -->
 	<div id="content" class="narrowcolumn">
 		<!-- Event -->
 		<div class="event">
@@ -97,7 +100,5 @@
 		</div>
 <?php	} /*endif;*/ ?>
 	</div>
-	<!-- Side Bar -->
-	<?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>

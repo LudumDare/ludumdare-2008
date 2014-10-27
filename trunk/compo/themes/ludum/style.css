@@ -44,9 +44,6 @@ body {
 
 #body {
 	background: #889;
-	overflow:auto;
-	width:100%;
-	position: relative;
 }
 
 #footer {
@@ -891,10 +888,11 @@ a:hover {
 
 
 .narrowcolumn {
-	position:absolute;
+/*	position:absolute;
 	left:0;
 	top:0;
 /*	float: left;*/
+
 	padding: 0 0 5px 10px;
 	margin: 0;
 	width: 640px;
@@ -1295,10 +1293,7 @@ select {
 
 /* Begin Sidebar */
 #sidebar {
-	position:absolute;
-	right:0;
-	top:0;
-
+	float:right;
 /*	margin-left: 660px;*/
 	width: 292px;
 }
