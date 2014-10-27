@@ -86,7 +86,7 @@ body {
 	margin:0 0 10px;
 	border-radius:30px 5px 5px 5px;
 	border-top:1px solid #FF4;
-	border-bottom:3px solid #432;
+	border-bottom:3px solid #543;
 
 	background: #FC7; /* Old browsers */
 	background: -moz-linear-gradient(left, #FC7 0%, #FA8 100%); /* FF3.6+ */
@@ -100,7 +100,7 @@ body {
 .event .info {
 	padding:10px;	
 
-	color:#432;
+	color:#543;
 	font-size:15px;
 }
 .event > div {
