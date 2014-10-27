@@ -984,7 +984,7 @@ a:hover {
 }
 
 .post .header {
-	padding: 10px !important;
+	padding: 10px !important; 
 	padding-bottom:0; /* Since we're not styling header bottoms, prefer magin. */
 	margin-bottom: 10px; /* for people that don't use <p> tags */
 }
