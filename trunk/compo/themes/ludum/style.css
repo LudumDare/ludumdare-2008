@@ -527,6 +527,7 @@ body {
 .imagebox > div > div {
 	display:table-cell;
 	vertical-align:middle;
+	width:228px;
 }
 .imagebox > div:hover {
 	background: #44F;
