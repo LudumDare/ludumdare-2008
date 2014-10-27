@@ -961,8 +961,15 @@ a:hover {
 	border-top: 1px solid #FFF;
 	overflow:hidden;
 
-	text-align: justify;
 	border-radius: 5px 5px 5px 30px;
+}
+
+.post, .wp-page {
+	text-align: justify;
+}
+
+.wp-page {
+	background:#FFF;
 }
 
 .narrowcolumn .post, .narrowcolumn .event {
