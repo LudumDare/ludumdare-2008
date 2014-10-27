@@ -9,6 +9,12 @@ Tags: goat
 
 */
 
+a:hover {
+	text-decoration:none;
+}
+
+/* ************ */
+
 body {
 	margin: 0 0 20px 0;	/* Little Gap below all content */
 	padding: 0;
@@ -439,19 +445,20 @@ body {
 
 .section .left {
 	float:left;
-	white-space:nowrap;
 }
 .section .right {
 	float:right;
-	white-space:nowrap;
 }
 .section .free {
-	padding:6px 12px;
 	display:inline-block;
+	white-space:nowrap;
 }
 .section .link {
 	background:#ABC;
 	border-radius:12px;
+	padding:6px 12px;
+	
+	color:#678;
 }
 .section .link:hover {
 	background:#CEF;
