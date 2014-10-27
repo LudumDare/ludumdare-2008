@@ -267,7 +267,6 @@ body {
 .section .cell {
 	background:#ccc;
 	position:relative;
-	display:block;
 }
 
 .section .bigcell {
@@ -465,7 +464,6 @@ body {
 	background:#CEF;
 	border-top:0;
 	border-bottom:2px solid #ABC;
-	cursor: pointer;
 }
 .section .link, .section .link:hover, .section .link a, .section .link a:hover {
 	color:#678;
