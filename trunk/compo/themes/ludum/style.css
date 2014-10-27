@@ -894,21 +894,16 @@ a:hover {
 
 
 .narrowcolumn {
-/*	position:absolute;
-	left:0;
-	top:0;
-/*	float: left;*/
-
 	padding: 0 0 5px 10px;
 	margin: 0;
 	width: 640px;
-	}
+}
 
 .widecolumn {
 	padding: 10px 0 5px 0;
 	margin: 0 0 0 160px;
 	width: 640px;
-	}
+}
 
 .fullcolumn {
 	float: left;
