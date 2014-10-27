@@ -9,8 +9,9 @@
 		</div>
 	
 		
-<?php	if (have_posts()) :
-			while (have_posts()) : the_post(); ?>
+<?php	if (have_posts()) {
+			while (have_posts()) { 
+				the_post(); ?>
 <?php			if ( current_user_can('edit_others_posts') ) {
 					if ( get_the_author_meta('user_level') == 1 ) { ?>
 		<div class="postflag" style="background-color: #D64;">
@@ -51,7 +52,9 @@
 				
 				if ( count($minimize) == 0 ) { ?>
 			<div class="header">
-				<div style="float: right;"><?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?></div>
+				<div style="float: right;">
+					<?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?>
+				</div>
 				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
                 <div>Posted by <?php the_author_posts_link(); ?><?php $aff = get_the_author_meta('affiliation', get_the_author_ID()); if (($aff != null) && ($aff != '')) { echo ' of ' . $aff; } ?><?php $twitter = get_the_author_meta('twitter', get_the_author_ID()); if (($twitter != null) && ($twitter != '')) { echo ' (twitter: <a target="_blank" href="http://twitter.com/' . $twitter . '">@' . $twitter . '</a>)'; } ?></div>
 				<small><?php the_time('F jS, Y g:i a') ?> <!-- by <?php the_author() ?> --></small>
@@ -67,32 +70,30 @@
 
 				<div class="postmetadata"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> |<?php edit_post_link(' Edit', '', ' |'); ?><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></div>
 			</div>
-		<?php 
-				} else {
-		?>
+<?php			} else { ?>
 			<div class="minimize">
-				<div style="float: right;"><?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?></div>
+				<div style="float: right;">
+					<?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?>
+				</div>
 				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
                 <div>Posted by <?php the_author_posts_link(); ?><?php $aff = get_the_author_meta('affiliation', get_the_author_ID()); if (($aff != null) && ($aff != '')) { echo ' of ' . $aff; } ?><?php $twitter = get_the_author_meta('twitter', get_the_author_ID()); if (($twitter != null) && ($twitter != '')) { echo ' (twitter: <a target="_blank" href="http://twitter.com/' . $twitter . '">@' . $twitter . '</a>)'; } ?></div>
 				<small><?php the_time('F jS, Y g:i a') ?> | <?php if(function_exists(getILikeCount)) echo getILikeCount('get') . " love"; ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></small>
 			</div>
-		<?php
-				}
-		?>
+<?php			} ?>
 		</div>
 	
-		<?php endwhile; ?>
+<?php		}/*endwhile;*/ ?>
 	
 		<div class="navigation">
 			<div class="alignleft"><?php next_posts_link('&laquo; Older Entries') ?></div>
 			<div class="alignright"><?php previous_posts_link('Newer Entries &raquo;') ?></div>
 		</div>
 	
-		<?php else : ?>
+<?php	} else { ?>
 			<h2 class="center">Not Found</h2>
 			<p class="center">Sorry, but you are looking for something that isn't here.</p>
 			<?php include (TEMPLATEPATH . "/searchform.php"); ?>
-		<?php endif; ?>
+<?php	} /*endif;*/ ?>
 	</div>
 	<?php get_sidebar(); ?>
 </div>
