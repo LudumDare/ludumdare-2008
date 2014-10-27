@@ -980,7 +980,7 @@ a:hover {
 	width:660px;
 }
 .narrowcolumn .post > div {
-	padding-left:20px !important;
+	padding-left:20px;
 }
 
 .post .header {
