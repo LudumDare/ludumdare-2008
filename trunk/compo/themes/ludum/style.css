@@ -946,7 +946,7 @@ a:hover {
 	left:-20px;
 	width:660px;
 }
-.post div {
+.post > div {
 	padding-left:20px;
 }
 
