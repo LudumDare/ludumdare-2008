@@ -461,11 +461,8 @@ body {
 	background:#CEF;
 	cursor: pointer;
 }
-.section .link a {
+.section .link a, .section .link a:hover {
 	color:#678;
-}
-.section .link a:hover {
-	color:#FFF;
 }
 
 .section .label {
