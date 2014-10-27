@@ -918,7 +918,8 @@ a, h2 a:hover, h3 a:hover {
 }
 
 #header .headline, #header .headline a {
-	color: #CCE; /**/
+	color: #CCE;
+	text-shadow: 0 -1px #543;
 }
 
 #header .login .info .action {
@@ -927,6 +928,7 @@ a, h2 a:hover, h3 a:hover {
 	position:absolute;
 	bottom:0px;
 	right:0px;
+	text-shadow: 0 1px #EEF;
 }
 
 #header a:hover {
