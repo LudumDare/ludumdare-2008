@@ -1300,7 +1300,7 @@ select {
 /* Begin Sidebar */
 #sidebar {
 	float:right;
-	padding-right:8px;
+	padding-right:8px; /* Should be 10px, but I accidentially made the sidebar 292 wide, not 290 */
 /*	margin-left: 660px;*/
 	width: 292px;
 }
