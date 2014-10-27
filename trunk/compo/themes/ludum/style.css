@@ -184,20 +184,20 @@ body {
 .ld-admin h2 a { color:#820; }
 
 .ld-sticky {
-	background: url('povimg/Featured.png') no-repeat top right, #DCF; /* Old browsers */
-	background: url('povimg/Featured.png') no-repeat top right, -moz-linear-gradient(top, #DCF 0%, #EEF 25%); /* FF3.6+ */
-	background: url('povimg/Featured.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DCF), color-stop(25%,#EEF)); /* Chrome,Safari4+ */
-	background: url('povimg/Featured.png') no-repeat top right, -webkit-linear-gradient(top, #DCF 0%, #EEF 25%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/Featured.png') no-repeat top right, -o-linear-gradient(top, #DCF 0%, #EEF 25%); /* Opera 11.10+ */
-	background: url('povimg/Featured.png') no-repeat top right, -ms-linear-gradient(top, #DCF 0%, #EEF 25%); /* IE10+ */
-	background: url('povimg/Featured.png') no-repeat top right, linear-gradient(to bottom, #DCF 0%, #EEF 25%); /* W3C */
+	background: url('povimg/Featured.png') no-repeat top right, #DBE; /* Old browsers */
+	background: url('povimg/Featured.png') no-repeat top right, -moz-linear-gradient(top, #DBE 0%, #FEF 25%); /* FF3.6+ */
+	background: url('povimg/Featured.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DBE), color-stop(25%,#FEF)); /* Chrome,Safari4+ */
+	background: url('povimg/Featured.png') no-repeat top right, -webkit-linear-gradient(top, #DBE 0%, #FEF 25%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Featured.png') no-repeat top right, -o-linear-gradient(top, #DBE 0%, #FEF 25%); /* Opera 11.10+ */
+	background: url('povimg/Featured.png') no-repeat top right, -ms-linear-gradient(top, #DBE 0%, #FEF 25%); /* IE10+ */
+	background: url('povimg/Featured.png') no-repeat top right, linear-gradient(to bottom, #DBE 0%, #FEF 25%); /* W3C */
 }
 .ld-sticky .header { }
-.ld-sticky .footer { background: #DCF; }
+.ld-sticky .footer { background: #DBE; }
 .ld-sticky small { color:#87A; }
-.ld-sticky a { color:#42C; }
-.ld-sticky a:hover { color:#FC0; }
-.ld-sticky h2 a { color:#206; }
+.ld-sticky a { color:#74C; }
+.ld-sticky a:hover { color:#CF0; }
+.ld-sticky h2 a { color:#406; }
 
 .ld-love {
 	color: #422;
