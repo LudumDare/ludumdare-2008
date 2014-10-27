@@ -51,6 +51,25 @@
 <?php			} ?>
 
 
+<?php			$TimeDiff = $_SERVER['REQUEST_TIME'] - get_the_time('U'); ?>
+
+<?php /* BEGIN */
+				$PostAge = "RIGHT NOW!";
+				if ( $TimeDiff > (24*60*60) ) {
+					$PostAge = floor($TimeDiff / (24*60*60)) + " days ago";
+				}
+				else if ( $TimeDiff > (60*60) ) {
+					$PostAge = floor($TimeDiff / (60*60)) + " hours ago";
+				}
+				else if ( $TimeDiff > (2*60) ) {
+					$PostAge = floor($TimeDiff / (1*60)) + " minutes ago";
+				}
+				$IsNew = false;
+				if ( $TimeDiff < (2*24*60*60) ) {
+					$IsNew = true;
+				}
+/* END */ ?>	
+				
 <?php			$minimize = get_post_meta($post->ID,'minimize',false); ?>
 				
 <?php			if ( count($minimize) == 0 ) { ?>
@@ -60,7 +79,7 @@
 				</div>
 				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
                 <div>Posted by <?php the_author_posts_link(); ?><?php $aff = get_the_author_meta('affiliation', get_the_author_ID()); if (($aff != null) && ($aff != '')) { echo ' of ' . $aff; } ?><?php $twitter = get_the_author_meta('twitter', get_the_author_ID()); if (($twitter != null) && ($twitter != '')) { echo ' (twitter: <a target="_blank" href="http://twitter.com/' . $twitter . '">@' . $twitter . '</a>)'; } ?></div>
-				<small><?php the_time('F jS, Y g:i a') ?> <!-- by <?php the_author() ?> --></small>
+				<small><?php echo $PostAge; ?> | <?php the_time('F jS, Y g:i a') ?> <!-- by <?php the_author() ?> --></small>
 			</div>
 			<div class="body">
 				<?php echo my_get_buttons(); ?>
@@ -80,7 +99,7 @@
 				</div>
 				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
                 <div>Posted by <?php the_author_posts_link(); ?><?php $aff = get_the_author_meta('affiliation', get_the_author_ID()); if (($aff != null) && ($aff != '')) { echo ' of ' . $aff; } ?><?php $twitter = get_the_author_meta('twitter', get_the_author_ID()); if (($twitter != null) && ($twitter != '')) { echo ' (twitter: <a target="_blank" href="http://twitter.com/' . $twitter . '">@' . $twitter . '</a>)'; } ?></div>
-				<small><?php the_time('F jS, Y g:i a') ?> | <?php if(function_exists(getILikeCount)) echo getILikeCount('get') . " love"; ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></small>
+				<small><?php echo $PostAge; ?> | <?php the_time('F jS, Y g:i a') ?> | <?php if(function_exists(getILikeCount)) echo getILikeCount('get') . " love"; ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></small>
 			</div>
 <?php			} ?>
 		</div>
