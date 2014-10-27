@@ -531,7 +531,7 @@ body {
 .imagebox :hover {
 	background: #8AE;
 	cursor: pointer;
-	color: #FFF;
+	color: #FFF !important;
 }
 
 .imagebox > div > div a {
@@ -553,6 +553,7 @@ body {
 .imagebox .headline {
 	font-size: 18px;
 	font-weight: bold;
+	color: #6BF;
 }
 
 /* ************ */
