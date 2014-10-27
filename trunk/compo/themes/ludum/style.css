@@ -529,9 +529,10 @@ body {
 }
 
 .imagebox :hover {
-	background: #8AE;
+	background: #44F;/*#8AE;*/
 	cursor: pointer;
 	color: #FFF !important;
+	border-radus:5px;
 }
 
 .imagebox > div > div a {
