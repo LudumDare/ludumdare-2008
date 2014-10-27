@@ -51,7 +51,7 @@
 <?php			} ?>
 
 
-<?php			$TimeDiff = $_SERVER['REQUEST_TIME'] - get_the_time('U'); ?>
+<?php			$TimeDiff = $_SERVER['REQUEST_TIME'] - get_the_time('U',true); ?>
 
 <?php /* BEGIN */
 				$PostAge = "RIGHT NOW!";
