@@ -1,5 +1,8 @@
 <?php get_header(); ?>
 <div id="body">
+	<!-- Side Bar -->
+	<?php get_sidebar(); ?>
+	<!-- Content -->
 	<div id="content" class="narrowcolumn">
 <?php
 /*
@@ -155,6 +158,5 @@
 	<?php endif; ?>
 
 	</div>
-	<?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>
