@@ -522,17 +522,21 @@ body {
 .imagebox > div {
 /*	display:table-row;*/
 	border-radius:5px;
-	position:relative;
 	overflow:auto;
+	position:relative;
 }
 .imagebox > div > div {
-/*	display:table-cell;*/
+	margin: auto;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+  
+/*	display:table-cell;
 	vertical-align:middle;
-/*	position: relative;*/
+	position: relative;
 	position:absolute;
 	top:0;
 	bottom:0;
-	display:inline-block;
+	display:inline-block;*/
 }
 
 .imagebox > div:hover {
@@ -555,6 +559,7 @@ body {
 .imagebox img {
 	padding: 4px;
 /*	display:table-cell;*/
+	float:left;
 }
 
 .imagebox .headline {
