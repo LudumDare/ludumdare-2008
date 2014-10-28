@@ -313,7 +313,6 @@ body {
 
 .section > div {
 	display:block;
-	float:left;
 	margin:0 5px;
 }
 .section p {
@@ -321,8 +320,8 @@ body {
 }
 
 .section .cell {
-	background:#ccc;
 	position:relative;
+	float:left;
 }
 
 .section .bigcell {
