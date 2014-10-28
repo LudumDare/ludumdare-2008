@@ -501,7 +501,7 @@ body {
 }
 
 .section .label {
-	line-height:26px;
+	line-height:24px;
 	font-size:16px;
 	padding-left:12px;
 	font-weight:bold;
@@ -530,7 +530,7 @@ body {
 	color:#ABC;
 	border-radius:12px;
 	padding:0 12px;
-	line-height:24px;
+	line-height:22px;
 	border:1px solid #ABC;
 	
 	font-size:13px;
@@ -538,12 +538,12 @@ body {
 
 .section .group {
 	border-radius:24px;
-	line-height:26px;
+	line-height:24px;
 	padding:2px 3px;
 }
 .section .group .link {
-	border-top:2px solid #667;
-	border-bottom:0px solid;
+/*	border-top:2px solid #667;
+	border-bottom:0px solid;*/
 }
 
 /* ************ */
