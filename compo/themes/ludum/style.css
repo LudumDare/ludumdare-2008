@@ -15,13 +15,15 @@ a, a:hover {
 
 /* ************ */
 
-/* Shadows and Background Color */
+/* Darkest Background Color */
 body, .section .group { 
 	background: #445;
 }
-.event, #header .login, .post {
-/*	border-bottom:3px solid #445; /* Commented out, this makes the page Flat */
+.section .link, .section .link:hover, .section .link a, .section .link a:hover {
+	color: #445;
 }
+/* Post Shadows */
+/*.event, #header .login, .post { border-bottom:3px solid #445; } */
 
 /* Page Body Color */
 #status, #body, #header .headline, .section .link {
@@ -520,9 +522,6 @@ body {
 	background:#CEF;
 /*	border-top:0px solid;
 	border-bottom:2px solid #ABC;*/
-}
-.section .link, .section .link:hover, .section .link a, .section .link a:hover {
-	color:#678;
 }
 
 .section .link-off {
