@@ -322,6 +322,7 @@ body {
 .section .cell {
 	position:relative;
 	float:left;
+	width:100%;
 }
 
 .section .bigcell {
@@ -493,7 +494,7 @@ body {
 
 .section .label {
 	line-height:24px;
-	font-size:14px;
+	font-size:12px;
 	padding-left:12px;
 	font-weight:bold;
 }
