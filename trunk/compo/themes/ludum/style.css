@@ -361,52 +361,45 @@ body {
 .section .timezone {
 	color:#000;
 	padding:2px 4px;
-	margin:2px;
-	background:rgba(255,255,255,0.7);
+	background:#DDD;
 	display:inline-block;
-	border-radius:4px;
+	border-radius:0 0 0 5px;
 	text-align:right;
 }
 .section .timezone:hover {
-	background:rgba(255,255,255,1);
+	background:#FFF;
 }
 .section .timezone a, .section .timezone a:hover {
 	color:#000;
 }
 
-.section .botleft {	
-	position:absolute;
-	left:0;
-	bottom:0;
-}
-.section .botright {	
-	position:absolute;
-	right:0;
-	bottom:0;
-}
-.section .topleft {	
-	position:absolute;
-	left:0;
-	top:0;
-}
-.section .topright {	
-	position:absolute;
-	right:0;
-	top:0;
-}
+.botleft, .botright, .topleft, .topright { position:absolute; }
+.botleft { left:0; bottom:0; }
+.botright {	right:0; bottom:0; }
+.topleft { left:0; top:0; }
+.topright {	right:0; top:0; }
 
-.botgap {
-	margin-bottom:10px;
-}
-.topgap {
-	margin-top:10px;
-}
-.botpad {
-	padding-bottom:10px;
-}
-.toppad {
-	padding-top:10px;
-}
+.gap { margin:10px; }
+.botgap { margin-bottom:10px; }
+.topgap { margin-top:10px; }
+.leftgap { margin-left:10px; }
+.rightgap { margin-right:10px; }
+.no-gap { margin:0; }
+.no-botgap { margin-bottom:0; }
+.no-topgap { margin-top:0; }
+.no-leftgap { margin-left:0; }
+.no-rightgap { margin-right:0; }
+
+.pad { padding:10px; }
+.botpad { padding-bottom:10px; }
+.toppad { padding-top:10px; }
+.leftpad { padding-bottom:10px; }
+.rightpad { padding-top:10px; }
+.no-pad { padding:0; }
+.no-botpad { padding-bottom:0; }
+.no-toppad { padding-top:0; }
+.no-leftpad { padding-bottom:0; }
+.no-rightpad { padding-top:0; }
 
 .section .clock {	
 	font-size:21px;
