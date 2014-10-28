@@ -494,6 +494,18 @@ body {
 	color:#678;
 }
 
+.section .link-off {
+	color:#876;
+	/*background:#543;*/
+	border-radius:12px;
+	padding:0 12px;
+	line-height:24px;
+	border:1px solid #ABC;/*#678;*/
+	
+	font-size:13px;
+}
+
+
 .section .label {
 	line-height:26px;
 	font-size:16px;
