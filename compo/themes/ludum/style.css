@@ -481,7 +481,8 @@ body {
 	border-radius:12px;
 	padding:0 12px;
 	line-height:24px;
-	border-top:2px solid #889;/*#678;*/
+	border-top:2px solid #889;
+	border-bottom:0;
 	
 	font-size:13px;
 }
@@ -504,11 +505,16 @@ body {
 	font-size:13px;
 }
 
+.section .group {
+	background: #667;
+	border-radius:24px;
+}
 
 .section .label {
 	line-height:26px;
 	font-size:16px;
 	vertical-align:bottom;
+	padding-left:12px;
 }
 
 /* ************ */
