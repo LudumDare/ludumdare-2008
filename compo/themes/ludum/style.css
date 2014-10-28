@@ -527,6 +527,7 @@ body {
 	border-radius:24px;
 	line-height:24px;
 	padding:2px 3px;
+	display:inline-block;
 }
 .section .group .link {
 /*	border-top:2px solid #667;
