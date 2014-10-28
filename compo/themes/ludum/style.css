@@ -38,7 +38,7 @@ body, #commentform p {
 	font-family: 'Lucida Grande', Verdana, Arial, sans-serif;	
 }
 
-h1, h2, h3 {
+h1, h2, h3, .section .label {
 	font-family: 'Roboto Condensed', 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, sans-serif;
 }
 
@@ -508,7 +508,6 @@ body {
 }
 
 .section .link {
-	background:#ABC;
 	border-radius:12px;
 	padding:0 12px;
 	line-height:24px;
