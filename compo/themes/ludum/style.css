@@ -26,11 +26,16 @@ body, .section .group {
 /*.event, #header .login, .post { border-bottom:3px solid #445; } */
 
 /* Page Body Color */
-#status, #body, #header .headline, .section .link {
+#status, #body, #header .headline {
 	background:#889;
 }
-.section .label {
+.section .label, .section .link-off {
 	color:#889;
+}
+
+/* Lighter Body Color */
+.section .link {
+	background:#99A;
 }
 
 /* ************ */
@@ -517,11 +522,10 @@ body {
 }
 
 .section .link-off {
-	color:#ABC;
 	border-radius:12px;
 	padding:0 12px;
 	line-height:22px;
-	border:1px solid #ABC;
+	border:1px solid #889;
 	
 	font-size:13px;
 	vertical-align:middle;
