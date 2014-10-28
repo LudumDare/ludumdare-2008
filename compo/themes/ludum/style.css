@@ -318,6 +318,11 @@ body {
 	overflow:auto;
 	width:100%;
 }
+.fatsection {
+	padding:0;
+	overflow:auto;
+	width:980px;
+}
 
 .section > div {
 	display:block;
