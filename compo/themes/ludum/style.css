@@ -493,10 +493,11 @@ body {
 }
 
 .section .label {
-	line-height:24px;
+	line-height:22px;
 	font-size:12px;
 	padding-left:12px;
 	font-weight:bold;
+	vertical-align:middle;
 }
 
 .section .link {
@@ -507,6 +508,7 @@ body {
 	border-bottom:0px solid;*/
 	
 	font-size:13px;
+	vertical-align:middle;
 }
 .section .link:hover {
 	background:#CEF;
@@ -522,6 +524,7 @@ body {
 	border:1px solid #ABC;
 	
 	font-size:13px;
+	vertical-align:middle;
 }
 
 .section .group {
