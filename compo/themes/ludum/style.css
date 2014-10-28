@@ -484,12 +484,9 @@ body {
 .section .s14of15 { width:886px; }
 .section .s15of15 { width:950px; }
 
-.section .left {
-	float:left;
-}
-.section .right {
-	float:right;
-}
+.left { float:left; }
+.right { float:right; }
+
 .section .free {
 	display:inline-block;
 	white-space:nowrap;
@@ -497,7 +494,7 @@ body {
 
 .section .label {
 	line-height:24px;
-	font-size:16px;
+	font-size:14px;
 	padding-left:12px;
 	font-weight:bold;
 }
