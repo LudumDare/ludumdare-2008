@@ -545,12 +545,14 @@ body {
 	padding:2px;
 	margin:0;
 	display:inline-block;
+	float:left;
 }
 .section .group-right {
 	border-radius:14px 0 0 14px;
 	padding:2px;
 	margin:0;
 	display:inline-block;
+	float:right;
 }
 
 /* ************ */
