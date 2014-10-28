@@ -29,13 +29,16 @@ body, .section .group {
 #status, #body, #header .headline {
 	background:#889;
 }
-.section .label, .section .link-off {
+.section .link-off {
 	color:#889;
 }
 
 /* Lighter Body Color */
 .section .link {
-	background:#99A;
+	background:#AAB;
+}
+.section .label {
+	color:#AAB;
 }
 
 /* ************ */
