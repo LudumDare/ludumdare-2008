@@ -16,10 +16,43 @@ a, a:hover {
 /* ************ */
 
 /* Shadows and Background Color */
-body { background: #445; }
+body, .section .group { 
+	background: #445;
+}
 .event, #header .login, .post {
-	/* Commented out, this makes the page Flat */
-/*	border-bottom:3px solid #445;*/
+/*	border-bottom:3px solid #445; /* Commented out, this makes the page Flat */
+}
+
+/* Page Body Color */
+#status, #body, #header .headline, .section .link {
+	background:#889;
+}
+.section .label {
+	color:#889;
+}
+
+/* ************ */
+
+/* Fonts */
+body, #commentform p {
+	font-family: 'Lucida Grande', Verdana, Arial, sans-serif;	
+}
+
+h1, h2, h3 {
+	font-family: 'Roboto Condensed', 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, sans-serif;
+}
+
+/* Event Boxes */
+@font-face {
+	font-family: LetsGoDigital;
+	src: url('ld2014/LetsgoHaxed-Regular.ttf');
+}
+.section .clock {	
+	font-family: LetsGoDigital;
+}
+/* Steam */
+small, .imagebox {	
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 /* ************ */
@@ -31,7 +64,6 @@ body {
 	color: #876;
 	text-align: center;
 	font-size: 62.5%; /* Resets 1em to 10px */
-	font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
 }
 
 #page { 
@@ -53,15 +85,6 @@ body {
 	background: -o-linear-gradient(top, #445 50%,#CCE 50%,#889 53%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top, #445 50%,#CCE 50%,#889 53%); /* IE10+ */
 	background: linear-gradient(to bottom,#445 50%,#CCE 50%,#889 53%); /* W3C */
-}
-
-#status {
-/*	width:960px;*/
-	background: #889;
-}
-
-#body {
-	background: #889;
 }
 
 #footer {
@@ -383,13 +406,7 @@ body {
 	padding-top:10px;
 }
 
-@font-face {
-	font-family: LetsGoDigital;
-	src: url('ld2014/LetsgoHaxed-Regular.ttf');
-}
-
 .section .clock {	
-	font-family: LetsGoDigital;
 	font-size:21px;
 	text-shadow:0 1px #000;
 
@@ -487,7 +504,6 @@ body {
 	line-height:26px;
 	font-size:16px;
 	padding-left:12px;
-	color:#889;
 	font-weight:bold;
 }
 
@@ -496,15 +512,15 @@ body {
 	border-radius:12px;
 	padding:0 12px;
 	line-height:24px;
-	border-top:2px solid #889;
-	border-bottom:0px solid;
+/*	border-top:2px solid #889;
+	border-bottom:0px solid;*/
 	
 	font-size:13px;
 }
 .section .link:hover {
 	background:#CEF;
-	border-top:0px solid;
-	border-bottom:2px solid #ABC;
+/*	border-top:0px solid;
+	border-bottom:2px solid #ABC;*/
 }
 .section .link, .section .link:hover, .section .link a, .section .link a:hover {
 	color:#678;
@@ -521,7 +537,6 @@ body {
 }
 
 .section .group {
-	background: #667;
 	border-radius:24px;
 	line-height:26px;
 	padding:2px 3px;
@@ -545,7 +560,6 @@ body {
 /* ************ */
 
 .imagebox {	
-	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
 	width:100%;
 }
@@ -757,15 +771,13 @@ border: 1px solid #ddd;
 }
 
 small {
-	font-family: Arial, Helvetica, Sans-Serif;
 	font-size: 0.9em;
 	line-height: 1.5em;
-	}
+}
 
 h1, h2, h3 {
-	font-family: 'Roboto Condensed', 'Trebuchet MS', 'Lucida Grande', Verdana, Arial, sans-serif;
 	font-weight: bold;
-	}
+}
 
 h1 {
 	font-size: 4em;
@@ -787,9 +799,8 @@ h2.pagetitle {
 	}
 
 #sidebar h2 {
-	font-family: 'Lucida Grande', Verdana, Sans-Serif;
 	font-size: 1.2em;
-	}
+}
 
 h3 {
 	font-size: 1.4em;
@@ -850,10 +861,6 @@ h2, h2 a, h2 a:hover, /*h2 a:visited,*/ h3, h3 a, h3 a:hover, /*h3 a:visited,*/ 
 	font-weight: normal;
 	line-height: 1.5em;
 	text-transform: none;
-	}
-
-#commentform p {
-	font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
 	}
 
 .commentmetadata {
@@ -937,7 +944,6 @@ a, h2 a:hover, h3 a:hover {
 
 #header .headline {
 	font-size:15px;
-	background: #889;
 	padding:4px 8px;
 	margin-left:4px;
 	border-radius:0 0 0 8px;
