@@ -502,8 +502,8 @@ body {
 
 .section .label {
 	line-height:24px;
-	font-size:12px;
-	padding-left:12px;
+	font-size:13px;
+/*	padding-left:12px;*/
 	font-weight:bold;
 	vertical-align:middle;
 }
@@ -535,13 +535,10 @@ body {
 }
 
 .section .group {
-	border-radius:24px;
+	border-radius:0 12px 12px 0;/*24px;*/
 	padding:2px;
+	margin:0;
 	display:inline-block;
-}
-.section .group .link {
-/*	border-top:2px solid #667;
-	border-bottom:0px solid;*/
 }
 
 /* ************ */
