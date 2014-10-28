@@ -26,7 +26,7 @@ body, .section .group, .section .group-left, .section .group-right {
 /*.event, #header .login, .post { border-bottom:3px solid #445; } */
 
 /* Page Body Color */
-#status, #body, #header .headline {
+#status .section, #body, #header .headline {
 	background:#889;
 }
 .section .link-off {
@@ -414,6 +414,11 @@ body {
 .no-leftpad { padding-bottom:0; }
 .no-rightpad { padding-top:0; }
 
+.round-top { border-top-left-radius:10px; border-top-right-radius:10px; }
+.round-bot { border-bottom-left-radius:10px; border-bottom-right-radius:10px; }
+.round-left { border-top-left-radius:10px; border-bottom-left-radius:10px; }
+.round-right { border-top-right-radius:10px; border-bottom-right-radius:10px; }
+	
 .section .clock {	
 	font-size:21px;
 	text-shadow:0 1px #000;
