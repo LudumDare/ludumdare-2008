@@ -482,13 +482,13 @@ body {
 	padding:0 12px;
 	line-height:24px;
 	border-top:2px solid #889;
-	border-bottom:0;
+	border-bottom:0px solid;
 	
 	font-size:13px;
 }
 .section .link:hover {
 	background:#CEF;
-	border-top:0;
+	border-top:0px solid;
 	border-bottom:2px solid #ABC;
 }
 .section .link, .section .link:hover, .section .link a, .section .link a:hover {
@@ -512,7 +512,7 @@ body {
 	padding:2px;
 }
 .section .group .link {
-	border-top:2px solid #667 !important;
+	border-top:2px solid #667;
 }
 
 .section .label {
