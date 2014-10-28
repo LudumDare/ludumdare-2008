@@ -481,7 +481,7 @@ body {
 	border-radius:12px;
 	padding:0 12px;
 	line-height:24px;
-	border-top:2px solid #667; /*#889;*/
+	border-top:2px solid #889;
 	border-bottom:0;
 	
 	font-size:13px;
@@ -510,6 +510,9 @@ body {
 	border-radius:24px;
 	line-height:26px;
 	padding:2px;
+}
+.section .group .link {
+	border-top:2px solid #667;
 }
 
 .section .label {
