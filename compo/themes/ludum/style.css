@@ -15,11 +15,18 @@ a, a:hover {
 
 /* ************ */
 
+/* Shadows and Background Color */
+body { background: #445; }
+.event, #header .login, .post {
+	/* Commented out, this makes the page Flat */
+/*	border-bottom:3px solid #445;*/
+}
+
+/* ************ */
+
 body {
 	margin: 0 0 20px 0;	/* Little Gap below all content */
 	padding: 0;
-
-	background: #543;
 
 	color: #876;
 	text-align: center;
@@ -40,12 +47,12 @@ body {
 	margin:0;
 	padding:0;
 
-	background: -moz-linear-gradient(top, #543 50%, #CCE 50%, #889 53%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#543), color-stop(50%,#CCE), color-stop(53%,#889)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #543 50%,#CCE 50%,#889 53%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #543 50%,#CCE 50%,#889 53%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #543 50%,#CCE 50%,#889 53%); /* IE10+ */
-	background: linear-gradient(to bottom,#543 50%,#CCE 50%,#889 53%); /* W3C */
+	background: -moz-linear-gradient(top, #445 50%, #CCE 50%, #889 53%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#445), color-stop(50%,#CCE), color-stop(53%,#889)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #445 50%,#CCE 50%,#889 53%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #445 50%,#CCE 50%,#889 53%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #445 50%,#CCE 50%,#889 53%); /* IE10+ */
+	background: linear-gradient(to bottom,#445 50%,#CCE 50%,#889 53%); /* W3C */
 }
 
 #status {
@@ -86,7 +93,6 @@ body {
 	margin:0 0 10px;
 	border-radius:30px 5px 5px 5px;
 	border-top:1px solid #FF4;
-	border-bottom:3px solid #543;
 
 	background: #FC7; /* Old browsers */
 	background: -moz-linear-gradient(left, #FC7 0%, #FA8 100%); /* FF3.6+ */
@@ -100,7 +106,7 @@ body {
 .event .info {
 	padding:10px;	
 
-	color:#543;
+	color:#445;
 	font-size:15px;
 }
 .event > div {
@@ -572,7 +578,7 @@ body {
 	font-size: 18px;
 	font-weight: bold;
 	color: #6CF;
-	text-shadow:0 1px #543;
+	text-shadow:0 1px #445;
 }
 
 /* ************ */
@@ -904,7 +910,6 @@ a, h2 a:hover, h3 a:hover {
 	background: #CCE;
 	white-space: nowrap;
 	border-radius:0 0 0 8px;
-	border-bottom:4px solid #543;
 }
 
 #header .login_not {
@@ -944,7 +949,7 @@ a, h2 a:hover, h3 a:hover {
 
 #header .headline, #header .headline a {
 	color: #CCE;
-	text-shadow: 0 -1px #543;
+	text-shadow: 0 -1px #445;
 }
 
 #header .login .info .action {
@@ -1028,7 +1033,6 @@ a, h2 a:hover, h3 a:hover {
 
 .post {
 	margin: 0 0 10px;
-	border-bottom: 3px solid #543;
 	border-top: 1px solid #FFF;
 	overflow:hidden;
 
