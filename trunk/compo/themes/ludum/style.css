@@ -35,10 +35,10 @@ body, .section .group {
 
 /* Lighter Body Color */
 .section .link {
-	background:#AAB;
+	background:#BBC;
 }
 .section .label {
-	color:#AAB;
+	color:#BBC;
 }
 
 /* ************ */
@@ -535,7 +535,7 @@ body {
 }
 
 .section .group {
-	border-radius:0 12px 12px 0;/*24px;*/
+	border-radius:0 14px 14px 0;/*24px;*/
 	padding:2px;
 	margin:0;
 	display:inline-block;
