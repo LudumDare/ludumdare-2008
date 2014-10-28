@@ -319,9 +319,9 @@ body {
 	width:100%;
 }
 .fatsection {
-	padding:0;
-	overflow:auto;
 	width:980px;
+	position:relative;
+	left:-10px;
 }
 
 .section > div {
