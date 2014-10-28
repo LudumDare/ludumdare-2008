@@ -16,7 +16,7 @@ a, a:hover {
 /* ************ */
 
 /* Darkest Background Color */
-body, .section .group { 
+body, .section .group, .section .group-left, .section .group-right { 
 	background: #445;
 }
 .section .link, .section .link:hover, .section .link a, .section .link a:hover {
