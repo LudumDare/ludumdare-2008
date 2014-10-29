@@ -357,7 +357,8 @@ body {
 	
 	line-height:31px;
 	vertical-align:middle;
-	padding-right:10px
+	padding-right:10px;
+	text-align:right;
 	
 	width:170px; /* .s3of15 - 2px border - 10px padding */
 }
