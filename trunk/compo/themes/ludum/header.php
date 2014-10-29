@@ -114,8 +114,15 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 							}
 							
 							var prefixText = clockElm[idx].getAttribute('prefix');
-							if ( prefixText === null )
+							if ( prefixText === null ) {
 								prefixText = "";
+							}
+							else {
+								var prefixStyle = clockElm[idx].getAttribute('prefix-style');
+								if ( prefixStyle ) {
+									prefixText = '<span style="' + prefixStyle + '">' + prefixText + "</span>";
+								}
+							}
 							
 							clockElm[idx].innerHTML = 
 								prefixText +
