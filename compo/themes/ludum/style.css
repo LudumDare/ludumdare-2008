@@ -343,10 +343,14 @@ body {
 	height:80px;
 	overflow:hidden;
 	border-radius:20px;
+
+	width:246px; /* .s4of15 */
 }
 .section .smallcell {
 	background-size:182px auto !important;
 	height:35px;
+	
+	width:172px; /* .s3of15 - 10px */
 }
 
 .section .light {
