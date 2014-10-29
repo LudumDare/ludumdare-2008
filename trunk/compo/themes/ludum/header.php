@@ -114,6 +114,8 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 							}
 							
 							var prefixText = clockElm[idx].getAttribute('prefix');
+							if ( prefixText === null )
+								prefixText = "";
 							
 							clockElm[idx].innerHTML = 
 								prefixText +
