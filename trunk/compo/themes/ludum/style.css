@@ -351,7 +351,7 @@ body {
 	height:31px; /* 35px - 4px border */
 	border-radius:30px 0 0 30px;
 	
-	background:#667;
+	background:#FD4;/*#667;*/
 	border:2px solid #445;
 	border-right:0;
 	
@@ -376,6 +376,14 @@ body {
 .section .smallcell-other {
 	margin-left:20px;
 	width:150px; /* .s3of15 - 2px border - 10px padding - 20px offset margin */
+	background:#F94;
+}
+
+.section .smallcell:hover {
+	background:#04F;
+}
+.section .smallcell-other:hover {
+	background:#08F;
 }
 
 .section .light {
