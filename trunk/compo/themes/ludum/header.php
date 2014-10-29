@@ -113,7 +113,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 								dayText = "";
 							}
 							
-							var prefixText = clockElm[idx].getAttribute('prefix') | "";
+							var prefixText = clockElm[idx].getAttribute('prefix');
 							
 							clockElm[idx].innerHTML = 
 								prefixText +
