@@ -398,7 +398,7 @@ body {
 }
 
 .section .when, .section .name, .section .desc, .section .clock, .section .clock-desc {
-	background:rgba(64,64,80,0.9);	
+	background:rgba(64,64,80,0.8);	
 }
 
 .section .when {
