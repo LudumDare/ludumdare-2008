@@ -89,12 +89,19 @@ body {
 	margin:0;
 	padding:0;
 
-	background: -moz-linear-gradient(top, #445 50%, #CCE 50%, #889 53%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#445), color-stop(50%,#CCE), color-stop(53%,#889)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, #445 50%,#CCE 50%,#889 53%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, #445 50%,#CCE 50%,#889 53%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, #445 50%,#CCE 50%,#889 53%); /* IE10+ */
-	background: linear-gradient(to bottom,#445 50%,#CCE 50%,#889 53%); /* W3C */
+	background: -moz-linear-gradient(top, #445 50%, #889 50%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#445), color-stop(50%,#889)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #445 50%,#889 50%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #445 50%,#889 50%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #445 50%,#889 50%); /* IE10+ */
+	background: linear-gradient(to bottom,#445 50%,#889 50%); /* W3C */
+
+/*	background: -moz-linear-gradient(top, #445 50%, #CCE 50%, #889 53%); /* FF3.6+ */
+/*	background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,#445), color-stop(50%,#CCE), color-stop(53%,#889)); /* Chrome,Safari4+ */
+/*	background: -webkit-linear-gradient(top, #445 50%,#CCE 50%,#889 53%); /* Chrome10+,Safari5.1+ */
+/*	background: -o-linear-gradient(top, #445 50%,#CCE 50%,#889 53%); /* Opera 11.10+ */
+/*	background: -ms-linear-gradient(top, #445 50%,#CCE 50%,#889 53%); /* IE10+ */
+/*	background: linear-gradient(to bottom,#445 50%,#CCE 50%,#889 53%); /* W3C */
 }
 
 #footer {
