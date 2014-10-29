@@ -357,8 +357,9 @@ body {
 	
 	line-height:31px;
 	vertical-align:middle;
+	padding-right:10px
 	
-	width:180px; /* .s3of15 - 2px border */
+	width:170px; /* .s3of15 - 2px border - 10px padding */
 }
 .section .columncell {
 	width:182px; /* .s3of15 */
@@ -371,9 +372,9 @@ body {
 	font-size:11px;
 }
 
-.section .smallcell .other {
+.section .smallcell-other {
 	margin-left:20px;
-	width:160px;
+	width:150px; /* .s3of15 - 2px border - 10px padding - 20px offset margin */
 }
 
 .section .light {
