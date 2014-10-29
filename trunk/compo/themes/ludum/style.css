@@ -974,6 +974,8 @@ a, h2 a:hover, h3 a:hover {
 	border-radius:14px 0 0 14px;
 	border:2px solid #445;
 	border-right:0;
+	position:relative;
+	top:-2px;
 }
 
 #header, #header a {
@@ -1084,18 +1086,18 @@ a, h2 a:hover, h3 a:hover {
 	width:660px;
 }
 .narrowcolumn .post > div {
-	padding-left:30px;
+	padding-left:20px;
 }
 
 .post .header {
 	padding: 10px;
-	padding-left: 20px !important;
+/*	padding-left: 20px !important;*/
 	padding-bottom:0 !important; /* Since we're not styling header bottoms, prefer magin. */
 	margin-bottom: 10px; /* for people that don't use <p> tags */
 }
 .post .minimize {
 	padding: 10px;
-	padding-left: 20px !important;
+/*	padding-left: 20px !important;*/
 }
 .post .body {
 	padding: 0 10px;	
