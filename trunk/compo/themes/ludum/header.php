@@ -113,8 +113,10 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 								dayText = "";
 							}
 							
-							// NOTE: innerText not supported in Firefox, textContent supported IE 9+ //
-							clockElm[idx].innerHTML = //textContent =
+							prefixText = clockElm[idx].getAttribute('prefix') | "";
+							
+							clockElm[idx].innerHTML = 
+								prefixText +
 								dayText +
 								PadZero(diffHours) + sep +
 								PadZero(diffMinutes) + sep +
