@@ -349,7 +349,9 @@ body {
 .section .smallcell {
 	background-size:182px auto !important;
 	height:35px;
-	
+}
+
+.section .columncell {
 	width:172px; /* .s3of15 - 10px */
 }
 
