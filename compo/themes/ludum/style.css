@@ -354,6 +354,8 @@ body {
 	background:#667;
 	border:2px solid #445;
 	border-right:0;
+	
+	width:180px; /* .s3of15 - 2px border */
 }
 
 .section .columncell {
