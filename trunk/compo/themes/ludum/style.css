@@ -371,7 +371,7 @@ body {
 }
 .section .desc {
 	color:#FFF;
-	padding:0 0 2px 15px;
+	padding:0 15px 2px 15px;
 	display:inline-block;
 	border-radius:0 0 10px 0;
 }
@@ -428,7 +428,7 @@ body {
 	text-shadow:0 1px #000;
 
 	color:#F80;
-	padding:0 10px;
+	padding:0 15px;
 	border-top-left-radius:10px;
 }
 .section .clock-desc {
