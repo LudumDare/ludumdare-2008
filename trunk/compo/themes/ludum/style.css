@@ -326,7 +326,7 @@ body {
 
 .section > div {
 	display:block;
-	margin:0 5px;
+	margin:0 0 0 10px;
 }
 .section p {
 	display:inline;
@@ -342,7 +342,7 @@ body {
 	background-size:246px auto !important;
 	height:80px;
 	overflow:hidden;
-	border-radius:14px;
+	border-radius:20px;
 }
 .section .smallcell {
 	background-size:182px auto !important;
@@ -364,14 +364,14 @@ body {
 }
 .section .name {
 	font-weight:bold;
-	font-size:16px;
+	font-size:15px;
 	color:#FC2;
-	padding:0 10px 2px 10px;
+	padding:0 0 2px 15px;
 	text-shadow:0 1px #820;
 }
 .section .desc {
 	color:#FFF;
-	padding:0 10px 2px 10px;
+	padding:0 0 2px 15px;
 	display:inline-block;
 	border-radius:0 0 10px 0;
 }
