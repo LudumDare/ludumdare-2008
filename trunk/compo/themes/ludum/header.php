@@ -189,7 +189,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 					</div>
 					<div class="login-search">
 						<img src="<?php echo get_template_directory_uri(); ?>/ld2014/search.png" />
-						<a href="/compo/wp-admin/wp-index.php"><img src="<?php echo get_template_directory_uri(); ?>/ld2014/dashboard.png" /></a>
+						<a href="/compo/wp-admin/index.php"><img src="<?php echo get_template_directory_uri(); ?>/ld2014/dashboard.png" /></a>
 					</div>
 				</div>
 <?php		} ?>
