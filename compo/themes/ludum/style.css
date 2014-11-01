@@ -13,6 +13,15 @@ a, a:hover {
 	text-decoration:none;
 }
 
+/* A blank (/_.png) inside a div */
+.blank {
+	position:absolute;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+}
+
 /* ************ */
 
 /* Darkest Background Color */
