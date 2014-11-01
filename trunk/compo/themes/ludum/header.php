@@ -1,7 +1,4 @@
 <?php 
-// Store the current directory part of the requested URL (for building paths to files) //
-@$http_dir = dirname($_SERVER["REQUEST_URI"]);
-
 do_action("compo2_cache_begin");
 ob_start(); // start the ob_cache so that things work magictastically
 require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodies
@@ -182,16 +179,16 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 				</div>
 <?php		} else { ?>
 				<!-- Logged In -->
-				<div class="login-nav">
-					<img src="<?php echo $http_dir; ?> /ld2014/search.png" />
-					<img src="<?php echo $http_dir; ?> /ld2014/dashboard.png" />
-				</div>
 				<div class="login">
 					<div class="avatar" title="Edit your Avatar on Gravatar (Click!)"><a href="http://www.gravatar.com/" target="_blank"><?php echo get_avatar( $current_user->user_email, 52 ); ?></a></div>
 					<div class="info">
 						<div class="headline">Welcome <a href="/compo/wp-admin/profile.php" title="Edit your Profile"><strong><?php echo $current_user->display_name; ?></strong></a>!</div>
 						<div class="action"><a href="/compo/wp-admin/post-new.php" title="Make a new Blog Post">+<strong>New POST</strong></a></div>
 					</div>
+				</div>
+				<div class="login-nav">
+					<img src="<?php echo get_template_directory(); ?>/ld2014/search.png" />
+					<img src="<?php echo get_template_directory(); ?>/ld2014/dashboard.png" />
 				</div>
 <?php		} ?>
 				<a href="<?php echo get_option('home'); ?>/" title="Home"><img src="/compo/wp-content/themes/ludum/povimg/LDLogo2015.png" width="386" height="64" /></a>
