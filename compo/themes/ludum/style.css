@@ -563,6 +563,7 @@ body {
 .section .free {
 	display:inline-block;
 	white-space:nowrap;
+	position:relative;
 }
 
 .section .label {
