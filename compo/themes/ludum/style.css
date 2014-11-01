@@ -1025,13 +1025,15 @@ a, h2 a:hover, h3 a:hover {
 	*/
 }
 
+
 #header .searchbar {
 	display:inline-block;
 }
 #header .searchbar-text {
 	border:none;
 	border-radius:30px;
-	padding:4px;
+	padding:4px 8px;
+	line-height:20px;
 }
 #header .searchbar-button {
 	background: url('ld2014/search.png');
@@ -1052,6 +1054,7 @@ a, h2 a:hover, h3 a:hover {
 
 #header .login-search img {
 	opacity:0.5;
+	vertical-align:top;
 }
 
 #header .login-search img:hover {
