@@ -1034,6 +1034,7 @@ a, h2 a:hover, h3 a:hover {
 	border-radius:30px;
 	padding:4px 8px;
 	line-height:20px;
+	width:100px;
 }
 #header .searchbar-button {
 	background: url('ld2014/search.png');
