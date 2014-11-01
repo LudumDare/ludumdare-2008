@@ -132,12 +132,13 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 								PadZero(diffSeconds);
 						}
 						else {
-							if ( Math.abs(diff % 1000) >= 500 ) {
+							/* Flash on Completion */
+							//if ( Math.abs(diff % 1000) >= 500 ) {
 								clockElm[idx].innerHTML = clockElm[idx].getAttribute('msg');
-							}
-							else {
-								clockElm[idx].innerHTML = "";
-							}
+//							}
+//							else {
+//								clockElm[idx].innerHTML = "";
+//							}
 						}
 					}
 				};
