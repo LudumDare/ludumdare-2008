@@ -1,4 +1,7 @@
 <?php 
+// Store the current directory part of the requested URL (for building paths to files) //
+@$http_dir = dirname($_SERVER["REQUEST_URI"]);
+
 do_action("compo2_cache_begin");
 ob_start(); // start the ob_cache so that things work magictastically
 require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodies
@@ -174,11 +177,15 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 <?php		$current_user = wp_get_current_user(); ?>
 <?php		if ( 0 == $current_user->ID ) { ?>
 				<!-- Not Logged In -->
-				<div class="login_not">
+				<div class="login-not">
 					<div class="headline"><a href="/compo/wp-login.php"><strong>Login</strong></a> | <a href="/compo/wp-login.php?action=register">Create Account</a></div>
 				</div>
 <?php		} else { ?>
 				<!-- Logged In -->
+				<div class="login-nav">
+					<img src="<?php echo $http_dir ?>/ld2014/search.png" />
+					<img src="<?php echo $http_dir ?>/ld2014/dashboard.png" />
+				</div>
 				<div class="login">
 					<div class="avatar" title="Edit your Avatar on Gravatar (Click!)"><a href="http://www.gravatar.com/" target="_blank"><?php echo get_avatar( $current_user->user_email, 52 ); ?></a></div>
 					<div class="info">
