@@ -1004,7 +1004,11 @@ a, h2 a:hover, h3 a:hover {
 
 #header .login-nav {
 	float: right;
-	background: #CCD;	
+	background: #889;
+	padding:2px;
+	padding-left:15px;
+	border:2px solid #445;
+	border-radius:30px 0 0 30px;
 }
 
 #header .login .avatar {
