@@ -643,6 +643,7 @@ body {
 	border-radius:5px;
 	overflow:auto;
 	width:100%;
+	position:relative;
 }
 .imagebox > div > div {
 	display:table-cell;
