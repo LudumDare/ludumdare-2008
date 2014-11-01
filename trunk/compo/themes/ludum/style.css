@@ -1025,6 +1025,23 @@ a, h2 a:hover, h3 a:hover {
 	*/
 }
 
+#header .searchbar-text {
+	border:none;
+	border-radius:10px;
+	padding:5px;
+}
+#header .searchbar-button {
+	background-image: url('ld2014/search.png');
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	height:24px;
+	width:24px;
+	border:none;
+}
+#header .searchbar-button span {
+	display:none;
+}
+
 #header .login-search img {
 	opacity:0.5;
 }
