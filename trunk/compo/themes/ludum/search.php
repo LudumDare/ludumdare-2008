@@ -1,9 +1,9 @@
 <?php get_header(); ?>
 <div id="body">
 	<!-- Side Bar -->
-	<?php get_sidebar(); ?>
+	<!--<?php get_sidebar(); ?>-->
 	<!-- Content -->
-	<div id="content" class="narrowcolumn">
+	<div id="content" class="widecolumn">
 
 	<?php if (have_posts()) : ?>
 
