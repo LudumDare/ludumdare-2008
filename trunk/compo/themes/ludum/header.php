@@ -183,8 +183,8 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 <?php		} else { ?>
 				<!-- Logged In -->
 				<div class="login-nav">
-					<img src="<?php echo $http_dir ?>/ld2014/search.png" />
-					<img src="<?php echo $http_dir ?>/ld2014/dashboard.png" />
+					<img src="<?php echo $http_dir; ?> /ld2014/search.png" />
+					<img src="<?php echo $http_dir; ?> /ld2014/dashboard.png" />
 				</div>
 				<div class="login">
 					<div class="avatar" title="Edit your Avatar on Gravatar (Click!)"><a href="http://www.gravatar.com/" target="_blank"><?php echo get_avatar( $current_user->user_email, 52 ); ?></a></div>
