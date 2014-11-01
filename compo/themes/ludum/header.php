@@ -191,7 +191,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 					</div>
 					<div class="login-search">
 						<img src="<?php echo get_template_directory_uri(); ?>/ld2014/search.png" />
-						<form action="/compo/" method="get" id="adminbarsearch"><input class="searchbar-text" name="s" id="searchbar-text" type="text" value="" maxlength="100"><input type="submit" class="searchbar-button" value="Search"></form>
+						<form action="/compo/" method="get" id="adminbarsearch"><input class="searchbar-text" name="s" id="searchbar-text" type="text" value="" maxlength="100"><input type="submit" class="searchbar-button" value=""></form>
 						<a href="/compo/wp-admin/index.php"><img src="<?php echo get_template_directory_uri(); ?>/ld2014/dashboard.png" /></a>
 					</div>
 				</div>
