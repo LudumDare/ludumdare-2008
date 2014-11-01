@@ -1045,6 +1045,7 @@ a, h2 a:hover, h3 a:hover {
 	border:none;
 	opacity:0.5;
 	vertical-align:top;
+	cursor:pointer;
 }
 #header .searchbar-button:hover {
 	opacity:0.9;
