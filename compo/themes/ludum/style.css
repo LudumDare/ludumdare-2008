@@ -997,9 +997,14 @@ a, h2 a:hover, h3 a:hover {
 }
 
 
-#header .login_not {
+#header .login-not {
 	float: right;
 	white-space: nowrap;
+}
+
+#header .login-nav {
+	float: right;
+	background: #CCD;	
 }
 
 #header .login .avatar {
