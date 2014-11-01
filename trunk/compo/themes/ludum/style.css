@@ -1030,17 +1030,18 @@ a, h2 a:hover, h3 a:hover {
 }
 #header .searchbar-text {
 	border:none;
-	border-radius:10px;
-	padding:5px;
+	border-radius:30px;
+	padding:4px;
 }
 #header .searchbar-button {
 	background: url('ld2014/search.png');
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
-	height:24px;
+	height:28px;
 	width:32px;
 	border:none;
 	opacity:0.5;
+	vertical-align:top;
 }
 #header .searchbar-button:hover {
 	opacity:0.9;
