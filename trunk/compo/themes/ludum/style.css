@@ -1035,6 +1035,10 @@ a, h2 a:hover, h3 a:hover {
 	padding:4px 8px;
 	line-height:20px;
 	width:100px;
+	opacity:0.5;
+}
+#header .searchbar-text:focus {
+	opacity:1.0;
 }
 #header .searchbar-button {
 	background: url('ld2014/search.png');
