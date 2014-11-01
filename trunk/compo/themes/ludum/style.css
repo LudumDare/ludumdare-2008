@@ -1025,6 +1025,9 @@ a, h2 a:hover, h3 a:hover {
 	*/
 }
 
+#header .searchbar {
+	display:inline-block;
+}
 #header .searchbar-text {
 	border:none;
 	border-radius:10px;
