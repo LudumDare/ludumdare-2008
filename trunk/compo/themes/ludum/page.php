@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div id="body">
-	<div id="content" class="fullcolumn">
+	<div id="content" class="fullcolumn botpad">
 
 	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 		<div class="ld-post post" id="post-<?php the_ID(); ?>">
