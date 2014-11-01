@@ -187,8 +187,8 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 					</div>
 				</div>
 				<div class="login-nav">
-					<img src="<?php echo get_template_directory(); ?>/ld2014/search.png" />
-					<img src="<?php echo get_template_directory(); ?>/ld2014/dashboard.png" />
+					<img src="<?php echo get_template_directory_uri(); ?>/ld2014/search.png" />
+					<img src="<?php echo get_template_directory_uri(); ?>/ld2014/dashboard.png" />
 				</div>
 <?php		} ?>
 				<a href="<?php echo get_option('home'); ?>/" title="Home"><img src="/compo/wp-content/themes/ludum/povimg/LDLogo2015.png" width="386" height="64" /></a>
