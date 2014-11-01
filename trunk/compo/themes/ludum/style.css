@@ -1031,12 +1031,16 @@ a, h2 a:hover, h3 a:hover {
 	padding:5px;
 }
 #header .searchbar-button {
-	background-image: url('ld2014/search.png');
+	background: url('ld2014/search.png');
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
 	height:24px;
-	width:24px;
+	width:32px;
 	border:none;
+	opacity:0.5;
+}
+#header .searchbar-button:hover {
+	opacity:0.9;
 }
 #header .searchbar-button span {
 	display:none;
