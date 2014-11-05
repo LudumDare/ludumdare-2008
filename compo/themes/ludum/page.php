@@ -3,7 +3,7 @@
 	<div id="content" class="fullcolumn botpad">
 
 <?php 	if (have_posts()) : while (have_posts()) : the_post(); ?>
-<?php 		if ( get_post_meta(get_the_ID(),'border',true) !== "false" ) { ?>
+<?php 		if ( get_post_meta(get_the_ID(),'border',true) !== "false" ) ) { ?>
 		<div class="ld-post post" id="post-<?php the_ID(); ?>">
 			<div class="head"><h2><?php the_title(); ?></h2></div>
 			<div class="entry">
