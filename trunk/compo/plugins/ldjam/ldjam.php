@@ -10,6 +10,9 @@ Author URI: http://www.sykhronics.com
 License: TBD
 */
 
+require_once "wp_functions.php";
+require_once "ld_functions.php";
+
 
 function shortcode_ldjam( $atts ) {
 	return "I am very important";	
