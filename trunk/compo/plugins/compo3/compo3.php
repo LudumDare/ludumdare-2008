@@ -1,5 +1,7 @@
 <?php
 
+
+/*
 		$new_table_prefix = "ss_";
 
 
@@ -17,7 +19,7 @@
 					
 					
 				);";
-				
+*/				
 			// ID - Unique ID of this object.
 			// parent_id - Object 
 			// owner_id
