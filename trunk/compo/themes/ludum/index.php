@@ -5,12 +5,15 @@
 	<!-- Content -->
 	<div id="content" class="narrowcolumn">
 		<!-- Event -->
+		[ldjam-bar]
+		<!--
 		<div class="event">
 			<div class="info">
 				<div class="navigation">Navigation</div>
 				<div class="name">Now: <strong>Test Event</strong></div>
 			</div>
 		</div>
+		-->
 		<!-- Posts -->
 <?php	if (have_posts()) { ?>
 <?php		while (have_posts()) { ?>
