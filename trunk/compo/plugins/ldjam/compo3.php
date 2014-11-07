@@ -1,4 +1,15 @@
 <?php
+/*
+Plugin Name: Compo 3
+Plugin URI: http://ludumdare.com/
+Description: Steam Group and Curator widget
+Version: 0.1
+Author: Mike Kasprzak
+Author URI: http://www.sykhronics.com
+License: TBD
+*/
+
+defined('ABSPATH') or die("No script kiddies please!");
 
 
 /*
