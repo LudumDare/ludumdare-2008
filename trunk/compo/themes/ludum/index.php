@@ -5,7 +5,7 @@
 	<!-- Content -->
 	<div id="content" class="narrowcolumn">
 		<!-- Event -->
-		[ldjam-bar]
+		<?php if ( function_exists('shortcode_ldjam_bar') ) { echo shortcode_ldjam_bar(); } ?>
 		<!--
 		<div class="event">
 			<div class="info">
