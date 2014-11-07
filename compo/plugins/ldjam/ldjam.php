@@ -21,7 +21,7 @@ add_shortcode( 'ldjam', 'shortcode_ldjam' );
 
 
 function shortcode_ldjam_root( $atts ) {
-	if ( ldjam_is_admin() ) {
+	if ( ld_is_admin() ) {
 		return "Thanks Chiefy";
 	}
 	else {
@@ -36,8 +36,6 @@ function ldjam_show_bar() {
 	return "On Now: <strong>I don't know. I'm testing here!</strong>";
 }
 
-
-		$ld_table_prefix = "ld_";
 
 
 
