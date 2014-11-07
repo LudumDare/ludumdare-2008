@@ -21,7 +21,12 @@ add_shortcode( 'ldjam', 'shortcode_ldjam' );
 
 
 function shortcode_ldjam_root( $atts ) {
-	return "Thanks Chief";
+	if ( ldjam_is_admin() ) {
+		return "Thanks Chief";
+	}
+	else {
+		return "No, sorry";
+	}
 }
 add_shortcode( 'ldjam-root', 'shortcode_ldjam_root' );
 
