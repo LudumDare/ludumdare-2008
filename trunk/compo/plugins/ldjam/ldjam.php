@@ -25,7 +25,7 @@ function shortcode_ldjam_root( $atts ) {
 		return "Thanks Chiefy";
 	}
 	else {
-		return "No, sorry";
+		return "";
 	}
 }
 add_shortcode( 'ldjam-root', 'shortcode_ldjam_root' );
