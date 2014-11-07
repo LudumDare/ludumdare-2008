@@ -1,22 +1,34 @@
 <?php
+defined('ABSPATH') or die("No.");
 /*
-Plugin Name: Compo 3
+Plugin Name: LDJam
 Plugin URI: http://ludumdare.com/
-Description: Steam Group and Curator widget
+Description: Ludum Dare Game Jam Website
 Version: 0.1
 Author: Mike Kasprzak
 Author URI: http://www.sykhronics.com
 License: TBD
 */
 
-defined('ABSPATH') or die("No script kiddies please!");
+
+function shortcode_ldjam( $atts ) {
+	return "I am very important";	
+}
+add_shortcode( 'ldjam', 'shortcode_ldjam' );
+
+
+function shortcode_ldjam_root( $atts ) {
+	return "Thanks Chief";
+}
+add_shortcode( 'ldjam-root', 'shortcode_ldjam_root' );
+
+
+		$ld_table_prefix = "ld_";
+
 
 
 /*
-		$new_table_prefix = "ss_";
-
-
-		$content_table_name = $new_table_prefix . "content";
+		$content_table_name = $ld_table_prefix . "content";
 			
 			$query = 
 				"CREATE TABLE " . $content_table_name . " (
