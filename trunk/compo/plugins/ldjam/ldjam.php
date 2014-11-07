@@ -22,7 +22,7 @@ add_shortcode( 'ldjam', 'shortcode_ldjam' );
 
 function shortcode_ldjam_root( $atts ) {
 	if ( ldjam_is_admin() ) {
-		return "Thanks Chief";
+		return "Thanks Chiefy";
 	}
 	else {
 		return "No, sorry";
