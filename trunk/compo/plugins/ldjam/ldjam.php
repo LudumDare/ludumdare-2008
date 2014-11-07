@@ -23,6 +23,12 @@ function shortcode_ldjam_root( $atts ) {
 add_shortcode( 'ldjam-root', 'shortcode_ldjam_root' );
 
 
+function shortcode_ldjam_bar( $atts ) {
+	return "On Now: <strong>I don't know. I'm testing here!</strong>";
+}
+add_shortcode( 'ldjam-bar', 'shortcode_ldjam_bar' );
+
+
 		$ld_table_prefix = "ld_";
 
 
