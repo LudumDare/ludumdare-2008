@@ -14,10 +14,10 @@
 					type VARCHAR(16) NOT NULL,
 					slug VARCHAR(64) NOT NULL,
 					published TIMESTAMP NOT NULL,
-					updated TIMESTAMP NOT NULL,
+					updated TIMESTAMP NOT NULL
 					
 					
-				);";
+				) ENGINE=InnoDB;";
 				
 			// ID - Unique ID of this object.
 			// parent_id - Object 
