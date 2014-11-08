@@ -1,21 +1,108 @@
 <?php
 defined('ABSPATH') or die("No.");
-
+// - ----------------------------------------------------------------------------------------- - //
+// Check if APCu is available (memory caching) //
 $has_apcu = function_exists('apcu_fetch');
-$ldata_prefix = 'ldata_';
-
-function ldata_fetch( $key ) {
-	if ( $has_apcu ) {
-		
+// - ----------------------------------------------------------------------------------------- - //
+$ld_table_prefix = "ld_";
+$ldvar = NULL;
+// - ----------------------------------------------------------------------------------------- - //
+// LD Variable Cache - APCU //
+if ( $has_apcu ) {
+	$ldvar_cache_name = "ld_vars";
+	function ld_get_vars_cache() {
+		global $ldvar_cache_name;
+		return apcu_fetch( $ldvar_cache_name );
 	}
-	
-	return NULL;
+	function ld_put_vars_cache( $vars ) {
+		global $ldvar_cache_name;
+		apcu_store( $ldvar_cache_name, $vars );
+	}
 }
-
-function ldata_store( $key, $value ) {
-	if ( $has_apcu ) {
-		
+// LD Variable Cache - None //
+else {
+	function ld_get_vars_cache() {
+		return NULL;
+	}
+	function ld_put_vars_cache( $vars ) {
 	}	
 }
+// LD Variable Cache //
+// - ----------------------------------------------------------------------------------------- - //
+
+// - ----------------------------------------------------------------------------------------- - //
+function ld_get_vars() {
+	global $ldvar;
+	$ldvar = ld_get_vars_cache();
+	if ( $ldvar ) {
+		return;
+	}	
+
+	$ldvar = ld_get_vars_table();
+	ld_put_vars_cache( $ldvar );
+}
+ld_get_vars();	// Call Immediately //
+// - ----------------------------------------------------------------------------------------- - //
+function ld_set_var( $key, $value ) {
+	// store database
+	
+	$ldvar[$key] = $value;
+	ld_put_vars_cache( $ldvar );
+}
+// - ----------------------------------------------------------------------------------------- - //
+
+
+// - ----------------------------------------------------------------------------------------- - //
+function ld_init_vars() {
+	if ( !ld_has_vars_table() ) {
+		ld_new_vars_table();
+	}
+
+	ld_get_vars();
+}
+// - ----------------------------------------------------------------------------------------- - //
+
+
+// - ----------------------------------------------------------------------------------------- - //
+$ld_vars_table_name = $ld_table_prefix . "vars";
+function ld_has_vars_table() {
+	global $ld_vars_table_name;
+	return ld_does_table_exist( $ld_vars_table_name );
+}
+function ld_new_vars_table() {
+	global $ld_vars_table_name;
+
+	// Create Table //
+	ld_query( 
+		"CREATE TABLE {$ld_vars_table_name} (
+			name VARCHAR(32) NOT NULL UNIQUE,
+			value TEXT NOT NULL
+		) ENGINE=InnoDB;"
+	);
+					
+	// Populate with some default values //
+	// CurrentEvent = this one;
+	
+}
+function ld_get_vars_table() {
+	global $ld_vars_table_name;
+	return ld_query( "SELECT * FROM {$ld_vars_table_name};" );
+}
+
+
+//$ldata_prefix = 'ldata_';
+//function ldata_fetch( $key ) {
+//	if ( $has_apcu ) {
+//		
+//	}
+//	
+//	return NULL;
+//}
+//
+//function ldata_store( $key, $value ) {
+//	if ( $has_apcu ) {
+//		
+//	}	
+//}
 
 ?>

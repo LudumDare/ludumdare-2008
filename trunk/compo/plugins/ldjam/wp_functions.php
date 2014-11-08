@@ -5,7 +5,17 @@ function ld_is_admin() {
 	return current_user_can( 'manage_options' );
 }
 
-// Database Access Functions //
+// Database Functions //
+function ld_does_table_exist( $name ) {
+	global $wpdb;
+	return $wpdb->get_var("SHOW TABLES LIKE '$name'") === $name;
+	//return mysqli_num_rows(mysqli_query($db,"SHOW TABLES LIKE '{$ld_vars_table_name}'")) !== 0;
+}
+
+function ld_query( $query ) {
+	global $wpdb;
+	return $wpdb->get_results($query, ARRAY_A);
+}
 
 
 ?>
