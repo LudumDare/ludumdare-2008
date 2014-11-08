@@ -37,4 +37,10 @@ function ldjam_show_bar() {
 	return "On Now: <strong>I don't know. I'm testing here!</strong>";
 }
 
+
+function ldjam_activate() {
+	ld_init_vars();
+}
+register_activation_hook( __FILE__, "ldjam_activate");
+
 ?>
