@@ -88,6 +88,7 @@ function ld_get_vars_table() {
 	global $ld_vars_table_name;
 	return ld_query( "SELECT * FROM {$ld_vars_table_name};" );
 }
+// - ----------------------------------------------------------------------------------------- - //
 
 
 //$ldata_prefix = 'ldata_';
