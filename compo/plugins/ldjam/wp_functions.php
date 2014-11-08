@@ -5,4 +5,7 @@ function ld_is_admin() {
 	return current_user_can( 'manage_options' );
 }
 
+// Database Access Functions //
+
+
 ?>
