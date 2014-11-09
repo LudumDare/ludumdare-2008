@@ -29,7 +29,7 @@ function shortcode_ldjam_root( $atts ) {
 
 		if ( strtolower($_SERVER['REQUEST_METHOD']) === "post" ) {
 			print_r($_POST);
-			if ( isset($_POST['event_active']) {
+			if ( isset($_POST['event_active']) ) {
 				ld_set_var('event_active',strval( !(bool)$_POST['event_active'] ));
 			}
 		}
