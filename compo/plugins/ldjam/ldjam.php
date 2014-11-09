@@ -15,6 +15,7 @@ require_once "ld_functions.php";
 
 
 ld_get_vars();	// Populate the $ldvar global //
+global $ldvar;
 
 
 function shortcode_ldjam( $atts ) {
@@ -25,7 +26,9 @@ add_shortcode( 'ldjam', 'shortcode_ldjam' );
 
 function shortcode_ldjam_root( $atts ) {
 	if ( ld_is_admin() ) {
-		return "Thanks Chiefy";
+		$out = "";
+		$out .= '<form method="post"><input type="submit" value="'.$ldvar['event_active'].'"></form>';
+		return $out;
 	}
 	else {
 		return "";
@@ -36,8 +39,12 @@ add_shortcode( 'ldjam-root', 'shortcode_ldjam_root' );
 
 /* This goes in the theme, so a shortcode isn't possible */
 function ldjam_show_bar() {
-	global $ldvar;
-	return "On Now: <strong>{$ldvar['event']}</strong>";
+	if ( $ldvar['event_active'] ) {
+		return "On Now: <strong>{$ldvar['event']}</strong>";
+	}
+	
+	// No bar //
+	return "";
 }
 
 
