@@ -47,7 +47,6 @@ function ld_get_vars() {
 	$ldvar = ld_get_vars_table();
 	ld_put_vars_cache( $ldvar );
 }
-ld_get_vars();	// Call Immediately //
 // - ----------------------------------------------------------------------------------------- - //
 function ld_set_var_table( $key, $value ) {
 	global $ld_vars_table_name;
