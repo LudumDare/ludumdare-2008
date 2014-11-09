@@ -14,25 +14,26 @@ require_once "wp_functions.php";
 require_once "ld_functions.php";
 
 
-ld_get_vars();	// Populate the $ldvar global //
-
 function shortcode_ldjam( $atts ) {
+	ld_get_vars();	// Populate the $ldvar global //
+	global $ldvar;
+	
 	return "I am very important";	
 }
 add_shortcode( 'ldjam', 'shortcode_ldjam' );
 
 
 function shortcode_ldjam_root( $atts ) {
+	ld_get_vars();	// Populate the $ldvar global //
 	global $ldvar;
+	
 	if ( ld_is_admin() ) {
 		$out = "";
 
 		if ( strtolower($_SERVER['REQUEST_METHOD']) === "post" ) {
 			print_r($_POST);
 			if ( isset($_POST['event_active']) ) {
-				$state = strtoupper($_POST['event_active']) === "FALSE" ? false : true;
-				if ( $state ) { $state = (bool)$_POST['event_active']; }
-				ld_set_var('event_active', !$state ? "true" : "false" );
+				ld_set_var('event_active', !to_bool($_POST['event_active']) ? "true" : "false" );
 			}
 		}
 		
@@ -53,12 +54,10 @@ add_shortcode( 'ldjam-root', 'shortcode_ldjam_root' );
 
 /* This goes in the theme, so a shortcode isn't possible */
 function ldjam_show_bar() {
+	ld_get_vars();	// Populate the $ldvar global //
 	global $ldvar;
-	$event_active = strtoupper($ldvar['event_active']) === "FALSE" ? false : true;
-	if ( $event_active ) { $event_active = (bool)$ldvar['event_active']; }
-
-
-	if ( $event_active ) {
+	
+	if ( to_bool($ldvar['event_active']) ) {
 		return "On Now: <strong>{$ldvar['event']}</strong>";
 	}
 	
