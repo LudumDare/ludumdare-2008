@@ -430,7 +430,7 @@ function ludumtheme_comment($comment, $args, $depth) {
       <?php comment_text() ?>
 
       <div class="avatar">
-      	<?php if(function_exists(ckrating_display_karma)) { ckrating_display_karma(); }  ?>
+      	<?php if(function_exists('ckrating_display_karma')) { ckrating_display_karma(); }  ?>
       </div>
       <div class="reply">
          <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
