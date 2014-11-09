@@ -215,7 +215,8 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		
 			if ( $out === FALSE ) {
 				global $wpdb;
-				$e = array_pop(compo_query("select * from {$wpdb->posts} where post_name = ? and post_type =?",array("status","page")));				
+				$e = $wpdb->get_row("SELECT * FROM {$wpdb->posts} WHERE post_name='status' AND post_type='page';",ARRAY_A);
+				//$e = array_pop(compo_query("select * from {$wpdb->posts} where post_name = ? and post_type =?",array("status","page")));
 				$out = $e["post_content"];
 			
 				if ( function_exists('apcu_store') ) {
