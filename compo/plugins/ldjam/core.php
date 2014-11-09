@@ -19,14 +19,13 @@ $ld_vars_table_name = $ld_table_prefix . "vars";
 // LD Variable Cache - APCU //
 global $has_apcu;
 if ( $has_apcu ) {
-	static $ldvar_cache_name = "ld_vars";
 	function ld_get_vars_cache() {
-		global $ldvar_cache_name;
-		return apcu_fetch( $ldvar_cache_name );
+		global $ld_vars_table_name;
+		return apcu_fetch( $ld_vars_table_name );
 	}
 	function ld_put_vars_cache( $vars ) {
-		global $ldvar_cache_name;
-		apcu_store( $ldvar_cache_name, $vars );
+		global $ld_vars_table_name;
+		apcu_store( $ld_vars_table_name, $vars );
 	}
 }
 // LD Variable Cache - None //
