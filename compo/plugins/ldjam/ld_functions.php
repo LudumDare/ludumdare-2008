@@ -1,30 +1,23 @@
 <?php
 defined('ABSPATH') or die("No.");
 // - ----------------------------------------------------------------------------------------- - //
-function to_bool( $value ) {
-	$ret = strtoupper($value) === "FALSE" ? false : true;
-	if ( $ret ) {
-		return (bool)$value;
-	}
-	return $ret;
-}
+require_once "lib.php";		// Helper Functions //
 // - ----------------------------------------------------------------------------------------- - //
 
-
 // - ----------------------------------------------------------------------------------------- - //
-global $has_apcu;
 global $ld_table_prefix;
 global $ldvar;
 // - ----------------------------------------------------------------------------------------- - //
-$has_apcu = function_exists('apcu_fetch');	// Check if APCu is available (memory caching) //
-// - ----------------------------------------------------------------------------------------- - //
 $ld_table_prefix = "ld_";
 $ldvar = NULL;
+// - ----------------------------------------------------------------------------------------- - //
+
 // - ----------------------------------------------------------------------------------------- - //
 static $ld_vars_table_name;
 $ld_vars_table_name = $ld_table_prefix . "vars";
 // - ----------------------------------------------------------------------------------------- - //
 // LD Variable Cache - APCU //
+global $has_apcu;
 if ( $has_apcu ) {
 	static $ldvar_cache_name = "ld_vars";
 	function ld_get_vars_cache() {
@@ -130,21 +123,4 @@ function ld_get_vars_table() {
 	return $ret;
 }
 // - ----------------------------------------------------------------------------------------- - //
-
-
-//$ldata_prefix = 'ldata_';
-//function ldata_fetch( $key ) {
-//	if ( $has_apcu ) {
-//		
-//	}
-//	
-//	return NULL;
-//}
-//
-//function ldata_store( $key, $value ) {
-//	if ( $has_apcu ) {
-//		
-//	}	
-//}
-
 ?>
