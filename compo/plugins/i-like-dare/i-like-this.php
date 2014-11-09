@@ -210,7 +210,7 @@ function add_widget_most_liked_posts() {
 		echo '</ul>';
 		echo $after_widget;
 	}	
-	register_sidebar_widget('Most liked posts', 'widget_most_liked_posts');
+	wp_register_sidebar_widget('Most liked posts', 'widget_most_liked_posts');
 	
 	function options_widget_most_liked_posts() {
 		$options = get_option("most_liked_posts");

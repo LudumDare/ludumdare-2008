@@ -100,16 +100,16 @@ function widget_darenateplus_init() {
 	
 	// This registers our widget so it appears with the other available
 	// widgets and can be dragged and dropped into any active sidebars.
-	register_sidebar_widget(array('Darenate Plus Form', 'widgets'), 'widget_darenateplusform');
-	register_sidebar_widget(array('Darenate Plus Total', 'widgets'), 'widget_darenateplustotal');
-	register_sidebar_widget(array('Darenate Plus Wall', 'widgets'), 'widget_darenatepluswall');
-	register_sidebar_widget(array('Darenate Plus High Monthly Wall', 'widgets'), 'widget_darenateplushighmonthlywall');
+	wp_register_sidebar_widget(array('Darenate Plus Form', 'widgets'), 'widget_darenateplusform');
+	wp_register_sidebar_widget(array('Darenate Plus Total', 'widgets'), 'widget_darenateplustotal');
+	wp_register_sidebar_widget(array('Darenate Plus Wall', 'widgets'), 'widget_darenatepluswall');
+	wp_register_sidebar_widget(array('Darenate Plus High Monthly Wall', 'widgets'), 'widget_darenateplushighmonthlywall');
 
 	// This registers our optional widget control form. Because of this
 	// our widget will have a button that reveals a 300x100 pixel form.
-	register_widget_control(array('Darenate Plus Form', 'widgets'), 'widget_darenateplusform_control', 300, 100);
-	register_widget_control(array('Darenate Plus Total', 'widgets'), 'widget_darenateplustotal_control', 300, 100);
-	register_widget_control(array('Darenate Plus Wall', 'widgets'), 'widget_darenatepluswall_control', 300, 100);
+	wp_register_widget_control(array('Darenate Plus Form', 'widgets'), 'widget_darenateplusform_control', 300, 100);
+	wp_register_widget_control(array('Darenate Plus Total', 'widgets'), 'widget_darenateplustotal_control', 300, 100);
+	wp_register_widget_control(array('Darenate Plus Wall', 'widgets'), 'widget_darenatepluswall_control', 300, 100);
 }
 
 // Run our code later in case this loads prior to any required plugins.
