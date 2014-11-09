@@ -68,6 +68,7 @@ function ld_init_vars() {
 // - ----------------------------------------------------------------------------------------- - //
 function ld_has_vars_table() {
 	global $ld_vars_table_name;
+	error_log("Shem Mike: " .  $ld_vars_table_name );
 	return lddb_does_table_exist( $ld_vars_table_name );
 }
 function ld_new_vars_table() {
