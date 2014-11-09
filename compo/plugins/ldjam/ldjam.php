@@ -13,7 +13,6 @@ License: TBD
 require_once "wp_functions.php";
 require_once "ld_functions.php";
 
-//$ldvar = ld_get_vars();
 
 function shortcode_ldjam( $atts ) {
 	return "I am very important";	
