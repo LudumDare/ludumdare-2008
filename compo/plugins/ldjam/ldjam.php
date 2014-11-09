@@ -14,6 +14,9 @@ require_once "wp_functions.php";
 require_once "ld_functions.php";
 
 
+ld_get_vars();	// Populate the $ldvar global //
+
+
 function shortcode_ldjam( $atts ) {
 	return "I am very important";	
 }
