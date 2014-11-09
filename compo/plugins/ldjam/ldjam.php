@@ -26,7 +26,14 @@ function shortcode_ldjam_root( $atts ) {
 	global $ldvar;
 	if ( ld_is_admin() ) {
 		$out = "";
+
+		if ( strtolower($_SERVER['REQUEST_METHOD']) === "post" ) {
+			echo "oot:<br />\n";
+			print_r($_POST);
+		}
+		
 		$out .= '<form method="post"><input type="submit" value="'.$ldvar['event_active'].'"></form>';
+		
 		return $out;
 	}
 	else {
