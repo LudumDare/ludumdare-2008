@@ -10,12 +10,11 @@ $has_apcu = function_exists('apcu_fetch');	// Check if APCu is available (memory
 $ld_table_prefix = "ld_";
 $ldvar = NULL;
 // - ----------------------------------------------------------------------------------------- - //
-global $ld_vars_table_name;
-$ld_vars_table_name = $ld_table_prefix . "vars";
+static $ld_vars_table_name = $ld_table_prefix . "vars";
 // - ----------------------------------------------------------------------------------------- - //
 // LD Variable Cache - APCU //
 if ( $has_apcu ) {
-	$ldvar_cache_name = "ld_vars";
+	static $ldvar_cache_name = "ld_vars";
 	function ld_get_vars_cache() {
 		global $ldvar_cache_name;
 		return apcu_fetch( $ldvar_cache_name );
