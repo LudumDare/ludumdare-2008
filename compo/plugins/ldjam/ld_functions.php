@@ -71,6 +71,7 @@ function ld_has_vars_table() {
 }
 function ld_new_vars_table() {
 	global $ld_vars_table_name;
+	error_log("Whoa Mike: " .  $ld_vars_table_name );
 
 	// Create Table //
 	lddb_query( 
@@ -86,6 +87,7 @@ function ld_new_vars_table() {
 }
 function ld_get_vars_table() {
 	global $ld_vars_table_name;
+	error_log("Hey Mike: " .  $ld_vars_table_name );
 	return lddb_get( "SELECT * FROM {$ld_vars_table_name};" );
 }
 // - ----------------------------------------------------------------------------------------- - //
