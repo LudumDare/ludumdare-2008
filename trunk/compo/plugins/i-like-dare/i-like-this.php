@@ -132,7 +132,7 @@ function ILikeDareAdminContent() {
 						<?php echo get_option('ilt_onPage') == '1' ? '<input type="checkbox" name="ilt_onPage" id="ilt_onPage" value="1" checked="checked">' : '<input type="checkbox" name="ilt_onPage" id="ilt_onPage" value="1">'; ?>
 						<?php _e('<strong>On all posts</strong> (home, archives, search) at the bottom of the post', 'i-like-dare'); ?>
 						</label>
-						<p class="description"><?php _e('If you disable this option, you have to put manually the code', 'i-like-dare'); ?><code>&lt;?php if(function_exists(getILikeDare)) getILikeDare('get'); ?&gt;</code> <?php _e('wherever you want in your template.', 'i-like-dare'); ?></p>
+						<p class="description"><?php _e('If you disable this option, you have to put manually the code', 'i-like-dare'); ?><code>&lt;?php if(function_exists('getILikeDare')) getILikeDare('get'); ?&gt;</code> <?php _e('wherever you want in your template.', 'i-like-dare'); ?></p>
 					</td>
 				</tr>
 				<tr valign="top">
