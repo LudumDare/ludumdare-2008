@@ -28,11 +28,14 @@ function shortcode_ldjam_root( $atts ) {
 		$out = "";
 
 		if ( strtolower($_SERVER['REQUEST_METHOD']) === "post" ) {
-			echo "oot:<br />\n";
 			print_r($_POST);
 		}
 		
-		$out .= '<form method="post"><input type="submit" value="'.$ldvar['event_active'].'"></form>';
+		$out .= '
+			<form method="post">
+				<input type="hidden" name="active" value="'.$ldvar['event_active'].'">
+				<input type="submit" value="'.$ldvar['event_active'].'">
+			</form>';
 		
 		return $out;
 	}
