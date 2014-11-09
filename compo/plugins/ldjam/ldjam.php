@@ -30,7 +30,9 @@ function shortcode_ldjam_root( $atts ) {
 		if ( strtolower($_SERVER['REQUEST_METHOD']) === "post" ) {
 			print_r($_POST);
 			if ( isset($_POST['event_active']) ) {
-				ld_set_var('event_active', !((bool)$_POST['event_active']) ? "true" : "false" );
+				$state = strtoupper($_POST['event_active']) === "FALSE" ? false : true;
+				if ( $state ) { $state = (bool)$_POST['event_active']; }
+				ld_set_var('event_active', !$state ? "true" : "false" );
 			}
 		}
 		
@@ -52,7 +54,11 @@ add_shortcode( 'ldjam-root', 'shortcode_ldjam_root' );
 /* This goes in the theme, so a shortcode isn't possible */
 function ldjam_show_bar() {
 	global $ldvar;
-	if ( (bool)$ldvar['event_active'] ) {
+	$event_active = strtoupper($_POST['event_active']) === "FALSE" ? false : true;
+	if ( $event_active ) { $event_active = (bool)$_POST['event_active']; }
+
+
+	if ( $event_active ) {
 		return "On Now: <strong>{$ldvar['event']}</strong>";
 	}
 	
