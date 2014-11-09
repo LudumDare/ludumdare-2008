@@ -329,6 +329,6 @@ function addHeaderLinks() {
 	echo '<script type="text/javascript">var blogUrl = \''.get_bloginfo('wpurl').'\'</script>'."\n";
 }
 
-add_action('init', enqueueScripts);
-add_action('wp_head', addHeaderLinks);
+add_action('init', 'enqueueScripts');
+add_action('wp_head', 'addHeaderLinks');
 ?>
