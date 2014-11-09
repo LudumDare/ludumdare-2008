@@ -11,7 +11,8 @@ add_filter( 'wp_feed_cache_transient_lifetime', create_function('$a', 'return 90
 //   ini_set('error_reporting', E_ALL & ~E_STRICT & ~E_DEPRECATED);
 //}
 
-automatic_feed_links();
+//automatic_feed_links();
+add_theme_support('automatic-feed-links');
 
 if ( function_exists('register_sidebar') ) {
 	register_sidebar(array(
