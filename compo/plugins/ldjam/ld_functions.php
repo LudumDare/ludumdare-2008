@@ -67,13 +67,13 @@ function ld_init_vars() {
 $ld_vars_table_name = $ld_table_prefix . "vars";
 function ld_has_vars_table() {
 	global $ld_vars_table_name;
-	return ld_does_table_exist( $ld_vars_table_name );
+	return lddb_does_table_exist( $ld_vars_table_name );
 }
 function ld_new_vars_table() {
 	global $ld_vars_table_name;
 
 	// Create Table //
-	ld_query( 
+	lddb_query( 
 		"CREATE TABLE {$ld_vars_table_name} (
 			name VARCHAR(32) NOT NULL UNIQUE,
 			value TEXT NOT NULL
@@ -86,7 +86,7 @@ function ld_new_vars_table() {
 }
 function ld_get_vars_table() {
 	global $ld_vars_table_name;
-	return ld_query( "SELECT * FROM {$ld_vars_table_name};" );
+	return lddb_get( "SELECT * FROM {$ld_vars_table_name};" );
 }
 // - ----------------------------------------------------------------------------------------- - //
 
