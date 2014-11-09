@@ -52,7 +52,7 @@ add_shortcode( 'ldjam-root', 'shortcode_ldjam_root' );
 /* This goes in the theme, so a shortcode isn't possible */
 function ldjam_show_bar() {
 	global $ldvar;
-	if ( $ldvar['event_active'] ) {
+	if ( (bool)$ldvar['event_active'] ) {
 		return "On Now: <strong>{$ldvar['event']}</strong>";
 	}
 	
