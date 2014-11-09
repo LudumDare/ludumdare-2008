@@ -33,7 +33,8 @@ add_shortcode( 'ldjam-root', 'shortcode_ldjam_root' );
 
 /* This goes in the theme, so a shortcode isn't possible */
 function ldjam_show_bar() {
-	return "On Now: <strong>I don't know. I'm testing here!</strong>";
+	global $ldvar;
+	return "On Now: <strong>{$ldvar['event']}</strong>";
 }
 
 
