@@ -5,11 +5,13 @@ global $has_apcu;
 global $ld_table_prefix;
 global $ldvar;
 // - ----------------------------------------------------------------------------------------- - //
-// Check if APCu is available (memory caching) //
-$has_apcu = function_exists('apcu_fetch');
+$has_apcu = function_exists('apcu_fetch');	// Check if APCu is available (memory caching) //
 // - ----------------------------------------------------------------------------------------- - //
 $ld_table_prefix = "ld_";
 $ldvar = NULL;
+// - ----------------------------------------------------------------------------------------- - //
+global $ld_vars_table_name;
+$ld_vars_table_name = $ld_table_prefix . "vars";
 // - ----------------------------------------------------------------------------------------- - //
 // LD Variable Cache - APCU //
 if ( $has_apcu ) {
@@ -47,9 +49,28 @@ function ld_get_vars() {
 }
 ld_get_vars();	// Call Immediately //
 // - ----------------------------------------------------------------------------------------- - //
-function ld_set_var( $key, $value ) {
-	// store database
+function ld_set_var_table( $key, $value ) {
+	global $ld_vars_table_name;
 	
+	// store in database //
+	lddb_query("
+		INSERT INTO {$ld_vars_table_name} (
+			name,
+			value
+		)
+		VALUES (
+			\"{$key}\",
+			\"{$value}\"
+		)
+		ON DUPLICATE KEY UPDATE
+			value=VALUES(value)
+	;");
+}	
+// - ----------------------------------------------------------------------------------------- - //
+function ld_set_var( $key, $value ) {
+	ld_set_var_table($key,$value);
+
+	global $ldvar;
 	$ldvar[$key] = $value;
 	ld_put_vars_cache( $ldvar );
 }
@@ -68,16 +89,12 @@ function ld_init_vars() {
 
 
 // - ----------------------------------------------------------------------------------------- - //
-global $ld_vars_table_name;
-$ld_vars_table_name = $ld_table_prefix . "vars";
 function ld_has_vars_table() {
 	global $ld_vars_table_name;
-	error_log("Shem Mike: " .  $ld_vars_table_name );
 	return lddb_does_table_exist( $ld_vars_table_name );
 }
 function ld_new_vars_table() {
 	global $ld_vars_table_name;
-	error_log("Whoa Mike: " .  $ld_vars_table_name );
 
 	// Create Table //
 	lddb_query( 
@@ -90,10 +107,11 @@ function ld_new_vars_table() {
 	// Populate with some default values //
 	// CurrentEvent = this one;
 	
+	ld_set_var_table("event","root");
+	ld_set_var_table("event_active","true");
 }
 function ld_get_vars_table() {
 	global $ld_vars_table_name;
-	error_log("Hey Mike: " .  $ld_vars_table_name );
 	return lddb_get( "SELECT * FROM {$ld_vars_table_name};" );
 }
 // - ----------------------------------------------------------------------------------------- - //
