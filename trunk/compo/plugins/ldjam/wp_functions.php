@@ -6,13 +6,17 @@ function ld_is_admin() {
 }
 
 // Database Functions //
-function ld_does_table_exist( $name ) {
+function lddb_does_table_exist( $name ) {
 	global $wpdb;
-	return $wpdb->get_var("SHOW TABLES LIKE '$name'") === $name;
+	return $wpdb->get_var("SHOW TABLES LIKE '{$name}';") === $name;
 	//return mysqli_num_rows(mysqli_query($db,"SHOW TABLES LIKE '{$ld_vars_table_name}'")) !== 0;
 }
 
-function ld_query( $query ) {
+function lddb_query( $query ) {
+	global $wpdb;
+	return $wpdb->query($query);
+}
+function lddb_get( $query ) {
 	global $wpdb;
 	return $wpdb->get_results($query, ARRAY_A);
 }
