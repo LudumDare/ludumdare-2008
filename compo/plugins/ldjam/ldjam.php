@@ -54,7 +54,7 @@ add_shortcode( 'ldjam-root', 'shortcode_ldjam_root' );
 /* This goes in the theme, so a shortcode isn't possible */
 function ldjam_show_bar() {
 	global $ldvar;
-	$event_active = strtoupper($_POST['event_active']) === "FALSE" ? false : true;
+	$event_active = strtoupper($ldvar['event_active']) === "FALSE" ? false : true;
 	if ( $event_active ) { $event_active = (bool)$_POST['event_active']; }
 
 
