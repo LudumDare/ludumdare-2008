@@ -5,6 +5,8 @@ defined('ABSPATH') or die("No.");
 $has_apcu = function_exists('apcu_fetch');
 // - ----------------------------------------------------------------------------------------- - //
 $ld_table_prefix = "ld_";
+$ld_vars_table_name = $ld_table_prefix . "vars";
+
 $ldvar = NULL;
 // - ----------------------------------------------------------------------------------------- - //
 // LD Variable Cache - APCU //
@@ -64,7 +66,6 @@ function ld_init_vars() {
 
 
 // - ----------------------------------------------------------------------------------------- - //
-$ld_vars_table_name = $ld_table_prefix . "vars";
 function ld_has_vars_table() {
 	global $ld_vars_table_name;
 	return lddb_does_table_exist( $ld_vars_table_name );
