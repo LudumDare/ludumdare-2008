@@ -24,7 +24,7 @@
 			<div style="float:left">NEW USER</div>
 			<div style="float:right"><?php show_promote_buttons(); ?></div>
 		</div>
-<?php 				} elseif ( current_user_can('delete_users') && ($_GET["admin"] === "1") ) { ?>
+<?php 				} elseif ( current_user_can('delete_users') && (isset($_GET["admin"]) && ($_GET["admin"] === "1")) ) { ?>
 		<div class="postflag" style="background-color: #555;">
 			<div style="float:left">EXISTING USER</div>
 			<div style="float:right"><?php show_murder_buttons(); ?></div>
@@ -97,14 +97,14 @@
 			<div class="footer">
 				<?php echo my_get_buttons(); ?>
 
-				<div class="postmetadata"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> |<?php edit_post_link(' Edit', '', ' |'); ?><?php if(function_exists(getILikeThis)) getILikeThis('get'); ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></div>
+				<div class="postmetadata"><?php the_tags('Tags: ', ', ', '<br />'); ?> Posted in <?php the_category(', ') ?> |<?php edit_post_link(' Edit', '', ' |'); ?><?php if(function_exists('getILikeThis')) getILikeThis('get'); ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></div>
 			</div>
 <?php			} else { ?>
 			<div class="minimize">
 				<div style="float: right;"><?php echo get_avatar(get_the_author_id(),$size='56',$default='' ); ?></div>
 				<h2><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
 				<div>Posted by <?php the_author_posts_link(); ?><?php $aff = get_the_author_meta('affiliation', get_the_author_meta('ID')); if (($aff != null) && ($aff != '')) { echo ' of ' . $aff; } ?><?php $twitter = get_the_author_meta('twitter', get_the_author_meta('ID')); if (($twitter != null) && ($twitter != '')) { echo ' (twitter: <a target="_blank" href="http://twitter.com/' . $twitter . '">@' . $twitter . '</a>)'; } ?></div>
-				<small><?php echo $PostAge; ?> | <?php the_time('F jS, Y g:i a') ?> | <?php if(function_exists(getILikeCount)) echo getILikeCount('get') . " love"; ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></small>
+				<small><?php echo $PostAge; ?> | <?php the_time('F jS, Y g:i a') ?> | <?php if(function_exists('getILikeCount')) echo getILikeCount('get') . " love"; ?> | <?php comments_popup_link('No Comments &#187;', '1 Comment &#187;', '% Comments &#187;'); ?></small>
 			</div>
 <?php			} ?>
 		</div>
