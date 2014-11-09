@@ -206,7 +206,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			
 			if ( function_exists('apcu_fetch') ) {
 				//if ( array_key_exists("cache",$_GET) ) {
-				if ( isset($_GET["cache"]) ) {
+				if ( !isset($_GET["cache"]) ) {
 					if ( $_GET["cache"] !== "0" ) {
 						$out = apcu_fetch('mk_Header_cache');
 					}
