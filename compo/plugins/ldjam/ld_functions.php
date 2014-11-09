@@ -2,16 +2,12 @@
 defined('ABSPATH') or die("No.");
 // - ----------------------------------------------------------------------------------------- - //
 // Check if APCu is available (memory caching) //
-global $has_apcu;
-$has_apcu = function_exists('apcu_fetch');
+global $has_apcu = function_exists('apcu_fetch');
 // - ----------------------------------------------------------------------------------------- - //
-global $ld_table_prefix;
-$ld_table_prefix = "ld_";
-global $ld_vars_table_name;
-$ld_vars_table_name = $ld_table_prefix . "vars";
+global $ld_table_prefix = "ld_";
+global $ld_vars_table_name = $ld_table_prefix . "vars";
 
-global $ldvar;
-$ldvar = NULL;
+global $ldvar = NULL;
 // - ----------------------------------------------------------------------------------------- - //
 // LD Variable Cache - APCU //
 if ( $has_apcu ) {
