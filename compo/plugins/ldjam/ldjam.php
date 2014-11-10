@@ -18,8 +18,20 @@ function shortcode_ldjam( $atts ) {
 	ld_get_vars();	// Populate the $ldvar global //
 	global $ldvar;
 	
-	print_r($_GET);
-	echo( to_slug($_GET['u']) );
+	// Verify URL //
+	if ( isset($_GET['u']) ) {
+		$url = to_slug($_GET['u']);
+		if ( $url !== $_GET['u'] ) {
+			$_GET['u'] = $url;
+			ld_redirect( );
+		}
+	}
+	
+//	ld_redirect
+//	print_r($_GET);
+//	echo( to_slug($_GET['u']) );
+
+	print_r($_SERVER);
 	
 	return "I am very important";
 }
