@@ -152,15 +152,15 @@ function ld_set_urlcache_table( $url, $id ) {
 	// store in database //
 	lddb_query("
 		INSERT INTO {$ld_urlcache_table_name} (
-			url,
-			content_id
+			`url`,
+			`content_id`
 		)
 		VALUES (
 			\"{$url}\",
 			\"{$id}\"
 		)
 		ON DUPLICATE KEY UPDATE
-			id=VALUES(id)
+			`content_id`=VALUES(content_id)
 	;");
 }	
 // - ----------------------------------------------------------------------------------------- - //
@@ -181,8 +181,8 @@ function ld_init_urlcache() {
 		// Create Table //
 		lddb_query( 
 			"CREATE TABLE {$ld_urlcache_table_name} (
-				url VARCHAR(260) NOT NULL UNIQUE,
-				content_id BIGINT UNSIGNED NOT NULL
+				`url` VARCHAR(260) NOT NULL UNIQUE,
+				`content_id` BIGINT UNSIGNED NOT NULL
 			) ENGINE=InnoDB;"
 		);
 	}
