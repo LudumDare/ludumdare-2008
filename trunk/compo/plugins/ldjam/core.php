@@ -186,6 +186,8 @@ function ld_init_urlcache() {
 			) ENGINE=InnoDB;"
 		);
 	}
+	
+	ld_get_urlcache();
 }
 // - ----------------------------------------------------------------------------------------- - //
 function ld_has_urlcache_table() {
