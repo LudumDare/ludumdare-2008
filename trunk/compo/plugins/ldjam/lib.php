@@ -31,7 +31,7 @@ function to_slug( $str, $delimiter='-' /*, $maxlength=260*/ ) {
 // MK: Removed 'cfituCFITU' to make it harder to generate F-bombs, S-bombs, and C-bombs //
 // "0123456789abcdefghjklmnopqrstvwxyzABCDEFGHJKLMNOPQRSTVWXYZ" 58
 // "0123456789abdeghjklmnopqrsvwxyzABDEGHJKLMNOPQRSVWXYZ" 52
-// "0123456789abdeghjkmnopqrsvwxyzABDEHJKLMNPQRVWXYZ" 48 (lGSO - Similar to numbers: 1650)
+// "0123456789abdeghjkmnopqrsvwxyzABDEHJKLMNPQRVWXYZ" 48 (lGSO - Similar to numbers removed: 1650)
 // - ----------------------------------------------------------------------------------------- - //
 /**
  * Converts a base 10 number to any other base.
