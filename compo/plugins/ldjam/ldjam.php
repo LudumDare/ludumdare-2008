@@ -31,11 +31,12 @@ function shortcode_ldjam( $atts ) {
 //	print_r($_GET);
 //	echo( to_slug($_GET['u']) );
 
-	$link =  "//$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-	$escaped_link = htmlspecialchars($link, ENT_QUOTES, 'UTF-8');
-	echo $escaped_link;
+	$link =  "//$_SERVER[HTTP_HOST]$_SERVER[REDIRECT_URL]";
+	$link = htmlspecialchars($link, ENT_QUOTES, 'UTF-8');
+	$link .= "?" . http_build_query($_GET);
+	echo $link;
 
-	print_r($_SERVER);
+	//print_r($_SERVER);
 	
 	return "I am very important";
 }
