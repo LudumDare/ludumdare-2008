@@ -73,4 +73,8 @@ function base_decode($str, $base=48, $chars='0123456789abdeghjkmnopqrsvwxyzABDEH
     return $val;
 }
 // - ----------------------------------------------------------------------------------------- - //
+function base_fix( $str, $chars='0123456789abdeghjkmnopqrsvwxyzABDEHJKLMNPQRVWXYZ' ) {
+	return preg_replace("/[^".$chars."]/", '', $str );
+}
+// - ----------------------------------------------------------------------------------------- - //
 ?>
