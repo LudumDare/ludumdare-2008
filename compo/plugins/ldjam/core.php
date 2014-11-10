@@ -174,9 +174,8 @@ function ld_set_urlcache( $url, $id ) {
 
 // - ----------------------------------------------------------------------------------------- - //
 function ld_init_urlcache() {
+	global $ld_urlcache_table_name;
 	if ( !ld_has_urlcache_table() ) {
-		global $ld_urlcache_table_name;
-	
 		// Create Table //
 		lddb_query( 
 			"CREATE TABLE {$ld_urlcache_table_name} (
