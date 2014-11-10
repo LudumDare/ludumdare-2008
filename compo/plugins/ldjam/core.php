@@ -192,4 +192,38 @@ function ld_get_urlcache_table() {
 	return $ret;
 }
 // - ----------------------------------------------------------------------------------------- - //
+
+
+// - ----------------------------------------------------------------------------------------- - //
+function ld_init_content() {
+	global $ld_content_table_name;
+
+	if ( lddb_query( 
+			"CREATE TABLE IF NOT EXISTS {$ld_content_table_name} (
+				ID SERIAL,
+				parent_id BIGINT UNSIGNED NOT NULL,
+				owner_id BIGINT UNSIGNED NOT NULL,
+				type VARCHAR(16) NOT NULL,
+				slug VARCHAR(64) NOT NULL,
+				published TIMESTAMP NOT NULL,
+				updated TIMESTAMP NOT NULL,
+
+				title TEXT NOT NULL,
+				body TEXT NOT NULL
+				
+			) ENGINE=InnoDB;"
+		) )
+	{
+		// ID - Unique ID of this object.
+		// parent_id - What I belong to. 
+		// owner_id - User Whom I belong to.
+		// type - TYPES SHOULD BE 10 CHARACTERS OR LESS (so we can append 'Draft-')
+		// slug - nice name
+		// published - publish date (or 000000)
+		// updated - last time it was changed
+
+	}
+}
+// - ----------------------------------------------------------------------------------------- - //
+
 ?>
