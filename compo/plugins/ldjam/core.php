@@ -1,7 +1,9 @@
 <?php
 defined('ABSPATH') or die("No.");
 // - ----------------------------------------------------------------------------------------- - //
-require_once "lib.php";		// Helper Functions //
+require_once "lib.php";				// Helper Functions //
+require_once "wp_functions.php";	// WordPress Database Functions //
+//require_once "ld_functions.php";	// General Database Functions //
 // - ----------------------------------------------------------------------------------------- - //
 
 // - ----------------------------------------------------------------------------------------- - //
