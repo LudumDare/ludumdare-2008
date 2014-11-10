@@ -43,8 +43,8 @@ function shortcode_ldjam( $atts ) {
 	echo " | " . $shimmy;
 	echo " | " . base_encode( $shimmy );
 	echo " | " . base_decode(base_encode( $shimmy ));
-	echo " | " . base_decode( "fuckshit" );
-	echo " | " . base_encode( base_decode( "fuckshit" ) );
+	echo " | " . base_decode( "eatshitducks" );
+	echo " | " . base_encode( base_decode( "eatshitducks" ) );
 
 	//print_r($_SERVER);
 	
