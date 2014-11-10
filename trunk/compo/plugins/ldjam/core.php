@@ -177,6 +177,8 @@ function ld_set_urlcache( $url, $id ) {
 function ld_init_urlcache() {
 	if ( !ld_has_urlcache_table() ) {
 		global $ld_urlcache_table_name;
+		
+		echo "HOOTY";
 	
 		// Create Table //
 		lddb_query( 
@@ -186,6 +188,7 @@ function ld_init_urlcache() {
 			) ENGINE=InnoDB;"
 		);
 	}
+	echo "MOOTY";
 }
 // - ----------------------------------------------------------------------------------------- - //
 function ld_has_urlcache_table() {
