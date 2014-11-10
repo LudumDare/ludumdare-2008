@@ -5,6 +5,11 @@ function ld_is_admin() {
 	return current_user_can( 'manage_options' );
 }
 
+function ld_redirect( $url ) {
+	wp_redirect( $url ); 
+	exit;
+}
+
 // Database Functions //
 function lddb_does_table_exist( $name ) {
 	global $wpdb;
