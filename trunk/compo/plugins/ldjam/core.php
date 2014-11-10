@@ -179,7 +179,8 @@ function ld_init_urlcache() {
 				`content_id` BIGINT UNSIGNED NOT NULL
 			) ENGINE=InnoDB;"
 		) )
-	{		
+	{
+		ld_set_urlcache_table("/",1);
 	}
 	
 	ld_get_urlcache();
