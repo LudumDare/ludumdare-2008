@@ -27,7 +27,7 @@ function shortcode_ldjam( $atts ) {
 			$link =  "//$_SERVER[HTTP_HOST]$_SERVER[REDIRECT_URL]";
 			$link = htmlspecialchars($link, ENT_QUOTES, 'UTF-8');
 			$link .= "?" . http_build_query($_GET);
-			$link = str_replace('%2F', '/', $link);
+			$link = str_replace('%2F', '/', $link);		// Replace % code for / with an actual slash //
 
 			ld_redirect( $link );
 		}
@@ -36,7 +36,13 @@ function shortcode_ldjam( $atts ) {
 //	ld_redirect
 //	print_r($_GET);
 //	echo( to_slug($_GET['u']) );
+
+	$shimmy = apcu_fetch('shimmy');
+
 	echo( $_GET['u'] );
+	echo " | " . $shimmy;
+	echo " | " . base_encode( $shimmy );
+	echo " | " . base_decode(base_encode( $shimmy ));
 
 	//print_r($_SERVER);
 	
