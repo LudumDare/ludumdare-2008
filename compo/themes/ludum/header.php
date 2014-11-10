@@ -61,18 +61,19 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 		var serverClock = new Date(serverTime*1000);
 		var localClock = new Date();
 
-		// If Clock is Bad //
-		var clockDiff = DateDiff(localClock,serverClock);
-		if ( Math.abs(clockDiff) > 45*60*1000 ) {	// If 45 minutes off (cache safe) then Error //
-			window.addEventListener("load", function(e) {
-				clockElm = document.getElementsByClassName('clock');
-				for (var idx = 0; idx < clockElm.length; idx++ ) {
-					clockElm[idx].innerHTML = '<a href="/compo/faq/">Clock Error</a>';
-				}
-			});
-		}
-		// If Clock is Okay //
-		else {
+//		// If Clock is Bad //
+//		var clockDiff = DateDiff(localClock,serverClock);
+//		if ( Math.abs(clockDiff) > 45*60*1000 ) {	// If 45 minutes off (cache safe) then Error //
+//			window.addEventListener("load", function(e) {
+//				clockElm = document.getElementsByClassName('clock');
+//				for (var idx = 0; idx < clockElm.length; idx++ ) {
+//					clockElm[idx].innerHTML = '<a href="/compo/faq/">Clock Error</a>';
+//				}
+//			});
+//		}
+//		// If Clock is Okay //
+//		else 
+		{
 			// Store it in Window (global scope) //
 			window.mkClocksUpdate = function(e) {
 				clockElm = document.getElementsByClassName('clock');
