@@ -168,10 +168,11 @@ function ld_set_urlcache( $url, $id ) {
 // - ----------------------------------------------------------------------------------------- - //
 function ld_init_urlcache() {
 	global $ld_urlcache_table_name;
+	// NOTE: InnoDB has a VarChar limit of 768 chars, or UTF-8 255 //
 	if ( lddb_query( 
 			"CREATE TABLE IF NOT EXISTS {$ld_urlcache_table_name} (
-				`url` VARCHAR(260) NOT NULL UNIQUE,
-				`content_id` BIGINT UNSIGNED NOT NULL
+				url VARCHAR(255) NOT NULL UNIQUE,
+				content_id BIGINT UNSIGNED NOT NULL
 			) ENGINE=InnoDB;"
 		) )
 	{
