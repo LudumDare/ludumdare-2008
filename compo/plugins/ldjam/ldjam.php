@@ -84,6 +84,15 @@ function shortcode_ldjam_root( $atts ) {
 }
 add_shortcode( 'ldjam-root', 'shortcode_ldjam_root' );
 
+function shortcode_ldjam_game( $atts ) {
+	ld_get_vars();	// Populate the $ldvar global //
+	global $ldvar;
+
+	// No Base URL Here //
+	return "Game Browser";
+}
+add_shortcode( 'ldjam-game', 'shortcode_ldjam_game' );
+
 
 /* This goes in the theme, so a shortcode isn't possible */
 function ldjam_show_bar() {
