@@ -33,6 +33,12 @@ function shortcode_ldjam( $atts ) {
 		}
 	}
 	
+	$id = null;
+
+	// Verify ID //
+	if ( isset($_GET['i']) ) {
+		$id = base_decode( $_GET['i'] );
+	}
 //	ld_redirect
 //	print_r($_GET);
 //	echo( to_slug($_GET['u']) );
@@ -40,15 +46,13 @@ function shortcode_ldjam( $atts ) {
 	$shimmy = apcu_fetch('shimmy');
 
 	echo( $_GET['u'] );
-	echo " | " . $shimmy;
-	echo " | " . base_encode( $shimmy );
-	echo " | " . base_decode(base_encode( $shimmy ));
-	echo " | " . base_decode( "eatshitducks" );
-	echo " | " . base_encode( base_decode( "eatshitducks" ) );
+	echo " | " . $id;
+	echo " | " . base_decode( $id );
+	echo " | " . base_encode( base_decode( $id ) );
 
 	//print_r($_SERVER);
 	
-	return "I am very important";
+	return "<br />I am very important";
 }
 add_shortcode( 'ldjam', 'shortcode_ldjam' );
 
