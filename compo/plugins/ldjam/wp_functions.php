@@ -19,7 +19,7 @@ function lddb_does_table_exist( $name ) {
 
 function lddb_query( $query ) {
 	global $wpdb;
-	return $wpdb->query( $query ); //$wpdb->prepare($query) );
+	return $wpdb->query( $query );
 }
 function lddb_get( $query ) {
 	global $wpdb;
