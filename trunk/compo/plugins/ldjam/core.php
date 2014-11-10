@@ -8,19 +8,19 @@ require_once "wp_functions.php";	// WordPress Database Functions //
 
 // - ----------------------------------------------------------------------------------------- - //
 global $ldvar;
-global $ld_url_cache;
+global $ld_urlcache;
 global $ld_table_prefix;
 // - ----------------------------------------------------------------------------------------- - //
 $ldvar = NULL;
-$ld_url_cache = NULL;
+$ld_urlcache = NULL;
 $ld_table_prefix = "ld_";
 // - ----------------------------------------------------------------------------------------- - //
 
 // - ----------------------------------------------------------------------------------------- - //
 static $ld_vars_table_name;
 $ld_vars_table_name = $ld_table_prefix . "vars";
-static $ld_url_cache_table_name;
-$ld_url_cache_table_name = $ld_table_prefix . "url_cache";
+static $ld_urlcache_table_name;
+$ld_urlcache_table_name = $ld_table_prefix . "urlcache";
 // - ----------------------------------------------------------------------------------------- - //
 static $ld_content_table_name;
 $ld_content_table_name = $ld_table_prefix . "content";
@@ -38,21 +38,21 @@ if ( $has_apcu ) {
 		global $ld_vars_table_name;
 		apcu_store( $ld_vars_table_name, $vars );
 	}
-	function ld_get_url_cache_cache() {
-		global $ld_url_cache_table_name;
-		return apcu_fetch( $ld_url_cache_table_name );
+	function ld_get_urlcache_cache() {
+		global $ld_urlcache_table_name;
+		return apcu_fetch( $ld_urlcache_table_name );
 	}
-	function ld_put_url_cache_cache( $vars ) {
-		global $ld_url_cache_table_name;
-		apcu_store( $ld_url_cache_table_name, $vars );
+	function ld_put_urlcache_cache( $vars ) {
+		global $ld_urlcache_table_name;
+		apcu_store( $ld_urlcache_table_name, $vars );
 	}
 }
 // LD Variable Cache - None //
 else {
 	function ld_get_vars_cache() { return NULL; }
 	function ld_put_vars_cache( $vars ) { }	
-	function ld_get_url_cache_cache() { return NULL; }
-	function ld_put_url_cache_cache( $vars ) { }	
+	function ld_get_urlcache_cache() { return NULL; }
+	function ld_put_urlcache_cache( $vars ) { }	
 }
 // LD Variable Cache //
 // - ----------------------------------------------------------------------------------------- - //
@@ -96,7 +96,6 @@ function ld_set_var( $key, $value ) {
 }
 // - ----------------------------------------------------------------------------------------- - //
 
-
 // - ----------------------------------------------------------------------------------------- - //
 function ld_init_vars() {
 	if ( !ld_has_vars_table() ) {
@@ -136,23 +135,23 @@ function ld_get_vars_table() {
 
 
 // - ----------------------------------------------------------------------------------------- - //
-function ld_get_url_cache() {
-	global $ld_url_cache;
-	$ld_url_cache = ld_get_url_cache_cache();
-	if ( $ld_url_cache ) {
+function ld_get_urlcache() {
+	global $ld_urlcache;
+	$ld_urlcache = ld_get_urlcache_cache();
+	if ( $ld_urlcache ) {
 		return;
 	}	
 
-	$ld_url_cache = ld_get_url_cache_table();
-	ld_put_url_cache_cache( $ld_url_cache );
+	$ld_urlcache = ld_get_urlcache_table();
+	ld_put_urlcache_cache( $ld_urlcache );
 }
 // - ----------------------------------------------------------------------------------------- - //
-function ld_set_url_cache_table( $url, $id ) {
-	global $ld_url_cache_table_name;
+function ld_set_urlcache_table( $url, $id ) {
+	global $ld_urlcache_table_name;
 	
 	// store in database //
 	lddb_query("
-		INSERT INTO {$ld_url_cache_table_name} (
+		INSERT INTO {$ld_urlcache_table_name} (
 			url,
 			content_id
 		)
@@ -165,24 +164,23 @@ function ld_set_url_cache_table( $url, $id ) {
 	;");
 }	
 // - ----------------------------------------------------------------------------------------- - //
-function ld_set_url_cache( $url, $id ) {
-	ld_set_url_cache_table($url,$id);
+function ld_set_urlcache( $url, $id ) {
+	ld_set_urlcache_table($url,$id);
 
-	global $ld_url_cache;
-	$ld_url_cache[$url] = $id;
-	ld_put_url_cache_cache( $ld_url_cache );
+	global $ld_urlcache;
+	$ld_urlcache[$url] = $id;
+	ld_put_urlcache_cache( $ld_urlcache );
 }
 // - ----------------------------------------------------------------------------------------- - //
 
-
 // - ----------------------------------------------------------------------------------------- - //
-function ld_init_url_cache() {
-	if ( !ld_has_url_cache_table() ) {
-		global $ld_url_cache_table_name;
+function ld_init_urlcache() {
+	if ( !ld_has_urlcache_table() ) {
+		global $ld_urlcache_table_name;
 	
 		// Create Table //
 		lddb_query( 
-			"CREATE TABLE {$ld_url_cache_table_name} (
+			"CREATE TABLE {$ld_urlcache_table_name} (
 				url VARCHAR(260) NOT NULL UNIQUE,
 				content_id BIGINT UNSIGNED NOT NULL
 			) ENGINE=InnoDB;"
@@ -190,14 +188,14 @@ function ld_init_url_cache() {
 	}
 }
 // - ----------------------------------------------------------------------------------------- - //
-function ld_has_url_cache_table() {
-	global $ld_url_cache_table_name;
-	return lddb_does_table_exist( $ld_url_cache_table_name );
+function ld_has_urlcache_table() {
+	global $ld_urlcache_table_name;
+	return lddb_does_table_exist( $ld_urlcache_table_name );
 }
 // - ----------------------------------------------------------------------------------------- - //
-function ld_get_url_cache_table() {
-	global $ld_url_cache_table_name;
-	$urls = lddb_get( "SELECT * FROM {$ld_url_cache_table_name};" );
+function ld_get_urlcache_table() {
+	global $ld_urlcache_table_name;
+	$urls = lddb_get( "SELECT * FROM {$ld_urlcache_table_name};" );
 	$ret = [];
 	foreach ( $urls as $url ) {
 		$ret[$url['url']] = $var['content_id'];
