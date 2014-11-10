@@ -113,7 +113,7 @@ function ldjam_show_bar() {
 
 
 function ldjam_activate() {
-	ld_init_vars();
+//	ld_init_vars();
 	ld_init_urlcache();
 //	ld_init_content();
 }
