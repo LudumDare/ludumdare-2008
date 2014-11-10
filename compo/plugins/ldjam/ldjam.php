@@ -113,9 +113,9 @@ function ldjam_show_bar() {
 
 
 function ldjam_activate() {
-	error_log( "Activating... ?");
-	ld_init_vars();
 	ld_init_urlcache();
+	ld_init_vars();
+//	ld_init_urlcache();
 //	ld_init_content();
 }
 register_activation_hook( __FILE__, "ldjam_activate");
