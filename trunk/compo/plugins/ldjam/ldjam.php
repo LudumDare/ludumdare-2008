@@ -18,7 +18,9 @@ function shortcode_ldjam( $atts ) {
 	ld_get_vars();	// Populate the $ldvar global //
 	global $ldvar;
 	
-	return "I am very important";	
+	print_r($_GET);
+	
+	return "I am very important";
 }
 add_shortcode( 'ldjam', 'shortcode_ldjam' );
 

@@ -18,6 +18,8 @@ $ldvar = NULL;
 static $ld_vars_table_name;
 $ld_vars_table_name = $ld_table_prefix . "vars";
 // - ----------------------------------------------------------------------------------------- - //
+
+// - ----------------------------------------------------------------------------------------- - //
 // LD Variable Cache - APCU //
 global $has_apcu;
 if ( $has_apcu ) {
