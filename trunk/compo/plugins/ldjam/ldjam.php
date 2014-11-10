@@ -87,6 +87,10 @@ add_shortcode( 'ldjam-root', 'shortcode_ldjam_root' );
 function shortcode_ldjam_game( $atts ) {
 	ld_get_vars();	// Populate the $ldvar global //
 	global $ldvar;
+	ld_get_urlcache();
+	global $ld_urlcache;
+	
+	print_r( ld_urlcache );
 
 	// No Base URL Here //
 	return "Game Browser";
