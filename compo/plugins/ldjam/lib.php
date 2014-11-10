@@ -14,4 +14,12 @@ function to_bool( $value ) {
 	return $ret;
 }
 // - ----------------------------------------------------------------------------------------- - //
+function to_slug( $string, $maxLength=260, $separator='_' ) {
+	$url = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $string);
+	$url = preg_replace('/[^a-zA-Z0-9 -]/', '', $url);
+	$url = trim(substr(strtolower($url), 0, $maxLength));
+	$url = preg_replace('/[s' . $separator . ']+/', $separator, $url);
+	return $url;
+}
+// - ----------------------------------------------------------------------------------------- - //
 ?>

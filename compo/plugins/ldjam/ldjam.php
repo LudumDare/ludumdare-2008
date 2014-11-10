@@ -19,6 +19,7 @@ function shortcode_ldjam( $atts ) {
 	global $ldvar;
 	
 	print_r($_GET);
+	echo( to_slug($_GET['u']) );
 	
 	return "I am very important";
 }
