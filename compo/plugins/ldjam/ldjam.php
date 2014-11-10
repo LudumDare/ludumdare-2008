@@ -36,7 +36,7 @@ function shortcode_ldjam( $atts ) {
 //	ld_redirect
 //	print_r($_GET);
 //	echo( to_slug($_GET['u']) );
-
+	echo( $_GET['u'] );
 
 	//print_r($_SERVER);
 	
