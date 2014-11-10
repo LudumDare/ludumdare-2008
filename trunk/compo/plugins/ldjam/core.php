@@ -112,11 +112,6 @@ function ld_init_vars() {
 	}
 }
 // - ----------------------------------------------------------------------------------------- - //
-function ld_has_vars_table() {
-	global $ld_vars_table_name;
-	return lddb_does_table_exist( $ld_vars_table_name );
-}
-// - ----------------------------------------------------------------------------------------- - //
 function ld_get_vars_table() {
 	global $ld_vars_table_name;
 	$vars = lddb_get( "SELECT * FROM {$ld_vars_table_name};" );
@@ -184,11 +179,6 @@ function ld_init_urlcache() {
 	}
 	
 	ld_get_urlcache();
-}
-// - ----------------------------------------------------------------------------------------- - //
-function ld_has_urlcache_table() {
-	global $ld_urlcache_table_name;
-	return lddb_does_table_exist( $ld_urlcache_table_name );
 }
 // - ----------------------------------------------------------------------------------------- - //
 function ld_get_urlcache_table() {
