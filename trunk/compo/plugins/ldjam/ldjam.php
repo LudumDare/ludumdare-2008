@@ -23,7 +23,12 @@ function shortcode_ldjam( $atts ) {
 		$url = to_slug($_GET['u']);
 		if ( $url !== $_GET['u'] ) {
 			$_GET['u'] = $url;
-			//ld_redirect( );
+
+			$link =  "//$_SERVER[HTTP_HOST]$_SERVER[REDIRECT_URL]";
+			$link = htmlspecialchars($link, ENT_QUOTES, 'UTF-8');
+			$link .= "?" . http_build_query($_GET);
+
+			ld_redirect( $link );
 		}
 	}
 	
@@ -31,10 +36,6 @@ function shortcode_ldjam( $atts ) {
 //	print_r($_GET);
 //	echo( to_slug($_GET['u']) );
 
-	$link =  "//$_SERVER[HTTP_HOST]$_SERVER[REDIRECT_URL]";
-	$link = htmlspecialchars($link, ENT_QUOTES, 'UTF-8');
-	$link .= "?" . http_build_query($_GET);
-	echo $link;
 
 	//print_r($_SERVER);
 	
