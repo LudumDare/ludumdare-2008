@@ -47,8 +47,7 @@ function shortcode_ldjam( $atts ) {
 
 	echo( $_GET['u'] );
 	echo " | " . $id;
-	echo " | " . base_decode( $id );
-	echo " | " . base_encode( base_decode( $id ) );
+	echo " | " . base_encode( $id );
 
 	//print_r($_SERVER);
 	
