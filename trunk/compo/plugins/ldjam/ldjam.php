@@ -27,6 +27,7 @@ function shortcode_ldjam( $atts ) {
 			$link =  "//$_SERVER[HTTP_HOST]$_SERVER[REDIRECT_URL]";
 			$link = htmlspecialchars($link, ENT_QUOTES, 'UTF-8');
 			$link .= "?" . http_build_query($_GET);
+			$link = str_replace('%2F', '/', $link);
 
 			ld_redirect( $link );
 		}
