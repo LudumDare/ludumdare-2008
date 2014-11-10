@@ -23,7 +23,7 @@ function shortcode_ldjam( $atts ) {
 		$url = to_slug($_GET['u']);
 		if ( $url !== $_GET['u'] ) {
 			$_GET['u'] = $url;
-			ld_redirect( );
+			//ld_redirect( );
 		}
 	}
 	
