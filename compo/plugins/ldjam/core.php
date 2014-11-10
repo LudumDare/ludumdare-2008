@@ -17,12 +17,12 @@ $ld_table_prefix = "ld_";
 // - ----------------------------------------------------------------------------------------- - //
 
 // - ----------------------------------------------------------------------------------------- - //
-static $ld_vars_table_name;
+global $ld_vars_table_name;
 $ld_vars_table_name = $ld_table_prefix . "vars";
-static $ld_urlcache_table_name;
+global $ld_urlcache_table_name;
 $ld_urlcache_table_name = $ld_table_prefix . "urlcache";
 // - ----------------------------------------------------------------------------------------- - //
-static $ld_content_table_name;
+global $ld_content_table_name;
 $ld_content_table_name = $ld_table_prefix . "content";
 // - ----------------------------------------------------------------------------------------- - //
 
@@ -98,9 +98,8 @@ function ld_set_var( $key, $value ) {
 
 // - ----------------------------------------------------------------------------------------- - //
 function ld_init_vars() {
+	global $ld_vars_table_name;
 	if ( !ld_has_vars_table() ) {
-		global $ld_vars_table_name;
-	
 		// Create Table //
 		lddb_query( 
 			"CREATE TABLE {$ld_vars_table_name} (
