@@ -90,7 +90,7 @@ function shortcode_ldjam_game( $atts ) {
 	ld_get_urlcache();
 	global $ld_urlcache;
 	
-	print_r( ld_urlcache );
+	print_r( $ld_urlcache );
 
 	// No Base URL Here //
 	return "Game Browser";
