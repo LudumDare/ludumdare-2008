@@ -205,8 +205,8 @@ function ld_init_content() {
 				owner_id BIGINT UNSIGNED NOT NULL,
 				type VARCHAR(16) NOT NULL,
 				slug VARCHAR(64) NOT NULL,
-				published TIMESTAMP NOT NULL,
 				updated TIMESTAMP NOT NULL,
+				published TIMESTAMP NOT NULL,
 				
 				title TEXT NOT NULL,
 				body TEXT NOT NULL
