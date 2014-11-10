@@ -28,7 +28,10 @@ function to_slug( $str, $delimiter='-' /*, $maxlength=260*/ ) {
 
 // - ----------------------------------------------------------------------------------------- - //
 // http://programanddesign.com/php/base62-encode/
-// MK: Removed 'iuIU' to make it harder to generate F-bombs, S-bombs, and C-bombs //
+// MK: Removed 'cfituCFITU' to make it harder to generate F-bombs, S-bombs, and C-bombs //
+// "0123456789abcdefghjklmnopqrstvwxyzABCDEFGHJKLMNOPQRSTVWXYZ" 58
+// "0123456789abdeghjklmnopqrsvwxyzABDEGHJKLMNOPQRSVWXYZ" 52
+// "0123456789abdeghjkmnopqrsvwxyzABDEHJKLMNPQRVWXYZ" 48 (lGSO - Similar to numbers: 1650)
 // - ----------------------------------------------------------------------------------------- - //
 /**
  * Converts a base 10 number to any other base.
@@ -39,7 +42,7 @@ function to_slug( $str, $delimiter='-' /*, $maxlength=260*/ ) {
  * 
  * @return string    Number converted to specified base
  */
-function base_encode($val, $base=52, $chars='0123456789abdeghjklmnopqrsvwxyzABDEGHJKLMNOPQRSVWXYZ') {
+function base_encode($val, $base=48, $chars='0123456789abdeghjkmnopqrsvwxyzABDEHJKLMNPQRVWXYZ') {
     if(!isset($base)) $base = strlen($chars);
     $str = '';
     do {
@@ -59,7 +62,7 @@ function base_encode($val, $base=52, $chars='0123456789abdeghjklmnopqrsvwxyzABDE
  * 
  * @return int    Number converted to base 10
  */
-function base_decode($str, $base=52, $chars='0123456789abdeghjklmnopqrsvwxyzABDEGHJKLMNOPQRSVWXYZ') {
+function base_decode($str, $base=48, $chars='0123456789abdeghjkmnopqrsvwxyzABDEHJKLMNPQRVWXYZ') {
     if(!isset($base)) $base = strlen($chars);
     $len = strlen($str);
     $val = 0;
