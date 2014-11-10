@@ -39,7 +39,7 @@ function to_slug( $str, $delimiter='-' /*, $maxlength=260*/ ) {
  * 
  * @return string    Number converted to specified base
  */
-function base_encode($val, $base=58, $chars='0123456789abcdefghjklmnopqrstvwxyzABCDEFGHJKLMNOPQRSTVWXYZ') {
+function base_encode($val, $base=52, $chars='0123456789abdeghjklmnopqrsvwxyzABDEGHJKLMNOPQRSVWXYZ') {
     if(!isset($base)) $base = strlen($chars);
     $str = '';
     do {
@@ -59,7 +59,7 @@ function base_encode($val, $base=58, $chars='0123456789abcdefghjklmnopqrstvwxyzA
  * 
  * @return int    Number converted to base 10
  */
-function base_decode($str, $base=58, $chars='0123456789abcdefghjklmnopqrstvwxyzABCDEFGHJKLMNOPQRSTVWXYZ') {
+function base_decode($str, $base=52, $chars='0123456789abdeghjklmnopqrsvwxyzABDEGHJKLMNOPQRSVWXYZ') {
     if(!isset($base)) $base = strlen($chars);
     $len = strlen($str);
     $val = 0;
