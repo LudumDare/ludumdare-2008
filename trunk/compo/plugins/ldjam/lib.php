@@ -14,11 +14,13 @@ function to_bool( $value ) {
 	return $ret;
 }
 // - ----------------------------------------------------------------------------------------- - //
-function to_slug( $str, $maxlength=260, $delimiter='-' ) {
+function to_slug( $str, $delimiter='-' /*, $maxlength=260*/ ) {
 	$clean = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $str);			// Convert and discard non-ascii characters //
-	$clean = preg_replace("/[^a-zA-Z0-9\/_|+-]/", $delimiter, $clean);	// Change everything else to dashes //
-	$clean = strtolower(trim(substr($clean,0,$maxlength)));				// Trim and lower the case //
-//	$clean = preg_replace("/[\_|+-]+/", $delimiter, $clean);			// Replace sets of -'s with a single dash //
+	$clean = str_replace('\\', '/', $clean);							// Unix Slashes //
+	$clean = preg_replace("/[^a-zA-Z0-9\/-]/", '-', $clean);			// Change everything else to dashes //
+	$clean = strtolower(trim($clean));									// Trim and lower the case //
+	$clean = preg_replace("/[-]+/", $delimiter, $clean);				// Replace sets of -'s with a single dash //
+//	$clean = substr($clean,0,$maxlength);								// Maximum String Length
 	
 	return $clean;
 }
