@@ -99,15 +99,13 @@ function ld_set_var( $key, $value ) {
 // - ----------------------------------------------------------------------------------------- - //
 function ld_init_vars() {
 	global $ld_vars_table_name;
-	if ( !ld_has_vars_table() ) {
-		// Create Table //
-		lddb_query( 
-			"CREATE TABLE {$ld_vars_table_name} (
+	if ( lddb_query( 
+			"CREATE TABLE IF NOT EXISTS {$ld_vars_table_name} (
 				name VARCHAR(32) NOT NULL UNIQUE,
 				value TEXT NOT NULL
 			) ENGINE=InnoDB;"
-		);
-						
+		) ) 
+	{					
 		// Populate with some default values //
 		ld_set_var_table("event","root");
 		ld_set_var_table("event_active","true");
@@ -175,14 +173,13 @@ function ld_set_urlcache( $url, $id ) {
 // - ----------------------------------------------------------------------------------------- - //
 function ld_init_urlcache() {
 	global $ld_urlcache_table_name;
-	if ( !ld_has_urlcache_table() ) {
-		// Create Table //
-		lddb_query( 
-			"CREATE TABLE {$ld_urlcache_table_name} (
+	if ( lddb_query( 
+			"CREATE TABLE IF NOT EXISTS {$ld_urlcache_table_name} (
 				`url` VARCHAR(260) NOT NULL UNIQUE,
 				`content_id` BIGINT UNSIGNED NOT NULL
 			) ENGINE=InnoDB;"
-		);
+		) )
+	{		
 	}
 	
 	ld_get_urlcache();
