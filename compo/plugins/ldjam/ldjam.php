@@ -37,7 +37,7 @@ function shortcode_ldjam( $atts ) {
 
 	// Verify ID //
 	if ( isset($_GET['i']) ) {
-		$id = base_decode( $_GET['i'] );
+		$id = base_decode( base_fix($_GET['i']) );
 	}
 //	ld_redirect
 //	print_r($_GET);
