@@ -422,7 +422,7 @@ require "fetch-streams.php";
 			//echo $query;
 
 			$result = mysqli_query($db,$query);
-			while( $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+			while( $row = mysqli_fetch_array($result,MYSQLI_ASSOC) ) {
 				$info[$row['user_id']] = $row;
 			}
 						
