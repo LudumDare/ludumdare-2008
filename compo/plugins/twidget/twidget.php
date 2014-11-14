@@ -227,10 +227,10 @@ function broadcast_query_func( $query ) {
 					}
 				}
 			}
-
+			
 			// Build Page //
-			$out .= "<div class='" . ($row['live'] ? "live " : "") ."row'>";
-				$out .= "<div class='service'><div class='service{$row['service_id']}'></div></div>";
+			$out .= "<div class='" . ($row['live'] ? "live " : "") . ("service".$row['service_id']." ") ."row'>";
+				$out .= "<div class='service'><div class='service-icon{$row['service_id']}'></div></div>";
 				$out .= "<div class='avatar'>".($row['avatar']?"<img src='{$row['avatar']}'>":"")."</div>";
 				$out .= "<div class='name'><a href='{$row['url']}'>{$row['display_name']}</a> <span class='followers' title='Followers'>[{$row['followers']}]</span>".($row['mature']?" <span class='mature' title='Mature'>[M]</span>":"")."</div>";
 				$out .= "<div class='online'>{$online}</div>";
