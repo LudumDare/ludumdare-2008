@@ -488,7 +488,7 @@ require "fetch-streams.php";
 			$query = "
 				SELECT user_id, units, score
 				FROM `wp_broadcast_streams`
-				WHERE service_id < 4 
+				WHERE service_id = 1 
 					AND user_id IN ({$uid_str});";
 			
 			echo $query;
