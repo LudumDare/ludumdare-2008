@@ -23,11 +23,12 @@ require "fetch-streams.php";
 // MAIN //
 {
 	if ( count($argv) < 3 ) {
-		echo "\nUsage: " . $argv[0] . " Game+Name time_in_minutes [YouTubeKey] [TwitchKey]\n";
+		echo "\nUsage: " . $argv[0] . " Game+Name time_in_minutes [YouTubeKey] [TwitchKey] Alt+Game+Name\n";
 		echo "  Game+Name: name of the Twitch/Hitbox game, and YouTube Search Q\n";
 		echo "  time_in_minutes: time in minutes since the last call. i.e. 10 or 15\n";
 		echo "  YouTubeKey: API key for the Youtube APIs\n";
 		echo "  TwitchKey: API key for the Twitch API\n";
+		echo "  Alt+Game+Name: Another game to collect data on\n";
 		echo "\nSample: php ". $argv[0] . " Ludum+Dare 10\n\n";
 		exit(1);
 	}
@@ -44,6 +45,10 @@ require "fetch-streams.php";
 	if ( count($argv) > 4 ) {
 		$twitch_key = $argv[4];
 	}
+	$alt_game_name = NULL;
+	if ( count($argv) > 5 ) {
+		$alt_game_name = $argv[5];
+	}
 	
 	// * * * //
 	
@@ -52,6 +57,8 @@ require "fetch-streams.php";
 	$hitbox_streams = hitbox_streams_get( $game_name );
 
 	$youtube_streams = youtube_streams_get( $game_name, $youtube_key );
+
+	$alt_twitch_streams = twitch_streams_get( $alt_game_name, $twitch_key );
 	
 	// * * * //
 	
@@ -374,6 +381,87 @@ require "fetch-streams.php";
 					echo "Error Inserting YouTube in to Streams Table:\n". mysqli_error($db) ."\n";
 					exit(1);
 				}	
+			}
+		}
+
+
+		// Update Alt Twitch Streams //
+		if ( $alt_twitch_streams !== NULL ) {
+			foreach ( $alt_twitch_streams['streams'] as $value ) {
+				$service_id = 4;	// Twitch.tv GameDev //
+				$channel_id = intval($value['channel']['_id']);
+				$channel_name = mysqli_real_escape_string($db,trim($value['channel']['name']));
+				$channel_display_name = mysqli_real_escape_string($db,trim($value['channel']['display_name']));
+				$media_id = intval($value['_id']);
+				$channel_followers = intval($value['channel']['followers']);
+				$media_viewers = intval($value['viewers']);
+				$channel_avatar = mysqli_real_escape_string($db,trim($value['channel']['logo']));
+				$channel_url = mysqli_real_escape_string($db,trim($value['channel']['url']));
+				$channel_embed_url = mysqli_real_escape_string($db,"http://www.twitch.tv/{$channel_name}/embed");
+				$channel_status = mysqli_real_escape_string($db,trim($value['channel']['status']));
+				$channel_mature = intval($value['channel']['mature']);
+				
+				// http://stackoverflow.com/questions/7825739/epoch-time-and-mysql-query
+				// http://stackoverflow.com/a/1677388 - strtotime understands TZ formatted dates
+				// http://dev.mysql.com/doc/refman/5.1/en/date-and-time-functions.html#function_utc-timestamp
+				// http://stackoverflow.com/questions/5331026/is-it-possible-to-create-a-column-with-a-unix-timestamp-default-in-mysql
+				//$some_date = strtotime(
+				
+				$units = $update_time;
+				
+				$query = 
+					"INSERT INTO " . $streams_table_name . " (
+							service_id,
+							user_id,
+							
+							name,
+							display_name,
+							media_id,
+							followers,
+							viewers,
+							avatar,
+							url,
+							embed_url,
+							status,
+							mature,
+							
+							units
+						)
+						VALUES (
+							{$service_id},
+							\"{$channel_id}\",
+							\"{$channel_name}\",
+							\"{$channel_display_name}\",
+							\"{$media_id}\",
+							{$channel_followers},
+							{$media_viewers},
+							\"{$channel_avatar}\",
+							\"{$channel_url}\",
+							\"{$channel_embed_url}\",
+							\"{$channel_status}\",
+							{$channel_mature},
+							{$units}
+						)
+						ON DUPLICATE KEY UPDATE 
+							name=VALUES(name),
+							display_name=VALUES(display_name),
+							media_id=VALUES(media_id),
+							followers=VALUES(followers),
+							viewers=VALUES(viewers),
+							avatar=VALUES(avatar),
+							url=VALUES(url),
+							embed_url=VALUES(embed_url),
+							status=VALUES(status),
+							mature=VALUES(mature),
+							units=units+VALUES(units)
+						";
+				
+				if ( mysqli_query($db,$query) ) {
+				}
+				else {
+					echo "Error Inserting Twitch in to Streams Table:\n". mysqli_error($db) ."\n";
+					exit(1);
+				}
 			}
 		}
 
