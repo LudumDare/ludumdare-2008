@@ -422,15 +422,11 @@ require "fetch-streams.php";
 			//echo $query;
 
 			$result = mysqli_query($db,$query);
-			$out = mysqli_fetch_array($result,MYSQLI_ASSOC);
-			
-			$more_info = [];
-			
-			foreach( $out as $info ) {
-				$more_info[$info['user_id']] = $info;
+			while( $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+				$info[$row['user_id']] = $row;
 			}
-			
-			print_r( $more_info );
+						
+			print_r( $info );
 			
 			
 			foreach ( $alt_twitch_streams['streams'] as $value ) {
@@ -456,8 +452,8 @@ require "fetch-streams.php";
 				$units = $update_time;
 				
 				$score = 0;
-				if ( isset($more_info[$channel_id]) ) {
-					$score = $more_info[$channel_id]['units'];
+				if ( isset($info[$channel_id]) ) {
+					$score = $info[$channel_id]['units'];
 					if ( $score > 5000 ) {
 						$score = 5000;
 					}
