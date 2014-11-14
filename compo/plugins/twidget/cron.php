@@ -176,6 +176,8 @@ require "fetch-streams.php";
 				
 				$units = $update_time;
 				
+				$score = 5000;
+				
 				$query = 
 					"INSERT INTO " . $streams_table_name . " (
 							service_id,
@@ -192,7 +194,8 @@ require "fetch-streams.php";
 							status,
 							mature,
 							
-							units
+							units,
+							score
 						)
 						VALUES (
 							{$service_id},
@@ -207,7 +210,8 @@ require "fetch-streams.php";
 							\"{$channel_embed_url}\",
 							\"{$channel_status}\",
 							{$channel_mature},
-							{$units}
+							{$units},
+							{$score}
 						)
 						ON DUPLICATE KEY UPDATE 
 							name=VALUES(name),
@@ -220,7 +224,8 @@ require "fetch-streams.php";
 							embed_url=VALUES(embed_url),
 							status=VALUES(status),
 							mature=VALUES(mature),
-							units=units+VALUES(units)
+							units=units+VALUES(units),
+							score=VALUES(score)
 						";
 				
 				if ( mysqli_query($db,$query) ) {
@@ -251,6 +256,8 @@ require "fetch-streams.php";
 				
 				$units = $update_time;
 				
+				$score = 5000;
+				
 				$query = 
 					"INSERT INTO " . $streams_table_name . " (
 							service_id,
@@ -267,7 +274,8 @@ require "fetch-streams.php";
 							status,
 							mature,
 							
-							units
+							units,
+							score
 						)
 						VALUES (
 							{$service_id},
@@ -282,7 +290,8 @@ require "fetch-streams.php";
 							\"{$channel_embed_url}\",
 							\"{$channel_status}\",
 							{$channel_mature},
-							{$units}
+							{$units},
+							{$score}
 						)
 						ON DUPLICATE KEY UPDATE 
 							name=VALUES(name),
@@ -295,7 +304,8 @@ require "fetch-streams.php";
 							embed_url=VALUES(embed_url),
 							status=VALUES(status),
 							mature=VALUES(mature),
-							units=units+VALUES(units)
+							units=units+VALUES(units),
+							score=VALUES(score)
 						";
 	
 				if ( mysqli_query($db,$query) ) {
@@ -349,7 +359,8 @@ require "fetch-streams.php";
 							status,
 							mature,
 							
-							units
+							units,
+							score
 						)
 						VALUES (
 							{$service_id},
@@ -364,7 +375,8 @@ require "fetch-streams.php";
 							\"{$channel_embed_url}\",
 							\"{$channel_status}\",
 							{$channel_mature},
-							{$units}
+							{$units},
+							{$score}
 						)
 						ON DUPLICATE KEY UPDATE 
 							name=VALUES(name),
@@ -377,7 +389,8 @@ require "fetch-streams.php";
 							embed_url=VALUES(embed_url),
 							status=VALUES(status),
 							mature=VALUES(mature),
-							units=units+VALUES(units)
+							units=units+VALUES(units),
+							score=VALUES(score)
 						";
 	
 				if ( mysqli_query($db,$query) ) {
@@ -392,6 +405,34 @@ require "fetch-streams.php";
 
 		// Update Alt Twitch Streams //
 		if ( $alt_twitch_streams !== NULL ) {
+			// Check for existing streamers //
+			$uids = [];
+			foreach ( $alt_twitch_streams['streams'] as $value ) {
+				$uids[] = "'".$value['channel']['_id']."'";
+			}
+			
+			// Generate a Query to look up Units (and calculate a score) //
+			$uid_str = implode(",",$uids);			
+			$query = "
+				SELECT user_id, units, score
+				FROM `wp_broadcast_streams`
+				WHERE service_id = 1 
+					AND user_id IN ({$uid_str});";
+			
+			//echo $query;
+
+			$result = mysqli_query($db,$query);
+			$out = mysqli_fetch_array($result,MYSQLI_ASSOC);
+			
+			$more_info = [];
+			
+			foreach( $out as $info ) {
+				$more_info[$info['user_id']] = $info;
+			}
+			
+			print_r( $more_info );
+			
+			
 			foreach ( $alt_twitch_streams['streams'] as $value ) {
 				$service_id = 4;	// Twitch.tv GameDev //
 				$channel_id = intval($value['channel']['_id']);
@@ -414,6 +455,8 @@ require "fetch-streams.php";
 				
 				$units = $update_time;
 				
+				$score = 0;
+				
 				$query = 
 					"INSERT INTO " . $streams_table_name . " (
 							service_id,
@@ -430,7 +473,8 @@ require "fetch-streams.php";
 							status,
 							mature,
 							
-							units
+							units,
+							score
 						)
 						VALUES (
 							{$service_id},
@@ -445,7 +489,8 @@ require "fetch-streams.php";
 							\"{$channel_embed_url}\",
 							\"{$channel_status}\",
 							{$channel_mature},
-							{$units}
+							{$units},
+							{$score}
 						)
 						ON DUPLICATE KEY UPDATE 
 							name=VALUES(name),
@@ -458,7 +503,8 @@ require "fetch-streams.php";
 							embed_url=VALUES(embed_url),
 							status=VALUES(status),
 							mature=VALUES(mature),
-							units=units+VALUES(units)
+							units=units+VALUES(units),
+							score=VALUES(score)
 						";
 				
 				if ( mysqli_query($db,$query) ) {
@@ -476,28 +522,28 @@ require "fetch-streams.php";
 		// Score Users //
 		{
 			
-			$uids = [];
-			foreach ( $alt_twitch_streams['streams'] as $value ) {
-				$uids[] = "'".$value['channel']['_id']."'";
-			}
-			
-			//print_r($uids);
-			
-			$uid_str = implode(",",$uids);
-			
-			$query = "
-				SELECT user_id, units, score
-				FROM `wp_broadcast_streams`
-				WHERE service_id = 1 
-					AND user_id IN ({$uid_str});";
-			
-			echo $query;
-
-			$result = mysqli_query($db,$query);
-			
-			$out = mysqli_fetch_array($result,MYSQLI_ASSOC);
-			
-			print_r( $out );
+//			$uids = [];
+//			foreach ( $alt_twitch_streams['streams'] as $value ) {
+//				$uids[] = "'".$value['channel']['_id']."'";
+//			}
+//			
+//			//print_r($uids);
+//			
+//			$uid_str = implode(",",$uids);
+//			
+//			$query = "
+//				SELECT user_id, units, score
+//				FROM `wp_broadcast_streams`
+//				WHERE service_id = 1 
+//					AND user_id IN ({$uid_str});";
+//			
+//			echo $query;
+//
+//			$result = mysqli_query($db,$query);
+//			
+//			$out = mysqli_fetch_array($result,MYSQLI_ASSOC);
+//			
+//			print_r( $out );
 			
 //				$query = "
 //					SELECT *, 
