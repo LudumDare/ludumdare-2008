@@ -478,7 +478,7 @@ require "fetch-streams.php";
 			
 			$uids = [];
 			foreach ( $alt_twitch_streams['streams'] as $value ) {
-				$uids[] = intval($value['channel']['_id']);
+				$uids[] = "'".$value['channel']['_id']."'";
 			}
 			
 			//print_r($uids);
