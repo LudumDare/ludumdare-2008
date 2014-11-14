@@ -232,7 +232,7 @@ function broadcast_query_func( $query ) {
 			$out .= "<div class='" . ($row['live'] ? "live service".$row['service_id']." " : "") ."row'>";
 				$out .= "<div class='service'><div class='service-icon{$row['service_id']}'></div></div>";
 				$out .= "<div class='avatar'>".($row['avatar']?"<img src='{$row['avatar']}'>":"")."</div>";
-				$out .= "<div class='name'><a href='{$row['url']}' title='{$row['user_id']'>{$row['display_name']}</a> <span class='followers' title='Followers'>[{$row['followers']}]</span>".($row['mature']?" <span class='mature' title='Mature'>[M]</span>":"")."</div>";
+				$out .= "<div class='name'><a href='{$row['url']}' title='{$row['user_id']}'>{$row['display_name']}</a> <span class='followers' title='Followers'>[{$row['followers']}]</span>".($row['mature']?" <span class='mature' title='Mature'>[M]</span>":"")."</div>";
 				$out .= "<div class='online'>{$online}</div>";
 				$out .= "<div class='viewers'>{$row['viewers']}</div>";
 				$out .= "<div class='mode'>{$modes[$mode]}</div>";
