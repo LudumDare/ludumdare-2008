@@ -151,7 +151,8 @@ function broadcast_query_func( $query ) {
 		0=>'null',
 		1=>'twitch',
 		2=>'hitbox',
-		3=>'youtube'
+		3=>'youtube',
+		4=>'twitch-gamedev'
 	);
 	
 	$modes = Array(
@@ -288,6 +289,12 @@ function broadcast_top_func( $attr ) {
 	return broadcast_query_func( $query );
 }
 add_shortcode( 'broadcast_top', 'broadcast_top_func' );
+
+
+function broadcast_widget_func() {
+	
+}
+add_shortcode( 'broadcast_widget', 'broadcast_widget_func' );
 
 
 // Add Local Style Sheet style.css //

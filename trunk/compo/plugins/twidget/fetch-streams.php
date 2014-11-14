@@ -24,6 +24,9 @@ function http_find_header($headers,$header) {
 
 // TODO: Send Client-ID (to make sure Twitch doesn't rate limit us) //
 function twitch_streams_get( $game_name, $api_key ) {
+	if ( $game_name === NULL )
+		return NULL;
+	
 	$limit = 50;				// Number of streams we request per query (Max 100) //
 	$max_loops = 100;			// Maximum number of loops before this code fails. //
 
