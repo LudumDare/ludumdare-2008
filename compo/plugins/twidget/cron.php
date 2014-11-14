@@ -61,7 +61,8 @@ require "fetch-streams.php";
 	$alt_twitch_streams = twitch_streams_get( $alt_game_name, $twitch_key );
 	
 	echo "Alt: " . $alt_game_name . "\n";
-	echo "Argv: " . $argv . "\n";
+	echo "Argv: ";
+	print_r( $argv );
 	
 	// * * * //
 	
