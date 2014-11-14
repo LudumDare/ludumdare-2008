@@ -62,6 +62,9 @@
 .broadcast_table .row .service3 {
 	background-image: url(service_youtube.png);
 }
+.broadcast_table .row .service4 {
+	background-image: url(service_twitch_gamedev.png);
+}
 
 .broadcast_table .row .avatar {
 	padding:0px 4px !important;
