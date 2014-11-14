@@ -492,6 +492,12 @@ require "fetch-streams.php";
 					AND user_id IN ({$uid_str});";
 			
 			echo $query;
+
+			$result = mysqli_query($db,$query);
+			
+			$out = mysqli_fetch_array($result);
+			
+			
 //				$query = "
 //					SELECT *, 
 //						(timestamp > (NOW() - INTERVAL 9 MINUTE)) AS live,
