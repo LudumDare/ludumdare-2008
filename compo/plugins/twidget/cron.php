@@ -118,7 +118,8 @@ require "fetch-streams.php";
 					status TEXT NOT NULL,
 					mature BOOLEAN NOT NULL,
 										
-					units BIGINT UNSIGNED NOT NULL
+					units BIGINT UNSIGNED NOT NULL,
+					score BIGINT UNSIGNED NOT NULL
 				);";
 
 //					ID SERIAL PRIMARY KEY,
@@ -470,7 +471,31 @@ require "fetch-streams.php";
 		}
 
 
-		// * * * * * * * * * * //		
+		// * * * * * * * * * * //
+
+		// Score Users //
+		{
+			
+			$uids = [];
+			foreach ( $alt_twitch_streams['streams'] as $value ) {
+				$uids[] = intval($value['channel']['_id']);
+			}
+			
+			print_r($uids);
+			
+//				$query = "
+//					SELECT *, 
+//						(timestamp > (NOW() - INTERVAL 9 MINUTE)) AS live,
+//						(TIMESTAMPDIFF(MINUTE,timestamp,NOW())) AS online
+//					FROM `wp_broadcast_streams`
+//					WHERE timestamp > (NOW() - INTERVAL {$attr['hours']} HOUR) 
+//					ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
+//						units DESC;
+//				";
+
+		}
+
+		// * * * * * * * * * * //
 
 
 		$activity_table_name = $table_prefix . "broadcast_activity";
