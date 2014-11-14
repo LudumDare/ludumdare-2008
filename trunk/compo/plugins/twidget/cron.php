@@ -23,7 +23,7 @@ require "fetch-streams.php";
 // MAIN //
 {
 	if ( count($argv) < 3 ) {
-		echo "\nUsage: " . $argv[0] . " Game+Name time_in_minutes [YouTubeKey] [TwitchKey] Alt+Game+Name\n";
+		echo "\nUsage: " . $argv[0] . " Game+Name time_in_minutes [YouTubeKey] [TwitchKey] [Alt+Game+Name]\n";
 		echo "  Game+Name: name of the Twitch/Hitbox game, and YouTube Search Q\n";
 		echo "  time_in_minutes: time in minutes since the last call. i.e. 10 or 15\n";
 		echo "  YouTubeKey: API key for the Youtube APIs\n";
