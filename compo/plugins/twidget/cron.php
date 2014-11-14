@@ -495,8 +495,9 @@ require "fetch-streams.php";
 
 			$result = mysqli_query($db,$query);
 			
-			$out = mysqli_fetch_array($result);
+			$out = mysqli_fetch_array($result,MYSQLI_ASSOC);
 			
+			print_r( $out );
 			
 //				$query = "
 //					SELECT *, 
