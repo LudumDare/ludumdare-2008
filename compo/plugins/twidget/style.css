@@ -35,7 +35,7 @@
 }
 
 .broadcast_table .live {
-	background:#FFF !important;
+	background:#FFF;
 	color: #000;
 }
 
@@ -66,9 +66,6 @@
 	background-image: url(service_twitch_gamedev.png);
 }
 
-.broadcast_table .service4 {
-	background:#EEE !important;
-}
 
 .broadcast_table .row .avatar {
 	padding:0px 4px !important;
