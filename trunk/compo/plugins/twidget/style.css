@@ -53,17 +53,21 @@
 	display:inline-block;
 }
 
-.broadcast_table .row .service1 {
+.broadcast_table .row .service-icon1 {
 	background-image: url(service_twitch.png);
 }
-.broadcast_table .row .service2 {
+.broadcast_table .row .service-icon2 {
 	background-image: url(service_hitbox.png);
 }
-.broadcast_table .row .service3 {
+.broadcast_table .row .service-icon3 {
 	background-image: url(service_youtube.png);
 }
-.broadcast_table .row .service4 {
+.broadcast_table .row .service-icon4 {
 	background-image: url(service_twitch_gamedev.png);
+}
+
+.broadcast_table .service4 {
+	background:#EEE !important;
 }
 
 .broadcast_table .row .avatar {
