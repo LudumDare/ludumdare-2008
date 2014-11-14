@@ -481,9 +481,9 @@ require "fetch-streams.php";
 				$uids[] = intval($value['channel']['_id']);
 			}
 			
-			print_r($uids);
+			//print_r($uids);
 			
-			$uid_str = explode(",",$uids);
+			$uid_str = implode(",",$uids);
 			
 			$query = "
 				SELECT user_id, units, score
