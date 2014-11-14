@@ -257,13 +257,16 @@ function broadcast_list_func( $attr ) {
 
 	$query = "
 		SELECT *, 
-			(timestamp > (NOW() - INTERVAL 9 MINUTE)) AS live,
+			(timestamp > (NOW() - INTERVAL 6 MINUTE)) AS live,
 			(TIMESTAMPDIFF(MINUTE,timestamp,NOW())) AS online
 		FROM `wp_broadcast_streams`
-		WHERE timestamp > (NOW() - INTERVAL {$attr['hours']} HOUR) 
-		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
-			units DESC;
+		WHERE service_id < 4 AND timestamp > (NOW() - INTERVAL {$attr['hours']} HOUR)
+		    OR service_id >= 4 AND timestamp > (NOW() - INTERVAL 6 MINUTE)
+		ORDER BY score DESC, viewers DESC;
 	";
+
+//		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
+//			units DESC;
 
 	return broadcast_query_func( $query );
 }
