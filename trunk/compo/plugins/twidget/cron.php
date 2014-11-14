@@ -456,6 +456,12 @@ require "fetch-streams.php";
 				$units = $update_time;
 				
 				$score = 0;
+				if ( isset($more_info[$channel_id]) ) {
+					$score = $more_info[$channel_id]['units'];
+					if ( $score > 5000 ) {
+						$score = 5000;
+					}
+				}
 				
 				$query = 
 					"INSERT INTO " . $streams_table_name . " (
