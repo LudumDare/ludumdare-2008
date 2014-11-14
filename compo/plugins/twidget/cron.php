@@ -426,7 +426,7 @@ require "fetch-streams.php";
 				$info[$row['user_id']] = $row;
 			}
 						
-			print_r( $info );
+			//print_r( $info );
 			
 			
 			foreach ( $alt_twitch_streams['streams'] as $value ) {
