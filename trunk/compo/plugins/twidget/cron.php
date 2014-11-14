@@ -60,6 +60,8 @@ require "fetch-streams.php";
 
 	$alt_twitch_streams = twitch_streams_get( $alt_game_name, $twitch_key );
 	
+	echo "Alt: " . $alt_game_name;
+	
 	// * * * //
 	
 	// Special case: if update_time is ever 0, then don't do any database work //
