@@ -431,6 +431,10 @@ function broadcast_widget_func() {
 .right {
 	float:right;
 }
+.hidden {
+	display:none;
+}
+
 
 .tvbox .screen .view .item .avatar {	
 }
@@ -458,7 +462,7 @@ function broadcast_widget_func() {
 	transform: translate(-50%,-50%);
 }
 
-.tvbox .screen .watch embed {
+.tvbox .screen .watch iframe {
 	width:100%;
 	height:100%;
 }
@@ -495,6 +499,27 @@ function broadcast_widget_func() {
   float:left;
 }
 </style>
+<script>
+	function js_remove_class( el, className ) {
+		if (el.classList)
+			el.classList.remove(className);
+		else
+			el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+	}
+	function js_add_class( el, className ) {
+		if (el.classList)
+			el.classList.add(className);
+		else
+			el.className += ' ' + className;
+	}	
+	
+	function broadcast_set( toembed ){
+		var tv = document.querySelectorAll('#watch')[0];
+		tv.innerHTML = '<iframe src="' + toembed + '"></ifram>';
+		
+		js_remove_class( tv, "hidden" );
+	}
+</script>
 <div class="tvbox">
   <div class="screen">
     <img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
@@ -529,8 +554,7 @@ function broadcast_widget_func() {
 ?>
     	<div class="footer inv">Watch More...</div>
     </div>
-    <div class="watch">
-    	ya
+    <div class="watch hidden" id="watch">
 	</div>
   </div>
   <div class="bar">
