@@ -405,7 +405,7 @@ function broadcast_widget_func() {
 /* ---- SCREEN ------------------------- */
 
 .tvbox .screen {
-  background:#889;
+  background:#BBC;/*#889;*/
   position:relative;
 }
 
@@ -430,7 +430,7 @@ function broadcast_widget_func() {
 }
 
 .tvbox .screen .view .reg {
-	background:#BBC;
+/*	background:#BBC;*/
 	color:#445;	
 }
 .tvbox .screen .view .inv {
