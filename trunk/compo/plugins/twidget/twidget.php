@@ -359,6 +359,12 @@ function broadcast_widget_func() {
 	text-align:center;
 }
 
+
+.tvbox .screen .view .item:hover {
+	background:#8CF;
+}
+
+
 .left {
 	float:left;
 }
