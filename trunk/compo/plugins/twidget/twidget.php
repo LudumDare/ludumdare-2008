@@ -477,15 +477,14 @@ function broadcast_widget_func() {
 .tvbox .screen .view .item .avatar {	
 }
 .tvbox .screen .view .item .name {
-	padding-left:2px;
+	padding-left:6px;
 	overflow:hidden;
 	display:block;
 }
 .tvbox .screen .view .item .service {	
 }
 .tvbox .screen .view .item .viewers {
-	padding-left:2px;
-	padding-right:2px;
+	padding:0 4px;
 }
 
 /* ---- Close ------------------------- */
@@ -536,6 +535,7 @@ function broadcast_widget_func() {
 
 .tvbox .bar {
   padding:0 10px;
+  padding-top:5px;
   overflow:auto;
 }
 
