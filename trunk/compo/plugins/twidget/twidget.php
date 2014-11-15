@@ -202,9 +202,9 @@ function broadcast_query_func( $query ) {
 			$units_value = intval($row['units']);
 			$units = floor($units_value/60) . ":" . str_pad($units_value%60, 2, '0', STR_PAD_LEFT);
 			if ( intval($row['service_id']) === 4 ) {
-				if ( $score > 0 ) {
-					$units_value = $score;
-					$units = floor($units_value/60) . ":" . str_pad($units_value%60, 2, '0', STR_PAD_LEFT);
+				$value = max(floor($units_value/30),$score);
+				if ( $value > 0 ) {
+					$units = floor($value/60) . ":" . str_pad($value%60, 2, '0', STR_PAD_LEFT);
 				}
 				else {
 					$units = "--";
