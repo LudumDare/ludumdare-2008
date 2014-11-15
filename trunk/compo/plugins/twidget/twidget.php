@@ -459,6 +459,7 @@ function broadcast_widget_func() {
 	color:#BBC;
 	padding:2px 10px;
 	border-radius:30px;
+	cursor:pointer;
 }
 .tvbox .screen .view .footer .more:hover {
 	background:#C46;
