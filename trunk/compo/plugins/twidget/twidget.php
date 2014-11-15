@@ -320,8 +320,10 @@ function broadcast_widget_func() {
 	$total_viewers = FALSE;
 
 	if ( $has_apcu ) {
-		$total_streams = apcu_fetch( 'broadcast_total_streams' );
-		$total_viewers = apcu_fetch( 'broadcast_total_viewers' );
+		if ( !isset($_GET["cache"]) ) {
+			$total_streams = apcu_fetch( 'broadcast_total_streams' );
+			$total_viewers = apcu_fetch( 'broadcast_total_viewers' );
+		}
 	}
 	
 	if ( $total_streams === FALSE ) {
@@ -344,7 +346,9 @@ function broadcast_widget_func() {
 	$result = NULL;
 	
 	if ( $has_apcu ) {
-		$result = apcu_fetch( 'broadcast_query' );
+		if ( !isset($_GET["cache"]) ) {
+			$result = apcu_fetch( 'broadcast_query' );
+		}
 	}
 	
 	if ( !$result ) {
