@@ -473,7 +473,7 @@ function broadcast_widget_func() {
 
 .tvbox .screen .close {
 	font-size:10px;
-	padding:5px 10px;
+	padding:6px;
 
 	color:#000;
 	cursor:pointer;
