@@ -353,7 +353,7 @@ function broadcast_widget_func() {
 	text-align:center;
 }
 .tvbox .screen .view .item {
-	
+	overflow:auto;
 }
 .tvbox .screen .view .footer {
 	text-align:center;
@@ -415,8 +415,8 @@ function broadcast_widget_func() {
     	<div class="item">
     		<span class="avatar left"><img src="http://static-cdn.jtvnw.net/jtv_user_pictures/metaldemon68-profile_image-02a11197962ebebb-300x300.png" width="24" height="24" /></span>
     		<span class="name left">Show #1</span>
-    		<span class="service right"><img src="/compo/wp-content/plugins/twidget/service_twitch.png" width="24" height="24" /></span>
     		<span class="viewers right">10</span>
+    		<span class="service right"><img src="/compo/wp-content/plugins/twidget/service_twitch.png" width="24" height="24" /></span>
     	</div>
     	<div class="item">Show #2</div>
     	<div class="item">Show #3</div>
