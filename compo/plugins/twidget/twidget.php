@@ -451,7 +451,7 @@ function broadcast_widget_func() {
 .tvbox .screen .view .footer {
 	text-align:center;
 	border-radius:0 0 10px 10px;
-	padding-top:4px;
+	padding-top:10px;
 }
 
 .tvbox .screen .view .footer .more {
