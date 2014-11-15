@@ -421,7 +421,7 @@ function broadcast_widget_func() {
 	font-size:18px;
 	line-height:24px;
 	vertical-align:middle;
-	width:260px;
+	width:250px;
 	
 	position:absolute;
 	top:50%;
