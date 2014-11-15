@@ -378,7 +378,7 @@ function broadcast_widget_func() {
 .botleft { position:absolute; bottom:0; left:0; }
 .topright { position:absolute; top:0; right:0; }
 .botright { position:absolute; bottom:0; right:0; }
-.center { position:absolute; top:50%; left:50%; -ms-transform:translate(-50%,-50%);
+.midmid { position:absolute; top:50%; left:50%; -ms-transform:translate(-50%,-50%);
 	-webkit-transform:translate(-50%,-50%); transform:translate(-50%,-50%); }
 .midleft { position:absolute; top:50%; left:0; -ms-transform:translate(0,-50%);
 	-webkit-transform:translate(0,-50%); transform:translate(0,-50%); }
