@@ -451,8 +451,19 @@ function broadcast_widget_func() {
 .tvbox .screen .view .footer {
 	text-align:center;
 	border-radius:0 0 10px 10px;
+	padding-top:4px;
 }
 
+.tvbox .screen .view .footer .more {
+	background:#445;
+	color:#BBC;
+	padding:2px 10px;
+	border-radius:30px;
+}
+.tvbox .screen .view .footer .more:hover {
+	background:#C46;
+	color:#FCA;
+}
 
 .tvbox .screen .view .item:hover {
 	background:#44F;/*#8CF;*/
@@ -618,7 +629,7 @@ function broadcast_widget_func() {
 <?php
 		}
 ?>
-    	<div class="footer inv">More <strong>LIVE</strong> GameDev...</div>
+    	<div class="footer"><span class="more">More <strong>LIVE</strong> GameDev...</span></div>
     </div>
     <div class="frame hidden" id="tv-frame">
 	</div>
