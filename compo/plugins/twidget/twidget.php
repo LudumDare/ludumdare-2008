@@ -205,6 +205,7 @@ function broadcast_query_func( $query ) {
 				if ( $score > 0 ) {
 					$units_value = $score;
 					$units = floor($units_value/60) . ":" . str_pad($units_value%60, 2, '0', STR_PAD_LEFT);
+				}
 				else {
 					$units = "--";
 				}
