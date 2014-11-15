@@ -203,12 +203,13 @@ function broadcast_query_func( $query ) {
 			$units = floor($units_value/60) . ":" . str_pad($units_value%60, 2, '0', STR_PAD_LEFT);
 			if ( intval($row['service_id']) === 4 ) {
 				$value = max(floor($units_value/30),$score);
-				if ( $value > 0 ) {
+				if ( $score > 0 ) {
 					$units = floor($value/60) . ":" . str_pad($value%60, 2, '0', STR_PAD_LEFT);
 				}
 				else {
 					$units = "--";
 				}
+				$score = $value;
 			}
 			
 			$status = $row['status'];
