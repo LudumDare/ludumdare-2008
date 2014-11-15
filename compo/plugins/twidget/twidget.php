@@ -472,12 +472,12 @@ function broadcast_widget_func() {
 /* ---- Close ------------------------- */
 
 .tvbox .screen .close {
-	font-size:16px;
-	padding:5px;
+	font-size:10px;
+	padding:5px 10px;
 	border-radius:15px;
 
 	color:#000;
-	background:#889;
+	background:#445;
 }
 
 .tvbox .screen .close:hover {
@@ -600,7 +600,7 @@ function broadcast_widget_func() {
     </div>
     <div class="frame hidden" id="tv-frame">
 	</div>
-    <div class="close topleft" id="tv-close">x</div>
+    <div class="close topright" id="tv-close">x</div>
   </div>
   <div class="bar">
     <div style="float:right"><span class="label" style="background:#C46;color:#FCA">LIVE</span> <span class="number"><?php echo $total_streams; ?></span> <span class="label">VIEWERS</span> <span class="number" style="padding-right:0"><?php echo $total_viewers; ?></span></div><div class="logo"><a href="http://ludumdare.com/compo/tv/"><img src="/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg" height="25"></a></div>
