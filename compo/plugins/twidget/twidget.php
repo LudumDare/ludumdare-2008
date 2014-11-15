@@ -311,6 +311,9 @@ add_shortcode( 'broadcast_top', 'broadcast_top_func' );
 
 
 function broadcast_widget_func() {
+	$total_streams = 16;
+	$total_viewers = 256;
+	
 ?>
 <style>
 .tvbox {
@@ -370,13 +373,22 @@ function broadcast_widget_func() {
 </style>
 <div class="tvbox">
   <div class="screen">
-<img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292"><div class="view">List goes here</div>
+    <img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
+    <div class="view">
+    	<div class="header">Watch <strong>LIVE</strong> GameDev</div>
+    	<div class="show">Show #1</div>
+    	<div class="show">Show #2</div>
+    	<div class="show">Show #3</div>
+    	<div class="show">Show #4</div>
+    	<div class="more">Watch More...</div>
+    </div>
   </div>
   <div class="bar">
-    <div style="float:right"><span class="label" style="background:#C46;color:#FCA">LIVE</span> <span class="number">888</span> <span class="label">VIEWERS</span> <span class="number" style="padding-right:0">88,888</span></div><div class="logo"><a href="http://ludumdare.com/compo/tv/"><img src="/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg" height="25"></a></div>
+    <div style="float:right"><span class="label" style="background:#C46;color:#FCA">LIVE</span> <span class="number"><?php echo $total_streams; ?></span> <span class="label">VIEWERS</span> <span class="number" style="padding-right:0"><?php echo $total_viewers; ?></span></div><div class="logo"><a href="http://ludumdare.com/compo/tv/"><img src="/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg" height="25"></a></div>
   </div>
   <div style="padding-bottom:10px"></div>
 </div>
+
 <?php
 }
 add_shortcode( 'broadcast_widget', 'broadcast_widget_func' );
