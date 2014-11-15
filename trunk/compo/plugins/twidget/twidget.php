@@ -573,15 +573,15 @@ function broadcast_widget_func() {
 
 .tvpop .box {
 	position:absolute;
-	left:-540px;
+	left:-660px;
 	top:10px;
-	width:500px;
-	height:400px;
+	width:620px;
+	height:300px;
 	
 	background:#FFF;
 	border-radius:10px;
 	padding:10px;
-	opacity:0.9;
+	opacity:0.95;
 	
 	z-index:1000;
 }
@@ -630,17 +630,19 @@ function broadcast_widget_func() {
 		js_add_class( close, "hidden" );
 	}
 	
-	function broadcast_popout() {
-		
+	function broadcast_tvpop() {
+		var close = document.querySelectorAll('#tvpop-box')[0];
+		js_remove_class( close, "hidden" );
 	}
 	
-	function broadcast_hide_popout() {
-		
+	function broadcast_hide_tvpop() {
+		var close = document.querySelectorAll('#tvpop-box')[0];
+		js_add_class( close, "hidden" );
 	}
 </script>
 
 <div class="tvpop">
-	<div class="box">
+	<div class="box hidden" id="tvpop-box" onclick="broadcast_hide_tvpop();">
 		Pop!
 	</div>
 </div>
@@ -675,7 +677,7 @@ function broadcast_widget_func() {
 <?php
 		}
 ?>
-    	<div class="footer"><span class="more">More <strong>LIVE</strong> GameDev</span></div>
+    	<div class="footer" onclick="broadcast_tvpop();"><span class="more">More <strong>LIVE</strong> GameDev</span></div>
     </div>
     <div class="frame hidden" id="tv-frame">
 	</div>
