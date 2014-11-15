@@ -557,7 +557,7 @@ function broadcast_widget_func() {
 	
 	function broadcast_set( toembed ){
 		var tv = document.querySelectorAll('#tv-frame')[0];
-		tv.innerHTML = '<iframe src="' + toembed + '" frameborder="0" scrolling="no"></iframe>';
+		tv.innerHTML = '<iframe src="' + toembed + '" frameborder="0" scrolling="no" allowfullscreen></iframe>';
 		js_remove_class( tv, "hidden" );
 		
 		var view = document.querySelectorAll('#tv-view')[0];
