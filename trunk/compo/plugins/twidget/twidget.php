@@ -197,8 +197,18 @@ function broadcast_query_func( $query ) {
 				$online = "{$minutes} minutes ago";	// Always Greater than 9 )
 			}
 			
+			$score = intval($row['score']);
+			
 			$units_value = intval($row['units']);
-			$units = floor($units_value/60) . ":" . str_pad($units_value%60, 2, '0', STR_PAD_LEFT);
+			if ( $row['service_id'] === 4 ) {
+				$units_value = $score;
+			}
+			if ( $score > 0 ) {
+				$units = floor($units_value/60) . ":" . str_pad($units_value%60, 2, '0', STR_PAD_LEFT);
+			}
+			else {
+				$units = "--";
+			}
 			
 			$status = $row['status'];
 			$status_lower = strtolower($status);
