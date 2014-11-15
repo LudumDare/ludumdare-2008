@@ -329,15 +329,18 @@ function broadcast_widget_func() {
 }
 
 .tvbox .screen .view {
-  background:#445;
-  color:#BBC;
-/*  padding:10px;*/
-  position:absolute;
-  top:50%;
-  left:50%;
-  -ms-transform: translate(-50%,-50%);
-  -webkit-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
+	background:#445;
+	color:#BBC;
+	font-size:18px;
+	line-height:24px;
+	width:220px;
+	
+	position:absolute;
+	top:50%;
+	left:50%;
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
 }
 
 .tvbox .screen .view .header {
