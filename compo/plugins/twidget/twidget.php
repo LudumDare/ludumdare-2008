@@ -450,6 +450,7 @@ function broadcast_widget_func() {
 .tvbox .screen .view .item .service {	
 }
 .tvbox .screen .view .item .viewers {
+	padding-left:2px;
 	padding-right:2px;
 }
 
@@ -558,7 +559,7 @@ function broadcast_widget_func() {
 	    		<span class="service right"><img src="<?php echo $service_img[$result[$idx]['service_id']]; ?>" width="24" height="24" /></span>
 	    		<span class="viewers right"><?php echo $result[$idx]['viewers']; ?></span>
 	    		<span class="avatar left"><img src="<?php echo $result[$idx]['avatar']; ?>" width="24" height="24" /></span>
-	    		<span class="name left"><?php echo $result[$idx]['display_name']; ?></span>
+	    		<span class="name"><?php echo $result[$idx]['display_name']; ?></span>
 	    	</div>
 <?php
 		}
