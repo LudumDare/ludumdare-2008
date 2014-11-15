@@ -311,7 +311,73 @@ add_shortcode( 'broadcast_top', 'broadcast_top_func' );
 
 
 function broadcast_widget_func() {
-	
+?>
+<style>
+.tvbox {
+  background:#445;
+  border-radius:10px;
+  font-size:12px;
+  overflow:hidden;
+}
+
+.tvbox .screen {
+  background:#889;
+  position:relative;
+}
+
+.tvbox .screen .view {
+  background:#445;
+  color:#BBC;
+  padding:10px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+.tvbox .bar {
+  padding:0 10px;
+  overflow:auto;
+}
+
+.tvbox .bar .logo {
+  background:#889;
+  float:left;
+}
+
+.tvbox .bar .logo:hover {
+  background:#ACF;
+}
+
+.tvbox .bar .label {
+  background:#889;
+  color:#BBC;
+  font-weight:bold;
+  padding:5px;
+  border-radius:10px;
+  float:left;
+}
+
+.tvbox .bar .number {
+  color:#BBC;
+  font-size:16px;
+  line-height:25px;
+  padding:0 5px;
+  float:left;
+}
+</style>
+<div class="tvbox">
+  <div class="screen">
+<img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292"><div class="view">List goes here</div>
+  </div>
+  <div class="bar">
+    <div style="float:right"><span class="label" style="background:#C46;color:#FCA">LIVE</span> <span class="number">888</span> <span class="label">VIEWERS</span> <span class="number" style="padding-right:0">88,888</span></div><div class="logo"><a href="http://ludumdare.com/compo/tv/"><img src="/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg" height="25"></a></div>
+  </div>
+  <div style="padding-bottom:10px"></div>
+</div>
+<?php
 }
 add_shortcode( 'broadcast_widget', 'broadcast_widget_func' );
 
