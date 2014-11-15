@@ -392,7 +392,7 @@ function broadcast_widget_func() {
     <img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
     <div class="view">
     	<div class="header">Watch <strong>LIVE</strong> GameDev</div>
-    	<div class="item">Show #1</div>
+    	<div class="item"><img src="http://static-cdn.jtvnw.net/jtv_user_pictures/metaldemon68-profile_image-02a11197962ebebb-300x300.png" width="24" height="24" />Show #1<img src="/compo/wp-content/plugins/twidget/service_twitch.png" width="24" height="24" />10</div>
     	<div class="item">Show #2</div>
     	<div class="item">Show #3</div>
     	<div class="item">Show #4</div>
