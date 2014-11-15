@@ -518,19 +518,21 @@ function broadcast_widget_func() {
 	}	
 	
 	function broadcast_set( toembed ){
-		var tv = document.querySelectorAll('#watch')[0];
+		var tv = document.querySelectorAll('#tv-frame')[0];
 		tv.innerHTML = '<iframe src="' + toembed + '" frameborder="0" scrolling="no"></iframe>';
-		
 		js_remove_class( tv, "hidden" );
 		
-		var border = document.querySelectorAll('#screen')[0];
+		var view = document.querySelectorAll('#tv-view')[0];
+		js_add_class( view, "hidden" );
+		
+		var border = document.querySelectorAll('#tv-screen')[0];
 		js_add_class( border, "black" );
 	}
 </script>
 <div class="tvbox">
   <div class="screen">
-    <img id="screen" src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
-    <div class="view">
+    <img id="tv-screen" src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
+    <div class="view" id="tv-view">
     	<div class="header inv">Watch <strong>LIVE</strong> GameDev</div>
 <?php
 		$count = count($result);
@@ -561,7 +563,7 @@ function broadcast_widget_func() {
 ?>
     	<div class="footer inv">Watch More...</div>
     </div>
-    <div class="watch hidden" id="watch">
+    <div class="watch hidden" id="tv-frame">
 	</div>
   </div>
   <div class="bar">
