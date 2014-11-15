@@ -311,27 +311,38 @@ add_shortcode( 'broadcast_top', 'broadcast_top_func' );
 
 
 function broadcast_widget_func() {
+	$has_apcu = function_exists('apcu_fetch');
+	
 	$total_streams = 16;
 	$total_viewers = 256;
 	
-	$query = "
-		SELECT *,
-			(timestamp > (NOW() - INTERVAL 6 MINUTE)) AS live,
-			(TIMESTAMPDIFF(MINUTE,timestamp,NOW())) AS online
-		FROM `wp_broadcast_streams`
-		WHERE timestamp > (NOW() - INTERVAL 6 MINUTE)
-		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
-			CASE 
-				WHEN service_id < 4 THEN score
-				WHEN service_id >= 4 AND score > 240 THEN score
-			END DESC,
-			viewers DESC
-		LIMIT 18;
-	";
+	$result = NULL;
 	
-	global $wpdb;
-	$result = $wpdb->get_results($query, ARRAY_A);	
+	if ( $has_apcu ) {
+		$result = apcu_fetch( 'broadcast_query' );
+	}
+	
+	if ( !$result ) {
+		$query = "
+			SELECT *,
+				(timestamp > (NOW() - INTERVAL 6 MINUTE)) AS live,
+				(TIMESTAMPDIFF(MINUTE,timestamp,NOW())) AS online
+			FROM `wp_broadcast_streams`
+			WHERE timestamp > (NOW() - INTERVAL 6 MINUTE)
+			ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
+				CASE 
+					WHEN service_id < 4 THEN score
+					WHEN service_id >= 4 AND score > 240 THEN score
+				END DESC,
+				viewers DESC
+			LIMIT 18;
+		";
 		
+		global $wpdb;
+		$result = $wpdb->get_results($query, ARRAY_A);
+		
+		apcu_store( 'broadcast_query', $result, 5*60 );
+	}		
 ?>
 <style>
 .tvbox {
