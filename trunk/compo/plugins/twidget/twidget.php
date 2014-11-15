@@ -444,6 +444,8 @@ function broadcast_widget_func() {
 }
 .tvbox .screen .view .item .name {
 	padding-left:2px;
+	overflow:hidden;
+	display:block;
 }
 .tvbox .screen .view .item .service {	
 }
