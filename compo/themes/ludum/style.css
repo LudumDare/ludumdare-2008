@@ -396,10 +396,12 @@ body {
 }
 
 .section .smallcell:hover {
-	background:#4FA;
+	background:#44F;
+	color:#FFF;
 }
 .section .smallcell-other:hover {
-	background:#4AF;
+	background:#44F;
+	color:#FFF;
 }
 
 .section .light {
