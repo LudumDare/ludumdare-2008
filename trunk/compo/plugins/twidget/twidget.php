@@ -533,11 +533,11 @@ function broadcast_widget_func() {
   <div class="screen">
     <img id="tv-screen" src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
     <div class="view" id="tv-view">
-    	<div class="header inv">Watch <strong>LIVE</strong> GameDev</div>
+    	<!--<div class="header inv">Watch <strong>LIVE</strong> GameDev</div>-->
 <?php
 		$count = count($result);
-		if ( $count > 4 ) {
-			$count = 4;
+		if ( $count > 5 ) {
+			$count = 5;
 		}
 		
 		$img_prefix = "/compo/wp-content/plugins/twidget/";
@@ -561,7 +561,7 @@ function broadcast_widget_func() {
 <?php
 		}
 ?>
-    	<div class="footer inv">Watch More...</div>
+    	<div class="footer inv">More <strong>LIVE</strong> GameDev...</div>
     </div>
     <div class="watch hidden" id="tv-frame">
 	</div>
