@@ -443,6 +443,21 @@ function broadcast_widget_func() {
 }
 
 
+.tvbox .screen .watch {
+	width:260px;
+	height:190px;
+	
+	border:1px solid #000;
+
+	position:absolute;
+	top:50%;
+	left:50%;
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+
+
 .tvbox .bar {
   padding:0 10px;
   overflow:auto;
@@ -496,22 +511,21 @@ function broadcast_widget_func() {
 		);
 
 		for ( $idx = 0; $idx < $count; $idx++ ) {
-		?>
+?>
 	    	<div class="item reg">
 	    		<span class="avatar left"><img src="<?php echo $result[$idx]['avatar']; ?>" width="24" height="24" /></span>
 	    		<span class="name left"><?php echo $result[$idx]['display_name']; ?></span>
 	    		<span class="service right"><img src="<?php echo $service_img[$result[$idx]['service_id']]; ?>" width="24" height="24" /></span>
 	    		<span class="viewers right"><?php echo $result[$idx]['viewers']; ?></span>
 	    	</div>			
-		<?php
+<?php
 		}
-//    	<div class="item">Show #2</div>
-//    	<div class="item">Show #3</div>
-//    	<div class="item">Show #4</div>
-//    	<div class="item">Show #5</div>
 ?>
     	<div class="footer inv">Watch More...</div>
     </div>
+    <div class="watch">
+    	ya
+	</div>
   </div>
   <div class="bar">
     <div style="float:right"><span class="label" style="background:#C46;color:#FCA">LIVE</span> <span class="number"><?php echo $total_streams; ?></span> <span class="label">VIEWERS</span> <span class="number" style="padding-right:0"><?php echo $total_viewers; ?></span></div><div class="logo"><a href="http://ludumdare.com/compo/tv/"><img src="/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg" height="25"></a></div>
@@ -520,6 +534,8 @@ function broadcast_widget_func() {
 </div>
 
 <?php
+	// NOTE: This function is supposed to return, but I don't care //
+	return "";
 }
 add_shortcode( 'broadcast_widget', 'broadcast_widget_func' );
 
