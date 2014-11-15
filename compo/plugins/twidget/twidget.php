@@ -573,16 +573,17 @@ function broadcast_widget_func() {
 
 .tvpop .box {
 	position:absolute;
-	left:-420px;
-	width:400px;
-	height:300px;
+	left:-540px;
+	top:10px;
+	width:500px;
+	height:400px;
 	
 	background:#FFF;
-	border-radius:30px;
-	padding:30px;
+	border-radius:10px;
+	padding:10px;
+	opacity:0.9;
 	
 	z-index:1000;
-	
 }
 </style>
 <script>
