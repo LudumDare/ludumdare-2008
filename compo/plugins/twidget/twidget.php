@@ -604,7 +604,7 @@ function broadcast_widget_func() {
 
 		for ( $idx = 0; $idx < $count; $idx++ ) {
 ?>
-	    	<div class="item reg" onclick="broadcast_set('<?php echo $result[$idx]['embed_url']; ?>&autoplay=true');">
+	    	<div class="item reg" onclick="broadcast_set('<?php echo $result[$idx]['embed_url']; ?>&amp;autoplay=true');">
 	    		<span class="service right"><img src="<?php echo $service_img[$result[$idx]['service_id']]; ?>" width="24" height="24" /></span>
 	    		<span class="viewers right"><?php echo $result[$idx]['viewers']; ?></span>
 	    		<span class="avatar left"><img src="<?php echo $result[$idx]['avatar']; ?>" width="24" height="24" /></span>
