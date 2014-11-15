@@ -457,7 +457,7 @@ function broadcast_widget_func() {
 .tvbox .screen .view .footer .more {
 	background:#445;
 	color:#BBC;
-	padding:2px 10px;
+	padding:4px 10px;
 	border-radius:30px;
 	cursor:pointer;
 }
@@ -630,7 +630,7 @@ function broadcast_widget_func() {
 <?php
 		}
 ?>
-    	<div class="footer"><span class="more">More <strong>LIVE</strong> GameDev...</span></div>
+    	<div class="footer"><span class="more">More <strong>LIVE</strong> GameDev</span></div>
     </div>
     <div class="frame hidden" id="tv-frame">
 	</div>
