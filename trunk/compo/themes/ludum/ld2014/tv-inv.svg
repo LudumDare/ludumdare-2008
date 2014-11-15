@@ -1,5 +1,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="240" width="320" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="240" width="320" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/">
+	<defs>
+		<linearGradient id="linearGradient5274">
+			<stop stop-color="#000" stop-opacity="0" offset="0"/>
+			<stop stop-color="#000" offset="1"/>
+		</linearGradient>
+		<radialGradient id="radialGradient5290" xlink:href="#linearGradient5274" spreadMethod="repeat" gradientUnits="userSpaceOnUse" cy="932.362" cx="160" gradientTransform="matrix(1,0,0,0.76470588,0,219.37934)" r="170"/>
+		<radialGradient id="radialGradient5292" xlink:href="#linearGradient5274" spreadMethod="repeat" gradientUnits="userSpaceOnUse" cy="-145.367" cx="219.969" gradientTransform="matrix(0.76470587,-4.1077806e-7,5.8623927e-7,0.52941215,-118.21161,1009.3215)" r="170"/>
+	</defs>
 	<metadata>
 		<rdf:RDF>
 			<cc:Work rdf:about="">
@@ -9,7 +17,10 @@
 			</cc:Work>
 		</rdf:RDF>
 	</metadata>
-	<g transform="translate(0,-812.36218)">
-		<path style="enable-background:accumulate;color:#000000;" d="M-10-10v260h340v-260h-340zm170,15c60,0,120,5,140,15,20,40,20,160,0,200-40,20-240,20-280,0-20-40-20-170,0-200,20-10,80-15,140-15z" fill-rule="nonzero" transform="translate(0,812.36218)" fill="#445"/>
+	<g fill="url(#radialGradient5290)" transform="translate(110,-812.36218)">
+		<path style="color:#000000;enable-background:accumulate;" d="m-110,812.362,0,240,320,0,0-240zm290,30c25,40,25,140,0,180-40,25-220,25-260,0-345-39.998-345-149.998-320-179.998,40-25,220-25,260,0z" fill-rule="nonzero" fill="url(#radialGradient5292)"/>
+	</g>
+	<g fill="#445" transform="translate(0,-812.36218)">
+		<path style="color:#000000;enable-background:accumulate;" d="m-10-10,0,260,340,0,0-260zm310,30c20,40,20,160,0,200-380,20-580,20-620,0-20-40-20-170,0-200,40-20,240-20,280,0z" fill-rule="nonzero" transform="translate(0,812.36218)" fill="#445"/>
 	</g>
 </svg>
