@@ -354,6 +354,7 @@ function broadcast_widget_func() {
 }
 .tvbox .screen .view .item {
 	overflow:auto;
+	position:relative;
 }
 .tvbox .screen .view .footer {
 	text-align:center;
