@@ -369,6 +369,28 @@ function broadcast_widget_func() {
 	}		
 ?>
 <style>
+
+.left { float:left; }
+.right { float:right; }
+.hidden { display:none; }
+
+.topleft { position:absolute; top:0; left:0; }
+.botleft { position:absolute; bottom:0; left:0; }
+.topright { position:absolute; top:0; right:0; }
+.botright { position:absolute; bottom:0; right:0; }
+.center { position:absolute; top:50%; left:50%; -ms-transform:translate(-50%,-50%);
+	-webkit-transform:translate(-50%,-50%); transform:translate(-50%,-50%); }
+.midleft { position:absolute; top:50%; left:0; -ms-transform:translate(0,-50%);
+	-webkit-transform:translate(0,-50%); transform:translate(0,-50%); }
+.midright { position:absolute; top:50%; right:0; -ms-transform:translate(0,-50%);
+	-webkit-transform:translate(0,-50%); transform:translate(0,-50%); }
+.midtop { position:absolute; top:0; left:50%; -ms-transform:translate(-50%,0);
+	-webkit-transform:translate(-50%,0); transform:translate(-50%,0); }
+.midbot { position:absolute; bottom:0; left:50%; -ms-transform:translate(-50%,0);
+	-webkit-transform:translate(-50%,0); transform:translate(-50%,0); }
+
+/* ---- TVBOX ------------------------- */
+
 .tvbox {
   background:#445;
   border-radius:10px;
@@ -376,14 +398,18 @@ function broadcast_widget_func() {
   overflow:hidden;
 }
 
+/* ---- SCREEN ------------------------- */
+
 .tvbox .screen {
   background:#889;
   position:relative;
 }
 
-.tvbox .screen .black {
+.tvbox .black {
   background:#000;
 }
+
+/* ---- View ------------------------- */
 
 .tvbox .screen .view {
 	font-size:18px;
@@ -429,17 +455,6 @@ function broadcast_widget_func() {
 }
 
 
-.left {
-	float:left;
-}
-.right {
-	float:right;
-}
-.hidden {
-	display:none;
-}
-
-
 .tvbox .screen .view .item .avatar {	
 }
 .tvbox .screen .view .item .name {
@@ -454,8 +469,24 @@ function broadcast_widget_func() {
 	padding-right:2px;
 }
 
+/* ---- Close ------------------------- */
 
-.tvbox .screen .watch {
+.tvbox .screen .close {
+	font-size:16px;
+	padding:5px;
+	border-radius:15px;
+
+	color:#000;
+	background:#889;
+}
+
+.tvbox .screen .close:hover {
+	color:#F00;
+}
+
+/* ---- Frame ------------------------- */
+
+.tvbox .screen .frame {
 	width:250px;
 	height:180px;
 	
@@ -469,11 +500,12 @@ function broadcast_widget_func() {
 	transform: translate(-50%,-50%);
 }
 
-.tvbox .screen .watch iframe {
+.tvbox .screen .frame iframe {
 	width:100%;
 	height:100%;
 }
 
+/* ---- BAR ------------------------- */
 
 .tvbox .bar {
   padding:0 10px;
@@ -566,8 +598,9 @@ function broadcast_widget_func() {
 ?>
     	<div class="footer inv">More <strong>LIVE</strong> GameDev...</div>
     </div>
-    <div class="watch hidden" id="tv-frame">
+    <div class="frame hidden" id="tv-frame">
 	</div>
+    <div class="close hidden" id="tv-close">x</div>
   </div>
   <div class="bar">
     <div style="float:right"><span class="label" style="background:#C46;color:#FCA">LIVE</span> <span class="number"><?php echo $total_streams; ?></span> <span class="label">VIEWERS</span> <span class="number" style="padding-right:0"><?php echo $total_viewers; ?></span></div><div class="logo"><a href="http://ludumdare.com/compo/tv/"><img src="/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg" height="25"></a></div>
