@@ -275,6 +275,7 @@ function broadcast_list_func( $attr ) {
 		    OR service_id >= 4 AND timestamp > (NOW() - INTERVAL 6 MINUTE)
 		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
 			CASE WHEN service_id >= 4 AND score > 60 THEN score DESC, 
+			CASE WHEN service_id < 4 THEN score DESC,
 			viewers DESC;
 	";
 
