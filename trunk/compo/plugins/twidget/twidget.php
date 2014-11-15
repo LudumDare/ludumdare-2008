@@ -564,6 +564,22 @@ function broadcast_widget_func() {
   padding:0 5px;
   float:left;
 }
+
+/* ---- TV Pop ------------------------- */
+
+.tvpop {
+	position:relative;
+}
+
+.tvpop .box {
+	position:absolute;
+	left:-420px;
+	width:400px;
+	height:300px;
+	
+	background:#FFF;
+	border-radius:30px;
+}
 </style>
 <script>
 	function js_remove_class( el, className ) {
@@ -607,6 +623,14 @@ function broadcast_widget_func() {
 
 		var close = document.querySelectorAll('#tv-close')[0];
 		js_add_class( close, "hidden" );
+	}
+	
+	function broadcast_popout() {
+		
+	}
+	
+	function broadcast_hide_popout() {
+		
 	}
 </script>
 <div class="tvbox">
@@ -652,6 +676,12 @@ function broadcast_widget_func() {
     <div style="float:right"><span class="label" style="background:#C46;color:#FCA">LIVE</span> <span class="number"><?php echo $total_streams; ?></span> <span class="label">VIEWERS</span> <span class="number" style="padding-right:0"><?php echo $total_viewers; ?></span></div><div class="logo"><a href="http://ludumdare.com/compo/tv/"><img src="/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg" height="25"></a></div>
   </div>
   <div style="padding-bottom:10px"></div>
+</div>
+
+<div class="tvpop">
+	<div class="box">
+		Pop!
+	</div>
 </div>
 
 <?php
