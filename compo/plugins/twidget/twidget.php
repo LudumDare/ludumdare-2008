@@ -456,6 +456,7 @@ function broadcast_widget_func() {
 
 .tvbox .screen .view .item:hover {
 	background:#8CF;
+	color:#FFF;
 }
 
 
