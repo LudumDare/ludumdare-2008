@@ -333,6 +333,7 @@ function broadcast_widget_func() {
 	color:#445;
 	font-size:18px;
 	line-height:24px;
+	vertical-align:middle;
 	width:220px;
 	
 	position:absolute;
@@ -343,19 +344,37 @@ function broadcast_widget_func() {
 	transform: translate(-50%,-50%);
 }
 
-.tvbox .screen .view .header {
+.tvbox .screen .view .inv {
 	background:#445;
 	color:#BBC;
+}
+
+.tvbox .screen .view .header {
 	text-align:center;
 }
 .tvbox .screen .view .item {
 	
 }
 .tvbox .screen .view .footer {
-	background:#445;
-	color:#BBC;
 	text-align:center;
 }
+
+.left {
+	float:left;
+}
+.right {
+	float:right;
+}
+
+.tvbox .screen .view .item .avatar {	
+}
+.tvbox .screen .view .item .name {	
+}
+.tvbox .screen .view .item .service {	
+}
+.tvbox .screen .view .item .viewers {
+}
+
 
 .tvbox .bar {
   padding:0 10px;
@@ -392,12 +411,17 @@ function broadcast_widget_func() {
   <div class="screen">
     <img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
     <div class="view">
-    	<div class="header">Watch <strong>LIVE</strong> GameDev</div>
-    	<div class="item"><img src="http://static-cdn.jtvnw.net/jtv_user_pictures/metaldemon68-profile_image-02a11197962ebebb-300x300.png" width="24" height="24" />Show #1<img src="/compo/wp-content/plugins/twidget/service_twitch.png" width="24" height="24" />10</div>
+    	<div class="inv header">Watch <strong>LIVE</strong> GameDev</div>
+    	<div class="item">
+    		<span class="avatar left"><img src="http://static-cdn.jtvnw.net/jtv_user_pictures/metaldemon68-profile_image-02a11197962ebebb-300x300.png" width="24" height="24" /></span>
+    		<span class="name left">Show #1</span>
+    		<span class="service right"><img src="/compo/wp-content/plugins/twidget/service_twitch.png" width="24" height="24" /></span>
+    		<span class="viewers right">10</span>
+    	</div>
     	<div class="item">Show #2</div>
     	<div class="item">Show #3</div>
     	<div class="item">Show #4</div>
-    	<div class="footer">Watch More...</div>
+    	<div class="inv footer">Watch More...</div>
     </div>
   </div>
   <div class="bar">
