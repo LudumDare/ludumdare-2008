@@ -311,10 +311,35 @@ add_shortcode( 'broadcast_top', 'broadcast_top_func' );
 
 
 function broadcast_widget_func() {
-	$has_apcu = function_exists('apcu_fetch');
+	global $wpdb;
 	
-	$total_streams = 16;
-	$total_viewers = 256;
+	$has_apcu = function_exists('apcu_fetch');
+	$apcu_timeout = 5*60;
+
+	$total_streams = FALSE;
+	$total_viewers = FALSE;
+
+	if ( $has_apcu ) {
+		$total_streams = apcu_fetch( 'broadcast_total_streams' );
+		$total_viewers = apcu_fetch( 'broadcast_total_viewers' );
+	}
+	
+	if ( $total_streams === FALSE ) {
+		$query = "
+			SELECT sum(viewers) AS total_viewers,
+				count(*) AS total_streams
+			FROM `wp_broadcast_streams`
+			WHERE timestamp > (NOW() - INTERVAL 6 MINUTE);
+		";
+		$result = $wpdb->get_results($query, ARRAY_A);
+		
+		$total_streams = $result[0]['total_streams'];
+		$total_viewers = $result[0]['total_viewers'];
+
+		apcu_store( 'broadcast_total_streams', $total_streams, $apcu_timeout );
+		apcu_store( 'broadcast_total_viewers', $total_viewers, $apcu_timeout );
+	}
+		
 	
 	$result = NULL;
 	
@@ -338,10 +363,9 @@ function broadcast_widget_func() {
 			LIMIT 18;
 		";
 		
-		global $wpdb;
 		$result = $wpdb->get_results($query, ARRAY_A);
 		
-		apcu_store( 'broadcast_query', $result, 5*60 );
+		apcu_store( 'broadcast_query', $result, $apcu_timeout );
 	}		
 ?>
 <style>
