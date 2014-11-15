@@ -202,7 +202,7 @@ function broadcast_query_func( $query ) {
 			$units_value = intval($row['units']);
 			$units = floor($units_value/60) . ":" . str_pad($units_value%60, 2, '0', STR_PAD_LEFT);
 			if ( intval($row['service_id']) === 4 ) {
-				$value = max(floor($units_value/30),$score);
+				$value = $score;
 				if ( $score > 0 ) {
 					$units = floor($value/60) . ":" . str_pad($value%60, 2, '0', STR_PAD_LEFT);
 				}
@@ -274,7 +274,8 @@ function broadcast_list_func( $attr ) {
 		WHERE service_id < 4 AND timestamp > (NOW() - INTERVAL {$attr['hours']} HOUR)
 		    OR service_id >= 4 AND timestamp > (NOW() - INTERVAL 6 MINUTE)
 		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
-			score DESC, viewers DESC;
+			CASE WHEN service_id >= 4 AND score > 60 THEN score DESC, 
+			viewers DESC;
 	";
 
 //		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
