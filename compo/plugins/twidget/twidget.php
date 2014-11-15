@@ -407,6 +407,8 @@ function broadcast_widget_func() {
 .tvbox .screen {
   background:#88A;
   position:relative;
+  width:292px;
+  height:219px;
 }
 
 .tvbox .black {
@@ -503,8 +505,8 @@ function broadcast_widget_func() {
 /* ---- Frame ------------------------- */
 
 .tvbox .screen .frame {
-	width:250px;
-	height:180px;
+	width:260px;
+	height:190px;
 	
 	border:1px solid #000;
 
@@ -519,6 +521,15 @@ function broadcast_widget_func() {
 .tvbox .screen .frame iframe {
 	width:100%;
 	height:100%;
+}
+
+/* ---- Border ------------------------- */
+
+.tvbox .screen .border {
+	position:absolute;
+	left:0;
+	top:0;
+	pointer-events:none;
 }
 
 /* ---- BAR ------------------------- */
@@ -599,10 +610,8 @@ function broadcast_widget_func() {
 	}
 </script>
 <div class="tvbox">
-  <div class="screen">
-    <img id="tv-screen" src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
+  <div class="screen" id="tv-screen">
     <div class="view" id="tv-view">
-    	<!--<div class="header inv">Watch <strong>LIVE</strong> GameDev</div>-->
 <?php
 		$count = count($result);
 		if ( $count > 5 ) {
@@ -634,6 +643,9 @@ function broadcast_widget_func() {
     </div>
     <div class="frame hidden" id="tv-frame">
 	</div>
+    <div class="border">
+    	<img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
+    </div>
     <div class="close topright hidden" id="tv-close" onclick="broadcast_clear();"><strong>X</strong></div>
   </div>
   <div class="bar">
