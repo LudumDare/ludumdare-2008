@@ -347,8 +347,6 @@ function broadcast_widget_func() {
 }
 
 .tvbox .screen .view {
-	background:#BBC;
-	color:#445;
 	font-size:18px;
 	line-height:24px;
 	vertical-align:middle;
@@ -362,6 +360,10 @@ function broadcast_widget_func() {
 	transform: translate(-50%,-50%);
 }
 
+.tvbox .screen .view .reg {
+	background:#BBC;
+	color:#445;	
+}
 .tvbox .screen .view .inv {
 	background:#445;
 	color:#BBC;
@@ -369,6 +371,7 @@ function broadcast_widget_func() {
 
 .tvbox .screen .view .header {
 	text-align:center;
+	border-radius:10px 10px 0 0;
 }
 .tvbox .screen .view .item {
 	overflow:auto;
@@ -377,6 +380,7 @@ function broadcast_widget_func() {
 }
 .tvbox .screen .view .footer {
 	text-align:center;
+	border-radius:0 0 10px 10px;
 }
 
 
@@ -439,7 +443,7 @@ function broadcast_widget_func() {
   <div class="screen">
     <img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
     <div class="view">
-    	<div class="inv header">Watch <strong>LIVE</strong> GameDev</div>
+    	<div class="header inv">Watch <strong>LIVE</strong> GameDev</div>
 <?php
 		$count = count($result);
 		if ( $count > 4 ) {
@@ -458,7 +462,7 @@ function broadcast_widget_func() {
 
 		for ( $idx = 0; $idx < $count; $idx++ ) {
 		?>
-	    	<div class="item">
+	    	<div class="item reg">
 	    		<span class="avatar left"><img src="<?php echo $result[$idx]['avatar']; ?>" width="24" height="24" /></span>
 	    		<span class="name left"><?php echo $result[$idx]['display_name']; ?></span>
 	    		<span class="service right"><img src="<?php echo $service_img[$result[$idx]['service_id']]; ?>" width="24" height="24" /></span>
@@ -471,7 +475,7 @@ function broadcast_widget_func() {
 //    	<div class="item">Show #4</div>
 //    	<div class="item">Show #5</div>
 ?>
-    	<div class="inv footer">Watch More...</div>
+    	<div class="footer inv">Watch More...</div>
     </div>
   </div>
   <div class="bar">
