@@ -579,6 +579,10 @@ function broadcast_widget_func() {
 	
 	background:#FFF;
 	border-radius:30px;
+	padding:30px;
+	
+	z-index:1000;
+	
 }
 </style>
 <script>
@@ -633,6 +637,13 @@ function broadcast_widget_func() {
 		
 	}
 </script>
+
+<div class="tvpop">
+	<div class="box">
+		Pop!
+	</div>
+</div>
+
 <div class="tvbox">
   <div class="screen" id="tv-screen">
     <div class="view" id="tv-view">
@@ -676,12 +687,6 @@ function broadcast_widget_func() {
     <div style="float:right"><span class="label" style="background:#C46;color:#FCA">LIVE</span> <span class="number"><?php echo $total_streams; ?></span> <span class="label">VIEWERS</span> <span class="number" style="padding-right:0"><?php echo $total_viewers; ?></span></div><div class="logo"><a href="http://ludumdare.com/compo/tv/"><img src="/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg" height="25"></a></div>
   </div>
   <div style="padding-bottom:10px"></div>
-</div>
-
-<div class="tvpop">
-	<div class="box">
-		Pop!
-	</div>
 </div>
 
 <?php
