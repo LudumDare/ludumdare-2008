@@ -405,7 +405,7 @@ function broadcast_widget_func() {
 /* ---- SCREEN ------------------------- */
 
 .tvbox .screen {
-  background:#BBC;/*#889;*/
+  background:#88A;
   position:relative;
 }
 
