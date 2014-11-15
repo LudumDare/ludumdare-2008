@@ -578,7 +578,7 @@ function broadcast_widget_func() {
 	width:620px;
 	height:300px;
 	
-	background:#FFF;
+	background:#445;
 	border-radius:10px;
 	padding:10px;
 	opacity:0.95;
