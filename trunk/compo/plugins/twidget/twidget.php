@@ -329,8 +329,8 @@ function broadcast_widget_func() {
 }
 
 .tvbox .screen .view {
-	background:#445;
-	color:#BBC;
+	background:#BBC;
+	color:#445;
 	font-size:18px;
 	line-height:24px;
 	width:220px;
@@ -344,15 +344,16 @@ function broadcast_widget_func() {
 }
 
 .tvbox .screen .view .header {
-	background:#BBC;
-	color:#445;
+	background:#445;
+	color:#BBC;
+	text-align:center;
 }
 .tvbox .screen .view .item {
 	
 }
 .tvbox .screen .view .footer {
-	background:#BBC;
-	color:#445;
+	background:#445;
+	color:#BBC;
 	text-align:center;
 }
 
