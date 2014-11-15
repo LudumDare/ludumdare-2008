@@ -466,7 +466,7 @@ function broadcast_widget_func() {
 	    		<span class="avatar left"><img src="<?php ?>" width="24" height="24" /></span>
 	    		<span class="name left"><?php ?></span>
 	    		<span class="viewers right"><?php ?></span>
-	    		<span class="service right"><img src="<?php echo $service_img[$result[$idx]['service_id']; ?>" width="24" height="24" /></span>
+	    		<span class="service right"><img src="<?php echo $service_img[$result[$idx]['service_id']]; ?>" width="24" height="24" /></span>
 	    	</div>			
 		<?php
 		}
