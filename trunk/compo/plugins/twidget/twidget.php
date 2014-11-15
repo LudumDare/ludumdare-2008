@@ -528,8 +528,8 @@ function broadcast_widget_func() {
 	}
 </script>
 <div class="tvbox">
-  <div class="screen" id="screen">
-    <img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
+  <div class="screen">
+    <img id="screen" src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
     <div class="view">
     	<div class="header inv">Watch <strong>LIVE</strong> GameDev</div>
 <?php
