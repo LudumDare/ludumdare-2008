@@ -331,13 +331,26 @@ function broadcast_widget_func() {
 .tvbox .screen .view {
   background:#445;
   color:#BBC;
-  padding:10px;
+/*  padding:10px;*/
   position:absolute;
   top:50%;
   left:50%;
   -ms-transform: translate(-50%,-50%);
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
+}
+
+.tvbox .screen .view .header {
+	background:#BBC;
+	color:#445;
+}
+.tvbox .screen .view .item {
+	
+}
+.tvbox .screen .view .footer {
+	background:#BBC;
+	color:#445;
+	text-align:center;
 }
 
 .tvbox .bar {
@@ -376,11 +389,11 @@ function broadcast_widget_func() {
     <img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
     <div class="view">
     	<div class="header">Watch <strong>LIVE</strong> GameDev</div>
-    	<div class="show">Show #1</div>
-    	<div class="show">Show #2</div>
-    	<div class="show">Show #3</div>
-    	<div class="show">Show #4</div>
-    	<div class="more">Watch More...</div>
+    	<div class="item">Show #1</div>
+    	<div class="item">Show #2</div>
+    	<div class="item">Show #3</div>
+    	<div class="item">Show #4</div>
+    	<div class="footer">Watch More...</div>
     </div>
   </div>
   <div class="bar">
