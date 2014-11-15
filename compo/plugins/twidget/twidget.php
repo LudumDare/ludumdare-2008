@@ -438,12 +438,6 @@ function broadcast_widget_func() {
     <img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
     <div class="view">
     	<div class="inv header">Watch <strong>LIVE</strong> GameDev</div>
-    	<div class="item">
-    		<span class="avatar left"><img src="http://static-cdn.jtvnw.net/jtv_user_pictures/metaldemon68-profile_image-02a11197962ebebb-300x300.png" width="24" height="24" /></span>
-    		<span class="name left">Show #1</span>
-    		<span class="viewers right">10</span>
-    		<span class="service right"><img src="/compo/wp-content/plugins/twidget/service_twitch.png" width="24" height="24" /></span>
-    	</div>
 <?php
 		$count = count($result);
 		if ( $count > 4 ) {
