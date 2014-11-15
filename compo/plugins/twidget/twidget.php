@@ -381,6 +381,10 @@ function broadcast_widget_func() {
   position:relative;
 }
 
+.tvbox .screen .black {
+  background:#000;
+}
+
 .tvbox .screen .view {
 	font-size:18px;
 	line-height:24px;
@@ -449,8 +453,8 @@ function broadcast_widget_func() {
 
 
 .tvbox .screen .watch {
-	width:260px;
-	height:190px;
+	width:250px;
+	height:180px;
 	
 	border:1px solid #000;
 
@@ -518,10 +522,13 @@ function broadcast_widget_func() {
 		tv.innerHTML = '<iframe src="' + toembed + '" frameborder="0" scrolling="no"></iframe>';
 		
 		js_remove_class( tv, "hidden" );
+		
+		var border = document.querySelectorAll('#screen')[0];
+		js_add_class( border, "black" );
 	}
 </script>
 <div class="tvbox">
-  <div class="screen">
+  <div class="screen" id="screen">
     <img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
     <div class="view">
     	<div class="header inv">Watch <strong>LIVE</strong> GameDev</div>
