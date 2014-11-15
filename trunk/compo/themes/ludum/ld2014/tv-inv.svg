@@ -7,7 +7,6 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    height="240"
@@ -15,7 +14,7 @@
    version="1.1"
    id="svg5252"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="tv-inv.svg">
+   sodipodi:docname="tv2-inv.svg">
   <defs
      id="defs5262">
     <linearGradient
@@ -29,22 +28,10 @@
          offset="0.89655167"
          style="stop-color:#000000;stop-opacity:1;" />
       <stop
-         style="stop-color:#000000;stop-opacity:1;"
+         style="stop-color:#000000;stop-opacity:0"
          offset="1"
          id="stop5278" />
     </linearGradient>
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5274"
-       id="radialGradient5318"
-       cx="50"
-       cy="932.36218"
-       fx="50"
-       fy="932.36218"
-       r="160"
-       gradientTransform="matrix(0.90625,1.2946426e-8,0,0.65625004,4.6875072,320.49946)"
-       gradientUnits="userSpaceOnUse"
-       spreadMethod="repeat" />
   </defs>
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -58,10 +45,10 @@
      inkscape:window-width="1317"
      inkscape:window-height="744"
      id="namedview5260"
-     showgrid="true"
+     showgrid="false"
      inkscape:zoom="1.78"
-     inkscape:cx="146.00752"
-     inkscape:cy="94.588447"
+     inkscape:cx="140.86341"
+     inkscape:cy="111.39603"
      inkscape:window-x="49"
      inkscape:window-y="24"
      inkscape:window-maximized="1"
@@ -83,15 +70,15 @@
     </rdf:RDF>
   </metadata>
   <g
-     style="fill:url(#radialGradient5318);fill-opacity:1"
+     style="fill:#000000;fill-opacity:1"
      id="g5270"
      transform="translate(110,-812.36218)">
     <path
        sodipodi:nodetypes="cccccccccc"
        inkscape:connector-curvature="0"
        id="path5272"
-       d="m -110,812.36218 0,240.00002 320,0 0,-240.00002 z m 290,30 c 25,40 25,140 0,180.00002 -40,25 -220,25 -259.999997,0 C -105,982.36218 -105,872.36218 -79.999997,842.36218 -40,817.36218 140,817.36218 180,842.36218 z"
-       style="color:#000000;fill:url(#radialGradient5318);fill-opacity:1;fill-rule:nonzero;enable-background:accumulate" />
+       d="m -110,812.36218 0,240.00002 320,0 0,-240.00002 z m 295,25 c 25,40 25,149.99998 0,190.00002 -40,25 -230.000003,25 -270,0 -25,-40.00004 -25,-160.00002 0,-190.00002 39.999997,-25 230,-25 270,0 z"
+       style="color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;enable-background:accumulate" />
   </g>
   <g
      transform="translate(0,-812.36218)"
