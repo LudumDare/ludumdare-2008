@@ -412,6 +412,7 @@ function broadcast_widget_func() {
 	overflow:auto;
 	position:relative;
 	padding:2px;
+	cursor:pointer;
 }
 .tvbox .screen .view .footer {
 	text-align:center;
@@ -455,6 +456,11 @@ function broadcast_widget_func() {
 	-ms-transform: translate(-50%,-50%);
 	-webkit-transform: translate(-50%,-50%);
 	transform: translate(-50%,-50%);
+}
+
+.tvbox .screen .watch embed {
+	width:100%;
+	height:100%;
 }
 
 
