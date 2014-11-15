@@ -209,7 +209,6 @@ function broadcast_query_func( $query ) {
 				else {
 					$units = "--";
 				}
-				$score = $value;
 			}
 			
 			$status = $row['status'];
