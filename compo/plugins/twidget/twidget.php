@@ -334,7 +334,7 @@ function broadcast_widget_func() {
 	font-size:18px;
 	line-height:24px;
 	vertical-align:middle;
-	width:220px;
+	width:240px;
 	
 	position:absolute;
 	top:50%;
@@ -355,6 +355,7 @@ function broadcast_widget_func() {
 .tvbox .screen .view .item {
 	overflow:auto;
 	position:relative;
+	padding:2px;
 }
 .tvbox .screen .view .footer {
 	text-align:center;
