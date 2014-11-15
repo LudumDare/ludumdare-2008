@@ -314,6 +314,24 @@ function broadcast_widget_func() {
 	$total_streams = 16;
 	$total_viewers = 256;
 	
+	$query = "
+		SELECT *,
+			(timestamp > (NOW() - INTERVAL 6 MINUTE)) AS live,
+			(TIMESTAMPDIFF(MINUTE,timestamp,NOW())) AS online
+		FROM `wp_broadcast_streams`
+		WHERE timestamp > (NOW() - INTERVAL 6 MINUTE)
+		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
+			CASE 
+				WHEN service_id < 4 THEN score
+				WHEN service_id >= 4 AND score > 240 THEN score
+			END DESC,
+			viewers DESC
+		LIMIT 18;
+	";
+	
+	global $wpdb;
+	$result = $wpdb->get_results($query, ARRAY_A);	
+		
 ?>
 <style>
 .tvbox {
@@ -426,9 +444,37 @@ function broadcast_widget_func() {
     		<span class="viewers right">10</span>
     		<span class="service right"><img src="/compo/wp-content/plugins/twidget/service_twitch.png" width="24" height="24" /></span>
     	</div>
-    	<div class="item">Show #2</div>
-    	<div class="item">Show #3</div>
-    	<div class="item">Show #4</div>
+<?php
+		$count = count($result);
+		if ( $count > 4 ) {
+			$count = 4;
+		}
+		
+		$img_prefix = "/compo/wp-content/plugins/twidget/";
+
+		$service_img = Array(
+			0=>'',
+			1=>$img_prefix.'service_twitch.png',
+			2=>$img_prefix.'service_hitbox.png',
+			3=>$img_prefix.'service_youtube.png',
+			4=>$img_prefix.'service_twitch_gamedev.png'
+		);
+
+		for ( $idx = 0; $idx < $count; $idx++ ) {
+		?>
+	    	<div class="item">
+	    		<span class="avatar left"><img src="<?php ?>" width="24" height="24" /></span>
+	    		<span class="name left"><?php ?></span>
+	    		<span class="viewers right"><?php ?></span>
+	    		<span class="service right"><img src="<?php echo $service_img[$result[$idx]['service_id']; ?>" width="24" height="24" /></span>
+	    	</div>			
+		<?php
+		}
+//    	<div class="item">Show #2</div>
+//    	<div class="item">Show #3</div>
+//    	<div class="item">Show #4</div>
+//    	<div class="item">Show #5</div>
+?>
     	<div class="inv footer">Watch More...</div>
     </div>
   </div>
