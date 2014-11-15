@@ -506,7 +506,7 @@ function broadcast_widget_func() {
 
 .tvbox .screen .frame {
 	width:270px;
-	height:200px;
+	height:190px;
 	
 	border:1px solid #000;
 
