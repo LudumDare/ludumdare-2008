@@ -474,10 +474,9 @@ function broadcast_widget_func() {
 .tvbox .screen .close {
 	font-size:10px;
 	padding:5px 10px;
-/*	border-radius:15px;*/
 
 	color:#000;
-/*	background:#445;*/
+	cursor:pointer;
 }
 
 .tvbox .screen .close:hover {
@@ -562,6 +561,24 @@ function broadcast_widget_func() {
 		
 		var border = document.querySelectorAll('#tv-screen')[0];
 		js_add_class( border, "black" );
+
+		var close = document.querySelectorAll('#tv-close')[0];
+		js_remove_class( close, "hidden" );
+	}
+
+	function broadcast_clear(){
+		var tv = document.querySelectorAll('#tv-frame')[0];
+		tv.innerHTML = "";
+		js_add_class( tv, "hidden" );
+		
+		var view = document.querySelectorAll('#tv-view')[0];
+		js_remove_class( view, "hidden" );
+		
+		var border = document.querySelectorAll('#tv-screen')[0];
+		js_remove_class( border, "black" );
+
+		var close = document.querySelectorAll('#tv-close')[0];
+		js_add_class( close, "hidden" );
 	}
 </script>
 <div class="tvbox">
@@ -600,7 +617,7 @@ function broadcast_widget_func() {
     </div>
     <div class="frame hidden" id="tv-frame">
 	</div>
-    <div class="close topright" id="tv-close"><strong>X</strong></div>
+    <div class="close topright hidden" id="tv-close" onclick="broadcast_clear();"><strong>X</strong></div>
   </div>
   <div class="bar">
     <div style="float:right"><span class="label" style="background:#C46;color:#FCA">LIVE</span> <span class="number"><?php echo $total_streams; ?></span> <span class="label">VIEWERS</span> <span class="number" style="padding-right:0"><?php echo $total_viewers; ?></span></div><div class="logo"><a href="http://ludumdare.com/compo/tv/"><img src="/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg" height="25"></a></div>
