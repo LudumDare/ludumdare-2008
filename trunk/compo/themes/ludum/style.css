@@ -387,6 +387,7 @@ body {
 }
 .section .cell .text small {
 	font-size:11px;
+	color: inherit;
 }
 
 .section .smallcell-other {
