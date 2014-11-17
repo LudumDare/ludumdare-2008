@@ -355,31 +355,16 @@ body {
 }
 
 .section .bigcell {
-	background-size:246px auto !important;
+	background-size:300px auto !important;
 	height:80px;
 	overflow:hidden;
 	border-radius:2px;
 
-	width:246px; /* .s4of15 */
+	width:300px; /* .s4of15 */
 }
-.section .smallcell {
-/*	background-size:182px auto !important;*/
-	height:31px; /* 35px - 4px border */
-	border-radius:30px 0 0 30px;
-	
-	background:#FD4;/*#667;*/
-	border:2px solid #445;
-	border-right:0;
-	
-	line-height:31px;
-	vertical-align:middle;
-	padding-right:10px;
-	text-align:right;
-	
-	width:170px; /* .s3of15 - 2px border - 10px padding */
-}
-.section .columncell {
-	width:182px; /* .s3of15 */
+
+.section .bigcell img:after {
+	background:rgba(64,64,80,0.8);		
 }
 
 .section .cell .text {
