@@ -291,7 +291,7 @@ add_shortcode( 'broadcast_list', 'broadcast_list_func' );
 function broadcast_top_func( $attr ) {
 	// Default Attributes (Arguments) //
 	$attr = shortcode_atts( Array(
-		'count' => 10
+		'count' => 20
 	), $attr );
 	
 	// * * * //
@@ -301,6 +301,7 @@ function broadcast_top_func( $attr ) {
 			(timestamp > (NOW() - INTERVAL 9 MINUTE)) AS live,
 			(TIMESTAMPDIFF(MINUTE,timestamp,NOW())) AS online
 		FROM `wp_broadcast_streams`
+		WHERE service_id < 4
 		ORDER BY units DESC
 		LIMIT ${attr['count']};
 	";
@@ -574,7 +575,7 @@ function broadcast_widget_func() {
 .tvpop .box {
 	position:absolute;
 	left:-660px;
-	top:10px;
+	top:0;
 	width:620px;
 	height:300px;
 	
