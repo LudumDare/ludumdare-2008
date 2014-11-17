@@ -472,6 +472,7 @@ function broadcast_widget_func() {
 .tvbox .screen .view .item:hover {
 	background:#F63;/*#44F;/*#8CF;*/
 	color:#FFF;
+	opacity:1;
 }
 
 
@@ -669,7 +670,7 @@ function broadcast_widget_func() {
 
 		for ( $idx = 0; $idx < $count; $idx++ ) {
 ?>
-	    	<div class="item reg" onclick="broadcast_set('<?php echo $result[$idx]['embed_url']; ?>');">
+	    	<div class="item reg<?php echo ( $result[$idx]['score'] < 240 ? " filler" : ""); ?>" onclick="broadcast_set('<?php echo $result[$idx]['embed_url']; ?>');">
 	    		<span class="service right"><img src="<?php echo $service_img[$result[$idx]['service_id']]; ?>" width="24" height="24" /></span>
 	    		<span class="viewers right"><strong><?php echo $result[$idx]['viewers']; ?></strong></span>
 	    		<span class="avatar left"><img src="<?php echo $result[$idx]['avatar']; ?>" width="24" height="24" /></span>
