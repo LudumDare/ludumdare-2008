@@ -189,12 +189,12 @@ body {
 .ld-news {
 	color: #342;
 	background: url('povimg/News.png') no-repeat top right, #DFB; /* Old browsers */
-	background: url('povimg/News.png') no-repeat top right, -moz-linear-gradient(top, #DFB 0%, #EFE 25%); /* FF3.6+ */
-	background: url('povimg/News.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DFB), color-stop(25%,#EFE)); /* Chrome,Safari4+ */
-	background: url('povimg/News.png') no-repeat top right, -webkit-linear-gradient(top, #DFB 0%, #EFE 25%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/News.png') no-repeat top right, -o-linear-gradient(top, #DFB 0%, #EFE 25%); /* Opera 11.10+ */
-	background: url('povimg/News.png') no-repeat top right, -ms-linear-gradient(top, #DFB 0%, #EFE 25%); /* IE10+ */
-	background: url('povimg/News.png') no-repeat top right, linear-gradient(to bottom, #DFB 0%, #EFE 25%); /* W3C */
+	background: url('povimg/News.png') no-repeat top right, -moz-linear-gradient(top, #DFB 0%, #EEE 25%); /* FF3.6+ */
+	background: url('povimg/News.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DFB), color-stop(25%,#EEE)); /* Chrome,Safari4+ */
+	background: url('povimg/News.png') no-repeat top right, -webkit-linear-gradient(top, #DFB 0%, #EEE 25%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/News.png') no-repeat top right, -o-linear-gradient(top, #DFB 0%, #EEE 25%); /* Opera 11.10+ */
+	background: url('povimg/News.png') no-repeat top right, -ms-linear-gradient(top, #DFB 0%, #EEE 25%); /* IE10+ */
+	background: url('povimg/News.png') no-repeat top right, linear-gradient(to bottom, #DFB 0%, #EEE 25%); /* W3C */
 }
 .ld-news .minimize {
 	background: url('povimg/News.png') no-repeat top right, #DFB; /* Old browsers */
@@ -215,12 +215,12 @@ body {
 .ld-admin {
 	color: #432;
 	background: url('povimg/Admin.png') no-repeat top right, #FEC; /* Old browsers */
-	background: url('povimg/Admin.png') no-repeat top right, -moz-linear-gradient(top, #FEC 0%, #FFE 25%); /* FF3.6+ */
-	background: url('povimg/Admin.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FEC), color-stop(25%,#FFE)); /* Chrome,Safari4+ */
-	background: url('povimg/Admin.png') no-repeat top right, -webkit-linear-gradient(top, #FEC 0%, #FFE 25%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/Admin.png') no-repeat top right, -o-linear-gradient(top, #FEC 0%, #FFE 25%); /* Opera 11.10+ */
-	background: url('povimg/Admin.png') no-repeat top right, -ms-linear-gradient(top, #FEC 0%, #FFE 25%); /* IE10+ */
-	background: url('povimg/Admin.png') no-repeat top right, linear-gradient(to bottom, #FEC 0%, #FFE 25%); /* W3C */
+	background: url('povimg/Admin.png') no-repeat top right, -moz-linear-gradient(top, #FEC 0%, #EEE 25%); /* FF3.6+ */
+	background: url('povimg/Admin.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FEC), color-stop(25%,#EEE)); /* Chrome,Safari4+ */
+	background: url('povimg/Admin.png') no-repeat top right, -webkit-linear-gradient(top, #FEC 0%, #EEE 25%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Admin.png') no-repeat top right, -o-linear-gradient(top, #FEC 0%, #EEE 25%); /* Opera 11.10+ */
+	background: url('povimg/Admin.png') no-repeat top right, -ms-linear-gradient(top, #FEC 0%, #EEE 25%); /* IE10+ */
+	background: url('povimg/Admin.png') no-repeat top right, linear-gradient(to bottom, #FEC 0%, #EEE 25%); /* W3C */
 }
 .ld-admin .minimize {
 	background: url('povimg/Admin.png') no-repeat top right, #FEC; /* Old browsers */
@@ -241,12 +241,12 @@ body {
 .ld-sticky {
 	color: #314;
 	background: url('povimg/Featured.png') no-repeat top right, #DBE; /* Old browsers */
-	background: url('povimg/Featured.png') no-repeat top right, -moz-linear-gradient(top, #DBE 0%, #FEF 25%); /* FF3.6+ */
-	background: url('povimg/Featured.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DBE), color-stop(25%,#FEF)); /* Chrome,Safari4+ */
-	background: url('povimg/Featured.png') no-repeat top right, -webkit-linear-gradient(top, #DBE 0%, #FEF 25%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/Featured.png') no-repeat top right, -o-linear-gradient(top, #DBE 0%, #FEF 25%); /* Opera 11.10+ */
-	background: url('povimg/Featured.png') no-repeat top right, -ms-linear-gradient(top, #DBE 0%, #FEF 25%); /* IE10+ */
-	background: url('povimg/Featured.png') no-repeat top right, linear-gradient(to bottom, #DBE 0%, #FEF 25%); /* W3C */
+	background: url('povimg/Featured.png') no-repeat top right, -moz-linear-gradient(top, #DBE 0%, #EEE 25%); /* FF3.6+ */
+	background: url('povimg/Featured.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#DBE), color-stop(25%,#EEE)); /* Chrome,Safari4+ */
+	background: url('povimg/Featured.png') no-repeat top right, -webkit-linear-gradient(top, #DBE 0%, #EEE 25%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Featured.png') no-repeat top right, -o-linear-gradient(top, #DBE 0%, #EEE 25%); /* Opera 11.10+ */
+	background: url('povimg/Featured.png') no-repeat top right, -ms-linear-gradient(top, #DBE 0%, #EEE 25%); /* IE10+ */
+	background: url('povimg/Featured.png') no-repeat top right, linear-gradient(to bottom, #DBE 0%, #EEE 25%); /* W3C */
 }
 .ld-sticky .minimize {
 	background: url('povimg/Featured.png') no-repeat top right, #DBE; /* Old browsers */
@@ -267,12 +267,12 @@ body {
 .ld-love {
 	color: #422;
 	background: url('povimg/Heart.png') no-repeat top right, #FCC; /* Old browsers */
-	background: url('povimg/Heart.png') no-repeat top right, -moz-linear-gradient(top, #FCC 0%, #FEE 25%); /* FF3.6+ */
-	background: url('povimg/Heart.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FCC), color-stop(25%,#FEE)); /* Chrome,Safari4+ */
-	background: url('povimg/Heart.png') no-repeat top right, -webkit-linear-gradient(top, #FCC 0%, #FEE 25%); /* Chrome10+,Safari5.1+ */
-	background: url('povimg/Heart.png') no-repeat top right, -o-linear-gradient(top, #FCC 0%, #FEE 25%); /* Opera 11.10+ */
-	background: url('povimg/Heart.png') no-repeat top right, -ms-linear-gradient(top, #FCC 0%, #FEE 25%); /* IE10+ */
-	background: url('povimg/Heart.png') no-repeat top right, linear-gradient(to bottom, #FCC 0%, #FEE 25%); /* W3C */
+	background: url('povimg/Heart.png') no-repeat top right, -moz-linear-gradient(top, #FCC 0%, #EEE 25%); /* FF3.6+ */
+	background: url('povimg/Heart.png') no-repeat top right, -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FCC), color-stop(25%,#EEE)); /* Chrome,Safari4+ */
+	background: url('povimg/Heart.png') no-repeat top right, -webkit-linear-gradient(top, #FCC 0%, #EEE 25%); /* Chrome10+,Safari5.1+ */
+	background: url('povimg/Heart.png') no-repeat top right, -o-linear-gradient(top, #FCC 0%, #EEE 25%); /* Opera 11.10+ */
+	background: url('povimg/Heart.png') no-repeat top right, -ms-linear-gradient(top, #FCC 0%, #EEE 25%); /* IE10+ */
+	background: url('povimg/Heart.png') no-repeat top right, linear-gradient(to bottom, #FCC 0%, #EEE 25%); /* W3C */
 }
 .ld-love .minimize {
 	background: url('povimg/Heart.png') no-repeat top right, #FCC; /* Old browsers */
