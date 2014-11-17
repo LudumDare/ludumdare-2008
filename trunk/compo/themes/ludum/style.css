@@ -1003,10 +1003,10 @@ a, h2 a:hover, h3 a:hover {
 	float:right;
 	background: #CCD;
 	white-space: nowrap;
-	border-radius:30px 0 0 30px;
+	border-radius:4px 0 0 4px;
 	border:2px solid #445;
 	border-right:0;
-	padding-left:10px;
+	padding-left:2px;
 	
 	position:relative;
 	top:-2px;
@@ -1023,7 +1023,7 @@ a, h2 a:hover, h3 a:hover {
 	padding-left:3px;
 	border:2px solid #445;
 	border-right:0;
-	border-radius:30px 0 0 30px;
+	border-radius:4px 0 0 4px;
 	
 /*	position:relative;
 	right:-30px;
@@ -1100,9 +1100,9 @@ a, h2 a:hover, h3 a:hover {
 
 #header .headline {
 	font-size:15px;
-	padding:4px 4px 4px 12px;
+	padding:4px;
 	margin-left:4px;
-	border-radius:14px 0 0 14px;
+	border-radius:4px 0 0 4px;
 	border:2px solid #445;
 	border-right:0;
 	position:relative;

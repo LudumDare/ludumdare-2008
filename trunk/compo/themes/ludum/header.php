@@ -186,7 +186,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 						<div class="login-user">
 							<div class="avatar" title="Edit your Avatar on Gravatar (Click!)"><a href="http://www.gravatar.com/" target="_blank"><?php echo get_avatar( $current_user->user_email, 52 ); ?></a></div>
 							<div class="info">
-								<div class="headline">Welcome <a href="/compo/wp-admin/profile.php" title="Edit your Profile"><strong><?php echo $current_user->display_name; ?></strong></a>!</div>
+								<div class="headline">Hi <a href="/compo/wp-admin/profile.php" title="Edit your Profile"><strong><?php echo $current_user->display_name; ?></strong></a></div>
 								<div class="action"><a href="/compo/wp-admin/post-new.php" title="Make a new Blog Post">+<strong>New POST</strong></a></div>
 							</div>
 						</div>
