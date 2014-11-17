@@ -406,7 +406,7 @@ function broadcast_widget_func() {
 /* ---- SCREEN ------------------------- */
 
 .tvbox .screen {
-  background:#88A;
+  background:#A98;/*#88A;*/
   position:relative;
   width:292px;
   height:219px;
@@ -470,7 +470,7 @@ function broadcast_widget_func() {
 }
 
 .tvbox .screen .view .item:hover {
-	background:#44F;/*#8CF;*/
+	background:#F63;/*#44F;/*#8CF;*/
 	color:#FFF;
 }
 
