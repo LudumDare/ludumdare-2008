@@ -441,6 +441,11 @@ function broadcast_widget_func() {
 	color:#BBC;
 }
 
+.tvbox .screen .view .filler {
+	opacity:0.4;
+}
+
+
 .tvbox .screen .view .header {
 	text-align:center;
 	border-radius:10px 10px 0 0;
