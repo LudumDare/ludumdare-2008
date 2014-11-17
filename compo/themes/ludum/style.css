@@ -393,10 +393,11 @@ body {
 .section .light {
 	font-size:14px;
 }
-
+/*
 .section .when, .section .name, .section .desc, .section .clock, .section .clock-desc {
 	background:rgba(64,64,80,0.8);	
 }
+*/
 
 .section .when {
 	color:#FFF;
