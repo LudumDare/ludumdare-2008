@@ -578,7 +578,7 @@ body {
 }
 
 .section .link {
-	border-radius:12px;
+	border-radius:2px;
 	padding:0 12px;
 	line-height:24px;
 /*	border-top:2px solid #889;
@@ -611,14 +611,14 @@ body {
 }
 
 .section .group-left {
-	border-radius:0 14px 14px 0;
+	border-radius:0 4px 4px 0;
 	padding:2px;
 	margin:0;
 	display:inline-block;
 	float:left;
 }
 .section .group-right {
-	border-radius:14px 0 0 14px;
+	border-radius:4px 0 0 4px;
 	padding:2px;
 	margin:0;
 	display:inline-block;
@@ -1200,7 +1200,7 @@ a, h2 a:hover, h3 a:hover {
 	/*border-top: 1px solid #FFF;*/
 	overflow:hidden;
 
-	border-radius: 10px 10px 10px 30px;
+	border-radius: 2px;
 }
 
 .post, .wp-page {
