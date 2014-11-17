@@ -416,12 +416,14 @@ body {
 	color:#FC2;
 	padding:4px 0 4px 14px;
 	text-shadow:0 1px #820;
+	position:relative;
 }
 .section .desc {
 	color:#FFF;
 	padding:0 14px 4px 14px;
 	display:inline-block;
 	border-radius:0 0 10px 0;
+	position:relative;
 }
 .section .timezone {
 	color:#000;
