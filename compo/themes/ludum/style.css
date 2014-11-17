@@ -568,7 +568,7 @@ body {
 	vertical-align:middle;
 }
 .section .link:hover {
-	background:#C31;/*#F63;/*#44F;/*#CEF;*/
+	background:#44F;/*#C31;/*#F63;/*#44F;/*#CEF;*/
 	color:#FFF;
 /*	border-top:0px solid;
 	border-bottom:2px solid #ABC;*/
@@ -636,7 +636,7 @@ body {
 	padding-left:4px;
 }
 .imagebox > div:hover {
-	background: #C31;/*#F63;/*#44F;*/
+	background: #44F;/*#C31;/*#F63;/*#44F;*/
 	cursor: pointer;
 	color: #FFF !important;
 }
@@ -651,7 +651,7 @@ body {
 .imagebox .headline {
 	font-size: 18px;
 	font-weight: bold;
-	color: #FC8;/*#8CF;*/
+	color: #8CF;/*#FC8;/*#8CF;*/
 	text-shadow:0 1px #445;
 }
 
