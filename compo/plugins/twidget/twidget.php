@@ -276,7 +276,7 @@ function broadcast_list_func( $attr ) {
 		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
 			CASE 
 				WHEN service_id < 4 THEN score
-				WHEN service_id >= 4 AND score > 240 AND viewers >= 50 THEN score
+				WHEN service_id >= 4 AND score > 240 AND followers >= 50 THEN score
 			END DESC,
 			viewers DESC;
 	";
@@ -362,7 +362,7 @@ function broadcast_widget_func() {
 			ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
 				CASE 
 					WHEN service_id < 4 THEN score
-					WHEN service_id >= 4 AND score > 240 AND viewers >= 50 THEN score
+					WHEN service_id >= 4 AND score > 240 AND followers >= 50 THEN score
 				END DESC,
 				viewers DESC
 			LIMIT 18;
