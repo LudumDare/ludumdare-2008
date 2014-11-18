@@ -16,6 +16,8 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	<meta name="twitter:site" content="@ludumdare" />
 	<meta name="twitter:title" content="Ludum Dare" />
 	<meta name="twitter:description" content="The worlds largest online game jam event. Join us every April, August, and December." />
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 	
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>?2.6" type="text/css" media="screen" />
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
