@@ -559,7 +559,7 @@ function broadcast_widget_func() {
   background:#889;
   float:left;
   
-  width: 45px;
+  width: 43px;
   height: 25px;
 }
 
