@@ -403,6 +403,12 @@ function broadcast_widget_func() {
   overflow:hidden;
 }
 
+/* IE SVG Fix */
+.tvbox img {
+	max-width:100%;
+	max-height:100%;
+}
+
 /* ---- SCREEN ------------------------- */
 
 .tvbox .screen {
@@ -689,7 +695,7 @@ function broadcast_widget_func() {
     <div class="frame hidden" id="tv-frame">
 	</div>
     <div class="border">
-    	<img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg" width="292">
+    	<img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg">
     </div>
     <div class="close topright hidden" id="tv-close" onclick="broadcast_clear();"><strong>X</strong></div>
   </div>
