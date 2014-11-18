@@ -64,6 +64,10 @@ h1, h2, h3, .section .label {
 /* Event Boxes */
 @font-face {
 	font-family: LetsGoDigital;
+	src: url('ld2014/LetsgoHaxed-Regular.eot');
+}
+@font-face {
+	font-family: LetsGoDigital;
 	src: url('ld2014/LetsgoHaxed-Regular.ttf');
 }
 .section .clock {	
