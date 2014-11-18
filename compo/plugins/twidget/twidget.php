@@ -542,6 +542,9 @@ function broadcast_widget_func() {
 	left:0;
 	top:0;
 	pointer-events:none;
+	
+	width:292px;
+	height:219px;
 }
 
 /* ---- BAR ------------------------- */
