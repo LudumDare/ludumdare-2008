@@ -1115,6 +1115,7 @@ a, h2 a:hover, h3 a:hover {
 	padding: 0 0 5px 10px;
 	margin: 0;
 	width: 640px;
+	display:inline-block;
 }
 .widecolumn {
 	padding: 10px 0 5px 160px;
