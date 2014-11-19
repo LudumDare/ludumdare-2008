@@ -315,7 +315,7 @@ function broadcast_widget_func() {
 	global $wpdb;
 	
 	$has_apcu = function_exists('apcu_fetch');
-	$apcu_timeout = 5*60;
+	$apcu_timeout = 2*60;
 
 	$total_streams = FALSE;
 	$total_viewers = FALSE;
