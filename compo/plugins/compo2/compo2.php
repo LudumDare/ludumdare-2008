@@ -254,16 +254,27 @@ require_once dirname(__FILE__)."/admin.php";
 require_once dirname(__FILE__)."/misc.php";
 require_once dirname(__FILE__)."/closed.php";
 
-add_filter('the_content','compo2_the_content');
-add_action('wp_head', 'compo2_wp_head');
+//add_filter('the_content','compo2_the_content');
+//add_action('wp_head', 'compo2_wp_head');
 add_action('compo2_cache_begin', 'compo2_cache_begin');
 add_action('compo2_cache_end', 'compo2_cache_end');
-function compo2_the_content($v) {
+/*function compo2_the_content($v) {
     $v = compo2_main($v);
     return $v;
-}
-function compo2_wp_head() {
+}*/
+/*function compo2_wp_head() {
     $url = get_bloginfo("url")."/wp-content/plugins/compo2/style.css";
     echo '<link rel="stylesheet" type="text/css" media="all" href="'.$url.'" />';
+}*/
+
+// Add Local Style Sheet style.css //
+add_action( 'wp_enqueue_scripts', 'compo2_add_my_stylesheet' );
+function compo2_add_my_stylesheet() {
+    wp_register_style( 'compo2-style', plugins_url('style.css', __FILE__) );
+    wp_enqueue_style( 'compo2-style' );
 }
+
+add_shortcode( 'compo2', 'compo2_main' );
+
+
 ?>

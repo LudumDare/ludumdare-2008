@@ -17,7 +17,8 @@ function _compo2_log_sort($a,$b) {
     return intval(($b["tm"]*1000) - ($a["tm"]*1000));
 }
 
-function _compo2_main($m) {
+//function _compo2_main($m) {
+function compo2_main($params) {
     global $compo2;
     $tm = microtime(true);
 
@@ -35,8 +36,9 @@ function _compo2_main($m) {
     @state  State of compo (active,rate,results,closed)
     */
     
+/* MK
     $params = xmlhack_attrs2array($m[1]);
-    
+*/
     @$params["init"] = intval($params["init"]);
     
     if ($params["init"] == 0) {
@@ -145,9 +147,10 @@ function _compo2_main($m) {
     return "<div id='compo2'>$r</div>";
 }
 
-
+/*
 function compo2_main($content) {
     $content = preg_replace_callback("/\[compo2\s(.*?)\]/","_compo2_main",$content);
     return $content;
 }
+*/
 ?>
