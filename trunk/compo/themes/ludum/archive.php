@@ -3,7 +3,7 @@
 	<!-- Side Bar -->
 	<?php get_sidebar(); ?>
 	<!-- Content -->
-	<div id="content" class="narrowcolumn">
+	<div id="content" class="widecolumn">
 <?php
 /*
  	  <?php $meta = eup_get_extended_profile(); // call all new meta values
