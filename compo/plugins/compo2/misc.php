@@ -44,7 +44,8 @@ function compo2_theme_author($uid) {
     $ue = compo2_get_user($uid);
     
     echo '<h2 class="pagetitle">Entries</h2>';
-    echo "<div class='post' id='compo2'>";
+    echo "<div class='ld-post post' id='compo2'><div class='body'>
+";
     
         $cols = 4;
         $n = 0;
@@ -106,7 +107,7 @@ function compo2_theme_author($uid) {
         echo "</table>";
 
     
-    echo "</div>";
+    echo "</div></div>";
     
 }
 
