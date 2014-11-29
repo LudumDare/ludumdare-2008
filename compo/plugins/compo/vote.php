@@ -111,7 +111,7 @@ function _compo_vote_form($pid,$opts) {
     //echo "<input type='submit' value='Vote!'>";
     
     echo "<input type='hidden' name='compo_vote_action' value=1>";
-    echo "<table>";
+    echo "<table class='table'>";
     foreach ($opts as $k=>$name) {
         $key = "vote_{$k}";
         $v = $r[$name];
