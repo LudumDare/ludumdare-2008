@@ -107,8 +107,8 @@ function _compo_vote_form($pid,$opts) {
     $topurl = get_bloginfo("url");
     echo "<script type='text/javascript' src='$topurl/wp-content/plugins/compo/vote.js'></script>";
 
-    echo "<form method='post'>";
-    echo "<input type='submit' value='Vote!'>";
+    echo "<form class='vote' method='post'>";
+    //echo "<input type='submit' value='Vote!'>";
     
     echo "<input type='hidden' name='compo_vote_action' value=1>";
     echo "<table>";
@@ -117,14 +117,14 @@ function _compo_vote_form($pid,$opts) {
         $v = $r[$name];
         echo "<tr>";
         echo "<td><nobr>";compo_vote_fakeajax($key,$v);echo "</nobr>";
-        echo "<td align=left>".compo_vote_google($name);
+        echo "<td class='{$key}' align=left>".compo_vote_google($name);
     }
     echo "</table>";
     
 //     $total = count($opts);
 //     echo "<script type='text/javascript'>initvote($total);</script>";
-
-    echo "<input type='submit' value='Vote!'>";
+	echo "<br />";
+    echo "<input class='button' type='submit' value='Vote!'>";
     echo "</form>";
 }
 
