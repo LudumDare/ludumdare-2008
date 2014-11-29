@@ -1,6 +1,10 @@
 <?php get_header(); ?>
 <div id="body">
+<?php 		if ( get_post_meta(get_the_ID(),'small',true) === "true" ) { ?>
+	<div id="content" class="widecolumn botpad">
+<?php		} else { ?>
 	<div id="content" class="fullcolumn botpad">
+<?php		} ?>
 
 <?php 	if (have_posts()) : while (have_posts()) : the_post(); ?>
 <?php 		if ( get_post_meta(get_the_ID(),'border',true) !== "false" ) { ?>
