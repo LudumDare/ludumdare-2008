@@ -45,7 +45,12 @@ function _compo_vote_results($pid) {
     $data = array(); foreach ($r2 as $e) { $data[$e["name"]][$e["value"]] = $e["c"]; }
 */
 
-	$fields = compo_query("SELECT DISTINCT name FROM {$compo['vote.table']} WHERE pid = ?",array($pid));
+	$fields_query = compo_query("SELECT DISTINCT name FROM {$compo['vote.table']} WHERE pid = ?",array($pid));
+	$fields = [];
+	foreach( $fields_query as $field ) {
+		$fields[] = $field['name'];
+	}
+	
 	print_r( $fields );
 
 //    $e = array_pop(compo_query("
