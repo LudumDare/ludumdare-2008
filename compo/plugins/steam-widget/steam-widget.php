@@ -49,7 +49,6 @@ class SteamWidget extends WP_Widget {
 		);
 	}
 
-	// TODO: Discounts //
 	// TODO: Hover FX (buttons, highlighted games) //
 	// TODO: Use Actual Avatars (stored in DB). CSS change. //
 	// TODO: Widget config (control panel) //
