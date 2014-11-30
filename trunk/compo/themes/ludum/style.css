@@ -662,9 +662,10 @@ body {
 /* ************ */
 
 .thickbox {
-	border:4px solid #88A;
+	border:4px solid #445;
+	border-radius:2px;
 	border-top:0;
-	background-color:#AAC;
+	background-color:#BBC;
 }
 
 .thickbox h1 {
@@ -676,7 +677,7 @@ body {
 }
 
 .thickbox h2 {
-	background-color:#88A;
+	background-color:#445;
 	color:#FFF;
 	margin:0px !important;
 }
@@ -686,7 +687,7 @@ body {
 }
 
 .thickbox a {/*, .thickbox a:visited {*/
-	color:#448;
+	color:#04C;
 }
 .thickbox a:hover {
 	color:#FFF;
