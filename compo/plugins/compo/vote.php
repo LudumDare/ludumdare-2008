@@ -66,15 +66,30 @@ function _compo_vote_results($pid) {
 			array($pid,$field)));
 	}
 	
-	print_r( $data );
+	//print_r( $data );
+
+    echo "<table>";
+    echo "<tr><th><th><th><th align=center>+1<th align=center>0<th align=center>-1<th align=center>Total Votes";
+    $n=1;
+    foreach ($data as $e) {
+        echo "<tr>";
+        echo "<th>{$n}.";$n++;
+        echo "<td>".compo_vote_google($e['name']);
+        echo "<th>".htmlentities($e['result'])."";
+        echo "<td>".$e['upvote'];
+        echo "<td>".$e['novote'];
+        echo "<td>".$e['downvote'];
+        echo "<td>".$e['total'];
+    }
+    echo "</table>";
 
 //    $e = array_pop(compo_query("
 //    	SELECT sum(value) as v
 //    	FROM {$compo['vote.table']}
 //    	WHERE pid = ? AND uid != 0",// AND name = ?",
 //    	array($pid,$name)));
-/*
-    
+
+/*   
     echo "<table>";
     echo "<tr><th><th><th><th align=center>+1<th align=center>0<th align=center>-1";
     $n=1;
@@ -91,7 +106,7 @@ function _compo_vote_results($pid) {
         echo "<td>".$data[$e["name"]]["-1"];
     }
     echo "</table>";
-*/  
+*/ 
     // CACHE ///////////////////////////////////////////////////////////////
     $cres = ob_get_contents();
     ob_end_clean();
