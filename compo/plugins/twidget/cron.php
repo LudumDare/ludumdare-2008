@@ -331,7 +331,7 @@ require "fetch-streams.php";
 				$channel_avatar = mysqli_real_escape_string($db,trim($value['channel']['snippet']['thumbnails']['high']['url']));
 				$channel_url = mysqli_real_escape_string($db,"http://youtube.com/" . $channel_name);
 				//www.youtube.com/embed/SNzlfSIBb8k?rel=0
-				$channel_embed_url = mysqli_real_escape_string($db,"//www.youtube.com/embed/{$media_id}?rel=0");
+				$channel_embed_url = mysqli_real_escape_string($db,"//www.youtube.com/embed/{$media_id}?rel=0&?autoplay=1");
 				$channel_status = mysqli_real_escape_string($db,trim($value['snippet']['title']));
 				$channel_mature = 0;
 				// https://developers.google.com/youtube/v3/docs/videos#contentDetails.contentRating.ytRating
