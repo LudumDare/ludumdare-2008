@@ -342,6 +342,7 @@ require "fetch-streams.php";
 				}
 				
 				$units = $update_time;
+				$score = 5000;
 				
 				$query = 
 					"INSERT INTO " . $streams_table_name . " (
