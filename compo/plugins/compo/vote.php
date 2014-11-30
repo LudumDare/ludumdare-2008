@@ -79,11 +79,11 @@ function _compo_vote_results($pid) {
         echo "<tr>";
         echo "<th>{$n}.";$n++;
         echo "<td>".compo_vote_google($e['name']);
-        echo "<th>".htmlentities($e['result'])."";
+        echo "<th align=right>".htmlentities($e['result'])."";
         echo "<td>".$e['upvote'];
         echo "<td>".$e['novote'];
         echo "<td>".$e['downvote'];
-        echo "<td>".$e['total'];
+        echo "<td align=right>".$e['total'];
     }
     echo "</table>";
 
