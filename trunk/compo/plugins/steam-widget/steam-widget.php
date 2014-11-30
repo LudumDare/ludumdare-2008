@@ -190,7 +190,7 @@ add_action('widgets_init',
 // - ----------------------------------------------------------------------------------------- - //
 add_action( 'wp_enqueue_scripts', 'steam_add_my_stylesheet' );
 function steam_add_my_stylesheet() {
-    wp_register_style( 'steam-style', plugins_url('style.css?1.0', __FILE__) );
+    wp_register_style( 'steam-style', plugins_url('style.css?1.1', __FILE__) );
     wp_enqueue_style( 'steam-style' );
 }
 // - ----------------------------------------------------------------------------------------- - //
