@@ -820,14 +820,19 @@ img {
 	text-align: center;
 	}
 
-.thread-alt {
-	background-color: #f8f8f8;
+.thread-alt, .even .odd {
+	background-color: #EEE;
 }
-.thread-even {
-	background-color: white;
+.thread-even, .odd .even {
+	background-color: #FFF;
 }
 .depth-1 {
-border: 1px solid #ddd;
+/*border: 1px solid #ddd;*/
+border-radius:2px;
+}
+
+.comment a {
+	color: #44F;
 }
 
 .even, .alt {
