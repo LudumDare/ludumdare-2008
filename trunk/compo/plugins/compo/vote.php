@@ -56,9 +56,9 @@ function _compo_vote_results($pid) {
 	foreach( $fields as $field ) {
 		$data[] = array_pop(compo_query("
 			SELECT SUM(value) AS result,
-				SUM(CASE WHEN value = -1 then value end) as downvote,
-				SUM(CASE WHEN value = 0 then value end) as novote,
-				SUM(CASE WHEN value = 1 then value end) as upvote
+				SUM(CASE WHEN value = -1 then 1 end) as downvote,
+				SUM(CASE WHEN value = 0 then 1 end) as novote,
+				SUM(CASE WHEN value = 1 then 1 end) as upvote
 			FROM {$compo['vote.table']} 
 			WHERE pid = ? AND name = ?",
 			array($pid,$field)));
