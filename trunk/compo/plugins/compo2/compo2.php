@@ -76,7 +76,12 @@ function compo2_cache_read($cid,$name,$ts=-1) {
         $user = wp_get_current_user();
         if ($user->user_level >= 7) { return false; }
     }
-    
+
+	// MK: APC Cache //
+	if ( function_exists('apcu_fetch') ) {
+		return apcu_fetch('c2_'.$cid.$name);
+	}
+/*	
     if ($ts==-1) {
         $r = compo2_query("select * from c2_cache where id = ?",array("$cid|$name"));
     } else {
@@ -84,11 +89,18 @@ function compo2_cache_read($cid,$name,$ts=-1) {
     }
     if (!count($r)) { return false; }
     $e = array_pop($r);
-    return $e["data"];
+    return $e["data"];*/
 }
 
 function compo2_cache_write($cid,$name,$data) {
+	// MK: APC Cache //
+	if ( function_exists('apcu_store') ) {
+		apcu_store('c2_'.$cid.$name, $data, 180);	// Store for 3 minutes //
+	}
+
+/*
     compo2_query("replace into c2_cache (id,cid,name,data,ts) values (?,?,?,?,?)",array("$cid|$name",$cid,$name,$data,date("Y-m-d H:i:s")));
+*/
 }
 
 // custom limited cache
