@@ -54,10 +54,12 @@ class SteamWidget extends WP_Widget {
 	// TODO: Widget config (control panel) //
 	public function widget( $args, $instance ) {
 		if ( function_exists('apcu_fetch') ) {
-			$cached = apcu_fetch('mk_SteamWidget_cache');
-			if ( $cached !== FALSE ) {
-				echo $cached;
-				return;
+			if ( !isset($_GET["cache"]) ) {
+				$cached = apcu_fetch('mk_SteamWidget_cache');
+				if ( $cached !== FALSE ) {
+					echo $cached;
+					return;
+				}
 			}
 		}
 		
