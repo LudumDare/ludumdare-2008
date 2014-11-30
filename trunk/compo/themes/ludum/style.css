@@ -916,9 +916,9 @@ h2, h2 a, h2 a:hover, /*h2 a:visited,*/ h3, h3 a, h3 a:hover, /*h3 a:visited,*/ 
 
 .commentlist li .avatar { 
 	float: right;
-	border: 1px solid #eee;
+/*	border: 1px solid #eee;*/
 	padding: 2px;
-	background: #fff;
+/*	background: #fff;*/
 	}
 
 .commentlist cite, .commentlist cite a {

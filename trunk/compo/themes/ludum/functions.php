@@ -417,7 +417,7 @@ function ludumtheme_comment($comment, $args, $depth) {
    <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
      <div id="comment-<?php comment_ID(); ?>">
       <div class="comment-author vcard">
-         <?php echo get_avatar($comment,$size='32',$default='<path_to_url>' ); ?>
+         <?php echo get_avatar($comment,$size='56',$default='<path_to_url>' ); ?>
 
          <?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
       </div>
@@ -430,9 +430,11 @@ function ludumtheme_comment($comment, $args, $depth) {
 
       <?php comment_text() ?>
 
+<!--
       <div class="avatar">
       	<?php if(function_exists('ckrating_display_karma')) { ckrating_display_karma(); }  ?>
       </div>
+-->
       <div class="reply">
          <?php comment_reply_link(array_merge( $args, array('depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
       </div>
