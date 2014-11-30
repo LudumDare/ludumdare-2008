@@ -99,21 +99,29 @@ class SteamWidget extends WP_Widget {
 			$release = strtotime($game['released']);
 			//echo $release . " " . $game['released'];
 			$banner_class = "";
-			if ( $release <= 0 ) {
-				$banner_class = "soon";
-			}
-			else if ( $release > $http_request_time ) {
-				$banner_class = "soon";
-			}
-			else if ( $release > ($http_request_time - 60*24*60*60) ) {
-				$banner_class = "new";
-			}
+//			if ( $release <= 0 ) {
+//				$banner_class = "soon";
+//			}
+//			else if ( $release > $http_request_time ) {
+//				$banner_class = "soon";
+//			}
+//			else if ( $release > ($http_request_time - 60*24*60*60) ) {
+//				$banner_class = "new";
+//			}
 				
 			$out .= "<div class='banner {$banner_class}'>
 						<a href='{$game['url']}' title='{$game['name']}' target='_blank'><img src='{$game['banner']}' /></a>";
 			if ($game['discount']) {
 				$out .= "<div class='discount'>" . $game['discount'] . "</div>";
 			}
+			
+			if ( ($release <= 0) || ($release > $http_request_time) ) {
+				$out .= "<div class='soon'></div>";
+			}
+			else if ( $release > ($http_request_time - 60*24*60*60) ) {
+				$out .= "<div class='new'></div>";
+			}
+
 			$out .= "</div>";
 		}
 
