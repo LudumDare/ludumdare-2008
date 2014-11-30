@@ -66,6 +66,10 @@ function _compo_vote_results($pid) {
 			array($pid,$field)));
 	}
 	
+	usort($data,function($a,$b){
+		return $a['result'] - $b['result'];
+	});
+	
 	//print_r( $data );
 
     echo "<table>";
