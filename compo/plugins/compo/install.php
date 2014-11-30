@@ -73,7 +73,35 @@ function compo_install() {
         $wpdb->query($sql);
         update_option($key,$version);
     }
-
+/*
+	$version = 7;
+	if ($cur < $version) {
+		// Remove NULL //
+		$wpdb->query("
+			ALTER TABLE {$compo['rate.table']}
+			ALTER COLUMN NOT NULL DEFAULT 0
+		");
+		
+		update_option($key,$version);
+	}*/
+	
+	// PID and UID
+	// - Set defaults to 0
+	// - set NOT NULL
+	// - changed to BIGINT
+	
+	// NAME
+	// - set default to "" (nothing)
+	// - set NOT NULL
+	// - collation to utf8_unicode_ci
+	// - set to 100 wide (not 255)
+	
+	// VALUE
+	// - set NOT NULL
+	
+	
+	// Renamed PID index to "pid_and_uid"
+	// - set both PID and UID as the index
 }
 register_activation_hook($GLOBALS["compo"]["plugin"],"compo_install");
 ?>

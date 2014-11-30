@@ -69,6 +69,8 @@ function _compo_vote_results($pid) {
     ////////////////////////////////////////////////////////////////////////
 }
 
+/*
+// OLD VERSION //
 function _compo_vote_do($pid,$opts) {
     global $compo;
     $cur = wp_get_current_user();
@@ -91,6 +93,43 @@ function _compo_vote_do($pid,$opts) {
         echo "<p>Thanks for voting!</p>";
     }
 }
+*/
+
+// MK Version //
+function _compo_vote_do($pid,$opts) {
+    global $compo;
+    $cur = wp_get_current_user();
+    $uid = $cur->ID;
+    if (!$uid) { return; }
+    
+    $action = isset($_REQUEST["compo_vote_action"])?$_REQUEST["compo_vote_action"]:"";
+    if ($action != "") {
+//        compo_query("delete from {$compo["vote.table"]} where pid = ? and uid = ?",array($pid,$uid));
+        foreach ($opts as $k=>$name) {
+            $key = "vote_{$k}";
+            $v = (strlen($_REQUEST[$key])?max(-1,min(1,intval($_REQUEST[$key]))):"");
+            if (strlen($v)) {
+                compo_query("
+                	INSERT INTO {$compo['vote.table']} (
+                		pid,
+                		uid,
+                		name,
+                		
+                		value
+                	) 
+                	VALUES (?,?,?,?)
+                	ON DUPLICATE KEY UPDATE
+                		value=VALUES(value)",
+                	array($pid,$uid,$name,$v));
+            }
+//            compo_query("delete from {$compo["vote.table"]} where pid = ? and uid = ? and name = ?",array($pid,0,$name));
+//            $e = array_pop(compo_query("select sum(value) as v from {$compo["vote.table"]} where pid = ? and uid != 0 and name = ?",array($pid,$name)));
+//            compo_query("insert into {$compo["vote.table"]} (pid,uid,name,value) values (?,?,?,?)",array($pid,0,$name,$e["v"]));
+        }
+        echo "<p>Thanks for voting!</p>";
+    }
+}
+
 
 function _compo_vote_form($pid,$opts) {
     global $compo;
