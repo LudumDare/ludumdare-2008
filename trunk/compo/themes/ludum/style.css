@@ -831,6 +831,9 @@ img {
 border-radius:2px;
 }
 
+.comment {
+	color: #445;
+}
 .comment a {
 	color: #44F;
 }
