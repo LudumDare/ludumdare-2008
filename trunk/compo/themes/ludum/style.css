@@ -358,6 +358,11 @@ body {
 	width:100%;
 }
 
+.section .biggercell {
+	background-size:320px auto !important;
+	width:320px;
+}
+
 .section .bigcell {
 	background-size:300px auto !important;
 	height:80px;
