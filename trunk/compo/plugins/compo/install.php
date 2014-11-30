@@ -100,8 +100,10 @@ function compo_install() {
 	// - set NOT NULL
 	
 	
-	// Renamed PID index to "pid_and_uid"
-	// - set both PID and UID as the index
+	// INDEXES
+	// - just_pid: pid (INDEX)
+	// - pid_and_uid: pid, uid (INDEX)
+	// - big_thee: pid, uid, name (UNIQUE) ***
 }
 register_activation_hook($GLOBALS["compo"]["plugin"],"compo_install");
 ?>
