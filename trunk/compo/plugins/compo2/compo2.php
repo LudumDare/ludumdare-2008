@@ -89,7 +89,8 @@ function compo2_cache_read($cid,$name,$ts=-1) {
     }
     if (!count($r)) { return false; }
     $e = array_pop($r);
-    return $e["data"];*/
+    return $e["data"];
+/**/
 }
 
 function compo2_cache_write($cid,$name,$data) {
