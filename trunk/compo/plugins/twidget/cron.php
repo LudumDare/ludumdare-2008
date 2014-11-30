@@ -562,6 +562,7 @@ require "fetch-streams.php";
 
 		// * * * * * * * * * * //
 
+/*
 
 		$activity_table_name = $table_prefix . "broadcast_activity";
 		// Check if Table exists //
@@ -669,7 +670,7 @@ require "fetch-streams.php";
 			}	
 		}
 		
-		
+*/		
 		
 		// Stream Preview Images (defaults: 80x50, 320x200, 640x400)
 		// http://static-cdn.jtvnw.net/previews-ttv/live_user_{name}-{width}x{height}.jpg
