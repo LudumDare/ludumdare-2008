@@ -360,7 +360,7 @@ body {
 
 .section .biggercell {
 	background-size:320px auto !important;
-	width:320px;
+	width:320px !important;
 }
 
 .section .bigcell {
