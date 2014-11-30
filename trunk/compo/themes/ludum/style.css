@@ -863,9 +863,9 @@ h2.pagetitle {
 	font-size: 1.9em;
 	}
 
-#sidebar h2 {
+/*#sidebar h2 {
 	font-size: 1.2em;
-}
+}*/
 
 h3 {
 	font-size: 1.4em;
@@ -950,8 +950,12 @@ acronym, abbr, span.caps
 	letter-spacing: .07em;
 	}
 
-a, h2 a:hover, h3 a:hover {
-	color: #44C;
+a {
+	color: #BBC;
+}
+
+a:hover, h2 a:hover, h3 a:hover {
+	color: #FFF;
 }
 
 #wp-calendar #prev a, #wp-calendar #next a {
