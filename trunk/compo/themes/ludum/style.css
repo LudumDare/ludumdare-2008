@@ -825,7 +825,7 @@ img {
 	text-align: center;
 	}
 
-.thread-alt, .comment .alt {
+.thread-alt, .comment .alt, .thread-even {
 	background-color: #EEE !important;
 }
 .comment {
