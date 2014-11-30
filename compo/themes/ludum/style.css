@@ -834,6 +834,12 @@ border-radius:2px;
 .comment a {
 	color: #44F;
 }
+.comment a:hover, .comment cite a:hover {
+	color: #FA0;
+}
+.comment cite a {
+	color: #026;
+}
 
 .even, .alt {
 
@@ -924,7 +930,7 @@ h2, h2 a, h2 a:hover, /*h2 a:visited,*/ h3, h3 a, h3 a:hover, /*h3 a:visited,*/ 
 .commentlist cite, .commentlist cite a {
 	font-weight: bold;
 	font-style: normal;
-	font-size: 1.1em;
+	font-size: 1.2em;
 	}
 
 .commentlist p {
