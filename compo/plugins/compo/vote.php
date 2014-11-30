@@ -60,7 +60,7 @@ function _compo_vote_results($pid) {
 				SUM(CASE WHEN value = 0 then 1 end) as novote,
 				SUM(CASE WHEN value = 1 then 1 end) as upvote
 			FROM {$compo['vote.table']} 
-			WHERE pid = ? AND name = ?",
+			WHERE pid = ? AND uid != 0 AND name = ?",
 			array($pid,$field)));
 	}
 	
