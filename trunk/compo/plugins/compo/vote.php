@@ -49,7 +49,7 @@ function _compo_vote_results($pid) {
 	
 	if ( function_exists('apcu_fetch') ) {
 		if ( !isset($_GET["admin"]) ) {
-			$data = apcu_fetch( 'vote_reult_' . $pid );
+			$data = apcu_fetch( 'c1_vote_result_' . $pid );
 		}
 	}
 	
@@ -78,7 +78,7 @@ function _compo_vote_results($pid) {
 		});
 		
 		if ( function_exists('apcu_store') ) {
-			apcu_store( 'vote_reult_' . $pid, $data, 180);	// Store for 3 minutes //
+			apcu_store( 'c1_vote_result_' . $pid, $data, 180);	// Store for 3 minutes //
 		}		
 	}
 	
