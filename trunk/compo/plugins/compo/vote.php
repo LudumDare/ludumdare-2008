@@ -73,13 +73,14 @@ function _compo_vote_results($pid) {
 	//print_r( $data );
 
     echo "<table>";
-    echo "<tr><th><th><th><th align=center>+1<th align=center>0<th align=center>-1<th align=center>Total Votes";
+    echo "<tr><th><th><th><th>&nbsp;&nbsp;&nbsp;&nbsp;<th align=center>+1<th align=center>0<th align=center>-1<th align=center>Total Votes";
     $n=1;
     foreach ($data as $e) {
         echo "<tr>";
         echo "<th>{$n}.";$n++;
         echo "<td>".compo_vote_google($e['name']);
         echo "<th align=right>".htmlentities($e['result'])."";
+        echo "<td>";
         echo "<td>".$e['upvote'];
         echo "<td>".$e['novote'];
         echo "<td>".$e['downvote'];
