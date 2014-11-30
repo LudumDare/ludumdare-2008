@@ -417,7 +417,7 @@ function ludumtheme_comment($comment, $args, $depth) {
    <li <?php comment_class(); ?> id="li-comment-<?php comment_ID() ?>">
      <div id="comment-<?php comment_ID(); ?>">
       <div class="comment-author vcard">
-         <?php echo get_avatar($comment,$size='56',$default='<path_to_url>' ); ?>
+         <?php echo get_avatar($comment,$size='56',$default='' ); ?>
 
          <?php printf(__('<cite class="fn">%s</cite> <span class="says">says:</span>'), get_comment_author_link()) ?>
       </div>
