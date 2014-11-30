@@ -51,7 +51,13 @@ function _compo_vote_results($pid) {
 		$fields[] = $field['name'];
 	}
 	
-	print_r( $fields );
+	$data = [];
+	
+	foreach( $fields as $field ) {
+		$data[] = compo_query("SELECT SUM(value) AS result FROM {$compo['vote.table']} WHERE pid = ?",array($pid));
+	}
+	
+	print_r( $data );
 
 //    $e = array_pop(compo_query("
 //    	SELECT sum(value) as v
