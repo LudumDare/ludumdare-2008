@@ -127,11 +127,13 @@
 }
 */
 
-.steambox .new :before {
+/*.steambox .new :before, */
+.steambox .banner .new {
 	content: "NEW";
 	position: absolute;
 	white-space:nowrap;
-	left: 0px;
+	left:0;
+	top:0;
 	background: rgba(128,224,64,0.8);
 	padding: 4px 8px;
 	color: #FFF;
@@ -142,11 +144,13 @@
 	border-top: 1px solid #FFF;*/
 }
 
-.steambox .soon :before {
+/*.steambox .soon :before, ,*/
+.steambox .banner .soon {
 	content: "COMING SOON";
 	position: absolute;
 	white-space:nowrap;
-	left: 0px;
+	left: 0;
+	top: 0;
 	background: rgba(128,64,192,0.7);
 	padding: 4px 8px;
 	color: #FFF;
