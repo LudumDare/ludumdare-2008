@@ -820,10 +820,10 @@ img {
 	text-align: center;
 	}
 
-.thread-alt, .thread-even .even, .thread-alt .odd {
+.thread-alt, .thread-alt .even, .thread-even .odd {
 	background-color: #EEE;
 }
-.thread-even, .thread-even .odd, .thread-alt .even {
+.thread-even, .thread-alt .odd, .thread-even .even {
 	background-color: #FFF;
 }
 .depth-1 {
