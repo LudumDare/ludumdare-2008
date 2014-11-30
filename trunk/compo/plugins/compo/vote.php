@@ -67,7 +67,7 @@ function _compo_vote_results($pid) {
 	}
 	
 	usort($data,function($a,$b){
-		return $a['result'] - $b['result'];
+		return $b['result'] - $a['result'];
 	});
 	
 	//print_r( $data );
