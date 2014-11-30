@@ -1474,6 +1474,8 @@ select {
 #commentform textarea {
 	width: 100%;
 	padding: 2px;
+	border:none;
+	border-radius:4px;
 	}
 #respond:after {
 		content: "."; 
