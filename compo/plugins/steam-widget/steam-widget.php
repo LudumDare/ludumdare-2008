@@ -110,9 +110,12 @@ class SteamWidget extends WP_Widget {
 				$banner_class = "new";
 			}
 				
-			$out .= "	<div class='banner {$banner_class}'>
-						<a href='{$game['url']}' title='{$game['name']}' target='_blank'><img src='{$game['banner']}' /></a>
-					</div>";
+			$out .= "<div class='banner {$banner_class}'>
+						<a href='{$game['url']}' title='{$game['name']}' target='_blank'><img src='{$game['banner']}' /></a>";
+			if ($game['discount']) {
+				$out .= "<div class='discount'>" . $game['discount'] . "</div>";
+			}
+			$out .= "</div>";
 		}
 
 		$out .= "
