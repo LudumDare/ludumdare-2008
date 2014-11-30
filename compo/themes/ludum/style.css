@@ -1029,10 +1029,10 @@ a:hover, h2 a:hover, h3 a:hover {
 	background: #889;
 	padding:2px;
 	padding-left:3px;
-	border:2px solid #445;
+/*	border:2px solid #445;*/
 	border-right:0;
 	border-radius:4px 0 0 4px;
-	margin-top:30px;
+	margin-top:32px;
 	
 /*	position:relative;
 	right:-30px;
