@@ -38,11 +38,22 @@ function _compo_vote_results($pid) {
     ////////////////////////////////////////////////////////////////////////
 
     global $compo;
+/*    
+    $r = compo_query("select * from {$compo['vote.table']} where pid = ? and uid = ? order by value desc",array($pid,0));
     
-    $r = compo_query("select * from {$compo["vote.table"]} where pid = ? and uid = ? order by value desc",array($pid,0));
-    
-    $r2 = compo_query("select count(*) c, name,value , concat(name,'|',value) as n_v from {$compo["vote.table"]} where pid = ? and uid != 0 group by n_v",array($pid));
+    $r2 = compo_query("select count(*) c, name,value , concat(name,'|',value) as n_v from {$compo['vote.table']} where pid = ? and uid != 0 group by n_v",array($pid));
     $data = array(); foreach ($r2 as $e) { $data[$e["name"]][$e["value"]] = $e["c"]; }
+*/
+
+	$fields = compo_query("SELECT DISTINCT name FROM {$compo['vote.table']} WHERE pid = ?",array($pid));
+	print_r( $fields );
+
+//    $e = array_pop(compo_query("
+//    	SELECT sum(value) as v
+//    	FROM {$compo['vote.table']}
+//    	WHERE pid = ? AND uid != 0",// AND name = ?",
+//    	array($pid,$name)));
+/*
     
     echo "<table>";
     echo "<tr><th><th><th><th align=center>+1<th align=center>0<th align=center>-1";
@@ -60,7 +71,7 @@ function _compo_vote_results($pid) {
         echo "<td>".$data[$e["name"]]["-1"];
     }
     echo "</table>";
-    
+*/  
     // CACHE ///////////////////////////////////////////////////////////////
     $cres = ob_get_contents();
     ob_end_clean();
@@ -137,7 +148,7 @@ function _compo_vote_form($pid,$opts) {
     $uid = $cur->ID;
     if (!$uid) { echo "<p>You must sign in to vote.</p>"; return; }
     
-    $data = compo_query("select * from {$compo["vote.table"]} where pid = ? and uid = ?",array($pid,$uid));
+    $data = compo_query("select * from {$compo['vote.table']} where pid = ? and uid = ?",array($pid,$uid));
     $r = array(); foreach ($data as $e) { $r[$e["name"]] = $e["value"]; }
 
     echo "<style>.s,.us { cursor:pointer; } .us { opacity: 0.15; -moz-opacity: 0.15; filter: alpha(opacity=15); }</style>";
