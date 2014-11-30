@@ -31,7 +31,7 @@ function compo_vote_google($name) {
 
 function _compo_vote_results($pid) {
     // CACHE ///////////////////////////////////////////////////////////////
-    if (($cres=compo2_cache_read(0,$ckey="compo_vote_results:$pid",5*60))!==false) {
+    if (($cres=compo2_cache_read(0,$ckey="compo_vote_results:$pid",3*60))!==false) {
         if (!isset($_REQUEST["admin"])) { echo $cres; return; }
     }
     ob_start();
@@ -45,30 +45,42 @@ function _compo_vote_results($pid) {
     $data = array(); foreach ($r2 as $e) { $data[$e["name"]][$e["value"]] = $e["c"]; }
 */
 
-	$fields_query = compo_query("SELECT DISTINCT name FROM {$compo['vote.table']} WHERE pid = ?",array($pid));
-	$fields = [];
-	foreach( $fields_query as $field ) {
-		$fields[] = $field['name'];
-	}
-	
 	$data = [];
 	
-	foreach( $fields as $field ) {
-		$data[] = array_pop(compo_query("
-			SELECT name,
-				SUM(value) AS result,
-				SUM(CASE WHEN value = -1 then 1 end) as downvote,
-				SUM(CASE WHEN value = 0 then 1 end) as novote,
-				SUM(CASE WHEN value = 1 then 1 end) as upvote,
-				COUNT(value) AS total
-			FROM {$compo['vote.table']} 
-			WHERE pid = ? AND uid != 0 AND name = ?",
-			array($pid,$field)));
+	if ( function_exists('apcu_fetch') ) {
+		if ( !isset($_GET["admin"]) ) {
+			$data = apcu_fetch( 'vote_reult_' . $pid );
+		}
 	}
 	
-	usort($data,function($a,$b){
-		return $b['result'] - $a['result'];
-	});
+	if ( count($data) === 0 ) {
+		$fields_query = compo_query("SELECT DISTINCT name FROM {$compo['vote.table']} WHERE pid = ?",array($pid));
+		$fields = [];
+		foreach( $fields_query as $field ) {
+			$fields[] = $field['name'];
+		}
+		
+		foreach( $fields as $field ) {
+			$data[] = array_pop(compo_query("
+				SELECT name,
+					SUM(value) AS result,
+					SUM(CASE WHEN value = -1 then 1 end) as downvote,
+					SUM(CASE WHEN value = 0 then 1 end) as novote,
+					SUM(CASE WHEN value = 1 then 1 end) as upvote,
+					COUNT(value) AS total
+				FROM {$compo['vote.table']} 
+				WHERE pid = ? AND uid != 0 AND name = ?",
+				array($pid,$field)));
+		}
+		
+		usort($data,function($a,$b){
+			return $b['result'] - $a['result'];
+		});
+		
+		if ( function_exists('apcu_store') ) {
+			apcu_store( 'vote_reult_' . $pid, $data, 180);	// Store for 3 minutes //
+		}		
+	}
 	
 	//print_r( $data );
 
