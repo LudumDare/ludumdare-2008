@@ -364,7 +364,7 @@ body {
 }
 
 .section .bigcell {
-	background-size:300px auto !important;
+	background-size:300px auto;
 	height:80px;
 	overflow:hidden;
 	border-radius:2px;
