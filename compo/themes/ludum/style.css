@@ -825,10 +825,10 @@ img {
 	text-align: center;
 	}
 
-.thread-odd, .thread-odd .children:nth-child(even), .thread-even .children:nth-child(odd) {
+.thread-odd, .thread-odd .even, .thread-even .odd {
 	background-color: #EEE;
 }
-.thread-even, .thread-even .children:nth-child(even), .thread-odd .children:nth-child(odd) {
+.thread-even, .thread-even .even, .thread-odd .odd {
 	background-color: #FFF;
 }
 .depth-1 {
