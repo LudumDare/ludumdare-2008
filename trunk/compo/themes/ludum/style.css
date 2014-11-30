@@ -826,7 +826,7 @@ img {
 	}
 
 .thread-alt, .comment .alt {
-	background-color: #EEE;
+	background-color: #EEE !important;
 }
 .comment {
 	background-color: #FFF;
