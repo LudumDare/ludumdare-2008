@@ -221,9 +221,11 @@ function _compo_vote_form($pid,$opts) {
 			}
 		}
 
+	    $n=1;
 	    echo "<table class='table'>";
 	    foreach ($data as $name) {
 	        echo "<tr>";
+	        echo "<th>{$n}.";$n++;
 	        echo "<td class='{$key}' align=left>".compo_vote_google($name);
 	    }
 	    echo "</table>";
