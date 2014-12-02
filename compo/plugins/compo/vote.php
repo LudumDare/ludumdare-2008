@@ -199,7 +199,38 @@ function _compo_vote_form($pid,$opts) {
     global $compo;
     $cur = wp_get_current_user();
     $uid = $cur->ID;
-    if (!$uid) { echo "<p>You must sign in to vote.</p>"; return; }
+
+    if (!$uid) {
+		$data = null;
+		
+		if ( function_exists('apcu_fetch') ) {
+			if ( !isset($_GET["admin"]) ) {
+				$data = apcu_fetch( 'c1_vote_themelist_' . $pid );
+			}
+		}
+		
+		if ( !$data ) {
+			$fields_query = compo_query("SELECT DISTINCT name FROM {$compo['vote.table']} WHERE pid = ?",array($pid));
+			$data = [];
+			foreach( $fields_query as $field ) {
+				$data[] = $field['name'];
+			}
+
+			if ( function_exists('apcu_store') ) {
+				apcu_store( 'c1_vote_themelist_' . $pid, $data); // Store (no expiration) //
+			}
+		}
+
+	    echo "<table class='table'>";
+	    foreach ($data as $name) {
+	        echo "<tr>";
+	        echo "<td class='{$key}' align=left>".compo_vote_google($name);
+	    }
+	    echo "</table>";
+    	
+    	echo "<p>You must sign in to vote.</p>"; 
+    	return;
+    }
     
     $data = compo_query("select * from {$compo['vote.table']} where pid = ? and uid = ?",array($pid,$uid));
     $r = array(); foreach ($data as $e) { $r[$e["name"]] = $e["value"]; }
