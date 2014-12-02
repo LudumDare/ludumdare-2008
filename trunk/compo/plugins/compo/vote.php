@@ -45,7 +45,7 @@ function _compo_vote_results($pid) {
     $data = array(); foreach ($r2 as $e) { $data[$e["name"]][$e["value"]] = $e["c"]; }
 */
 
-	$data = [];
+	$data = null;
 	
 	if ( function_exists('apcu_fetch') ) {
 		if ( !isset($_GET["admin"]) ) {
@@ -54,6 +54,7 @@ function _compo_vote_results($pid) {
 	}
 	
 	if ( !$data ) {
+		$data = [];
 		$fields_query = compo_query("SELECT DISTINCT name FROM {$compo['vote.table']} WHERE pid = ?",array($pid));
 		$fields = [];
 		foreach( $fields_query as $field ) {
