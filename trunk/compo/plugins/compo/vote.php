@@ -221,6 +221,8 @@ function _compo_vote_form($pid,$opts) {
 			}
 		}
 
+    	echo "<p>You must sign in to vote.</p>"; 
+
 	    $n=1;
 	    echo "<table class='table'>";
 	    foreach ($data as $name) {
