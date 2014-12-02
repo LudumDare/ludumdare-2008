@@ -201,7 +201,7 @@ function _compo_vote_form($pid,$opts) {
     $uid = $cur->ID;
 
     if (!$uid) {
-		$data = null;
+/*		$data = null;
 		
 		if ( function_exists('apcu_fetch') ) {
 			if ( !isset($_GET["admin"]) ) {
@@ -220,12 +220,13 @@ function _compo_vote_form($pid,$opts) {
 				apcu_store( 'c1_vote_themelist_' . $pid, $data); // Store (no expiration) //
 			}
 		}
-
+*/
     	echo "<p>You must sign in to vote.</p>"; 
 
 	    $n=1;
 	    echo "<table class='table'>";
-	    foreach ($data as $name) {
+	    foreach ($opts as $k=>$name) {	// Pull the themes from the args //
+		//foreach ($data as $name) {
 	        echo "<tr>";
 	        echo "<th>{$n}.";$n++;
 	        echo "<td class='{$key}' align=left>".compo_vote_google($name);
