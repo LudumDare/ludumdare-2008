@@ -227,6 +227,7 @@ function _compo_vote_form($pid,$opts) {
 	    echo "<table class='table'>";
 	    foreach ($opts as $k=>$name) {	// Pull the themes from the args //
 		//foreach ($data as $name) {
+	        $key = "vote_{$k}";
 	        echo "<tr>";
 	        echo "<th>{$n}.";$n++;
 	        echo "<td class='{$key}' align=left>".compo_vote_google($name);
