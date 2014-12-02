@@ -53,7 +53,7 @@ function _compo_vote_results($pid) {
 		}
 	}
 	
-	if ( count($data) === 0 ) {
+	if ( !$data ) {
 		$fields_query = compo_query("SELECT DISTINCT name FROM {$compo['vote.table']} WHERE pid = ?",array($pid));
 		$fields = [];
 		foreach( $fields_query as $field ) {
