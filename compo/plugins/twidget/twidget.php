@@ -648,15 +648,25 @@ function broadcast_widget_func() {
 		var close = document.querySelectorAll('#tv-close')[0];
 		js_add_class( close, "hidden" );
 	}
+
+	var tvpop = false;
+	
+	function broadcast_tvpop_toggle() {
+		if ( tvpop )
+			broadcast_hide_tvpop();
+		broadcast_tvpop();
+	}
 	
 	function broadcast_tvpop() {
 		var close = document.querySelectorAll('#tvpop-box')[0];
 		js_remove_class( close, "hidden" );
+		tvpop = true;
 	}
 	
 	function broadcast_hide_tvpop() {
 		var close = document.querySelectorAll('#tvpop-box')[0];
 		js_add_class( close, "hidden" );
+		tvpop = false;
 	}
 </script>
 
@@ -696,7 +706,7 @@ function broadcast_widget_func() {
 <?php
 		}
 ?>
-    	<div class="footer" onclick="broadcast_tvpop();"><span class="more">More <strong>LIVE</strong> GameDev</span></div>
+    	<div class="footer" onclick="broadcast_tvpop_toggle();"><span class="more">More <strong>LIVE</strong> GameDev</span></div>
     </div>
     <div class="frame hidden" id="tv-frame">
 	</div>
