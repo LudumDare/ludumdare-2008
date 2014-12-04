@@ -123,6 +123,7 @@ function init_postmoddare() {
 			change_user_level( $current_post['post_author'], 'author' );
 			change_post_status((int)$_POST['pid'],'publish');
 		}
+	}
 	if (isset($_POST['FE_USER_PROMOTE']) && $_POST['FE_USER_PROMOTE'] == 'FE_USER_PROMOTE'){
 		if (isset($_POST['pid']) && !empty($_POST['pid'])) {
 			$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
