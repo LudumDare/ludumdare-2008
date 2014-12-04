@@ -38,6 +38,15 @@ function show_promote_buttons(){
 	//only print if admin
 	if (current_user_can('edit_others_posts')){
 		echo '
+		<form action="" method="POST" name="front_end_promote_publish" class="promoform">
+			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
+			<input id="FE_USER_PROMOTE_PUBLISH" type="hidden" name="FE_USER_PROMOTE_PUBLISH" value="FE_USER_PROMOTE_PUBLISH" />
+			<input id="submit" type="submit" name="submit" value="Promote and Publish" class="promobutton2" onclick="return confirm(\'Are you sure you want to Promote this user to an Author and Publish the Post?\')" />
+		</form>';
+
+		echo ' | ';
+		
+		echo '
 		<form action="" method="POST" name="front_end_promote" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_USER_PROMOTE" type="hidden" name="FE_USER_PROMOTE" value="FE_USER_PROMOTE" />
@@ -108,6 +117,12 @@ function init_postmoddare() {
 	}
 	
 	// Responses to User Level Changes //
+	if (isset($_POST['FE_USER_PROMOTE_PUBLISH']) && $_POST['FE_USER_PROMOTE_PUBLISH'] == 'FE_USER_PROMOTE_PUBLISH'){
+		if (isset($_POST['pid']) && !empty($_POST['pid'])) {
+			$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
+			change_user_level( $current_post['post_author'], 'author' );
+			change_post_status((int)$_POST['pid'],'publish');
+		}
 	if (isset($_POST['FE_USER_PROMOTE']) && $_POST['FE_USER_PROMOTE'] == 'FE_USER_PROMOTE'){
 		if (isset($_POST['pid']) && !empty($_POST['pid'])) {
 			$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
