@@ -16,6 +16,15 @@ function show_publish_buttons(){
 	//only print fi admin
 	if (current_user_can('edit_others_posts')){
 		echo '
+		<form action="" method="POST" name="front_end_promote_publish" class="promoform">
+			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
+			<input id="FE_USER_PROMOTE_PUBLISH" type="hidden" name="FE_USER_PROMOTE_PUBLISH" value="FE_USER_PROMOTE_PUBLISH" />
+			<input id="submit" type="submit" name="submit" value="Promote and Publish" class="promobutton2" onclick="return confirm(\'Are you sure you want to Promote this user to an Author and Publish the Post?\')" />
+		</form>';
+
+		echo ' | ';
+
+		echo '
 		<form action="" method="POST" name="front_end_publish" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
 			<input id="FE_PUBLISH" type="hidden" name="FE_PUBLISH" value="FE_PUBLISH" />
@@ -60,16 +69,7 @@ function show_promote_buttons(){
 function show_murder_buttons(){
 	Global $post;
 	//only print if admin
-	if (current_user_can('delete_users')){	
-		echo '
-		<form action="" method="POST" name="front_end_promote_publish" class="promoform">
-			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
-			<input id="FE_USER_PROMOTE_PUBLISH" type="hidden" name="FE_USER_PROMOTE_PUBLISH" value="FE_USER_PROMOTE_PUBLISH" />
-			<input id="submit" type="submit" name="submit" value="Promote and Publish" class="promobutton2" onclick="return confirm(\'Are you sure you want to Promote this user to an Author and Publish the Post?\')" />
-		</form>';
-
-		echo ' | ';
-		
+	if (current_user_can('delete_users')){		
 		echo '
 		<form action="" method="POST" name="front_end_trash" class="promoform">
 			<input id="pid" type="hidden" name="pid" value="'.$post->ID.'" />
