@@ -398,6 +398,9 @@ function broadcast_widget_func() {
 .hoveralpha { opacity:0.5; }
 .hoveralpha:hover { opacity:1.0; }
 
+.fivepad { padding:5px; }
+.tenpad { padding:10px; }
+
 /* ---- TVBOX ------------------------- */
 
 .tvbox {
@@ -777,7 +780,7 @@ function broadcast_widget_func() {
 			</div>
 		</div>
 		<div class="botside">
-			<div class="right">
+			<div class="botright tenpad">
 				<a class="left fiveside hoveralpha" href="http://www.twitch.tv/directory/game/Ludum%20Dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/twitch24.png"></a>
 				<a class="left fiveside hoveralpha" href="http://www.twitch.tv/directory/game/Game%20Development"><img src="http://ludumdare.com/compo/wp-content/plugins/twidget/service_twitch_gamedev.png"></a>
 				<a class="left fiveside hoveralpha" href="http://www.hitbox.tv/game/ludum-dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/hitbox24.png"></a>
