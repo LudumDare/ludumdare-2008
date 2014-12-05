@@ -591,7 +591,7 @@ function broadcast_widget_func() {
 }
 
 .tvbox .bar .logo:hover {
-  background:#ACF;
+  background:#44F;/*#ACF;*/
 }
 
 .tvbox .bar .label {
