@@ -723,8 +723,8 @@ function broadcast_widget_func() {
 <div class="tv">
 <div class="tvpop">
 	<div class="box hidden" id="tvpop-box" onclick="broadcast_hide_tvpop();">
-		<div class="leftside">
-			<div class="view">
+		<div class="view">
+			<div class="leftside">
 				<div style="background:#BBC;display:inline-block;margin-bottom:4px;"><a href="http://ludumdare.com/compo/tv/"><img src="http://ludumdare.com/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg"></a></div>
 <?php
 		$count = count($result);
@@ -732,9 +732,7 @@ function broadcast_widget_func() {
 			if ($idx === 9) {
 ?>
 			</div>
-		</div>
-		<div class="rightside">
-			<div class="view">
+			<div class="rightside">
 <?php				
 			}
 ?>
