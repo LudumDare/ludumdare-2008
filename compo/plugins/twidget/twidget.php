@@ -652,9 +652,12 @@ function broadcast_widget_func() {
 	var tvpop = false;
 	
 	function broadcast_tvpop_toggle() {
-		if ( tvpop )
+		if ( tvpop ) {
 			broadcast_hide_tvpop();
-		broadcast_tvpop();
+		}
+		else {
+			broadcast_tvpop();
+		}
 	}
 	
 	function broadcast_tvpop() {
