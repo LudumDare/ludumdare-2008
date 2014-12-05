@@ -397,7 +397,7 @@ function broadcast_widget_func() {
 /* ---- TVBOX ------------------------- */
 
 .tvbox {
-  background:#445;
+  background:#BBC;/*#445;*/
   border-radius:10px;
   font-size:12px;
   overflow:hidden;
@@ -412,7 +412,7 @@ function broadcast_widget_func() {
 /* ---- SCREEN ------------------------- */
 
 .tvbox .screen {
-  background:#A98;/*#88A;*/
+  background:#445;/*#A98;/*#88A;*/
   position:relative;
   width:292px;
   height:219px;
