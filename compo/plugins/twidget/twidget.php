@@ -494,8 +494,8 @@ function broadcast_widget_func() {
 	cursor:pointer;
 }
 .tv .view .footer .more:hover {
-	background:#C46;
-	color:#FCA;
+	background:#44F;/*#C46;*/
+	color:#FFF;/*#FCA;*/
 }
 
 .tv .view .item:hover {
@@ -516,7 +516,6 @@ function broadcast_widget_func() {
 }
 .tv .view .item .viewers {
 	padding:0 4px;
-	color:#889;
 }
 
 /* ---- Close ------------------------- */
@@ -784,7 +783,7 @@ function broadcast_widget_func() {
     <div class="frame hidden" id="tv-frame">
 	</div>
     <div class="border">
-    	<img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.svg">
+    	<img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.png">
     </div>
     <div class="close topright hidden" id="tv-close" onclick="broadcast_clear();"><strong>X</strong></div>
   </div>
