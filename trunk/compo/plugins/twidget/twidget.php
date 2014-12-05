@@ -615,7 +615,7 @@ function broadcast_widget_func() {
 	left:-660px;
 	top:-60px;
 	width:620px;
-	height:380px;
+/*	height:380px;*/
 	
 	background:#BBC;/*#445;*/
 	border-radius:10px;
@@ -642,6 +642,18 @@ function broadcast_widget_func() {
 	padding-top:10px;
 	font-size:16px;
 	color:#889;
+}
+
+.tvpop .view .guide {
+	background:#445;
+	display:inline-block;
+	margin-bottom:8px;
+	width:236px;
+	height:48px;"	
+}
+
+.tvpop .view .guide:hover {
+	#background:#44F;	
 }
 
 </style>
@@ -730,7 +742,7 @@ function broadcast_widget_func() {
 	<div class="box hidden" id="tvpop-box" onclick="broadcast_hide_tvpop();">
 		<div class="view">
 			<div class="leftside">
-				<div style="background:#445;display:inline-block;margin-bottom:8px;width:238px;height:48px;"><a href="http://ludumdare.com/compo/tv/"><img src="http://ludumdare.com/compo/wp-content/themes/ludum/ld2014/ldtv-guide-inv.png"></a></div>
+				<div class="guide"><a href="http://ludumdare.com/compo/tv/"><img src="http://ludumdare.com/compo/wp-content/themes/ludum/ld2014/ldtv-guide-inv.png"></a></div>
 <?php
 		$count = count($result);
 		for ( $idx = 0; $idx < $count; $idx++ ) {
