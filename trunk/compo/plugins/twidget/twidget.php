@@ -649,7 +649,7 @@ function broadcast_widget_func() {
 	display:inline-block;
 	margin-bottom:8px;
 	width:236px;
-	height:48px;"	
+	height:48px;
 }
 
 .tvpop .view .guide:hover {
