@@ -395,6 +395,8 @@ function broadcast_widget_func() {
 	-webkit-transform:translate(-50%,0); transform:translate(-50%,0); }
 
 .fiveside { padding-left:5px; padding-right:5px; }
+.hoveralpha { opacity:0.5; }
+.hoveralpha:hover { opacity:1.0; }
 
 /* ---- TVBOX ------------------------- */
 
@@ -775,14 +777,14 @@ function broadcast_widget_func() {
 			</div>
 		</div>
 		<div class="botside">
-			<div>To stream, set your Game to <strong>"Ludum Dare"</strong>.</div>
 			<div class="right">
-				<a class="left fiveside" href="http://www.twitch.tv/directory/game/Ludum%20Dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/twitch24.png"></a>
-				<a class="left fiveside" href="http://www.twitch.tv/directory/game/Game%20Development"><img src="http://ludumdare.com/compo/wp-content/plugins/twidget/service_twitch_gamedev.png"></a>
-				<a class="left fiveside" href="http://www.hitbox.tv/game/ludum-dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/hitbox24.png"></a>
-				<a class="left fiveside" href="https://www.youtube.com/results?filters=live&lclk=live&search_sort=video_view_count&search_query=ludum+dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/youtube24.png"></a>
+				<a class="left fiveside hoveralpha" href="http://www.twitch.tv/directory/game/Ludum%20Dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/twitch24.png"></a>
+				<a class="left fiveside hoveralpha" href="http://www.twitch.tv/directory/game/Game%20Development"><img src="http://ludumdare.com/compo/wp-content/plugins/twidget/service_twitch_gamedev.png"></a>
+				<a class="left fiveside hoveralpha" href="http://www.hitbox.tv/game/ludum-dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/hitbox24.png"></a>
+				<a class="left fiveside hoveralpha" href="https://www.youtube.com/results?filters=live&lclk=live&search_sort=video_view_count&search_query=ludum+dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/youtube24.png"></a>
 				<span class="left close" onclick="broadcast_hide_tvpop();"><strong>X</strong></span>
 			</div>
+			<div>To stream, set your Game to <strong>"Ludum Dare"</strong>.</div>
 			<div>
 				<a href="/compo/streaming-faq/">Streaming FAQ</a> | 
 				<a href="/compo/tv/">Stats</a>
