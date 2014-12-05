@@ -730,7 +730,7 @@ function broadcast_widget_func() {
 	<div class="box hidden" id="tvpop-box" onclick="broadcast_hide_tvpop();">
 		<div class="view">
 			<div class="leftside">
-				<div style="background:#BBC;display:inline-block;margin-bottom:4px;"><a href="http://ludumdare.com/compo/tv/"><img src="http://ludumdare.com/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg"></a></div>
+				<div style="background:#445;display:inline-block;margin-bottom:8px;width:238px;height:48px;"><a href="http://ludumdare.com/compo/tv/"><img src="http://ludumdare.com/compo/wp-content/themes/ludum/ld2014/ldtv-guide-inv.png"></a></div>
 <?php
 		$count = count($result);
 		for ( $idx = 0; $idx < $count; $idx++ ) {
