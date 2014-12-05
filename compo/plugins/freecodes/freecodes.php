@@ -72,7 +72,7 @@ function init_freecodes() {
 				$slug = get_post( $post )->post_name;
 				$user = get_current_user_id();		
 
-				if ( $_POST['uid'] === $user ) {
+				if ( intval($_POST['uid']) === $user ) {
 					echo 'Yup: '.$user.' '.$slug;
 					return;
 				}
