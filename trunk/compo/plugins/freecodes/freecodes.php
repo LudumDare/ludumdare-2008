@@ -68,7 +68,7 @@ function init_freecodes() {
 	global $post;
 	if ( is_user_logged_in() ) {
 		if (isset($_POST['GET_CODE']) && $_POST['GET_CODE'] == 'GET_CODE'){
-			if (isset($_POST['uid']) && !empty($_POST['uid'])){z
+			if (isset($_POST['uid']) && !empty($_POST['uid'])){
 				$slug = get_post( $post )->post_name;
 				$user = get_current_user_id();		
 
