@@ -457,7 +457,7 @@ function broadcast_widget_func() {
 
 .tvpop .view .reg {
 /*	background:#BBC;*/
-	color:#889;	
+	color:#445;/*#889;*/	
 }
 .tvpop .view .inv {
 	background:#889;
@@ -613,14 +613,16 @@ function broadcast_widget_func() {
 .tvpop .box {
 	position:absolute;
 	left:-660px;
-	top:10px;
+	top:-60px;
 	width:620px;
 	height:380px;
 	
-	background:#445;
+	background:#BBC;/*#445;*/
 	border-radius:10px;
 	padding:10px;
 /*	opacity:0.95;*/
+
+	border:3px solid #445;
 	
 	z-index:1000;
 }
