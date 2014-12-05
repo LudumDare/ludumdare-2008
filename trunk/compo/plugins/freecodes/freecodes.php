@@ -40,6 +40,7 @@ function show_freecodes(){
 			echo '
 				<form action="" method="POST" name="get_code" class="freecodes-get">
 					<input id="uid" type="hidden" name="uid" value="'.$user.'" />
+					<input id="slug" type="hidden" name="slug" value="'.$slug.'" />
 					<input id="GET_CODE" type="hidden" name="GET_CODE" value="GET_CODE" />
 					<input id="submit" type="submit" name="submit" value="Get a Code" class="freecodes-button" />
 				</form>
@@ -68,10 +69,11 @@ function init_freecodes() {
 	global $post;
 	if ( is_user_logged_in() ) {
 		if (isset($_POST['GET_CODE']) && $_POST['GET_CODE'] == 'GET_CODE'){
-			$slug = get_post( $post )->post_name;
-			$user = get_current_user_id();		
+			//$slug = get_post( $post )->post_name;
+			$user = get_current_user_id();
 			if (isset($_POST['uid']) && !empty($_POST['uid'])){
 				if ( intval($_POST['uid']) === $user ) {
+					$slug = $_POST['slug'];
 					echo 'Yup: '.$user.' '.$slug;
 					return;
 				}
