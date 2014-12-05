@@ -14,33 +14,20 @@ function assign_freecodes( $user, $slug ) {
 	$code = $wpdb->get_results( "SELECT * FROM ld_freecodes WHERE uid = 0 AND slug = \"{$slug}\" LIMIT 1", ARRAY_A );
 
 	if ( count($code) > 0 ) {
-		print_r($code);
-
 		$wpdb->update(
 			"ld_freecodes", 
 			array( 'uid' => $user ),
 			array( 'ID' => $code[0]['ID'] )
 		);
-/*
-		$wpdb->replace( 
-			"ld_freecodes", 
-			array(
-				'ID' => $code[0]['ID'],
-				'uid' => $user
-			),
-			array(
-				'%d',
-				'%d'
-			)
-		);
-		*/
 	}
 }
 
+/*
 function count_unused_freecodes( $slug ) {
 	global $wpdb;
 	return $wpdb->get_results( "SELECT count(*) FROM ld_freecodes WHERE uid = 0 AND slug = \"{$slug}\"", ARRAY_A );
 }
+*/
 
 // Retrieve a users code //
 function get_freecodes( $user, $slug ) {
@@ -101,7 +88,7 @@ function init_freecodes() {
 			$user = get_current_user_id();
 			if (isset($_POST['uid']) && !empty($_POST['uid'])){
 				if ( intval($_POST['uid']) === $user ) {
-					$slug = $_POST['slug'];
+					$slug = sanitize_title_with_dashes($_POST['slug']);
 
 					echo 'Yup: '.$user.' '.$slug;
 					
