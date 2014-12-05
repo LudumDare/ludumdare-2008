@@ -46,7 +46,7 @@ function get_freecodes( $user, $slug ) {
 
 function show_freecodes(){
 	global $post;
-	
+	global $ld_freecode_error;
 	
 	echo '
 		<style>
@@ -93,6 +93,8 @@ add_shortcode( 'freecodes', 'show_freecodes' );
 
 
 function init_freecodes() {	
+	global $ld_freecode_error;
+	
 	if ( is_user_logged_in() ) {
 		if (isset($_POST['GET_CODE']) && $_POST['GET_CODE'] == 'GET_CODE'){
 			$user = get_current_user_id();
