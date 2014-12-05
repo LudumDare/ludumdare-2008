@@ -39,7 +39,7 @@ function show_freecodes(){
 			echo 'I need a code';
 			echo '
 				<form action="" method="POST" name="get_code" class="freecodes-get">
-					<input id="uid" type="hidden" name="uid" value="{$user}" />
+					<input id="uid" type="hidden" name="uid" value="'.$user.'" />
 					<input id="GET_CODE" type="hidden" name="GET_CODE" value="GET_CODE" />
 					<input id="submit" type="submit" name="submit" value="Get a Code" class="freecodes-button" />
 				</form>
