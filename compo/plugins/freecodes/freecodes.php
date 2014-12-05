@@ -16,7 +16,7 @@ function assign_freecodes( $user, $slug ) {
 // Retrieve a users code //
 function get_freecodes( $user, $slug ) {
 	global $wpdb;
-	return $wpdb->get_results( 'SELECT * FROM ld_freecodes WHERE uid = {$user} AND slug = {$slug} LIMIT 1', ARRAY_A );
+	return $wpdb->get_results( "SELECT * FROM ld_freecodes WHERE uid = {$user} AND slug = \"{$slug}\" LIMIT 1", ARRAY_A );
 }
 
 
@@ -67,17 +67,18 @@ add_shortcode( 'freecodes', 'show_freecodes' );
 
 
 function init_freecodes() {	
-	global $post;
 	if ( is_user_logged_in() ) {
-		echo "soap\n";
-	print_r($post);
 		if (isset($_POST['GET_CODE']) && $_POST['GET_CODE'] == 'GET_CODE'){
-			//$slug = get_post( $post )->post_name;
 			$user = get_current_user_id();
 			if (isset($_POST['uid']) && !empty($_POST['uid'])){
 				if ( intval($_POST['uid']) === $user ) {
 					$slug = $_POST['slug'];
+
 					echo 'Yup: '.$user.' '.$slug;
+					
+					$code = get_freecodes($user,$slug);
+
+					print_r($code);
 					return;
 				}
 			}
