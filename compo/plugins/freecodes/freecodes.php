@@ -38,6 +38,15 @@ function get_freecodes( $user, $slug ) {
 
 function show_freecodes(){
 	global $post;
+	
+	
+	echo '
+		<style>
+			.freecodes .code {
+				font-weight: bold;
+			}
+		</style>
+		';
 		
 	echo '<div class="freecodes">';
 	//print_r($post);
@@ -49,17 +58,15 @@ function show_freecodes(){
 		$code = get_freecodes($user,$slug);
 		
 		if ( $code ) {
-			print_r($code);
-//			echo 'My Code: ' . $code['code'];
+			echo 'Your Code is: <span class="code">' . $code['code'] . '</span>';
 		}
 		else {
-			echo 'I need a code';
 			echo '
-				<form action="" method="POST" name="get_code" class="freecodes-get">
+				<form action="" method="POST" name="get_code" class="form">
 					<input id="uid" type="hidden" name="uid" value="'.$user.'" />
 					<input id="slug" type="hidden" name="slug" value="'.$slug.'" />
 					<input id="GET_CODE" type="hidden" name="GET_CODE" value="GET_CODE" />
-					<input id="submit" type="submit" name="submit" value="Get a Code" class="freecodes-button" />
+					<input id="submit" type="submit" name="submit" value="Get a Code" class="button" />
 				</form>
 			';
 		}		
