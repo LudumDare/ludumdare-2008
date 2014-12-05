@@ -77,6 +77,8 @@ function init_freecodes() {
 					echo 'Yup: '.$user.' '.$slug;
 					
 					$code = get_freecodes($user,$slug);
+					
+					echo "count: ".count($code);
 
 					print_r($code);
 					return;
