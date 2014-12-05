@@ -15,7 +15,8 @@ function assign_freecodes( $user, $slug ) {
 
 // Retrieve a users code //
 function get_freecodes( $user, $slug ) {
-	
+	global $wpdb;
+	return $wpdb->get_results( 'SELECT * FROM ld_freecodes WHERE uid = {$user} AND slug = {$slug} LIMIT 1', ARRAY_A );
 }
 
 
@@ -31,7 +32,8 @@ function show_freecodes(){
 		$code = get_freecodes($user,$slug);
 		
 		if ( $code ) {
-			echo 'My Code: ' . $code['code'];
+			print_r($code);
+//			echo 'My Code: ' . $code['code'];
 		}
 		else {
 			echo 'I need a code';
