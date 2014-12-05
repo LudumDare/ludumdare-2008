@@ -775,10 +775,11 @@ function broadcast_widget_func() {
 		<div class="botside">
 			<div>To stream, set your Game to <strong>"Ludum Dare"</strong>.</div>
 			<div class="right">
-				<a href="http://www.twitch.tv/directory/game/Ludum%20Dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/twitch24.png"></a> <a href="http://www.twitch.tv/directory/game/Game%20Development">(GD)</a>
-				<a href="http://www.hitbox.tv/game/ludum-dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/hitbox24.png"></a>
-				<a href="https://www.youtube.com/results?filters=live&lclk=live&search_sort=video_view_count&search_query=ludum+dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/youtube24.png"></a>
-				<span class="close" onclick="broadcast_hide_tvpop();"><strong>X</strong></span>
+				<a class="left" href="http://www.twitch.tv/directory/game/Ludum%20Dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/twitch24.png"></a>
+				<a class="left" href="http://www.twitch.tv/directory/game/Game%20Development"><img src="http://ludumdare.com/compo/wp-content/plugins/twidget/service_twitch_gamedev.png"></a>
+				<a class="left" href="http://www.hitbox.tv/game/ludum-dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/hitbox24.png"></a>
+				<a class="left" href="https://www.youtube.com/results?filters=live&lclk=live&search_sort=video_view_count&search_query=ludum+dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/youtube24.png"></a>
+				<span class="left close" onclick="broadcast_hide_tvpop();"><strong>X</strong></span>
 			</div>
 			<div>
 				<a href="/compo/streaming-faq/">Streaming FAQ</a> | 
