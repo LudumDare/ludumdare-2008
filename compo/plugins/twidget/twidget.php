@@ -445,14 +445,24 @@ function broadcast_widget_func() {
 	transform: translate(-50%,-50%);
 }
 
-.tv .view .reg {
+.tvbox .view .reg {
 /*	background:#BBC;*/
 	color:#445;	
 }
-.tv .view .inv {
+.tvbox .view .inv {
 	background:#445;
 	color:#BBC;
 }
+
+.tvpop .view .reg {
+/*	background:#BBC;*/
+	color:#889;	
+}
+.tvpop .view .inv {
+	background:#889;
+	color:#BBC;
+}
+
 
 .tv .view .filler {
 	opacity:0.4;
