@@ -24,10 +24,10 @@ function show_freecodes(){
 	global $post;
 		
 	echo '<div class="freecodes">';
-	print_r($post);
+	//print_r($post);
 	
 	if ( is_user_logged_in() ) {
-		$slug = get_post( $post )->post_name;
+		$slug = $post->post_name;
 		$user = get_current_user_id();		
 		
 		$code = get_freecodes($user,$slug);
@@ -69,6 +69,7 @@ add_shortcode( 'freecodes', 'show_freecodes' );
 function init_freecodes() {	
 	global $post;
 	if ( is_user_logged_in() ) {
+		echo "soap\n";
 	print_r($post);
 		if (isset($_POST['GET_CODE']) && $_POST['GET_CODE'] == 'GET_CODE'){
 			//$slug = get_post( $post )->post_name;
