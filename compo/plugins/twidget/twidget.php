@@ -673,9 +673,35 @@ function broadcast_widget_func() {
 	}
 </script>
 
+<?php
+		$img_prefix = "/compo/wp-content/plugins/twidget/";
+
+		$service_img = Array(
+			0=>'',
+			1=>$img_prefix.'service_twitch.png',
+			2=>$img_prefix.'service_hitbox.png',
+			3=>$img_prefix.'service_youtube.png',
+			4=>$img_prefix.'service_twitch_gamedev.png'
+		);
+?>
+
 <div class="tvpop">
 	<div class="box hidden" id="tvpop-box" onclick="broadcast_hide_tvpop();">
-		Pop!
+		<div style="background:#BBC;display:inline-block;"><img src="http://ludumdare.com/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg"></div>
+<?php
+		$count = count($result);
+		for ( $idx = 0; $idx < $count; $idx++ ) {
+?>
+	    	<div class="item reg<?php echo ( $result[$idx]['score'] < 240 ? " filler" : ""); ?>" onclick="broadcast_set('<?php echo $result[$idx]['embed_url']; ?>');">
+	    		<span class="service right"><img src="<?php echo $service_img[$result[$idx]['service_id']]; ?>" width="24" height="24" /></span>
+	    		<span class="viewers right"><strong><?php echo $result[$idx]['viewers']; ?></strong></span>
+	    		<span class="avatar left"><img src="<?php echo $result[$idx]['avatar']; ?>" width="24" height="24" /></span>
+	    		<span class="name"><?php echo $result[$idx]['display_name']; ?></span>
+	    	</div>
+<?php
+		}
+?>
+
 	</div>
 </div>
 
@@ -687,17 +713,6 @@ function broadcast_widget_func() {
 		if ( $count > 5 ) {
 			$count = 5;
 		}
-		
-		$img_prefix = "/compo/wp-content/plugins/twidget/";
-
-		$service_img = Array(
-			0=>'',
-			1=>$img_prefix.'service_twitch.png',
-			2=>$img_prefix.'service_hitbox.png',
-			3=>$img_prefix.'service_youtube.png',
-			4=>$img_prefix.'service_twitch_gamedev.png'
-		);
-
 		for ( $idx = 0; $idx < $count; $idx++ ) {
 ?>
 	    	<div class="item reg<?php echo ( $result[$idx]['score'] < 240 ? " filler" : ""); ?>" onclick="broadcast_set('<?php echo $result[$idx]['embed_url']; ?>');">
