@@ -570,6 +570,7 @@ function broadcast_widget_func() {
   padding:0 10px;
   padding-top:5px;
   overflow:auto;
+  position:relative;
 }
 
 .tvbox .bar .logo {
