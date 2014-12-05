@@ -68,16 +68,15 @@ function init_freecodes() {
 	global $post;
 	if ( is_user_logged_in() ) {
 		if (isset($_POST['GET_CODE']) && $_POST['GET_CODE'] == 'GET_CODE'){
+			$slug = get_post( $post )->post_name;
+			$user = get_current_user_id();		
 			if (isset($_POST['uid']) && !empty($_POST['uid'])){
-				$slug = get_post( $post )->post_name;
-				$user = get_current_user_id();		
-
 				if ( intval($_POST['uid']) === $user ) {
 					echo 'Yup: '.$user.' '.$slug;
 					return;
 				}
 			}
-			echo 'Nope: '.$_POST['uid'];
+			echo 'Nope: '.$_POST['uid'].' vs '.$user;
 		}
 	}
 }
