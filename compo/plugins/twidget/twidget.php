@@ -452,51 +452,51 @@ function broadcast_widget_func() {
 }
 
 
-.tvbox .screen .view .header {
+.tvbox .view .header {
 	text-align:center;
 	border-radius:10px 10px 0 0;
 }
-.tvbox .screen .view .item {
+.tvbox .view .item {
 	overflow:auto;
 	position:relative;
 	padding:2px;
 	cursor:pointer;
 }
-.tvbox .screen .view .footer {
+.tvbox .view .footer {
 	text-align:center;
 	border-radius:0 0 10px 10px;
 	padding-top:10px;
 }
 
-.tvbox .screen .view .footer .more {
+.tvbox .view .footer .more {
 	background:#445;
 	color:#BBC;
 	padding:4px 10px;
 	border-radius:30px;
 	cursor:pointer;
 }
-.tvbox .screen .view .footer .more:hover {
+.tvbox .view .footer .more:hover {
 	background:#C46;
 	color:#FCA;
 }
 
-.tvbox .screen .view .item:hover {
+.tvbox .view .item:hover {
 	background:#F63;/*#44F;/*#8CF;*/
 	color:#FFF;
 	opacity:1;
 }
 
 
-.tvbox .screen .view .item .avatar {	
+.tvbox .view .item .avatar {	
 }
-.tvbox .screen .view .item .name {
+.tvbox .view .item .name {
 	padding-left:6px;
 	overflow:hidden;
 	display:block;
 }
-.tvbox .screen .view .item .service {	
+.tvbox .view .item .service {	
 }
-.tvbox .screen .view .item .viewers {
+.tvbox .view .item .viewers {
 	padding:0 4px;
 }
 
@@ -688,6 +688,7 @@ function broadcast_widget_func() {
 <div class="tvpop">
 	<div class="box hidden" id="tvpop-box" onclick="broadcast_hide_tvpop();">
 		<div style="background:#BBC;display:inline-block;"><img src="http://ludumdare.com/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg"></div>
+		<div class="view">
 <?php
 		$count = count($result);
 		for ( $idx = 0; $idx < $count; $idx++ ) {
@@ -701,7 +702,7 @@ function broadcast_widget_func() {
 <?php
 		}
 ?>
-
+		</div>
 	</div>
 </div>
 
