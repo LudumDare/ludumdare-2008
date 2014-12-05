@@ -488,7 +488,7 @@ function broadcast_widget_func() {
 
 .tv .view .footer .more {
 	background:#889;/*#445;*/
-	color:#BBC;
+	color:#8CF;/*#BBC;*/
 	padding:4px 10px;
 	border-radius:30px;
 	cursor:pointer;
@@ -622,9 +622,11 @@ function broadcast_widget_func() {
 	padding:10px;
 /*	opacity:0.95;*/
 
-	border:3px solid #445;
+/*	border:3px solid #445;*/
 	
 	z-index:1000;
+	
+	box-shadow:0 0 6px #000;
 }
 
 .tvpop .leftside {
