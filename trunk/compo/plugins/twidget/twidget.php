@@ -448,7 +448,7 @@ function broadcast_widget_func() {
 
 .tvbox .view .reg {
 /*	background:#BBC;*/
-	color:#445;	
+	color:#BBC;/*#445;*/
 }
 .tvbox .view .inv {
 	background:#445;
@@ -487,7 +487,7 @@ function broadcast_widget_func() {
 }
 
 .tv .view .footer .more {
-	background:#445;
+	background:#889;/*#445;*/
 	color:#BBC;
 	padding:4px 10px;
 	border-radius:30px;
@@ -499,7 +499,7 @@ function broadcast_widget_func() {
 }
 
 .tv .view .item:hover {
-	background:#F63;/*#44F;/*#8CF;*/
+	background:#44F;/*#F63;/*#44F;/*#8CF;*/
 	color:#FFF;
 	opacity:1;
 }
@@ -516,6 +516,7 @@ function broadcast_widget_func() {
 }
 .tv .view .item .viewers {
 	padding:0 4px;
+	color:#889;
 }
 
 /* ---- Close ------------------------- */
@@ -597,7 +598,7 @@ function broadcast_widget_func() {
 }
 
 .tvbox .bar .number {
-  color:#BBC;
+  color:#445;/*#BBC;*/
   font-size:16px;
   line-height:25px;
   padding:0 5px;
