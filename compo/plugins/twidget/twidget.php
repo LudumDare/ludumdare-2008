@@ -576,7 +576,7 @@ function broadcast_widget_func() {
 }
 
 .tvbox .bar .logo {
-  background:#889;
+  background:#445;/*#889;*/
   float:left;
   
   width: 43px;
@@ -791,9 +791,8 @@ function broadcast_widget_func() {
     </div>
     <div class="close topright hidden" id="tv-close" onclick="broadcast_clear();"><strong>X</strong></div>
   </div>
-  <div class="bar">
+  <div class="bar" onclick="broadcast_tvpop_toggle();">
     <div style="float:right"><span class="label" style="background:#C46;color:#FCA">LIVE</span> <span class="number"><?php echo $total_streams; ?></span> <span class="label">VIEWERS</span> <span class="number" style="padding-right:0"><?php echo $total_viewers; ?></span></div><div class="logo"><img src="/compo/wp-content/themes/ludum/ld2014/ldtv-inv-sm.png"></div>
-    <img src="/_.png" class="blank" onclick="broadcast_tvpop_toggle();">
   </div>
   <div style="padding-bottom:10px"></div>
 </div>
