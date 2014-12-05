@@ -431,7 +431,8 @@ function broadcast_widget_func() {
 }
 
 .tvpop .view {
-	width:300px;	
+	/*width:300px;*/
+	overflow:auto;
 }
 	
 .tvbox .view {
