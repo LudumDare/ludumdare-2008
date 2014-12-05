@@ -65,6 +65,7 @@ add_shortcode( 'freecodes', 'show_freecodes' );
 
 
 function init_freecodes() {	
+	global $post;
 	if ( is_user_logged_in() ) {
 		if (isset($_POST['GET_CODE']) && $_POST['GET_CODE'] == 'GET_CODE'){
 			if (isset($_POST['uid']) && !empty($_POST['uid'])){z
