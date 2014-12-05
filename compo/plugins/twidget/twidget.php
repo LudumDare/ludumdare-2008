@@ -722,7 +722,7 @@ function broadcast_widget_func() {
 	<div class="box hidden" id="tvpop-box" onclick="broadcast_hide_tvpop();">
 		<div class="leftside">
 			<div class="view">
-				<div style="background:#BBC;display:inline-block;margin-bottom:4px;"><img src="http://ludumdare.com/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg"></div>
+				<div style="background:#BBC;display:inline-block;margin-bottom:4px;"><a href="http://ludumdare.com/compo/tv/"><img src="http://ludumdare.com/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg"></a></div>
 <?php
 		$count = count($result);
 		for ( $idx = 0; $idx < $count; $idx++ ) {
@@ -786,7 +786,8 @@ function broadcast_widget_func() {
     <div class="close topright hidden" id="tv-close" onclick="broadcast_clear();"><strong>X</strong></div>
   </div>
   <div class="bar">
-    <div style="float:right"><span class="label" style="background:#C46;color:#FCA">LIVE</span> <span class="number"><?php echo $total_streams; ?></span> <span class="label">VIEWERS</span> <span class="number" style="padding-right:0"><?php echo $total_viewers; ?></span></div><div class="logo"><a href="http://ludumdare.com/compo/tv/"><img src="/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg"></a></div>
+    <div style="float:right"><span class="label" style="background:#C46;color:#FCA">LIVE</span> <span class="number"><?php echo $total_streams; ?></span> <span class="label">VIEWERS</span> <span class="number" style="padding-right:0"><?php echo $total_viewers; ?></span></div><div class="logo"><img src="/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg"></div>
+    <img src="/_.png" class="blank" onclick="broadcast_tvpop_toggle();">
   </div>
   <div style="padding-bottom:10px"></div>
 </div>
