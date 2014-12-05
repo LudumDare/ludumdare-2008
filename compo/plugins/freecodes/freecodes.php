@@ -77,7 +77,7 @@ function init_freecodes() {
 					return;
 				}
 			}
-			echo 'Nope';
+			echo 'Nope: '.$_POST['uid'];
 		}
 	}
 }
