@@ -365,7 +365,7 @@ function broadcast_widget_func() {
 					WHEN service_id >= 4 AND followers >= 50 AND score > 240 THEN score
 				END DESC,
 				viewers DESC
-			LIMIT 18;
+			LIMIT 20;
 		";
 		
 		$result = $wpdb->get_results($query, ARRAY_A);
@@ -431,7 +431,7 @@ function broadcast_widget_func() {
 }
 
 .tvpop .view {
-	width:295px;	
+	width:300px;	
 }
 	
 .tvbox .view {
@@ -612,7 +612,7 @@ function broadcast_widget_func() {
 	left:-660px;
 	top:0;
 	width:620px;
-	height:300px;
+	height:350px;
 	
 	background:#445;
 	border-radius:10px;
@@ -627,7 +627,7 @@ function broadcast_widget_func() {
 	float:left;
 }
 .tvpop .rightside {
-	width:295px;
+	width:300px;
 	float:right;
 }
 </style>
@@ -720,7 +720,7 @@ function broadcast_widget_func() {
 <?php
 		$count = count($result);
 		for ( $idx = 0; $idx < $count; $idx++ ) {
-			if ($idx === 8) {
+			if ($idx === 9) {
 ?>
 			</div>
 		</div>
@@ -739,6 +739,14 @@ function broadcast_widget_func() {
 		}
 ?>
 			</div>
+		</div>
+		<div class="botside">
+			Game Development Live Streams. Set your Game to "Ludum Dare".<br />
+			<a href="/compo/streaming-faq/">Streaming FAQ</a> | 
+			<a href="http://www.twitch.tv/directory/game/Ludum%20Dare" target="_blank">More Twitch</a> <a href="http://www.twitch.tv/directory/game/Game%20Development">(GD)</a> |
+			<a href="http://www.hitbox.tv/game/ludum-dare" target="_blank">More Hitbox</a> |
+			<a href="https://www.youtube.com/results?filters=live&lclk=live&search_sort=video_view_count&search_query=ludum+dare" target="_blank">More YouTube</a> | 
+			<a href="/compo/tv/">Stats</a>
 		</div>
 	</div>
 </div>
