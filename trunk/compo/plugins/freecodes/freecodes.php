@@ -8,9 +8,13 @@ Description: For distributing free codes
 
 */
 
+$ld_freecode_error = null;
+
 // Give a user a code //
 function assign_freecodes( $user, $slug ) {
 	global $wpdb;
+	global $ld_freecode_error;
+	
 	$code = $wpdb->get_results( "SELECT * FROM ld_freecodes WHERE uid = 0 AND slug = \"{$slug}\" LIMIT 1", ARRAY_A );
 
 	if ( count($code) > 0 ) {
@@ -19,7 +23,11 @@ function assign_freecodes( $user, $slug ) {
 			array( 'uid' => $user ),
 			array( 'ID' => $code[0]['ID'] )
 		);
+		
+		$ld_freecode_error = "Success";
+		return;
 	}
+	$ld_freecode_error = "Unable to assign code";
 }
 
 /*
@@ -48,8 +56,7 @@ function show_freecodes(){
 		</style>
 		';
 		
-	echo '<div class="freecodes">';
-	//print_r($post);
+	echo '<div class="freecodes"><div>';
 	
 	if ( is_user_logged_in() ) {
 		$slug = $post->post_name;
@@ -69,19 +76,15 @@ function show_freecodes(){
 					<input id="submit" type="submit" name="submit" value="Get a Code" class="button" />
 				</form>
 			';
-		}		
-//		//only print fi admin
-//		if (current_user_can('edit_others_posts')){
-//			echo '
-//			<form action="" method="POST" name="get_code" class="freecodes-get">
-//				<input id="uid" type="hidden" name="pid" value="{$user}" />
-//				<input id="GET_CODE" type="hidden" name="GET_CODE" value="GET_CODE" />
-//				<input id="submit" type="submit" name="submit" value="Get a Code" class="freecodes-button" />
-//			</form>';
-//		}
+		}
 	}
 	else {
 		echo 'You must be logged in to get a code.';
+	}
+	echo '</div>';
+	
+	if ( $ld_freecode_error ) {
+		echo '<div class="error">Result: '.$ld_freecode_error.'</div>';
 	}
 	
 	echo '</div>';
@@ -104,7 +107,9 @@ function init_freecodes() {
 					// If no existing code, assign one //
 					if ( count($code) === 0 ) {
 						assign_freecodes($user,$slug);
+						return;
 					}
+					$ld_freecode_error = "You already have a code";
 					
 					return;
 				}
