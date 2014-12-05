@@ -424,12 +424,14 @@ function broadcast_widget_func() {
 
 /* ---- View ------------------------- */
 
-.tvbox .screen .view {
+.tv .view {
 	font-size:18px;
 	line-height:24px;
 	vertical-align:middle;
 	width:250px;
+}
 	
+.tvbox .view {
 	position:absolute;
 	top:50%;
 	left:50%;
@@ -438,49 +440,49 @@ function broadcast_widget_func() {
 	transform: translate(-50%,-50%);
 }
 
-.tvbox .screen .view .reg {
+.tv .view .reg {
 /*	background:#BBC;*/
 	color:#445;	
 }
-.tvbox .screen .view .inv {
+.tv .view .inv {
 	background:#445;
 	color:#BBC;
 }
 
-.tvbox .screen .view .filler {
+.tv .view .filler {
 	opacity:0.4;
 }
 
 
-.tvbox .view .header {
+.tv .view .header {
 	text-align:center;
 	border-radius:10px 10px 0 0;
 }
-.tvbox .view .item {
+.tv .view .item {
 	overflow:auto;
 	position:relative;
 	padding:2px;
 	cursor:pointer;
 }
-.tvbox .view .footer {
+.tv .view .footer {
 	text-align:center;
 	border-radius:0 0 10px 10px;
 	padding-top:10px;
 }
 
-.tvbox .view .footer .more {
+.tv .view .footer .more {
 	background:#445;
 	color:#BBC;
 	padding:4px 10px;
 	border-radius:30px;
 	cursor:pointer;
 }
-.tvbox .view .footer .more:hover {
+.tv .view .footer .more:hover {
 	background:#C46;
 	color:#FCA;
 }
 
-.tvbox .view .item:hover {
+.tv .view .item:hover {
 	background:#F63;/*#44F;/*#8CF;*/
 	color:#FFF;
 	opacity:1;
@@ -685,6 +687,7 @@ function broadcast_widget_func() {
 		);
 ?>
 
+<div class="tv">
 <div class="tvpop">
 	<div class="box hidden" id="tvpop-box" onclick="broadcast_hide_tvpop();">
 		<div style="background:#BBC;display:inline-block;"><img src="http://ludumdare.com/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg"></div>
@@ -739,7 +742,7 @@ function broadcast_widget_func() {
   </div>
   <div style="padding-bottom:10px"></div>
 </div>
-
+</div>
 <?php
 	// NOTE: This function is supposed to return, but I don't care //
 	return "";
