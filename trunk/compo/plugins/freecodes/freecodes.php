@@ -8,12 +8,34 @@ Description: For distributing free codes
 
 */
 
+// Give a user a code //
+function assign_freecodes( $user, $slug ) {
+	
+}
+
+// Retrieve a users code //
+function get_freecodes( $user, $slug ) {
+	
+}
+
+
 function show_freecodes(){
 	global $post;
-	
+		
 	echo '<div class="freecodes">';
 	
 	if ( is_user_logged_in() ) {
+		$slug = get_post( $post )->post_name;
+		$user = wp_get_current_user();		
+		
+		$code = get_freecodes($user,$slug);
+		
+		if ( $code ) {
+			echo 'My Code: ' . $code['code'];
+		}
+		else {
+			echo 'I need a code';
+		}		
 //		//only print fi admin
 //		if (current_user_can('edit_others_posts')){
 //			echo '
