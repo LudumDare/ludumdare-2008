@@ -65,12 +65,20 @@ add_shortcode( 'freecodes', 'show_freecodes' );
 
 
 function init_freecodes() {	
-	if (isset($_POST['GET_CODE']) && $_POST['GET_CODE'] == 'GET_CODE'){
-		if (isset($_POST['uid']) && !empty($_POST['uid'])){
-			//change_post_status((int)$_POST['pid'],'publish');
+	if ( is_user_logged_in() ) {
+		if (isset($_POST['GET_CODE']) && $_POST['GET_CODE'] == 'GET_CODE'){
+			if (isset($_POST['uid']) && !empty($_POST['uid'])){z
+				$slug = get_post( $post )->post_name;
+				$user = get_current_user_id();		
+
+				if ( $_POST['uid'] === $user ) {
+					echo 'Yup: '.$user.' '.$slug;
+					return;
+				}
+			}
+			echo 'Nope';
 		}
 	}
-	
 }
 add_action('plugins_loaded','init_freecodes');
 

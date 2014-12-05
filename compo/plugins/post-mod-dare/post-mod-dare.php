@@ -104,42 +104,44 @@ function change_user_level($user_id,$status){
 
 
 function init_postmoddare() {	
-	// Responses to Post Status Changes //	
-	if (isset($_POST['FE_PUBLISH']) && $_POST['FE_PUBLISH'] == 'FE_PUBLISH'){
-		if (isset($_POST['pid']) && !empty($_POST['pid'])){
-			change_post_status((int)$_POST['pid'],'publish');
+	if (current_user_can('edit_others_posts')){
+		// Responses to Post Status Changes //	
+		if (isset($_POST['FE_PUBLISH']) && $_POST['FE_PUBLISH'] == 'FE_PUBLISH'){
+			if (isset($_POST['pid']) && !empty($_POST['pid'])){
+				change_post_status((int)$_POST['pid'],'publish');
+			}
 		}
-	}
-	if (isset($_POST['FE_TRASH']) && $_POST['FE_TRASH'] == 'FE_TRASH'){
-		if (isset($_POST['pid']) && !empty($_POST['pid'])){
-			change_post_status((int)$_POST['pid'],'trash');
+		if (isset($_POST['FE_TRASH']) && $_POST['FE_TRASH'] == 'FE_TRASH'){
+			if (isset($_POST['pid']) && !empty($_POST['pid'])){
+				change_post_status((int)$_POST['pid'],'trash');
+			}
 		}
-	}
-	
-	// Responses to User Level Changes //
-	if (isset($_POST['FE_USER_PROMOTE_PUBLISH']) && $_POST['FE_USER_PROMOTE_PUBLISH'] == 'FE_USER_PROMOTE_PUBLISH'){
-		if (isset($_POST['pid']) && !empty($_POST['pid'])) {
-			$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
-			change_user_level( $current_post['post_author'], 'author' );
-			change_post_status((int)$_POST['pid'],'publish');
+		
+		// Responses to User Level Changes //
+		if (isset($_POST['FE_USER_PROMOTE_PUBLISH']) && $_POST['FE_USER_PROMOTE_PUBLISH'] == 'FE_USER_PROMOTE_PUBLISH'){
+			if (isset($_POST['pid']) && !empty($_POST['pid'])) {
+				$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
+				change_user_level( $current_post['post_author'], 'author' );
+				change_post_status((int)$_POST['pid'],'publish');
+			}
 		}
-	}
-	if (isset($_POST['FE_USER_PROMOTE']) && $_POST['FE_USER_PROMOTE'] == 'FE_USER_PROMOTE'){
-		if (isset($_POST['pid']) && !empty($_POST['pid'])) {
-			$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
-			change_user_level( $current_post['post_author'], 'author' );
+		if (isset($_POST['FE_USER_PROMOTE']) && $_POST['FE_USER_PROMOTE'] == 'FE_USER_PROMOTE'){
+			if (isset($_POST['pid']) && !empty($_POST['pid'])) {
+				$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
+				change_user_level( $current_post['post_author'], 'author' );
+			}
 		}
-	}
-	if (isset($_POST['FE_USER_DEMOTE']) && $_POST['FE_USER_DEMOTE'] == 'FE_USER_DEMOTE'){
-		if (isset($_POST['pid']) && !empty($_POST['pid'])) {
-			$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
-			change_user_level( $current_post['post_author'], 'subscriber' );
+		if (isset($_POST['FE_USER_DEMOTE']) && $_POST['FE_USER_DEMOTE'] == 'FE_USER_DEMOTE'){
+			if (isset($_POST['pid']) && !empty($_POST['pid'])) {
+				$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
+				change_user_level( $current_post['post_author'], 'subscriber' );
+			}
 		}
-	}
-	if (isset($_POST['FE_USER_RESET']) && $_POST['FE_USER_RESET'] == 'FE_USER_RESET'){
-		if (isset($_POST['pid']) && !empty($_POST['pid'])) {
-			$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
-			change_user_level( $current_post['post_author'], 'contributor' );
+		if (isset($_POST['FE_USER_RESET']) && $_POST['FE_USER_RESET'] == 'FE_USER_RESET'){
+			if (isset($_POST['pid']) && !empty($_POST['pid'])) {
+				$current_post = get_post( (int)$_POST['pid'], 'ARRAY_A' );		
+				change_user_level( $current_post['post_author'], 'contributor' );
+			}
 		}
 	}
 }
