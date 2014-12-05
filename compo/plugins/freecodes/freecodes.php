@@ -58,8 +58,7 @@ function show_freecodes(){
 		$code = get_freecodes($user,$slug);
 		
 		if ( ($code) && (count($code) > 0) ) {
-			echo 'Your Code is: <span class="code">' . $code['code'] . '</span>';
-			print_r($code);
+			echo 'Your Code is: <span class="code">' . $code[0]['code'] . '</span>';
 		}
 		else {
 			echo '
