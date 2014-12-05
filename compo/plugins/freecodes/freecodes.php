@@ -27,7 +27,7 @@ function assign_freecodes( $user, $slug ) {
 		$ld_freecode_error = "Success";
 		return;
 	}
-	$ld_freecode_error = "Unable to assign code";
+	$ld_freecode_error = "Sorry! We're all out of codes. :(";
 }
 
 /*
@@ -102,7 +102,7 @@ function init_freecodes() {
 				if ( intval($_POST['uid']) === $user ) {
 					$slug = sanitize_title_with_dashes($_POST['slug']);
 
-					echo 'Yup: '.$user.' '.$slug;
+					//echo 'Yup: '.$user.' '.$slug;
 					
 					$code = get_freecodes($user,$slug);
 					
@@ -116,7 +116,7 @@ function init_freecodes() {
 					return;
 				}
 			}
-			echo 'Nope: '.$_POST['uid'].' vs '.$user;
+			//echo 'Nope: '.$_POST['uid'].' vs '.$user;
 		}
 	}
 }
