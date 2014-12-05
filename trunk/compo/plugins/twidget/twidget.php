@@ -653,7 +653,7 @@ function broadcast_widget_func() {
 }
 
 .tvpop .view .guide:hover {
-	#background:#44F;	
+	background:#44F;	
 }
 
 </style>
@@ -739,7 +739,7 @@ function broadcast_widget_func() {
 
 <div class="tv">
 <div class="tvpop">
-	<div class="box hidden" id="tvpop-box" onclick="broadcast_hide_tvpop();">
+	<div class="box hidden" id="tvpop-box">
 		<div class="view">
 			<div class="leftside">
 				<div class="guide"><a href="http://ludumdare.com/compo/tv/"><img src="http://ludumdare.com/compo/wp-content/themes/ludum/ld2014/ldtv-guide-inv.png"></a></div>
