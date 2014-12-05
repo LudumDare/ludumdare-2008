@@ -520,7 +520,7 @@ function broadcast_widget_func() {
 
 /* ---- Close ------------------------- */
 
-.tvbox .screen .close {
+.tv .close {
 	font-size:10px;
 	padding:6px;
 
@@ -528,7 +528,7 @@ function broadcast_widget_func() {
 	cursor:pointer;
 }
 
-.tvbox .screen .close:hover {
+.tv .close:hover {
 	color:#F00;
 }
 
@@ -778,7 +778,7 @@ function broadcast_widget_func() {
 				<a href="http://www.twitch.tv/directory/game/Ludum%20Dare" target="_blank">More Twitch</a> <a href="http://www.twitch.tv/directory/game/Game%20Development">(GD)</a> |
 				<a href="http://www.hitbox.tv/game/ludum-dare" target="_blank">More Hitbox</a> |
 				<a href="https://www.youtube.com/results?filters=live&lclk=live&search_sort=video_view_count&search_query=ludum+dare" target="_blank">More YouTube</a> |
-				<span onclick="broadcast_hide_tvpop();"><strong>X</strong></span>
+				<span style="close" onclick="broadcast_hide_tvpop();">X</span>
 			</div>
 			<div>
 				<a href="/compo/streaming-faq/">Streaming FAQ</a> | 
