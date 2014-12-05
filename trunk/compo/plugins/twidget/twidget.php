@@ -612,7 +612,7 @@ function broadcast_widget_func() {
 	left:-660px;
 	top:0;
 	width:620px;
-	height:350px;
+	height:360px;
 	
 	background:#445;
 	border-radius:10px;
@@ -630,6 +630,12 @@ function broadcast_widget_func() {
 	width:300px;
 	float:right;
 }
+
+.tvpop .botside {
+  font-size:16px;
+	
+}
+
 </style>
 <script>
 	function js_remove_class( el, className ) {
