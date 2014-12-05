@@ -567,10 +567,11 @@ function broadcast_widget_func() {
 /* ---- BAR ------------------------- */
 
 .tvbox .bar {
-  padding:0 10px;
-  padding-top:5px;
-  overflow:auto;
-  position:relative;
+	padding:0 10px;
+	padding-top:5px;
+	overflow:auto;
+	position:relative;
+	cursor:pointer;
 }
 
 .tvbox .bar .logo {
@@ -611,7 +612,7 @@ function broadcast_widget_func() {
 .tvpop .box {
 	position:absolute;
 	left:-660px;
-	top:0;
+	top:10px;
 	width:620px;
 	height:360px;
 	
@@ -634,7 +635,7 @@ function broadcast_widget_func() {
 
 .tvpop .botside {
   font-size:16px;
-	
+  color:#889;
 }
 
 </style>
