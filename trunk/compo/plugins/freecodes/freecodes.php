@@ -10,7 +10,23 @@ Description: For distributing free codes
 
 // Give a user a code //
 function assign_freecodes( $user, $slug ) {
-	
+	global $wpdb;
+	$code = $wpdb->get_results( "SELECT * FROM ld_freecodes WHERE uid = 0 AND slug = \"{$slug}\" LIMIT 1", ARRAY_A );
+
+	if ( count($code) > 0 ) {
+		print_r($code);
+		/*
+		$wpdb->replace( 
+			"ld_freecodes", 
+			array(
+				'
+		*/
+	}
+}
+
+function count_unused_freecodes( $slug ) {
+	global $wpdb;
+	return $wpdb->get_results( "SELECT count(*) FROM ld_freecodes WHERE uid = 0 AND slug = \"{$slug}\"", ARRAY_A );
 }
 
 // Retrieve a users code //
@@ -78,9 +94,11 @@ function init_freecodes() {
 					
 					$code = get_freecodes($user,$slug);
 					
-					echo "count: ".count($code);
-
-					print_r($code);
+					// If no existing code, assign one //
+					if ( count($code) === 0 ) {
+						assign_freecodes($user,$slug);
+					}
+					
 					return;
 				}
 			}
