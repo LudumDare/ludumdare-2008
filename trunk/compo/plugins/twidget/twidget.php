@@ -428,10 +428,15 @@ function broadcast_widget_func() {
 	font-size:18px;
 	line-height:24px;
 	vertical-align:middle;
-	width:250px;
+}
+
+.tvpop .view {
+	width:295px;	
 }
 	
 .tvbox .view {
+	width:250px;
+
 	position:absolute;
 	top:50%;
 	left:50%;
@@ -489,16 +494,16 @@ function broadcast_widget_func() {
 }
 
 
-.tvbox .view .item .avatar {	
+.tv .view .item .avatar {	
 }
-.tvbox .view .item .name {
+.tv .view .item .name {
 	padding-left:6px;
 	overflow:hidden;
 	display:block;
 }
-.tvbox .view .item .service {	
+.tv .view .item .service {	
 }
-.tvbox .view .item .viewers {
+.tv .view .item .viewers {
 	padding:0 4px;
 }
 
@@ -602,7 +607,7 @@ function broadcast_widget_func() {
 	background:#445;
 	border-radius:10px;
 	padding:10px;
-	opacity:0.95;
+/*	opacity:0.95;*/
 	
 	z-index:1000;
 }
@@ -612,8 +617,8 @@ function broadcast_widget_func() {
 	float:left;
 }
 .tvpop .rightside {
-	width:300px;
-	float:left;
+	width:295px;
+	float:right;
 }
 </style>
 <script>
@@ -701,7 +706,7 @@ function broadcast_widget_func() {
 	<div class="box hidden" id="tvpop-box" onclick="broadcast_hide_tvpop();">
 		<div class="leftside">
 			<div class="view">
-				<div style="background:#BBC;display:inline-block;"><img src="http://ludumdare.com/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg"></div>
+				<div style="background:#BBC;display:inline-block;margin-bottom:4px;"><img src="http://ludumdare.com/compo/wp-content/themes/ludum/ld2014/ldtv-inv.svg"></div>
 <?php
 		$count = count($result);
 		for ( $idx = 0; $idx < $count; $idx++ ) {
