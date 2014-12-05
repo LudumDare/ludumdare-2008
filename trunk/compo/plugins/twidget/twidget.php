@@ -614,7 +614,7 @@ function broadcast_widget_func() {
 	left:-660px;
 	top:10px;
 	width:620px;
-	height:360px;
+	height:380px;
 	
 	background:#445;
 	border-radius:10px;
@@ -634,8 +634,9 @@ function broadcast_widget_func() {
 }
 
 .tvpop .botside {
-  font-size:16px;
-  color:#889;
+	padding-top:10px;
+	font-size:16px;
+	color:#889;
 }
 
 </style>
