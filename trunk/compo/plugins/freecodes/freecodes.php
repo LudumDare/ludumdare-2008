@@ -15,11 +15,24 @@ function assign_freecodes( $user, $slug ) {
 
 	if ( count($code) > 0 ) {
 		print_r($code);
-		/*
+
+		$wpdb->update(
+			"ld_freecodes", 
+			array( 'uid' => $user ),
+			array( 'ID' => $code[0]['ID'] )
+		);
+/*
 		$wpdb->replace( 
 			"ld_freecodes", 
 			array(
-				'
+				'ID' => $code[0]['ID'],
+				'uid' => $user
+			),
+			array(
+				'%d',
+				'%d'
+			)
+		);
 		*/
 	}
 }
