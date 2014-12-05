@@ -640,8 +640,16 @@ function broadcast_widget_func() {
 
 .tvpop .botside {
 	padding-top:10px;
-	font-size:16px;
-	color:#889;
+	font-size:12px;
+	color:#445;
+}
+
+.tvpop .botside a {
+	font-weight:bold;
+	color:#FFF;
+}
+.tvpop .botside a:hover {
+	color:#44F;
 }
 
 .tvpop .view .guide {
@@ -765,7 +773,7 @@ function broadcast_widget_func() {
 			</div>
 		</div>
 		<div class="botside">
-			Game Development Live Streams. Set your Game to "Ludum Dare".<br />
+			To stream, set your Game to "Ludum Dare".<br />
 			<a href="/compo/streaming-faq/">Streaming FAQ</a> | 
 			<a href="http://www.twitch.tv/directory/game/Ludum%20Dare" target="_blank">More Twitch</a> <a href="http://www.twitch.tv/directory/game/Game%20Development">(GD)</a> |
 			<a href="http://www.hitbox.tv/game/ludum-dare" target="_blank">More Hitbox</a> |
