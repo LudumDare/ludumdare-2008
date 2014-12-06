@@ -122,7 +122,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
             echo "<div>&nbsp;</div>";
             
             $idx = 0;
-            $requirements = explode(";",$params[$div."_req"]);
+            $requirement = explode(";",$params[$div."_req"]);
             foreach ($requirement as $req) {
 	            echo "<input type='checkbox' name='{$div}_REQ_{$idx}' value='{$req}'></input>";
 	            $idx++;           	
