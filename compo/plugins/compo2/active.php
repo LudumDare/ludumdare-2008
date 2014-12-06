@@ -121,7 +121,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
             echo "<div>&nbsp;</div>";
         }
         
-        foreach ($params["cats"] as $k) {
+        foreach ($params["open_cats"] as $k) {
         	//(strlen($data[$k])?intval($data[$k]):"-")
             echo "<div>".$k."</div>";
         }
