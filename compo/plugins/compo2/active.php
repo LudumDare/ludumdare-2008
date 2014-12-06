@@ -170,7 +170,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	        */
         }
         
-        echo "<h4>I would like to Opt-out of</h4>";
+        echo "<h4>I would like to opt-out of</h4>";
 		echo "coming soon<br />";
 //        echo "<h4>Opt Out</h4>";
 //        
@@ -181,6 +181,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 //            echo "<div>".$k."</div>";
 //        }
 //    
+        echo "<h4>Settings</h4>";
+		echo "coming soon<br /><br />";
+		echo "[] My game may not be suitable for kids<br />";
+		echo "[] I would like to allow anonymous feedback. I understand this means my game will be criticized more harshly, and I can take it.<br />";
+
     } else {
         echo "<input type='hidden' name='etype' value='$etype'>";
     }
