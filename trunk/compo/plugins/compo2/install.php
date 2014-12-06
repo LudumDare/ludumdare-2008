@@ -150,6 +150,9 @@ function compo2_install() {
         compo2_query("create index idx_c2_cache_ts on c2_cache (ts)");
         update_option($key,$version);
     }
+    
+    // Added int 'love', default 0 //
+    // Added index 'cid_love' //
 }
 
 register_activation_hook($GLOBALS["compo2"]["plugin"],"compo2_install");
