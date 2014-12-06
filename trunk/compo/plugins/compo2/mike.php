@@ -40,9 +40,14 @@ function c2_navigation($slug,$name,$name_url) {
 		<div class="event">
 			<div class="info">
 				<div class="navigation">
-<?php			if ( is_user_logged_in() ) { ?>
-					<a href="/compo/<?php echo $slug?>/?action=edit"><strong>Submit</strong></a> | 
-<?php			} ?>
+<?php				if ( is_user_logged_in() ) {
+						if ( $game ) {?>
+							<a href="/compo/<?php echo $slug?>/?action=edit"><strong>Edit</strong></a> | 
+<?php					}
+						else {?>
+							<a href="/compo/<?php echo $slug?>/?action=edit"><strong>Submit</strong></a> | 
+<?php					}
+					} ?>
 					<a href="/compo/<?php echo $slug?>/?action=preview">View All</a>
 				</div>
 				<div class="name">On Now: <strong><a href="<?php echo $name_url; ?>"><?php echo $name; ?></a></strong></div>
