@@ -120,6 +120,13 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
             echo "<input type='radio' name='etype' value='{$div}' $selected /> {$params["{$div}_title"]} Entry";
             echo "<div><i>{$params["{$div}_summary"]}</i></div>";
             echo "<div>&nbsp;</div>";
+            
+            $idx = 0;
+            $requirements = explode(";",$params[$div."_req"]);
+            foreach ($requirement as $req) {
+	            echo "<input type='checkbox' name='{$div}_REQ_{$idx}' value='{$req}'></input>";
+	            $idx++;           	
+            }
             // MK: END NIGHT
             /*
 	        foreach ($params[$div."_cats"] as $k) {
