@@ -113,19 +113,29 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
 //     $rules = isset($params["rules"])?$params["rules"]:"#";
     if ($opts) {
-        echo "<h4>Entry Division</h4>";
+        echo "<h4>Event</h4>";
+        echo ""
         foreach ($divs as $div) {
             $selected = (strcmp($etype,$div)==0?"checked":"");
             echo "<input type='radio' name='etype' value='{$div}' $selected /> {$params["{$div}_title"]} Entry";
             echo "<div><i>{$params["{$div}_summary"]}</i></div>";
             echo "<div>&nbsp;</div>";
+            
+	        echo "<h4>Opt Out</h4>";
+	        foreach ($params[$div."_cats"] as $k) {
+	            echo "<div>".$k."</div>";
+	        }
         }
-        
-        foreach ($params["open_cats"] as $k) {
-        	//(strlen($data[$k])?intval($data[$k]):"-")
-            echo "<div>".$k."</div>";
-        }
-    
+
+//        echo "<h4>Opt Out</h4>";
+//        
+//        // cats: all
+//        // open_cats: jam
+//        // compo_cats: compo
+//        foreach ($params["open_cats"] as $k) {
+//            echo "<div>".$k."</div>";
+//        }
+//    
     } else {
         echo "<input type='hidden' name='etype' value='$etype'>";
     }
