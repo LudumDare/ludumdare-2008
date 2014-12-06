@@ -177,9 +177,9 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
             $selected = (strcmp($etype,$div)==0?"checked":"");
             $disabled = count($requirement) > 0 ? "disabled" : "";
             // Radio Button //
-            echo "<input type='radio' name='etype' id='etype_{$div}' class='etype' value='{$div}' onchanged='c2_on_submission_type_changed();' {$selected} {$disabled} /> {$params['{$div}_title']}";
+            echo "<input type='radio' name='etype' id='etype_{$div}' class='etype' value='{$div}' onchanged='c2_on_submission_type_changed();' {$selected} {$disabled} /> {$params["{$div}_title"]}";
             // Summary //
-            echo "<div><i>{$params['{$div}_summary']}</i></div>";
+            echo "<div><i>{$params["{$div}_summary"]}</i></div>";
             
             $idx = 0;
             foreach ($requirement as $req) {
