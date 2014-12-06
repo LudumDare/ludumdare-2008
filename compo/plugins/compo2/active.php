@@ -187,11 +187,16 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 				c2_addclass( radio[idx], "hidden" );
 			}
 			
+			var el;
 			if ( ootype ) {
-				c2_removeclass( document.getElementById(ootype+"-submision-type"), "hidden" );
+				el = document.getElementById(ootype+"-submission-type");
 			}
 			else {
-				c2_removeclass( document.getElementById("no-submission-type"), "hidden" );
+				el = document.getElementById("no-submission-type");
+			}
+
+			if ( el ) {
+				c2_removeclass( el, "hidden" );
 			}
 		}
     </script>
