@@ -159,7 +159,8 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			return null;
 		}
 		
-		function c2_on_submission_type_changed() {
+		function c2_on_submission_type_changed( e ) {
+			console.log(e);
 			console.log( c2_which_radio("etype") );
 		}
     </script>
@@ -177,7 +178,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
             $selected = (strcmp($etype,$div)==0?"checked":"");
             $disabled = count($requirement) > 0 ? "disabled" : "";
             // Radio Button //
-            echo "<input type='radio' name='etype' id='etype_{$div}' class='etype' value='{$div}' onchange='c2_on_submission_type_changed();' {$selected} {$disabled} /> ".$params["{$div}_title"]."</input>";
+            echo "<input type='radio' name='etype' id='etype_{$div}' class='etype' value='{$div}' onchange='c2_on_submission_type_changed(this);' {$selected} {$disabled} /> ".$params["{$div}_title"]."</input>";
             // Summary //
             echo "<div><i>".$params["{$div}_summary"]."</i></div>";
             
