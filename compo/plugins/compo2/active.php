@@ -64,6 +64,8 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
         echo "<h3>Edit this Entry</h3>";
     }
     
+    echo "<div class='edit'>";
+    
     if ($ce["disabled"]) {
         echo "<div class='warning'>This entry is disabled.</div>";
     } else {
@@ -79,8 +81,8 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "<input type='hidden' name='formdata' value='1'>";
     
     
-    echo "<h4>Name of Entry</h4>";    
-    echo "$star <input type='text' name='title' value=\"".htmlentities($ce["title"])."\" size=60> ";
+    echo "<h4>Name</h4>";    
+    echo "<input type='text' name='title' value=\"".htmlentities($ce["title"])."\" size=60> {$star}";
     
     ////////////////////////////////////////////////////////////////////////////
     // Handle the entry type.
@@ -113,11 +115,10 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
 //     $rules = isset($params["rules"])?$params["rules"]:"#";
     if ($opts) {
-        echo "<h4>Event</h4>";
-        echo "";
+        echo "<h4>Type of Submission</h4>";
         foreach ($divs as $div) {
             $selected = (strcmp($etype,$div)==0?"checked":"");
-            echo "<input type='radio' name='etype' value='{$div}' $selected /> {$params["{$div}_title"]} Entry";
+            echo "<input type='radio' name='etype' value='{$div}' $selected /> {$params["{$div}_title"]}";
             echo "<div><i>{$params["{$div}_summary"]}</i></div>";
             echo "<div>&nbsp;</div>";
             
@@ -214,6 +215,8 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "</form>";
     
     echo "<p>$star - required field</p>";
+    
+    echo "</div>";
 }
 
 function _compo2_active_save($params,$uid="",$is_admin=0) {
