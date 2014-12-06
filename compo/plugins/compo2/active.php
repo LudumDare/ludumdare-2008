@@ -162,6 +162,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		function c2_on_submission_type_changed( e ) {
 			console.log(e);
 			console.log( c2_which_radio("etype") );
+			console.log(e.getAttribute("value"));
 		}
     </script>
     ';
