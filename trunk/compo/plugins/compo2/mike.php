@@ -7,11 +7,13 @@ function c2_get_game($event_id,$user_id) {
 	global $wpdb;
 	$ret = array_pop($wpdb->get_results( "SELECT * FROM c2_entry WHERE cid = {$event_id} AND uid = {$user_id} LIMIT 1", ARRAY_A ));
 	
-	// Unserialize the Data //
-	foreach ($ret as $key => $val) {
-		$out = null;
-		if ( $out = unserialize($val) ) {//is_string($val) ) {
-			$ret[$key] = $out;//unserialize($val);
+	if ( $ret ) {
+		// Unserialize the Data //
+		foreach ($ret as $key => $val) {
+			$out = null;
+			if ( $out = unserialize($val) ) {//is_string($val) ) {
+				$ret[$key] = $out;//unserialize($val);
+			}
 		}
 	}
 	
