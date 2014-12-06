@@ -64,6 +64,14 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
         echo "<h3>Edit this Entry</h3>";
     }
     
+    echo "
+    <style>
+    	.edit form {
+    		text-align:left;
+    	}
+    </style>
+    ";
+    
     echo "<div class='edit'>";
     
     if ($ce["disabled"]) {
