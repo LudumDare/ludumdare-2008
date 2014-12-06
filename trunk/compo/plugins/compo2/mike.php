@@ -4,6 +4,7 @@
 // hopefully never needed again come mid next year. //
 
 function c2_get_game($event_id,$user_id) {
+	global $wpdb;
 	return array_pop($wpdb->get_results( "SELECT * FROM c2_entry WHERE cid = {$event_id} AND uid = {$user_id} LIMIT 1", ARRAY_A ));
 }
 
