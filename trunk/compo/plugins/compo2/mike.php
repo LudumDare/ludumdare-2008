@@ -5,7 +5,14 @@
 
 function c2_navigation($slug) {
 	if ( current_user_can('edit_others_posts') ) {
-		echo "hello. testing: " + $slug;
+?>
+		<div class="event">
+			<div class="info">
+				<div class="navigation">Navigation</div>
+				<div class="name">Now: <strong><?php echo $slug; ?></strong></div>
+			</div>
+		</div>
+<?php
 	}
 	
 }
