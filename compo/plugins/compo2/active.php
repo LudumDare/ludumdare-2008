@@ -169,7 +169,9 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	        }
 	        */
         }
-
+        
+        echo "<h4>I would like to Opt-out of</h4>";
+		echo "coming soon<br />";
 //        echo "<h4>Opt Out</h4>";
 //        
 //        // cats: all
