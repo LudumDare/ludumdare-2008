@@ -173,7 +173,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
         }
         
         echo "<h4>I would like to opt-out of</h4>";
-		echo "<strong>*WORK IN PROGRESS*</strong> This feature currently does not work. Come back later to set these.<br />";
+		echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 //        echo "<h4>Opt Out</h4>";
 //        
 //        // cats: all
@@ -184,7 +184,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 //        }
 //    
         echo "<h4>Settings</h4>";
-		echo "<strong>*WORK IN PROGRESS*</strong> This feature currently does not work. Come back later to set these.<br />";
+		echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		echo "[] My game may not be suitable for kids<br />";
 		echo "[] I would like to allow anonymous feedback. I understand this means my game will be criticized more harshly, and I can take it.<br />";
 
