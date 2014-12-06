@@ -120,11 +120,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
             echo "<input type='radio' name='etype' value='{$div}' $selected /> {$params["{$div}_title"]} Entry";
             echo "<div><i>{$params["{$div}_summary"]}</i></div>";
             echo "<div>&nbsp;</div>";
-            
-	        echo "<h4>Opt Out</h4>";
+            /*
 	        foreach ($params[$div."_cats"] as $k) {
-	            echo "<div>".$k."</div>";
+	            echo "<input type='checkbox' name='' value='OPT_OUT_'>Opt-out of \"".$k."\"</div>";
 	        }
+	        */
         }
 
 //        echo "<h4>Opt Out</h4>";
