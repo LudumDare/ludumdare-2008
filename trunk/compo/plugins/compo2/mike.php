@@ -18,6 +18,21 @@ function c2_get_game($event_id,$user_id) {
 	return $ret;
 }
 
+function c2_set_game($event_id,$user_id,$game) {
+	// Serialize the Data //
+	foreach ($game as $key => $val) {
+		if ( is_array($val) ) {
+			$game[$key] = serialize($val);
+		}
+	}
+	
+	var_dump($game);	
+	
+//	global $wpdb;
+//	$ret = array_pop($wpdb->get_results( "SELECT * FROM c2_entry WHERE cid = {$event_id} AND uid = {$user_id} LIMIT 1", ARRAY_A ));
+	
+}
+
 // This Function is called in the style sheet to display Navigation //
 function c2_navigation($slug,$name,$name_url) {
 	if ( current_user_can('edit_others_posts') ) {
@@ -43,6 +58,8 @@ function c2_navigation($slug,$name,$name_url) {
 			$game = c2_get_game($event_id,$user_id);
 			
 			var_dump($game);
+			echo "<br/><br/>";
+			c2_set_game($event_id,$user_id,$game);
 			
 			//echo $event_id . " vs " . $user_id;
 			
