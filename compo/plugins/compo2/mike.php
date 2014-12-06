@@ -37,6 +37,7 @@ function c2_navigation($slug,$name,$name_url) {
 		}
 	}
 	else {
+		if ( !is_paged() ) {
 ?>
 		<div class="event">
 			<div class="info">
@@ -45,6 +46,7 @@ function c2_navigation($slug,$name,$name_url) {
 			</div>
 		</div>
 <?php
+		}
 	}	
 }
 
