@@ -122,12 +122,12 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
             echo "<div>&nbsp;</div>";
             
             $idx = 0;
-            $requirement = null;
-            if ( $params[$div."_req"] !== "" ) {
+            $requirement = [];
+            if ( $params[$div."_req"] ) {
 	            $requirement = explode(";",$params[$div."_req"]);
 	        }
             foreach ($requirement as $req) {
-	            echo "<input type='checkbox' name='{$div}_REQ_{$idx}' value='{$div}_REQ_{$idx}'>{$req}</input>";
+	            echo "<input type='checkbox' name='{$div}_REQ_{$idx}' value='{$div}_REQ_{$idx}'>{$req}</input><br />";
 	            $idx++;           	
             }
             // MK: END NIGHT
