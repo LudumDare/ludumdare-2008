@@ -114,7 +114,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 //     $rules = isset($params["rules"])?$params["rules"]:"#";
     if ($opts) {
         echo "<h4>Event</h4>";
-        echo ""
+        echo "";
         foreach ($divs as $div) {
             $selected = (strcmp($etype,$div)==0?"checked":"");
             echo "<input type='radio' name='etype' value='{$div}' $selected /> {$params["{$div}_title"]} Entry";
