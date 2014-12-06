@@ -150,7 +150,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
 //     $rules = isset($params["rules"])?$params["rules"]:"#";
     if ($opts) {
-        echo "<h4>Type of Submission</h4>";
+        echo "<h4>Submission Type</h4>";
         foreach ($divs as $div) {
             $requirement = [];
             if ( $params[$div."_req"] ) {
