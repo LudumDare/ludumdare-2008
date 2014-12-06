@@ -9,8 +9,9 @@ function c2_get_game($event_id,$user_id) {
 	
 	// Unserialize the Data //
 	foreach ($ret as $key => $val) {
-		if ( is_array($val) ) {
-			$ret[$key] = unserialize($val);
+		$out = null;
+		if ( $out = unserialize($val) ) {//is_string($val) ) {
+			$ret[$key] = $out;//unserialize($val);
 		}
 	}
 	
