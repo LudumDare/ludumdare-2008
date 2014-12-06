@@ -5,6 +5,7 @@
 
 function c2_navigation($slug,$name,$name_url) {
 	if ( current_user_can('edit_others_posts') ) {
+		if ( is_front_page() ) {
 ?>
 		<div class="event">
 			<div class="info">
@@ -13,6 +14,7 @@ function c2_navigation($slug,$name,$name_url) {
 			</div>
 		</div>
 <?php
+		}
 	}
 	else {
 ?>
