@@ -6,6 +6,21 @@
 function c2_navigation($slug,$name,$name_url) {
 	if ( current_user_can('edit_others_posts') ) {
 		if ( !is_paged() ) {
+			$event_id = 0;
+			$underscore_slug = str_replace( '-', '_', $slug );
+			if ( function_exists('apcu_fetch') && !isset($_GET["cache"]) ) {
+				$event_id = apcu_fetch('c2_slug_cache_'.$underscore_slug);
+			}
+			if ( !$event_id ) {
+				$page = get_posts(array('name'=> $slug,'post_type'=>'page'));
+				
+				print_r($page);
+				
+				if ( function_exists('apcu_store') ) {
+					apcu_store('c2_slug_cache_'.$underscore_slug, $event_id);
+				}
+			}
+			
 ?>
 		<div class="event">
 			<div class="info">
