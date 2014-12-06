@@ -148,16 +148,18 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     if ($opts) {
         echo "<h4>Type of Submission</h4>";
         foreach ($divs as $div) {
-            $selected = (strcmp($etype,$div)==0?"checked":"");
-            echo "<input type='radio' name='etype' id='etype_{$div}' value='{$div}' $selected /> {$params["{$div}_title"]}";
-            echo "<div><i>{$params["{$div}_summary"]}</i></div>";
-            echo "<div>&nbsp;</div>";
-            
-            $idx = 0;
             $requirement = [];
             if ( $params[$div."_req"] ) {
 	            $requirement = explode(";",$params[$div."_req"]);
 	        }
+			
+            $selected = (strcmp($etype,$div)==0?"checked":"");
+            $disabled = count($requirement) > 0 ? "disabled" : "";
+            echo "<input type='radio' name='etype' id='etype_{$div}' value='{$div}' {$selected} {$disabled} /> {$params["{$div}_title"]}";
+            echo "<div><i>{$params["{$div}_summary"]}</i></div>";
+            echo "<div>&nbsp;</div>";
+            
+            $idx = 0;
             foreach ($requirement as $req) {
 	            echo "<input type='checkbox' class='{$div}_REQ' name='{$div}_REQ_{$idx}' value='{$div}_REQ_{$idx}' onchange='c2_edit_typechange(\"{$div}\");'>{$req}</input><br />";
 	            $idx++;           	
