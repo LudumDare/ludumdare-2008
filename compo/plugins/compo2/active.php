@@ -173,7 +173,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
         }
         
         echo "<h4>I would like to opt-out of</h4>";
-		echo "coming soon<br />";
+		echo "<strong>*WORK IN PROGRESS*</strong> This feature currently does not work. Come back later to set these.<br />";
 //        echo "<h4>Opt Out</h4>";
 //        
 //        // cats: all
@@ -184,7 +184,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 //        }
 //    
         echo "<h4>Settings</h4>";
-		echo "coming soon<br /><br />";
+		echo "<strong>*WORK IN PROGRESS*</strong> This feature currently does not work. Come back later to set these.<br />";
 		echo "[] My game may not be suitable for kids<br />";
 		echo "[] I would like to allow anonymous feedback. I understand this means my game will be criticized more harshly, and I can take it.<br />";
 
@@ -195,11 +195,9 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     ////////////////////////////////////////////////////////////////////////////
     
     echo "<h4>Description</h4>";
-    
     echo "<textarea name='notes' rows=8 cols=60>".htmlentities($ce["notes"])."</textarea>";
     
-    echo "<h4>Screenshot(s)</h4>";
-    
+    echo "<h4>Screenshot(s)</h4>";    
     echo "You must include one screenshot. {$star}<br />";
     
     $shots = unserialize($ce["shots"]);
