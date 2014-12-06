@@ -57,9 +57,12 @@ function c2_navigation($slug,$name,$name_url) {
 			
 			$game = c2_get_game($event_id,$user_id);
 			
+			// MK: END NIGHT
+			/*
 			var_dump($game);
 			echo "<br/><br/>";
 			c2_set_game($event_id,$user_id,$game);
+			*/
 			
 			//echo $event_id . " vs " . $user_id;
 			
