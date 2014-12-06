@@ -5,7 +5,7 @@
 
 function c2_navigation($slug,$name,$name_url) {
 	if ( current_user_can('edit_others_posts') ) {
-		if ( is_front_page() ) {
+		if ( is_paged() ) {
 ?>
 		<div class="event">
 			<div class="info">
