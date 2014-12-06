@@ -3,7 +3,9 @@
 // This is a collection of things for the Compo system, that are  //
 // hopefully never needed again come mid next year. //
 
-
+function c2_get_game($event_id,$user_id) {
+	return array_pop($wpdb->get_results( "SELECT * FROM c2_entry WHERE cid = {$event_id} AND uid = {$user_id} LIMIT 1", ARRAY_A ));
+}
 
 // This Function is called in the style sheet to display Navigation //
 function c2_navigation($slug,$name,$name_url) {
@@ -27,7 +29,11 @@ function c2_navigation($slug,$name,$name_url) {
 				}
 			}
 			
-			echo $event_id . " vs " . $user_id;
+			$game = c2_get_game($event_id,$user_id);
+			
+			print_r($game);
+			
+			//echo $event_id . " vs " . $user_id;
 			
 ?>
 		<div class="event">
