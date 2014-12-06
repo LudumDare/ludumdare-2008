@@ -69,6 +69,9 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     	.edit form {
     		text-align:left;
     	}
+    	.edit h4 {
+    		margin-bottom:0;
+    	}
     </style>
     ";
     
@@ -162,7 +165,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
     ////////////////////////////////////////////////////////////////////////////
     
-    echo "<h4>Notes</h4>";
+    echo "<h4>Description</h4>";
     
     echo "<textarea name='notes' rows=8 cols=60>".htmlentities($ce["notes"])."</textarea>";
     
