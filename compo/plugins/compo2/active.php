@@ -36,6 +36,10 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
         return;
     }
     
+    // TODO: Make just one (which means make code to iterate, add "add new" button)
+    // TODO: __embed for embedded url
+    // TODO: __src for source
+    // TODO: __src_user for source protected with a user account
     $links = unserialize($ce["links"]);
     if (!$ce["id"]) {
         $links = array(
@@ -72,11 +76,10 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     if ($is_admin) { $link .= "&admin=1&uid=$uid"; }
 
     echo "<form method='post' action='$link' enctype='multipart/form-data'>";
-    
     echo "<input type='hidden' name='formdata' value='1'>";
     
-    echo "<h4>Name of Entry</h4>";
     
+    echo "<h4>Name of Entry</h4>";    
     echo "$star <input type='text' name='title' value=\"".htmlentities($ce["title"])."\" size=60> ";
     
     ////////////////////////////////////////////////////////////////////////////
@@ -118,6 +121,10 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
             echo "<div>&nbsp;</div>";
         }
         
+        foreach ($params["cats"] as $k) {
+        	//(strlen($data[$k])?intval($data[$k]):"-")
+            echo "<div>".$k."</div>";
+        }
     
     } else {
         echo "<input type='hidden' name='etype' value='$etype'>";
