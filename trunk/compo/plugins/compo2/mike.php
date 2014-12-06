@@ -3,13 +3,13 @@
 // This is a collection of things for the Compo system, that are  //
 // hopefully never needed again come mid next year. //
 
-function c2_navigation($slug) {
+function c2_navigation($slug,$name,$name_url) {
 	if ( current_user_can('edit_others_posts') ) {
 ?>
 		<div class="event">
 			<div class="info">
-				<div class="navigation">Navigation</div>
-				<div class="name">Now: <strong><?php echo $slug; ?></strong></div>
+				<div class="navigation"><a href="/compo/<?php echo $slug?>/?action=edit">Submit</a> | <a href="/compo/<?php echo $slug?>/?action=preview">View All</a></div>
+				<div class="name">Now: <strong><a href="<?php echo $name_url; ?>"><?php echo $name; ?></a</strong></div>
 			</div>
 		</div>
 <?php
