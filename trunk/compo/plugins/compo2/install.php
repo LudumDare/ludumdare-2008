@@ -153,6 +153,8 @@ function compo2_install() {
     
     // Added int 'love', default 0 //
     // Added index 'cid_love' //
+
+    // Added blob 'flags' //
 }
 
 register_activation_hook($GLOBALS["compo2"]["plugin"],"compo2_install");
