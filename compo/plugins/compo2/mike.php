@@ -32,7 +32,7 @@ function c2_navigation($slug,$name,$name_url) {
 			
 			$game = c2_get_game($event_id,$user_id);
 			
-			print_r($game);
+			var_dump($game);
 			
 			//echo $event_id . " vs " . $user_id;
 			
