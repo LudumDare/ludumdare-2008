@@ -26,7 +26,10 @@ function _compo2_active($params) {
 }
 
 function _compo2_active_form($params,$uid="",$is_admin=0) {
-    if (!$uid) { $uid = $params["uid"]; }
+    if (!$uid) {
+    	$uid = $params["uid"];
+    }
+    // 
     $ce = compo2_entry_load($params["cid"],$uid);
     
     if ($params["locked"] && !$ce["id"]) {
@@ -115,6 +118,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
             echo "<div><i>{$params["{$div}_summary"]}</i></div>";
             echo "<div>&nbsp;</div>";
         }
+        
     
     } else {
         echo "<input type='hidden' name='etype' value='$etype'>";
