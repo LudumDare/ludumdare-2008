@@ -8,14 +8,22 @@ function c2_navigation($slug,$name,$name_url) {
 ?>
 		<div class="event">
 			<div class="info">
-				<div class="navigation"><a href="/compo/<?php echo $slug?>/?action=edit">Submit</a> | <a href="/compo/<?php echo $slug?>/?action=preview">View All</a></div>
+				<div class="navigation"><a href="/compo/<?php echo $slug?>/?action=edit"><strong>Submit</strong></a> | <a href="/compo/<?php echo $slug?>/?action=preview">View All</a></div>
 				<div class="name">Now: <strong><a href="<?php echo $name_url; ?>"><?php echo $name; ?></a></strong></div>
 			</div>
 		</div>
 <?php
 	}
-	
+	else {
+?>
+		<div class="event">
+			<div class="info">
+				<div class="navigation"><a href="/compo/<?php echo $slug?>/?action=edit"><strong>Submit</strong></a> | <a href="/compo/<?php echo $slug?>/?action=preview">View All</a></div>
+				<div class="name">Now: <strong><a href="<?php echo $name_url; ?>"><?php echo $name; ?></a></strong></div>
+			</div>
+		</div>
+<?php
+	}	
 }
-
 
 ?>
