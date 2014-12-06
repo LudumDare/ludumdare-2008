@@ -188,7 +188,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			}
 			
 			if ( ootype ) {
-				c2_removeclass( document.getElementById(ootype), "hidden" );
+				c2_removeclass( document.getElementById(ootype+"-submision-type"), "hidden" );
 			}
 			else {
 				c2_removeclass( document.getElementById("no-submission-type"), "hidden" );
