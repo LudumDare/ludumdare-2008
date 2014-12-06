@@ -139,7 +139,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 				}
 			}
 			
-			$target.disabled = disable;
+			target.disabled = disable;
 		}
     </script>
     ';
