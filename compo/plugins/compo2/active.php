@@ -124,12 +124,32 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     }
     if ($is_admin) { $divs = $params["divs"]; }
     
+    echo '
+    <script>
+		function c2_edit_typechange( name ) {
+			var target = document.getElementById("etype_"+name);
+			var requirement = document.querySelectorAll("." + name + "_REQ");
+			
+			var disable = false;
+			
+			for ( var idx = 0; idx < requirement.length; idx++ ) {
+				if ( !requirement[idx].checked ) {
+					disable = true;
+					break;
+				}
+			}
+			
+			$target.disabled = disable;
+		}
+    </script>
+    ';
+    
 //     $rules = isset($params["rules"])?$params["rules"]:"#";
     if ($opts) {
         echo "<h4>Type of Submission</h4>";
         foreach ($divs as $div) {
             $selected = (strcmp($etype,$div)==0?"checked":"");
-            echo "<input type='radio' name='etype' value='{$div}' $selected /> {$params["{$div}_title"]}";
+            echo "<input type='radio' name='etype' id='etype_{$div}' value='{$div}' $selected /> {$params["{$div}_title"]}";
             echo "<div><i>{$params["{$div}_summary"]}</i></div>";
             echo "<div>&nbsp;</div>";
             
@@ -139,7 +159,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	            $requirement = explode(";",$params[$div."_req"]);
 	        }
             foreach ($requirement as $req) {
-	            echo "<input type='checkbox' name='{$div}_REQ_{$idx}' value='{$div}_REQ_{$idx}'>{$req}</input><br />";
+	            echo "<input type='checkbox' class='{$div}_REQ' name='{$div}_REQ_{$idx}' value='{$div}_REQ_{$idx}' onchange='c2_edit_typechange(\"{$div}\");'>{$req}</input><br />";
 	            $idx++;           	
             }
             // MK: END NIGHT
@@ -171,7 +191,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
     echo "<h4>Screenshot(s)</h4>";
     
-    echo "<p>You must include one screenshot. {$star}</p>";
+    echo "You must include one screenshot. {$star}<br />";
     
     $shots = unserialize($ce["shots"]);
 //     print_r($shots);
