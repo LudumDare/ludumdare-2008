@@ -93,7 +93,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
     
     echo "<h4>Name</h4>";    
-    echo "<input type='text' name='title' value=\"".htmlentities($ce["title"])."\" size=60> {$star}";
+    echo "<input type='text' name='title' value=\"".htmlentities($ce["title"])."\" size=60>";
     
     ////////////////////////////////////////////////////////////////////////////
     // Handle the entry type.
@@ -169,9 +169,9 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
     echo "<textarea name='notes' rows=8 cols=60>".htmlentities($ce["notes"])."</textarea>";
     
-    echo "<h4>Screenshots</h4>";
+    echo "<h4>Screenshot(s)</h4>";
     
-    echo "<p>You must include <i>at least</i> one screenshot.</p>";
+    echo "<p>You must include one screenshot. {$star}</p>";
     
     $shots = unserialize($ce["shots"]);
 //     print_r($shots);
@@ -180,7 +180,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     for ($i=0; $i<5; $i++) {
         $k = "shot$i";
         echo "<tr><td>".($i+1).".<td>";
-        if ($i==0) { echo "$star "; }
+        //if ($i==0) { echo "$star "; }
         echo "<td><input type='file' name='$k'>";
         if ($i==0) { echo "<td>(Primary Screenshot)"; }
         if (isset($shots[$k])) {
