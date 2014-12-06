@@ -6,6 +6,7 @@
 	<div id="content" class="narrowcolumn">
 		<!-- Event -->
 		<?php if ( function_exists('ldjam_show_bar') ) { echo ldjam_show_bar(); } ?>
+		<?php if ( function_exists('c2_navigation') ) { c2_navigation("ludum-dare-31"); }
 		<!--
 		<div class="event">
 			<div class="info">
