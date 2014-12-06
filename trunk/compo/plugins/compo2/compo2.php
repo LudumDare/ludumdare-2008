@@ -268,6 +268,8 @@ require_once dirname(__FILE__)."/admin.php";
 require_once dirname(__FILE__)."/misc.php";
 require_once dirname(__FILE__)."/closed.php";
 
+require_once dirname(__FILE__)."/mike.php";
+
 //add_filter('the_content','compo2_the_content');
 //add_action('wp_head', 'compo2_wp_head');
 add_action('compo2_cache_begin', 'compo2_cache_begin');
