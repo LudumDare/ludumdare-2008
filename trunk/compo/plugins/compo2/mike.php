@@ -6,6 +6,7 @@
 function c2_navigation($slug,$name,$name_url) {
 	if ( current_user_can('edit_others_posts') ) {
 		if ( !is_paged() ) {
+			$user_id = get_current_user_id();
 			$event_id = 0;
 			$underscore_slug = str_replace( '-', '_', $slug );
 			if ( function_exists('apcu_fetch') && !isset($_GET["cache"]) ) {
@@ -23,7 +24,7 @@ function c2_navigation($slug,$name,$name_url) {
 				}
 			}
 			
-			echo $event_id;
+			echo $event_id . " vs " . $user_id;
 			
 ?>
 		<div class="event">

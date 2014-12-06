@@ -29,7 +29,6 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     if (!$uid) {
     	$uid = $params["uid"];
     }
-    // 
     $ce = compo2_entry_load($params["cid"],$uid);
     
     if ($params["locked"] && !$ce["id"]) {
