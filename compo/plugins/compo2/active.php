@@ -134,7 +134,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			if (el.classList)
 				el.classList.add(className);
 			else
-				el.className += ' ' + className;
+				el.className += " " + className;
     	}
     	
     	function c2_removeclass( el, className ) {
