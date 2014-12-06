@@ -174,6 +174,8 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
         
         echo "<h4>I would like to opt-out of</h4>";
 		echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
+		
+		echo "<div>Please select a Submission Type</div>";
 //        echo "<h4>Opt Out</h4>";
 //        
 //        // cats: all
