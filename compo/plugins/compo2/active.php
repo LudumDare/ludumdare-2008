@@ -130,6 +130,20 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
     echo '
     <script>
+    	function c2_addclass( el, className ) {
+			if (el.classList)
+				el.classList.add(className);
+			else
+				el.className += ' ' + className;
+    	}
+    	
+    	function c2_removeclass( el, className ) {
+			if (el.classList)
+				el.classList.remove(className);
+			else
+				el.className = el.className.replace(new RegExp("(^|\\b)" + className.split(" ").join("|") + "(\\b|$)", "gi"), ' ');
+    	}
+    
     	// Toggles the disabled property of an id by checkboxes with same basename //
 		function c2_edit_typechange( name ) {
 			var target = document.getElementById("etype_"+name);
@@ -160,9 +174,25 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		}
 		
 		function c2_on_submission_type_changed( e ) {
-			console.log(e);
-			console.log( c2_which_radio("etype") );
-			console.log(e.getAttribute("value"));
+//			console.log(e);
+//			console.log( c2_which_radio("etype") );
+//			console.log(e.getAttribute("value"));
+			
+			c2_show_optouts( e.getAttribute("value") );
+		}
+		
+		function c2_show_optouts( ootype ) {
+			var radio = document.querySelectorAll(".optout-type");
+			for ( var idx = 0; idx < radio.length; idx++ ) {
+				c2_addclass( radio[idx], "hidden" );
+			}
+			
+			if ( ootype ) {
+				c2_removeclass( document.getElementById(ootype), "hidden" );
+			}
+			else {
+				c2_removeclass( document.getElementById("no-submission-type"), "hidden" );
+			}
 		}
     </script>
     ';
@@ -201,9 +231,9 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		
 		echo "You will <strong>not</strong> be rated in these categories.<br /><br />";
-		echo "<div id='no-submission-type'>Please select a Submission Type</div>";
+		echo "<div id='no-submission-type' class='optout-type'>Please select a Submission Type</div>";
 		foreach ($divs as $div) {
-			echo "<div id='{$div}-submission-type'>";
+			echo "<div id='{$div}-submission-type' class='optout-type'>";
 	        foreach ($params["{$div}_cats"] as $catname) {
 	            echo "<input type='checkbox' class='' name='' value='OPT_OUT_'>".$catname."</input><br />";
 	        }			
