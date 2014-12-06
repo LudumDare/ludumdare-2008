@@ -130,6 +130,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
     echo '
     <script>
+    	// Toggles the disabled property of an id by checkboxes with same basename //
 		function c2_edit_typechange( name ) {
 			var target = document.getElementById("etype_"+name);
 			var requirement = document.querySelectorAll("." + name + "_REQ");
@@ -145,6 +146,22 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			
 			target.disabled = disable;
 		}
+		
+		// Returns which radio button is set, matching a class //
+		function c2_which_radio( classname ) {
+			var radio = document.querySelectorAll("." + classname);
+			
+			for ( var idx = 0; idx < radio.length; idx++ ) {
+				if ( radio[idx].checked ) {
+					return radio[idx];
+				}
+			}
+			return null;
+		}
+		
+		function c2_on_submission_type_changed() {
+			console.log( c2_which_radio("etype") );
+		}
     </script>
     ';
     
@@ -159,9 +176,10 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			
             $selected = (strcmp($etype,$div)==0?"checked":"");
             $disabled = count($requirement) > 0 ? "disabled" : "";
-            echo "<input type='radio' name='etype' id='etype_{$div}' value='{$div}' {$selected} {$disabled} /> {$params["{$div}_title"]}";
-            echo "<div><i>{$params["{$div}_summary"]}</i></div>";
-            echo "<div>&nbsp;</div>";
+            // Radio Button //
+            echo "<input type='radio' name='etype' id='etype_{$div}' class='etype' value='{$div}' onchanged='c2_on_submission_type_changed();' {$selected} {$disabled} /> {$params['{$div}_title']}";
+            // Summary //
+            echo "<div><i>{$params['{$div}_summary']}</i></div>";
             
             $idx = 0;
             foreach ($requirement as $req) {
@@ -174,6 +192,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	            echo "<input type='checkbox' name='' value='OPT_OUT_'>Opt-out of \"".$k."\"</div>";
 	        }
 	        */
+            echo "<br />";
         }
         
         echo "<h4>I would like to opt-out of (optional)</h4>";
