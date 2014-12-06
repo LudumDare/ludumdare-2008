@@ -12,14 +12,18 @@ function c2_navigation($slug,$name,$name_url) {
 				$event_id = apcu_fetch('c2_slug_cache_'.$underscore_slug);
 			}
 			if ( !$event_id ) {
-				$page = get_posts(array('name'=> $slug,'post_type'=>'page'));
+				$page = get_posts(array('name'=> $slug,'post_type'=>'page'))[0];
 				
-				print_r($page);
+				//print_r($page);
+				
+				$event_id = $page->ID;
 				
 				if ( function_exists('apcu_store') ) {
 					apcu_store('c2_slug_cache_'.$underscore_slug, $event_id);
 				}
 			}
+			
+			echo $event_id;
 			
 ?>
 		<div class="event">
