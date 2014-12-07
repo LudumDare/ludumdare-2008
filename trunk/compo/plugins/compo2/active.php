@@ -421,7 +421,9 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 		if (!strlen(trim($ce["title"]))) { $active = false; $msg = "Entry name is a required field."; }
 		
 		
-		$ce["etype"] = $_REQUEST["etype"];
+		if ( isset($_REQUEST["etype"]) && $_REQUEST["etype"] !== "" ) {
+			$ce["etype"] = $_REQUEST["etype"];
+		}
 		
 		if ($params["init"] == 0) {
 			$ce["is_judged"] = intval(strcmp($ce["etype"],"compo") == 0);
