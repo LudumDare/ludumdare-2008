@@ -391,8 +391,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
     if (!$_REQUEST["formdata"]) {
         $active = false;
         $msg = "Invalid request.  Entry not updated.";
-    } else {
-    
+    } else {    
         $ce["title"] = compo2_strip($_REQUEST["title"]);
         if (!strlen(trim($ce["title"]))) { $active = false; $msg = "Entry name is a required field."; }
         
@@ -461,6 +460,38 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
             "user_nicename"=>$user->user_nicename,
             "user_email"=>$user->user_email,
         ));
+        
+		// MK START //
+		// Build Settings //
+		$settings = [];
+
+		{	
+			$settings["NSFW"] = isset($_REQUEST["SETTING"]["NSFW"]) ? 1 : 0;
+			$settings["NSFL"] = isset($_REQUEST["SETTING"]["NSFL"]) ? 1 : 0;
+			$settings["ANONYMOUS"] = isset($_REQUEST["SETTING"]["ANONYMOUS"]) ? 1 : 0;
+			
+			$embed_width = 800;
+			$embed_height = 450;
+			
+			if ( isset($_REQUEST["EMBED"]["WIDTH"]) && isset($_REQUEST["EMBED"]["HEIGHT"]) ) {
+				$width = intval($_REQUEST["EMBED"]["WIDTH"]);
+				if ( $width > 900 ) $width = 900;
+				if ( $width < 16 ) $width = 16;
+				
+				$height = intval($_REQUEST["EMBED"]["HEIGHT"]);
+				if ( $height > 900 ) $height = 600;
+				if ( $height < 9 ) $height = 9;
+				
+				$embed_width = $width;
+				$embed_height = $height;
+			}
+			
+			$settings["EMBED"]["width"] = $embed_width;
+			$settings["EMBED"]["height"] = $embed_height;
+		}
+		
+		$ce["settings"] = serialize($settings);
+		// MK END //
         
         unset($ce["results"]);
         if (!$ce["id"]) {
