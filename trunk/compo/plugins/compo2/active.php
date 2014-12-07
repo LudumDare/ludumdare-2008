@@ -306,6 +306,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "<h4>Embed URL</h4>";
 	echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
     echo "For Web games, we can embed your game in an HTML iframe for play right on your game page. <br />";
+    echo "<br />";
 
     echo "<table>";
     echo "<tr><th><th>URL (don't forget the http://)<th><th>Width<th><th>Height";
@@ -316,6 +317,21 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "<td>";
     echo "<td><input type='text' name='TBD2' size=5 value=\"".""."\"> (max ???)";
     echo "</table>";
+
+    echo "<br />";
+
+    echo "<h4>Video (YouTube) URL</h4>";
+	echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
+    echo "Alternatively, we can embed a YouTube video. <strong>NOTE:</strong> If you set an Embed URL, we will use that instead.<br />";
+    echo "<br />";
+
+    echo "<table>";
+    echo "<tr><th><th>URL (don't forget the http://)";
+    echo "<tr><td>";
+    echo "<td><input type='text' name='TBD1' size=45 value=\"".""."\">";
+    echo "</table>";
+
+    echo "<br />";
     
 /*    echo "<h4>Extra Stuff</h4>";
     // this is non-functional
