@@ -345,6 +345,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "<td><input type='text' name='SETTING[EMBED][width]' size=5 value=\"".$embed_width."\"> (MAX 900)";
 	echo "<td>";
 	echo "<td><input type='text' name='SETTING[EMBED][height]' size=5 value=\"".$embed_height."\"> (MAX 600)";
+	echo "<tr><td>";
+	echo "<td>Max: 900";
+	echo "<td>";
+	echo "<td>Max: 600";
+	echo "<td>";
 	echo "</table>";
 
 /*    echo "<br />";*/
