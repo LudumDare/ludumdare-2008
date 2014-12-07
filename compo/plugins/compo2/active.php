@@ -232,7 +232,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			
 			$idx = 0;
 			foreach ($requirement as $req) {
-				echo "<input type='checkbox' class='{$div}_REQ' name='REQ[{$div}][{$idx}]' value='1' onchange='c2_edit_typechange(\"{$div}\");' ".($selected !== "" ? "checked" : "".">{$req}</input><br />";
+				echo "<input type='checkbox' class='{$div}_REQ' name='REQ[{$div}][{$idx}]' value='1' onchange='c2_edit_typechange(\"{$div}\");' ".($selected !== "" ? "checked" : "").">{$req}</input><br />";
 				$idx++;           	
 			}
 			// MK: END NIGHT
