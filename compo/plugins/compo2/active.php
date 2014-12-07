@@ -255,10 +255,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 //            echo "<div>".$k."</div>";
 //        }
 //    
-        echo "<h4>Content Ratings</h4>";
+        echo "<h4>Content Rating</h4>";
 		echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		echo "<input type='checkbox' class='' name='' value='SETTING_NSFW'>My game may not be suitable for kids.</input><br />";
-		echo "<input type='checkbox' class='' name='' value='SETTING_NSFL'>My game contains material or subject matter that may be offensive. Please include <strong>The Warning</strong>.<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> We may enable this if we get complaints about a game. It's just a warning though.</div></input>";
+		echo "<input type='checkbox' class='' name='' value='SETTING_NSFL'>My game contains material or subject matter that may be offensive. Please include <strong>The Warning</strong>.</input>";
+		echo "<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> We may enable these if we get complaints about a game. The first is just a filtering option, and the 2nd is just a warning though.</div>";
 
         echo "<h4>Settings</h4>";
 		echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
