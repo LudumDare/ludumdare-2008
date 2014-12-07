@@ -223,7 +223,8 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			}
 			
 			$selected = (strcmp($etype,$div)==0?"checked":"");
-			$disabled = count($requirement) > 0 ? "disabled" : "";
+			$disabled = (count($requirement) > 0) && ($selected === "") ? "disabled" : "";
+			
 			// Radio Button //
 			echo "<input type='radio' name='etype' id='etype_{$div}' class='etype' value='{$div}' onchange='c2_on_submission_type_changed(this);' {$selected} {$disabled} /> ".$params["{$div}_title"]."</input>";
 			// Summary //
@@ -231,7 +232,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			
 			$idx = 0;
 			foreach ($requirement as $req) {
-				echo "<input type='checkbox' class='{$div}_REQ' name='REQ[{$div}][{$idx}]' value='1' onchange='c2_edit_typechange(\"{$div}\");'>{$req}</input><br />";
+				echo "<input type='checkbox' class='{$div}_REQ' name='REQ[{$div}][{$idx}]' value='1' onchange='c2_edit_typechange(\"{$div}\");' ".($selected !== "" ? "checked" : "".">{$req}</input><br />";
 				$idx++;           	
 			}
 			// MK: END NIGHT
