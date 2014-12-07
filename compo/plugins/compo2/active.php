@@ -220,7 +220,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
             
             $idx = 0;
             foreach ($requirement as $req) {
-	            echo "<input type='checkbox' class='{$div}_REQ' name='REQ-{$div}-{$idx}' value='1' onchange='c2_edit_typechange(\"{$div}\");'>{$req}</input><br />";
+	            echo "<input type='checkbox' class='{$div}_REQ' name='REQ[{$div}][{$idx}]' value='1' onchange='c2_edit_typechange(\"{$div}\");'>{$req}</input><br />";
 	            $idx++;           	
             }
             // MK: END NIGHT
@@ -319,11 +319,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "<table>";
     echo "<tr><th><th>URL (don't forget the http://)<th><th>Width<th><th>Height";
     echo "<tr><td>";
-    echo "<td><input type='text' name='EMBED[url]' size=45 value=\"".""."\">";
+    echo "<td><input type='text' name='SETTING[EMBED][url]' size=45 value=\"".""."\">";
     echo "<td>";
-    echo "<td><input type='text' name='EMBED[width]' size=5 value=\"".""."\"> (max 900)";
+    echo "<td><input type='text' name='SETTING[EMBED][width]' size=5 value=\"".""."\"> (max 900)";
     echo "<td>";
-    echo "<td><input type='text' name='EMBED[height]' size=5 value=\"".""."\"> (max ???)";
+    echo "<td><input type='text' name='SETTING[EMBED][height]' size=5 value=\"".""."\"> (max ???)";
     echo "</table>";
 
 /*    echo "<br />";*/
@@ -336,7 +336,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "<table>";
     echo "<tr><th><th>URL (don't forget the http://)";
     echo "<tr><td>";
-    echo "<td><input type='text' name='EMBED[youtube]' size=45 value=\"".""."\">";
+    echo "<td><input type='text' name='SETTING[EMBED][youtube]' size=45 value=\"".""."\">";
     echo "</table>";
 
     echo "<br />";
