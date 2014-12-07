@@ -308,13 +308,13 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "For Web games, we can embed your game in an HTML iframe for play right on your game page. <br />";
 
     echo "<table>";
-    echo "<tr><th><th>Embed URL<th><th>Width (max 900)<th><th>Height (max ???)";
+    echo "<tr><th><th>URL (don't forget the http://)<th><th>Width<th><th>Height";
     echo "<tr><td>";
     echo "<td><input type='text' name='TBD1' size=45 value=\"".""."\">";
     echo "<td>";
-    echo "<td><input type='text' name='TBD2' size=5 value=\"".""."\">";
+    echo "<td><input type='text' name='TBD2' size=5 value=\"".""."\"> (max 900)";
     echo "<td>";
-    echo "<td><input type='text' name='TBD2' size=5 value=\"".""."\">";
+    echo "<td><input type='text' name='TBD2' size=5 value=\"".""."\"> (max ???)";
     echo "</table>";
     
 /*    echo "<h4>Extra Stuff</h4>";
