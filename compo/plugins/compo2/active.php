@@ -236,6 +236,8 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		echo "You will <strong>not</strong> be rated in these categories.<br /><br />";
 
+		echo "Test: ";
+		var_dump( $etype );
 		$hidden = $etype ? "" : "hidden";
 		echo "<div id='no-submission-type' class='optout-type {$hidden}'>Please select a Submission Type</div>";
 		foreach ($divs as $div) {
