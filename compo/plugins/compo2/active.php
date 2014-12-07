@@ -238,7 +238,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 
 		echo "Test: ";
 		var_dump( $etype );
-		$hidden = $etype ? "" : "hidden";
+		$hidden = $etype ? "hidden" : "";
 		echo "<div id='no-submission-type' class='optout-type {$hidden}'>Please select a Submission Type</div>";
 		foreach ($divs as $div) {
 			$hidden = strcmp($etype,$div)==0 ? "" : "hidden";
