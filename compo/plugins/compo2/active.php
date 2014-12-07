@@ -510,6 +510,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			// Embedded Game Player //
 			$embed_width = 800;
 			$embed_height = 450;
+			$embed_url = "";
 			
 			if ( isset($_REQUEST["SETTING"]["EMBED"]["width"]) ) {
 				$width = intval($_REQUEST["SETTING"]["EMBED"]["width"]);
@@ -527,8 +528,13 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 				$embed_height = $height;
 			}
 			
+			if ( isset($_REQUEST["SETTING"]["EMBED"]["url"]) ) {
+				$embed_url = esc_url($_REQUEST["SETTING"]["EMBED"]["url"]);	
+			}
+			
 			$settings["EMBED"]["width"] = $embed_width;
 			$settings["EMBED"]["height"] = $embed_height;
+			$settings["EMBED"]["url"] = $embed_url;
 		}
 		
 		$ce["settings"] = serialize($settings);
