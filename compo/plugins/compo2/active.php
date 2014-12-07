@@ -483,12 +483,12 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			$embed_width = 800;
 			$embed_height = 450;
 			
-			if ( isset($_REQUEST["EMBED"]["WIDTH"]) && isset($_REQUEST["EMBED"]["HEIGHT"]) ) {
-				$width = intval($_REQUEST["EMBED"]["WIDTH"]);
+			if ( isset($_REQUEST["EMBED"]["width"]) && isset($_REQUEST["EMBED"]["height"]) ) {
+				$width = intval($_REQUEST["EMBED"]["width"]);
 				if ( $width > 900 ) $width = 900;
 				if ( $width < 16 ) $width = 16;
 				
-				$height = intval($_REQUEST["EMBED"]["HEIGHT"]);
+				$height = intval($_REQUEST["EMBED"]["height"]);
 				if ( $height > 900 ) $height = 600;
 				if ( $height < 9 ) $height = 9;
 				
