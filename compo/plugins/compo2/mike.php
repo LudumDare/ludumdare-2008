@@ -74,8 +74,8 @@ function c2_navigation($slug,$name,$name_url) {
 				<div class="navigation">
 <?php				if ( is_user_logged_in() ) {
 						if ( $game ) {?>
-							<a href="/compo/<?php echo $slug?>/?action=edit"><strong>Edit my Entry</strong></a> | 
-							<a href="/compo/<?php echo $slug?>/?action=me"><strong>View my Entry</strong></a> | 
+							<a href="/compo/<?php echo $slug?>/?action=edit"><strong>Edit</strong></a> | 
+							<a href="/compo/<?php echo $slug?>/?action=me"><strong>View Mine</strong></a> | 
 <?php					}
 						else {?>
 							<a href="/compo/<?php echo $slug?>/?action=edit"><strong>Submit</strong></a> | 
@@ -117,8 +117,8 @@ function c2_navigation($slug,$name,$name_url) {
 				<div class="navigation">
 <?php				if ( is_user_logged_in() ) {
 						if ( $game ) {?>
-							<a href="/compo/<?php echo $slug?>/?action=edit"><strong>Edit my Entry</strong></a> | 
-							<a href="/compo/<?php echo $slug?>/?action=me"><strong>View my Entry</strong></a> | 
+							<a href="/compo/<?php echo $slug?>/?action=edit"><strong>Edit</strong></a> | 
+							<a href="/compo/<?php echo $slug?>/?action=me"><strong>View Mine</strong></a> | 
 <?php					}
 						else {?>
 							<a href="/compo/<?php echo $slug?>/?action=edit"><strong>Submit</strong></a> | 
