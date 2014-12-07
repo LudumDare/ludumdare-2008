@@ -96,7 +96,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "<input type='hidden' name='formdata' value='1'>";
     
     
-    echo "<h4>Name</h4>";    
+    echo "<h4>Name {$star}</h4>";    
     echo "<input type='text' name='title' value=\"".htmlentities($ce["title"])."\" size=60>";
     
     ////////////////////////////////////////////////////////////////////////////
@@ -204,7 +204,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
 //     $rules = isset($params["rules"])?$params["rules"]:"#";
     if ($opts) {
-        echo "<h4>Submission Type</h4>";
+        echo "<h4>Submission Type {$star}</h4>";
         foreach ($divs as $div) {
             $requirement = [];
             if ( $params[$div."_req"] ) {
