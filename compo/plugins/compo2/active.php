@@ -342,10 +342,12 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "<tr><td>";
 	echo "<td><input type='text' name='SETTING[EMBED][url]' size=45 value=\"".$embed_url."\">";
 	echo "<td>";
-	echo "<td><input type='text' name='SETTING[EMBED][width]' size=5 value=\"".$embed_width."\"> (MAX 900)";
+	echo "<td><input type='text' name='SETTING[EMBED][width]' size=5 value=\"".$embed_width."\">";
 	echo "<td>";
-	echo "<td><input type='text' name='SETTING[EMBED][height]' size=5 value=\"".$embed_height."\"> (MAX 600)";
+	echo "<td><input type='text' name='SETTING[EMBED][height]' size=5 value=\"".$embed_height."\">";
 	echo "<tr><td>";
+	echo "<td>";
+	echo "<td>";
 	echo "<td>Max: 900";
 	echo "<td>";
 	echo "<td>Max: 600";
