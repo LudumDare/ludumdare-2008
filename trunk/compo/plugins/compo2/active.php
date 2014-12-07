@@ -50,7 +50,8 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
             4=>array("title"=>"Source","url"=>""),
         );
     }
-    
+
+    $settings = unserialize($ce["settings"]);
     
     if (!$is_admin) {
         echo "<p><a href='?action=preview'>Browse entries.</a></p>";
@@ -320,14 +321,23 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "For Web games, we can embed your game in an HTML iframe for play right on your game page. <br />";
     echo "<br />";
 
+
+	$embed_url = "";
+	$embed_width = 800;
+	$embed_height = 450;
+	
+	if ( isset($settings["EMBED"]["url"]) ) $embed_url = $settings["EMBED"]["url"];
+	if ( isset($settings["EMBED"]["width"]) ) $embed_width = $settings["EMBED"]["width"];
+	if ( isset($settings["EMBED"]["height"]) ) $embed_height = $settings["EMBED"]["height"];
+	
     echo "<table>";
     echo "<tr><th><th>URL (don't forget the http://)<th><th>Width<th><th>Height";
     echo "<tr><td>";
-    echo "<td><input type='text' name='SETTING[EMBED][url]' size=45 value=\"".""."\">";
+    echo "<td><input type='text' name='SETTING[EMBED][url]' size=45 value=\"".$embed_url."\">";
     echo "<td>";
-    echo "<td><input type='text' name='SETTING[EMBED][width]' size=5 value=\"".""."\"> (max 900)";
+    echo "<td><input type='text' name='SETTING[EMBED][width]' size=5 value=\"".$embed_width."\"> (MAX 900)";
     echo "<td>";
-    echo "<td><input type='text' name='SETTING[EMBED][height]' size=5 value=\"".""."\"> (max ???)";
+    echo "<td><input type='text' name='SETTING[EMBED][height]' size=5 value=\"".$embed_height."\"> (MAX 600)";
     echo "</table>";
 
 /*    echo "<br />";*/
