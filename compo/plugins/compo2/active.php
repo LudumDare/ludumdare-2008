@@ -259,7 +259,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		echo "<input type='checkbox' class='' name='' value='SETTING_NSFW'>My game may not be suitable for kids.</input><br />";
 		echo "<input type='checkbox' class='' name='' value='SETTING_NSFL'>My game contains material or subject matter that may be offensive. Please include <strong>The Warning</strong>.</input>";
-		echo "<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> We may enable these if we get complaints about a game. The first is just a filtering option, and the 2nd is just a warning though.</div>";
+		echo "<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> We may enable these if we get complaints about a game. The first is an optional filtering option, and the 2nd is a warning.</div>";
 
         echo "<h4>Settings</h4>";
 		echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
