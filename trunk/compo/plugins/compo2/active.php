@@ -288,10 +288,10 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     
     echo "<h4>Links</h4>";
     
-    echo "<p>This is where you link to your entry downloads (Don't forget the <b>http://</b>). You must include <i>at least</i> one link. Field Names can be edited.</p>";
+    echo "<p>This is where you link to your downloads (Don't forget the <b>http://</b>). You must include <i>at least</i> one link. Field Names can be edited.</p>";
     
     echo "<table>";
-    echo "<tr><th><th>Name<th><th>URL";
+    echo "<tr><th><th>Platform/Link Name<th><th>URL";
     for ($i=0; $i<5; $i++) {
         echo "<tr><td>";
         if ($i==0) { echo " $star"; }
