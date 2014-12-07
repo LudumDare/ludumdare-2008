@@ -18,9 +18,7 @@
 			</div>
 		</div>
 <?php	} else { ?>
-		<div class="entry body">
-			<?php the_content('<p class="serif">Read the rest of this page &raquo;</p>'); ?>
-		</div>
+		<?php the_content('<p class="serif">Read the rest of this page &raquo;</p>'); ?>
 <?php	} ?>
 		<?php endwhile; endif; ?>
 	<?php edit_post_link('Edit this entry.', '<div>', '</div>'); ?>
