@@ -374,6 +374,10 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
         return;
     }
     
+    if ( current_user_can('edit_others_posts') ) {
+    	var_dump( $_REQUEST );
+    }
+    
     $active = true; $msg = "";
     
     if (!$_REQUEST["formdata"]) {
