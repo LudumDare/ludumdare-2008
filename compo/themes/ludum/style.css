@@ -499,7 +499,7 @@ body {
 .round-left { border-top-left-radius:2px; border-bottom-left-radius:2px; }
 .round-right { border-top-right-radius:2px; border-bottom-right-radius:2px; }
 
-.section .clock {	
+.section .clock, .section .bigtext {	
 	font-size:28px;
 	text-shadow:0 1px #000;
 
