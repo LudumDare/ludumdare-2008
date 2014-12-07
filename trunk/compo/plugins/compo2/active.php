@@ -268,7 +268,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "<textarea name='notes' rows=8 cols=60>".htmlentities($ce["notes"])."</textarea>";
     
     echo "<h4>Screenshot(s)</h4>";    
-    echo "You must include one screenshot. {$star}<br />";
+    echo "You must include <i>at least</i> one screenshot. {$star}<br />";
     
     $shots = unserialize($ce["shots"]);
 //     print_r($shots);
@@ -285,19 +285,19 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
         }
     }
     echo "</table>";
+
     
     echo "<h4>Links</h4>";
-    
-    echo "<p>This is where you link to your downloads (Don't forget the <b>http://</b>). You must include <i>at least</i> one link. Field Names can be edited.</p>";
+    echo "This is where you link to your downloads. You must include <i>at least</i> one link. $star";
     
     echo "<table>";
-    echo "<tr><th><th>Platform/Link Name<th><th>URL";
+    echo "<tr><th><th>Platform/Link Name<th><th>URL (don't forget the http://)";
     for ($i=0; $i<5; $i++) {
         echo "<tr><td>";
-        if ($i==0) { echo " $star"; }
+//        if ($i==0) { echo " $star"; }
         echo "<td><input type='text' name='links[$i][title]' size=15 value=\"".htmlentities($links[$i]["title"])."\">";
         echo "<td>";
-        if ($i==0) { echo " $star"; }
+//        if ($i==0) { echo " $star"; }
         echo "<td><input type='text' name='links[$i][link]' value=\"".htmlentities($links[$i]["link"])."\" size=45>";
     }
     echo "</table>";
