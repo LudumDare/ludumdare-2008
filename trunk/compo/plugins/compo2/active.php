@@ -220,7 +220,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
             
             $idx = 0;
             foreach ($requirement as $req) {
-	            echo "<input type='checkbox' class='{$div}_REQ' name='{$div}_REQ_{$idx}' value='{$div}_REQ_{$idx}' onchange='c2_edit_typechange(\"{$div}\");'>{$req}</input><br />";
+	            echo "<input type='checkbox' class='{$div}_REQ' name='{$div}_REQ_{$idx}' value='1' onchange='c2_edit_typechange(\"{$div}\");'>{$req}</input><br />";
 	            $idx++;           	
             }
             // MK: END NIGHT
@@ -243,7 +243,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			echo "<div id='{$div}-submission-type' class='optout-type {$hidden}'>";
 	        foreach ($params["{$div}_cats"] as $catname) {
 	        	$safename = sanitize_title_with_dashes($catname);
-	            echo "<input type='checkbox' class='' name='OPTOUT[{$div}][{$safename}]' value='OPTOUT-{$div}-{$safename}'>".$catname."</input><br />";
+	            echo "<input type='checkbox' class='' name='OPTOUT[{$div}][{$safename}]' value='1'>".$catname."</input><br />";
 	        }			
 			echo "</div>";
 		}
@@ -258,13 +258,13 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 //    
         echo "<h4>Content Rating</h4>";
 		echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
-		echo "<input type='checkbox' class='' name='SETTING_NSFW' value='SETTING_NSFW'>My game may not be suitable for kids.</input><br />";
-		echo "<input type='checkbox' class='' name='SETTING_NSFL' value='SETTING_NSFL'>My game contains material or subject matter that may be offensive. Please include <strong>The Warning</strong>.</input>";
+		echo "<input type='checkbox' class='' name='SETTING_NSFW' value='1'>My game may not be suitable for kids.</input><br />";
+		echo "<input type='checkbox' class='' name='SETTING_NSFL' value='1'>My game contains material or subject matter that may be offensive. Please include <strong>The Warning</strong>.</input>";
 		echo "<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> We may enable these if we get complaints about a game. The first is an optional filtering option, and the 2nd is a warning.</div>";
 
         echo "<h4>Settings</h4>";
 		echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
-		echo "<input type='checkbox' class='' name='SETTING_ANONYMOUS' value='SETTING_ANONYMOUS'>I would like to allow anonymous feedback. I understand this means my game will be criticized more harshly, and I can take it.</input><br />";
+		echo "<input type='checkbox' class='' name='SETTING_ANONYMOUS' value='1'>I would like to allow anonymous feedback. I understand this means my game will be criticized more harshly, and I can take it.</input><br />";
 
     } else {
         echo "<input type='hidden' name='etype' value='$etype'>";
