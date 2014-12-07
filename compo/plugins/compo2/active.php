@@ -306,6 +306,16 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "<h4>Embed URL</h4>";
 	echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
     echo "For Web games, we can embed your game in an HTML iframe for play right on your game page. <br />";
+
+    echo "<table>";
+    echo "<tr><th><th>Embed URL<th><th>Width (max 900)<th><th>Height (max ???)";
+    echo "<tr><td>";
+    echo "<td><input type='text' name='TBD1' size=45 value=\"".""."\">";
+    echo "<td>";
+    echo "<td><input type='text' name='TBD2' size=5 value=\"".""."\">";
+    echo "<td>";
+    echo "<td><input type='text' name='TBD2' size=5 value=\"".""."\">";
+    echo "</table>";
     
 /*    echo "<h4>Extra Stuff</h4>";
     // this is non-functional
