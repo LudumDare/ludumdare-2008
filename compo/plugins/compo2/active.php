@@ -30,6 +30,12 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     	$uid = $params["uid"];
     }
     $ce = compo2_entry_load($params["cid"],$uid);
+
+    if ( current_user_can('edit_others_posts') ) {
+    	echo "Hey team. Just ignore this for now. Only you can see it. Thanks!<br /><br />";
+    	var_dump( $ce );
+    }
+
     
     if ($params["locked"] && !$ce["id"]) {
         echo "<p class='warning'>This competition is locked.  No new entries are being accepted.</p>";
