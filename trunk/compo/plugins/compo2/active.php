@@ -318,7 +318,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "<td><input type='text' name='TBD2' size=5 value=\"".""."\"> (max ???)";
     echo "</table>";
 
-    echo "<br />";
+/*    echo "<br />";*/
 
     echo "<h4>Video (YouTube) URL</h4>";
 	echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
