@@ -242,7 +242,8 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			$hidden = strcmp($etype,$div)==0 ? "" : "hidden";
 			echo "<div id='{$div}-submission-type' class='optout-type {$hidden}'>";
 	        foreach ($params["{$div}_cats"] as $catname) {
-	            echo "<input type='checkbox' class='' name='' value='OPT_OUT_'>".$catname."</input><br />";
+	        	$safename = sanitize_title_with_dashes($catname);
+	            echo "<input type='checkbox' class='' name='OPTOUT[{$div}][{$safename}]' value='OPTOUT-{$div}-{$safename}'>".$catname."</input><br />";
 	        }			
 			echo "</div>";
 		}
@@ -257,13 +258,13 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 //    
         echo "<h4>Content Rating</h4>";
 		echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
-		echo "<input type='checkbox' class='' name='' value='SETTING_NSFW'>My game may not be suitable for kids.</input><br />";
-		echo "<input type='checkbox' class='' name='' value='SETTING_NSFL'>My game contains material or subject matter that may be offensive. Please include <strong>The Warning</strong>.</input>";
+		echo "<input type='checkbox' class='' name='SETTING_NSFW' value='SETTING_NSFW'>My game may not be suitable for kids.</input><br />";
+		echo "<input type='checkbox' class='' name='SETTING_NSFL' value='SETTING_NSFL'>My game contains material or subject matter that may be offensive. Please include <strong>The Warning</strong>.</input>";
 		echo "<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> We may enable these if we get complaints about a game. The first is an optional filtering option, and the 2nd is a warning.</div>";
 
         echo "<h4>Settings</h4>";
 		echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
-		echo "<input type='checkbox' class='' name='' value='SETTING_ANONYMOUS'>I would like to allow anonymous feedback. I understand this means my game will be criticized more harshly, and I can take it.</input><br />";
+		echo "<input type='checkbox' class='' name='SETTING_ANONYMOUS' value='SETTING_ANONYMOUS'>I would like to allow anonymous feedback. I understand this means my game will be criticized more harshly, and I can take it.</input><br />";
 
     } else {
         echo "<input type='hidden' name='etype' value='$etype'>";
@@ -318,11 +319,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "<table>";
     echo "<tr><th><th>URL (don't forget the http://)<th><th>Width<th><th>Height";
     echo "<tr><td>";
-    echo "<td><input type='text' name='TBD1' size=45 value=\"".""."\">";
+    echo "<td><input type='text' name='EMBED_URL' size=45 value=\"".""."\">";
     echo "<td>";
-    echo "<td><input type='text' name='TBD2' size=5 value=\"".""."\"> (max 900)";
+    echo "<td><input type='text' name='EMBED_WIDTH' size=5 value=\"".""."\"> (max 900)";
     echo "<td>";
-    echo "<td><input type='text' name='TBD2' size=5 value=\"".""."\"> (max ???)";
+    echo "<td><input type='text' name='EMBED_HEIGHT' size=5 value=\"".""."\"> (max ???)";
     echo "</table>";
 
 /*    echo "<br />";*/
@@ -335,7 +336,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "<table>";
     echo "<tr><th><th>URL (don't forget the http://)";
     echo "<tr><td>";
-    echo "<td><input type='text' name='TBD1' size=45 value=\"".""."\">";
+    echo "<td><input type='text' name='EMBED_YOUTUBE' size=45 value=\"".""."\">";
     echo "</table>";
 
     echo "<br />";
