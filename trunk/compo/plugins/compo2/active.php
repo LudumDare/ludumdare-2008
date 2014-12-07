@@ -287,11 +287,12 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     echo "</table>";
 
     
-    echo "<h4>Links</h4>";
-    echo "This is where you link to your downloads. You must include <i>at least</i> one link. $star";
+    echo "<h4>Downloads and Links</h4>";
+    echo "You must include <i>at least</i> one link. $star <br />";
+    echo "<br />";
     
     echo "<table>";
-    echo "<tr><th><th>Platform/Link Name<th><th>URL (don't forget the http://)";
+    echo "<tr><th><th>Link Name<th><th>URL (don't forget the http://)";
     for ($i=0; $i<5; $i++) {
         echo "<tr><td>";
 //        if ($i==0) { echo " $star"; }
