@@ -258,7 +258,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
         echo "<h4>Settings</h4>";
 		echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		echo "<input type='checkbox' class='' name='' value='SETTING_NSFW'>My game may not be suitable for kids.</input><br />";
-		echo "<input type='checkbox' class='' name='' value='SETTING_NSFL'>My game contains material that may be offensive. Please include <strong>The Warning</strong>.<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> We may enable this if we get complaints about a game. It's just a warning though.</div></input>";
+		echo "<input type='checkbox' class='' name='' value='SETTING_NSFL'>My game contains material or subject matter that may be offensive. Please include <strong>The Warning</strong>.<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> We may enable this if we get complaints about a game. It's just a warning though.</div></input>";
 		echo "<input type='checkbox' class='' name='' value='SETTING_ANONYMOUS'>I would like to allow anonymous feedback. I understand this means my game will be criticized more harshly, and I can take it.</input><br />";
 
     } else {
