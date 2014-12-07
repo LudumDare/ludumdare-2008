@@ -92,6 +92,10 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
     $link = "?action=save";
     if ($is_admin) { $link .= "&admin=1&uid=$uid"; }
 
+	// TIPS //
+    echo "<div>".$params["tips"]."</div>";
+
+
     echo "<form method='post' action='$link' enctype='multipart/form-data'>";
     echo "<input type='hidden' name='formdata' value='1'>";
     
