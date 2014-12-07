@@ -380,7 +380,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
     }
     
     if ( current_user_can('edit_others_posts') ) {
-    	echo "Hey team. Just ignore this for now. Thanks!<br/>";
+    	echo "Hey team. Just ignore this for now. Only you can see it. Thanks!<br /><br />";
     	var_dump( $_REQUEST );
     	echo "<br /><br />";
     	var_dump( $ce );
