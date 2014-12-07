@@ -487,7 +487,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			// Opt-Outs //
 			foreach ( $params["divs"] as $div ) {
 				foreach ( $params[$div."_cats"] as $cat ) {
-					if ( isset($_REQUEST["OPTOUT"][$div][$cat]) {
+					if ( isset($_REQUEST["OPTOUT"][$div][$cat]) ) {
 						$settings["OPTOUT"][$div][$cat] = 1;
 					}
 				}
