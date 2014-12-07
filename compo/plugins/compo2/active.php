@@ -236,9 +236,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		echo "You will <strong>not</strong> be rated in these categories.<br /><br />";
 
-		echo "<div id='no-submission-type' class='optout-type'>Please select a Submission Type</div>";
+		$hidden = $etype ? "" : "hidden";
+		echo "<div id='no-submission-type' class='optout-type {$hidden}'>Please select a Submission Type</div>";
 		foreach ($divs as $div) {
-			echo "<div id='{$div}-submission-type' class='optout-type hidden'>";
+			$hidden = strcmp($etype,$div)==0 ? "" : "hidden";
+			echo "<div id='{$div}-submission-type' class='optout-type {$hidden}'>";
 	        foreach ($params["{$div}_cats"] as $catname) {
 	            echo "<input type='checkbox' class='' name='' value='OPT_OUT_'>".$catname."</input><br />";
 	        }			
