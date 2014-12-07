@@ -499,18 +499,24 @@ body {
 .round-left { border-top-left-radius:2px; border-bottom-left-radius:2px; }
 .round-right { border-top-right-radius:2px; border-bottom-right-radius:2px; }
 
-.section .clock, .section .bigtext {	
+.section .clock {	
 	font-size:28px;
 	text-shadow:0 1px #000;
 
 	color:#F80;
 	padding:2px 14px;
-	border-top-left-radius:10px;
 }
 .section .clock-desc {
 	color:#FF0;
 	padding:2px 3px;
-	border-top-right-radius:5px;
+}
+
+.section .bigtext {	
+	font-size:18px;
+	text-shadow:0 1px #000;
+
+	color:#F80;
+	padding:2px 14px;
 }
 
 .glow {
