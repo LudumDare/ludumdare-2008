@@ -253,7 +253,9 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			$hidden = strcmp($etype,$div)==0 ? "" : "hidden";
 			echo "<div id='{$div}-submission-type' class='optout-type {$hidden}'>";
 			foreach ($params["{$div}_cats"] as $catname) {
-				echo "<input type='checkbox' class='' name='OPTOUT[{$div}][{$catname}]' value='1' ".(isset($settings["OPTOUT"][$div][$catname]?"checked":"")).">".$catname."</input><br />";
+				$checked = "";
+				// (isset($settings["OPTOUT"][$div][$catname]?"checked":"")).
+				echo "<input type='checkbox' class='' name='OPTOUT[{$div}][{$catname}]' value='1' {$checked}>".$catname."</input><br />";
 			}			
 			echo "</div>";
 		}
