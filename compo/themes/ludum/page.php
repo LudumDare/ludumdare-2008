@@ -1,27 +1,27 @@
 <?php get_header(); ?>
 <div id="body">
-<?php 		if ( get_post_meta(get_the_ID(),'small',true) === "true" ) { ?>
+<?php 	if ( get_post_meta(get_the_ID(),'small',true) === "true" ) { ?>
 	<div id="content" class="widecolumn botpad">
-<?php		} else { ?>
+<?php	} else { ?>
 	<div id="content" class="fullcolumn botpad">
-<?php		} ?>
+<?php	} ?>
 
 <?php 	if (have_posts()) : while (have_posts()) : the_post(); ?>
-<?php 		if ( get_post_meta(get_the_ID(),'border',true) !== "false" ) { ?>
+<?php 	if ( get_post_meta(get_the_ID(),'border',true) !== "false" ) { ?>
 		<div class="ld-post post" id="post-<?php the_ID(); ?>">
-<?php 		if ( get_post_meta(get_the_ID(),'small',true) !== "true" ) { ?>
+<?php 	if ( get_post_meta(get_the_ID(),'notitle',true) !== "true" ) { ?>
 			<div class="head header"><h2><?php the_title(); ?></h2></div>
-<?php		} ?>
+<?php	} ?>
 			<div class="entry body">
 				<?php the_content('<p class="serif">Read the rest of this page &raquo;</p>'); ?>
 				<br />
 			</div>
 		</div>
-<?php		} else { ?>
+<?php	} else { ?>
 		<div class="entry body">
 			<?php the_content('<p class="serif">Read the rest of this page &raquo;</p>'); ?>
 		</div>
-<?php		} ?>
+<?php	} ?>
 		<?php endwhile; endif; ?>
 	<?php edit_post_link('Edit this entry.', '<div>', '</div>'); ?>
 	</div>
