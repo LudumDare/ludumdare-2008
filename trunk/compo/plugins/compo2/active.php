@@ -253,8 +253,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			$hidden = strcmp($etype,$div)==0 ? "" : "hidden";
 			echo "<div id='{$div}-submission-type' class='optout-type {$hidden}'>";
 			foreach ($params["{$div}_cats"] as $catname) {
-				$safename = sanitize_title_with_dashes($catname);
-				echo "<input type='checkbox' class='' name='OPTOUT[{$div}][{$safename}]' value='1'>".$catname."</input><br />";
+				echo "<input type='checkbox' class='' name='OPTOUT[{$div}][{$catname}]' value='1'>".$catname."</input><br />";
 			}			
 			echo "</div>";
 		}
@@ -482,11 +481,25 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 		// Build Settings //
 		$settings = [];
 
-		{	
+		//$safename = sanitize_title_with_dashes($catname);
+
+		{
+			// Opt-Outs //
+			foreach ( $params["divs"] as $div ) {
+				foreach ( $params[$div."_cats"] as $cat ) {
+					if ( isset($_REQUEST["OPTOUT"][$div][$cat]) {
+						$settings["OPTOUT"][$div][$cat] = 1;
+					}
+				}
+			}
+			
+			// Parental Settings and other Settings //	
 			$settings["NSFW"] = isset($_REQUEST["SETTING"]["NSFW"]) ? 1 : 0;
 			$settings["NSFL"] = isset($_REQUEST["SETTING"]["NSFL"]) ? 1 : 0;
 			$settings["ANONYMOUS"] = isset($_REQUEST["SETTING"]["ANONYMOUS"]) ? 1 : 0;
 			
+			
+			// Embedded Game Player //
 			$embed_width = 800;
 			$embed_height = 450;
 			
