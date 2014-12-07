@@ -302,6 +302,10 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
         echo "<td><input type='text' name='links[$i][link]' value=\"".htmlentities($links[$i]["link"])."\" size=45>";
     }
     echo "</table>";
+
+    echo "<h4>Embed URL</h4>";
+	echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
+    echo "For Web games, we can embed your game in an HTML iframe for play right on your game page. <br />";
     
 /*    echo "<h4>Extra Stuff</h4>";
     // this is non-functional
