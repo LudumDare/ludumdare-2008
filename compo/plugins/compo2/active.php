@@ -324,7 +324,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "</table>";
 
 	echo "<h4>Embed URL</h4>";
-	echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
+	//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 	echo "For web games, we can embed your game in an HTML iframe for play right on your entry page. <br />";
 	echo "<br />";
 
