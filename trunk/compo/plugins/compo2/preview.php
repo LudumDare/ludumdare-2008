@@ -257,6 +257,10 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	} 
 	
 	$user = unserialize($ce["get_user"]);
+
+	echo "<div style='float:right;'>";
+	echo get_avatar($user['email'],'56');
+	echo "</div>";	
 	
 	echo "<h2>".htmlentities($ce["title"])."</h2>";
 	echo "by <a href=\"../author/{$user['user_nicename']}/\" target='_blank'><strong>{$user['display_name']}</strong></a>";
