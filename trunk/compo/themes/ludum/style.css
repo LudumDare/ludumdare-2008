@@ -22,6 +22,10 @@ a, a:hover {
 	height:100%;
 }
 
+.hidden {
+	display:none;
+}
+
 /* ************ */
 
 /* Darkest Background Color */
