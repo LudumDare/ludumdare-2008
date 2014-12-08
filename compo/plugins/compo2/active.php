@@ -77,6 +77,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			text-align:left;
 		}
 		.edit h2 {
+			margin-top:10px;
 			margin-bottom:0;
 		}
 		
