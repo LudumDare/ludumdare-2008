@@ -315,7 +315,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 
 	
 	echo "<h2>Downloads and Links {$star}</h2>";
-	echo "You must host your downloads elsewhere. Need a host? <a href='http://ludumdare.com/compo/faq/' target='_blank'>See the <strong>FAQ<strong></a>.<br />";
+	echo "You must host your downloads elsewhere. Need a host? <a href='http://ludumdare.com/compo/faq/' target='_blank'>See the <strong>FAQ</strong></a>.<br />";
 	echo "<br />";
 	
 	echo "<table>";
