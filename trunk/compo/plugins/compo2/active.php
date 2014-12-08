@@ -291,11 +291,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	
 	////////////////////////////////////////////////////////////////////////////
 	
-	echo "<h2>Description</h2>";
+	echo "<h2>Description {$star}</h2>";
 	echo "<textarea name='notes' rows=8 cols=60>".htmlentities($ce["notes"])."</textarea>";
 	
-	echo "<h2>Screenshot(s)</h2>";    
-	echo "You must include <i>at least</i> one screenshot. {$star}<br />";
+	echo "<h2>Screenshot(s) {$star}</h2>";    
+	echo "You must include <i>at least</i> one screenshot.<br />";
 	
 	$shots = unserialize($ce["shots"]);
 //     print_r($shots);
@@ -314,8 +314,8 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "</table>";
 
 	
-	echo "<h2>Downloads and Links</h2>";
-	echo "You must include <i>at least</i> one link. $star <br />";
+	echo "<h2>Downloads and Links {$star}</h2>";
+	echo "You must include <i>at least</i> one link.<br />";
 	echo "<br />";
 	
 	echo "<table>";
