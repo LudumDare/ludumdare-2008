@@ -74,7 +74,8 @@ function c2_navigation($slug,$name,$name_url) {
 				<div class="navigation">
 <?php				if ( is_user_logged_in() ) {
 						if ( $game ) {?>
-							<a href="/compo/<?php echo $slug?>/?action=edit"><strong>Edit</strong></a> | 
+							<a href="/compo/<?php echo $slug?>/"><strong>Play and Rate Games</strong></a> | 
+							<a href="/compo/<?php echo $slug?>/?action=edit">Edit</a> | 
 							<a href="/compo/<?php echo $slug?>/?action=me">My Game</a> | 
 <?php					}
 						else {?>
@@ -117,7 +118,8 @@ function c2_navigation($slug,$name,$name_url) {
 				<div class="navigation" style="">
 <?php				if ( is_user_logged_in() ) {
 						if ( $game ) {?>
-							<a href="/compo/<?php echo $slug?>/?action=edit"><strong>Edit</strong></a> | 
+							<a href="/compo/<?php echo $slug?>/"><strong>Play and Rate Games</strong></a> | 
+							<a href="/compo/<?php echo $slug?>/?action=edit">Edit</a> | 
 							<a href="/compo/<?php echo $slug?>/?action=me">My Game</a> | 
 <?php					}
 						else {?>
