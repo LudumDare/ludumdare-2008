@@ -363,7 +363,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "<td>Max: 800";
 	echo "<td>";
 	echo "</table>";
-	echo "<input type='checkbox' class='' name='SETTING[EMBED][fullscreen]' value='1' ".($settings['EMBED']['fullscreen']?"checked":"").">Enable Full-Screen Button.<br/>Games running Full-Screen use a variety of 16:9, 16:10, and 4:3 resolutions.</input><br />";
+	echo "<input type='checkbox' class='' name='SETTING[EMBED][fullscreen]' value='1' ".($settings['EMBED']['fullscreen']?"checked":"").">Enable Fullscreen Button.<br/>People have a variety of screen sizes, so games running Fullscreen should be able to support a variety of 16:9, 16:10, and 4:3 resolutions.</input><br />";
 		
 
 /*    echo "<br />";*/
