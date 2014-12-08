@@ -114,14 +114,14 @@ function c2_navigation($slug,$name,$name_url) {
 ?>
 		<div class="event">
 			<div class="info">
-				<div class="navigation">
+				<div class="navigation" style="">
 <?php				if ( is_user_logged_in() ) {
 						if ( $game ) {?>
 							<a href="/compo/<?php echo $slug?>/?action=edit"><strong>Edit</strong></a> | 
-							<a href="/compo/<?php echo $slug?>/?action=me"><strong>View Mine</strong></a> | 
+							<a href="/compo/<?php echo $slug?>/?action=me">My Game</a> | 
 <?php					}
 						else {?>
-							<a href="/compo/<?php echo $slug?>/?action=edit"><strong>Submit</strong></a> | 
+							<a style="font-size:15px" href="/compo/<?php echo $slug?>/?action=edit"><strong>SUBMIT NOW</strong></a> | 
 <?php					}
 					} ?>
 					<a href="/compo/<?php echo $slug?>/?action=preview">View All</a>
