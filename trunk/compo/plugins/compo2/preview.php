@@ -252,7 +252,34 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$width = $settings["EMBED"]["width"];
 		$height = $settings["EMBED"]["height"];
 		
-		echo "<iframe style='margin:10px auto;display:block' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
+		echo "<iframe id='embed' style='margin:10px auto;display:block' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
+		if ( $settings["EMBED"]["fullscreen"] ) {
+			
+			echo "
+				<script>
+					function c2_toggle_fullscreen() {
+						var elem = document.getElementById('embed');
+							if (elem.requestFullscreen) {
+								elem.requestFullscreen();
+							} else if (elem.msRequestFullscreen) {
+								elem.msRequestFullscreen();
+							} else if (elem.mozRequestFullScreen) {
+								elem.mozRequestFullScreen();
+							} else if (elem.webkitRequestFullscreen) {
+								elem.webkitRequestFullscreen();
+						}
+					}
+				</script>
+				<style>
+					:-webkit-full-screen #embed {
+						width: 100%;
+						height: 100%;
+					}
+				</style>
+			";
+			
+			echo '<span style="cursor:pointer;" onclick="c2_toggle_fullscreen();">Toggle Fullscreen</span>'
+		};
 	} 
 	
 	$user = unserialize($ce["get_user"]);
