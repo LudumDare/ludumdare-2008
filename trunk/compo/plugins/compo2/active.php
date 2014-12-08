@@ -423,7 +423,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 	
 	if (!$_REQUEST["formdata"]) {
 		$active = false;
-		$msg = "Invalid request.  Entry not updated.";
+		$msg = "CRITICAL ERROR: Entry not updated.<br /><br />Something is stopping the HTTP POSTs from working correctly.<br />Try disabling adblock, noscript, or similar plugins. Or, try another browser.<br/><a href='/compo/contact' target='_blank'>Mike</a> is investigating this, so please let him know if you get it working.";
 	} else {    
 		$ce["title"] = compo2_strip($_REQUEST["title"]);
 		if (!strlen(trim($ce["title"]))) { $active = false; $msg = "Entry name is a required field."; }
