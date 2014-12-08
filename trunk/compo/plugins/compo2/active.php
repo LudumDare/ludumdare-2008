@@ -278,8 +278,8 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		echo "<h2>Content Rating</h2>";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		echo "<input type='checkbox' class='' name='SETTING[NSFW]' value='1' ".($settings["NSFW"]?"checked":"").">My entry may not be suitable for kids.</input><br />";
-		echo "<input type='checkbox' class='' name='SETTING[NSFL]' value='1' ".($settings["NSFL"]?"checked":"").">My entry contains material or subject matter that may be offensive. Please include <strong>The Warning</strong>.</input>";
-		echo "<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> We may enable these if we get complaints about an entry. The first is an optional filtering option, and the 2nd is a warning.</div>";
+		echo "<input type='checkbox' class='' name='SETTING[NSFL]' value='1' ".($settings["NSFL"]?"checked":"").">My entry contains material or subject matter that may be offensive.</input>";
+		echo "<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> We may enable these if we get complaints about an entry. The first is an optional filtering option, and the 2nd brings up a warning.</div>";
 
 		echo "<h2>Settings</h2>";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
