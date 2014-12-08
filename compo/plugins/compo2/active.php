@@ -236,17 +236,12 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 				$idx++;           	
 			}
 			
-			if ( idx > 0 ) {
+			if ( $idx > 0 ) {
 				echo "<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> You must click all checkboxes.</div>";
 			}
-
-			// MK: END NIGHT
-			/*
-			foreach ($params[$div."_cats"] as $k) {
-				echo "<input type='checkbox' name='' value='OPT_OUT_'>Opt-out of \"".$k."\"</div>";
+			else {
+				echo "<br />";
 			}
-			*/
-			//echo "<br />";
 		}
 		
 		echo "<h4>I would like to opt-out of</h4>";
