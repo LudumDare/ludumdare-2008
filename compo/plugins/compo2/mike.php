@@ -89,7 +89,12 @@ function c2_navigation($slug,$name,$name_url) {
 <?php		if ( is_user_logged_in() ) {
 				if ( $game ) {?>
 					<div class="name" style="text-align:right;"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
-					<div class="name" style="text-align:right;">Love: <strong><?php echo $game['love']; ?></strong> Votes: <strong><?php echo $game['rate_in']; ?></strong> Coolness: <strong><?php echo $game['rate_out']; ?></strong></div>
+					<div class="name" style="text-align:right;">Game Love: <strong><?php echo $game['love']; ?></strong> Comment Love: <strong><?php echo $game['love']; ?></strong></strong></div>
+					<div class="name" style="text-align:right;">Coolness: <strong><?php echo $game['rate_out']; ?></strong> Bonus Coolness: <strong>??</strong></div>
+					<div class="name" style="text-align:right;">Votes: <strong><?php echo $game['rate_in']; ?></strong></strong></div>
+<?php				if ( $game['rate_in'] < 20 ) { ?>
+						<div class="name" style="text-align:right;">You need more votes! Rate more games!</div>
+<?php				} ?>
 <?php			}
 			} ?>
 		</div>
