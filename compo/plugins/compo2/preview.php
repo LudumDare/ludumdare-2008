@@ -275,10 +275,18 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 						width: 100%;
 						height: 100%;
 					}
+					
+					.embed-toggle {
+						cursor:pointer;
+						text-align:center;
+					}
+					.embed-toggle:hover {
+						color:#FFF;
+					}
 				</style>
 			";
 			
-			echo "<span style='cursor:pointer;text-align:middle;' onclick='c2_toggle_fullscreen();'>Toggle Fullscreen</span>";
+			echo "<div class='embed-toggle' onclick='c2_toggle_fullscreen();'>Toggle Fullscreen</div>";
 		};
 	} 
 	
