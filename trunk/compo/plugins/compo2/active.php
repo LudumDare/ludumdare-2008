@@ -253,6 +253,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		echo "<h2>I would like to opt-out of</h2>";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		echo "You will <strong>not</strong> be rated in these categories.<br /><br />";
+		echo "Opting out is <strong>NOT</strong> required. Do it <strong>*ONLY*</strong> if you don't want to be rated in a category.<br /><br />";
 
 		$hidden = $etype ? "hidden" : "";
 		echo "<div id='no-submission-type' class='optout-type {$hidden}'>Please select a Submission Type</div>";
@@ -266,7 +267,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			echo "</div>";
 		}
 		
-		echo "<div style='color:#F00;margin-top:10px'><strong>IMPORTANT:</strong> Opt-out <strong>*ONLY*</strong> if you <strong>don't</strong> want to be rated in a category. Most people don't need these.</div>";
+		echo "<div style='color:#F00;margin-top:10px'><strong>IMPORTANT:</strong> Opt out <strong>*ONLY*</strong> if you <strong>DON'T</strong> want to be rated in a category.</div>";
 //        echo "<h2>Opt Out</h2>";
 //        
 //        // cats: all
