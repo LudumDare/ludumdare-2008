@@ -300,6 +300,8 @@ function _compo2_rate_rate($params,$uid = "") {
     }
     
     $div = $ce["etype"];
+    
+    $settings = $ce["settings"];
 
     _compo2_preview_show($params,$uid,false);
 
@@ -324,7 +326,7 @@ function _compo2_rate_rate($params,$uid = "") {
             echo "<table>";
             $data = unserialize($ve["data"]);
             foreach ($params["{$div}_cats"] as $k) {
-            	if ( !isset($ce['SETTINGS']['OPTOUT'][$div][$k]) ) { 
+            	if ( !isset($settings['OPTOUT'][$div][$k]) ) { 
 	                echo "<tr><th>".htmlentities($k);
 	                echo "<td>";
 	                $v = intval($data[$k]);
