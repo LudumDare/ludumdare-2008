@@ -84,6 +84,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		.edit .hidden {
 			display:none;
 		}
+		
+		.edit .button {
+			font-size:24px;
+			font-weight:bold;
+		}
 	</style>
 	";
 	
@@ -386,7 +391,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	}
 	
 	echo "<p>";
-	echo "<input type='submit' value='Save your Entry'>";
+	echo "<input type='submit' class='button' value='Save Changes'>";
 	echo "</p>";
 	
 	echo "</form>";
