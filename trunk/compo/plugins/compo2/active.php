@@ -235,13 +235,18 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 				echo "<input type='checkbox' class='{$div}_REQ' name='REQ[{$div}][{$idx}]' value='1' onchange='c2_edit_typechange(\"{$div}\");' ".($selected !== "" ? "checked" : "").">{$req}</input><br />";
 				$idx++;           	
 			}
+			
+			if ( idx > 0 ) {
+				echo "<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> You must click all checkboxes.</div>";
+			}
+
 			// MK: END NIGHT
 			/*
 			foreach ($params[$div."_cats"] as $k) {
 				echo "<input type='checkbox' name='' value='OPT_OUT_'>Opt-out of \"".$k."\"</div>";
 			}
 			*/
-			echo "<br />";
+			//echo "<br />";
 		}
 		
 		echo "<h4>I would like to opt-out of</h4>";
@@ -256,7 +261,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			foreach ($params["{$div}_cats"] as $catname) {
 				$checked = isset($settings["OPTOUT"][$div][$catname])?"checked":"";
 				echo "<input type='checkbox' class='' name='OPTOUT[{$div}][{$catname}]' value='1' {$checked}>".$catname."</input><br />";
-			}			
+			}
 			echo "</div>";
 		}
 //        echo "<h4>Opt Out</h4>";
