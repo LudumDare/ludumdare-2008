@@ -281,7 +281,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 						text-align:center;
 					}
 					.embed-toggle:hover {
-						color:#FFF;
+						color:#44F;
+						font-weight:bold;
 					}
 				</style>
 			";
