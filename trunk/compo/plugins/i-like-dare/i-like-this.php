@@ -18,6 +18,9 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 */
 
+// Calculate biggest lovers //
+// SELECT user_id,COUNT(*) as count FROM `wp_ilikethis_votes` GROUP BY user_id ORDER BY count DESC
+
 #### LOAD TRANSLATIONS ####
 load_plugin_textdomain('i-like-dare', 'wp-content/plugins/i-like-dare/lang/', 'i-like-dare/lang/');
 ####

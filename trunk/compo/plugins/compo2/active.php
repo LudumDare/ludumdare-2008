@@ -250,10 +250,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			}
 		}
 		
-		echo "<h2>I would like to opt-out of</h2>";
+		echo "<h2>I would like to be judged in these categories</h2>";
+		echo "If you feel your game doesn't deserve to be judged in a category, deselect it.";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
-		echo "You will <strong>not</strong> be rated in these categories.<br /><br />";
-		echo "Opting out is <strong>NOT</strong> required. Do it <strong>*ONLY*</strong> if you don't want to be rated in a category.<br /><br />";
+		//echo "You will <strong>not</strong> be rated in these categories.<br /><br />";
+		//echo "Opting out is <strong>NOT</strong> required. Do it <strong>*ONLY*</strong> if you don't want to be rated in a category.<br /><br />";
 
 		$hidden = $etype ? "hidden" : "";
 		echo "<div id='no-submission-type' class='optout-type {$hidden}'>Please select a Submission Type</div>";
@@ -261,13 +262,14 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			$hidden = strcmp($etype,$div)==0 ? "" : "hidden";
 			echo "<div id='{$div}-submission-type' class='optout-type {$hidden}'>";
 			foreach ($params["{$div}_cats"] as $catname) {
-				$checked = isset($settings["OPTOUT"][$div][$catname])?"checked":"";
+				$checked = isset($settings["OPTOUT"][$div][$catname])?"":"checked";
 				echo "<input type='checkbox' class='' name='OPTOUT[{$div}][{$catname}]' value='1' {$checked}>".$catname."</input><br />";
 			}
 			echo "</div>";
 		}
 		
-		echo "<div style='color:#F00;margin-top:10px'><strong>IMPORTANT:</strong> Opt out <strong>*ONLY*</strong> if you <strong>DON'T</strong> want to be rated in a category.</div>";
+//		echo "<div style='color:#F00;margin-top:10px'><strong>IMPORTANT:</strong> Opt out <strong>*ONLY*</strong> if you <strong>DON'T</strong> want to be rated in a category.</div>";
+
 //        echo "<h2>Opt Out</h2>";
 //        
 //        // cats: all
@@ -509,7 +511,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			// Opt-Outs //
 			foreach ( $params["divs"] as $div ) {
 				foreach ( $params[$div."_cats"] as $cat ) {
-					if ( isset($_REQUEST["OPTOUT"][$div][$cat]) ) {
+					if ( !isset($_REQUEST["OPTOUT"][$div][$cat]) ) {
 						$settings["OPTOUT"][$div][$cat] = 1;
 					}
 				}
