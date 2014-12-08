@@ -278,7 +278,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 				</style>
 			";
 			
-			echo '<span style="cursor:pointer;text-align:middle;" onclick="c2_toggle_fullscreen();">Toggle Fullscreen</span>'
+			echo "<span style='cursor:pointer;text-align:middle;' onclick='c2_toggle_fullscreen();'>Toggle Fullscreen</span>";
 		};
 	} 
 	
