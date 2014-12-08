@@ -266,7 +266,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			echo "</div>";
 		}
 		
-		echo "<div style='color:#F00;'><strong>IMPORTANT:</strong> Opt-out <strong>*ONLY*</strong> if you <strong>don't</strong> want to be rated in a category. Most people don't need these.</div>";
+		echo "<div style='color:#F00;margin-top:10px'><strong>IMPORTANT:</strong> Opt-out <strong>*ONLY*</strong> if you <strong>don't</strong> want to be rated in a category. Most people don't need these.</div>";
 //        echo "<h2>Opt Out</h2>";
 //        
 //        // cats: all
