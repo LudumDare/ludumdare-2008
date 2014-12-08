@@ -76,7 +76,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		.edit form {
 			text-align:left;
 		}
-		.edit h4 {
+		.edit h2 {
 			margin-bottom:0;
 		}
 		
@@ -107,7 +107,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "<input type='hidden' name='formdata' value='1'>";
 	
 	
-	echo "<h4>Name {$star}</h4>";    
+	echo "<h2>Name {$star}</h2>";    
 	echo "<input type='text' name='title' value=\"".htmlentities($ce["title"])."\" size=60>";
 	
 	////////////////////////////////////////////////////////////////////////////
@@ -215,7 +215,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	
 //     $rules = isset($params["rules"])?$params["rules"]:"#";
 	if ($opts) {
-		echo "<h4>Submission Type {$star}</h4>";
+		echo "<h2>Submission Type {$star}</h2>";
 		foreach ($divs as $div) {
 			$requirement = [];
 			if ( $params[$div."_req"] ) {
@@ -244,7 +244,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			}
 		}
 		
-		echo "<h4>I would like to opt-out of</h4>";
+		echo "<h2>I would like to opt-out of</h2>";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		echo "You will <strong>not</strong> be rated in these categories.<br /><br />";
 
@@ -259,7 +259,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			}
 			echo "</div>";
 		}
-//        echo "<h4>Opt Out</h4>";
+//        echo "<h2>Opt Out</h2>";
 //        
 //        // cats: all
 //        // open_cats: jam
@@ -269,13 +269,13 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 //        }
 //    
 
-		echo "<h4>Content Rating</h4>";
+		echo "<h2>Content Rating</h2>";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		echo "<input type='checkbox' class='' name='SETTING[NSFW]' value='1' ".($settings["NSFW"]?"checked":"").">My entry may not be suitable for kids.</input><br />";
 		echo "<input type='checkbox' class='' name='SETTING[NSFL]' value='1' ".($settings["NSFL"]?"checked":"").">My entry contains material or subject matter that may be offensive. Please include <strong>The Warning</strong>.</input>";
 		echo "<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> We may enable these if we get complaints about an entry. The first is an optional filtering option, and the 2nd is a warning.</div>";
 
-		echo "<h4>Settings</h4>";
+		echo "<h2>Settings</h2>";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		echo "<input type='checkbox' class='' name='SETTING[ANONYMOUS]' value='1' ".($settings["ANONYMOUS"]?"checked":"").">I would like to allow anonymous feedback. I understand this means my entry will be criticized more harshly, and I can take it.</input><br />";
 
@@ -285,10 +285,10 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	
 	////////////////////////////////////////////////////////////////////////////
 	
-	echo "<h4>Description</h4>";
+	echo "<h2>Description</h2>";
 	echo "<textarea name='notes' rows=8 cols=60>".htmlentities($ce["notes"])."</textarea>";
 	
-	echo "<h4>Screenshot(s)</h4>";    
+	echo "<h2>Screenshot(s)</h2>";    
 	echo "You must include <i>at least</i> one screenshot. {$star}<br />";
 	
 	$shots = unserialize($ce["shots"]);
@@ -308,7 +308,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "</table>";
 
 	
-	echo "<h4>Downloads and Links</h4>";
+	echo "<h2>Downloads and Links</h2>";
 	echo "You must include <i>at least</i> one link. $star <br />";
 	echo "<br />";
 	
@@ -324,7 +324,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	}
 	echo "</table>";
 
-	echo "<h4>Embed URL</h4>";
+	echo "<h2>Embed URL</h2>";
 	//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 	echo "For web games, we can embed your game in an HTML iframe for play right on your entry page. <br />";
 	echo "<br />";
@@ -357,7 +357,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 
 /*    echo "<br />";*/
 /*
-	echo "<h4>Video (YouTube) URL</h4>";
+	echo "<h2>Video (YouTube) URL</h2>";
 	echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 	echo "Alternatively, we can embed a YouTube video. <strong>NOTE:</strong> If you set an Embed URL, we will use that instead.<br />";
 	echo "<br />";
@@ -370,7 +370,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 */
 	echo "<br />";
 	
-/*    echo "<h4>Extra Stuff</h4>";
+/*    echo "<h2>Extra Stuff</h2>";
 	// this is non-functional
 	echo "<table>";
 	echo "<tr><td><input type='checkbox' name='data[pov_toggle]'>";
