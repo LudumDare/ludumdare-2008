@@ -251,7 +251,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		}
 		
 		echo "<h2>I would like to be judged in these categories</h2>";
-		echo "If you feel your game doesn't deserve to be judged in a category, deselect it.";
+		echo "If you feel your game doesn't deserve to be judged in a category, deselect it.<br /><br />";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		//echo "You will <strong>not</strong> be rated in these categories.<br /><br />";
 		//echo "Opting out is <strong>NOT</strong> required. Do it <strong>*ONLY*</strong> if you don't want to be rated in a category.<br /><br />";
