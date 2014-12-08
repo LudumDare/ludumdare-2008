@@ -39,6 +39,7 @@ function setOptionsILT() {
 			time TIMESTAMP NOT NULL,
 			post_id BIGINT(20) NOT NULL,
 			ip VARCHAR(15) NOT NULL,
+			user_id BIGINT NOT NULL,
 			UNIQUE KEY id (id)
 		);";
 
@@ -255,6 +256,7 @@ add_action('init', 'add_widget_most_liked_posts');
 function getILikeDare($arg) {
 	global $wpdb;
 	$post_ID = get_the_ID();
+	$user_ID = get_current_user_id();
 	$ip = $_SERVER['REMOTE_ADDR'];
 	
     $liked = get_post_meta($post_ID, '_liked', true) != '' ? get_post_meta($post_ID, '_liked', true) : '0';
@@ -263,10 +265,10 @@ function getILikeDare($arg) {
 		
     if (!isset($_COOKIE['liked-'.$post_ID]) && $voteStatusByIp == 0) {
     	if (get_option('ilt_textOrImage') == 'image') {
-    		$counter = '<a onclick="likeThis('.$post_ID.');" class="image">'.$liked.'</a>';
+    		$counter = '<a onclick="likeThis('.$post_ID.','.$user_ID.');" class="image">'.$liked.'</a>';
     	}
     	else {
-    		$counter = $liked.' <a onclick="likeThis('.$post_ID.');">'.get_option('ilt_text').'</a>';
+    		$counter = $liked.' <a onclick="likeThis('.$post_ID.','.$user_ID.');">'.get_option('ilt_text').'</a>';
     	}
     }
     else {
@@ -317,10 +319,10 @@ if (get_option('ilt_onPage') == '1') {
 
 function enqueueScripts() {
 	if (get_option('ilt_jquery') == '1') {
-	    wp_enqueue_script('iLikeThis', WP_PLUGIN_URL.'/i-like-dare/js/i-like-this.js', array('jquery'));	
+	    wp_enqueue_script('iLikeThis', WP_PLUGIN_URL.'/i-like-dare/js/i-like-this.js?1.1', array('jquery'));	
 	}
 	else {
-	    wp_enqueue_script('iLikeThis', WP_PLUGIN_URL.'/i-like-dare/js/i-like-this.js');	
+	    wp_enqueue_script('iLikeThis', WP_PLUGIN_URL.'/i-like-dare/js/i-like-this.js?1.1');	
 	}
 }
 
