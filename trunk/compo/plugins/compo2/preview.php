@@ -271,7 +271,10 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 					}
 				</script>
 				<style>
-					:-webkit-full-screen #embed, :-ms-fullscreen #embed {
+					:-webkit-full-screen #embed, #embed:-ms-fullscreen {
+						position:absolute;
+						left:0;
+						top:0;
 						width: 100%;
 						height: 100%;
 					}
