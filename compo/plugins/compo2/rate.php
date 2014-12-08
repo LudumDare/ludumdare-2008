@@ -284,8 +284,20 @@ function _compo2_rate_list($params) {
 
 function _compo2_rate_rate($params,$uid = "") {
     if (!$uid) { $uid = intval($_REQUEST["uid"]); }
+
+    $ce = compo2_entry_load($params["cid"],$uid);
     
-    echo "<p><a href='?action=default'>Back to Rate Entries</a></p>";
+    echo "<p>";
+    echo "<a href='?action=default'>Back to Rate Entries</a>";
+    
+    if ( current_user_can('edit_others_posts') ) {
+		echo " | <strong><a href='?action=edit&uid=".$ce["uid"]."&admin=1'>ADMIN EDIT</a></strong>";
+	}
+	if ( get_current_user_id() === $uid ) {
+		echo " | <strong><a href='?action=edit'>Edit</a></strong>";
+	}
+	
+	echo "</p>";
 
     if ($params["uid"] == $uid) {
         _compo2_preview_show($params,$uid,true);
