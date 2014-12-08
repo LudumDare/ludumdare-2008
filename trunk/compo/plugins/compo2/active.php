@@ -357,7 +357,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "<td>";
 	echo "<td>Max: 900";
 	echo "<td>";
-	echo "<td>Max: 600";
+	echo "<td>Max: 800";
 	echo "<td>";
 	echo "</table>";
 
@@ -531,7 +531,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			
 			if ( isset($_REQUEST["SETTING"]["EMBED"]["height"]) ) {
 				$height = intval($_REQUEST["SETTING"]["EMBED"]["height"]);
-				if ( $height > 900 ) $height = 600;
+				if ( $height > 800 ) $height = 800;
 				if ( $height < 9 ) $height = 9;
 				
 				$embed_height = $height;
