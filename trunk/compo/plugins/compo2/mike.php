@@ -38,7 +38,8 @@ function c2_set_game($event_id,$user_id,$game) {
 // This Function is called in the style sheet to display Navigation //
 function c2_navigation($slug,$name,$name_url) {
 	if ( current_user_can('edit_others_posts') ) {
-		if ( !is_paged() ) {
+		//if ( !is_paged() ) 
+		{
 			$user_id = get_current_user_id();
 			$event_id = 0;
 			$underscore_slug = str_replace( '-', '_', $slug );
@@ -91,7 +92,8 @@ function c2_navigation($slug,$name,$name_url) {
 		}
 	}
 	else {
-		if ( !is_paged() ) {
+		//if ( !is_paged() ) 
+		{
 			$user_id = get_current_user_id();
 			$event_id = 0;
 			$underscore_slug = str_replace( '-', '_', $slug );
