@@ -324,11 +324,13 @@ function _compo2_rate_rate($params,$uid = "") {
             echo "<table>";
             $data = unserialize($ve["data"]);
             foreach ($params["{$div}_cats"] as $k) {
-                echo "<tr><th>".htmlentities($k);
-                echo "<td>";
-                $v = intval($data[$k]);
-                echo "<script>new Starry('data[$k]',{name:'data[$k]',sprite:'$myurl/starry/newstars.gif',width:20,height:20,startAt:$v});</script>";
-        //         compo2_select("data[$k]",array(""=>"n/a","5"=>"5 - Best","4"=>"4","3"=>"3","2"=>"2","1"=>"1 - Worst"),$v);
+            	if ( !isset($ce['SETTINGS']['OPTOUT'][$div][$k]) ) { 
+	                echo "<tr><th>".htmlentities($k);
+	                echo "<td>";
+	                $v = intval($data[$k]);
+	                echo "<script>new Starry('data[$k]',{name:'data[$k]',sprite:'$myurl/starry/newstars.gif',width:20,height:20,startAt:$v});</script>";
+	        //         compo2_select("data[$k]",array(""=>"n/a","5"=>"5 - Best","4"=>"4","3"=>"3","2"=>"2","1"=>"1 - Worst"),$v);
+	    		}
             }
             echo "</table>";
         } else {
