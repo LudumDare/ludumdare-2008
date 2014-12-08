@@ -301,7 +301,7 @@ function _compo2_rate_rate($params,$uid = "") {
     
     $div = $ce["etype"];
     
-    $settings = $ce["settings"];
+    $settings = unserialize($ce["settings"]);
 
     _compo2_preview_show($params,$uid,false);
 
