@@ -284,14 +284,15 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		echo "<td><a href='$link' target='_blank'><img src='".compo2_thumb($fname,120,120)."'></a>";
 	}
 	echo "</table>";
-	
+
+/*	
 	echo "<p>";
 	if ($params["jcat"]) {
 		$link = get_bloginfo("url")."/?category_name={$params["jcat"]}&author_name={$user["user_nicename"]}";
 		echo "<a href='$link' target='_blank'>View {$user["display_name"]}'s journal.</a> | ";
 	}
 	echo "</p>";
-
+*/
 	
 	//MK//
 	// Hi Phil, I added Twitter Card Meta tags here //
