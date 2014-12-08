@@ -243,7 +243,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			}
 			
 			if ( $idx > 0 ) {
-				echo "<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> You must click all checkboxes.</div>";
+				echo "<div style='margin-top:10px;margin-bottom:10px;color:#F00'><strong>IMPORTANT:</strong> You must click all checkboxes.</div>";
 			}
 			else {
 				echo "<br />";
