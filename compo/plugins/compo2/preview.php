@@ -253,7 +253,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$width = $settings["EMBED"]["width"];
 		$height = $settings["EMBED"]["height"];
 		
-		echo "<iframe style='margin:0 auto;display:block' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
+		echo "<iframe style='margin:10px auto;display:block' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
 	} 
 	
 	$user = unserialize($ce["get_user"]);
