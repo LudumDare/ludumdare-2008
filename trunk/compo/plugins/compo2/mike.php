@@ -94,8 +94,8 @@ function c2_navigation($slug,$name,$name_url) {
 					<div class="name" style="text-align:right;">Coolness: <strong><?php echo $game['rate_out']; ?></strong> Bonus: <strong>?</strong></div>
 					<div class="name" style="text-align:right;display:none">Game Love: <strong><?php echo $game['love']; ?></strong> Comment Love: <strong>?</strong></strong></div>
 
-<?php				$total_cat = count($game['settings']['OPTOUT'][$game['etype']]);?>
-					<div class="name" style="text-align:right;">You have opted-out of <?php echo $total_cat; ?> categories</div>
+<?php				$total_cat = 8-count($game['settings']['OPTOUT'][$game['etype']]);?>
+					<div class="name" style="text-align:right;">You are being judged in <strong><?php echo $total_cat; ?></strong> categories</div>
 <?php				if ( isset($game['settings']['OPTOUT'][$game['etype']]) ) {
 						foreach ( $game['settings']['OPTOUT'][$game['etype']] as $cat ) {
 							if ( strpos($cat,"Overall") !== false ) {?>
