@@ -428,7 +428,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 	
 	if (!$_REQUEST["formdata"]) {
 		$active = false;
-		$msg = "CRITICAL ERROR: Entry not updated.<br /><br />Something is stopping the HTTP POSTs from working correctly.<br />Try disabling adblock, noscript, or similar plugins. Or, try another browser.<br/><a href='/compo/contact' target='_blank'>Mike</a> is investigating this, so please let him know if you get it working.";
+		$msg = "ERROR: Entry not updated. Something is wrong.<br /><br />Usually this means your images are too large (many MB), or they're in an unsupported or non-standard format (NO BMP's).<br />In some rare cases, something is stopping HTTP POSTs from working correctly.<br />Try disabling adblock, noscript, or similar plugins. Or, try another browser.<br/>If you get a chance, let <a href='/compo/contact' target='_blank'>Mike</a> know what your problem was, or contact him for help.";
 	} else {    
 		$ce["title"] = compo2_strip($_REQUEST["title"]);
 		if (!strlen(trim($ce["title"]))) { $active = false; $msg = "Entry name is a required field."; }
