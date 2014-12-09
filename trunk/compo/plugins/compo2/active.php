@@ -366,12 +366,14 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "<td>";
 	echo "</table>";
 	echo "<input type='checkbox' class='' name='SETTING[EMBED][fullscreen]' value='1' ".($settings['EMBED']['fullscreen']?"checked":"").">Enable Fullscreen Button.<br/>People have a variety of screen sizes, so games running Fullscreen should be able to support a variety of 16:9, 16:10, and 4:3 resolutions.</input><br />";
+	echo "<input type='checkbox' class='' name='SETTING[EMBED][nocontrols]' value='1' ".($settings['EMBED']['nocontrols']?"checked":"").">Disable all Controls. No more Reset, Power, or other helper buttons. Just a Raw Embed.</input><br />";
 		
 
 /*    echo "<br />";*/
 /*
-	echo "<h2>Video (YouTube) URL</h2>";
+	echo "<h2>Automatic Embed</h2>";
 	echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
+	echo "YouTube video? ";
 	echo "Alternatively, we can embed a YouTube video. <strong>NOTE:</strong> If you set an Embed URL, we will use that instead.<br />";
 	echo "<br />";
 
@@ -528,6 +530,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			$embed_height = 450;
 			$embed_url = "";
 			$embed_fullscreen = false;
+			$embed_nocontrols = false;
 			
 			if ( isset($_REQUEST["SETTING"]["EMBED"]["width"]) ) {
 				$width = intval($_REQUEST["SETTING"]["EMBED"]["width"]);
@@ -550,13 +553,18 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			}
 			
 			if ( isset($_REQUEST["SETTING"]["EMBED"]["fullscreen"]) ) {
-				$embed_fullscreen = intval($_REQUEST["SETTING"]["EMBED"]["fullscreen"]);
+				$embed_fullscreen = intval($_REQUEST["SETTING"]["EMBED"]["fullscreen"]) ? true : false;
+			}
+
+			if ( isset($_REQUEST["SETTING"]["EMBED"]["nocontrols"]) ) {
+				$embed_nocontrols = intval($_REQUEST["SETTING"]["EMBED"]["nocontrols"]) ? true : false;
 			}
 			
 			$settings["EMBED"]["width"] = $embed_width;
 			$settings["EMBED"]["height"] = $embed_height;
 			$settings["EMBED"]["url"] = $embed_url;
 			$settings["EMBED"]["fullscreen"] = $embed_fullscreen;
+			$settings["EMBED"]["nocontrols"] = $embed_nocontrols;
 		}
 		
 		$ce["settings"] = serialize($settings);
