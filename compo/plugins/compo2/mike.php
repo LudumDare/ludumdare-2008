@@ -107,10 +107,10 @@ function c2_navigation($slug,$name,$name_url) {
 						<div>Coolness: <strong><?php echo $game['rate_out']; ?></strong> Bonus: <strong>?</strong></div>
 						<div style="display:none">Game Love: <strong><?php echo $game['love']; ?></strong> Comment Love: <strong>?</strong></strong></div>
 
-<?php				$total_cat = 8-count($game['settings']['OPTOUT'][$game['etype']]);?>
-						<div>You are being judged in <strong><?php echo $total_cat; ?></strong> categories</div>
 <?php				if ( isset($game['settings']['OPTOUT'][$game['etype']]) ) {
-						foreach ( $game['settings']['OPTOUT'][$game['etype']] as $cat => $val ) {
+						$total_cat = 8 - count($game['settings']['OPTOUT'][$game['etype']]);?>
+						<div>You are being judged in <strong><?php echo $total_cat; ?></strong> categories</div>
+<?php						foreach ( $game['settings']['OPTOUT'][$game['etype']] as $cat => $val ) {
 							if ( strpos($cat,"Overall") === 0 ) {?>
 								<div class="e-gap e-big"><strong>WARNING</strong>: You have opted-out of Overall<br />Is this correct? <a href="/compo/<?php echo $slug?>/?action=edit">Edit Submission</a></div>
 <?php							break;
