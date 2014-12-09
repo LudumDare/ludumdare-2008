@@ -98,8 +98,8 @@ function c2_navigation($slug,$name,$name_url) {
 					<div class="name" style="text-align:right;">You are being judged in <strong><?php echo $total_cat; ?></strong> categories</div>
 <?php				if ( isset($game['settings']['OPTOUT'][$game['etype']]) ) {
 						foreach ( $game['settings']['OPTOUT'][$game['etype']] as $cat ) {
-							if ( strpos($cat,"Overall") !== false ) {?>
-								<div class="name" style="text-align:right;"><strong>WARNING</strong>: You have opted-out of Overall!<br />Are you sure you wanted to do this?</div>
+							if ( strpos($cat,"Overall") === 0 ) {?>
+								<div class="name" style="text-align:right;"><strong>WARNING</strong>: You have opted-out of Overall!<br />Is this correct?</div>
 <?php							break;
 							}
 						}
