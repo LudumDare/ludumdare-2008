@@ -101,7 +101,7 @@ function c2_navigation($slug,$name,$name_url) {
 <?php		if ( is_user_logged_in() ) {
 				if ( $game ) {?>
 					<div class="e-info">
-						<div class="e-gap"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
+						<div class="e-gap e-big"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
 						<div>by <strong><?php echo $game['get_user']['display_name'];?></strong><!-- (<?php echo $game['etype'];?>)--></div>
 						<div>Votes: <strong><?php echo $game['rate_in']; ?></strong> Comments: <strong>?</strong></div>
 						<div>Coolness: <strong><?php echo $game['rate_out']; ?></strong> Bonus: <strong>?</strong></div>
