@@ -72,14 +72,14 @@ function c2_navigation($slug,$name,$name_url) {
 
 ?>
 	<style>
-		.event .info .infobox {
+		.event .e-info {
 			font-size:12px;
 			text-align:right;
 		}
-		.event .gap {
+		.event .e-gap {
 			margin-top:10px
 		}
-		.event .big {
+		.event .e-big {
 			font-size:15px;
 		}
 	</style>
@@ -100,8 +100,8 @@ function c2_navigation($slug,$name,$name_url) {
 			<div class="name">On Now: <strong><a href="<?php echo $name_url; ?>"><?php echo $name; ?></a></strong></div>
 <?php		if ( is_user_logged_in() ) {
 				if ( $game ) {?>
-					<div class="infobox">
-						<div class="gap"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
+					<div class="e-info">
+						<div class="e-gap"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
 						<div>by <strong><?php echo $game['get_user']['display_name'];?></strong><!-- (<?php echo $game['etype'];?>)--></div>
 						<div>Votes: <strong><?php echo $game['rate_in']; ?></strong> Comments: <strong>?</strong></div>
 						<div>Coolness: <strong><?php echo $game['rate_out']; ?></strong> Bonus: <strong>?</strong></div>
@@ -112,14 +112,14 @@ function c2_navigation($slug,$name,$name_url) {
 <?php				if ( isset($game['settings']['OPTOUT'][$game['etype']]) ) {
 						foreach ( $game['settings']['OPTOUT'][$game['etype']] as $cat => $val ) {
 							if ( strpos($cat,"Overall") === 0 ) {?>
-								<div class="gap big"><strong>WARNING</strong>: You have opted-out of Overall<br />Is this correct? <a href="/compo/<?php echo $slug?>/?action=edit">Edit Submission</a></div>
+								<div class="e-gap e-big"><strong>WARNING</strong>: You have opted-out of Overall<br />Is this correct? <a href="/compo/<?php echo $slug?>/?action=edit">Edit Submission</a></div>
 <?php							break;
 							}
 						}
 					} ?>
 					
 <?php				if ( $game['rate_in'] < 20 ) { ?>
-						<div class="gap big"><strong>You need more votes!</strong> Rate more games!</div>
+						<div class="e-gap e-big"><strong>You need more votes!</strong> Rate more games!</div>
 <?php				} ?>
 					</div>
 <?php			}
