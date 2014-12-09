@@ -89,17 +89,19 @@ function c2_navigation($slug,$name,$name_url) {
 <?php		if ( is_user_logged_in() ) {
 				if ( $game ) {?>
 					<div class="name" style="text-align:right;margin-top:10px;"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
-					<div class="name" style="text-align:right;">by <?php echo $game['get_user']['display_name'];?> (<?php echo $game['etype'];?>">)</div>
+					<div class="name" style="text-align:right;">by <?php echo $game['get_user']['display_name'];?> (<?php echo $game['etype'];?>)</div>
 					<div class="name" style="text-align:right;">Votes: <strong><?php echo $game['rate_in']; ?></strong> Comments: <strong>?</strong></div>
 					<div class="name" style="text-align:right;">Coolness: <strong><?php echo $game['rate_out']; ?></strong> Bonus: <strong>?</strong></div>
 					<div class="name" style="text-align:right;display:none">Game Love: <strong><?php echo $game['love']; ?></strong> Comment Love: <strong>?</strong></strong></div>
 
-<?php				$total_cat = count($game['settings'][$game['etype']]);?>
+<?php				$total_cat = count($game['settings']['OPTOUT'][$game['etype']]);?>
 					<div class="name" style="text-align:right;">You have opted-out of <?php echo $total_cat; ?> categories</div>
-<?php				foreach ( $game['settings'][$game['etype']] as $cat ) {
-						if ( strpos($cat,"Overall") !== false ) {?>
-							<div class="name" style="text-align:right;"><strong>WARNING</strong>: You have opted-out of Overall!<br />Are you sure you wanted to do this?</div>
-<?php						break;
+<?php				if ( isset($game['settings']['OPTOUT'][$game['etype']]) ) {
+						foreach ( $game['settings']['OPTOUT'][$game['etype']] as $cat ) {
+							if ( strpos($cat,"Overall") !== false ) {?>
+								<div class="name" style="text-align:right;"><strong>WARNING</strong>: You have opted-out of Overall!<br />Are you sure you wanted to do this?</div>
+<?php							break;
+							}
 						}
 					} ?>
 					
