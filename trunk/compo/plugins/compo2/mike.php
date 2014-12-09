@@ -72,7 +72,7 @@ function c2_navigation($slug,$name,$name_url) {
 
 ?>
 	<style>
-		.event .info {
+		.event .info .info {
 			font-size:12px;
 			text-align:right;
 		}
