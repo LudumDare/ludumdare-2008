@@ -72,7 +72,7 @@ function c2_navigation($slug,$name,$name_url) {
 
 ?>
 	<style>
-		.event .info .info {
+		.event .info .infobox {
 			font-size:12px;
 			text-align:right;
 		}
@@ -100,7 +100,7 @@ function c2_navigation($slug,$name,$name_url) {
 			<div class="name">On Now: <strong><a href="<?php echo $name_url; ?>"><?php echo $name; ?></a></strong></div>
 <?php		if ( is_user_logged_in() ) {
 				if ( $game ) {?>
-					<div class="info">
+					<div class="infobox">
 						<div class="gap"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
 						<div>by <strong><?php echo $game['get_user']['display_name'];?></strong><!-- (<?php echo $game['etype'];?>)--></div>
 						<div>Votes: <strong><?php echo $game['rate_in']; ?></strong> Comments: <strong>?</strong></div>
