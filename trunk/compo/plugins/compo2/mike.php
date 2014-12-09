@@ -94,9 +94,9 @@ function c2_navigation($slug,$name,$name_url) {
 					<div class="name" style="text-align:right;">Coolness: <strong><?php echo $game['rate_out']; ?></strong> Bonus: <strong>?</strong></div>
 					<div class="name" style="text-align:right;display:none">Game Love: <strong><?php echo $game['love']; ?></strong> Comment Love: <strong>?</strong></strong></div>
 
-<?php				$total_cat = count($game['setting'][$game['etype']]);?>
-					<div class="name" style="text-align:right;">You have opted-out of categories.</div>
-<?php				foreach ( $game['setting'][$game['etype']] as $cat ) {
+<?php				$total_cat = count($game['settings'][$game['etype']]);?>
+					<div class="name" style="text-align:right;">You have opted-out of <?php echo $total_cat; ?> categories</div>
+<?php				foreach ( $game['settings'][$game['etype']] as $cat ) {
 						if ( strpos($cat,"Overall") !== false ) {?>
 							<div class="name" style="text-align:right;"><strong>WARNING</strong>: You have opted-out of Overall!<br />Are you sure you wanted to do this?</div>
 <?php						break;
