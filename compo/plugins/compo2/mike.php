@@ -99,7 +99,7 @@ function c2_navigation($slug,$name,$name_url) {
 <?php				if ( isset($game['settings']['OPTOUT'][$game['etype']]) ) {
 						foreach ( $game['settings']['OPTOUT'][$game['etype']] as $cat => $val ) {
 							if ( strpos($cat,"Overall") === 0 ) {?>
-								<div class="name" style="text-align:right;"><strong>WARNING</strong>: You have opted-out of Overall!<br />Is this correct?</div>
+								<div class="name" style="text-align:right;margin-top:10px;"><strong>WARNING</strong>: You have opted-out of Overall!<br />Is this correct?</div>
 <?php							break;
 							}
 						}
