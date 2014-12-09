@@ -71,6 +71,18 @@ function c2_navigation($slug,$name,$name_url) {
 //		}
 
 ?>
+	<style>
+		.event .info {
+			font-size:12px;
+			text-align:right;
+		}
+		.event .gap {
+			margin-top:10px
+		}
+		.event .big {
+			font-size:15px;
+		}
+	</style>
 	<div class="event">
 		<div class="info">
 			<div class="navigation" style="">
@@ -88,26 +100,28 @@ function c2_navigation($slug,$name,$name_url) {
 			<div class="name">On Now: <strong><a href="<?php echo $name_url; ?>"><?php echo $name; ?></a></strong></div>
 <?php		if ( is_user_logged_in() ) {
 				if ( $game ) {?>
-					<div class="name" style="text-align:right;margin-top:10px;"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
-					<div class="name" style="text-align:right;">by <?php echo $game['get_user']['display_name'];?><!-- (<?php echo $game['etype'];?>)--></div>
-					<div class="name" style="text-align:right;">Votes: <strong><?php echo $game['rate_in']; ?></strong> Comments: <strong>?</strong></div>
-					<div class="name" style="text-align:right;">Coolness: <strong><?php echo $game['rate_out']; ?></strong> Bonus: <strong>?</strong></div>
-					<div class="name" style="text-align:right;display:none">Game Love: <strong><?php echo $game['love']; ?></strong> Comment Love: <strong>?</strong></strong></div>
+					<div class="info">
+						<div class="gap"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
+						<div>by <strong><?php echo $game['get_user']['display_name'];?></strong><!-- (<?php echo $game['etype'];?>)--></div>
+						<div>Votes: <strong><?php echo $game['rate_in']; ?></strong> Comments: <strong>?</strong></div>
+						<div>Coolness: <strong><?php echo $game['rate_out']; ?></strong> Bonus: <strong>?</strong></div>
+						<div style="display:none">Game Love: <strong><?php echo $game['love']; ?></strong> Comment Love: <strong>?</strong></strong></div>
 
 <?php				$total_cat = 8-count($game['settings']['OPTOUT'][$game['etype']]);?>
-					<div class="name" style="text-align:right;">You are being judged in <strong><?php echo $total_cat; ?></strong> categories</div>
+						<div>You are being judged in <strong><?php echo $total_cat; ?></strong> categories</div>
 <?php				if ( isset($game['settings']['OPTOUT'][$game['etype']]) ) {
 						foreach ( $game['settings']['OPTOUT'][$game['etype']] as $cat => $val ) {
 							if ( strpos($cat,"Overall") === 0 ) {?>
-								<div class="name" style="text-align:right;margin-top:10px;"><strong>WARNING</strong>: You have opted-out of Overall<br />Is this correct? <a href="/compo/<?php echo $slug?>/?action=edit">Edit Submission</a></div>
+								<div class="gap big"><strong>WARNING</strong>: You have opted-out of Overall<br />Is this correct? <a href="/compo/<?php echo $slug?>/?action=edit">Edit Submission</a></div>
 <?php							break;
 							}
 						}
 					} ?>
 					
 <?php				if ( $game['rate_in'] < 20 ) { ?>
-						<div class="name" style="text-align:right;margin-top:10px;"><strong>You need more votes!</strong> Rate more games!</div>
+						<div class="gap big"><strong>You need more votes!</strong> Rate more games!</div>
 <?php				} ?>
+					</div>
 <?php			}
 			} ?>
 		</div>
