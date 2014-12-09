@@ -58,7 +58,7 @@ function c2_navigation($slug,$name,$name_url) {
 		}
 		
 		$game = c2_get_game($event_id,$user_id);
-
+/*
 		if ( current_user_can('edit_others_posts') ) {
 			// MK: END NIGHT
 			var_dump($game);
@@ -69,7 +69,7 @@ function c2_navigation($slug,$name,$name_url) {
 			
 			//echo $event_id . " vs " . $user_id;
 		}
-
+*/
 ?>
 	<div class="event">
 		<div class="info">
@@ -97,7 +97,7 @@ function c2_navigation($slug,$name,$name_url) {
 <?php				$total_cat = 8-count($game['settings']['OPTOUT'][$game['etype']]);?>
 					<div class="name" style="text-align:right;">You are being judged in <strong><?php echo $total_cat; ?></strong> categories</div>
 <?php				if ( isset($game['settings']['OPTOUT'][$game['etype']]) ) {
-						foreach ( $game['settings']['OPTOUT'][$game['etype']] as $cat ) {
+						foreach ( $game['settings']['OPTOUT'][$game['etype']] as $cat => $val ) {
 							if ( strpos($cat,"Overall") === 0 ) {?>
 								<div class="name" style="text-align:right;"><strong>WARNING</strong>: You have opted-out of Overall!<br />Is this correct?</div>
 <?php							break;
