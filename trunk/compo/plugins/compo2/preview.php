@@ -319,21 +319,17 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	$shots = unserialize($ce["shots"]);
 	$fname = array_shift($shots);
 	$firstshot = $fname;
-
-	if ( current_user_can('edit_others_posts') ) {
-		//echo "Hey team. Just ignore this for now. Only you can see it. Thanks!<br /><br />";
-		//var_dump( $divs );
-		echo "TS:". strtotime($ce['ts']);//date('Y-m-d H:i:s',$cs['ts']);
-	}
+	
+	$suffix = "?".strtotime($ce['ts']);
 		
 	echo "<table>";
 	$cols = 4; $n = 0;
-	$link = get_bloginfo("url")."/wp-content/compo2/$fname";
-	echo "<tr><td colspan=$cols align=center><a href='$link' target='_blank'><img src='".compo2_thumb($fname,450,450)."'></a>";
+	$link = get_bloginfo("url")."/wp-content/compo2/{$fname}{$suffix}";
+	echo "<tr><td colspan=$cols align=center><a href='{$link}' target='_blank'><img src='".compo2_thumb($fname,450,450)."'></a>";
 	foreach ($shots as $fname) {
 		if (($n%$cols)==0) { echo "<tr>"; } $n += 1;
-		$link = get_bloginfo("url")."/wp-content/compo2/$fname";
-		echo "<td><a href='$link' target='_blank'><img src='".compo2_thumb($fname,120,120)."'></a>";
+		$link = get_bloginfo("url")."/wp-content/compo2/{$fname}{$suffix}";
+		echo "<td><a href='{$link}' target='_blank'><img src='".compo2_thumb($fname,120,120)."'></a>";
 	}
 	echo "</table>";
 
