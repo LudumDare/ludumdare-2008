@@ -208,6 +208,16 @@ function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
     return get_bloginfo("url")."/wp-content/compo2/thumb/$dst";
 }
 
+// Mike's improved version of thumbnail generation. Uses entirely PHP functions (GD), no ImageMagick //
+function c2_thumb( $_fname, $width, $height, $itype="jpg", $quality=90) {
+	$topdir = dirname(__FILE__)."/../../compo2";
+	$fname = "$topdir/$_fname";
+	
+	$outfile = $fname .'-'. $width . '-' . $height . '.' . $itype;
+	
+	echo $outfile;
+}
+
 
 function compo2_get_user($uid) {
     $tm = microtime(true);
