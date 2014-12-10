@@ -217,7 +217,7 @@ function c2_thumb( $_filename, $width, $height, $itype="jpg", $quality=90) {
 
 	echo $thumbnail_filename;
 	
-	if ( !file_exists($thumbnail_filename) {
+	if ( !file_exists($thumbnail_filename) ) {
 		echo "<br />Must Generate";
 	}
 }
