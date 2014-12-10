@@ -88,7 +88,7 @@ function c2_navigation($slug,$name,$name_url) {
 			font-size:15px;
 		}
 		
-		.event .e-info .thumb {
+		.event .e-thumb {
 			float:left;
 		}
 	</style>
@@ -113,7 +113,7 @@ function c2_navigation($slug,$name,$name_url) {
 <?php					if ( current_user_can('edit_others_posts') ) {
 							// TODO: Check for thumbnail (i.e. named thumb)
 							// If no thumbnain, use first shot, resized //
-							echo '<div class="thumb"><img src="'.c2_thumb( $game['shots']['shot0'], 180, 140 ).'" width="180" heigh="140" /></div>';
+							echo '<div class="e-thumb e-gap"><img src="'.c2_thumb( $game['shots']['shot0'], 180, 140 ).'" width="180" heigh="140" /></div>';
 						}?>
 
 						<div class="e-gap e-big"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
