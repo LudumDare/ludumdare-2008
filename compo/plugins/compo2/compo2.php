@@ -209,17 +209,77 @@ function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
 }
 
 // Mike's improved version of thumbnail generation. Uses entirely PHP functions (GD), no ImageMagick //
-function c2_thumb( $_filename, $width, $height, $itype="jpg", $quality=90) {
+function c2_thumb( $filename, $out_width, $out_height, $image_ext="jpg", $quality=90) {
 	$sysdir = dirname(__FILE__)."/../../compo2";
 	$baseurl = get_bloginfo("url")."/wp-content/compo2/";
 	
-	$thumbnail_filename = $sysdir .'/'. $_filename .'-'.$width.'-'.$height.'.'.$itype;
-
-	echo $thumbnail_filename;
+	$thumbname = $filename .'-'.$out_width.'-'.$out_height.'.'.$image_ext;
 	
-	if ( !file_exists($thumbnail_filename) ) {
-		echo "<br />Must Generate";
+	$in_file = $sysdir .'/'. $filename;
+	$out_file = $sysdir .'/'. $thumbname;
+	$out_url = $baseurl .'/'. $thumbname;
+
+//	echo $thumbnail_filename;
+	
+	if ( !file_exists($out_file) ) {
+		//list($w,$h,$type,$attr) = getimagesize($in_file);
+		
+		// $type //
+		// IMAGETYPE_GIF IMAGETYPE_JPEG IMAGETYPE_PNG
+		// IMAGETYPE_JPEG2000 IMAGETYPE_PSD IMAGETYPE_BMP IMAGETYPE_ICO
+		// IMAGETYPE_SWC IMAGETYPE_SWF
+		// IMAGETYPE_WBMP IMAGETYPE_XBM IMAGETYPE_TIFF_II IMAGETYPE_TIFF_MM
+		// IMAGETYPE_IFF IMAGETYPE_JB2 IMAGETYPE_JPC IMAGETYPE_JP2 IMAGETYPE_JPX
+		
+		// $attr = <img> tag attributes for width and height (i.e. width='10' height='14') //
+
+		$in = imagecreatefromstring(file_get_contents($in_file,FILE_USE_INCLUDE_PATH));
+		$out = imagecreatetruecolor($out_width,$out_height);
+
+		// Ratio Notes: //
+		// A ratio of 1.0 is square. The closer a ratio is to 1, the more square it is //
+		// A ratio of 2.0 means the image is wide, and the width is 2x the height //
+		// A ratio of 0.5 means the image is tall, and the height is 2x the width (or width is half the height) //
+		// doing "1.0/ratio" flips the meanings (2.0 means it's 2x as tall) // 
+		
+		$out_ratio = $out_width / $out_height;
+
+		$in_width = ImageSX($in);
+		$in_height = ImageSY($in);
+		
+		if ( $in_width <= 0 || $in_height <= 0 ) {
+			// TODO: Do something if the image has bad dimensions //
+			return "";
+		}
+		
+		$in_ratio = $in_width / $in_height;
+		//$in_wide = $in_ratio >= 1.0;
+		
+		//200x300->180x140
+		if ( $in_ratio > $out_ratio ) {
+			// Input File is Wider //
+			$in_y = 0;
+			$in_h = $in_height;
+			
+			$in_w = round($in_height * $in_ratio);
+			$in_x = ($in_width - $in_w) / 2;
+		}
+		else {
+			// Input File is Taller //
+			$in_x = 0;
+			$in_w = $in_width;
+			$in_h = round($in_width / $in_ratio);
+			$in_y = ($in_height - $in_h) / 2;
+		}
+
+		imagecopyresampled($out,$in,0,0,$in_x,$in_y,$out_width,$out_height,$in_w,$in_h);
+		imagejpeg($out,$out_file,$quality);
+
+		imagedestroy($out);
+		imagedestroy($in);
 	}
+	
+	return $out_url; // The URL, not the out_file //
 }
 
 
