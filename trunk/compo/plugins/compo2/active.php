@@ -580,6 +580,8 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 		}
 		
 		$ce["settings"] = serialize($settings);
+		
+		$ce["stamp"] = date("Y-m-d H:i:s");
 		// MK END //
 		
 		unset($ce["results"]);
