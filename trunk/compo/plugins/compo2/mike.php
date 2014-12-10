@@ -60,7 +60,10 @@ function c2_navigation($slug,$name,$name_url) {
 		$game = c2_get_game($event_id,$user_id);
 
 		if ( current_user_can('edit_others_posts') ) {
-			c2_thumb( $game['shots']['shot0'], 200, 100 );
+			// TODO: Check for thumbnail (i.e. named thumb)
+			// If no thumbnain, use first shot, resized //
+			
+			c2_thumb( $game['shots']['shot0'], 180, 140 );
 //			// MK: END NIGHT
 //			var_dump($game);
 //			/*
