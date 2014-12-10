@@ -213,7 +213,7 @@ function c2_thumb( $filename, $out_width, $out_height, $image_ext="jpg", $qualit
 	$sysdir = dirname(__FILE__)."/../../compo2";
 	$baseurl = get_bloginfo("url")."/wp-content/compo2/";
 	
-	$thumbname = $filename .'-'.$out_width.'-'.$out_height.'.'.$image_ext;
+	$thumbname = $filename .'-'.$out_width.'-'.$out_height.'G.'.$image_ext;
 	
 	$in_file = $sysdir .'/'. $filename;
 	$out_file = $sysdir .'/'. $thumbname;
