@@ -261,14 +261,14 @@ function c2_thumb( $filename, $out_width, $out_height, $image_ext="jpg", $qualit
 			$in_y = 0;
 			$in_h = $in_height;
 			
-			$in_w = round($in_height * $in_ratio);
+			$in_w = round($in_height * $out_ratio);
 			$in_x = ($in_width - $in_w) / 2;
 		}
 		else {
 			// Input File is Taller //
 			$in_x = 0;
 			$in_w = $in_width;
-			$in_h = round($in_width / $in_ratio);
+			$in_h = round($in_width / $out_ratio);
 			$in_y = ($in_height - $in_h) / 2;
 		}
 
