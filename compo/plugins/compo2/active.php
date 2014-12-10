@@ -30,12 +30,12 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		$uid = $params["uid"];
 	}
 	$ce = compo2_entry_load($params["cid"],$uid);
-/*
+
 	if ( current_user_can('edit_others_posts') ) {
 		echo "Hey team. Just ignore this for now. Only you can see it. Thanks!<br /><br />";
 		var_dump( $ce );
 	}
-*/
+
 	
 	if ($params["locked"] && !$ce["id"]) {
 		echo "<p class='warning'>This competition is locked.  No new entries are being accepted.</p>";
@@ -43,9 +43,6 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	}
 	
 	// TODO: Make just one (which means make code to iterate, add "add new" button)
-	// TODO: __embed for embedded url
-	// TODO: __src for source
-	// TODO: __src_user for source protected with a user account
 	$links = unserialize($ce["links"]);
 	if (!$ce["id"]) {
 		$links = array(
@@ -297,19 +294,23 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	////////////////////////////////////////////////////////////////////////////
 	
 	echo "<h2>Description {$star}</h2>";
-	echo "<textarea name='notes' rows=8 cols=60>".htmlentities($ce["notes"])."</textarea>";
+	echo "<textarea name='notes' rows=12 cols=80>".htmlentities($ce["notes"])."</textarea>";
 	
 	echo "<h2>Screenshot(s) {$star}</h2>";    
-	echo "You must include <i>at least</i> one screenshot.<br />";
+	echo "You must include <i>at least</i> one screenshot in PNG, JPEG or GIF formats.<br />";
 	
 	$shots = unserialize($ce["shots"]);
 //     print_r($shots);
+
+	$shot_count = count($shots);
+	if ( $shot_count < 5 ) {
+		$shot_count = 5;
+	}
 	
 	echo "<table>";
-	for ($i=0; $i<5; $i++) {
+	for ($i=0; $i < $shot_count; $i++) {
 		$k = "shot$i";
 		echo "<tr><td>".($i+1).".<td>";
-		//if ($i==0) { echo "$star "; }
 		echo "<td><input type='file' name='$k'>";
 		if ($i==0) { echo "<td>(Primary Screenshot)"; }
 		if (isset($shots[$k])) {
@@ -323,15 +324,18 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "You must host your downloads elsewhere. Need a host? <a href='http://ludumdare.com/compo/faq/' target='_blank'>See the <strong>FAQ</strong></a>.<br />";
 	echo "<br />";
 	
+	$links_count = count($links);
+	if ( $links_count < 5 ) {
+		$links_count = 5;
+	}
+	
 	echo "<table>";
 	echo "<tr><th><th>Link Name<th><th>URL (don't forget the http://)";
-	for ($i=0; $i<5; $i++) {
+	for ($i=0; $i < $links_count; $i++) {
 		echo "<tr><td>";
-//        if ($i==0) { echo " $star"; }
 		echo "<td><input type='text' name='links[$i][title]' size=15 value=\"".htmlentities($links[$i]["title"])."\">";
 		echo "<td>";
-//        if ($i==0) { echo " $star"; }
-		echo "<td><input type='text' name='links[$i][link]' value=\"".htmlentities($links[$i]["link"])."\" size=45>";
+		echo "<td><input type='text' name='links[$i][link]' size=45 value=\"".htmlentities($links[$i]["link"])."\">";
 	}
 	echo "</table>";
 
@@ -366,7 +370,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "<td>";
 	echo "</table>";
 	echo "<input type='checkbox' class='' name='SETTING[EMBED][fullscreen]' value='1' ".($settings['EMBED']['fullscreen']?"checked":"").">Enable Fullscreen Button.<br/>People have a variety of screen sizes, so games running Fullscreen should be able to support a variety of 16:9, 16:10, and 4:3 resolutions.</input><br />";
-	echo "<input type='checkbox' class='' name='SETTING[EMBED][nocontrols]' value='1' ".($settings['EMBED']['nocontrols']?"checked":"").">Disable all Controls. No more Reset, Power, or other helper buttons. Just a Raw Embed.</input><br />";
+//	echo "<input type='checkbox' class='' name='SETTING[EMBED][nocontrols]' value='1' ".($settings['EMBED']['nocontrols']?"checked":"").">Disable all Controls. No more Reset, Power, or other helper buttons. Just a Raw Embed.</input><br />";
 		
 
 /*    echo "<br />";*/
@@ -462,15 +466,14 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			if (!$w) { continue; } if (!$h) { continue; }
 	//         unset($shots[$k]);
 			$ext = array_pop(explode(".",$fe["name"]));
-			if (!in_array(strtolower($ext),array("png","gif","jpg","bmp"))) { continue; }
+			if (!in_array(strtolower($ext),array("png","gif","jpg"))) { continue; }
 			$cid = $params["cid"];
 			$ts = time();
-	//         $fname = "$cid/$uid-$ts.$ext";
 			$fname = "$cid/$uid-$k.$ext";
 			$dname = dirname(__FILE__)."/../../compo2";
 			@mkdir("$dname/$cid");
 			$dest = "$dname/$fname";
-			move_uploaded_file  ( $fe["tmp_name"] ,$dest );
+			move_uploaded_file( $fe["tmp_name"] ,$dest );
 			$shots[$k] = $fname;
 		}
 		$ce["shots"] = serialize($shots);
