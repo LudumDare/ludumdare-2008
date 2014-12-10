@@ -63,7 +63,7 @@ function c2_navigation($slug,$name,$name_url) {
 			// TODO: Check for thumbnail (i.e. named thumb)
 			// If no thumbnain, use first shot, resized //
 			
-			c2_thumb( $game['shots']['shot0'], 180, 140 );
+			echo '<img src="'.c2_thumb( $game['shots']['shot0'], 180, 140 ).'" width="180" heigh="140" />';
 //			// MK: END NIGHT
 //			var_dump($game);
 //			/*
