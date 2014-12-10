@@ -59,20 +59,20 @@ function c2_navigation($slug,$name,$name_url) {
 		
 		$game = c2_get_game($event_id,$user_id);
 
-		if ( current_user_can('edit_others_posts') ) {
-			// TODO: Check for thumbnail (i.e. named thumb)
-			// If no thumbnain, use first shot, resized //
-			
-			echo '<img src="'.c2_thumb( $game['shots']['shot0'], 180, 140 ).'" width="180" heigh="140" />';
-//			// MK: END NIGHT
-//			var_dump($game);
-//			/*
-//			echo "<br/><br/>";
-//			c2_set_game($event_id,$user_id,$game);
-//			*/
+//		if ( current_user_can('edit_others_posts') ) {
+//			// TODO: Check for thumbnail (i.e. named thumb)
+//			// If no thumbnain, use first shot, resized //
 //			
-//			//echo $event_id . " vs " . $user_id;
-		}
+//			echo '<img src="'.c2_thumb( $game['shots']['shot0'], 180, 140 ).'" width="180" heigh="140" />';
+////			// MK: END NIGHT
+////			var_dump($game);
+////			/*
+////			echo "<br/><br/>";
+////			c2_set_game($event_id,$user_id,$game);
+////			*/
+////			
+////			//echo $event_id . " vs " . $user_id;
+//		}
 
 ?>
 	<style>
@@ -106,6 +106,12 @@ function c2_navigation($slug,$name,$name_url) {
 				if ( $game ) {?>
 					<div class="e-info">
 						<div class="e-gap e-big"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
+<?php					if ( current_user_can('edit_others_posts') ) {
+							// TODO: Check for thumbnail (i.e. named thumb)
+							// If no thumbnain, use first shot, resized //
+							echo '<img src="'.c2_thumb( $game['shots']['shot0'], 180, 140 ).'" width="180" heigh="140" />';
+						}?>
+
 						<div>by <strong><?php echo $game['get_user']['display_name'];?></strong><!-- (<?php echo $game['etype'];?>)--></div>
 						<div>Votes: <strong><?php echo $game['rate_in']; ?></strong> Comments: <strong>?</strong></div>
 						<div>Coolness: <strong><?php echo $game['rate_out']; ?></strong> Bonus: <strong>?</strong></div>
