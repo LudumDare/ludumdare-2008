@@ -238,7 +238,7 @@ require "fetch-streams.php";
 			}
 		}
 
-
+/*
 		// Update Hitbox Streams //
 		if ( $hitbox_streams !== NULL ) {
 			foreach ( $hitbox_streams['livestream'] as $value ) {
@@ -317,7 +317,7 @@ require "fetch-streams.php";
 				}	
 			}
 		}
-
+*/
 
 		// Update YouTube Streams //
 		if ( $youtube_streams !== NULL ) {
