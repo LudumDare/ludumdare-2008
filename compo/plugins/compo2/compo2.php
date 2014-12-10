@@ -213,7 +213,7 @@ function c2_thumb( $_fname, $width, $height, $itype="jpg", $quality=90) {
 	$topdir = dirname(__FILE__)."/../../compo2";
 	$fname = "$topdir/$_fname";
 	
-	$outfile = $fname .'-'. $width . '-' . $height . '.' . $itype;
+	$outfile = $fname .'-'. $width . '-' . $height . '.'.$itype;
 	
 	echo $outfile;
 }
