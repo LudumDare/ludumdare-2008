@@ -134,17 +134,14 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	
 	$opts = true;
 	$divs = $params["opendivs"];
+	
+	// Since parsing can be a little wonky, lets make sure there are no blank events //
 	foreach( $divs as $key => $val ) {
 		if ($val === "" ) {
 			unset($divs[$key]);
 		}
 	}
 	array_values($divs);
-
-	if ( current_user_can('edit_others_posts') ) {
-		echo "Hey team. Just ignore this for now. Only you can see it. Thanks!<br /><br />";
-		var_dump( $divs );
-	}
 
 	@$etype = $ce["etype"];
 	if (strlen($etype)) {
