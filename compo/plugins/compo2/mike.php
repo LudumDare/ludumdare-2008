@@ -60,9 +60,9 @@ function c2_navigation($slug,$name,$name_url) {
 		$game = c2_get_game($event_id,$user_id);
 
 		if ( current_user_can('edit_others_posts') ) {
-//			c2_thumb( $game['']
+			c2_thumb( $game['shots']['shot0'], 200, 100 );
 //			// MK: END NIGHT
-			var_dump($game);
+//			var_dump($game);
 //			/*
 //			echo "<br/><br/>";
 //			c2_set_game($event_id,$user_id,$game);
