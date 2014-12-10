@@ -55,7 +55,7 @@ require "fetch-streams.php";
 	
 	$twitch_streams = twitch_streams_get( $game_name, $twitch_key );
 	
-	$hitbox_streams = hitbox_streams_get( $game_name );
+	$hitbox_streams = hitbox_streams_get( 786/*$game_name*/ ); // Workaround for an API bug //
 
 	$youtube_streams = youtube_streams_get( $game_name, $youtube_key );
 
@@ -238,7 +238,7 @@ require "fetch-streams.php";
 			}
 		}
 
-/*
+
 		// Update Hitbox Streams //
 		if ( $hitbox_streams !== NULL ) {
 			foreach ( $hitbox_streams['livestream'] as $value ) {
@@ -317,7 +317,7 @@ require "fetch-streams.php";
 				}	
 			}
 		}
-*/
+
 
 		// Update YouTube Streams //
 		if ( $youtube_streams !== NULL ) {
