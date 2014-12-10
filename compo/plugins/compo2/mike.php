@@ -79,12 +79,17 @@ function c2_navigation($slug,$name,$name_url) {
 		.event .e-info {
 			font-size:12px;
 			text-align:right;
+			overflow:auto;
 		}
 		.event .e-gap {
 			margin-top:10px
 		}
 		.event .e-big {
 			font-size:15px;
+		}
+		
+		.event .e-info .thumb {
+			float:left;
 		}
 	</style>
 	<div class="event">
@@ -105,13 +110,13 @@ function c2_navigation($slug,$name,$name_url) {
 <?php		if ( is_user_logged_in() ) {
 				if ( $game ) {?>
 					<div class="e-info">
-						<div class="e-gap e-big"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
 <?php					if ( current_user_can('edit_others_posts') ) {
 							// TODO: Check for thumbnail (i.e. named thumb)
 							// If no thumbnain, use first shot, resized //
-							echo '<img src="'.c2_thumb( $game['shots']['shot0'], 180, 140 ).'" width="180" heigh="140" />';
+							echo '<div class="thumb"><img src="'.c2_thumb( $game['shots']['shot0'], 180, 140 ).'" width="180" heigh="140" /></div>';
 						}?>
 
+						<div class="e-gap e-big"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
 						<div>by <strong><?php echo $game['get_user']['display_name'];?></strong><!-- (<?php echo $game['etype'];?>)--></div>
 						<div>Votes: <strong><?php echo $game['rate_in']; ?></strong> Comments: <strong>?</strong></div>
 						<div>Coolness: <strong><?php echo $game['rate_out']; ?></strong> Bonus: <strong>?</strong></div>
