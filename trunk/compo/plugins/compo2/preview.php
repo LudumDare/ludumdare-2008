@@ -349,6 +349,10 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			border-radius:10px;
 			padding:0;
 		}
+		
+		.links {
+			margin:0;
+		}
 	</style>
 	";
 	
@@ -384,6 +388,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 //	echo "<p class='links'>";
 	_compo2_preview_show_links($ce);
 //	echo "</p>";
+
+	echo "<br />";
 	
 //	$shots = unserialize($ce["shots"]);
 ///*	
