@@ -326,16 +326,17 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			margin-top:10px;
 		}
 		
-		.shot-nav .item {
+		.shot-nav .sn-item {
 			display:inline-block;
 			opacity:0.4;
 			padding:2px;
+			border-radius:10px;
 		}
-		.shot-nav .item:hover {
+		.shot-nav .sn-item:hover {
 			opacity:1.0;
 		}
 		
-		.shot-nav .selected {
+		.shot-nav .sn-selected {
 			opacity:0.8;
 			border:2px solid #000;
 			padding:0;
@@ -352,16 +353,16 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$imagefile = array_values($shots)[0];
 		$link = $baseurl.'/'.$imagefile;
 		$thumb = c2_thumb($imagefile,180,140);
-		$selected = ($idx === 0) ? "selected" : "";
-		echo "<div class='item'><a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
+		$selected = ($idx === 0) ? "sn-selected" : "";
+		echo "<div class='sn-item'><a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
 		$idx++;
 	}
 	foreach ($shots as $imagefile) {
 		$link = $baseurl.'/'.$imagefile;
 		$thumb = c2_thumb($imagefile,180,140);
 		$preview = c2_thumb($imagefile,900,600,false);
-		$selected = ($idx === 0) ? "selected" : "";
-		echo "<div class='item'><a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a><div>";
+		$selected = ($idx === 0) ? "sn-selected" : "";
+		echo "<div class='sn-item'><a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a><div>";
 		$idx++;
 	}
 	echo "</span></div>";
