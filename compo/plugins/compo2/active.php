@@ -498,6 +498,12 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			$dname = dirname(__FILE__)."/../../compo2";
 			@mkdir("$dname/$cid");
 			$dest = "$dname/$fname";
+			
+			$old_file = $dname.$shots[$k];
+			if ( file_exists($old_file) ) {
+				unlink( $old_file );
+			}
+			
 			move_uploaded_file( $fe["tmp_name"] ,$dest );
 			$shots[$k] = $fname;
 		}
