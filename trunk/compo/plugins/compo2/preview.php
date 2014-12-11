@@ -325,7 +325,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$imagefile = array_values($shots)[0];
 		$link = $baseurl.'/'.$imagefile;
 		$preview = c2_thumb($imagefile,900,500,false);
-		echo "<a href='{$link}' target='_blank'><img src='{$preview}'></a>";
+		echo "<a id='shotview_link' href='{$link}' target='_blank'><img id='shotview_img' src='{$preview}'></a>";
 	echo "</div>";
 
 	// Game Name and Developer //
@@ -387,6 +387,54 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	</style>
 	";
 	
+	echo "
+	<script>
+		// See active.php for 'hidden' and: //
+		//function c2_addclass( el, className ) {
+		//function c2_removeclass( el, className ) {
+
+		// Global Variable //
+		window.c2_ShotIndex = 0;
+		
+		function c2_show_embed() {
+			c2_removeclass( document.getElementById('embed'), 'hidden');
+		}
+		function c2_hide_embed() {
+			c2_addclass( document.getElementById('embed'), 'hidden');
+		}
+		
+		function c2_show_shot( _img, _link ) {
+			c2_removeclass( document.getElementById('shotview'), 'hidden');
+			document.getElementById('shotview_img').setAttribute('src', _img);
+			document.getElementById('shotview_link').setAttribute('href', _link);
+		}
+		function c2_hide_shot() {
+			c2_addclass( document.getElementById('shotview'), 'hidden');
+		}
+
+			 //document.querySelectorAll('.optout-type')
+
+		function c2_select_embed( id ) {
+			c2_hide_shot();
+			
+			// Clear Navbar Selection //
+			// Highlight mine //
+			window.c2_ShotIndex = id;
+			
+			c2_show_embed();
+		}
+		function c2_select_image( id, _img, _link ) {
+			c2_hide_embed();
+		
+			// Clear Navbar Selection //
+			// Highlight mine //
+			window.c2_ShotIndex = id;
+
+			c2_show_image( _img, _link );
+		}
+	</script>
+	";
+	
 	// Screenshots //
 	echo "<div class='shot-nav'><span>";
 	$idx = 0;
@@ -395,7 +443,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$link = $baseurl.'/'.$imagefile;
 		$thumb = c2_thumb($imagefile,180,140);
 		$selected = ($idx === 0) ? "sn-selected" : "";
-		echo "<div class='sn-item {$selected}'><a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
+//		echo "<div class='sn-item {$selected}' id='shot{$idx}'><a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
+		echo "<div class='sn-item {$selected}' id='shot{$idx}'><img src='{$thumb}' width='180' height='140' onclick='c2_select_embed({$idx});'></a></div>";
 		$idx++;
 	}
 	foreach ($shots as $imagefile) {
@@ -404,7 +453,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$thumb = c2_thumb($imagefile,180,140);
 		$preview = c2_thumb($imagefile,900,500,false);
 		$selected = ($idx === 0) ? "sn-selected" : "";
-		echo "<div class='sn-item {$selected}'><a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
+//		echo "<div class='sn-item {$selected}' id='shot{$idx}'><a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
+		echo "<div class='sn-item {$selected}' id='shot{$idx}'><img src='{$thumb}' width='180' height='140' onclick='c2_select_image({$idx},\"{$preview}\",\"{$link}\");'></div>";
 		$idx++;
 	}
 	echo "</span></div>";
