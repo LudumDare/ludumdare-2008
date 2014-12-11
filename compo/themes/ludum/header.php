@@ -19,7 +19,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 	
-	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>?2.95" type="text/css" media="screen" />
+	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>?2.96" type="text/css" media="screen" />
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css' />
