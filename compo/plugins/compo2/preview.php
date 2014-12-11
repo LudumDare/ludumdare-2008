@@ -316,22 +316,54 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	
 	echo "</div>";
 	
+	echo "	
+	<style>
+		.shot-nav {
+			text-align:center;
+			width:940px;
+			left:-20px;
+			position:relative;
+			margin-top:10px;
+		}
+		
+		.shot-nav .item {
+			display:inline-block;
+			opacity:0.4;
+			padding:2px;
+		}
+		.shot-nav .item:hover {
+			opacity:1.0;
+		}
+		
+		.shot-nav .selected {
+			opacity:0.8;
+			border:2px solid #000;
+			padding:0;
+		}
+	</style>
+	";
+	
 	// Screenshots //
 	$shots = unserialize($ce["shots"]);
 	$baseurl = get_bloginfo("url")."/wp-content/compo2";
-	echo "<div style='text-align:center;width:940px;left:-20px;position:relative;'>";
+	echo "<div class='shot-nav'>";
 	echo "<span>";
+	$idx = 0;
 	if ( $has_embed ) {
 		$imagefile = array_values($shots)[0];
 		$link = $baseurl.'/'.$imagefile;
 		$thumb = c2_thumb($imagefile,180,140);
-		echo "<a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a>";
+		$selected = (idx === 0) ? "selected" : "";
+		echo "<div class='item {$selected}'><a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
+		$idx++;
 	}
 	foreach ($shots as $imagefile) {
 		$link = $baseurl.'/'.$imagefile;
 		$thumb = c2_thumb($imagefile,180,140);
 		$preview = c2_thumb($imagefile,900,600,false);
-		echo "<a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a>";
+		$selected = (idx === 0) ? "selected" : "";
+		echo "<div class='item {$selected}'><a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a><div>";
+		$idx++;
 	}
 	echo "</span>";
 	echo "</div>";
