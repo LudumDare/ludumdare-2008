@@ -325,7 +325,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	echo "<table>";
 	$cols = 4; $n = 0;
 	$link = get_bloginfo("url")."/wp-content/compo2/{$fname}{$suffix}";
-	echo "<tr><td colspan=$cols align=center><a href='{$link}' target='_blank'><img src='".c2_thumb($fname,360,280,false)."'></a>";
+	echo "<tr><td colspan=$cols align=center><a href='{$link}' target='_blank'><img src='".c2_thumb($fname,900,600,false)."'></a>";
 	$baseurl = get_bloginfo("url")."/wp-content/compo2";
 	foreach ($shots as $fname) {
 		if (($n%$cols)==0) { echo "<tr>"; } $n += 1;
