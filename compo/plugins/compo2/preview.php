@@ -331,6 +331,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			opacity:0.4;
 			padding:2px;
 			border-radius:10px;
+			overflow:auto;
+			position:relative;
 		}
 		.shot-nav .sn-item:hover {
 			opacity:1.0;
@@ -354,7 +356,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$link = $baseurl.'/'.$imagefile;
 		$thumb = c2_thumb($imagefile,180,140);
 		$selected = ($idx === 0) ? "sn-selected" : "";
-		echo "<div class='sn-item'><a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
+		echo "<div class='sn-item {$selected}'><a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
 		$idx++;
 	}
 //	foreach ($shots as $imagefile) {
