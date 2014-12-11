@@ -138,6 +138,10 @@ function c2_navigation($slug,$name,$name_url) {
 						}
 					} ?>
 					
+<?php				if ( !isset($game['active']) ) { ?>
+						<div class="e-gap e-big"><strong>WARNING</strong>: Your game is currently Inactive<br />Make sure you have all required data. <a href="/compo/<?php echo $slug?>/?action=edit">Edit</a></div>
+<?php				} ?>
+					
 <?php				if ( $game['rate_in'] < 20 ) { ?>
 						<div class="e-gap e-big"><strong>You need more votes!</strong> Rate more games!</div>
 <?php				} ?>
