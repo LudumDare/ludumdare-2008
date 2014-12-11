@@ -308,7 +308,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	echo get_avatar($user['user_email'],'56');
 	echo "</div>";	
 	
-	echo "<h2>".htmlentities($ce["title"])."</h2>";
+	echo "<h2 style='font-size:28px'>".htmlentities($ce["title"])."</h2>";
 	echo "by <a href=\"../author/{$user['user_nicename']}/\" target='_blank'><strong>{$user['display_name']}</strong></a>";
 	$div = $ce["etype"];
 	echo " - <i>{$params["{$div}_title"]} Entry</i>";
@@ -319,7 +319,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	// Screenshots //
 	$shots = unserialize($ce["shots"]);
 	$baseurl = get_bloginfo("url")."/wp-content/compo2";
-	echo "<div style='text-align:center;'>";
+	echo "<div style='text-align:center;width:940px;left:-20px;position:relative;'>";
 	echo "<span>";
 	if ( $has_embed ) {
 		$imagefile = array_values($shots)[0];
