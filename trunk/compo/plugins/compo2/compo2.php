@@ -209,15 +209,17 @@ function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
 }
 
 // Mike's improved version of thumbnail generation. Uses entirely PHP functions (GD), no ImageMagick //
-function c2_thumb( $filename, $out_width, $out_height, $crop=true, $useifequal=true, $image_ext="jpg", $quality=90) {
+function c2_thumb( $filename, $out_width, $out_height, $crop = true, $useifequal = true, $image_ext="jpg", $quality=90) {
 	$sysdir = dirname(__FILE__)."/../../compo2";
 	$baseurl = get_bloginfo("url")."/wp-content/compo2/";
 	
-	$thumbname = $filename .'-'.($crop?'crop-':'').$out_width.'-'.$out_height.'.'.$image_ext;
+	$thumbname = $filename .'-'.($crop ? 'crop-':'').$out_width.'-'.$out_height.'.'.$image_ext;
 	
 	$in_file = $sysdir .'/'. $filename;
 	$out_file = $sysdir .'/'. $thumbname;
 	$out_url = $baseurl .'/'. $thumbname;
+	
+	echo $thumbname;
 	
 	if ( !file_exists($out_file) ) {
 		//list($w,$h,$type,$attr) = getimagesize($in_file);
