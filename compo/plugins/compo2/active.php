@@ -302,14 +302,15 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	
 	////////////////////////////////////////////////////////////////////////////
 	
+	// Description //
 	echo "<h2>Description {$star}</h2>";
 	echo "<textarea name='notes' rows=12 cols=80>".htmlentities($ce["notes"])."</textarea>";
 	
+	// Screenshots //
 	echo "<h2>Screenshot(s) {$star}</h2>";    
 	echo "You must include <i>at least</i> one screenshot in <strong>PNG</strong>, <strong>JPEG</strong> or <strong>GIF</strong> formats.<br /><br />";
 	
 	$shots = unserialize($ce["shots"]);
-//     print_r($shots);
 
 	$shot_count = count($shots);
 	if ( $shot_count < 5 ) {
@@ -319,30 +320,30 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "<table>";
 	for ($i=0; $i < $shot_count; $i++) {
 		$k = "shot$i";
-		echo "<tr><td>".($i+1).".</td>";
-		echo "<td><input type='file' name='$k'></td>";
+		
+		echo "<tr>";
+			echo "<td>".($i+1).".</td>";
+			echo "<td><input type='file' name='$k'></td>";
 		echo "</tr>";
+		
 		if (isset($shots[$k])) {
 			echo "<tr><td></td><td align=left><img src='".c2_thumb($shots[$k],180,140)."' width='180' height='140'></td></tr>";
 		}
-		echo "<tr><td>&nbsp;</td></tr>";
 	}
 	echo "</table>";
 
-
+	// Thumbnail //
 	echo "<h2>Customize Thumbnail</h2>";    
 	echo "Game thumbnails are <strong>180x140</strong>. If you use a <strong>GIF</strong>, it will animate on hover.<br /><br />";
 
 	echo "<table>";
-	{
-		echo "<tr><td>".($i+1).".";
-		echo "<td><input type='file' name='SETTING[thumb]'>";
-		if (isset($settings['thumb'])) {
-			echo "<tr><td><td align=left><img src='".c2_thumb($settings['thumb'],180,140)."' width='180' height='140'>";
-		}
+	echo "<tr><td><input type='file' name='SETTING[thumb]'></td></tr>";
+	if (isset($settings['thumb'])) {
+		echo "<tr><td align=left><img src='".c2_thumb($settings['thumb'],180,140)."' width='180' height='140'></tr></tr>";
 	}
 	echo "</table><br />";
 	
+	// Downloads //
 	echo "<h2>Downloads and Links {$star}</h2>";
 	echo "You must host your downloads elsewhere. Need a host? <a href='http://ludumdare.com/compo/faq/' target='_blank'>See the <strong>FAQ</strong></a>.<br />";
 	echo "<br />";
