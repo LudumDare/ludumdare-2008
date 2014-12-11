@@ -514,7 +514,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			$dest = "$dname/$fname";
 			
 			$old_file = $dname.'/'.$shots[$k];
-			if ( trim($old_file) !== "" && file_exists($old_file) ) {
+			if ( trim($shots[$k]) !== "" && file_exists($old_file) ) {
 				//unlink( $old_file ); // Delete One File //
 				array_map('unlink', glob($old_file."*")); // Delete all files with same base //
 			}
