@@ -312,6 +312,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		<style>
 			#shotview {
 				text-align:center;
+				margin-bottom:10px;
 			}
 			#shotview img {
 				max-width:900px;
@@ -348,7 +349,6 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			left:-20px;
 			position:relative;
 			margin-top:10px;
-			margin-bottom:10px;
 		}
 		
 		.shot-nav .sn-item {
