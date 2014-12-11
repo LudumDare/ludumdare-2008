@@ -209,11 +209,11 @@ function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
 }
 
 // Mike's improved version of thumbnail generation. Uses entirely PHP functions (GD), no ImageMagick //
-function c2_thumb( $filename, $out_width, $out_height, $crop = true, $useifequal = true, $image_ext="jpg", $quality=90) {
+function c2_thumb( $filename, $out_width, $out_height, $crop = true, $useifequal = false, $image_ext="jpg", $quality=90) {
 	$sysdir = dirname(__FILE__)."/../../compo2";
 	$baseurl = get_bloginfo("url")."/wp-content/compo2/";
 	
-	$thumbname = $filename .'-'.($crop ? 'crop-':'').$out_width.'-'.$out_height.'.'.$image_ext;
+	$thumbname = $filename .'-'.($crop ? 'crop-':'').($useifequal ? 'eq-':'').$out_width.'-'.$out_height.'.'.$image_ext;
 	
 	$in_file = $sysdir .'/'. $filename;
 	$out_file = $sysdir .'/'. $thumbname;
@@ -241,6 +241,7 @@ function c2_thumb( $filename, $out_width, $out_height, $crop = true, $useifequal
 		$in_height = ImageSY($in);
 
 		if ( $in_width <= 0 || $in_height <= 0 ) {
+			imagedestroy($in);
 			// TODO: Do something if the image has bad dimensions //
 			return "";
 		}
@@ -282,6 +283,17 @@ function c2_thumb( $filename, $out_width, $out_height, $crop = true, $useifequal
 				$in_y = ($in_height - $in_h) / 2;
 			}
 
+			if ( $useifequal ) {
+				if ( $in_width === $out_width ) {
+					if ( $in_height === $out_height ) {
+						// We can either copy the file, or create a symlink. This is Linux, so... //
+						symlink($in_file,$out_file);
+						imagedestroy($in);
+						return $out_url;
+					}
+				}
+			}
+
 			$out = imagecreatetruecolor($out_width,$out_height);
 			imagecopyresampled($out,$in,0,0,$in_x,$in_y,$out_width,$out_height,$in_w,$in_h);
 		}
@@ -301,6 +313,17 @@ function c2_thumb( $filename, $out_width, $out_height, $crop = true, $useifequal
 			if ( $out_h > $out_height ) {
 				$out_w = $out_height * $in_ratio;
 				$out_h = $out_height;
+			}
+
+			if ( $useifequal ) {
+				if ( $in_width === $out_w ) {
+					if ( $in_height === $out_h ) {
+						// We can either copy the file, or create a symlink. This is Linux, so... //
+						symlink($in_file,$out_file);
+						imagedestroy($in);
+						return $out_url;
+					}
+				}
 			}
 			
 			$out = imagecreatetruecolor($out_w,$out_h);

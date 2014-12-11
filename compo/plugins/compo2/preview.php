@@ -326,7 +326,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	echo "<div id='shotview' class='".($has_embed ? "hidden" : "")."'>";
 		$imagefile = array_values($shots)[0];
 		$link = $baseurl.'/'.$imagefile;
-		$preview = c2_thumb($imagefile,900,500,false);
+		$preview = c2_thumb($imagefile,900,500,false,true);
 		echo "<a id='shotview_link' href='{$link}' target='_blank'><img id='shotview_img' src='{$preview}'></a>";
 	echo "</div>";
 
@@ -467,7 +467,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		if ( $idx === 5 ) break;
 		$link = $baseurl.'/'.$imagefile;
 		$thumb = c2_thumb($imagefile,180,140);
-		$preview = c2_thumb($imagefile,900,500,false);
+		$preview = c2_thumb($imagefile,900,500,false,true);
 		$selected = ($idx === 0) ? "sn-selected" : "";
 //		echo "<div class='sn-item {$selected}' id='shot-nav-{$idx}'><a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
 		echo "<div class='sn-item {$selected}' id='shot-nav-{$idx}'><img src='{$thumb}' width='180' height='140' onclick='c2_select_image({$idx},\"{$preview}\",\"{$link}\");'></div>";
