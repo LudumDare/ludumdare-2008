@@ -313,8 +313,8 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	$shots = unserialize($ce["shots"]);
 
 	$shot_count = count($shots);
-	if ( $shot_count < 5 ) {
-		$shot_count = 5;
+	if ( $shot_count < 4 ) {
+		$shot_count = 4;
 	}
 	
 	echo "<table>";
@@ -334,9 +334,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 
 	// Thumbnail //
 	echo "<h2>Customize Thumbnail</h2>";    
-	echo "Game thumbnails are <strong>180x140</strong> pixels (9:7). Images will be scaled and cropped. <strong>TIP</strong>: If you use an exact 180x140 <strong>GIF</strong>, it will animate on hover.<br />";
-	echo "If you don't set a thumbnail, Screenshot #1 will be used instead (scaled and cropped).<br /><br />";
-
+	echo "Game thumbnails are <strong>180x140</strong> pixels (9:7). Images will be scaled and cropped.<br />";
+	echo "If you don't set a thumbnail, Screenshot #1 will be used instead (scaled and cropped).<br />";
+	echo "<strong>TIP</strong>: If you use an exact 180x140 <strong>GIF</strong>, it will animate on hover.<br />";
+	echo "<br />";
+	
 	echo "<table>";
 	echo "<tr><td><input type='file' name='SETTING[thumb]'></td></tr>";
 	if (isset($settings['thumb'])) {
