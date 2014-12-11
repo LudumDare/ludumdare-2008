@@ -334,9 +334,9 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 
 	// Thumbnail //
 	echo "<h2>Customize Thumbnail</h2>";    
-	echo "Game thumbnails are <strong>180x140</strong> pixels (9:7). Images will be scaled and cropped.<br />";
-	echo "If you don't set a thumbnail, Screenshot #1 will be used instead (scaled and cropped).<br />";
-	echo "<strong>TIP</strong>: If you use an exact 180x140 <strong>GIF</strong>, it will animate on hover.<br />";
+	echo "Game thumbnails are <strong>180x140</strong> pixels (9:7). Images will be scaled and cropped to 180x140 pixels.<br />";
+	echo "If you don't set a thumbnail, Screenshot #1 will be used instead.<br />";
+	echo "<strong>TIP</strong>: If you use an exactly <strong>180x140 GIF</strong>, it will animate on hover.<br />";
 	echo "<br />";
 	
 	echo "<table>";
