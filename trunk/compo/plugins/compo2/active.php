@@ -323,11 +323,23 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		echo "<td><input type='file' name='$k'>";
 		if ($i==0) { echo "<td>(Primary Screenshot)"; }
 		if (isset($shots[$k])) {
-			echo "<tr><td><td align=left><img src='".compo2_thumb($shots[$k],120,80)."'>";
+			echo "<tr><td><td align=left><img src='".c2_thumb($shots[$k],180,140)."' width='180' height='140'>";
 		}
 	}
 	echo "</table>";
 
+
+	echo "<h2>Customize Thumbnail</h2>";    
+	echo "Game thumbnails are 180x140. If you use a GIF, it will animate on hover.<br />";
+
+	echo "<table>";
+		echo "<tr><td>".($i+1).".<td>";
+		echo "<td><input type='file' name='SETTING[thumb]'>";
+		if (isset($settings['thumb'])) {
+			echo "<tr><td><td align=left><img src='".c2_thumb($settings['thumb'],180,140)."' width='180' height='140'>";
+		}
+	}
+	echo "</table>";
 	
 	echo "<h2>Downloads and Links {$star}</h2>";
 	echo "You must host your downloads elsewhere. Need a host? <a href='http://ludumdare.com/compo/faq/' target='_blank'>See the <strong>FAQ</strong></a>.<br />";
