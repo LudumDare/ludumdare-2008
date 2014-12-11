@@ -231,6 +231,10 @@ function c2_thumb( $filename, $out_width, $out_height, $crop = true, $useifequal
 		
 		// $attr = <img> tag attributes for width and height (i.e. width='10' height='14') //
 
+		if ( !file_exists($in_file) ) {
+			return "";
+		}
+		
 		$in = imagecreatefromstring(file_get_contents($in_file,FILE_USE_INCLUDE_PATH));
 		$in_width = ImageSX($in);
 		$in_height = ImageSY($in);
