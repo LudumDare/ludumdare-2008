@@ -319,7 +319,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	// Screenshots //
 	$shots = unserialize($ce["shots"]);
 	$baseurl = get_bloginfo("url")."/wp-content/compo2";
-	echo "<div style='margin-left:auto;margin-right:auto;'>";
+	echo "<div style='text-align:center;'>";
+	echo "<span>";
 	if ( $has_embed ) {
 		$imagefile = array_values($shots)[0];
 		$link = $baseurl.'/'.$imagefile;
@@ -332,6 +333,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$preview = c2_thumb($imagefile,900,600,false);
 		echo "<a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a>";
 	}
+	echo "</span>";
 	echo "</div>";
 	
 		
