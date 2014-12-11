@@ -378,6 +378,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		
 		.links ul {
 			list-style:none;
+			margin:0;
 		}
 	</style>
 	";
