@@ -321,7 +321,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	$baseurl = get_bloginfo("url")."/wp-content/compo2";
 	echo "<div style='margin-left:auto;margin-right:auto;'>";
 	if ( $has_embed ) {
-		$link = $baseurl.'/'.(array_values($shots)[0]);
+		$imagefile = array_values($shots)[0];
+		$link = $baseurl.'/'.$imagefile;
 		$thumb = c2_thumb($imagefile,180,140);
 		echo "<a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a>";
 	}
