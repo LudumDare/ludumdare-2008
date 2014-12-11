@@ -246,8 +246,9 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	}
 	
 	$settings = unserialize($ce["settings"]);
+	$has_embed = isset($settings["EMBED"]["url"]) && $settings["EMBED"]["url"] !== "";
 	
-	if ( isset($settings["EMBED"]["url"]) && $settings["EMBED"]["url"] !== "" ) {
+	if ( $has_embed ) {
 		$url = $settings["EMBED"]["url"];
 		$width = $settings["EMBED"]["width"];
 		$height = $settings["EMBED"]["height"];
@@ -319,6 +320,11 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	$shots = unserialize($ce["shots"]);
 	$baseurl = get_bloginfo("url")."/wp-content/compo2";
 	echo "<div style='margin-left:auto;margin-right:auto;'>";
+	if ( $has_embed ) {
+		$link = $baseurl.'/'.(array_values($shots)[0]);
+		$thumb = c2_thumb($imagefile,180,140);
+		echo "<a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a>";
+	}
 	foreach ($shots as $imagefile) {
 		$link = $baseurl.'/'.$imagefile;
 		$thumb = c2_thumb($imagefile,180,140);
