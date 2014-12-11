@@ -422,24 +422,25 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		function c2_hide_image() {
 			c2_addclass( document.getElementById('shotview'), 'hidden');
 		}
-
-			 //document.querySelectorAll('.optout-type')
+		
+		function c2_highlight_nav( id ) {
+			c2_removeclass( document.getElementById('shot-nav-'+window.c2_ShotIndex), 'sn-selected');
+			c2_addclass( document.getElementById('shot-nav-'+id), 'sn-selected');
+			
+			window.c2_ShotIndex = id;		
+		}
 
 		function c2_select_embed( id ) {
 			c2_hide_image();
 			
-			// Clear Navbar Selection //
-			// Highlight mine //
-			window.c2_ShotIndex = id;
+			c2_highlight_nav(id);
 			
 			c2_show_embed();
 		}
 		function c2_select_image( id, _img, _link ) {
 			c2_hide_embed();
 		
-			// Clear Navbar Selection //
-			// Highlight mine //
-			window.c2_ShotIndex = id;
+			c2_highlight_nav(id);
 
 			c2_show_image( _img, _link );
 		}
@@ -454,8 +455,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$link = $baseurl.'/'.$imagefile;
 		$thumb = c2_thumb($imagefile,180,140);
 		$selected = ($idx === 0) ? "sn-selected" : "";
-//		echo "<div class='sn-item {$selected}' id='shot{$idx}'><a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
-		echo "<div class='sn-item {$selected}' id='shot{$idx}'><img src='{$thumb}' width='180' height='140' onclick='c2_select_embed({$idx});'></a></div>";
+//		echo "<div class='sn-item {$selected}' id='shot-nav-{$idx}'><a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
+		echo "<div class='sn-item {$selected}' id='shot-nav-{$idx}'><img src='{$thumb}' width='180' height='140' onclick='c2_select_embed({$idx});'></a></div>";
 		$idx++;
 	}
 	foreach ($shots as $imagefile) {
@@ -464,8 +465,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$thumb = c2_thumb($imagefile,180,140);
 		$preview = c2_thumb($imagefile,900,500,false);
 		$selected = ($idx === 0) ? "sn-selected" : "";
-//		echo "<div class='sn-item {$selected}' id='shot{$idx}'><a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
-		echo "<div class='sn-item {$selected}' id='shot{$idx}'><img src='{$thumb}' width='180' height='140' onclick='c2_select_image({$idx},\"{$preview}\",\"{$link}\");'></div>";
+//		echo "<div class='sn-item {$selected}' id='shot-nav-{$idx}'><a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
+		echo "<div class='sn-item {$selected}' id='shot-nav-{$idx}'><img src='{$thumb}' width='180' height='140' onclick='c2_select_image({$idx},\"{$preview}\",\"{$link}\");'></div>";
 		$idx++;
 	}
 	echo "</span></div>";
