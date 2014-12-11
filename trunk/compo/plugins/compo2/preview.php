@@ -318,12 +318,14 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	// Screenshots //
 	$shots = unserialize($ce["shots"]);
 	$baseurl = get_bloginfo("url")."/wp-content/compo2";
+	echo "<div style='margin-left:auto;margin-right:auto;'>";
 	foreach ($shots as $imagefile) {
 		$link = $baseurl.'/'.$imagefile;
 		$thumb = c2_thumb($imagefile,180,140);
 		$preview = c2_thumb($imagefile,900,600,false);
 		echo "<a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a>";
 	}
+	echo "</div>";
 	
 		
 	echo "<p class='links'>";
