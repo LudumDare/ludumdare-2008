@@ -232,6 +232,7 @@ function c2_thumb( $filename, $out_width, $out_height, $crop = true, $useifequal
 		// $attr = <img> tag attributes for width and height (i.e. width='10' height='14') //
 
 		if ( !file_exists($in_file) ) {
+			echo "File doesn't exist: " . $in_file;
 			return "";
 		}
 		
