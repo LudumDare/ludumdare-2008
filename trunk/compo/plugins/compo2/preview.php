@@ -306,13 +306,24 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			
 			echo "<div class='embed-toggle' onclick='c2_toggle_fullscreen();'>Toggle Fullscreen</div>";
 		};
-	} 
+	}
+	
+	echo "
+		<style>
+			#shotview {
+				text-align:center;
+			}
+			#shotview img {
+				max-width:900px;
+			}
+		</style>
+	";
 
 	// Screenshot Viewer //
 	echo "<div id='shotview' class='".($has_embed ? "hidden" : "")."'>";
 		$imagefile = array_values($shots)[0];
 		$link = $baseurl.'/'.$imagefile;
-		$preview = c2_thumb($imagefile,900,600,false);
+		$preview = c2_thumb($imagefile,900,500,false);
 		echo "<a href='{$link}' target='_blank'><img src='{$preview}'></a>";
 	echo "</div>";
 
@@ -382,7 +393,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		if ( $idx === 5 ) break;
 		$link = $baseurl.'/'.$imagefile;
 		$thumb = c2_thumb($imagefile,180,140);
-		$preview = c2_thumb($imagefile,900,600,false);
+		$preview = c2_thumb($imagefile,900,500,false);
 		$selected = ($idx === 0) ? "sn-selected" : "";
 		echo "<div class='sn-item {$selected}'><a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
 		$idx++;
