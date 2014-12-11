@@ -489,7 +489,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			$shots = array();
 		}
 		
-		// For loop, because we're looking for File IDs of the same generated name //
+		// For loop, because we're looking for File IDs of the same generated name (shot0, shot1, etc) //
 		for ($i=0; $i < 4; $i++) {
 			$k = "shot$i"; 
 			$fe = $_FILES[$k];
