@@ -489,7 +489,8 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			$shots = array();
 		}
 		
-		$shots_count = count($shots);
+		//$shots_count = count($shots);
+		$shots_conut = count($_FILES);
 		if ( $shots_count > 20 ) { 
 			$shots_count = 20; 
 		}
