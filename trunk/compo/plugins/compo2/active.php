@@ -658,7 +658,8 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 		echo "<h3>Entry Saved</h3>";
 	}
 	
-	if (!$active) {
+	//if (!$active) 
+	if ( $msg ) {
 		echo "<p class='error'>$msg</p>";
 	}
 	
