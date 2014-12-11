@@ -264,8 +264,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		
 		echo "<div id='embed-frame'>";
 		echo "<iframe id='embed' style='margin:10px auto;display:block' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
-		if ( $settings["EMBED"]["fullscreen"] ) {
-			
+		if ( $settings["EMBED"]["fullscreen"] ) {	
 			echo "
 				<script>
 					function c2_toggle_fullscreen() {
@@ -306,8 +305,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			";
 			
 			echo "<div class='embed-toggle' onclick='c2_toggle_fullscreen();'>Toggle Fullscreen</div>";
-			echo "</div>";
-		};
+		}
+		echo "</div>";
 	}
 	
 	echo "
