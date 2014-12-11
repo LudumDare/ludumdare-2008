@@ -209,17 +209,15 @@ function compo2_thumb($_fname,$width,$height,$itype="jpg",$quality=85) {
 }
 
 // Mike's improved version of thumbnail generation. Uses entirely PHP functions (GD), no ImageMagick //
-function c2_thumb( $filename, $out_width, $out_height, $image_ext="jpg", $quality=90) {
+function c2_thumb( $filename, $out_width, $out_height, $crop=true, $useifequal=true, $image_ext="jpg", $quality=90) {
 	$sysdir = dirname(__FILE__)."/../../compo2";
 	$baseurl = get_bloginfo("url")."/wp-content/compo2/";
 	
-	$thumbname = $filename .'-'.$out_width.'-'.$out_height.'.'.$image_ext;
+	$thumbname = $filename .'-'.($crop?'crop-':'').$out_width.'-'.$out_height.'.'.$image_ext;
 	
 	$in_file = $sysdir .'/'. $filename;
 	$out_file = $sysdir .'/'. $thumbname;
 	$out_url = $baseurl .'/'. $thumbname;
-
-//	echo $thumbnail_filename;
 	
 	if ( !file_exists($out_file) ) {
 		//list($w,$h,$type,$attr) = getimagesize($in_file);
@@ -234,7 +232,23 @@ function c2_thumb( $filename, $out_width, $out_height, $image_ext="jpg", $qualit
 		// $attr = <img> tag attributes for width and height (i.e. width='10' height='14') //
 
 		$in = imagecreatefromstring(file_get_contents($in_file,FILE_USE_INCLUDE_PATH));
-		$out = imagecreatetruecolor($out_width,$out_height);
+		$in_width = ImageSX($in);
+		$in_height = ImageSY($in);
+
+		if ( $in_width <= 0 || $in_height <= 0 ) {
+			// TODO: Do something if the image has bad dimensions //
+			return "";
+		}
+		
+//		if ( $useifequal ) {
+//			if ( $in_width === $out_width ) {
+//				if ( $in_height === $out_height ) {
+//					// We can either copy the file, or create a symlink. This is Linux, so... //
+//					symlink($in_file,$out_file);
+//					return $out_url;
+//				}
+//			}
+//		}
 
 		// Ratio Notes: //
 		// A ratio of 1.0 is square. The closer a ratio is to 1, the more square it is //
@@ -243,36 +257,51 @@ function c2_thumb( $filename, $out_width, $out_height, $image_ext="jpg", $qualit
 		// doing "1.0/ratio" flips the meanings (2.0 means it's 2x as tall) // 
 		
 		$out_ratio = $out_width / $out_height;
-
-		$in_width = ImageSX($in);
-		$in_height = ImageSY($in);
-		
-		if ( $in_width <= 0 || $in_height <= 0 ) {
-			// TODO: Do something if the image has bad dimensions //
-			return "";
-		}
-		
 		$in_ratio = $in_width / $in_height;
-		//$in_wide = $in_ratio >= 1.0;
-		
-		//200x300->180x140
-		if ( $in_ratio > $out_ratio ) {
-			// Input File is Wider //
-			$in_y = 0;
-			$in_h = $in_height;
-			
-			$in_w = round($in_height * $out_ratio);
-			$in_x = ($in_width - $in_w) / 2;
+
+		// If crop mode is set, the image is fit to the region //
+		if ( $crop ) {
+			if ( $in_ratio > $out_ratio ) {
+				// Input File is Wider //
+				$in_y = 0;
+				$in_h = $in_height;
+				
+				$in_w = round($in_height * $out_ratio);
+				$in_x = ($in_width - $in_w) / 2;
+			}
+			else {
+				// Input File is Taller //
+				$in_x = 0;
+				$in_w = $in_width;
+				$in_h = round($in_width / $out_ratio);
+				$in_y = ($in_height - $in_h) / 2;
+			}
+
+			$out = imagecreatetruecolor($out_width,$out_height);
+			imagecopyresampled($out,$in,0,0,$in_x,$in_y,$out_width,$out_height,$in_w,$in_h);
 		}
+		// If crop mode is not set, then the image is scaled no-larger than the region //
 		else {
-			// Input File is Taller //
-			$in_x = 0;
-			$in_w = $in_width;
-			$in_h = round($in_width / $out_ratio);
-			$in_y = ($in_height - $in_h) / 2;
+			// First pass, fix the width //
+			if ( $in_width > $out_width ) {
+				$out_w = $out_width;
+				$out_h = $out_width / $in_ratio;
+			}
+			else {
+				$out_w = $in_width;
+				$out_h = $in_height;
+			}
+			
+			// Second pass, fix the height //
+			if ( $out_h > $out_height ) {
+				$out_w = $out_height * $in_ratio;
+				$out_h = $out_height;
+			}
+			
+			$out = imagecreatetruecolor($out_w,$out_h);
+			imagecopyresampled($out,$in,0,0,0,0,$out_w,$out_h,$in_width,$in_height);
 		}
 
-		imagecopyresampled($out,$in,0,0,$in_x,$in_y,$out_width,$out_height,$in_w,$in_h);
 		imagejpeg($out,$out_file,$quality);
 
 		imagedestroy($out);
