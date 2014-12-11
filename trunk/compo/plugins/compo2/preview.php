@@ -330,18 +330,24 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			display:inline-block;
 			opacity:0.4;
 			padding:2px;
-			border-radius:10px;
-			overflow:auto;
 			position:relative;
 		}
 		.shot-nav .sn-item:hover {
 			opacity:1.0;
 		}
+
+		.shot-nav .sn-item img {
+			border-radius:10px;
+		}
 		
 		.shot-nav .sn-selected {
 			opacity:0.8;
 			border:2px solid #000;
+			border-radius:10px;
 			padding:0;
+		}
+		.shot-nav .sn-selected img {
+			border-radius:0;
 		}
 	</style>
 	";
