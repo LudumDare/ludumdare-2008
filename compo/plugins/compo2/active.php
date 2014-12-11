@@ -306,7 +306,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "<textarea name='notes' rows=12 cols=80>".htmlentities($ce["notes"])."</textarea>";
 	
 	echo "<h2>Screenshot(s) {$star}</h2>";    
-	echo "You must include <i>at least</i> one screenshot in PNG, JPEG or GIF formats.<br />";
+	echo "You must include <i>at least</i> one screenshot in <strong>PNG</strong>, <strong>JPEG</strong> or <strong>GIF</strong> formats.<br /><br />";
 	
 	$shots = unserialize($ce["shots"]);
 //     print_r($shots);
@@ -319,7 +319,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "<table>";
 	for ($i=0; $i < $shot_count; $i++) {
 		$k = "shot$i";
-		echo "<tr><td>".($i+1).".<td>";
+		echo "<tr><td>".($i+1).".";
 		echo "<td><input type='file' name='$k'>";
 		if ($i==0) { echo "<td>(Primary Screenshot)"; }
 		if (isset($shots[$k])) {
@@ -330,7 +330,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 
 
 	echo "<h2>Customize Thumbnail</h2>";    
-	echo "Game thumbnails are 180x140. If you use a GIF, it will animate on hover.<br />";
+	echo "Game thumbnails are 180x140. If you use a <strong>GIF</strong>, it will animate on hover.<br /><br />";
 
 	echo "<table>";
 	{
@@ -340,7 +340,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			echo "<tr><td><td align=left><img src='".c2_thumb($settings['thumb'],180,140)."' width='180' height='140'>";
 		}
 	}
-	echo "</table>";
+	echo "</table><br />";
 	
 	echo "<h2>Downloads and Links {$star}</h2>";
 	echo "You must host your downloads elsewhere. Need a host? <a href='http://ludumdare.com/compo/faq/' target='_blank'>See the <strong>FAQ</strong></a>.<br />";
