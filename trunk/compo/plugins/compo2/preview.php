@@ -392,16 +392,20 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	echo "
 	<script>
 		function c2_addclass( el, className ) {
-			if (el.classList)
-				el.classList.add(className);
-			else
-				el.className += ' ' + className;
+			if ( el ) {
+				if (el.classList)
+					el.classList.add(className);
+				else
+					el.className += ' ' + className;
+			}
 		}
 		function c2_removeclass( el, className ) {
-			if (el.classList)
-				el.classList.remove(className);
-			else
-				el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+			if ( el ) {
+				if (el.classList)
+					el.classList.remove(className);
+				else
+					el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+			}
 		}
 
 		// Global Variable //
