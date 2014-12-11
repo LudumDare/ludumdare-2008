@@ -61,7 +61,7 @@ function _compo2_rate($params) {
 function _compo2_show_comments($cid,$uid) {
     $r = compo2_query("select * from c2_rate where cid = ? and to_uid = ? and length(comments) > 1 order by ts asc",array($cid,$uid));
     if (!count($r)) { return; }
-    echo "<h3>Comments (archive)</h3>";
+    echo "<h2>Comments (archive)</h2>";
     foreach ($r as $ve) if (strlen(trim($ve["comments"]))) {
         $user = compo2_get_user($ve["from_uid"]);
         echo "<h4>{$user->display_name} says ...</h4>";
@@ -351,7 +351,7 @@ function _compo2_rate_rate($params,$uid = "") {
             echo "<i>This division does not have any voting categories.  Please leave comments for the author.</i>";
         }
         echo "</p>";
-        echo "<h4>Comments (non-anonymous)</h4>";
+        echo "<h2>Comments (non-anonymous)</h2>";
         $ve["comments"]="";
         echo "<textarea name='comments' rows=4 cols=60>".htmlentities($ve["comments"])."</textarea>";
         echo "<p><input type='submit' value='Save'></p>";

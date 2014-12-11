@@ -209,7 +209,7 @@ function _compo2_preview_comments($params,$uid,$form=true) {
 			
 	$r = compo2_query("select * from c2_comments where cid = ? and to_uid = ? order by ts asc",array($params["cid"],$uid));
 	
-	echo "<h3>Comments</h3>";
+	echo "<h2>Comments</h2>";
 	$pe = array();
 	foreach ($r as $e) if (strlen(trim($e["content"]))) {
 		// get rid of double posts.
