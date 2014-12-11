@@ -327,7 +327,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		}
 		
 		.shot-nav .item {
-			display:inline-block;
+			display:inline;
 			opacity:0.4;
 			padding:2px;
 		}
