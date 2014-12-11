@@ -320,16 +320,17 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	$fname = array_shift($shots);
 	$firstshot = $fname;
 	
-	$suffix = "?".strtotime($ce['stamp']);
+	//$suffix = "?".strtotime($ce['stamp']);
 		
 	echo "<table>";
 	$cols = 4; $n = 0;
 	$link = get_bloginfo("url")."/wp-content/compo2/{$fname}{$suffix}";
 	echo "<tr><td colspan=$cols align=center><a href='{$link}' target='_blank'><img src='".compo2_thumb($fname,450,450)."'></a>";
+	$baseurl = get_bloginfo("url")."/wp-content/compo2";
 	foreach ($shots as $fname) {
 		if (($n%$cols)==0) { echo "<tr>"; } $n += 1;
-		$link = get_bloginfo("url")."/wp-content/compo2/{$fname}{$suffix}";
-		echo "<td><a href='{$link}' target='_blank'><img src='".compo2_thumb($fname,120,120)."'></a>";
+		$link = "{$baseurl}/{$fname}";//{$suffix}";
+		echo "<td><a href='{$link}' target='_blank'><img src='".c2_thumb($fname,180,140)."' width='180' height='140'></a>";
 	}
 	echo "</table>";
 
