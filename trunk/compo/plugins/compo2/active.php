@@ -467,18 +467,34 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 		$ce["notes"] = compo2_strip($_REQUEST["notes"]);
 		
 		$shots = unserialize($ce["shots"]);
-		if ($shots == null) { $shots = array(); }
-		for ($i=0; $i<5; $i++) {
-			$k = "shot$i"; $fe = $_FILES[$k];
-			if (!$fe["tmp_name"]) { continue; }
+		if ($shots == null) { 
+			$shots = array();
+		}
+		
+		$shots_count = count($shots);
+		if ( $shots_count > 20 ) { 
+			$shots_count = 20; 
+		}
+		
+		for ($i=0; $i < $shots_count; $i++) {
+			$k = "shot$i"; 
+			$fe = $_FILES[$k];
+			
+			// Reject empty filename //
+			if (!trim($fe["tmp_name"])) { continue; }
+			
 			list($w,$h) = getimagesize($fe["tmp_name"]);
+
+			// Reject Bad Dimensions //
 			if (!$w) { continue; } if (!$h) { continue; }
-	//         unset($shots[$k]);
 			$ext = array_pop(explode(".",$fe["name"]));
+
+			// Reject File Formats //
 			if (!in_array(strtolower($ext),array("png","gif","jpg"))) { continue; }
+
 			$cid = $params["cid"];
 			$ts = time();
-			$fname = "$cid/$uid-$k.$ext";
+			$fname = "$cid/$uid-$k-$ts.$ext";
 			$dname = dirname(__FILE__)."/../../compo2";
 			@mkdir("$dname/$cid");
 			$dest = "$dname/$fname";
