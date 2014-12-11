@@ -480,7 +480,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			$k = "shot$i"; 
 			$fe = $_FILES[$k];
 			
-			// Reject empty filename //
+			// Reject empty filename (i.e. no change) //
 			if (!trim($fe["tmp_name"])) { continue; }
 			
 			list($w,$h) = getimagesize($fe["tmp_name"]);
@@ -501,7 +501,8 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			
 			$old_file = $dname.'/'.$shots[$k];
 			if ( file_exists($old_file) ) {
-				unlink( $old_file );
+				//unlink( $old_file ); // Delete One File //
+				array_map('unlink', glob($old_file."*")); // Delete all files with same base //
 			}
 			
 			move_uploaded_file( $fe["tmp_name"] ,$dest );
