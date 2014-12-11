@@ -359,14 +359,14 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		echo "<div class='sn-item {$selected}'><a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
 		$idx++;
 	}
-//	foreach ($shots as $imagefile) {
-//		$link = $baseurl.'/'.$imagefile;
-//		$thumb = c2_thumb($imagefile,180,140);
-//		$preview = c2_thumb($imagefile,900,600,false);
-//		$selected = ($idx === 0) ? "sn-selected" : "";
-//		echo "<div class='sn-item'><a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a><div>";
-//		$idx++;
-//	}
+	foreach ($shots as $imagefile) {
+		$link = $baseurl.'/'.$imagefile;
+		$thumb = c2_thumb($imagefile,180,140);
+		$preview = c2_thumb($imagefile,900,600,false);
+		$selected = ($idx === 0) ? "sn-selected" : "";
+		echo "<div class='sn-item {$selected}'><a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
+		$idx++;
+	}
 	echo "</span></div>";
 	
 		
