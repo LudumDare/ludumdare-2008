@@ -317,6 +317,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		$shot_count = 4;
 	}
 	
+	$baseurl = get_bloginfo("url")."/wp-content/compo2/";
 	echo "<table>";
 	for ($i=0; $i < $shot_count; $i++) {
 		$k = "shot$i";
@@ -327,7 +328,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		echo "</tr>";
 		
 		if (isset($shots[$k])) {
-			echo "<tr><td></td><td align=left><img src='".c2_thumb($shots[$k],180,140)."' width='180' height='140'></td></tr>";
+			echo "<tr><td></td><td align=left><a href=".$baseurl.$shots[$k]." target='_blank'><img src='".c2_thumb($shots[$k],180,140)."' width='180' height='140'></a></td></tr>";
 		}
 	}
 	echo "</table>";
