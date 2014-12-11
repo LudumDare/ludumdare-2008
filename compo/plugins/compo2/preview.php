@@ -381,7 +381,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			margin:0;
 		}
 		.links ul li:before {
-			content:"";
+			content:'';
 		}
 	</style>
 	";
