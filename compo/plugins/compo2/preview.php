@@ -262,6 +262,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$width = $settings["EMBED"]["width"];
 		$height = $settings["EMBED"]["height"];
 		
+		echo "<div id='embed-frame'>";
 		echo "<iframe id='embed' style='margin:10px auto;display:block' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
 		if ( $settings["EMBED"]["fullscreen"] ) {
 			
@@ -305,6 +306,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			";
 			
 			echo "<div class='embed-toggle' onclick='c2_toggle_fullscreen();'>Toggle Fullscreen</div>";
+			echo "</div>";
 		};
 	}
 	
@@ -406,10 +408,10 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		window.c2_ShotIndex = 0;
 		
 		function c2_show_embed() {
-			c2_removeclass( document.getElementById('embed'), 'hidden');
+			c2_removeclass( document.getElementById('embed-frame'), 'hidden');
 		}
 		function c2_hide_embed() {
-			c2_addclass( document.getElementById('embed'), 'hidden');
+			c2_addclass( document.getElementById('embed-frame'), 'hidden');
 		}
 		
 		function c2_show_image( _img, _link ) {
