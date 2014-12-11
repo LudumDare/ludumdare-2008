@@ -380,6 +380,9 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			list-style:none;
 			margin:0;
 		}
+		.links ul li:before {
+			content:"";
+		}
 	</style>
 	";
 	
