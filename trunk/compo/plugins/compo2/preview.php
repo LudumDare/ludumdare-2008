@@ -158,16 +158,21 @@ function compo2_strip($v) {
 }
 
 function _compo2_preview_show_links($ce) {
-	$pre = "";
-	foreach (unserialize($ce["links"]) as $le) {
+//	$pre = "";
+	$links = unserialize($ce["links"]);
+	echo "<ul>";
+	foreach ($links as $le) {
+		// Validate //
 		if (!strlen($le["title"])) { continue; }
 		$link = $le["link"];
 		if (strpos($link,"javascript:") === 0) { continue; }
 		if (strpos($link,"?") === 0) { continue; }
 		if (!preg_match("/^\w+\:\/\//",$link)) { continue; }
-		echo "$pre<a href=\"".htmlentities($link)."\" target='_blank'>".htmlentities($le["title"])."</a>";
-		$pre = " | ";
+		echo "<li><a href='".htmlentities($link)."' target='_blank'>".htmlentities($le["title"])."</a></li>";		
+//		echo "$pre<a href=\"".htmlentities($link)."\" target='_blank'>".htmlentities($le["title"])."</a>";
+//		$pre = " | ";
 	}
+	echo "</ul>";
 }
 
 function get_gravatar( $email, $s = 80, $d = 'mm', $r = 'g', $img = false, $atts = array() ) {
@@ -302,18 +307,15 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 
 	// Game Name and Developer //
 	echo "<div style='overflow:auto;'>";
-
-	echo "<div style='float:right;'>";
-	$user = unserialize($ce["get_user"]);
-	echo get_avatar($user['user_email'],'56');
-	echo "</div>";	
-	
-	echo "<h2 style='font-size:28px'>".htmlentities($ce["title"])."</h2>";
-	echo "by <a href=\"../author/{$user['user_nicename']}/\" target='_blank'><strong>{$user['display_name']}</strong></a>";
-	$div = $ce["etype"];
-	echo " - <i>{$params["{$div}_title"]} Entry</i>";
-//	echo '<br />';
-	
+		echo "<div style='float:right;'>";
+		$user = unserialize($ce["get_user"]);
+		echo get_avatar($user['user_email'],'56');
+		echo "</div>";	
+		
+		echo "<h2 style='font-size:28px'>".htmlentities($ce["title"])."</h2>";
+		echo "by <a href=\"../author/{$user['user_nicename']}/\" target='_blank'><strong>{$user['display_name']}</strong></a>";
+		$div = $ce["etype"];
+		echo " - <i>{$params["{$div}_title"]} Entry</i>";
 	echo "</div>";
 	
 	echo "	
@@ -378,6 +380,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	echo "<p>".str_replace("\n","<br/>",htmlentities($ce["notes"]))."</p>";
 
 	// Links and Downloads //
+	echo "<h2>Downloads and Links</h2>";
 	echo "<p class='links'>";
 	_compo2_preview_show_links($ce);
 	echo "</p>";
