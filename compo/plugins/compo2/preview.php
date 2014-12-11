@@ -298,9 +298,12 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		};
 	} 
 	
-	$user = unserialize($ce["get_user"]);
+
+	// Game Name and Developer //
+	echo "<div style='overflow:auto;'>";
 
 	echo "<div style='float:right;'>";
+	$user = unserialize($ce["get_user"]);
 	echo get_avatar($user['user_email'],'56');
 	echo "</div>";	
 	
@@ -308,21 +311,12 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	echo "by <a href=\"../author/{$user['user_nicename']}/\" target='_blank'><strong>{$user['display_name']}</strong></a>";
 	$div = $ce["etype"];
 	echo " - <i>{$params["{$div}_title"]} Entry</i>";
-	echo '<br />';
+//	echo '<br />';
 	
-	echo "<p class='links'>";
-	_compo2_preview_show_links($ce);
-	echo "</p>";
+	echo "</div>";
 	
-	echo "<p>".str_replace("\n","<br/>",htmlentities($ce["notes"]))."</p>";
-	
+	// Screenshots //
 	$shots = unserialize($ce["shots"]);
-/*	
-	$fname = array_shift($shots);
-	$firstshot = $fname;
-*/	
-	//$suffix = "?".strtotime($ce['stamp']);
-
 	$baseurl = get_bloginfo("url")."/wp-content/compo2";
 	foreach ($shots as $imagefile) {
 		$link = $baseurl.'/'.$imagefile;
@@ -330,6 +324,28 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$preview = c2_thumb($imagefile,900,600,false);
 		echo "<a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a>";
 	}
+	
+		
+	echo "<p class='links'>";
+	_compo2_preview_show_links($ce);
+	echo "</p>";
+	
+	echo "<p>".str_replace("\n","<br/>",htmlentities($ce["notes"]))."</p>";
+	
+//	$shots = unserialize($ce["shots"]);
+///*	
+//	$fname = array_shift($shots);
+//	$firstshot = $fname;
+//*/	
+//	//$suffix = "?".strtotime($ce['stamp']);
+//
+//	$baseurl = get_bloginfo("url")."/wp-content/compo2";
+//	foreach ($shots as $imagefile) {
+//		$link = $baseurl.'/'.$imagefile;
+//		$thumb = c2_thumb($imagefile,180,140);
+//		$preview = c2_thumb($imagefile,900,600,false);
+//		echo "<a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a>";
+//	}
 
 /*		
 	echo "<table>";
