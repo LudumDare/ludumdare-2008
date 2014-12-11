@@ -160,7 +160,7 @@ function compo2_strip($v) {
 function _compo2_preview_show_links($ce) {
 //	$pre = "";
 	$links = unserialize($ce["links"]);
-	echo "<ul class='links'>";
+	echo "<ul>";
 	foreach ($links as $le) {
 		// Validate //
 		if (!strlen($le["title"])) { continue; }
@@ -409,9 +409,9 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 
 	// Links and Downloads //
 	echo "<h2>Downloads and Links</h2>";
-//	echo "<p class='links'>";
+	echo "<div class='links'>";
 	_compo2_preview_show_links($ce);
-//	echo "</p>";
+	echo "</div>";
 
 	echo "<br />";
 	
