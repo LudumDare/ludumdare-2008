@@ -246,11 +246,15 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	$ce = compo2_entry_load($params["cid"],$uid);
 	
 	if (!$ce["id"]) {
-		echo "<p>Sorry, this person did not have an entry.</p>";
+		echo "<p>Sorry, this person does not have an entry.</p>";
 		return;
 	}
 	
+	$shots = unserialize($ce["shots"]);
 	$settings = unserialize($ce["settings"]);
+
+	$baseurl = get_bloginfo("url")."/wp-content/compo2";
+
 	$has_embed = isset($settings["EMBED"]["url"]) && $settings["EMBED"]["url"] !== "";
 	
 	if ( $has_embed ) {
@@ -303,7 +307,14 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			echo "<div class='embed-toggle' onclick='c2_toggle_fullscreen();'>Toggle Fullscreen</div>";
 		};
 	} 
-	
+
+	// Screenshot Viewer //
+	echo "<div id='shotview' class='".($has_embed ? "hidden" : "")."'>";
+		$imagefile = array_values($shots)[0];
+		$link = $baseurl.'/'.$imagefile;
+		$preview = c2_thumb($imagefile,900,600,false);
+		echo "<a href='{$link}' target='_blank'><img src='{$preview}'></a>";
+	echo "</div>";
 
 	// Game Name and Developer //
 	echo "<div style='overflow:auto;'>";
@@ -357,10 +368,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	";
 	
 	// Screenshots //
-	$shots = unserialize($ce["shots"]);
 	echo "<div class='shot-nav'><span>";
 	$idx = 0;
-	$baseurl = get_bloginfo("url")."/wp-content/compo2";
 	if ( $has_embed ) {
 		$imagefile = array_values($shots)[0];
 		$link = $baseurl.'/'.$imagefile;
