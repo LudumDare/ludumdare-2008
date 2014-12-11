@@ -333,6 +333,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "Game thumbnails are 180x140. If you use a GIF, it will animate on hover.<br />";
 
 	echo "<table>";
+	{
 		echo "<tr><td>".($i+1).".<td>";
 		echo "<td><input type='file' name='SETTING[thumb]'>";
 		if (isset($settings['thumb'])) {
