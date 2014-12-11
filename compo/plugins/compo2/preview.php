@@ -327,7 +327,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		}
 		
 		.shot-nav .item {
-			display:inline;
+			display:inline-block;
 			opacity:0.4;
 			padding:2px;
 		}
@@ -346,8 +346,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	// Screenshots //
 	$shots = unserialize($ce["shots"]);
 	$baseurl = get_bloginfo("url")."/wp-content/compo2";
-	echo "<div class='shot-nav'>";
-	echo "<span>";
+	echo "<div class='shot-nav'><span>";
 	$idx = 0;
 	if ( $has_embed ) {
 		$imagefile = array_values($shots)[0];
@@ -365,8 +364,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		echo "<div class='item {$selected}'><a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a><div>";
 		$idx++;
 	}
-	echo "</span>";
-	echo "</div>";
+	echo "</span></div>";
 	
 		
 	echo "<p class='links'>";
