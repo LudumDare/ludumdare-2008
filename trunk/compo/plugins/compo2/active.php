@@ -321,10 +321,10 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		$k = "shot$i";
 		echo "<tr><td>".($i+1).".";
 		echo "<td><input type='file' name='$k'>";
-		if ($i==0) { echo "<td>(Primary Screenshot)"; }
 		if (isset($shots[$k])) {
 			echo "<tr><td><td align=left><img src='".c2_thumb($shots[$k],180,140)."' width='180' height='140'>";
 		}
+		echo "<br />";
 	}
 	echo "</table>";
 
