@@ -343,12 +343,9 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		.shot-nav .sn-selected {
 			opacity:0.8;
 			border:3px solid #000;
+			background:#000;
 			border-radius:10px;
 			padding:0;
-/*			overflow:auto;*/
-		}
-		.shot-nav .sn-selected img {
-			border-radius:4px;
 		}
 	</style>
 	";
