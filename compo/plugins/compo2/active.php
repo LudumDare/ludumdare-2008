@@ -459,14 +459,15 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 		var_dump( $ce );
 	}
 */	
+
 	$active = true; $msg = "";
 	
 	if (!$_REQUEST["formdata"]) {
 		$active = false;
-		$msg = "ERROR: Entry not updated. Something is wrong.<br /><br />Usually this means your images are too large (many MB), or they're in an unsupported or non-standard format (NO BMP's).<br />In some rare cases, something is stopping HTTP POSTs from working correctly.<br />Try disabling adblock, noscript, or similar plugins. Or, try another browser.<br/>If you get a chance, let <a href='/compo/contact' target='_blank'>Mike</a> know what your problem was, or contact him for help.";
+		$msg .= "ERROR: Entry not updated. Bad formdata. Something is wrong.<br />";//<br />Usually this means your images are too large (many MB), or they're in an unsupported or non-standard format (NO BMP's).<br />In some rare cases, something is stopping HTTP POSTs from working correctly.<br />Try disabling adblock, noscript, or similar plugins. Or, try another browser.<br/>If you get a chance, let <a href='/compo/contact' target='_blank'>Mike</a> know what your problem was, or contact him for help.";
 	} else {    
 		$ce["title"] = compo2_strip($_REQUEST["title"]);
-		if (!strlen(trim($ce["title"]))) { $active = false; $msg = "Entry name is a required field."; }
+		if (!strlen(trim($ce["title"]))) { $active = false; $msg .= "Name is required.<br />"; }
 		
 		
 		if ( isset($_REQUEST["etype"]) && $_REQUEST["etype"] !== "" ) {
@@ -481,7 +482,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 		
 		if (!strlen($ce["etype"])) {
 			$active = false;
-			$msg = "You must select an Entry Type.";
+			$msg .= "Submission Type is required.<br />";
 		}
 		
 		$ce["notes"] = compo2_strip($_REQUEST["notes"]);
@@ -492,26 +493,38 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 		}
 		
 		// For loop, because we're looking for File IDs of the same generated name (shot0, shot1, etc) //
-		for ($i=0; $i < 4; $i++) {
+		for ($i=0; $i < 9; $i++) {
 			$k = "shot$i"; 
 			$fe = $_FILES[$k];
 			
 			// Reject empty filename (i.e. no change) //
 			if (!trim($fe["tmp_name"])) { continue; }
 			
-			list($w,$h) = getimagesize($fe["tmp_name"]);
+			list($w,$h,$type) = getimagesize($fe["tmp_name"]);
 
 			// Reject Bad Dimensions (0 or less, or bigger than 4k) //
-			if (!$w) { continue; } if (!$h) { continue; }
-			if ($w > 4096) { continue; } if ($h > 2160) { continue; }
+			if ( (intval($w) <= 0) || (intval($h) <= 0) { 
+				$msg .= "Problem with Screenshot ".($i+1)."! [{$w},{$h},{$type}]<br />";
+				continue; 
+			}
+			if ($w > 4096 || $h > 2160) {
+				$msg .= "Screenshot ".($i+1)." is too big! Should be 4096x2160, or less. [{$w},{$h}]<br />";
+				continue;
+			}
 			
 			// Reject Bad File Size (greater than 8 MB) //
-			if ( filesize($fe["tmp_name"]) > 8*1024*1024 ) { continue; }
+			if ( filesize($fe["tmp_name"]) > 8*1024*1024 ) { 
+				$msg .= "Screenshot ".($i+1)." is too large! Images should be 8 MB or less.<br />";
+				continue;
+			}
 
 			$ext = array_pop(explode(".",$fe["name"]));
 
 			// Reject File Formats //
-			if (!in_array(strtolower($ext),array("png","gif","jpg"))) { continue; }
+			if (!in_array(strtolower($ext),array("png","gif","jpg","jpeg"))) {
+				$msg .= "Screenshot ".($i+1).": Invalid Type \"{$ext}\". Should be PNG, JPEG or GIF.<br />";
+				continue; 
+			}
 
 			$cid = $params["cid"];
 			$ts = time();
@@ -530,7 +543,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			$shots[$k] = $fname;
 		}
 		$ce["shots"] = serialize($shots);
-		if (!count($shots)) { $active = false; $msg = "You must include at least one screenshot."; }
+		if (!count($shots)) { $active = false; $msg .= "You must include at least one screenshot.<br />"; }
 		
 		foreach ($_REQUEST["links"] as $k=>$le) {
 			$_REQUEST["links"][$k] = array(
@@ -542,12 +555,12 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 		$ok = false; foreach ($_REQUEST["links"] as $le) {
 			if (strlen(trim($le["title"])) && strlen(trim($le["link"]))) { $ok = true; }
 		}
-		if (!$ok) { $active = false; $msg = "You must include at least one link."; }
+		if (!$ok) { $active = false; $msg .= "You must include at least one link.<br />"; }
 		
 		if ($is_admin) { 
 			$ce["disabled"] = $_REQUEST["disabled"];
 		}
-		if ($ce["disabled"]) { $active = false; $msg = "This entry has been disabled."; }
+		if ($ce["disabled"]) { $active = false; $msg .= "This entry has been disabled.<br />"; }
 		
 	//     $ce["data"] = serialize($_REQUEST["data"]);
 		$ce["active"] = intval($active);
