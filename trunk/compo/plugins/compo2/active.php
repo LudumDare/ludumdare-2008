@@ -330,7 +330,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 
 
 	echo "<h2>Customize Thumbnail</h2>";    
-	echo "Game thumbnails are 180x140. If you use a <strong>GIF</strong>, it will animate on hover.<br /><br />";
+	echo "Game thumbnails are <strong>180x140</strong>. If you use a <strong>GIF</strong>, it will animate on hover.<br /><br />";
 
 	echo "<table>";
 	{
