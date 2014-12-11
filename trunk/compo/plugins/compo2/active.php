@@ -309,7 +309,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	// Screenshots //
 	echo "<h2>Screenshot(s) {$star}</h2>";    
 	echo "You must include <i>at least</i> one screenshot in <strong>PNG</strong>, <strong>JPEG</strong> or <strong>GIF</strong> formats.<br />";
-	echo "Images and GIFs larger than 900x500 pixels will be resized.<br />";
+	echo "Images larger than 900x500 pixels will be resized. GIFs wont animate. Images <strong>MUST</strong> be less than <strong>4096x2160</strong> pixels.<br />";
 	echo "<br />";
 	
 	$shots = unserialize($ce["shots"]);
@@ -501,8 +501,13 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			
 			list($w,$h) = getimagesize($fe["tmp_name"]);
 
-			// Reject Bad Dimensions //
+			// Reject Bad Dimensions (0 or less, or bigger than 4k) //
 			if (!$w) { continue; } if (!$h) { continue; }
+			if ($w > 4096) { continue; } if ($h > 2160) { continue; }
+			
+			// Reject Bad File Size (greater than 8 MB) //
+			if ( filesize($fe["tmp_name"]) > 8*1024*1024 ) { continue; }
+
 			$ext = array_pop(explode(".",$fe["name"]));
 
 			// Reject File Formats //
