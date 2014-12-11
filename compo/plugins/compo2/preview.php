@@ -365,6 +365,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 
 		.shot-nav .sn-item img {
 			border-radius:7px;
+			cursor:pointer;
 		}
 		
 		.shot-nav .sn-selected {
