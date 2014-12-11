@@ -364,6 +364,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$idx++;
 	}
 	foreach ($shots as $imagefile) {
+		if ( $idx === 5 ) break;
 		$link = $baseurl.'/'.$imagefile;
 		$thumb = c2_thumb($imagefile,180,140);
 		$preview = c2_thumb($imagefile,900,600,false);
