@@ -499,7 +499,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			@mkdir("$dname/$cid");
 			$dest = "$dname/$fname";
 			
-			$old_file = $dname.$shots[$k];
+			$old_file = $dname.'/'.$shots[$k];
 			if ( file_exists($old_file) ) {
 				unlink( $old_file );
 			}
