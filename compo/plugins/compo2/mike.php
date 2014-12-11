@@ -91,6 +91,7 @@ function c2_navigation($slug,$name,$name_url) {
 		.event .e-thumb {
 			float:left;
 			border-radius:10px;
+			overflow:auto;
 		}
 	</style>
 	<div class="event">
@@ -111,10 +112,12 @@ function c2_navigation($slug,$name,$name_url) {
 <?php		if ( is_user_logged_in() ) {
 				if ( $game ) {?>
 					<div class="e-info">
-<?php					if ( current_user_can('edit_others_posts') ) {
+<?php					{ //if ( current_user_can('edit_others_posts') ) {
 							// TODO: Check for thumbnail (i.e. named thumb)
 							// If no thumbnain, use first shot, resized //
-							echo '<div class="e-thumb e-gap"><img src="'.c2_thumb( $game['shots']['shot0'], 180, 140 ).'" width="180" heigh="140" /></div>';
+							$width = 180;
+							$height = 140;
+							echo '<div class="e-thumb e-gap"><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><img src="'.c2_thumb( $game['shots']['shot0'], $width, $height ).'" width="'.$width.'" height="'.$height.'" /></a></div>';
 						}?>
 
 						<div class="e-gap e-big"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
