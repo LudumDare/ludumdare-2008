@@ -78,7 +78,7 @@ function c2_navigation($slug,$name,$name_url) {
 	<style>
 		.event .e-info {
 			font-size:12px;
-			text-align:right;
+			/*text-align:right;*/
 			overflow:auto;
 		}
 		.event .e-gap {
@@ -92,6 +92,7 @@ function c2_navigation($slug,$name,$name_url) {
 			float:left;
 			border-radius:10px;
 			overflow:auto;
+			margin-right:20px;
 		}
 	</style>
 	<div class="event">
@@ -122,7 +123,7 @@ function c2_navigation($slug,$name,$name_url) {
 
 						<div class="e-gap e-big"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
 						<div>by <strong><?php echo $game['get_user']['display_name'];?></strong><!-- (<?php echo $game['etype'];?>)--></div>
-						<div>Votes: <strong><?php echo $game['rate_in']; ?></strong> Comments: <strong>?</strong></div>
+						<div class="e-gap">Votes: <strong><?php echo $game['rate_in']; ?></strong> Comments: <strong>?</strong></div>
 						<div>Coolness: <strong><?php echo $game['rate_out']; ?></strong> Bonus: <strong>?</strong></div>
 						<div style="display:none">Game Love: <strong><?php echo $game['love']; ?></strong> Comment Love: <strong>?</strong></strong></div>
 
