@@ -90,6 +90,7 @@ function c2_navigation($slug,$name,$name_url) {
 		
 		.event .e-thumb {
 			float:left;
+			border-radius:10px;
 		}
 	</style>
 	<div class="event">
