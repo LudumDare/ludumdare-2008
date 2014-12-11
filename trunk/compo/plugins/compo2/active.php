@@ -512,13 +512,14 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 				continue; 
 			}
 			if ($w > 4096 || $h > 2160) {
-				$msg .= "Screenshot ".($i+1)." is too big! Should be 4096x2160, or less. [{$w},{$h}]<br />";
+				$msg .= "Screenshot ".($i+1)." is too big! Should be 4096x2160 or less. [{$w},{$h},{$type}]<br />";
 				continue;
 			}
 			
 			// Reject Bad File Size (greater than 8 MB) //
-			if ( filesize($fe["tmp_name"]) > 8*1024*1024 ) { 
-				$msg .= "Screenshot ".($i+1)." is too large! Images should be 8 MB or less.<br />";
+			$image_size = filesize($fe["tmp_name"]);
+			if ( $image_size > 8*1024*1024 ) { 
+				$msg .= "Screenshot ".($i+1)." file is too large! Images should be 8 MB or less. [{$image_size}]<br />";
 				continue;
 			}
 
@@ -657,8 +658,11 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 		
 		echo "<h3>Entry Saved</h3>";
 	}
+
+	if ( !$active ) {
+		$msg .= "<br />Entry is inactive due to errors. <a href='?action=edit'>Edit your entry</a>.";
+	}
 	
-	//if (!$active) 
 	if ( $msg ) {
 		echo "<p class='error'>$msg</p>";
 	}
