@@ -4,10 +4,6 @@
  * @subpackage Default_Theme
  */
 
-@ini_set( 'upload_max_size' , '4M' );
-//@ini_set( 'post_max_size', '64M');
-//@ini_set( 'max_execution_time', '300' );
-
 add_filter( 'wp_feed_cache_transient_lifetime', create_function('$a', 'return 900;') );
 
 //if (WP_DEBUG && WP_DEBUG_DISPLAY) 
