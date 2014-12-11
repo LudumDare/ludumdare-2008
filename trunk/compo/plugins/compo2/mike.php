@@ -117,7 +117,7 @@ function c2_navigation($slug,$name,$name_url) {
 							// If no thumbnain, use first shot, resized //
 							$width = 180;
 							$height = 140;
-							echo '<div class="e-thumb e-gap"><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><img src="'.c2_thumb( $game['shots']['shot0'], $width, $height ).'" width="'.$width.'" height="'.$height.'" /></a></div>';
+							echo '<div class="e-thumb e-gap"><a href="/compo/'.$slug.'/?action=preview&uid='.$game['uid'].'"><img src="'.c2_thumb( $game['shots']['shot0'], $width, $height ).'" width="'.$width.'" height="'.$height.'" /></a></div>';
 						}?>
 
 						<div class="e-gap e-big"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
