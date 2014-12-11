@@ -905,8 +905,8 @@ h1, h2, h3 {
 }
 
 h1 {
-	font-size: 4em;
-	text-align: center;
+	font-size: 3em;
+/*	text-align: center;*/
 	}
 
 #headerimg .description {
@@ -931,15 +931,15 @@ h3 {
 	font-size: 1.4em;
 	}
 
-h1, h1 a, h1 a:hover, /*h1 a:visited,*/ #headerimg .description {
+h1 a:hover, #headerimg .description {
 	color: white;
 	}
 
-h2, h2 a, /*h2 a:visited,*/ h3, h3 a/*, h3 a:visited*/ {
+h1, h1 a, h2, h2 a, h3, h3 a {
 	color: #333;
 	}
 
-h2, h2 a, h2 a:hover, /*h2 a:visited,*/ h3, h3 a, h3 a:hover, /*h3 a:visited,*/ #sidebar h2, #wp-calendar caption, cite {
+h2, h2 a, h2 a:hover, h3, h3 a, h3 a:hover, #sidebar h2, #wp-calendar caption, cite {
 	}
 
 /*.entry p a:visited {
