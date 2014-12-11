@@ -308,7 +308,9 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	
 	// Screenshots //
 	echo "<h2>Screenshot(s) {$star}</h2>";    
-	echo "You must include <i>at least</i> one screenshot in <strong>PNG</strong>, <strong>JPEG</strong> or <strong>GIF</strong> formats.<br /><br />";
+	echo "You must include <i>at least</i> one screenshot in <strong>PNG</strong>, <strong>JPEG</strong> or <strong>GIF</strong> formats.<br />";
+	echo "Images and GIFs larger than 900x500 pixels will be resized.<br />";
+	echo "<br />";
 	
 	$shots = unserialize($ce["shots"]);
 
