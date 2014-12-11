@@ -334,7 +334,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 
 	echo "<table>";
 	{
-		echo "<tr><td>".($i+1).".<td>";
+		echo "<tr><td>".($i+1).".";
 		echo "<td><input type='file' name='SETTING[thumb]'>";
 		if (isset($settings['thumb'])) {
 			echo "<tr><td><td align=left><img src='".c2_thumb($settings['thumb'],180,140)."' width='180' height='140'>";
