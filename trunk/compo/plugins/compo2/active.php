@@ -503,7 +503,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			list($w,$h,$type) = getimagesize($fe["tmp_name"]);
 
 			// Reject Bad Dimensions (0 or less, or bigger than 4k) //
-			if ( (intval($w) <= 0) || (intval($h) <= 0) { 
+			if ( (intval($w) <= 0) || (intval($h) <= 0) ) { 
 				$msg .= "Problem with Screenshot ".($i+1)."! [{$w},{$h},{$type}]<br />";
 				continue; 
 			}
