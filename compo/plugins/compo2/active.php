@@ -489,13 +489,8 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 			$shots = array();
 		}
 		
-		//$shots_count = count($shots);
-		$shots_conut = count($_FILES);
-		if ( $shots_count > 20 ) { 
-			$shots_count = 20; 
-		}
-		
-		for ($i=0; $i < $shots_count; $i++) {
+		// For loop, because we're looking for File IDs of the same generated name //
+		for ($i=0; $i < 4; $i++) {
 			$k = "shot$i"; 
 			$fe = $_FILES[$k];
 			
