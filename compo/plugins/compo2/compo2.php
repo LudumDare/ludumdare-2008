@@ -219,8 +219,6 @@ function c2_thumb( $filename, $out_width, $out_height, $crop = true, $useifequal
 	$out_file = $sysdir .'/'. $thumbname;
 	$out_url = $baseurl .'/'. $thumbname;
 	
-	echo $thumbname;
-	
 	if ( !file_exists($out_file) ) {
 		//list($w,$h,$type,$attr) = getimagesize($in_file);
 		
