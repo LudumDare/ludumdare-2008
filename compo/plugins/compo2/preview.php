@@ -373,13 +373,14 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$idx++;
 	}
 	echo "</span></div>";
-	
-		
+
+	// Description //		
+	echo "<p>".str_replace("\n","<br/>",htmlentities($ce["notes"]))."</p>";
+
+	// Links and Downloads //
 	echo "<p class='links'>";
 	_compo2_preview_show_links($ce);
 	echo "</p>";
-	
-	echo "<p>".str_replace("\n","<br/>",htmlentities($ce["notes"]))."</p>";
 	
 //	$shots = unserialize($ce["shots"]);
 ///*	
@@ -419,8 +420,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	echo "</p>";
 */
 	
-	//MK//
-	// Hi Phil, I added Twitter Card Meta tags here //
+	// Twitter Card Meta //
 	{
 		echo '<meta name="twitter:card" content="summary" />';
 		echo '<meta name="twitter:site" content="@ludumdare" />';
@@ -441,12 +441,13 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		echo 'Elm.innerHTML = "'.htmlentities($ce["title"]).' by ' . $user["display_name"] . ' | " + Elm.innerHTML;';
 		echo '</script>';
 	}
-	//MK//
-		
+	
+	// Rating Results //		
 	if ($params["state"] == "results" || $params["state"] == "admin") {
 		_compo2_results_ratings($params,$uid);
 	}
 	
+	// Comments ?? //
 	if ($comments) {
 		_compo2_preview_comments($params,$uid,true);
 	}
