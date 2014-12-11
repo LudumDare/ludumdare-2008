@@ -412,19 +412,19 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			c2_addclass( document.getElementById('embed'), 'hidden');
 		}
 		
-		function c2_show_shot( _img, _link ) {
+		function c2_show_image( _img, _link ) {
 			c2_removeclass( document.getElementById('shotview'), 'hidden');
 			document.getElementById('shotview_img').setAttribute('src', _img);
 			document.getElementById('shotview_link').setAttribute('href', _link);
 		}
-		function c2_hide_shot() {
+		function c2_hide_image() {
 			c2_addclass( document.getElementById('shotview'), 'hidden');
 		}
 
 			 //document.querySelectorAll('.optout-type')
 
 		function c2_select_embed( id ) {
-			c2_hide_shot();
+			c2_hide_image();
 			
 			// Clear Navbar Selection //
 			// Highlight mine //
