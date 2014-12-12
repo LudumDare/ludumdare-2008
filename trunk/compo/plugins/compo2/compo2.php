@@ -18,6 +18,7 @@ $compo2 = array(
 );
 
 function compo2_error($msg) {
+	echo $msg;
     trigger_error($msg,E_USER_ERROR);
 }
 
