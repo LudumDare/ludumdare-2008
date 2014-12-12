@@ -23,7 +23,7 @@ function _compo2_rate($params) {
         } elseif ($action == "preview") {
             echo "<p class='message'>Voting is only available to participants.</p>";
             if (!$params["locked"]) {
-                echo "<p><a href='?action=edit'>Create an Entry</a></p>";
+                echo "<p><a href='?action=edit'>Submit an Entry</a></p>";
             }
             return _compo2_preview($params);
         } elseif ($action == "rate") {
@@ -157,8 +157,8 @@ function _compo2_rate_list($params) {
 //     echo "<a href='?sortby=rate_out'>Sort by most coolness</a>";
 //     echo "</p><p>";
     echo "<a href='?action=preview'>Browse Entries</a> | ";
-    echo "<a href='?action=edit'>Edit your entry</a> | ";
-    echo "<a href='?action=preview&uid={$params["uid"]}'>View your entry</a>";
+    echo "<a href='?action=edit'>Edit Entry</a> | ";
+    echo "<a href='?action=preview&uid={$params["uid"]}'>View Entry</a>";
     echo "</p>";
     $links = ob_get_contents();
     ob_end_clean();
@@ -228,7 +228,7 @@ function _compo2_rate_list($params) {
         
     echo "<p style='font-size:8px;'>";
     echo "D = Default = R - C, except not quite that simple<br/>";
-    echo "R = Ratings = how many ratings this entry has received.<br/>";
+    echo "R = Ratings = how many ratings this Entry has received.<br/>";
     echo "C = Coolness = how many entries this user has rated<br/>";
     echo "L = Loser = someone who games the coolness ranking.  It's the honor system, people.  Everyone might think you are cool, but in your heart of hearts, you will know that you are a <i>loser</i>.</p>";
     
@@ -324,7 +324,7 @@ function _compo2_rate_rate($params,$uid = "") {
     if ($params["uid"] != $uid) {
         echo "<h3>Rate this {$params["{$div}_title"]} Entry</h3>";
         
-        echo "<p><i>If you can't run this entry, please leave a comment saying so and explaining why.  Do not score unrunnable entries.</i></p>";
+        echo "<p><i>If you can't run this Entry, please leave a comment saying so and explaining why.  Do not score unrunnable entries.</i></p>";
             
         
         $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
@@ -369,9 +369,9 @@ function _compo2_rate_submit($params) {
     $uid = intval($_REQUEST["uid"]);
     $ce = compo2_entry_load($params["cid"],$uid);
     
-    if (!$ce["id"]) { compo2_error("invalid entry: uid=$uid"); }
+    if (!$ce["id"]) { compo2_error("Invalid Entry: uid=$uid"); }
     
-    if ($uid == $params["uid"]) { compo2_error("can't vote on your own entry"); }
+    if ($uid == $params["uid"]) { compo2_error("You can't vote on your own Entry!"); }
     
     $data = array();
     $total = 0;
