@@ -38,7 +38,7 @@ function _compo2_preview($params,$_link="?action=preview") {
 
 	if ($params["uid"]) {
 		$ce = compo2_entry_load($params["cid"],$params["uid"]);
-		if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=preview&uid={$ce["uid"]}'>View your entry</a></p>"; }
+		if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit Entry</a> | <a href='?action=preview&uid={$ce["uid"]}'>View Entry</a></p>"; }
 	}
 
 	$etype = $_REQUEST["etype"];
@@ -246,7 +246,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	$ce = compo2_entry_load($params["cid"],$uid);
 	
 	if (!$ce["id"]) {
-		echo "<p>Sorry, this person does not have an entry.</p>";
+		echo "<p>Sorry, this person does not have an Entry.</p>";
 		return;
 	}
 	

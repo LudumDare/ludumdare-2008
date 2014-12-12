@@ -2,7 +2,7 @@
 
 function _compo2_active($params) {
 	if (!$params["uid"]) {
-		echo "<p class='message'>You must sign in to submit an entry.</p>";
+		echo "<p class='message'>You must sign in to submit an Entry.</p>";
 		return _compo2_preview($params);
 	}
 
@@ -62,11 +62,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	
 	$star = "<span style='color:#f00;font-weight:bold;'>*</span>";
 	
-	if (!$is_admin) {
-		echo "<h3>Edit your Entry</h3>";
-	} else {
-		echo "<h3>Edit this Entry</h3>";
-	}
+	echo "<h3>Edit Entry</h3>";
 	
 	echo "
 	<style>
@@ -92,10 +88,10 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	echo "<div class='edit'>";
 	
 	if ($ce["disabled"]) {
-		echo "<div class='warning'>This entry is disabled.</div>";
+		echo "<div class='warning'>This Entry is disabled.</div>";
 	} else {
 		if ($ce["id"] != "" && !$ce["active"]) {
-			echo "<div class='warning'>Your entry is not complete.</div>";
+			echo "<div class='warning'>Entry is not complete.</div>";
 		}
 	}
 
@@ -257,7 +253,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		}
 		
 		echo "<h2>I would like to be judged in these categories</h2>";
-		echo "If you feel your game doesn't deserve to be judged in a category, deselect it.<br /><br />";
+		echo "If you feel the game doesn't deserve to be judged in a category, deselect it.<br /><br />";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		//echo "You will <strong>not</strong> be rated in these categories.<br /><br />";
 		//echo "Opting out is <strong>NOT</strong> required. Do it <strong>*ONLY*</strong> if you don't want to be rated in a category.<br /><br />";
@@ -288,13 +284,13 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 
 		echo "<h2>Content Rating</h2>";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
-		echo "<input type='checkbox' class='' name='SETTING[NSFW]' value='1' ".($settings["NSFW"]?"checked":"").">My entry may not be suitable for kids.</input><br />";
-		echo "<input type='checkbox' class='' name='SETTING[NSFL]' value='1' ".($settings["NSFL"]?"checked":"").">My entry contains material or subject matter that may be offensive.</input>";
-		echo "<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> We may enable these if we get complaints about an entry.<br />The first lets people omit kid-unfriendly games, and the 2nd brings up a warning.</div>";
+		echo "<input type='checkbox' class='' name='SETTING[NSFW]' value='1' ".($settings["NSFW"]?"checked":"").">This Entry may not be suitable for kids.</input><br />";
+		echo "<input type='checkbox' class='' name='SETTING[NSFL]' value='1' ".($settings["NSFL"]?"checked":"").">This Entry contains material or subject matter that may be offensive.</input>";
+		echo "<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> We may enable these if we get complaints about an Entry.<br />The first lets people omit kid-unfriendly games, and the 2nd brings up a warning.</div>";
 
 		echo "<h2>Settings</h2>";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
-		echo "<input type='checkbox' class='' name='SETTING[ANONYMOUS]' value='1' ".($settings["ANONYMOUS"]?"checked":"").">I would like to allow anonymous feedback. I understand this means my entry will be criticized more harshly, and I can take it.</input><br />";
+		echo "<input type='checkbox' class='' name='SETTING[ANONYMOUS]' value='1' ".($settings["ANONYMOUS"]?"checked":"").">I would like to allow anonymous feedback. I understand this means my Entry will be criticized more harshly, and I can take it.</input><br />";
 
 	} else {
 		echo "<input type='hidden' name='etype' value='$etype'>";
@@ -350,7 +346,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	
 	// Downloads //
 	echo "<h2>Downloads and Links {$star}</h2>";
-	echo "You must host your downloads elsewhere. Need a host? <a href='http://ludumdare.com/compo/faq/' target='_blank'>See the <strong>FAQ</strong></a>.<br />";
+	echo "You must host downloads elsewhere. Need a host? <a href='http://ludumdare.com/compo/faq/' target='_blank'>See the <strong>FAQ</strong></a>.<br />";
 	echo "<br />";
 	
 	$links_count = count($links);
@@ -370,7 +366,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 
 	echo "<h2>Embed URL</h2>";
 	//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
-	echo "For web games, we can embed your game in an HTML iframe for play right on your entry page. <br />";
+	echo "For web games, we can embed the game in an HTML iframe for play right on the Entry page.<br />";
 	echo "<br />";
 
 
@@ -464,7 +460,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 	
 	if (!$_REQUEST["formdata"]) {
 		$active = false;
-		$msg .= "ERROR: Entry not updated. Bad formdata. Something is wrong.<br />";//<br />Usually this means your images are too large (many MB), or they're in an unsupported or non-standard format (NO BMP's).<br />In some rare cases, something is stopping HTTP POSTs from working correctly.<br />Try disabling adblock, noscript, or similar plugins. Or, try another browser.<br/>If you get a chance, let <a href='/compo/contact' target='_blank'>Mike</a> know what your problem was, or contact him for help.";
+		$msg .= "ERROR: Entry not updated. Bad formdata. Something is wrong.<br />";
 	} else {    
 		$ce["title"] = compo2_strip($_REQUEST["title"]);
 		if (!strlen(trim($ce["title"]))) { $active = false; $msg .= "Name is required.<br />"; }
@@ -565,7 +561,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 		if ($is_admin) { 
 			$ce["disabled"] = $_REQUEST["disabled"];
 		}
-		if ($ce["disabled"]) { $active = false; $msg .= "This entry has been disabled.<br />"; }
+		if ($ce["disabled"]) { $active = false; $msg .= "This Entry has been disabled.<br />"; }
 		
 	//     $ce["data"] = serialize($_REQUEST["data"]);
 		$ce["active"] = intval($active);
@@ -660,7 +656,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 	}
 
 	if ( !$active ) {
-		$msg .= "<br />Entry is inactive due to errors. <a href='?action=edit'>Edit your entry</a>.";
+		$msg .= "<br />Entry is inactive due to errors. <a href='?action=edit'>Edit Entry</a>.";
 	}
 	
 	if ( $msg ) {
@@ -668,7 +664,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 	}
 	
 	if (!$is_admin) {
-		echo "<p><a href='?action=edit'>Edit your entry</a> | <a href='?action=default'>Browse entries</a> | <a href='?action=preview&uid={$params["uid"]}'>View your entry</a></p>";
+		echo "<p><a href='?action=edit'>Edit Entry</a> | <a href='?action=default'>Browse entries</a> | <a href='?action=preview&uid={$params["uid"]}'>View Entry</a></p>";
 	} else {
 		echo "<p><a href='?action=default&admin=1'>Browse entries</a></p>";
 	}
