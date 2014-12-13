@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="240"
+   width="320"
+   version="1.1"
+   id="svg5252"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="tv2-inv.svg">
+  <defs
+     id="defs5262">
+    <linearGradient
+       id="linearGradient5274">
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="0"
+         id="stop5276" />
+      <stop
+         id="stop5314"
+         offset="0.89655167"
+         style="stop-color:#000000;stop-opacity:1;" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0"
+         offset="1"
+         id="stop5278" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1317"
+     inkscape:window-height="744"
+     id="namedview5260"
+     showgrid="false"
+     inkscape:zoom="1.78"
+     inkscape:cx="140.86341"
+     inkscape:cy="111.39603"
+     inkscape:window-x="49"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg5252">
+    <inkscape:grid
+       type="xygrid"
+       id="grid5268" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5254">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     style="color:#000000;fill:#000000;fill-opacity:1;fill-rule:nonzero;enable-background:accumulate"
+     d="m 0,0 0,240.00002 320,0 L 320,0 z m 295,25 c 25,40 25,149.99998 0,190.00002 -40,25 -230.000003,25 -270,0 C 0,174.99998 0,55 25,25 64.999997,0 255,0 295,25 z"
+     id="path5272"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="cccccccccc" />
+  <path
+     sodipodi:nodetypes="cccccccccc"
+     inkscape:connector-curvature="0"
+     id="path5258"
+     d="m -10,-10 0,260 340,0 0,-260 z m 310,30 c 20,40 20,160 0,200 C 260,240 60,240 20,220 0,180 0,50 20,20 60,0 260,0 300,20 z"
+     style="color:#000000;fill:#444455;fill-opacity:1;fill-rule:nonzero;enable-background:accumulate" />
+</svg>
