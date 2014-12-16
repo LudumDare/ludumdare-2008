@@ -194,6 +194,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		
 		function c2_on_submission_type_changed( e ) {
 			c2_show_optouts( e.getAttribute("value") );
+			c2_toggle_options();
 		}
 		
 		function c2_show_optouts( ootype ) {
@@ -243,8 +244,15 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			}
 			
 			var etype = c2_which_radio("etype");
+
 			if ( c2_params[etype+"_judged"] === "0") {
 				c2_addclass(document.getElementById("show-judged"),"hidden");
+			}
+			if ( c2_params[etype+"_rating"] === "0") {
+				c2_addclass(document.getElementById("show-rating"),"hidden");
+			}
+			if ( c2_params[etype+"_settings"] === "0") {
+				c2_addclass(document.getElementById("show-settings"),"hidden");
 			}
 		}
 	</script>
