@@ -217,11 +217,21 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 
 		var c2_params = {
 <?php
+		function substr_count_array( $haystack, $needles ) {
+			$count = 0;
+			foreach ($needles as $substring) {
+				$count += substr_count($haystack, $substring);
+			}
+			return $count;
+		}
 		
+		$to_share = ["title","cats","judged","rating","settings"];
 
-//		foreach ( $params as $key => $val ) {
-//			echo "\"{$key}\":\"{$val}\",";
-//		}
+		foreach ( $params as $key => $val ) {
+			if ( substr_count_array( $key, $to_share ) > 0 ) {
+				echo "\"{$key}\":\"{$val}\",";
+			}
+		}
 ?>
 		};
 		
