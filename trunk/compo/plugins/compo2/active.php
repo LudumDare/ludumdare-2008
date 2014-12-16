@@ -147,7 +147,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	}
 	if ($is_admin) { $divs = $params["divs"]; }
 	
-	echo '
+?>
 	<script>
 		function c2_addclass( el, className ) {
 			if (el.classList)
@@ -193,10 +193,6 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		}
 		
 		function c2_on_submission_type_changed( e ) {
-//			console.log(e);
-//			console.log( c2_which_radio("etype") );
-//			console.log(e.getAttribute("value"));
-			
 			c2_show_optouts( e.getAttribute("value") );
 		}
 		
@@ -218,10 +214,30 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 				c2_removeclass( el, "hidden" );
 			}
 		}
+
+		var c2_params = {
+<?php
+		foreach ( $params as $key=>$val ) {
+			echo "\"{$key}\":\"{$val}\",";
+		}
+?>
+		};
+		
+		function c2_toggle_options() {
+			var option = document.querySelectorAll(".entry-option");
+			for ( var idx = 0; idx < option.length; idx++ ) {
+//				c2_addclass( option[idx], "hidden" );
+				c2_removeclass( option[idx], "hidden" );
+			}
+			
+			var etype = c2_which_radio("etype");
+			if ( c2_params[etype+"_judged"] === "0") {
+				c2_addclass(document.getElementById("show-judged"),"hidden");
+			}
+		}
 	</script>
-	';
+<?php
 	
-//     $rules = isset($params["rules"])?$params["rules"]:"#";
 	if ($opts) {
 		echo "<h2>Submission Type {$star}</h2>";
 		foreach ($divs as $div) {
@@ -252,6 +268,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			}
 		}
 		
+		echo "<div id='show-judged' class='entry-option'>";
 		echo "<h2>I would like to be judged in these categories</h2>";
 		echo "If you feel the game doesn't deserve to be judged in a category, deselect it.<br /><br />";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
@@ -269,28 +286,24 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			}
 			echo "</div>";
 		}
-		
-//		echo "<div style='color:#F00;margin-top:10px'><strong>IMPORTANT:</strong> Opt out <strong>*ONLY*</strong> if you <strong>DON'T</strong> want to be rated in a category.</div>";
+		echo "</div>";
 
-//        echo "<h2>Opt Out</h2>";
-//        
-//        // cats: all
-//        // open_cats: jam
-//        // compo_cats: compo
-//        foreach ($params["open_cats"] as $k) {
-//            echo "<div>".$k."</div>";
-//        }
-//    
 
+		echo "<div id='show-rating' class='entry-option'>";
 		echo "<h2>Content Rating</h2>";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		echo "<input type='checkbox' class='' name='SETTING[NSFW]' value='1' ".($settings["NSFW"]?"checked":"").">This Entry may not be suitable for kids.</input><br />";
 		echo "<input type='checkbox' class='' name='SETTING[NSFL]' value='1' ".($settings["NSFL"]?"checked":"").">This Entry contains material or subject matter that may be offensive.</input>";
 		echo "<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> We may enable these if we get complaints about an Entry.<br />The first lets people omit kid-unfriendly games, and the 2nd brings up a warning.</div>";
-
+		echo "</div>";
+		
+		echo "<div id='show-settings' class='entry-option'>";
 		echo "<h2>Settings</h2>";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
-		echo "<input type='checkbox' class='' name='SETTING[ANONYMOUS]' value='1' ".($settings["ANONYMOUS"]?"checked":"").">I would like to allow anonymous feedback. I understand this means my Entry will be criticized more harshly, and I can take it.</input><br />";
+		echo "<input type='checkbox' class='' name='SETTING[ANONYMOUS]' value='1' ".($settings["ANONYMOUS"]?"checked":"").">I would like to allow anonymous feedback. I understand this means my Entry will be criticized more harshly, and I can take it.</input>";
+		echo "</div>";
+		
+		echo "<br />";
 
 	} else {
 		echo "<input type='hidden' name='etype' value='$etype'>";
