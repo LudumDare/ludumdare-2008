@@ -321,43 +321,45 @@ function _compo2_rate_rate($params,$uid = "") {
 
     $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
     
-    if ($params["uid"] != $uid) {
-        echo "<h3>Rate this {$params["{$div}_title"]} Entry</h3>";
-        
-        echo "<p><i>If you can't run this Entry, please leave a comment saying so and explaining why.  Do not score unrunnable entries.</i></p>";
-            
-        
-        $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
-        echo "<script type='text/javascript' src='$myurl/starry/prototype.lite.js'></script>";
-        echo "<script type='text/javascript' src='$myurl/starry/stars.js'></script>";
-        echo "<link rel='stylesheet' href='$myurl/starry/stars.css' type='text/css' />";
-    
-        echo "<form method=post action='?action=submit&uid=$uid'>";
-        echo "<p>";
-        if (isset($params["{$div}_cats"])) {
-            echo "<table>";
-            $data = unserialize($ve["data"]);
-            foreach ($params["{$div}_cats"] as $k) {
-            	if ( !isset($settings['OPTOUT'][$div][$k]) ) { 
-	                echo "<tr><th>".htmlentities($k);
-	                echo "<td>";
-	                $v = intval($data[$k]);
-	                echo "<script>new Starry('data[$k]',{name:'data[$k]',sprite:'$myurl/starry/newstars.gif',width:20,height:20,startAt:$v});</script>";
-	        //         compo2_select("data[$k]",array(""=>"n/a","5"=>"5 - Best","4"=>"4","3"=>"3","2"=>"2","1"=>"1 - Worst"),$v);
-	    		}
-            }
-            echo "</table>";
-        } else {
-            echo "<i>This division does not have any voting categories.  Please leave comments for the author.</i>";
-        }
-        echo "</p>";
-        echo "<h2>Comments (non-anonymous)</h2>";
-        $ve["comments"]="";
-        echo "<textarea name='comments' rows=4 cols=60>".htmlentities($ve["comments"])."</textarea>";
-        echo "<p><input type='submit' value='Save'></p>";
-        echo "</form>";
-        
-        echo "<hr/>";
+    if ( ($params["uid"] != $uid) ) { 
+    	if ( !isset($params["{$div}_judged"]) || $params["{$div}_judged"] !== "0") ) {
+	        echo "<h3>Rate this {$params['{$div}_title']} Entry</h3>";
+	        
+	        echo "<p><i>If you can't run this Entry, please leave a comment saying so and explaining why.  Do not score unrunnable entries.</i></p>";
+	            
+	        
+	        $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
+	        echo "<script type='text/javascript' src='$myurl/starry/prototype.lite.js'></script>";
+	        echo "<script type='text/javascript' src='$myurl/starry/stars.js'></script>";
+	        echo "<link rel='stylesheet' href='$myurl/starry/stars.css' type='text/css' />";
+	    
+	        echo "<form method=post action='?action=submit&uid=$uid'>";
+	        echo "<p>";
+	        if (isset($params["{$div}_cats"])) {
+	            echo "<table>";
+	            $data = unserialize($ve["data"]);
+	            foreach ($params["{$div}_cats"] as $k) {
+	            	if ( !isset($settings['OPTOUT'][$div][$k]) ) { 
+		                echo "<tr><th>".htmlentities($k);
+		                echo "<td>";
+		                $v = intval($data[$k]);
+		                echo "<script>new Starry('data[$k]',{name:'data[$k]',sprite:'$myurl/starry/newstars.gif',width:20,height:20,startAt:$v});</script>";
+		        //         compo2_select("data[$k]",array(""=>"n/a","5"=>"5 - Best","4"=>"4","3"=>"3","2"=>"2","1"=>"1 - Worst"),$v);
+		    		}
+	            }
+	            echo "</table>";
+	        } else {
+	            echo "<i>This division does not have any voting categories.  Please leave comments for the author.</i>";
+	        }
+	        echo "</p>";
+	        echo "<h2>Comments (non-anonymous)</h2>";
+	        $ve["comments"]="";
+	        echo "<textarea name='comments' rows=4 cols=60>".htmlentities($ve["comments"])."</textarea>";
+	        echo "<p><input type='submit' value='Save'></p>";
+	        echo "</form>";
+	        
+	        echo "<br/>";
+	    }
     }
     _compo2_preview_comments($params,$uid,$form=true);
     _compo2_show_comments($params["cid"],$ce["uid"]);
