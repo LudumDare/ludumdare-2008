@@ -289,11 +289,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		
 		
 		$hidden = "";
-		echo $etype."_judged: ".$params[$etype."_judged"];
+		//echo $etype."_judged: ".$params[$etype."_judged"];
 		if ( isset($params[$etype."_judged"]) && $params[$etype."_judged"] === "0" ) {
 			$hidden = "hidden";
 		}
-		echo "<div id='show-judged' class='entry-option ".$hidden."'>";
+		echo "<div id='show-judged' class='entry-option {$hidden}'>";
 		echo "<h2>I would like to be judged in these categories</h2>";
 		echo "If you feel the game doesn't deserve to be judged in a category, deselect it.<br /><br />";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
@@ -314,7 +314,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		echo "</div>";
 
 
-		echo "<div id='show-rating' class='entry-option'>";
+		$hidden = "";
+		if ( isset($params[$etype."_rating"]) && $params[$etype."_rating"] === "0" ) {
+			$hidden = "hidden";
+		}
+		echo "<div id='show-rating' class='entry-option {$hidden}'>";
 		echo "<h2>Content Rating</h2>";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		echo "<input type='checkbox' class='' name='SETTING[NSFW]' value='1' ".($settings["NSFW"]?"checked":"").">This Entry may not be suitable for kids.</input><br />";
@@ -322,7 +326,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		echo "<div style='margin-top:10px;margin-bottom:10px'><strong>NOTE:</strong> We may enable these if we get complaints about an Entry.<br />The first lets people omit kid-unfriendly games, and the 2nd brings up a warning.</div>";
 		echo "</div>";
 		
-		echo "<div id='show-settings' class='entry-option'>";
+		$hidden = "";
+		if ( isset($params[$etype."_settings"]) && $params[$etype."_settings"] === "0" ) {
+			$hidden = "hidden";
+		}
+		echo "<div id='show-settings' class='entry-option {$hidden}'>";
 		echo "<h2>Settings</h2>";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
 		echo "<input type='checkbox' class='' name='SETTING[ANONYMOUS]' value='1' ".($settings["ANONYMOUS"]?"checked":"").">I would like to allow anonymous feedback. I understand this means my Entry will be criticized more harshly, and I can take it.</input>";
