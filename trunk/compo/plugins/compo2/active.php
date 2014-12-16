@@ -194,18 +194,18 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 		
 		function c2_on_submission_type_changed( e ) {
 			c2_show_optouts( e.getAttribute("value") );
-			c2_toggle_options();
+			c2_toggle_options( e.getAttribute("value") );
 		}
 		
-		function c2_show_optouts( ootype ) {
+		function c2_show_optouts( etype ) {
 			var radio = document.querySelectorAll(".optout-type");
 			for ( var idx = 0; idx < radio.length; idx++ ) {
 				c2_addclass( radio[idx], "hidden" );
 			}
 			
 			var el;
-			if ( ootype ) {
-				el = document.getElementById(ootype+"-submission-type");
+			if ( etype ) {
+				el = document.getElementById(etype+"-submission-type");
 			}
 			else {
 				el = document.getElementById("no-submission-type");
@@ -236,7 +236,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 ?>
 		};
 		
-		function c2_toggle_options() {
+		function c2_toggle_options( _etype ) {
 			var option = document.querySelectorAll(".entry-option");
 			for ( var idx = 0; idx < option.length; idx++ ) {
 //				c2_addclass( option[idx], "hidden" );
@@ -245,7 +245,8 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			
 			var etype = c2_which_radio("etype");
 			console.log("> " + etype);
-
+			console.log("* " + _etype);
+			
 			if ( c2_params[etype+"_judged"] === "0") {
 				c2_addclass(document.getElementById("show-judged"),"hidden");
 			}
