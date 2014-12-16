@@ -243,7 +243,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 				c2_removeclass( option[idx], "hidden" );
 			}
 			
-			var etype = c2_which_radio("etype");
+			var etype = c2_which_radio("etype").getAttribute("value");
 			console.log("> " + etype);
 			console.log("* " + _etype);
 			
