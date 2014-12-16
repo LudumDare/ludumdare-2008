@@ -225,7 +225,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			return $count;
 		}
 		
-		$to_share = ["title","cats","judged","rating","settings"];
+		$to_share = ["title","judged","rating","settings"];
 
 		foreach ( $params as $key => $val ) {
 			if ( substr_count_array( $key, $to_share ) > 0 ) {
