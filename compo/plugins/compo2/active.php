@@ -287,7 +287,13 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			}
 		}
 		
-		echo "<div id='show-judged' class='entry-option ".(isset($params[$etype."_judged"])?"hidden":"")."'>";
+		
+		$hidden = "";
+		echo $etype."_judged: ".$params[$etype."_judged"];
+		if ( isset($params[$etype."_judged"]) && $params[$etype."_judged"] === "0" ) {
+			$hidden = "hidden";
+		}
+		echo "<div id='show-judged' class='entry-option ".$hidden."'>";
 		echo "<h2>I would like to be judged in these categories</h2>";
 		echo "If you feel the game doesn't deserve to be judged in a category, deselect it.<br /><br />";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
