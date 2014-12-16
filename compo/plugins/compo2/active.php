@@ -236,16 +236,13 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 ?>
 		};
 		
-		function c2_toggle_options( _etype ) {
+		function c2_toggle_options( etype ) {
 			var option = document.querySelectorAll(".entry-option");
 			for ( var idx = 0; idx < option.length; idx++ ) {
-//				c2_addclass( option[idx], "hidden" );
 				c2_removeclass( option[idx], "hidden" );
 			}
 			
-			var etype = c2_which_radio("etype").getAttribute("value");
-			console.log("> " + etype);
-			console.log("* " + _etype);
+			//var etype = c2_which_radio("etype").getAttribute("value");
 			
 			if ( c2_params[etype+"_judged"] === "0") {
 				c2_addclass(document.getElementById("show-judged"),"hidden");
@@ -290,7 +287,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			}
 		}
 		
-		echo "<div id='show-judged' class='entry-option'>";
+		echo "<div id='show-judged' class='entry-option ".(isset($params[$etype."_judged"])?"hidden":"")."'>";
 		echo "<h2>I would like to be judged in these categories</h2>";
 		echo "If you feel the game doesn't deserve to be judged in a category, deselect it.<br /><br />";
 		//echo "<span style='color:#F0F;'><strong>*WORK IN PROGRESS*</strong></span> This feature is unfinished. Come back later to set these.<br />";
