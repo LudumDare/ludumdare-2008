@@ -123,10 +123,10 @@ function c2_navigation($slug,$name,$name_url) {
 
 						<div class="e-gap e-big"><strong><a href="/compo/<?php echo $slug?>/?action=preview&uid=<?php echo $game['uid'];?>"><?php echo $game['title']; ?></a></strong></div>
 						<div>by <strong><?php echo $game['get_user']['display_name'];?></strong><!-- (<?php echo $game['etype'];?>)--></div>
+						<div class="e-gap">Coolness: <strong><?php echo $game['rate_out']; ?> (How many Entries you have rated)</strong><!-- Bonus: <strong>?</strong>--></div>
 						<?php if ( $game['etype'] !== "guest" ) { ?>
-						<div class="e-gap">Votes: <strong><?php echo $game['rate_in']; ?></strong></div>
+						<div>Votes: <strong><?php echo $game['rate_in']; ?></strong></div>
 						<?php } ?>						
-						<div>Coolness: <strong><?php echo $game['rate_out']; ?> (How many Entries you have rated)</strong><!-- Bonus: <strong>?</strong>--></div>
 						<!--<div>Comments: <strong>?</strong></div>-->
 						<div style="display:none">Game Love: <strong><?php echo $game['love']; ?></strong> Comment Love: <strong>?</strong></strong></div>
 
