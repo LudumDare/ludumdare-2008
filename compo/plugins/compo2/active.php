@@ -217,9 +217,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 
 		var c2_params = {
 <?php
-		foreach ( $params as $key=>$val ) {
-			echo "\"{$key}\":\"{$val}\",";
-		}
+		
+
+//		foreach ( $params as $key => $val ) {
+//			echo "\"{$key}\":\"{$val}\",";
+//		}
 ?>
 		};
 		
