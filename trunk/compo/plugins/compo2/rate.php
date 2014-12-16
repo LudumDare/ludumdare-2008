@@ -322,7 +322,7 @@ function _compo2_rate_rate($params,$uid = "") {
     $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
     
     if ( ($params["uid"] != $uid) ) { 
-    	if ( !isset($params["{$div}_judged"]) || $params["{$div}_judged"] !== "0") ) {
+    	if ( !isset($params["{$div}_judged"]) || ($params["{$div}_judged"] !== "0") ) {
 	        echo "<h3>Rate this {$params['{$div}_title']} Entry</h3>";
 	        
 	        echo "<p><i>If you can't run this Entry, please leave a comment saying so and explaining why.  Do not score unrunnable entries.</i></p>";
