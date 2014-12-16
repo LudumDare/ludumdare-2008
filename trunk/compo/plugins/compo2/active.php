@@ -244,6 +244,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 			}
 			
 			var etype = c2_which_radio("etype");
+			console.log("> " + etype);
 
 			if ( c2_params[etype+"_judged"] === "0") {
 				c2_addclass(document.getElementById("show-judged"),"hidden");
