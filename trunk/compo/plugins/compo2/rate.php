@@ -93,12 +93,12 @@ function add_quotes($str) {
 function _compo2_rate_list($params) {
     @$q = $_REQUEST["q"];
     
-//    if ( isset($params['ratedivs']) && trim($params['ratedivs']) !== "" ) {
-//    	$ratedivs = explode(";",$params['ratedivs']);
-//    }
-//    else {
-	    $ratedivs = ["open","compo"];
-//	}
+    if ( isset($params['ratedivs']) && trim($params['ratedivs']) !== "" ) {
+    	$ratedivs = explode(";",$params['ratedivs']);
+    }
+    else {
+	    $ratedivs = ["compo","open"];
+	}
 
 	$ratedivs_out = implode(",", array_map('add_quotes',$ratedivs));
 	print_r($ratedivs_out);
