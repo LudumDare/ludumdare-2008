@@ -89,12 +89,12 @@ function _compo2_rate_sort_by_rate_out($a,$b) {
 function _compo2_rate_list($params) {
     @$q = $_REQUEST["q"];
     
-    if ( isset($params['ratedivs']) && trim($params['ratedivs']) !== "" ) {
-    	$ratedivs = explode(";",$params['ratedivs']);
-    }
-    else {
+//    if ( isset($params['ratedivs']) && trim($params['ratedivs']) !== "" ) {
+//    	$ratedivs = explode(";",$params['ratedivs']);
+//    }
+//    else {
 	    $ratedivs = ["open","compo"];
-	}
+//	}
     
     $ecnt = array_pop(compo2_query("select count(*) cnt from c2_entry where cid = ? and active = 1 and is_judged = 1 AND etype IN ( ? )",array($params["cid"],implode(",",$ratedivs))));
     $cnt = $ecnt["cnt"];
