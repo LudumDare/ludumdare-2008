@@ -37,10 +37,11 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	}
 */
 	
-	if ($params["locked"] && !$ce["id"]) {
+	if ($params["locked"] && !$ce["ID"]) {
 		echo "<p class='warning'>This competition is locked.  No new entries are being accepted.</p>";
 		return;
 	}
+
 	
 	// TODO: Make just one (which means make code to iterate, add "add new" button)
 	$links = unserialize($ce["links"]);
@@ -491,7 +492,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 	if (!$uid) { $uid = $params["uid"]; }
 	$ce = compo2_entry_load($params["cid"],$uid);
 	
-	if ($params["locked"] && !$ce["id"]) {
+	if ($params["locked"] && !$ce["ID"]) {
 		echo "<p class='warning'>This competition is locked.  No new entries are being accepted.</p>";
 		return;
 	}
