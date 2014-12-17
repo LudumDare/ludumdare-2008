@@ -22,7 +22,7 @@ function _compo2_rate($params) {
             _compo2_preview_me($params);
         } elseif ($action == "preview") {
             echo "<p class='message'>Voting is only available to participants.</p>";
-            if (!$params["locked"]) {
+            if (!isset($params["locked"]) && (trim($params["opendivs"]) !== "") ) {
                 echo "<p><a href='?action=edit'>Submit an Entry</a></p>";
             }
             return _compo2_preview($params);
