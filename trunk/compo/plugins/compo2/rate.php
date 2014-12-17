@@ -96,13 +96,16 @@ function _compo2_rate_list($params) {
 	    $ratedivs = ["open","compo"];
 //	}
     
-    $ecnt = array_pop(compo2_query("select count(*) cnt from c2_entry where cid = ? and active = 1 and is_judged = 1 AND etype IN ( ? )",array($params["cid"],implode(",",$ratedivs))));
+//    $ecnt = array_pop(compo2_query("select count(*) cnt from c2_entry where cid = ? and active = 1 and is_judged = 1 AND etype IN ( ? )",array($params["cid"],implode(",",$ratedivs))));
+    $ecnt = array_pop(compo2_query("select count(*) cnt from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"])));
     $cnt = $ecnt["cnt"];
 
     if (!strlen($q)) {
-        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where cid = ? and active = 1 and is_judged = 1 AND etype IN ( ? )",array($params["cid"],implode(",",$ratedivs)));
+//        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where cid = ? and active = 1 and is_judged = 1 AND etype IN ( ? )",array($params["cid"],implode(",",$ratedivs)));
+        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
     } else {
-        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where (title like ? OR notes like ? OR links like ? OR get_user like ?) and cid = ? and active = 1 and is_judged = 1 AND etype IN ( ? )",array("%$q%","%$q%","%$q%","%$q%",$params["cid"],implode(",",$ratedivs)));
+//        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where (title like ? OR notes like ? OR links like ? OR get_user like ?) and cid = ? and active = 1 and is_judged = 1 AND etype IN ( ? )",array("%$q%","%$q%","%$q%","%$q%",$params["cid"],implode(",",$ratedivs)));
+        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where (title like ? OR notes like ? OR links like ? OR get_user like ?) and cid = ? and active = 1 and is_judged = 1",array("%$q%","%$q%","%$q%","%$q%",$params["cid"]));
         $_REQUEST["more"] = 1;
     }
     
