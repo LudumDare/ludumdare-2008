@@ -462,7 +462,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 //		echo "<div class='sn-item {$selected}' id='shot-nav-{$idx}'><a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
 		echo "<div class='sn-item {$selected}' id='shot-nav-{$idx}'>
 			<img src='{$thumb}' width='180' height='140' onclick='c2_select_embed({$idx});'>
-			<img src='/compo/wp-content/plugins/compo2/art/play-sm.png' />
+			<!--<img src='/compo/wp-content/plugins/compo2/art/play-sm.png' />-->
 		</div>";
 		$idx++;
 	}
