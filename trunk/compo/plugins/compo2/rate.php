@@ -86,6 +86,10 @@ function _compo2_rate_sort_by_rate_out($a,$b) {
     return $b["rate_out"] - $a["rate_out"];
 }
 
+function add_quotes($str) {
+    return sprintf("'%s'", $str);
+}
+
 function _compo2_rate_list($params) {
     @$q = $_REQUEST["q"];
     
@@ -95,17 +99,19 @@ function _compo2_rate_list($params) {
 //    else {
 	    $ratedivs = ["open","compo"];
 //	}
+
+	$ratedivs_out = implode(",", array_map('add_quotes',$ratedivs));
     
-//    $ecnt = array_pop(compo2_query("select count(*) cnt from c2_entry where cid = ? and active = 1 and is_judged = 1 AND etype IN ( ? )",array($params["cid"],implode(",",$ratedivs))));
-    $ecnt = array_pop(compo2_query("select count(*) cnt from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"])));
+    $ecnt = array_pop(compo2_query("select count(*) cnt from c2_entry where cid = ? AND active = 1 AND is_judged = 1 AND etype IN ( ? )",array($params["cid"],$ratedivs_out)));
+//    $ecnt = array_pop(compo2_query("select count(*) cnt from c2_entry where cid = ? AND active = 1 AND is_judged = 1",array($params["cid"])));
     $cnt = $ecnt["cnt"];
 
     if (!strlen($q)) {
-//        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where cid = ? and active = 1 and is_judged = 1 AND etype IN ( ? )",array($params["cid"],implode(",",$ratedivs)));
-        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where cid = ? and active = 1 and is_judged = 1",array($params["cid"]));
+//        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where cid = ? AND active = 1 AND is_judged = 1 AND etype IN ( ? )",array($params["cid"],implode(",",$ratedivs)));
+        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where cid = ? AND active = 1 AND is_judged = 1",array($params["cid"]));
     } else {
-//        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where (title like ? OR notes like ? OR links like ? OR get_user like ?) and cid = ? and active = 1 and is_judged = 1 AND etype IN ( ? )",array("%$q%","%$q%","%$q%","%$q%",$params["cid"],implode(",",$ratedivs)));
-        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where (title like ? OR notes like ? OR links like ? OR get_user like ?) and cid = ? and active = 1 and is_judged = 1",array("%$q%","%$q%","%$q%","%$q%",$params["cid"]));
+//        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where (title like ? OR notes like ? OR links like ? OR get_user like ?) AND cid = ? AND active = 1 AND is_judged = 1 AND etype IN ( ? )",array("%$q%","%$q%","%$q%","%$q%",$params["cid"],implode(",",$ratedivs)));
+        $_r = compo2_query("select etype,shots,title,uid,cid,rate_in,rate_out,get_user from c2_entry where (title like ? OR notes like ? OR links like ? OR get_user like ?) AND cid = ? AND active = 1 AND is_judged = 1",array("%$q%","%$q%","%$q%","%$q%",$params["cid"]));
         $_REQUEST["more"] = 1;
     }
     
