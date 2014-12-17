@@ -11,7 +11,17 @@ function _compo2_misc($params) {
 }
 
 function _compo2_misc_links($params) {
-    $r = compo2_query("select * from c2_entry where cid = ? and active = 1",array($params["cid"]));
+    if ( isset($params['ratedivs']) && trim($params['ratedivs']) !== "" ) {
+    	$ratedivs = explode(";",$params['ratedivs']);
+    }
+    else {
+	    $ratedivs = ["compo","open"];
+	}
+
+	$ratedivs_out = implode(",", array_map('add_quotes',$ratedivs));
+
+
+    $r = compo2_query("select * from c2_entry where cid = ? and active = 1 AND etype IN ({$ratedivs_out})",array($params["cid"]));
     usort($r,"_compo2_preview_sort");
     
     echo "<p><a href='?action=default'>Back ...</a></p>";
