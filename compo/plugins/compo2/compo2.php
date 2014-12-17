@@ -237,11 +237,10 @@ function c2_thumb( $filename, $out_width, $out_height, $crop = true, $useifequal
 			return "";
 		}
 		
-		$in_data = file_get_contents($in_file,FILE_USE_INCLUDE_PATH);
-		if ( !$in_data ) {
+		@$in = imagecreatefromstring(file_get_contents($in_file,FILE_USE_INCLUDE_PATH));
+		if ( !$in ) {
 			return "";
 		}
-		$in = imagecreatefromstring($in_data);
 		$in_width = ImageSX($in);
 		$in_height = ImageSY($in);
 
