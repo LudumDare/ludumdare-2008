@@ -36,9 +36,9 @@ function _compo2_preview($params,$_link="?action=preview") {
 		$cats[$div] = "{$params["{$div}_title"]} Entries";
 	}
 
-	if ($params["uid"]) {
+	if (isset($params["uid"])) {
 		$ce = compo2_entry_load($params["cid"],$params["uid"]);
-		if ($ce["id"]) { echo "<p><a href='?action=edit'>Edit Entry</a> | <a href='?action=preview&uid={$ce["uid"]}'>View Entry</a></p>"; }
+		if (isset($ce["id"])) { echo "<p><a href='?action=edit'>Edit Entry</a> | <a href='?action=preview&uid={$ce["uid"]}'>View Entry</a></p>"; }
 	}
 
 	$etype = $_REQUEST["etype"];
@@ -68,7 +68,12 @@ function _compo2_preview($params,$_link="?action=preview") {
 	}
 	usort($r,"_compo2_preview_sort");
 
-	echo "<h3>".htmlentities($cats[$etype])." ($cnt)</h3>";
+	echo "<h2>".htmlentities($cats[$etype])." ($cnt)</h2>";
+	if ( isset($params[$etype."_desc"]) ) {
+		echo "<div>";
+		echo $params[$etype."_desc"];
+		echo "</div>";
+	}
 	
 	ob_start();
 	echo "<p>";
