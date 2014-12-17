@@ -101,7 +101,6 @@ function _compo2_rate_list($params) {
 	}
 
 	$ratedivs_out = implode(",", array_map('add_quotes',$ratedivs));
-	print_r($ratedivs_out);
     
     $ecnt = array_pop(compo2_query("select count(*) cnt from c2_entry where cid = ? AND active = 1 AND is_judged = 1 AND etype IN ({$ratedivs_out})",array($params["cid"])));
     //$ecnt = array_pop(compo2_query("select count(*) cnt from c2_entry where cid = ? AND active = 1 AND is_judged = 1",array($params["cid"])));
