@@ -37,7 +37,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	}
 */
 	
-	if ($params["locked"] && !$ce["ID"]) {
+	if ($params["locked"] && !$ce["ID"] && !$is_admin) {
 		echo "<p class='warning'>This competition is locked.  No new entries are being accepted.</p>";
 		return;
 	}
@@ -492,7 +492,7 @@ function _compo2_active_save($params,$uid="",$is_admin=0) {
 	if (!$uid) { $uid = $params["uid"]; }
 	$ce = compo2_entry_load($params["cid"],$uid);
 	
-	if ($params["locked"] && !$ce["ID"]) {
+	if ($params["locked"] && !$ce["ID"] && !$is_admin) {
 		echo "<p class='warning'>This competition is locked.  No new entries are being accepted.</p>";
 		return;
 	}
