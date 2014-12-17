@@ -10,6 +10,7 @@ function _compo2_misc($params) {
     }
 }
 
+// ?action=misc_links
 function _compo2_misc_links($params) {
     if ( isset($params['ratedivs']) && trim($params['ratedivs']) !== "" ) {
     	$ratedivs = explode(";",$params['ratedivs']);
@@ -43,6 +44,7 @@ function _compo2_misc_links($params) {
         
 }
 
+// On User Pages //
 function compo2_theme_author($uid) {
     
     $r1 = compo2_query("select * from wp_compo_rate where to_uid = ? group by cid order by cid desc",array($uid));
