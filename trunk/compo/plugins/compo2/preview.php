@@ -270,45 +270,44 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		echo "<div id='embed-frame'>";
 		echo "<iframe id='embed' style='margin:10px auto;display:block' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
 		if ( $settings["EMBED"]["fullscreen"] ) {	
-			echo "
-				<script>
-					function c2_toggle_fullscreen() {
-						var elem = document.getElementById('embed');
-							if (elem.requestFullscreen) {
-								elem.requestFullscreen();
-							} else if (elem.msRequestFullscreen) {
-								elem.msRequestFullscreen();
-							} else if (elem.mozRequestFullScreen) {
-								elem.mozRequestFullScreen();
-							} else if (elem.webkitRequestFullscreen) {
-								elem.webkitRequestFullscreen();
-						}
+?>
+			<script>
+				function c2_toggle_fullscreen() {
+					var elem = document.getElementById('embed');
+						if (elem.requestFullscreen) {
+							elem.requestFullscreen();
+						} else if (elem.msRequestFullscreen) {
+							elem.msRequestFullscreen();
+						} else if (elem.mozRequestFullScreen) {
+							elem.mozRequestFullScreen();
+						} else if (elem.webkitRequestFullscreen) {
+							elem.webkitRequestFullscreen();
 					}
-				</script>
-				<style>
-					:-webkit-full-screen #embed {
-						width: 100%;
-						height: 100%;
-					}
-					#embed:-ms-fullscreen {
-						position:absolute;
-						left:0px;
-						top:0px;
-						width: 100%;
-						height: 100%;
-					}					
-					
-					.embed-toggle {
-						cursor:pointer;
-						text-align:center;
-					}
-					.embed-toggle:hover {
-						color:#44F;
-						font-weight:bold;
-					}
-				</style>
-			";
-			
+				}
+			</script>
+			<style>
+				:-webkit-full-screen #embed {
+					width: 100%;
+					height: 100%;
+				}
+				#embed:-ms-fullscreen {
+					position:absolute;
+					left:0px;
+					top:0px;
+					width: 100%;
+					height: 100%;
+				}					
+				
+				.embed-toggle {
+					cursor:pointer;
+					text-align:center;
+				}
+				.embed-toggle:hover {
+					color:#44F;
+					font-weight:bold;
+				}
+			</style>
+<?php			
 			echo "<div class='embed-toggle' onclick='c2_toggle_fullscreen();'>Toggle Fullscreen</div>";
 		}
 		echo "</div>";
@@ -347,7 +346,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		echo " - <i>{$params["{$div}_title"]} Entry</i>";
 	echo "</div>";
 	
-	echo "	
+?>
 	<style>
 		.shot-nav {
 			text-align:center;
@@ -392,9 +391,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			content:'';
 		}
 	</style>
-	";
 	
-	echo "
 	<script>
 		function c2_addclass( el, className ) {
 			if ( el ) {
@@ -454,7 +451,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			c2_show_image( _img, _link );
 		}
 	</script>
-	";
+
+<?php
 	
 	// Screenshots //
 	echo "<div class='shot-nav'><span>";
