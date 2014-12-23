@@ -42,16 +42,16 @@ LOAD DATA LOCAL INFILE '/home/username/www/theme/ld26.txt' INTO TABLE themes LIN
 */
 
 function get_ip() { 
-$ip; 
-if (getenv("HTTP_CLIENT_IP")) 
-$ip = getenv("HTTP_CLIENT_IP"); 
-else if(getenv("HTTP_X_FORWARDED_FOR")) 
-$ip = getenv("HTTP_X_FORWARDED_FOR"); 
-else if(getenv("REMOTE_ADDR")) 
-$ip = getenv("REMOTE_ADDR"); 
-else 
-$ip = "UNKNOWN";
-return $ip; 
+	$ip; 
+	if (getenv("HTTP_CLIENT_IP")) 
+		$ip = getenv("HTTP_CLIENT_IP"); 
+	else if(getenv("HTTP_X_FORWARDED_FOR")) 
+		$ip = getenv("HTTP_X_FORWARDED_FOR"); 
+	else if(getenv("REMOTE_ADDR")) 
+		$ip = getenv("REMOTE_ADDR"); 
+	else 
+		$ip = "UNKNOWN";
+	return $ip; 
 }
 
 function is_bot($user_agent)
