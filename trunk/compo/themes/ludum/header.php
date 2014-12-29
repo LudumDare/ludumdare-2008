@@ -108,7 +108,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 								sep = ";";
 							}
 							
-							var dayText = diffDays + " Days, ";
+							var dayText = diffDays + " Days" + ((diffDays <= 7*5) ? ", " : "");
 							if ( diffDays == 1 ) {
 								dayText = "1 Day, ";
 							}
@@ -130,9 +130,11 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 							clockElm[idx].innerHTML = 
 								prefixText +
 								dayText +
-								PadZero(diffHours) + sep +
-								PadZero(diffMinutes) + sep +
-								PadZero(diffSeconds);
+								((diffDays <= 7*5) ? 
+									PadZero(diffHours) + sep +
+									PadZero(diffMinutes) + sep +
+									PadZero(diffSeconds)
+								: "" );
 						}
 						else {
 							/* Flash on Completion */
