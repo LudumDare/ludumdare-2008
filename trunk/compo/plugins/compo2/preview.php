@@ -18,15 +18,6 @@ function _compo2_preview_me($params) {
 
 function _compo2_preview($params,$_link="?action=preview") {
 	if (isset($_REQUEST["uid"])) {
-		echo "<p>";
-		echo "<a href='?action=preview'>Back to Browse Entries</a>";
-		if ( current_user_can('edit_others_posts') ) {
-			if ($params["uid"]) {
-				 $ce = compo2_entry_load($params["cid"],intval($_REQUEST["uid"]));
-				 echo " | <strong><a href='?action=edit&uid=" . $ce["uid"] . "&admin=1'>ADMIN EDIT</a></strong>";
-			}
-		}
-		echo "</p>";
 		_compo2_preview_show($params,intval($_REQUEST["uid"]));
 		_compo2_show_comments($params["cid"],intval($_REQUEST["uid"]));
 		return;
@@ -249,7 +240,17 @@ function _compo2_preview_comments($params,$uid,$form=true) {
 
 function _compo2_preview_show($params,$uid,$comments=true) {
 	$ce = compo2_entry_load($params["cid"],$uid);
-	
+
+	echo "<p>";
+	echo "<a href='?action=preview'>Back to Browse Entries</a>";
+	if ( current_user_can('edit_others_posts') ) {
+		if ($params["uid"]) {
+//			 $ce = compo2_entry_load($params["cid"],intval($_REQUEST["uid"]));
+			 echo " | <strong><a href='?action=edit&uid=" . $ce["uid"] . "&admin=1'>ADMIN EDIT</a></strong>";
+		}
+	}
+	echo "</p>";
+			
 	if (!$ce["id"]) {
 		echo "<p>Sorry, this person does not have an Entry.</p>";
 		return;
