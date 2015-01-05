@@ -310,7 +310,7 @@ function _compo2_rate_rate($params,$uid = "") {
 		echo " | <strong><a href='?action=edit&uid=".$ce["uid"]."&admin=1'>ADMIN EDIT</a></strong>";
 	}
 	if ( get_current_user_id() === $uid ) {
-		echo " | <strong><a href='?action=edit'>Edit</a></strong>";
+		echo " | <strong><a href='?action=edit'>Edit Entry</a></strong>";
 	}
 	
 	echo "</p>";
