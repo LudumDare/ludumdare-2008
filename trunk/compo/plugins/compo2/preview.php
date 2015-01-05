@@ -561,7 +561,9 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	
 	// Rating Results //		
 	if ($params["state"] == "results" || $params["state"] == "admin") {
-		_compo2_results_ratings($params,$uid);
+    	if ( !isset($params["{$div}_judged"]) || ($params["{$div}_judged"] !== "0") ) {
+			_compo2_results_ratings($params,$uid);
+		}
 	}
 	
 	// Comments ?? //
