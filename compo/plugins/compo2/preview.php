@@ -243,10 +243,16 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 
 	echo "<p>";
 	echo "<a href='?action=preview'>Back to Browse Entries</a>";
-	if ( current_user_can('edit_others_posts') ) {
-		if ($params["uid"]) {
-//			 $ce = compo2_entry_load($params["cid"],intval($_REQUEST["uid"]));
-			 echo " | <strong><a href='?action=edit&uid=" . $ce["uid"] . "&admin=1'>ADMIN EDIT</a></strong>";
+	if (isset($params["uid"]) && $params["uid"]) {
+		if ( current_user_can('edit_others_posts') ) {
+//			$ce = compo2_entry_load($params["cid"],intval($_REQUEST["uid"]));
+			echo " | <strong><a href='?action=edit&uid=" . $ce["uid"] . "&admin=1'>ADMIN EDIT</a></strong>";
+		}
+		if ( intval($params["uid"]) === intval($uid) ) {
+			// If the entry exists //
+			if ($ce["id"]) {
+				echo " | <a href='?action=edit'>Edit Entry</a>";
+			}
 		}
 	}
 	echo "</p>";
