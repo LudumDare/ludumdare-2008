@@ -1,6 +1,6 @@
 <?php
 
-/*if (!isset($_GET['shit'])) {
+/*if (!isset($_GET['shite'])) {
 	echo "Thanks Everyone! You did great!";
 	die;
 }*/
@@ -133,8 +133,8 @@ $pixs = ($total['up'])/($target/100);
 //echo'<center style="font-family:sans-serif;"><br/><br/><h1>'.$total['up'].' votes were given</H1></CENTER>';
 //echo'<center style="font-family:sans-serif;"><br/><br/><h1>I am too sleepy to do post results tonight.</H1></CENTER>';
 
-//$_GET['shit']='all';
-if (isset($_GET['shit']))
+//$_GET['shite']='all';
+if (isset($_GET['shite']))
 {
 	global $killvote_weight;
 	//$number = ($_GET['view']='all');
@@ -152,7 +152,7 @@ if (isset($_GET['shit']))
 		if (($_GET['sort'])=='6') $sort = '(`up`-`down`) DESC';
 		if (($_GET['sort'])=='7') $sort = '(`up`-`down`-`kill`) DESC';
 	}
-	$query = 'SELECT * FROM `themes` WHERE `id`<808080 ORDER BY '.$sort.' '.(($_GET['shit']=='all') ? '' : 'LIMIT 250').';';
+	$query = 'SELECT * FROM `themes` WHERE `id`<808080 ORDER BY '.$sort.' '.(($_GET['shite']=='all') ? '' : 'LIMIT 250').';';
 	$c=0;
 	$result = mysql_query($query);
 	if (!$result) die('Query error: ' . mysql_error());
@@ -163,15 +163,15 @@ if (isset($_GET['shit']))
 	echo '<table style="width:90%;font-family:sans-serif;">';
 	echo '
 	<tr>
-		<td width=40><b><a href="?shit='.$_GET['shit'].'&sort=0">RANK</a></b></td>
-		<td width=250><b><a href="?shit='.$_GET['shit'].'&sort=1">THEME</a></b></td>
-		<td width=300><b><a href="?shit='.$_GET['shit'].'&sort=2">UP VOTES</a></b></td>
-		<td><b><a href="?shit='.$_GET['shit'].'&sort=3">DOWN</a></b></td>
-		<td><b><a href="?shit='.$_GET['shit'].'&sort=4">KILL</a></b></td>
-		<td><b><a href="?shit='.$_GET['shit'].'&sort=5">SUM</a></b></td>
-		<td><b><a href="?shit='.$_GET['shit'].'&sort=6">UP-DOWN</a></b></td>
-		<td><b><a href="?shit='.$_GET['shit'].'&sort=7">WEIGHTLESS</a></b></td>
-		<td><b><a href="?shit='.$_GET['shit'].'&sort=0">TOTAL <font size="-2">(WEIGHTED)</font></a></b></td>
+		<td width=40><b><a href="?shite='.$_GET['shite'].'&sort=0">RANK</a></b></td>
+		<td width=250><b><a href="?shite='.$_GET['shite'].'&sort=1">THEME</a></b></td>
+		<td width=300><b><a href="?shite='.$_GET['shite'].'&sort=2">UP VOTES</a></b></td>
+		<td><b><a href="?shite='.$_GET['shite'].'&sort=3">DOWN</a></b></td>
+		<td><b><a href="?shite='.$_GET['shite'].'&sort=4">KILL</a></b></td>
+		<td><b><a href="?shite='.$_GET['shite'].'&sort=5">SUM</a></b></td>
+		<td><b><a href="?shite='.$_GET['shite'].'&sort=6">UP-DOWN</a></b></td>
+		<td><b><a href="?shite='.$_GET['shite'].'&sort=7">WEIGHTLESS</a></b></td>
+		<td><b><a href="?shite='.$_GET['shite'].'&sort=0">TOTAL <font size="-2">(WEIGHTED)</font></a></b></td>
 	</tr>
 	';
 	$c=0;
