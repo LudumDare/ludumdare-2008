@@ -1,9 +1,9 @@
 <?php
 
-if (!isset($_GET['shit'])) {
+/*if (!isset($_GET['shit'])) {
 	echo "Thanks Everyone! You did great!";
 	die;
-}
+}*/
 
 
 /* Copy "settings-example.php" to "settings.php", and make your changes */
