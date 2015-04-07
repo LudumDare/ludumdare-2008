@@ -843,7 +843,7 @@ add_shortcode( 'broadcast_widget', 'broadcast_widget_func' );
 // Add Local Style Sheet style.css //
 add_action( 'wp_enqueue_scripts', 'broadcast_add_my_stylesheet' );
 function broadcast_add_my_stylesheet() {
-    wp_register_style( 'broadcast-style', plugins_url('style.css', __FILE__) );
+    wp_register_style( 'broadcast-style', plugins_url('style.css?1', __FILE__) );
     wp_enqueue_style( 'broadcast-style' );
 }
 
