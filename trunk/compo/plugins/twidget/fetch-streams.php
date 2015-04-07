@@ -119,6 +119,17 @@ function hitbox_streams_get( $game_name ) {
 }
 
 
+function beam_streams_get( $game_name ) {
+	$api_url = "https://beam.pro/api/v1/types/" . $game_name . "/channels";
+	$api_response = @file_get_contents($api_url); // @ surpresses PHP error: http://stackoverflow.com/a/15685966
+	
+	// Decode the Data //
+	$json_data = json_decode($api_response, true);
+	
+	return $json_data;
+}
+
+
 function youtube_streams_get( $game_name, $api_key ) {
 	$limit = 50;		// Number of streams we request per query (Max 50) //
 	
