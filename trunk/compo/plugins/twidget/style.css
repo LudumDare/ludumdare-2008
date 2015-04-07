@@ -63,6 +63,9 @@
 	background-image: url(service_youtube.png);
 }
 .broadcast_table .row .service-icon4 {
+	background-image: url(service_beam.png);
+}
+.broadcast_table .row .service-icon5 {
 	background-image: url(service_twitch_gamedev.png);
 }
 
