@@ -61,7 +61,7 @@ require "fetch-streams.php";
 
 	$alt_twitch_streams = twitch_streams_get( $alt_game_name, $twitch_key );
 
-	$beam_streams = beam_streams_get( "development"/*"ludum-dare"*/ ); // not sure if $game_name is a + or - //
+	$beam_streams = beam_streams_get( /*"development"*/"ludum-dare" ); // not sure if $game_name is a + or - //
 		
 //	echo "Alt: " . $alt_game_name . "\n";
 //	echo "Argv: ";
