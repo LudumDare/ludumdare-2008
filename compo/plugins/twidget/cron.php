@@ -60,7 +60,9 @@ require "fetch-streams.php";
 	$youtube_streams = youtube_streams_get( $game_name, $youtube_key );
 
 	$alt_twitch_streams = twitch_streams_get( $alt_game_name, $twitch_key );
-	
+
+	$beam_streams = beam_streams_get( "development"/*"ludum-dare"*/ ); // not sure if $game_name is a + or - //
+		
 //	echo "Alt: " . $alt_game_name . "\n";
 //	echo "Argv: ";
 //	print_r( $argv );
@@ -520,6 +522,88 @@ require "fetch-streams.php";
 			}
 		}
 
+
+
+		// Update Beam.pro Streams //
+		if ( $beam_streams !== NULL ) {
+			foreach ( $beam_streams as $value ) {
+				if ( $value['online'] === true ) {
+					$service_id = 5;	// Beam.pro //
+					$channel_id = intval($value['user']);
+					$channel_name = mysqli_real_escape_string($db,trim($value['token']));
+					$channel_display_name = mysqli_real_escape_string($db,trim($value['name']));
+					$media_id = intval($value['id']);
+					$channel_followers = intval($value['followers']);
+					$media_viewers = intval($value['viewers_current']);
+					$channel_avatar = ""; // Avatar lookup requires extra requests //mysqli_real_escape_string($db,'http://edge.hitbox.tv' . trim($value['channel']['user_logo']));
+					$channel_url = mysqli_real_escape_string($db,'https://beam.pro/'.trim($value['token']));
+					$channel_embed_url = mysqli_real_escape_string($db,"https://beam.pro/embed/".trim($value['token']));
+					$channel_status = ""; // I forget what this is //mysqli_real_escape_string($db,trim($value['media_status']));
+					$channel_mature = 0; // There is an Age rating ('audience'), reported as G for all.
+					
+					$units = $update_time;
+					
+					$score = 5000;
+					
+					$query = 
+						"INSERT INTO " . $streams_table_name . " (
+								service_id,
+								user_id,
+								
+								name,
+								display_name,
+								media_id,
+								followers,
+								viewers,
+								avatar,
+								url,
+								embed_url,
+								status,
+								mature,
+								
+								units,
+								score
+							)
+							VALUES (
+								{$service_id},
+								\"{$channel_id}\",
+								\"{$channel_name}\",
+								\"{$channel_display_name}\",
+								\"{$media_id}\",
+								{$channel_followers},
+								{$media_viewers},
+								\"{$channel_avatar}\",
+								\"{$channel_url}\",
+								\"{$channel_embed_url}\",
+								\"{$channel_status}\",
+								{$channel_mature},
+								{$units},
+								{$score}
+							)
+							ON DUPLICATE KEY UPDATE 
+								name=VALUES(name),
+								display_name=VALUES(display_name),
+								media_id=VALUES(media_id),
+								followers=VALUES(followers),
+								viewers=VALUES(viewers),
+								avatar=VALUES(avatar),
+								url=VALUES(url),
+								embed_url=VALUES(embed_url),
+								status=VALUES(status),
+								mature=VALUES(mature),
+								units=units+VALUES(units),
+								score=VALUES(score)
+							";
+		
+					if ( mysqli_query($db,$query) ) {
+					}
+					else {
+						echo "Error Inserting Beam.pro in to Streams Table:\n". mysqli_error($db) ."\n";
+						exit(1);
+					}
+				}
+			}
+		}
 
 		// * * * * * * * * * * //
 
