@@ -152,8 +152,8 @@ function broadcast_query_func( $query ) {
 		1=>'twitch',
 		2=>'hitbox',
 		3=>'youtube',
-		4=>'twitch-gamedev',
-		5=>'beam'
+		4=>'beam',
+		5=>'twitch-gamedev'
 	);
 	
 	$modes = Array(
@@ -202,7 +202,7 @@ function broadcast_query_func( $query ) {
 
 			$units_value = intval($row['units']);
 			$units = floor($units_value/60) . ":" . str_pad($units_value%60, 2, '0', STR_PAD_LEFT);
-			if ( intval($row['service_id']) === 4 ) {
+			if ( intval($row['service_id']) === 5 ) {
 				$value = $score;
 				if ( $score > 0 ) {
 					$units = floor($value/60) . ":" . str_pad($value%60, 2, '0', STR_PAD_LEFT);
@@ -272,12 +272,12 @@ function broadcast_list_func( $attr ) {
 			(timestamp > (NOW() - INTERVAL 6 MINUTE)) AS live,
 			(TIMESTAMPDIFF(MINUTE,timestamp,NOW())) AS online
 		FROM `wp_broadcast_streams`
-		WHERE service_id < 4 AND timestamp > (NOW() - INTERVAL {$attr['hours']} HOUR)
-		    OR service_id >= 4 AND timestamp > (NOW() - INTERVAL 6 MINUTE)
+		WHERE service_id < 5 AND timestamp > (NOW() - INTERVAL {$attr['hours']} HOUR)
+		    OR service_id >= 5 AND timestamp > (NOW() - INTERVAL 6 MINUTE)
 		ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
 			CASE 
-				WHEN service_id < 4 THEN score
-				WHEN service_id >= 4 AND followers >= 50 AND score > 240 THEN score
+				WHEN service_id < 5 THEN score
+				WHEN service_id >= 5 AND followers >= 50 AND score > 240 THEN score
 			END DESC,
 			viewers DESC;
 	";
@@ -302,7 +302,7 @@ function broadcast_top_func( $attr ) {
 			(timestamp > (NOW() - INTERVAL 9 MINUTE)) AS live,
 			(TIMESTAMPDIFF(MINUTE,timestamp,NOW())) AS online
 		FROM `wp_broadcast_streams`
-		WHERE service_id < 4
+		WHERE service_id < 5
 		ORDER BY units DESC
 		LIMIT ${attr['count']};
 	";
@@ -362,8 +362,8 @@ function broadcast_widget_func() {
 			WHERE timestamp > (NOW() - INTERVAL 6 MINUTE)
 			ORDER BY UNIX_TIMESTAMP(FROM_UNIXTIME(UNIX_TIMESTAMP(timestamp),'%Y-%m-%d %H:%i')) DESC,
 				CASE 
-					WHEN service_id < 4 THEN score
-					WHEN service_id >= 4 AND followers >= 50 AND score > 240 THEN score
+					WHEN service_id < 5 THEN score
+					WHEN service_id >= 5 AND followers >= 50 AND score > 240 THEN score
 				END DESC,
 				viewers DESC
 			LIMIT 20;
@@ -749,8 +749,8 @@ function broadcast_widget_func() {
 			1=>$img_prefix.'service_twitch.png',
 			2=>$img_prefix.'service_hitbox.png',
 			3=>$img_prefix.'service_youtube.png',
-			4=>$img_prefix.'service_twitch_gamedev.png',
-			5=>$img_prefix.'service_beam.png'
+			4=>$img_prefix.'service_beam.png',
+			5=>$img_prefix.'service_twitch_gamedev.png'
 		);
 ?>
 
@@ -786,8 +786,8 @@ function broadcast_widget_func() {
 				<a class="left fiveside hoveralpha" href="http://www.twitch.tv/directory/game/Ludum%20Dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/twitch24.png"></a>
 				<a class="left fiveside hoveralpha" href="http://www.twitch.tv/directory/game/Game%20Development"><img src="http://ludumdare.com/compo/wp-content/plugins/twidget/service_twitch_gamedev.png"></a>
 				<a class="left fiveside hoveralpha" href="http://www.hitbox.tv/game/ludum-dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/hitbox24.png"></a>
-				<a class="left fiveside hoveralpha" href="https://www.youtube.com/results?filters=live&lclk=live&search_sort=video_view_count&search_query=ludum+dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/youtube24.png"></a>
 				<a class="left fiveside hoveralpha" href="https://beam.pro/browse?scope=all&query=ludum%20dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/plugins/twidget/service_beam.png"></a>
+				<a class="left fiveside hoveralpha" href="https://www.youtube.com/results?filters=live&lclk=live&search_sort=video_view_count&search_query=ludum+dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/youtube24.png"></a>
 				<span class="left close" onclick="broadcast_hide_tvpop();"><strong>X</strong></span>
 			</div>
 			<div>To stream, set your Game to <strong>"Ludum Dare"</strong>.</div>
