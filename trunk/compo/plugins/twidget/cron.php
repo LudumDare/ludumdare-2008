@@ -515,7 +515,7 @@ require "fetch-streams.php";
 			
 			
 			foreach ( $alt_twitch_streams['streams'] as $value ) {
-				$service_id = 5;	// Twitch.tv GameDev //
+				$service_id = 6;	// Twitch.tv GameDev //
 				$channel_id = intval($value['channel']['_id']);
 				$channel_name = mysqli_real_escape_string($db,trim($value['channel']['name']));
 				$channel_display_name = mysqli_real_escape_string($db,trim($value['channel']['display_name']));

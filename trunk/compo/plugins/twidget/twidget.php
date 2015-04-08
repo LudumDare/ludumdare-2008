@@ -153,7 +153,8 @@ function broadcast_query_func( $query ) {
 		2=>'hitbox',
 		3=>'youtube',
 		4=>'beam',
-		5=>'twitch-gamedev'
+		5=>'',
+		6=>'twitch-gamedev'
 	);
 	
 	$modes = Array(
@@ -750,7 +751,8 @@ function broadcast_widget_func() {
 			2=>$img_prefix.'service_hitbox.png',
 			3=>$img_prefix.'service_youtube.png',
 			4=>$img_prefix.'service_beam.png',
-			5=>$img_prefix.'service_twitch_gamedev.png'
+			5=>'',
+			6=>$img_prefix.'service_twitch_gamedev.png'
 		);
 ?>
 
@@ -843,7 +845,7 @@ add_shortcode( 'broadcast_widget', 'broadcast_widget_func' );
 // Add Local Style Sheet style.css //
 add_action( 'wp_enqueue_scripts', 'broadcast_add_my_stylesheet' );
 function broadcast_add_my_stylesheet() {
-    wp_register_style( 'broadcast-style', plugins_url('style.css?1', __FILE__) );
+    wp_register_style( 'broadcast-style', plugins_url('style.css?1.1', __FILE__) );
     wp_enqueue_style( 'broadcast-style' );
 }
 
