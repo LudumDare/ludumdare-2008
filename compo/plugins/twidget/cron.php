@@ -420,7 +420,7 @@ require "fetch-streams.php";
 					$media_viewers = intval($value['viewers_current']);
 					$channel_avatar = ""; // Avatar lookup requires extra requests //mysqli_real_escape_string($db,'http://edge.hitbox.tv' . trim($value['channel']['user_logo']));
 					$channel_url = mysqli_real_escape_string($db,'https://beam.pro/'.trim($value['token']));
-					$channel_embed_url = mysqli_real_escape_string($db,"https://beam.pro/embed/".trim($value['token']));
+					$channel_embed_url = mysqli_real_escape_string($db,"https://beam.pro/embed/player/".trim($value['token']));
 					$channel_status = mysqli_real_escape_string($db,trim($value['name']));
 					$channel_mature = 0; // There is an Age rating ('audience'), reported as G for all.
 					
