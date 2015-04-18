@@ -251,7 +251,7 @@ require "fetch-streams.php";
 				$media_id = intval($value['media_id']);
 				$channel_followers = intval($value['channel']['followers']);
 				$media_viewers = intval($value['media_views']);
-				$channel_avatar = mysqli_real_escape_string($db,'http://edge.hitbox.tv' . trim($value['channel']['user_logo']));
+				$channel_avatar = mysqli_real_escape_string($db,'http://edge.sf.hitbox.tv' . trim($value['channel']['user_logo']));
 				$channel_url = mysqli_real_escape_string($db,trim($value['channel']['channel_link']));
 				$channel_embed_url = mysqli_real_escape_string($db,"http://hitbox.tv/embed/{$channel_name}?autoplay=true");
 				$channel_status = mysqli_real_escape_string($db,trim($value['media_status']));
