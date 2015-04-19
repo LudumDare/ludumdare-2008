@@ -788,7 +788,7 @@ function broadcast_widget_func() {
 				<a class="left fiveside hoveralpha" href="http://www.twitch.tv/directory/game/Ludum%20Dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/twitch24.png"></a>
 				<a class="left fiveside hoveralpha" href="http://www.twitch.tv/directory/game/Game%20Development"><img src="http://ludumdare.com/compo/wp-content/plugins/twidget/service_twitch_gamedev.png"></a>
 				<a class="left fiveside hoveralpha" href="http://www.hitbox.tv/game/ludum-dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/hitbox24.png"></a>
-				<a class="left fiveside hoveralpha" href="https://beam.pro/browse?scope=all&query=ludum%20dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/plugins/twidget/service_beam.png"></a>
+				<a class="left fiveside hoveralpha" href="https://beam.pro/browse?type=ludum-dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/plugins/twidget/service_beam.png"></a>
 				<a class="left fiveside hoveralpha" href="https://www.youtube.com/results?filters=live&lclk=live&search_sort=video_view_count&search_query=ludum+dare" target="_blank"><img src="http://ludumdare.com/compo/wp-content/uploads/2014/10/youtube24.png"></a>
 				<span class="left close" onclick="broadcast_hide_tvpop();"><strong>X</strong></span>
 			</div>
