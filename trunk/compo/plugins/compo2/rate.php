@@ -8,9 +8,9 @@ function _compo2_rate($params) {
         return _compo2_preview($params);
     }
     
-    echo "<!--";
-    print_r($params);
-    echo "-->";
+//    echo "<!--";
+//    print_r($params);
+//    echo "-->";
 
     // handle non-competitors ..
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
@@ -26,8 +26,10 @@ function _compo2_rate($params) {
             _compo2_preview_me($params);
         } elseif ($action == "preview") {
             echo "<p class='message'>Voting is only available to participants.</p>";
-            if (!isset($params["locked"]) && (trim($params["opendivs"]) !== "") ) {
-                echo "<p><a href='?action=edit'>Submit an Entry</a></p>";
+            if (!isset($params["locked"])) {
+         		if ( ((is_array($params["opendivs"])) && (count($params["opendivs"]) > 0)) || trim($params["opendivs"]) !== "" ) {
+            		echo "<p><a href='?action=edit'>Submit an Entry</a></p>";
+            	}
             }
             return _compo2_preview($params);
         } elseif ($action == "rate") {
