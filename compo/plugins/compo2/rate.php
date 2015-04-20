@@ -8,7 +8,9 @@ function _compo2_rate($params) {
         return _compo2_preview($params);
     }
     
-    echo "<!--" . $params . "-->";
+    echo "<!--";
+    print_r($params);
+    echo "-->";
 
     // handle non-competitors ..
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
