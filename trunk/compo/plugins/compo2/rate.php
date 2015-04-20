@@ -7,6 +7,8 @@ function _compo2_rate($params) {
         echo "<p class='message'>You must sign in to vote.</p>";
         return _compo2_preview($params);
     }
+    
+    echo "<!--" . $params . "-->";
 
     // handle non-competitors ..
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
