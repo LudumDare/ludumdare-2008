@@ -397,7 +397,7 @@ function _compo2_active_form($params,$uid="",$is_admin=0) {
 	// Downloads //
 	echo "<h2>Downloads and Links {$star}</h2>";
 	echo "You must host downloads elsewhere. Need a host? <a href='http://ludumdare.com/compo/faq/' target='_blank'>See the <strong>FAQ</strong></a>.<br />";
-	echo "<strong>TIP:</strong> Hosting on a Game website? <strong>Don't forget</strong> to link to your Ludum Dare page! Fellow LD'ers can't rate you if they can't find you!<br />";
+	echo "<strong>TIP:</strong> Hosting on a Gaming website? <strong>DON'T FORGET</strong> to link to your Ludum Dare page! Fellow LD'ers can't rate you if they can't find you!<br />";
 	echo "<br />";
 	
 	$links_count = count($links);
