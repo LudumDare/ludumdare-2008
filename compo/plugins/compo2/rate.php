@@ -342,6 +342,7 @@ function _compo2_rate_rate($params,$uid = "") {
     if (!$ce["id"]) { return; }
 
     $ve = array_pop(compo2_query("select * from c2_rate where cid = ? and to_uid = ? and from_uid = ?",array($params["cid"],$ce["uid"],$params["uid"])));
+    $canvote = false;
     
     if ( ($params["uid"] != $uid) ) { 
     	if ( !isset($params["{$div}_judged"]) || ($params["{$div}_judged"] !== "0") ) {
@@ -368,6 +369,7 @@ function _compo2_rate_rate($params,$uid = "") {
 		                echo "<script>new Starry('data[$k]',{name:'data[$k]',sprite:'$myurl/starry/newstars.gif',width:20,height:20,startAt:$v});</script>";
 		        //         compo2_select("data[$k]",array(""=>"n/a","5"=>"5 - Best","4"=>"4","3"=>"3","2"=>"2","1"=>"1 - Worst"),$v);
 		    		}
+		    		$canvote = true;
 	            }
 	            echo "</table>";
 	        } else {
@@ -383,8 +385,8 @@ function _compo2_rate_rate($params,$uid = "") {
 	        echo "<br/>";
 	    }
     }
-    _compo2_preview_comments($params,$uid,$form=true);
-    _compo2_show_comments($params["cid"],$ce["uid"]);
+    _compo2_preview_comments($params,$uid,$form=(!$canvote));//true);
+    _compo2_show_comments($params["cid"],$ce["uid"]);	// NOTE: Legacy comment system
 
 }
 
