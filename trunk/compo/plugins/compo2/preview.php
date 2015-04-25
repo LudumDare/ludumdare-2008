@@ -273,6 +273,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$url = $settings["EMBED"]["url"];
 		$width = $settings["EMBED"]["width"];
 		$height = $settings["EMBED"]["height"];
+		
 ?>
 		<script>
 			function c2_toggle_fullscreen() {
@@ -290,7 +291,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			
 			function c2_play_game() {
 				var elm = document.getElementById('embed-frame');
-				elm.innerHTML = "<iframe id='embed' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
+				elm.innerHTML = <?php echo "<iframe id='embed' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>"; ?>
 			}
 			
 			function c2_exit_game() {
@@ -330,8 +331,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 <?php	
 		
 		echo "<div id='embed-frame'>";
-			//echo "<div id='embed' onclick='c2_play_game();'>poof</div>";
-			echo "<iframe id='embed' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
+			echo "<div id='embed' onclick='c2_play_game();'>poof</div>";
 		echo "</div>";	
 		echo "<div class='embed-controls'>";		
 			if ( $settings["EMBED"]["fullscreen"] ) {	
