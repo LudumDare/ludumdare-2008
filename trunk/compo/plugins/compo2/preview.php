@@ -275,7 +275,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$height = $settings["EMBED"]["height"];
 
 		$imagefile = array_values($shots)[0];
-		$shot_url = c2_thumb($imagefile,$width,$height,false,true);
+		$shot_url = c2_thumb($imagefile,900,500,false,true);
 		
 		$play_code = "<div id='embed' onclick='c2_play_game();'><img src='{$shot_url}' width='{$width}' height='{$height}'><div class='embed-overlay'></div><img class='embed-icon' src='/compo/wp-content/plugins/compo2/art/play.png' /></div>";
 		
