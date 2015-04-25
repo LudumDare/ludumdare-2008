@@ -467,6 +467,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		}
 		
 		#compo-nsfw {
+			cursor:pointer;
 			background:#900;
 			border-radius:10px;
 			padding:20px;
