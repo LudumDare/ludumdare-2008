@@ -338,6 +338,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		echo "<div id='embed-frame'>";
 			echo "<div id='embed' onclick='c2_play_game();'>
 				<img id='embed' src='{$shot_url}' width='{$width}' height='{$height}'>
+				<div class='sn-overlay'></div>
+				<img class='sn-icon' src='/compo/wp-content/plugins/compo2/art/play.png' />
 			</div>";
 		echo "</div>";	
 		echo "<div class='embed-controls'>";		
