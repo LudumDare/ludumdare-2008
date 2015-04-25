@@ -276,6 +276,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		
 		echo "<div id='embed-frame'>";
 		echo "<iframe id='embed' style='margin:10px auto;display:block' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
+		
+		echo "<div>";
 		if ( $settings["EMBED"]["fullscreen"] ) {	
 ?>
 			<script>
@@ -320,6 +322,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		}
 		
 		echo "<img src='{$baseurl}/art/Power.png' onclick='c2_shutdown();'>";
+		echo "</div>";
 		
 		echo "</div>";
 	}
