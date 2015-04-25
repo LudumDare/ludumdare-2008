@@ -264,6 +264,9 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	
 	$shots = unserialize($ce["shots"]);
 	$settings = unserialize($ce["settings"]);
+	$is_nsfw = $ce["NSFL"];
+	console.log("NSFW: " . $is_nsfw);
+	//<script>window.compo_game_nsfw = true;</script>
 
 	$baseurl = get_bloginfo("url")."/wp-content";
 
