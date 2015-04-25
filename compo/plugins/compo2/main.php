@@ -100,11 +100,13 @@ function compo2_main($params) {
     // If we're in debug mode, display our params
 //     if (strlen($_REQUEST["debug"])) { echo "<pre>";print_r($params);echo "</pre>"; }
     
+    $nsfw = "<div id='compo-nsfw' class='hidden' onclick='c2_addclass( document.getElementById('compo-nsfw'), 'hidden'); c2_removeclass( document.getElementById('compo-body'), 'hidden');'><h2>WARNING!</h2><p>This entry may contain subject matter that you or those around you may find offensive. You have been warned.</p><h2>I understand. Let me see it.</h2></div>";
+    
     // dispatch according to the current state
     ob_start();
     $state = $params["state"];
     if ($state == "active") { _compo2_active($params); }
-    elseif ($state == "rate") { echo "<div id='compo-body'>"; _compo2_rate($params); echo "</div>"; }
+    elseif ($state == "rate") { echo "<div id='compo-body'>"; _compo2_rate($params); echo "</div>" . $nsfw; }
     elseif ($state == "results") { _compo2_results($params); }
     elseif ($state == "admin") { _compo2_admin($params); }
     elseif ($state == "misc") { _compo2_misc($params); }
