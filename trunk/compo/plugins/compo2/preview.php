@@ -330,7 +330,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 <?php	
 		
 		echo "<div id='embed-frame'>";
-			echo "<div id='embed' onclick='c2_play_game();'>poof</div>";
+			//echo "<div id='embed' onclick='c2_play_game();'>poof</div>";
+			echo "<iframe id='embed' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
 		echo "</div>";	
 		echo "<div class='embed-controls'>";		
 			if ( $settings["EMBED"]["fullscreen"] ) {	
