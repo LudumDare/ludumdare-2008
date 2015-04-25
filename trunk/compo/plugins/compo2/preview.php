@@ -470,6 +470,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			border-radius:10px;
 			padding:20px;
 			color:#FF0;
+			text-align:center;
 		}
 		
 		#compo-nsfw h2 {
