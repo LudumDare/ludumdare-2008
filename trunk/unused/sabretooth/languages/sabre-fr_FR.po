@@ -1,0 +1,749 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2011-01-06 18:30+0100\n"
+"Last-Translator: DLO <DLO@DLO.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1\n"
+
+msgid "Registration stopped by Sabre."
+msgstr "Inscription stopp&eacute;e par Sabre."
+
+msgid "Sorry, but you can't run this plugin, it requires WordPress 3.0 or higher."
+msgstr "D&eacute;sol&eacute;, mais ce plugin requiert au minimum WordPress 3.0 pour fonctionner. Mettez &agrave; jour votre site."
+
+msgid "Sorry, but you have no authority to manage this plugin."
+msgstr "D&eacute;sol&eacute;, mais vous n'avez pas les droits suffisants pour g&eacute;rer ce plugin."
+
+msgid "Registration's informations from Sabre"
+msgstr "Informations sur l'inscription via Sabre"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "State of registration."
+msgstr "Etat de l'inscription"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Last modification date."
+msgstr "Date de derni&egrave;re modification"
+
+msgid "Invite code"
+msgstr "Code invit&eacute;"
+
+msgid "Invitation code used."
+msgstr "Code invit&eacute; utilis&eacute;."
+
+msgid "Strength indicator"
+msgstr "Indicateur de s&ucirc;ret&eacute;"
+
+msgid "Hint: Your password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! \" ? $ % ^ &amp; )."
+msgstr "Conseil: Votre mot de passe doit comporter au moins sept caract&egrave;res. Pour le rendre plus s&ucirc;r, utilisez des majuscules, des minuscules, des chiffres et des symboles tels que ! \" ? $ % ^ &amp; )."
+
+msgid "Too short"
+msgstr "Tr&egrave;s faible"
+
+msgid "Bad"
+msgstr "Faible"
+
+msgid "Good"
+msgstr "Moyenne"
+
+msgid "Strong"
+msgstr "Forte"
+
+msgid "Mismatch"
+msgstr "Non identique"
+
+msgid "Please enter your invitation code:"
+msgstr "Entrez votre code invit&eacute;:"
+
+msgid "Please enter your password twice:"
+msgstr "Entrez deux fois votre mot de passe:"
+
+msgid "Please enter the code shown above:"
+msgstr "Tapez le code ci-dessus, svp:"
+
+msgid "Please enter the result: %s"
+msgstr "Tapez le r&eacute;sultat de l'op&eacute;ration suivante: %s"
+
+msgid "Please enter the %s letter of the word %s"
+msgstr "Tapez la %s lettre du mot %s"
+
+msgid "first"
+msgstr "premi&egrave;re"
+
+msgid "second"
+msgstr "seconde"
+
+msgid "third"
+msgstr "troisi&egrave;me"
+
+msgid "fourth"
+msgstr "quatri&egrave;me"
+
+msgid "fifth"
+msgstr "cinqui&egrave;me"
+
+msgid "sixth"
+msgstr "sixi&egrave;me"
+
+msgid "seventh"
+msgstr "septi&egrave;me"
+
+msgid "eighth"
+msgstr "huiti&egrave;me"
+
+msgid "ninth"
+msgstr "neuvi&egrave;me"
+
+msgid "last"
+msgstr "derni&egrave;re"
+
+msgid "Please don't modify this field:"
+msgstr "Ne pas modifier ce champ, svp:"
+
+msgid "Protected by"
+msgstr "Prot&eacute;g&eacute; par"
+
+msgid " %s alien stopped."
+msgid_plural " %s aliens stopped."
+msgstr[0] " %s extra-terrestre arr&ecirc;t&eacute;. "
+msgstr[1] " %s extra-terrestres arr&ecirc;t&eacute;s. "
+
+msgid "I agree"
+msgstr "Je suis d'accord"
+
+msgid "<strong>ERROR</strong>: "
+msgstr "<strong>ERREUR </strong>: "
+
+msgid "Invalid invitation code."
+msgstr "Code invit&eacute; invalide."
+
+msgid "Invalid code."
+msgstr "Code invalide."
+
+msgid "Invalid letter."
+msgstr "Lettre invalide."
+
+msgid "Policy not accepted."
+msgstr "Conditions g&eacute;n&eacute;rales non accept&eacute;es."
+
+msgid "Unknown session."
+msgstr "Session inconnue."
+
+msgid "Invalid session status."
+msgstr "Status de la session invalide."
+
+msgid "Invalid IP address."
+msgstr "Adresse IP invalide."
+
+msgid "Banned IP address."
+msgstr "Adresse IP bannie."
+
+msgid "Session timed out."
+msgstr "Session expir&eacute;e."
+
+msgid "Speedy Gonzales was here."
+msgstr "Speedy Gonzales est pass&eacute; par ici."
+
+msgid "Fake user."
+msgstr "Utilisateur simul&eacute;."
+
+msgid "No Javascript capabilities."
+msgstr "Pas de Javascript."
+
+msgid "Fake Javascript capabilities."
+msgstr "Javascript simul&eacute;."
+
+msgid "Confirmation pending. See registration e-mail."
+msgstr "En attente de confirmation. Consulter le courriel d'inscription."
+
+msgid "Registration not yet validated by the site's administrator. Wait for confirmation e-mail."
+msgstr "Inscription non valid&eacute;e par l'administrateur du site. Attendre le courriel de confirmation."
+
+msgid "Exceeded period for confirmation of registration."
+msgstr "D&eacute;lai de confirmation d&eacute;pass&eacute;."
+
+msgid "Invalid registration status."
+msgstr "Status d'inscription invalide."
+
+msgid "Unexpected confirmation of registration."
+msgstr "Confirmation d'inscription inattendue."
+
+msgid "Invalid math result."
+msgstr "R&eacute;sultat op&eacute;ration invalide."
+
+msgid "Missing password."
+msgstr "Mot de passe non renseign&eacute;."
+
+msgid "Mismatch between password fields."
+msgstr "Les deux mots de passe sont diff&eacute;rents."
+
+msgid "Password length is less than 6 characters."
+msgstr "Mot de passe de moins de 6 caract&egrave;res."
+
+msgid "Registration confirmed. You can now use your credentials to enter in this site."
+msgstr "Inscription confirm&eacute;e. Vous pouvez maintenant utiliser votre identifiant pour entrer sur ce site."
+
+msgid "Configure"
+msgstr "Configurer"
+
+msgid "Set Sabre's parameters"
+msgstr "Param&egrave;trer Sabre"
+
+msgid "Sabre Options"
+msgstr "Sabre - Options"
+
+msgid "General Options"
+msgstr "Options g&eacute;n&eacute;rales"
+
+msgid "Blocked Registrations"
+msgstr "Inscriptions bloqu&eacute;es"
+
+msgid "Approved Registrations"
+msgstr "Inscriptions autoris&eacute;es"
+
+msgid "Registrations to confirm"
+msgstr "Inscriptions &agrave; confirmer"
+
+msgid "Sabre Logs"
+msgstr "Historique"
+
+msgid "About"
+msgstr "A propos"
+
+msgid "Invalid registration list"
+msgstr "Liste des inscriptions invalides"
+
+msgid "User name"
+msgstr "Nom utilisateur"
+
+msgid "User E-mail"
+msgstr "E-mail utilisateur"
+
+msgid "User IP"
+msgstr "IP utilisateur"
+
+msgid "When"
+msgstr "Quand"
+
+msgid "Errors"
+msgstr "Erreurs"
+
+msgid "User ID"
+msgstr "ID utilisateur"
+
+msgid "Valid registration list"
+msgstr "Liste des inscriptions valides"
+
+msgid "To confirm registration list"
+msgstr "Liste des inscriptions &agrave; confirmer"
+
+msgid "Events history"
+msgstr "Historique des &eacute;v&egrave;nements"
+
+msgid "Invitation options"
+msgstr "Options d'invitation"
+
+msgid "Enable invitation:"
+msgstr "Activer les invitations:"
+
+msgid "(User must provide an invitation code to register)"
+msgstr "(L'utilisateur doit fournir un code invit&eacute; pour s'enregistrer)"
+
+msgid "Invitation codes:"
+msgstr "Codes invit&eacute;."
+
+msgid "(List of valid invitation codes - Usage is the number of time the code can be used - Validity is the expiration date in YYYY-MM-DD format)"
+msgstr "(Liste des codes invit&eacute;s valides. Usage est le nombre d'utilisations possibles du code - Validit&eacute; est la date d'expiration au format AAAA-MM-JJ)"
+
+msgid "Code"
+msgstr "Code"
+
+msgid "Usage"
+msgstr "Usage"
+
+msgid "Validity"
+msgstr "Validit&eacute;"
+
+msgid "Gen"
+msgstr "Gen"
+
+msgid "Del"
+msgstr "Sup"
+
+msgid "Miscellaneous options"
+msgstr "Options diverses"
+
+msgid "User's password:"
+msgstr "Mot de passe de l'utilisateur:"
+
+msgid "(User can choose his own password during registration)"
+msgstr "(L'utilisateur peut choisir lui-m&ecirc;me son mot de passe pendant l'enregistrement)"
+
+msgid "Show banner:"
+msgstr "Inclure la banni&egrave;re:"
+
+msgid "(Mention Sabre at the bottom of the registration form)"
+msgstr "(Mentionner Sabre au bas du formulaire d'inscription)"
+
+msgid "Show on dashboard:"
+msgstr "Afficher sur le tableau de bord:"
+
+msgid "(Include Sabre statistics on the dashboard)"
+msgstr "(Inclure les statistiques de Sabre dans le tableau de bord)"
+
+msgid "Show in profile:"
+msgstr "Afficher dans le profil:"
+
+msgid "(Include Sabre informations in the user profile)"
+msgstr "(Inclure les informations de Sabre dans le profil utilisateur)"
+
+msgid "Suppress Sabre:"
+msgstr "Supprimer Sabre:"
+
+msgid "(Delete all Sabre stuff when deactivating the plugin - Use with caution!)"
+msgstr "(Effacer toutes les informations concernant Sabre quand le plugin est d&eacute;sactiv&eacute; - A utiliser avec pr&eacute;caution !)"
+
+msgid "Policy options"
+msgstr "Options des conditions d'utilisation"
+
+msgid "Enable policy agreement:"
+msgstr "Activer l'accord d'utilisation:"
+
+msgid "(Ask for user's acceptance of site's policy)"
+msgstr "(Demander &agrave; l'utilisateur d'accepter les conditions du site)"
+
+msgid "Policy name:"
+msgstr "Nom de l'accord:"
+
+msgid "(Name of agreement like Disclaimer, Licence agreement, General policy, etc...Will be shown on the registration form)"
+msgstr "(Titre des conditions. Exemple: Avertissement, Conditions G&eacute;n&eacute;rales, Accord de licence, etc... Sera affich&eacute; sur le formulaire d'inscription) "
+
+msgid "Policy link:"
+msgstr "Lien vers l'accord:"
+
+msgid "(URL of the policy text. If not blank, the name of the agreement above will turn into a link to that URL on the registration form. Can be a WordPress page or an external html file.)"
+msgstr "(URL du texte de l'agr&eacute;ment. Si renseign&eacute;, le nom de l'agr&eacute;ment ci-dessus deviendra un lien vers cette URL dans l'&eacute;cran d'enregistrement. Peut &ecirc;tre une page WordPress ou un fichier html externe.)"
+
+msgid "Policy text:"
+msgstr "Texte de l'accord:"
+
+msgid "(Enter the text to be displayed on the registration form)"
+msgstr "(Taper le texte des conditions qui sera affich&eacute;)"
+
+msgid "Sender's name:"
+msgstr "Nom de l'exp&eacute;diteur:"
+
+msgid "(Name used in mails sent by Sabre - Blog's name used if left blank)"
+msgstr "(Nom de l'exp&eacute;diteur des mails envoy&eacute;s par Sabre - Nom du blog si zone &agrave blanc)"
+
+msgid "Sender's email:"
+msgstr "Adresse mail de l'exp&eacute;diteur:"
+
+msgid "(Mail address in mails sent by Sabre - Administrator's mail used if left blank)"
+msgstr "(Adresse mail de l'exp&eacute;diteur des mails envoy&eacute;s par Sabre - Mail de l'administrateur si zone &agrave; blanc)"
+
+msgid "Stealth options"
+msgstr "Options furtives"
+
+msgid "Enable stealth test:"
+msgstr "Activer le test furtif:"
+
+msgid "(Turn silent control on/off)"
+msgstr "(Active/D&eacute;sactive les contr&ocirc;les silencieux)"
+
+msgid "Session time out:"
+msgstr "Expiration de session:"
+
+msgid "(Max. time in seconds before session expires)"
+msgstr "(Temps maxi. en secondes avant expiration de la session)"
+
+msgid "Speed limit:"
+msgstr "Vitesse maxi:"
+
+msgid "(Min. time in seconds to fill the registration form)"
+msgstr "(Temps mini. en secondes pour remplir le formulaire d'inscription)"
+
+msgid "Block if Javascript unsupported:"
+msgstr "Bloquer si Javascript non support&eacute;:"
+
+msgid "(Consider that a lack of Javascript capabilities is a spambot's footprint)"
+msgstr "(Consid&eacute;rer que l'absence de support du Javascript est la marque d'un spam)"
+
+msgid "Check DNS Blacklists:"
+msgstr "V&eacute;rifier DNS Blacklists:"
+
+msgid "(Control if user IP address is blacklisted on DNSBL servers)"
+msgstr "(Controler si l'adresse IP n'est pas bannie par les serveurs DNSBL)"
+
+msgid "Captcha options"
+msgstr "Options du Captcha"
+
+msgid "Enable captcha test:"
+msgstr "Activer le test Captcha:"
+
+msgid "(Turn captcha generation on/off)"
+msgstr "(Active/D&eacute;sactive le Captcha dans le formulaire d'inscription)"
+
+msgid "Use white background:"
+msgstr "Utiliser un fond blanc:"
+
+msgid "(Captcha is displayed on a white background. Black background if not checked)"
+msgstr "(Le captcha est affich&eacute; sur un fond blanc. Fond noir si case non coch&eacute;e)"
+
+msgid "Accepted characters:"
+msgstr "Caract&egrave;res accept&eacute;s:"
+
+msgid "(List of valid characters for code generation)"
+msgstr "(Liste des caract&egrave;res valides pour la g&eacute;n&eacute;ration du code)"
+
+msgid "String length:"
+msgstr "Longueur du code:"
+
+msgid "(Number of characters for code)"
+msgstr "(Nombre de caract&egrave;res du code)"
+
+msgid "Contrast:"
+msgstr "Contraste:"
+
+msgid "(The higher the number, the better the contrast)"
+msgstr "(Plus le chiffre est grand, meilleur est le contraste)"
+
+msgid "Number of polygons:"
+msgstr "Nombre de polygones:"
+
+msgid "(Number of triangles to draw.  0 = none)"
+msgstr "(Nombre de triangles &agrave; dessiner. 0 = aucun)"
+
+msgid "Number of ellipses:"
+msgstr "Nombre d'ellipses:"
+
+msgid "(Number of ellipses to draw.  0 = none)"
+msgstr "(Nombre d'ellipses &agrave; dessiner. 0 = aucune)"
+
+msgid "Number of lines:"
+msgstr "Nombre de lignes:"
+
+msgid "(Number of lines to draw.  0 = none)"
+msgstr "(Nombre de lignes &agrave; dessiner. 0 = aucune)"
+
+msgid "Number of dots:"
+msgstr "Nombre de points:"
+
+msgid "(Number of dots to draw.  0 = none)"
+msgstr "(Nombre de points &agrave; dessiner. 0 = aucun)"
+
+msgid "Min. thickness:"
+msgstr "Epaisseur min.:"
+
+msgid "(Minimum thickness of lines in pixels)"
+msgstr "(Epaisseur minimum des lignes en pixels)"
+
+msgid "Max. thickness:"
+msgstr "Epaisseur max.:"
+
+msgid "(Maximum thickness of lines in pixels)"
+msgstr "(Epaisseur maximum des lignes en pixels)"
+
+msgid "Min. radius:"
+msgstr "Rayon min.:"
+
+msgid "(Minimum radius of ellipses)"
+msgstr "(Rayon minimum des ellipses)"
+
+msgid "Max. radius:"
+msgstr "Rayon max.:"
+
+msgid "(Maximum radius of ellipses)"
+msgstr "(Rayon maximum des ellipses)"
+
+msgid "Object alpha:"
+msgstr "Coeff. alpha:"
+
+msgid "(How opaque should the obscuring objects be. 0 is opaque, 127 is transparent)"
+msgstr "(Taux d'opacit&eacute; des objets recouvrant le code. 0 = opaque, 127 = transparent)"
+
+msgid "Save options"
+msgstr "Enregistrer les options"
+
+msgid "New user registration on your site %s:"
+msgstr "Enregistrement d'un nouvel utilisateur sur votre site %s"
+
+msgid "Username: %s"
+msgstr "Identifiant: %s"
+
+msgid "E-mail: %s"
+msgstr "Adresse E-mail: %s"
+
+msgid "[%s] New User Registration"
+msgstr "[%s] Inscription d'un nouvel utilisateur"
+
+msgid "Thank you for registering on %s"
+msgstr "Merci pour votre inscription sur %s."
+
+msgid "Password: %s"
+msgstr "Mot de passe: %s"
+
+msgid "Use the password defined during your registration"
+msgstr "Utilisez le mot de passe choisi pendant l'enregistrement"
+
+msgid "[%s] - Your registration information"
+msgstr "[%s] - Vos informations d'enregistrement"
+
+msgid "You must confirm your registration within %s day by following the link below"
+msgid_plural "You must confirm your registration within %s days by following the link below"
+msgstr[0] "Vous devez confirmer votre inscription avant %s jour en cliquant sur le lien ci-dessous"
+msgstr[1] "Vous devez confirmer votre inscription avant %s jours en cliquant sur le lien ci-dessous"
+
+msgid "Your registration has to be validated by the administrator before you can sign on the site. You will be advised by e-mail upon completion."
+msgstr "Votre inscription n&eacute;cessite la validation de l'administrateur avant que vous puissiez vous connecter au site. Vous recevrez un courriel quand cela sera fait."
+
+msgid "New user registration confirmed on your site %s:"
+msgstr "Confirmation de l'enregistrement d'un nouvel utilisateur sur votre site %s"
+
+msgid "[%s] New User Registration Confirmation"
+msgstr "[%s] Confirmation d'inscription d'un nouvel utilisateur"
+
+msgid "Your registration on %s is now confirmed. You can freely sign in using the credentials given in a previous mail. Thank you for your interest."
+msgstr "Votre inscription sur %s est maintenant confirmee. Vous pouvez vous connecter en utilisant les informations en votre possession. Merci pour votre interet."
+
+msgid "Still in construction. Watch out ! Wet paint..."
+msgstr "Construction en cours. Attention ! Peinture fraiche..."
+
+msgid "SABRE (<b>S</b>imple <b>A</b>nti <b>B</b>ot <b>R</b>egistration <b>E</b>ngine) is dedicated to the protection of your site against automatic registration by spammers."
+msgstr "SABRE (<b>S</b>imple <b>A</b>nti <b>B</b>ot <b>R</b>egistration <b>E</b>ngine) est d&eacute;di&eacute; &agrave; la protection de votre site contre l'inscription automatique par des spammeurs."
+
+msgid "Quick figures"
+msgstr "Quelques chiffres"
+
+msgid "Total number of registrations stopped:"
+msgstr "Nombre total d'inscriptions stopp&eacute;es :"
+
+msgid "Total number of registrations accepted:"
+msgstr "Nombre total d'inscriptions accept&eacute;es :"
+
+msgid "Browse"
+msgstr "Passer en revue"
+
+msgid "Display"
+msgstr "Afficher"
+
+msgid "lines per page, skipping first: "
+msgstr "lignes par page, en passant les premiers: "
+
+msgid "Confirmation options"
+msgstr "Options de confirmation"
+
+msgid "Enable confirmation:"
+msgstr "Activer la confirmation:"
+
+msgid "None"
+msgstr "Aucune"
+
+msgid "By user"
+msgstr "Par l'utilisateur"
+
+msgid "By admin"
+msgstr "Par l'administrateur"
+
+msgid "(Ask user or site's admin to confirm registration)"
+msgstr "(Demander &agrave; l'utilisateur ou &agrave; l'administrateur de confirmer l'inscription)"
+
+msgid "Number of days:"
+msgstr "Nombre de jours:"
+
+msgid "(Period of time for the user to confirm his registration)"
+msgstr "(D&eacute;lai donn&eacute; &agrave; l'utilisateur pour confirmer son inscription)"
+
+msgid "Deny early sign-in:"
+msgstr "Interdire l'utilisation anticip&eacute;e:"
+
+msgid "(Don't allow users to sign in before their confirmation)"
+msgstr "(Les utilisateurs ne peuvent pas se connecter avant leur confirmation)"
+
+msgid "Send mail when confirmed:"
+msgstr "Envoyer un mail si confirmation:"
+
+msgid "(Send a mail to the administrator upon user's confirmation)"
+msgstr "(Envoyer un mail &agrave; l'administrateur quand l'utilisateur a confirm&eacute; son inscription)"
+
+msgid "Suppress unregistered users:"
+msgstr "Supprimer les utilisateurs non enregistr&eacute;s:"
+
+msgid "(Delete user account when registration is canceled)"
+msgstr "(Supprimer le compte utilisateur quand l'inscription est annul&eacute;e)"
+
+msgid "Number of pending confirmation:"
+msgstr "Nombre de confirmations en attente:"
+
+msgid "Math options"
+msgstr "Options du test math&eacute;matique"
+
+msgid "Enable math test:"
+msgstr "Activer le test math&eacute;matique:"
+
+msgid "(Turn math control on/off)"
+msgstr "(Active/D&eacute;sactive le test dans le formulaire d'inscription)"
+
+msgid "Accepted operations:"
+msgstr "Op&eacute;rations accept&eacute;es:"
+
+msgid "(List of valid operations for math test)"
+msgstr "(Liste des op&eacute;rations valides pour le calcul)"
+
+msgid "Text captcha options"
+msgstr "Options du Captcha texte"
+
+msgid "Enable text test:"
+msgstr "Activer le test textuel:"
+
+msgid "(Turn text challenge on/off - The user will be asked to type the nth letter of a random word)"
+msgstr "(Active/D&eacute;sactive le test textuel - Si actif, l'utilisateur devra taper la n-i&egrave;me lettre d'un mot choisi au hasard)"
+
+msgid "Manual registration"
+msgstr "Inscription manuelle"
+
+msgid "Add"
+msgstr "Ajouter"
+
+msgid "Enter WordPress user name or check the box to add all existing WordPress users "
+msgstr "Taper le nom de l'utilisateur WordPress ou cocher la case pour ajouter tous les utilisateurs WordPress existants "
+
+msgid "Manual deregistration"
+msgstr "D&eacute;sinscription manuelle"
+
+msgid "Unregister"
+msgstr "D&eacute;sinscrire"
+
+msgid "Unregister selected users"
+msgstr "D&eacute;sinscrire les utilisateurs s&eacute;lectionn&eacute;s"
+
+msgid "Confirm registration"
+msgstr "Confirmation des inscriptions"
+
+msgid "Confirm"
+msgstr "Confirmer"
+
+msgid "Validate selected registrations"
+msgstr "Valider les inscriptions s&eacute;lectionn&eacute;es"
+
+msgid "Refuse registration"
+msgstr "Refus des inscriptions"
+
+msgid "Refuse"
+msgstr "Refuser"
+
+msgid "Refuse selected registrations"
+msgstr "Refuser les inscriptions  s&eacute;lectionn&eacute;es"
+
+msgid "Warning!"
+msgstr "Attention !"
+
+msgid "You set Sabre's behaviour to ask for user's confirmation of his registration. Normally, you don't have to intervene here but you can confirm or refuse it manually if needed."
+msgstr "Vous avez param&eacute;tr&eacute; Sabre pour demander &agrave; l'utilisateur de confirmer son inscription. Normalement, vous n'avez pas &agrave; intervenir mais vous pouvez confirmer ou refuser vous-m&ecirc;me en cas de besoin."
+
+msgid "You set Sabre's behaviour to ask for your confirmation of user's registration. You have to confirm or refuse it manually to complete the process."
+msgstr "Vous avez param&eacute;tr&eacute; Sabre pour que les inscriptions soient confirm&eacute;es par l'administrateur. Vous devez donc confirmer ou refuser les inscriptions list&eacute;es ci-dessous pour terminer le processus."
+
+msgid "You set Sabre's behaviour to register the user without confirmation. This screen will always be empty."
+msgstr "Vous avez param&eacute;tr&eacute; Sabre pour que les inscriptions se fassent sans confirmation. Cette &eacute;cran restera donc vide."
+
+msgid "Sequence of tests"
+msgstr "S&eacute;quence des tests"
+
+msgid "Tests to perform:"
+msgstr "Tests &agrave; ex&eacute;cuter:"
+
+msgid "(How do we use the above tests?)"
+msgstr "(Comment utiliser les tests ci-dessus ?)"
+
+msgid "All"
+msgstr "Tous"
+
+msgid "Randomly"
+msgstr "Au hasard"
+
+msgid "Purge log"
+msgstr "Purge de l'historique"
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Log older than"
+msgstr "Enregistrements de plus de"
+
+msgid "days"
+msgstr "jours"
+
+msgid "And do it automatically now"
+msgstr "Et le faire automatiquement maintenant"
+
+msgid "WordPress user successfully registered."
+msgstr "Utilisateur WordPress enregistr&eacute; avec succ&egrave;s."
+
+msgid "WordPress user is already registered. Manual registration ineffective."
+msgstr "Utilisateur WordPress d&eacute;j&agrave; enregistr&eacute;. Enregistrement manuel sans effet."
+
+msgid "WordPress user doesn't need to confirm registration. Manual registration ineffective."
+msgstr "Utilisateur WordPress n'a pas besoin de confirmer son inscription. Enregistrement manuel sans effet."
+
+msgid "Unknown WordPress user. Manual registration failed."
+msgstr "Utilisateur WordPress inexistant. Enregistrement manuel a &eacute;chou&eacute;."
+
+msgid "%s user manually unregistered."
+msgid_plural "%s users manually unregistered."
+msgstr[0] "%s utilisateur d&eacute;sinscrit manuellement."
+msgstr[1] "%s utilisateurs d&eacute;sinscrits manuellement."
+
+msgid "Manually unregistered"
+msgstr "D&eacute;sinscription manuelle"
+
+msgid "%s/%s WordPress user successfully registered."
+msgid_plural "%s/%s WordPress users successfully registered."
+msgstr[0] "%s/%s utilisateur WordPress enregistr&eacute; avec succ&egrave;s."
+msgstr[1] "%s/%s utilisateurs WordPress enregistr&eacute;s avec succ&egrave;s."
+
+msgid "%s record deleted."
+msgid_plural "%s records deleted."
+msgstr[0] "%s enregistrement supprim&eacute;"
+msgstr[1] "%s enregistrements supprim&eacute;s"
+
+msgid "Registration refused by admin"
+msgstr "Inscription refus&eacute;e par l&quote;administrateur"
+
+msgid "%s registration refused."
+msgid_plural "%s registrations refused."
+msgstr[0] "%s inscription refus&eacute;e."
+msgstr[1] "%s inscriptions refus&eacute;es."
+
+msgid "Registration confirmed by admin"
+msgstr "Inscription valid&eacute;e par l&quote;administrateur"
+
+msgid "%s registration confirmed."
+msgid_plural "%s registrations confirmed."
+msgstr[0] "%s inscription valid&eacute;e"
+msgstr[1] "%s inscriptions valid&eacute;es"
+
+msgid "Unexpected SQL error. Current operation failed."
+msgstr "Erreur SQL inattendue. L'op&eacute;ration en cours a &eacute;chou&eacute;."
+
+msgid "Options successfully saved."
+msgstr "Options sauvegard&eacute;es avec succ&egrave;s."
+
+msgid "Current version: "
+msgstr "Version actuelle: "
+
+msgid "This modular protection can run a set of unobstrusive controls for a regular user and include a captcha or math test in the registration form. You can choose to include both or one test or let the plugin choose randomly the test.</br></br>Another possibility is to ask the user to confirm his registration by clicking on a link submitted by mail after he registered. This confirmation must take place within a maximum period of time or the account will become unusable."
+msgstr "Cette protection modulable peut d&eacute;rouler une s&eacute;rie de tests non invasifs pour l'utilisateur et ajouter un captcha ou un test de calcul dans le formulaire d'inscription. Vous pouvez choisir d'activer un ou plusieurs tests ou laisser le plugin choisir au hasard.</br></br>Il est &eacute;galement possible de demander la confirmation de l'inscription par l'envoi d'un lien par mail &agrave; l'utilisateur. Celui-ci doit cliquer sur ce lien dans un d&eacute;lai imparti pour valider son inscription sur le blog. Pass&eacute; ce d&eacute;lai et faute de confirmation, le compte cr&eacute;&eacute; devient inutilisable."
+
+msgid "Sabre quick figures"
+msgstr "Sabre en quelques chiffres"
+

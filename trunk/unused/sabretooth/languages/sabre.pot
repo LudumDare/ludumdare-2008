@@ -1,0 +1,748 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2007-11-13:10:00+0100\n"
+"PO-Revision-Date: 2007-10-30 10:08+0100\n"
+"Last-Translator: Dlo <Dlo@toto.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n>1\n"
+
+msgid "Registration stopped by Sabre."
+msgstr ""
+
+msgid "Sorry, but you can't run this plugin, it requires WordPress 3.0 or higher."
+msgstr ""
+
+msgid "Sorry, but you have no authority to manage this plugin."
+msgstr ""
+
+msgid "Registration's informations from Sabre"
+msgstr ""
+
+msgid "Status"
+msgstr ""
+
+msgid "State of registration."
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Last modification date."
+msgstr ""
+
+msgid "Invite code"
+msgstr ""
+
+msgid "Invitation code used."
+msgstr ""
+
+msgid "Strength indicator"
+msgstr ""
+
+msgid "Hint: Your password should be at least seven characters long. To make it stronger, use upper and lower case letters, numbers and symbols like ! \" ? $ % ^ &amp; )."
+msgstr ""
+
+msgid "Too short"
+msgstr ""
+
+msgid "Bad"
+msgstr ""
+
+msgid "Good"
+msgstr ""
+
+msgid "Strong"
+msgstr ""
+
+msgid "Mismatch"
+msgstr ""
+
+msgid "Please enter your invitation code:"
+msgstr ""
+
+msgid "Please enter your password twice:"
+msgstr ""
+
+msgid "Please enter the code shown above:"
+msgstr ""
+
+msgid "Please enter the result: %s"
+msgstr ""
+
+msgid "Please enter the %s letter of the word %s"
+msgstr ""
+
+msgid "first"
+msgstr ""
+
+msgid "second"
+msgstr ""
+
+msgid "third"
+msgstr ""
+
+msgid "fourth"
+msgstr ""
+
+msgid "fifth"
+msgstr ""
+
+msgid "sixth"
+msgstr ""
+
+msgid "seventh"
+msgstr ""
+
+msgid "eighth"
+msgstr ""
+
+msgid "ninth"
+msgstr ""
+
+msgid "last"
+msgstr ""
+
+msgid "Please don't modify this field:"
+msgstr ""
+
+msgid "Protected by"
+msgstr ""
+
+msgid " %s alien stopped."
+msgid_plural " %s aliens stopped."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "I agree"
+msgstr ""
+
+msgid "<strong>ERROR</strong>: "
+msgstr ""
+
+msgid "Invalid invitation code."
+msgstr ""
+
+msgid "Invalid code."
+msgstr ""
+
+msgid "Invalid letter."
+msgstr ""
+
+msgid "Policy not accepted."
+msgstr ""
+
+msgid "Unknown session."
+msgstr ""
+
+msgid "Invalid session status."
+msgstr ""
+
+msgid "Invalid IP address."
+msgstr ""
+
+msgid "Banned IP address."
+msgstr ""
+
+msgid "Session timed out."
+msgstr ""
+
+msgid "Speedy Gonzales was here."
+msgstr ""
+
+msgid "Fake user."
+msgstr ""
+
+msgid "No Javascript capabilities."
+msgstr ""
+
+msgid "Fake Javascript capabilities."
+msgstr ""
+
+msgid "Confirmation pending. See registration e-mail."
+msgstr ""
+
+msgid "Registration not yet validated by the site's administrator. Wait for confirmation e-mail."
+msgstr ""
+
+msgid "Exceeded period for confirmation of registration."
+msgstr ""
+
+msgid "Invalid registration status."
+msgstr ""
+
+msgid "Unexpected confirmation of registration."
+msgstr ""
+
+msgid "Invalid math result."
+msgstr ""
+
+msgid "Missing password."
+msgstr ""
+
+msgid "Mismatch between password fields."
+msgstr ""
+
+msgid "Password length is less than 6 characters."
+msgstr ""
+
+msgid "Registration confirmed. You can now use your credentials to enter in this site."
+msgstr ""
+
+msgid "Configure"
+msgstr ""
+
+msgid "Set Sabre's parameters"
+msgstr ""
+
+msgid "Sabre Options"
+msgstr ""
+
+msgid "General Options"
+msgstr ""
+
+msgid "Blocked Registrations"
+msgstr ""
+
+msgid "Approved Registrations"
+msgstr ""
+
+msgid "Registrations to confirm"
+msgstr ""
+
+msgid "Sabre Logs"
+msgstr ""
+
+msgid "About"
+msgstr ""
+
+msgid "Invalid registration list"
+msgstr ""
+
+msgid "User name"
+msgstr ""
+
+msgid "User E-mail"
+msgstr ""
+
+msgid "User IP"
+msgstr ""
+
+msgid "When"
+msgstr ""
+
+msgid "Errors"
+msgstr ""
+
+msgid "User ID"
+msgstr ""
+
+msgid "Valid registration list"
+msgstr ""
+
+msgid "To confirm registration list"
+msgstr ""
+
+msgid "Events history"
+msgstr ""
+
+msgid "Invitation options"
+msgstr ""
+
+msgid "Enable invitation:"
+msgstr ""
+
+msgid "(User must provide an invitation code to register)"
+msgstr ""
+
+msgid "Invitation codes:"
+msgstr ""
+
+msgid "(List of valid invitation codes - Usage is the number of time the code can be used - Validity is the expiration date in YYYY-MM-DD format)"
+msgstr ""
+
+msgid "Code"
+msgstr ""
+
+msgid "Usage"
+msgstr ""
+
+msgid "Validity"
+msgstr ""
+
+msgid "Gen"
+msgstr ""
+
+msgid "Del"
+msgstr ""
+
+msgid "Miscellaneous options"
+msgstr ""
+
+msgid "User's password:"
+msgstr ""
+
+msgid "(User can choose his own password during registration)"
+msgstr ""
+
+msgid "Show banner:"
+msgstr ""
+
+msgid "(Mention Sabre at the bottom of the registration form)"
+msgstr ""
+
+msgid "Show on dashboard:"
+msgstr ""
+
+msgid "(Include Sabre statistics on the dashboard)"
+msgstr ""
+
+msgid "Show in profile:"
+msgstr ""
+
+msgid "(Include Sabre informations in the user profile)"
+msgstr ""
+
+msgid "Suppress Sabre:"
+msgstr ""
+
+msgid "(Delete all Sabre stuff when deactivating the plugin - Use with caution!)"
+msgstr ""
+
+msgid "Policy options"
+msgstr ""
+
+msgid "Enable policy agreement:"
+msgstr ""
+
+msgid "(Ask for user's acceptance of site's policy)"
+msgstr ""
+
+msgid "Policy name:"
+msgstr ""
+
+msgid "(Name of agreement like Disclaimer, Licence agreement, General policy, etc...Will be shown on the registration form)"
+msgstr ""
+
+msgid "Policy link:"
+msgstr ""
+
+msgid "(URL of the policy text. If not blank, the name of the agreement above will turn into a link to that URL on the registration form. Can be a WordPress page or an external html file.)"
+msgstr ""
+
+msgid "Policy text:"
+msgstr ""
+
+msgid "(Enter the text to be displayed on the registration form)"
+msgstr ""
+
+msgid "Sender's name:"
+msgstr ""
+
+msgid "(Name used in mails sent by Sabre - Blog's name used if left blank)"
+msgstr ""
+
+msgid "Sender's email:"
+msgstr ""
+
+msgid "(Mail address in mails sent by Sabre - Administrator's mail used if left blank)"
+msgstr ""
+
+msgid "Stealth options"
+msgstr ""
+
+msgid "Enable stealth test:"
+msgstr ""
+
+msgid "(Turn silent control on/off)"
+msgstr ""
+
+msgid "Session time out:"
+msgstr ""
+
+msgid "(Max. time in seconds before session expires)"
+msgstr ""
+
+msgid "Speed limit:"
+msgstr ""
+
+msgid "(Min. time in seconds to fill the registration form)"
+msgstr ""
+
+msgid "Block if Javascript unsupported:"
+msgstr ""
+
+msgid "(Consider that a lack of Javascript capabilities is a spambot's footprint)"
+msgstr ""
+
+msgid "Check DNS Blacklists:"
+msgstr ""
+
+msgid "(Control if user IP address is blacklisted on DNSBL servers)"
+msgstr ""
+
+msgid "Captcha options"
+msgstr ""
+
+msgid "Enable captcha test:"
+msgstr ""
+
+msgid "(Turn captcha generation on/off)"
+msgstr ""
+
+msgid "Use white background:"
+msgstr ""
+
+msgid "(Captcha is displayed on a white background. Black background if not checked)"
+msgstr ""
+
+msgid "Accepted characters:"
+msgstr ""
+
+msgid "(List of valid characters for code generation)"
+msgstr ""
+
+msgid "String length:"
+msgstr ""
+
+msgid "(Number of characters for code)"
+msgstr ""
+
+msgid "Contrast:"
+msgstr ""
+
+msgid "(The higher the number, the better the contrast)"
+msgstr ""
+
+msgid "Number of polygons:"
+msgstr ""
+
+msgid "(Number of triangles to draw.  0 = none)"
+msgstr ""
+
+msgid "Number of ellipses:"
+msgstr ""
+
+msgid "(Number of ellipses to draw.  0 = none)"
+msgstr ""
+
+msgid "Number of lines:"
+msgstr ""
+
+msgid "(Number of lines to draw.  0 = none)"
+msgstr ""
+
+msgid "Number of dots:"
+msgstr ""
+
+msgid "(Number of dots to draw.  0 = none)"
+msgstr ""
+
+msgid "Min. thickness:"
+msgstr ""
+
+msgid "(Minimum thickness of lines in pixels)"
+msgstr ""
+
+msgid "Max. thickness:"
+msgstr ""
+
+msgid "(Maximum thickness of lines in pixels)"
+msgstr ""
+
+msgid "Min. radius:"
+msgstr ""
+
+msgid "(Minimum radius of ellipses)"
+msgstr ""
+
+msgid "Max. radius:"
+msgstr ""
+
+msgid "(Maximum radius of ellipses)"
+msgstr ""
+
+msgid "Object alpha:"
+msgstr ""
+
+msgid "(How opaque should the obscuring objects be. 0 is opaque, 127 is transparent)"
+msgstr ""
+
+msgid "Save options"
+msgstr ""
+
+msgid "New user registration on your site %s:"
+msgstr ""
+
+msgid "Username: %s"
+msgstr ""
+
+msgid "E-mail: %s"
+msgstr ""
+
+msgid "[%s] New User Registration"
+msgstr ""
+
+msgid "Thank you for registering on %s"
+msgstr ""
+
+msgid "Password: %s"
+msgstr ""
+
+msgid "Use the password defined during your registration"
+msgstr ""
+
+msgid "[%s] - Your registration information"
+msgstr ""
+
+msgid "You must confirm your registration within %s day by following the link below"
+msgid_plural "You must confirm your registration within %s days by following the link below"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Your registration has to be validated by the administrator before you can sign on the site. You will be advised by e-mail upon completion."
+msgstr ""
+
+msgid "New user registration confirmed on your site %s:"
+msgstr ""
+
+msgid "[%s] New User Registration Confirmation"
+msgstr ""
+
+msgid "Your registration on %s is now confirmed. You can freely sign in using the credentials given in a previous mail. Thank you for your interest."
+msgstr ""
+
+msgid "Still in construction. Watch out ! Wet paint..."
+msgstr ""
+
+msgid "SABRE (<b>S</b>imple <b>A</b>nti <b>B</b>ot <b>R</b>egistration <b>E</b>ngine) is dedicated to the protection of your site against automatic registration by spammers."
+msgstr ""
+
+msgid "Quick figures"
+msgstr ""
+
+msgid "Total number of registrations stopped:"
+msgstr ""
+
+msgid "Total number of registrations accepted:"
+msgstr ""
+
+msgid "Browse"
+msgstr ""
+
+msgid "Display"
+msgstr ""
+
+msgid "lines per page, skipping first: "
+msgstr ""
+
+msgid "Confirmation options"
+msgstr ""
+
+msgid "Enable confirmation:"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "By user"
+msgstr ""
+
+msgid "By admin"
+msgstr ""
+
+msgid "(Ask user or site's admin to confirm registration)"
+msgstr ""
+
+msgid "Number of days:"
+msgstr ""
+
+msgid "(Period of time for the user to confirm his registration)"
+msgstr ""
+
+msgid "Deny early sign-in:"
+msgstr ""
+
+msgid "(Don't allow users to sign in before their confirmation)"
+msgstr ""
+
+msgid "Send mail when confirmed:"
+msgstr ""
+
+msgid "(Send a mail to the administrator upon user's confirmation)"
+msgstr ""
+
+msgid "Suppress unregistered users:"
+msgstr ""
+
+msgid "(Delete user account when registration is canceled)"
+msgstr ""
+
+msgid "Number of pending confirmation:"
+msgstr ""
+
+msgid "Math options"
+msgstr ""
+
+msgid "Enable math test:"
+msgstr ""
+
+msgid "(Turn math control on/off)"
+msgstr ""
+
+msgid "Accepted operations:"
+msgstr ""
+
+msgid "(List of valid operations for math test)"
+msgstr ""
+
+msgid "Text captcha options"
+msgstr ""
+
+msgid "Enable text test:"
+msgstr ""
+
+msgid "(Turn text challenge on/off - The user will be asked to type the nth letter of a random word)"
+msgstr ""
+
+msgid "Manual registration"
+msgstr ""
+
+msgid "Add"
+msgstr ""
+
+msgid "Enter WordPress user name or check the box to add all existing WordPress users "
+msgstr ""
+
+msgid "Manual deregistration"
+msgstr ""
+
+msgid "Unregister"
+msgstr ""
+
+msgid "Unregister selected users"
+msgstr ""
+
+msgid "Confirm registration"
+msgstr ""
+
+msgid "Confirm"
+msgstr ""
+
+msgid "Validate selected registrations"
+msgstr ""
+
+msgid "Refuse registration"
+msgstr ""
+
+msgid "Refuse"
+msgstr ""
+
+msgid "Refuse selected registrations"
+msgstr ""
+
+msgid "Warning!"
+msgstr ""
+
+msgid "You set Sabre's behaviour to ask for user's confirmation of his registration. Normally, you don't have to intervene here but you can confirm or refuse it manually if needed."
+msgstr ""
+
+msgid "You set Sabre's behaviour to ask for your confirmation of user's registration. You have to confirm or refuse it manually to complete the process."
+msgstr ""
+
+msgid "You set Sabre's behaviour to register the user without confirmation. This screen will always be empty."
+msgstr ""
+
+msgid "Sequence of tests"
+msgstr ""
+
+msgid "Tests to perform:"
+msgstr ""
+
+msgid "(How do we use the above tests?)"
+msgstr ""
+
+msgid "All"
+msgstr ""
+
+msgid "Randomly"
+msgstr ""
+
+msgid "Purge log"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Log older than"
+msgstr ""
+
+msgid "days"
+msgstr ""
+
+msgid "And do it automatically now"
+msgstr ""
+
+msgid "WordPress user successfully registered."
+msgstr ""
+
+msgid "WordPress user is already registered. Manual registration ineffective."
+msgstr ""
+
+msgid "WordPress user doesn't need to confirm registration. Manual registration ineffective."
+msgstr ""
+
+msgid "Unknown WordPress user. Manual registration failed."
+msgstr ""
+
+msgid "%s user manually unregistered."
+msgid_plural "%s users manually unregistered."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Manually unregistered"
+msgstr ""
+
+msgid "%s/%s WordPress user successfully registered."
+msgid_plural "%s/%s WordPress users successfully registered."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s record deleted."
+msgid_plural "%s records deleted."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Registration refused by admin"
+msgstr ""
+
+msgid "%s registration refused."
+msgid_plural "%s registrations refused."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Registration confirmed by admin"
+msgstr ""
+
+msgid "%s registration confirmed."
+msgid_plural "%s registrations confirmed."
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Unexpected SQL error. Current operation failed."
+msgstr ""
+
+msgid "Options successfully saved."
+msgstr ""
+
+msgid "Current version: "
+msgstr ""
+
+msgid "This modular protection can run a set of unobstrusive controls for a regular user and include a captcha or math test in the registration form. You can choose to include both or one test or let the plugin choose randomly the test.</br></br>Another possibility is to ask the user to confirm his registration by clicking on a link submitted by mail after he registered. This confirmation must take place within a maximum period of time or the account will become unusable."
+msgstr ""
+
+msgid "Sabre quick figures"
+msgstr ""
