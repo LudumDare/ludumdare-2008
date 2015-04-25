@@ -322,7 +322,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 				height: 100%;
 			}					
 			
-			#embed sn-overlay {
+			#embed overlay {
 				position:absolute;
 				background:url('/compo/wp-content/plugins/compo2/art/TiledBars.png');
 				left:0;
@@ -330,7 +330,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 				width:100%;
 				height:100%;
 			}
-			#embed sn-icon {
+			#embed icon {
 				position:absolute;
 				left:50%;
 				top:50%;
@@ -355,7 +355,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		echo "<div id='embed-view'>";
 		echo "<div id='embed-frame'>";
 			echo "<div id='embed' onclick='c2_play_game();'>
-				<img id='embed' src='{$shot_url}' width='{$width}' height='{$height}'>
+				<img src='{$shot_url}' width='{$width}' height='{$height}'>
 				<div class='sn-overlay'></div>
 				<img class='sn-icon' src='/compo/wp-content/plugins/compo2/art/play.png' />
 			</div>";
