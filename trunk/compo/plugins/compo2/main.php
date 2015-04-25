@@ -104,7 +104,7 @@ function compo2_main($params) {
     ob_start();
     $state = $params["state"];
     if ($state == "active") { _compo2_active($params); }
-    elseif ($state == "rate") { _compo2_rate($params); }
+    elseif ($state == "rate") { echo "<div id='compo-body'>"; _compo2_rate($params); echo "</div>"; }
     elseif ($state == "results") { _compo2_results($params); }
     elseif ($state == "admin") { _compo2_admin($params); }
     elseif ($state == "misc") { _compo2_misc($params); }
