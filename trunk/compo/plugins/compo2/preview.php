@@ -499,8 +499,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$thumb = c2_thumb($imagefile,180,140);
 		$selected = ($idx === 0) ? "sn-selected" : "";
 //		echo "<div class='sn-item {$selected}' id='shot-nav-{$idx}'><a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
-		echo "<div class='sn-item {$selected}' id='shot-nav-{$idx}'>
-			<img class='sn-img' src='{$thumb}' width='180' height='140' onclick='c2_select_embed({$idx});'>
+		echo "<div class='sn-item {$selected}' id='shot-nav-{$idx}' onclick='c2_select_embed({$idx});'>
+			<img class='sn-img' src='{$thumb}' width='180' height='140'>
 			<div class='sn-overlay'></div>
 			<img class='sn-icon' id='embed-mode' src='/compo/wp-content/plugins/compo2/art/play-sm.png' />
 		</div>";
@@ -513,7 +513,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$preview = c2_thumb($imagefile,900,500,false,true);
 		$selected = ($idx === 0) ? "sn-selected" : "";
 //		echo "<div class='sn-item {$selected}' id='shot-nav-{$idx}'><a href='{$link}' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
-		echo "<div class='sn-item {$selected}' id='shot-nav-{$idx}'><img src='{$thumb}' width='180' height='140' onclick='c2_select_image({$idx},\"{$preview}\",\"{$link}\");'></div>";
+		echo "<div class='sn-item {$selected}' id='shot-nav-{$idx}'><img class='sn-img' src='{$thumb}' width='180' height='140' onclick='c2_select_image({$idx},\"{$preview}\",\"{$link}\");'></div>";
 		$idx++;
 	}
 	echo "</span></div>";
