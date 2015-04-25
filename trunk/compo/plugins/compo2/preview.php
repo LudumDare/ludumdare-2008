@@ -316,8 +316,11 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			</style>
 <?php			
 			//echo "<div class='embed-toggle' onclick='c2_toggle_fullscreen();'>Toggle Fullscreen</div>";
-			echo "<div class='embed-toggle' onclick='c2_toggle_fullscreen();'><img src='{$baseurl}/art/Maximize.png'></div>";
+			echo "<img src='{$baseurl}/art/Maximize.png' onclick='c2_toggle_fullscreen();'>";
 		}
+		
+		echo "<img src='{$baseurl}/art/Power.png' onclick='c2_shutdown();'>";
+		
 		echo "</div>";
 	}
 	
