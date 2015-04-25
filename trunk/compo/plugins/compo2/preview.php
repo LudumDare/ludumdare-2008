@@ -286,6 +286,11 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			}
 		</script>
 		<style>
+			#embed {
+				margin:10px auto;
+				display:block;
+			}
+			
 			:-webkit-full-screen #embed {
 				width: 100%;
 				height: 100%;
@@ -316,17 +321,13 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		$height = $settings["EMBED"]["height"];
 		
 		echo "<div id='embed-frame'>";
-		echo "<iframe id='embed' style='margin:10px auto;display:block' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
-		
+			echo "<iframe id='embed' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
+		echo "</div>";	
 		echo "<div class='embed-controls'>";		
-		if ( $settings["EMBED"]["fullscreen"] ) {	
-			//echo "<div class='embed-toggle' onclick='c2_toggle_fullscreen();'>Toggle Fullscreen</div>";
-			echo "<img src='{$baseurl}/art/Maximize.png' onclick='c2_toggle_fullscreen();'>";
-		}
-		
-		echo "<img src='{$baseurl}/art/Power.png' onclick='c2_shutdown();'>";
-		echo "</div>";
-		
+			if ( $settings["EMBED"]["fullscreen"] ) {	
+				echo "<img src='{$baseurl}/art/Maximize.png' onclick='c2_toggle_fullscreen();'>";
+			}	
+			echo "<img src='{$baseurl}/art/Power.png' onclick='c2_shutdown();'>";
 		echo "</div>";
 	}
 	
