@@ -264,7 +264,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	
 	$shots = unserialize($ce["shots"]);
 	$settings = unserialize($ce["settings"]);
-	$is_nsfw = $ce["NSFL"];
+	$is_nsfw = $settings["NSFL"];
 	echo "NSFW Test:".$is_nsfw;
 	//<script>window.compo_game_nsfw = true;</script>
 
