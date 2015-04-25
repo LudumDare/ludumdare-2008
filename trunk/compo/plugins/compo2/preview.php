@@ -270,6 +270,47 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	$has_embed = isset($settings["EMBED"]["url"]) && $settings["EMBED"]["url"] !== "";
 	
 	if ( $has_embed ) {
+?>
+		<script>
+			function c2_toggle_fullscreen() {
+				var elem = document.getElementById('embed');
+					if (elem.requestFullscreen) {
+						elem.requestFullscreen();
+					} else if (elem.msRequestFullscreen) {
+						elem.msRequestFullscreen();
+					} else if (elem.mozRequestFullScreen) {
+						elem.mozRequestFullScreen();
+					} else if (elem.webkitRequestFullscreen) {
+						elem.webkitRequestFullscreen();
+				}
+			}
+		</script>
+		<style>
+			:-webkit-full-screen #embed {
+				width: 100%;
+				height: 100%;
+			}
+			#embed:-ms-fullscreen {
+				position:absolute;
+				left:0px;
+				top:0px;
+				width: 100%;
+				height: 100%;
+			}					
+			
+			.embed-controls {
+				text-align:center;
+			}
+			.embed-controls img {
+				cursor:pointer;
+				opacity:0.3;
+			}
+			.embed-controls img:hover {
+				opacity:1.0;
+			}
+		</style>
+<?php	
+
 		$url = $settings["EMBED"]["url"];
 		$width = $settings["EMBED"]["width"];
 		$height = $settings["EMBED"]["height"];
@@ -277,46 +318,8 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		echo "<div id='embed-frame'>";
 		echo "<iframe id='embed' style='margin:10px auto;display:block' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
 		
-		echo "<div>";
+		echo "<div class='embed-controls'>";		
 		if ( $settings["EMBED"]["fullscreen"] ) {	
-?>
-			<script>
-				function c2_toggle_fullscreen() {
-					var elem = document.getElementById('embed');
-						if (elem.requestFullscreen) {
-							elem.requestFullscreen();
-						} else if (elem.msRequestFullscreen) {
-							elem.msRequestFullscreen();
-						} else if (elem.mozRequestFullScreen) {
-							elem.mozRequestFullScreen();
-						} else if (elem.webkitRequestFullscreen) {
-							elem.webkitRequestFullscreen();
-					}
-				}
-			</script>
-			<style>
-				:-webkit-full-screen #embed {
-					width: 100%;
-					height: 100%;
-				}
-				#embed:-ms-fullscreen {
-					position:absolute;
-					left:0px;
-					top:0px;
-					width: 100%;
-					height: 100%;
-				}					
-				
-				.embed-toggle {
-					cursor:pointer;
-					text-align:center;
-				}
-				.embed-toggle:hover {
-					color:#44F;
-					font-weight:bold;
-				}
-			</style>
-<?php			
 			//echo "<div class='embed-toggle' onclick='c2_toggle_fullscreen();'>Toggle Fullscreen</div>";
 			echo "<img src='{$baseurl}/art/Maximize.png' onclick='c2_toggle_fullscreen();'>";
 		}
