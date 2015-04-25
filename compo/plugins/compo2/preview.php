@@ -265,8 +265,6 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	$shots = unserialize($ce["shots"]);
 	$settings = unserialize($ce["settings"]);
 	$is_nsfw = $settings["NSFL"];
-	echo "NSFW Test:".(($is_nsfw=='1')?"YES":"nope");
-	//<script>window.compo_game_nsfw = true;</script>
 
 	$baseurl = get_bloginfo("url")."/wp-content";
 
@@ -545,6 +543,12 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	</script>
 
 <?php
+
+	//echo "NSFW Test:".(($is_nsfw=='1')?"YES":"nope");
+	//<script>window.compo_game_nsfw = true;</script>
+	if ( $is_nsfw == '1' ) {
+		echo "<script>window.compo_game_nsfw = true;</script>";
+	}
 	
 	// Screenshots //
 	echo "<div class='shot-nav'><span>";
