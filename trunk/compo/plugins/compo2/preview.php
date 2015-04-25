@@ -270,6 +270,9 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	$has_embed = isset($settings["EMBED"]["url"]) && $settings["EMBED"]["url"] !== "";
 	
 	if ( $has_embed ) {
+		$url = $settings["EMBED"]["url"];
+		$width = $settings["EMBED"]["width"];
+		$height = $settings["EMBED"]["height"];
 ?>
 		<script>
 			function c2_toggle_fullscreen() {
@@ -283,6 +286,16 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 					} else if (elem.webkitRequestFullscreen) {
 						elem.webkitRequestFullscreen();
 				}
+			}
+			
+			function c2_play_game() {
+				var elm = document.getElementById('embed-frame');
+				elm.innerHTML = "<iframe id='embed' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
+			}
+			
+			function c2_exit_game() {
+				var elm = document.getElementById('embed-frame');
+				elm.innerHTML = "<div onclick='c2_play_game();'>poof</div>";				
 			}
 		</script>
 		<style>
@@ -315,19 +328,15 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			}
 		</style>
 <?php	
-
-		$url = $settings["EMBED"]["url"];
-		$width = $settings["EMBED"]["width"];
-		$height = $settings["EMBED"]["height"];
 		
 		echo "<div id='embed-frame'>";
-			echo "<iframe id='embed' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>";
+			echo "<div onclick='c2_play_game();'>poof</div>";
 		echo "</div>";	
 		echo "<div class='embed-controls'>";		
 			if ( $settings["EMBED"]["fullscreen"] ) {	
 				echo "<img src='{$baseurl}/art/Maximize.png' onclick='c2_toggle_fullscreen();'>";
 			}	
-			echo "<img src='{$baseurl}/art/Power.png' onclick='c2_shutdown();'>";
+			echo "<img src='{$baseurl}/art/Power.png' onclick='c2_exit_game();'>";
 		echo "</div>";
 	}
 	
@@ -390,6 +399,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		}
 		
 		.shot-nav .sn-item .sn-overlay {
+			border-radius:7px;
 			position:absolute;
 			background:url('/compo/wp-content/plugins/compo2/art/TiledBars.png');
 			left:0;
