@@ -265,7 +265,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	$shots = unserialize($ce["shots"]);
 	$settings = unserialize($ce["settings"]);
 
-	$baseurl = get_bloginfo("url")."/wp-content/plugins/compo2";
+	$baseurl = get_bloginfo("url")."/wp-content";
 
 	$has_embed = isset($settings["EMBED"]["url"]) && $settings["EMBED"]["url"] !== "";
 	
@@ -361,9 +361,9 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		echo "</div>";
 		echo "<div class='embed-controls'>";		
 			if ( $settings["EMBED"]["fullscreen"] ) {	
-				echo "<img src='{$baseurl}/art/Maximize.png' onclick='c2_toggle_fullscreen();'>";
+				echo "<img src='{$baseurl}/plugins/compo2/art/Maximize.png' onclick='c2_toggle_fullscreen();'>";
 			}	
-			echo "<img src='{$baseurl}/art/Power.png' onclick='c2_exit_game();'>";
+			echo "<img src='{$baseurl}/plugins/compo2/art/Power.png' onclick='c2_exit_game();'>";
 		echo "</div>";
 		echo "</div>";
 	}
@@ -383,7 +383,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	// Screenshot Viewer //
 	echo "<div id='shotview' class='".($has_embed ? "hidden" : "")."'>";
 		$imagefile = array_values($shots)[0];
-		$link = $baseurl.'/'.$imagefile;
+		$link = $baseurl.'/compo2/'.$imagefile;
 		$preview = c2_thumb($imagefile,900,500,false,true);
 		echo "<a id='shotview_link' href='{$link}' target='_blank'><img id='shotview_img' src='{$preview}'></a>";
 	echo "</div>";
@@ -533,7 +533,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	$idx = 0;
 	if ( $has_embed ) {
 		$imagefile = array_values($shots)[0];
-		$link = $baseurl.'/'.$imagefile;
+		$link = $baseurl.'/compo2"/'.$imagefile;
 		$thumb = c2_thumb($imagefile,180,140);
 		$selected = ($idx === 0) ? "sn-selected" : "";
 //		echo "<div class='sn-item {$selected}' id='shot-nav-{$idx}'><a href='' target='_blank'><img src='{$thumb}' width='180' height='140'></a></div>";
@@ -546,7 +546,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	}
 	foreach ($shots as $imagefile) {
 		if ( $idx === 5 ) break;
-		$link = $baseurl.'/'.$imagefile;
+		$link = $baseurl.'/compo2/'.$imagefile;
 		$thumb = c2_thumb($imagefile,180,140);
 		$preview = c2_thumb($imagefile,900,500,false,true);
 		$selected = ($idx === 0) ? "sn-selected" : "";
