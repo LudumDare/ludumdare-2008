@@ -464,6 +464,20 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		.links ul li:before {
 			content:'';
 		}
+		
+		#compo-nsfw {
+			background:#900;
+			border-radius:10px;
+			padding:20px;
+			color:#FF0;
+		}
+		
+		#compo-nsfw h2 {
+			text-align:center;
+			font-size:40px;
+			color:#F80;
+		}
+		
 	</style>
 	
 	<script>
