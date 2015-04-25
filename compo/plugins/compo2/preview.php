@@ -291,7 +291,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			
 			function c2_play_game() {
 				var elm = document.getElementById('embed-frame');
-				elm.innerHTML = <?php echo "<iframe id='embed' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>"; ?>
+				elm.innerHTML = "<?php echo "<iframe id='embed' src='{$url}' width='{$width}' height='{$height}' frameborder='0' allowfullscreen></iframe>"; ?>";
 			}
 			
 			function c2_exit_game() {
