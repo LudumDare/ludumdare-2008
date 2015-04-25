@@ -265,7 +265,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	$shots = unserialize($ce["shots"]);
 	$settings = unserialize($ce["settings"]);
 
-	$baseurl = get_bloginfo("url")."/wp-content/compo2";
+	$baseurl = get_bloginfo("url")."/wp-content/plugins/compo2";
 
 	$has_embed = isset($settings["EMBED"]["url"]) && $settings["EMBED"]["url"] !== "";
 	
