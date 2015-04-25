@@ -363,7 +363,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			if ( $settings["EMBED"]["fullscreen"] ) {	
 				echo "<img src='{$baseurl}/plugins/compo2/art/Maximize.png' onclick='c2_toggle_fullscreen();'>";
 			}	
-			echo "<img src='{$baseurl}/plugins/compo2/art/Power.png' onclick='c2_exit_game();'>";
+			echo "<img src='{$baseurl}/plugins/compo2/art/Power.png' onclick='if (confirm('Are you sure you want to Shutdown the game? All progress will be lost.')) { c2_exit_game(); }'>";
 		echo "</div>";
 		echo "</div>";
 	}
