@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Countdown Clocks -->
+	<script type="text/javascript">
+	(function() {
+		// Zero Pad Digits //
+		function PadZero( num ) {
+			if ( num < 10 ) {
+				return "0" + num;
+			}
+			return num;
+		}
+		
+		// Subtract B - A //
+		function DateDiff( a, b ) {
+			return b.getTime() - a.getTime();
+		}
+
+		var timerHandle = null;
+
+		var clockElm = null;
+
+		var serverTime = <?php echo $_SERVER['REQUEST_TIME']; ?>;
+		var serverClock = new Date(serverTime*1000);
+		var localClock = new Date();
+
+		// If Clock is Bad //
+		var clockDiff = DateDiff(localClock,serverClock);
+		if ( Math.abs(clockDiff) > 45*60*1000 ) {	// If 45 minutes off (cache safe) then Error //
+			window.addEventListener("load", function(e) {
+				clockElm = document.getElementsByClassName('clock');
+				for (var idx = 0; idx < clockElm.length; idx++ ) {
+					clockElm[idx].innerHTML = '<a href="/compo/faq/">Clock Error</a>';
+				}
+			});
+		}
+		// If Clock is Okay //
+		else {
+			// Store it in Window (global scope) //
+			window.mkClocksUpdate = function(e) {
+				clockElm = document.getElementsByClassName('clock');
+				
+				// If no clocks, bail //
+				if ( clockElm.length === 0 ) {
+					return;
+				}
+				
+				window._mkClocksFunc = function(){
+					var nowClock = new Date();
+					
+					for (var idx = 0; idx < clockElm.length; idx++ ) {
+						var diff = DateDiff(nowClock,new Date(clockElm[idx].getAttribute('title')));
+						
+						if ( diff >= 0 ) {
+							var oneSecond = 1000;
+							var oneMinute = 60*1000;
+							var oneHour = 60*60*1000;
+							var oneDay = 24*60*60*1000;
+		
+							var diffMS = Math.floor(diff % oneSecond);
+							var diffSeconds = Math.floor(diff / oneSecond) % 60;
+							var diffMinutes = Math.floor(diff / oneMinute) % 60;
+							var diffHours = Math.floor(diff / oneHour) % 24;
+							var diffDays = Math.floor(diff / oneDay);
+							
+							var sep = ":";
+							if ( diffMS >= 500 ) {
+								sep = ";";
+							}
+							
+							var dayText = diffDays + " Days, ";
+							if ( diffDays == 1 ) {
+								dayText = "1 Day, ";
+							}
+							else if ( diffDays == 0 ) {
+								dayText = "";
+							}
+							
+							var prefixText = clockElm[idx].getAttribute('prefix');
+							if ( prefixText === null ) {
+								prefixText = "";
+							}
+							else {
+								var prefixStyle = clockElm[idx].getAttribute('prefix-style');
+								if ( prefixStyle ) {
+									prefixText = '<span style="' + prefixStyle + '">' + prefixText + "</span>";
+								}
+							}
+							
+							clockElm[idx].innerHTML = 
+								prefixText +
+								dayText +
+								PadZero(diffHours) + sep +
+								PadZero(diffMinutes) + sep +
+								PadZero(diffSeconds);
+						}
+						else {
+							/* Flash on Completion */
+							//if ( Math.abs(diff % 1000) >= 500 ) {
+								clockElm[idx].innerHTML = clockElm[idx].getAttribute('msg');
+//							}
+//							else {
+//								clockElm[idx].innerHTML = "";
+//							}
+						}
+					}
+				};
+
+				if ( timerHandle === null ) {
+					timerHandle = setInterval( window._mkClocksFunc,500);
+				}
+			};
+
+			window.mkClocksFocus = function(e) {
+				if ( timerHandle === null ) {
+					timerHandle = setInterval( window._mkClocksFunc,500);
+				}
+			};
+			window.mkClocksBlur = function(e) {
+				if ( timerHandle ) {
+					clearInterval( timerHandle );
+					timerHandle = null;
+				}
+			};
+			
+			window.addEventListener("load", window.mkClocksUpdate);
+			/* In case people want us to be less wasteful */
+			//window.addEventListener("focus", window.mkClocksFocus);
+			//window.addEventListener("blur", window.mkClocksBlur);
+		}
+	})();
+	</script>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<div class="clock botright" title="Sat, 06 Dec 2014 02:00:00 UTC" msg="GO! GO! GO!" style="color:#8F0;"></div>
+</body>
+</html>
