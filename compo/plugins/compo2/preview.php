@@ -307,6 +307,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			#embed {
 				margin:10px auto;
 				display:block;
+				position:relative;
 			}
 			
 			:-webkit-full-screen #embed {
@@ -320,6 +321,23 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 				width: 100%;
 				height: 100%;
 			}					
+			
+			#embed sn-overlay {
+				position:absolute;
+				background:url('/compo/wp-content/plugins/compo2/art/TiledBars.png');
+				left:0;
+				top:0;
+				width:100%;
+				height:100%;
+			}
+			#embed sn-icon {
+				position:absolute;
+				left:50%;
+				top:50%;
+				-ms-transform: translate(-50%,-50);
+				-webkit-transform: translate(-50%,-50%);
+				transform: translate(-50%,-50%);				
+			}
 			
 			.embed-controls {
 				text-align:center;
