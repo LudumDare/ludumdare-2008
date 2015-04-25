@@ -104,7 +104,7 @@ function c2_navigation($slug,$name,$name_url) {
 						<a href="/compo/<?php echo $slug?>/?action=edit">Edit</a> | 
 <?php					}
 				else {?>
-						<a style="font-size:15px" href="/compo/<?php echo $slug?>/?action=edit"><strong>SUBMIT NOW</strong></a> |
+						<!--<a style="font-size:15px" href="/compo/<?php echo $slug?>/?action=edit"><strong>SUBMIT NOW</strong></a> |-->
 <?php				}
 				} ?>
 				<a href="/compo/<?php echo $slug?>/?action=preview">View All</a>
