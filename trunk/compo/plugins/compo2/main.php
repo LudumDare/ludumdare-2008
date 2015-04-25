@@ -100,7 +100,7 @@ function compo2_main($params) {
     // If we're in debug mode, display our params
 //     if (strlen($_REQUEST["debug"])) { echo "<pre>";print_r($params);echo "</pre>"; }
     
-    $nsfw = "<div id='compo-nsfw' class='hidden' onclick='c2_addclass( document.getElementById(\"compo-nsfw\"), \"hidden\"); c2_removeclass( document.getElementById(\"compo-body\"), \"hidden\");'><h2>WARNING!</h2><p>This entry may contain subject matter that you or those around you may find offensive. You have been warned.</p><h2>I understand. Let me see it.</h2></div><script>if (typeof window.compo_game_nsfw !== \"null\") { c2_addclass( document.getElementById(\"compo-body\"), \"hidden\"); c2_removeclass( document.getElementById(\"compo-nsfw\"), \"hidden\"); }</script>";
+    $nsfw = "<div id='compo-nsfw' class='hidden' onclick='c2_addclass( document.getElementById(\"compo-nsfw\"), \"hidden\"); c2_removeclass( document.getElementById(\"compo-body\"), \"hidden\");'><h2>WARNING!</h2><p>This entry may contain subject matter that you or those around you may find offensive. You have been warned.</p><h2>I understand. Let me see it.</h2></div><script>if (isset(window.compo_game_nsfw)) { c2_addclass( document.getElementById(\"compo-body\"), \"hidden\"); c2_removeclass( document.getElementById(\"compo-nsfw\"), \"hidden\"); }</script>";
     
     // dispatch according to the current state
     ob_start();
