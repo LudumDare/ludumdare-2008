@@ -307,6 +307,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 				margin:10px auto;
 				display:block;
 				position:relative;
+				text-align:center;
 			}
 			
 			:-webkit-full-screen #embed {
@@ -354,7 +355,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		echo "<div id='embed-view'>";
 		echo "<div id='embed-frame'>";
 			echo "<div id='embed' onclick='c2_play_game();'>
-				<img style='text-align:center;' src='{$shot_url}'>
+				<img src='{$shot_url}'>
 				<div class='embed-overlay'></div>
 				<img class='embed-icon' src='/compo/wp-content/plugins/compo2/art/play.png' />
 			</div>";
