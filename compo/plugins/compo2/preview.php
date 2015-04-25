@@ -295,7 +295,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			
 			function c2_exit_game() {
 				var elm = document.getElementById('embed-frame');
-				elm.innerHTML = "<div onclick='c2_play_game();'>poof</div>";				
+				elm.innerHTML = "<div id='embed' onclick='c2_play_game();'>poof</div>";				
 			}
 		</script>
 		<style>
@@ -330,7 +330,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 <?php	
 		
 		echo "<div id='embed-frame'>";
-			echo "<div onclick='c2_play_game();'>poof</div>";
+			echo "<div id='embed' onclick='c2_play_game();'>poof</div>";
 		echo "</div>";	
 		echo "<div class='embed-controls'>";		
 			if ( $settings["EMBED"]["fullscreen"] ) {	
