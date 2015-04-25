@@ -336,7 +336,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		
 		echo "<div id='embed-view'>";
 		echo "<div id='embed-frame'>";
-			echo "<div id='embed' onclick='c2_play_game();'><?php echo "<img id='embed' src='{$shot_url}'>"; ?></div>";				
+			echo "<div id='embed' onclick='c2_play_game();'><img id='embed' src='{$shot_url}'></div>";				
 			//"<div id='embed' onclick='c2_play_game();'>poof</div>";
 		echo "</div>";	
 		echo "<div class='embed-controls'>";		
