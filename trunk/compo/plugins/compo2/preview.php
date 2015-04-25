@@ -305,7 +305,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 			
 			function c2_exit_game() {
 				var elm = document.getElementById('embed-frame');
-				elm.innerHTML = "<?php echo play_code; ?>";
+				elm.innerHTML = "<?php echo $play_code; ?>";
 				//"<div id='embed' onclick='c2_play_game();'><?php echo "<img id='embed' src='{$shot_url}'>"; ?></div>";
 			}
 		</script>
