@@ -456,13 +456,13 @@ function _compo2_rate_io_calc($params,$uid) {
     $cc = array_pop(compo2_query("select count(*) cnt from c2_rate where cid = ? and to_uid = ?",array($cid,$uid)));
 
     $allcc = compo2_query("select data from c2_rate where cid = ? and to_uid = ?",array($cid,$uid));
-    $all = array();
-    foreach ($allcc as $ve) {
-    	$all[] = unserialize($ve);
-    }
+//    $all = array();
+//    foreach ($allcc as $ve) {
+//    	$all[] = unserialize($ve);
+//    }
     echo "<!-- DAWG -->\n";
     echo "<!--\n";
-    print_r( $all );
+    print_r( $allcc );
     echo "-->\n";
 
     $in = $cc["cnt"];
