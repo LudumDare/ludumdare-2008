@@ -171,10 +171,11 @@ function _compo2_mike_cron($params) {
 		echo "<br />\n";		
 		
 		$entries = compo2_query("select uid from c2_entry where cid = ?",array($compo_id));
-		print_r( $entries );
-//		foreach ($entries as $entry) {
+//		print_r( $entries );
+		foreach ($entries as $entry) {
 //			_compo2_rate_io_calc($params,$entry['uid']);
-//		}
+			echo $entry['uid'] . ", ";
+		}
 		
 		echo "<br />\n";
 		echo "<br />\n";
