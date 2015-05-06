@@ -447,7 +447,7 @@ function _compo2_rate_submit($params) {
     _compo2_rate_recalc($params,$ce["uid"]);
     _compo2_rate_io_calc($params,$ce["uid"]);
     _compo2_rate_io_calc($params,$params["uid"]);
-    //header("Location: ?action=default"); die;
+    header("Location: ?action=default"); die;
 }
 
 function _compo2_rate_io_calc($params,$uid) {
