@@ -389,7 +389,7 @@ function _compo2_rate_rate($params,$uid = "") {
     _compo2_show_comments($params["cid"],$ce["uid"]);	// NOTE: Legacy comment system
     
     if ( $canvote ) {
-        echo "<h2>NOTE: Use the comment box <a href='#vote'>Link Text</a>OVER HERE</a>. Thanks!</h2>";
+        echo "<h2>NOTE: Use the comment box <a href='#vote'>OVER HERE</a>. Thanks!</h2>";
 //        echo "<h2>Comments (non-anonymous)</h2>";
 //        $ve["comments"]="";
 //        echo "<textarea name='comments2' rows=4 cols=60>".htmlentities($ve["comments"])."</textarea>";
