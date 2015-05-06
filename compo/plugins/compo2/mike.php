@@ -168,7 +168,7 @@ function _compo2_mike_cron($params) {
 		
 		echo "Recalculating Coolness and Votes...<br />\n";
 		
-		$entries = compo2_query("select uid from c2_entry where cid = ? limit 10",array($cid));
+		$entries = compo2_query("select uid from c2_entry where cid = ? limit 10",array($compo_id));
 		print_r( $entries );
 //		foreach ($entries as $user_id) {
 //			_compo2_rate_io_calc($params,$user_id);
