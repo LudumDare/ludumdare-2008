@@ -12,6 +12,10 @@ function _compo2_rate($params) {
 //    print_r($params);
 //    echo "-->";
 
+	if ($action == "cron") {
+    	return _compo2_mike_cron($params);
+    }
+
     // handle non-competitors ..
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
     if (!intval($params["pubvote"]))
@@ -60,8 +64,6 @@ function _compo2_rate($params) {
         return _compo2_active_form($params);
     } elseif ($action == "save") {
         return _compo2_active_save($params);
-    } elseif ($action == "cron") {
-    	return _compo2_mike_cron($params);
     }
 }
 
