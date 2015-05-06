@@ -306,7 +306,6 @@ function _compo2_rate_list($params) {
 
 function _compo2_rate_rate($params,$uid = "") {
     if (!$uid) { $uid = intval($_REQUEST["uid"]); }
-    echo "<!-- COME ONE -->\n";
 
     $ce = compo2_entry_load($params["cid"],$uid);
     
@@ -392,7 +391,6 @@ function _compo2_rate_rate($params,$uid = "") {
 }
 
 function _compo2_rate_submit($params) {
-	echo "<!-- FLINTSTONE -->\n";
 //     print_r($_REQUEST); die;
     $uid = intval($_REQUEST["uid"]);
     $ce = compo2_entry_load($params["cid"],$uid);
@@ -456,9 +454,10 @@ function _compo2_rate_io_calc($params,$uid) {
     $cid = $params["cid"];
     $ce = compo2_entry_load($params["cid"],$uid);
     $cc = array_pop(compo2_query("select count(*) cnt from c2_rate where cid = ? and to_uid = ?",array($cid,$uid)));
-    echo "<!-- HEY DAWG -->\n";
+    $allcc = compo2_query("select data from c2_rate where cid = ? and to_uid = ?",array($cid,$uid));
+    echo "<!-- DAWG -->\n";
     echo "<!--\n";
-    print_r( $cc );
+    print_r( $allcc );
     echo "-->\n";
     $in = $cc["cnt"];
     $cc = array_pop(compo2_query("select count(*) cnt from c2_rate where cid = ? and from_uid = ?",array($cid,$uid)));
