@@ -160,8 +160,21 @@ function c2_navigation($slug,$name,$name_url) {
 function _compo2_mike_cron($params) {
 	echo "Hey...<br/>\n";
 	
-	if (current_user_can('delete_users')) {	
-		print_r($params);
+	if (current_user_can('delete_users')) {
+		$compo_id = $params['cid'];
+		$my_user_id = $params['uid'];
+		
+		//print_r($params);
+		
+		echo "Recalculating Coolness and Votes...<br />\n";
+		
+		$entries = compo2_query("select uid from c2_entry where cid = ? limit 10",array($cid));
+		print_r( $entries );
+//		foreach ($entries as $user_id) {
+//			_compo2_rate_io_calc($params,$user_id);
+//		}
+		
+		echo "Done.<br />\n";
 	}
 	
 	return "";
