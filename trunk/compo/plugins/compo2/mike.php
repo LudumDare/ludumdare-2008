@@ -157,4 +157,11 @@ function c2_navigation($slug,$name,$name_url) {
 	}
 }
 
+function _compo2_mike_cron($params) {
+	echo "Hey...<br/>\n";
+	print_r($params);
+	
+	return "";
+}
+
 ?>
