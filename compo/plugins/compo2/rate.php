@@ -3,6 +3,10 @@
 set_time_limit(120);
 
 function _compo2_rate($params) {
+	if ($action == "cron") {
+    	return _compo2_mike_cron($params);
+    }
+
     if (!$params["uid"]) {
         echo "<p class='message'>You must sign in to vote.</p>";
         return _compo2_preview($params);
@@ -11,10 +15,6 @@ function _compo2_rate($params) {
 //    echo "<!--";
 //    print_r($params);
 //    echo "-->";
-
-	if ($action == "cron") {
-    	return _compo2_mike_cron($params);
-    }
 
     // handle non-competitors ..
     $ce = compo2_entry_load($params["cid"],$params["uid"]);
