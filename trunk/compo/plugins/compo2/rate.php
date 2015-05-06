@@ -470,10 +470,10 @@ function _compo2_rate_io_calc($params,$uid) {
     		$all[] = $data;
     	}
     }
-    echo "<!--\n";
-    print_r( $all );
-    echo "-->\n";
-    echo "<!-- Total: " . count($all) . " -->\n";
+//    echo "<!--\n";
+//    print_r( $all );
+//    echo "-->\n";
+    echo "<!-- New Total: " . count($all) . " vs Total: " . $in . " -->\n";
 
     $cc = array_pop(compo2_query("select count(*) cnt from c2_rate where cid = ? and from_uid = ?",array($cid,$uid)));
     $out = $cc["cnt"];
