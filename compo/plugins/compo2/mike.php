@@ -166,14 +166,19 @@ function _compo2_mike_cron($params) {
 		
 		//print_r($params);
 		
-		echo "Recalculating Coolness and Votes...<br />\n";
+		echo "Recalculating Coolness and Votes...";
+		echo "<br />\n";
+		echo "<br />\n";		
 		
-		$entries = compo2_query("select uid from c2_entry where cid = ? limit 10",array($compo_id));
+		$entries = compo2_query("select uid from c2_entry where cid = ?",array($compo_id));
 		print_r( $entries );
-//		foreach ($entries as $user_id) {
-//			_compo2_rate_io_calc($params,$user_id);
+//		foreach ($entries as $entry) {
+//			_compo2_rate_io_calc($params,$entry['uid']);
 //		}
 		
+		echo "<br />\n";
+		echo "<br />\n";
+
 		echo "Done.<br />\n";
 	}
 	
