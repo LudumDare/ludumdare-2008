@@ -306,6 +306,7 @@ function _compo2_rate_list($params) {
 
 function _compo2_rate_rate($params,$uid = "") {
     if (!$uid) { $uid = intval($_REQUEST["uid"]); }
+    echo "<!-- COME ONE -->\n";
 
     $ce = compo2_entry_load($params["cid"],$uid);
     
