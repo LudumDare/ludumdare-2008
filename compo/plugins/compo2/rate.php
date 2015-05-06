@@ -3,10 +3,6 @@
 set_time_limit(120);
 
 function _compo2_rate($params) {
-	if ($action == "cron") {
-    	return _compo2_mike_cron($params);
-    }
-
     if (!$params["uid"]) {
         echo "<p class='message'>You must sign in to vote.</p>";
         return _compo2_preview($params);

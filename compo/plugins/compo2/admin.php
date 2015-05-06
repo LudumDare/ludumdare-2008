@@ -25,6 +25,8 @@ function _compo2_admin($params) {
         return _compo2_admin_resetcache($params);
     } elseif ($action == "get_user") {
         return _compo2_admin_get_user($params);
+    } elseif ($action == "cron") {
+    	return _compo2_mike_cron($params);
     }
 }
 
