@@ -379,7 +379,7 @@ function _compo2_rate_rate($params,$uid = "") {
 	        echo "<h2>Comments (non-anonymous)</h2>";
 	        $ve["comments"]="";
 	        echo "<textarea name='comments' rows=4 cols=60>".htmlentities($ve["comments"])."</textarea>";
-	        echo "<p><input type='submit' value='Save'></p>";
+	        echo "<p><input type='submit' value='Submit'></p>";
 	        echo "</form>";
 	        
 	        echo "<br/>";
@@ -387,7 +387,13 @@ function _compo2_rate_rate($params,$uid = "") {
     }
     _compo2_preview_comments($params,$uid,$form=(!$canvote));//true);
     _compo2_show_comments($params["cid"],$ce["uid"]);	// NOTE: Legacy comment system
-
+    
+    if ( $canvote ) {
+        echo "<h2>Comments (non-anonymous)</h2>";
+        $ve["comments"]="";
+        echo "<textarea name='comments2' rows=4 cols=60>".htmlentities($ve["comments"])."</textarea>";
+        echo "<p><input type='submit' value='Submit'></p>";
+    }
 }
 
 function _compo2_rate_submit($params) {
@@ -408,6 +414,10 @@ function _compo2_rate_submit($params) {
     }
     
     $comments = trim(compo2_strip($_REQUEST["comments"]));
+    $comments2 = trim(compo2_strip($_REQUEST["comments2"]));
+    if ( strlen($comments2) > 0 ) {
+   		$comments = $comments2;
+   	}
     
     $e=array(
             "cid"=>$params["cid"],
