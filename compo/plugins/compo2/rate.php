@@ -477,6 +477,24 @@ function _compo2_rate_io_calc($params,$uid) {
 
     $cc = array_pop(compo2_query("select count(*) cnt from c2_rate where cid = ? and from_uid = ?",array($cid,$uid)));
     $out = $cc["cnt"];
+
+    echo "<!-- RAWG -->\n";
+    $allcc = compo2_query("select count(*) cnt from c2_rate where cid = ? and from_uid = ?",array($cid,$uid));
+    $all = array();
+    foreach ($allcc as $ve) {
+    	$data = unserialize($ve['data']);
+    	$sum = 0;
+    	foreach ($data as $part) {
+    		$sum += intval($part);
+    	}
+    	if ( $sum > 0 ) {
+    		$all[] = $data;
+    	}
+    }
+//    echo "<!--\n";
+//    print_r( $all );
+//    echo "-->\n";
+    echo "<!-- New Total: " . count($all) . " vs Total: " . $out . " -->\n";
     
     compo2_update("c2_entry",array(
         "id"=>$ce["id"],
