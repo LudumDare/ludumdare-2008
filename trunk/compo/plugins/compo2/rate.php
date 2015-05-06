@@ -454,10 +454,10 @@ function _compo2_rate_io_calc($params,$uid) {
     $cid = $params["cid"];
     $ce = compo2_entry_load($params["cid"],$uid);
  
-    $cc = array_pop(compo2_query("select count(*) cnt from c2_rate where cid = ? and to_uid = ?",array($cid,$uid)));
-    $in = $cc["cnt"];
+//    $cc = array_pop(compo2_query("select count(*) cnt from c2_rate where cid = ? and to_uid = ?",array($cid,$uid)));
+//    $in = $cc["cnt"];
 
-    echo "<!-- DAWG -->\n";
+//    echo "<!-- DAWG -->\n";
     $allcc = compo2_query("select data from c2_rate where cid = ? and to_uid = ?",array($cid,$uid));
     $all = array();
     foreach ($allcc as $ve) {
@@ -473,12 +473,15 @@ function _compo2_rate_io_calc($params,$uid) {
 //    echo "<!--\n";
 //    print_r( $all );
 //    echo "-->\n";
-    echo "<!-- New Total: " . count($all) . " vs Total: " . $in . " -->\n";
+//    echo "<!-- New Total: " . count($all) . " vs Total: " . $in . " -->\n";
+	$in = count($all);
+	$in_all = count($allcc);
 
-    $cc = array_pop(compo2_query("select count(*) cnt from c2_rate where cid = ? and from_uid = ?",array($cid,$uid)));
-    $out = $cc["cnt"];
 
-    echo "<!-- RAWG -->\n";
+//    $cc = array_pop(compo2_query("select count(*) cnt from c2_rate where cid = ? and from_uid = ?",array($cid,$uid)));
+//    $out = $cc["cnt"];
+
+//    echo "<!-- RAWG -->\n";
     $allcc = compo2_query("select data from c2_rate where cid = ? and from_uid = ?",array($cid,$uid));
     $all = array();
     foreach ($allcc as $ve) {
@@ -494,7 +497,11 @@ function _compo2_rate_io_calc($params,$uid) {
 //    echo "<!--\n";
 //    print_r( $all );
 //    echo "-->\n";
-    echo "<!-- New Total: " . count($all) . " vs Total: " . $out . " -->\n";
+//    echo "<!-- New Total: " . count($all) . " vs Total: " . $out . " -->\n";
+	$out = count($all);
+	$out_all = count($allcc);
+	
+	echo "<!-- In: " . $in . " (" . $in_all . ")  Out: " . $out . " (" . $out_all . ") -->\n";
     
     compo2_update("c2_entry",array(
         "id"=>$ce["id"],
