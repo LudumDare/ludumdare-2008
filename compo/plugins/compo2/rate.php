@@ -454,6 +454,7 @@ function _compo2_rate_io_calc($params,$uid) {
     $cid = $params["cid"];
     $ce = compo2_entry_load($params["cid"],$uid);
     $cc = array_pop(compo2_query("select count(*) cnt from c2_rate where cid = ? and to_uid = ?",array($cid,$uid)));
+    echo "<!-- HEY DAWG -->\n";
     echo "<!--\n";
     print_r( $cc );
     echo "-->\n";
