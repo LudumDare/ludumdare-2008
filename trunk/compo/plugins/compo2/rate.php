@@ -392,7 +392,7 @@ function _compo2_rate_rate($params,$uid = "") {
 }
 
 function _compo2_rate_submit($params) {
-	echo "<!-- TESTING... -->\n";
+	echo "<!-- FLINTSTONE -->\n";
 //     print_r($_REQUEST); die;
     $uid = intval($_REQUEST["uid"]);
     $ce = compo2_entry_load($params["cid"],$uid);
