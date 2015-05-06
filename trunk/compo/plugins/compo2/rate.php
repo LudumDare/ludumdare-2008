@@ -479,7 +479,7 @@ function _compo2_rate_io_calc($params,$uid) {
     $out = $cc["cnt"];
 
     echo "<!-- RAWG -->\n";
-    $allcc = compo2_query("select count(*) cnt from c2_rate where cid = ? and from_uid = ?",array($cid,$uid));
+    $allcc = compo2_query("select data from c2_rate where cid = ? and from_uid = ?",array($cid,$uid));
     $all = array();
     foreach ($allcc as $ve) {
     	$data = unserialize($ve['data']);
