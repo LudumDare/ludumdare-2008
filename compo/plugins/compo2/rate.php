@@ -138,6 +138,8 @@ function _compo2_rate_list($params) {
             $key = strtolower($ue["display_name"]);
             $r_rated[$key] = $ce;
         } else {
+        	$ce['settings'] = unserialize($ce['settings']);
+        	
         	echo "<!-- FEEB: ";
         	$legal_cats = 0;
         	if ( isset($ce['settings']['OPTOUT']) ) {
