@@ -158,7 +158,7 @@ function _compo2_rate_list($params) {
 
 			$weight = 50;
 			if ( $ce["legal_cats"] == 0 ) {
-				$weight = 0;
+				$weight = 100;
 			}
         	
             $ce["rate_d"] = ($ce["rate_in"] + $weight - (sqrt(min(100,$ce["rate_out"])) * 50 / 10));
