@@ -138,6 +138,10 @@ function _compo2_rate_list($params) {
             $key = strtolower($ue["display_name"]);
             $r_rated[$key] = $ce;
         } else {
+        	echo "<!-- FEEB: ";
+        	print_r( $ce );
+        	echo "-->\n";
+        	
             $ce["rate_d"] = ($ce["rate_in"] + 50 - (sqrt(min(100,$ce["rate_out"])) * 50 / 10));
             if ($sortby == "ratings") {
                 $v = $ce["rate_in"];
@@ -415,10 +419,10 @@ function _compo2_rate_submit($params) {
     }
     
     $comments = trim(compo2_strip($_REQUEST["comments"]));
-    $comments2 = trim(compo2_strip($_REQUEST["comments2"]));
-    if ( strlen($comments2) > 0 ) {
-   		$comments = $comments2;
-   	}
+//    $comments2 = trim(compo2_strip($_REQUEST["comments2"]));
+//    if ( strlen($comments2) > 0 ) {
+//   		$comments = $comments2;
+//   	}
     
     $e=array(
             "cid"=>$params["cid"],
