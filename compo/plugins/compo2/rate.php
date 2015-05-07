@@ -154,10 +154,10 @@ function _compo2_rate_list($params) {
         		$ce["legal_cats"] = 16;
         	}
 
-//        	echo "<!-- FEEB: ";
-//        	print_r( $ce );
-//			echo "\nCats: " . $ce["legal_cats"];
-//        	echo "-->\n";
+        	echo "<!-- FEEB: ";
+        	print_r( $ce );
+			echo "\nCats: " . $ce["legal_cats"];
+        	echo "-->\n";
 
 			$weight = 50;
 //			if ( $ce["legal_cats"] == 0 ) {
