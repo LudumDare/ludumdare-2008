@@ -142,8 +142,8 @@ function _compo2_rate_list($params) {
         	
         	$legal_cats = 0;
         	if ( isset($ce['settings']['OPTOUT']) ) {
-        		foreach( $ce['settings']['OPTOUT'] as $levent ) {
-        			foreach( $levent as $lcat ) {
+      		  	if ( isset($ce['settings']['OPTOUT'][$ce['etype']]) ) {
+        			foreach( $ce['settings']['OPTOUT'][$ce['etype']] as $lcat ) {
         				if ( $lcat > 0 ) {
         					$legal_cats++;
         				}
