@@ -269,7 +269,7 @@ function _compo2_rate_list($params) {
             $rate_out = intval($e["rate_out"]);
             $rate_d = intval($e["rate_d"]);
             $legal_cats = intval($e["legal_cats"]);
-            echo "(D:$rate_d=R:$rate_in-C:$rate_out) $legal_cats";
+            echo "(D:$rate_d=R:$rate_in-C:$rate_out)" . $legal_cats;
             echo "</div>";
             
         }
