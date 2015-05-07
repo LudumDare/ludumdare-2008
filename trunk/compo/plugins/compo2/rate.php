@@ -155,13 +155,8 @@ function _compo2_rate_list($params) {
 //        	print_r( $ce );
 //			echo "\nCats: " . $ce["legal_cats"];
 //        	echo "-->\n";
-
-			$weight = 50;
-			if ( $ce["legal_cats"] == 0 ) {
-				$weight = 100;
-			}
         	
-            $ce["rate_d"] = ($ce["rate_in"] + $weight - (sqrt(min(100,$ce["rate_out"])) * 50 / 10));
+            $ce["rate_d"] = ($ce["rate_in"] + 50 - (sqrt(min(100,$ce["rate_out"])) * 50 / 10));
             if ($sortby == "ratings") {
                 $v = $ce["rate_in"];
             } elseif ($sortby == "coolness") {
@@ -169,6 +164,11 @@ function _compo2_rate_list($params) {
             } else {
                 $v = $ce["rate_d"];
             }
+
+			if ( $ce["legal_cats"] == 0 ) {
+				continue;
+			}
+
             $key = sprintf("%05d|%s",10000+$v,$ce["uid"]);
             $r_unrated[$key] = $ce;
         }
