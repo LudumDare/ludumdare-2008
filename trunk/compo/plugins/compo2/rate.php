@@ -154,15 +154,15 @@ function _compo2_rate_list($params) {
         		$legal_cats = 16;
         	}
 
-        	echo "<!-- FEEB: ";
-        	print_r( $ce );
-			echo "\nCats: " . $legal_cats;
-        	echo "-->\n";
+//        	echo "<!-- FEEB: ";
+//        	print_r( $ce );
+//			echo "\nCats: " . $legal_cats;
+//        	echo "-->\n";
 
 			$weight = 50;
-//			if ( $legal_cats == 0 ) {
-//				$weight = 0;
-//			}
+			if ( $legal_cats == 0 ) {
+				$weight = 0;
+			}
         	
             $ce["rate_d"] = ($ce["rate_in"] + $weight - (sqrt(min(100,$ce["rate_out"])) * 50 / 10));
             if ($sortby == "ratings") {
