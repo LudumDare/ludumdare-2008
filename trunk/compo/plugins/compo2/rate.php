@@ -150,7 +150,7 @@ function _compo2_rate_list($params) {
         		}
         	}
         	else {
-        		$legal_cats = 8;
+        		$legal_cats = 88;
         	}
         	print_r( $ce );
 			echo "\nCats: " . $legal_cats;
