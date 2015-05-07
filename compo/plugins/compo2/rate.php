@@ -139,7 +139,21 @@ function _compo2_rate_list($params) {
             $r_rated[$key] = $ce;
         } else {
         	echo "<!-- FEEB: ";
+        	$legal_cats = 0;
+        	if ( isset($ce['settings']['OPTOUT']) ) {
+        		foreach( $ce['settings']['OPTOUT'] as $levent ) {
+        			foreach( $levent as $lcat ) {
+        				if ( $lcat > 0 ) {
+        					$legal_cats++;
+        				}
+        			}
+        		}
+        	}
+        	else {
+        		$legal_cats = 8;
+        	}
         	print_r( $ce );
+			echo "\nCats: " . $legal_cats;
         	echo "-->\n";
         	
             $ce["rate_d"] = ($ce["rate_in"] + 50 - (sqrt(min(100,$ce["rate_out"])) * 50 / 10));
