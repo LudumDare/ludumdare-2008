@@ -140,18 +140,15 @@ function _compo2_rate_list($params) {
         } else {
         	$ce['settings'] = unserialize($ce['settings']);
         	
-        	$ce["legal_cats"] = 0;
+        	$ce["legal_cats"] = 8;
         	if ( isset($ce['settings']['OPTOUT']) ) {
       		  	if ( isset($ce['settings']['OPTOUT'][$ce['etype']]) ) {
         			foreach( $ce['settings']['OPTOUT'][$ce['etype']] as $lcat ) {
         				if ( $lcat > 0 ) {
-        					$ce["legal_cats"]++;
+        					$ce["legal_cats"]--;
         				}
         			}
         		}
-        	}
-        	else {
-        		$ce["legal_cats"] = 16;
         	}
 
         	echo "<!-- FEEB: ";
