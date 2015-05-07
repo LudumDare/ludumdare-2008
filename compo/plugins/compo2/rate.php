@@ -140,29 +140,29 @@ function _compo2_rate_list($params) {
         } else {
         	$ce['settings'] = unserialize($ce['settings']);
         	
-        	$legal_cats = 0;
+        	$ce["legal_cats"] = 0;
         	if ( isset($ce['settings']['OPTOUT']) ) {
       		  	if ( isset($ce['settings']['OPTOUT'][$ce['etype']]) ) {
         			foreach( $ce['settings']['OPTOUT'][$ce['etype']] as $lcat ) {
         				if ( $lcat > 0 ) {
-        					$legal_cats++;
+        					$ce["legal_cats"]++;
         				}
         			}
         		}
         	}
         	else {
-        		$legal_cats = 16;
+        		$ce["legal_cats"] = 16;
         	}
 
 //        	echo "<!-- FEEB: ";
 //        	print_r( $ce );
-//			echo "\nCats: " . $legal_cats;
+//			echo "\nCats: " . $ce["legal_cats"];
 //        	echo "-->\n";
 
 			$weight = 50;
-			if ( $legal_cats == 0 ) {
-				$weight = 100;
-			}
+//			if ( $ce["legal_cats"] == 0 ) {
+//				$weight = 100;
+//			}
         	
             $ce["rate_d"] = ($ce["rate_in"] + $weight - (sqrt(min(100,$ce["rate_out"])) * 50 / 10));
             if ($sortby == "ratings") {
@@ -268,7 +268,8 @@ function _compo2_rate_list($params) {
             $rate_in = intval($e["rate_in"]);
             $rate_out = intval($e["rate_out"]);
             $rate_d = intval($e["rate_d"]);
-            echo "(D:$rate_d=R:$rate_in-C:$rate_out)";
+            $legal_cats
+            echo "(D:$rate_d=R:$rate_in-C:$rate_out) $legal_cats";
             echo "</div>";
             
         }
