@@ -228,7 +228,7 @@ function _compo2_rate_list($params) {
         echo "</p>";
         
         $_link="?action=preview";
-        $r = array_slice($r_unrated,0,18,true);
+        $r = array_slice($r_unrated,0,18+12,true);
         $myurl = get_bloginfo("url")."/wp-content/plugins/compo2";
         
         $cols = 6;
