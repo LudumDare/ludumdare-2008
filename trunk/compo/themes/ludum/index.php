@@ -7,11 +7,11 @@
 		<!-- Event -->
 		<?php if ( function_exists('ldjam_show_bar') ) { echo ldjam_show_bar(); } ?>
 		<?php if ( function_exists('c2_navigation') ) { 
-			c2_navigation(
-				"ludum-dare-32",
-				"Ludum Dare 32",
-				"http://ludumdare.com/compo/2015/04/15/welcome-to-ludum-dare-32/"
-				);
+//			c2_navigation(
+//				"ludum-dare-32",
+//				"Ludum Dare 32",
+//				"http://ludumdare.com/compo/2015/04/15/welcome-to-ludum-dare-32/"
+//				);
 		} ?>
 		<!--
 		<div class="event">
