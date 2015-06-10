@@ -1,0 +1,1 @@
+Code for running the Ludum Dare game dev compo.  Includes wordpress plugins, themes, and other misc code for making the compo happen.
