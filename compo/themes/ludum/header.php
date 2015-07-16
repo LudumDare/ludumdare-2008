@@ -96,19 +96,32 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 							var oneMinute = 60*1000;
 							var oneHour = 60*60*1000;
 							var oneDay = 24*60*60*1000;
+							var oneWeek = 7*24*60*60*1000;
 		
 							var diffMS = Math.floor(diff % oneSecond);
 							var diffSeconds = Math.floor(diff / oneSecond) % 60;
 							var diffMinutes = Math.floor(diff / oneMinute) % 60;
 							var diffHours = Math.floor(diff / oneHour) % 24;
-							var diffDays = Math.floor(diff / oneDay);
+							var diffDays = Math.floor(diff / oneDay) % 7;
+							var diffDaysOnly = Math.floor(diff / oneDay);
+							var diffWeeks = Math.floor(diff / oneWeek);
 							
 							var sep = ":";
 							if ( diffMS >= 500 ) {
 								sep = ";";
 							}
 							
-							var dayText = diffDays + " Days" + ((diffDays <= 7*5) ? ", " : "");
+							var fiveWeek = diffDaysOnly <= (7*5)+1;
+
+							var weekText = diffWeeks + " Weeks, ";
+							if ( diffWeeks == 1 ) {
+								weekText = "1 Week, ";
+							}
+							else if ( diffWeeks == 0 ) {
+								weekText = "";
+							}
+							
+							var dayText = diffDays + " Days" + (fiveWeek ? ", " : "");
 							if ( diffDays == 1 ) {
 								dayText = "1 Day, ";
 							}
@@ -129,8 +142,9 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 							
 							clockElm[idx].innerHTML = 
 								prefixText +
+								weekText +
 								dayText +
-								((diffDays <= 7*5) ? 
+								(fiveWeek ? 
 									PadZero(diffHours) + sep +
 									PadZero(diffMinutes) + sep +
 									PadZero(diffSeconds)
@@ -138,12 +152,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 						}
 						else {
 							/* Flash on Completion */
-							//if ( Math.abs(diff % 1000) >= 500 ) {
-								clockElm[idx].innerHTML = clockElm[idx].getAttribute('msg');
-//							}
-//							else {
-//								clockElm[idx].innerHTML = "";
-//							}
+							clockElm[idx].innerHTML = clockElm[idx].getAttribute('msg');
 						}
 					}
 				};
