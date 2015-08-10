@@ -330,7 +330,7 @@ Special thanks to <a href="http://twitter.com/Sosowski">Sos</a> for creating the
 
 $themes_total = apcu_fetch("themes_total");
 
-if ( $themes_eliminated === false ) {
+if ( $themes_total === false ) {
 	$query = 'SELECT count(`id`) AS total FROM `themes`;';
 	$result = mysql_query($query);
 	$themes_total = mysql_fetch_row($result)[0];
