@@ -347,7 +347,7 @@ if ( $themes_eliminated === false ) {
 	apcu_store($themes_eliminated);
 }
 
-echo '<small>Stats: '.($themes_total).' total themes, '.($themes_eliminated).' eliminated (so far)</small>';
+echo '<small><b>Stats:</b> '.($themes_total).' total themes, '.($themes_eliminated).' eliminated (so far)</small>';
 
 mysql_free_result($result);
 //mysql_free_result($result2);
