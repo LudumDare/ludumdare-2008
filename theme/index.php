@@ -41,6 +41,20 @@ LOAD DATA LOCAL INFILE '/home/username/www/theme/ld26.txt' INTO TABLE themes LIN
 //   I also removed all the "s from the theme suggestions replacing them 's. The real problem was NULL though.
 */
 
+/*
+REMOVING 
+
+SELECT * FROM `themes` 
+	WHERE `id`<800000 AND (`up`-`down`-(`kill`*3))<-100;
+
+
+UPDATE `themes` 
+	SET `id`=`id`+800000 
+	WHERE `id`<800000 AND (`up`-`down`-(`kill`*3))<-100;
+
+
+*/
+
 function get_ip() { 
 	$ip; 
 	if (getenv("HTTP_CLIENT_IP")) 
@@ -108,7 +122,7 @@ function get_db()
 
 $themes = array();
 $link = get_db();
-$query = 'SELECT * FROM `themes` WHERE `id`<808080 ORDER BY rand() LIMIT 1;';
+$query = 'SELECT * FROM `themes` WHERE `id`<800000 ORDER BY rand() LIMIT 1;';
 $c=0;
 $result = mysql_query($query);
 while ($line = mysql_fetch_array($result, MYSQL_ASSOC)) 
@@ -152,7 +166,7 @@ if (isset($_GET['shite']))
 		if (($_GET['sort'])=='6') $sort = '(`up`-`down`) DESC';
 		if (($_GET['sort'])=='7') $sort = '(`up`-`down`-`kill`) DESC';
 	}
-	$query = 'SELECT * FROM `themes` WHERE `id`<808080 ORDER BY '.$sort.' '.(($_GET['shite']=='all') ? '' : 'LIMIT 250').';';
+	$query = 'SELECT * FROM `themes` WHERE `id`<800000 ORDER BY '.$sort.' '.(($_GET['shite']=='all') ? '' : 'LIMIT 250').';';
 	$c=0;
 	$result = mysql_query($query);
 	if (!$result) die('Query error: ' . mysql_error());
@@ -188,9 +202,13 @@ if (isset($_GET['shite']))
 		$sum = $votes + $downvotes + $killvotes;
 		$updown = $votes - $downvotes;
 		$updownkill = $votes - $downvotes - $killvotes;
-			
+		
+		if ( $line['id'] < 800000 )
+			echo '<tr style="background:'. (($c&1) ? '#eee' : '#ddd').';">';
+		else
+			echo '<tr style="background:'. (($c&1) ? '#ecc' : '#dbb').';">';
+
 		echo '
-		<tr style="background:'. (($c&1) ? '#eee' : '#ddd').';">
 			<td width=40><center><b>'.($c+1).'.</b></center></td>
 			<td width=200>'.$line['theme'].'</td>
 			<td><div style="display:inline-block;background-color:green;width:'.(($votes > 250 ) ? 250 : $votes).'px;height:20px;"></div>&nbsp;'.$votes.'</td>
