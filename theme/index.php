@@ -327,7 +327,7 @@ Repeat. Every click helps!<br />';
 //';
 echo '<br />
 Special thanks to <a href="http://twitter.com/Sosowski">Sos</a> for creating the Slaughter<br />';
-echo '<small>Stats: '.10.' total themes, '.10.' eliminated (so far)</small>';
+echo '<small>Stats: '.(10).' total themes, '.(10).' eliminated (so far)</small>';
 
 mysql_free_result($result);
 //mysql_free_result($result2);
