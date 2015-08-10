@@ -328,12 +328,26 @@ Repeat. Every click helps!<br />';
 echo '<br />
 Special thanks to <a href="http://twitter.com/Sosowski">Sos</a> for creating the Slaughter<br />';
 
-$query = 'SELECT count(`id`) AS total FROM `themes` WHERE `id`>800000;';
-$result = mysql_query($query);
-print_r( mysql_fetch_row($result) );
+$themes_total = apcu_fetch("themes_total");
+
+if ( themes_eliminated === false ) {
+	$query = 'SELECT count(`id`) AS total FROM `themes`;';
+	$result = mysql_query($query);
+	$themes_total = mysql_fetch_row($result)[0];
+	apcu_store($themes_total);
+}
 
 
-echo '<small>Stats: '.(10).' total themes, '.(10).' eliminated (so far)</small>';
+$themes_eliminated = apcu_fetch("themes_eliminated");
+
+if ( themes_eliminated === false ) {
+	$query = 'SELECT count(`id`) AS total FROM `themes` WHERE `id`>800000;';
+	$result = mysql_query($query);
+	$themes_eliminated = mysql_fetch_row($result)[0];
+	apcu_store($themes_eliminated);
+}
+
+echo '<small>Stats: '.($themes_total).' total themes, '.($themes_eliminated).' eliminated (so far)</small>';
 
 mysql_free_result($result);
 //mysql_free_result($result2);
