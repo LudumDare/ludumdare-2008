@@ -329,7 +329,7 @@ echo '<br />
 Special thanks to <a href="http://twitter.com/Sosowski">Sos</a> for creating the Slaughter<br />';
 
 $query = 'SELECT count(`id`) AS total FROM `themes` WHERE `id`>800000;';
-if (!mysql_query($query)) die('Query error: ' . mysql_error());
+$result = mysql_query($query);
 print_r( mysql_fetch_row($result) );
 
 
