@@ -203,7 +203,7 @@ if (isset($_GET['shite']))
 		$updown = $votes - $downvotes;
 		$updownkill = $votes - $downvotes - $killvotes;
 		
-		if ( $line['id'] < 800000 )
+		if ( intval($line['id']) < 800000 )
 			echo '<tr style="background:'. (($c&1) ? '#eee' : '#ddd').';">';
 		else
 			echo '<tr style="background:'. (($c&1) ? '#ecc' : '#dbb').';">';
