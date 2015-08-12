@@ -370,7 +370,7 @@ if ( $up_sum === false ) {
 
 $total_sum = $up_sum+$down_sum+$kill_sum;
 
-echo '<small><b>Stats:</b> '.($themes_total).' total themes, '.($themes_eliminated).' eliminated (so far).<br />'.number_format($total_sum).' votes so far (U:'.number_format($up_sum).',D:'.number_format($down_sum).',S:'.number_format($kill_sum).').<br /><strong>Updated:</strong> '.date(DATE_COOKIE,$timestamp).'</small>';
+echo '<small><b>Stats:</b> '.($themes_total).' total themes, '.($themes_eliminated).' eliminated (so far).<br />'.number_format($total_sum).' votes so far (U:'.number_format($up_sum).',D:'.number_format($down_sum).',S:'.number_format($kill_sum).').<br /><!--<strong>Updated:</strong> '.date(DATE_COOKIE,$timestamp).'--></small>';
 
 mysql_free_result($result);
 //mysql_free_result($result2);
