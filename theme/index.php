@@ -358,9 +358,10 @@ $timestamp = apcu_fetch("themes_timestamp");
 if ( $up_sum === false ) {
 	$query = "SELECT SUM(`up`) as up_sum, SUM(`down`) as down_sum, SUM(`kill`) as kill_sum FROM `themes`;";
 	$result = mysql_query($query);
-	$up_sum = mysql_fetch_row($result)[0];
-	$down_sum = mysql_fetch_row($result)[1];
-	$kill_sum = mysql_fetch_row($result)[2];
+	$row = mysql_fetch_row($result);
+	$up_sum = $row[0];
+	$down_sum = $row[1];
+	$kill_sum = $row[2];
 	apcu_store("themes_up_sum",$up_sum,$apcu_ttl);
 	apcu_store("themes_down_sum",$down_sum,$apcu_ttl);
 	apcu_store("themes_kill_sum",$kill_sum,$apcu_ttl);
