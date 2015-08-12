@@ -326,7 +326,7 @@ Repeat. Every click helps!<br />';
 //<span style="color:#048;font-size:150%;">Stuff like <i>\'2-bit art\' or \'one button controls\' or \'racing game\'</i><br/>and any other implying genre, technical or any other limitations are <B>NOT THEMES</b><br/>Please vote them down. I will remove them regardless of votes anyways.</span>
 //';
 echo '<br />
-Special thanks to <a href="http://twitter.com/Sosowski">Sos</a> for creating the Slaughter<br />';
+<!--Special thanks to <a href="http://twitter.com/Sosowski">Sos</a> for creating the Slaughter-->';
 
 $apcu_ttl = 60*10;
 
