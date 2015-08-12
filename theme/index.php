@@ -328,13 +328,15 @@ Repeat. Every click helps!<br />';
 echo '<br />
 Special thanks to <a href="http://twitter.com/Sosowski">Sos</a> for creating the Slaughter<br />';
 
+$apcu_ttl = 60*10;
+
 $themes_total = apcu_fetch("themes_total");
 
 if ( $themes_total === false ) {
 	$query = 'SELECT count(`id`) AS total FROM `themes`;';
 	$result = mysql_query($query);
 	$themes_total = mysql_fetch_row($result)[0];
-	apcu_store($themes_total);
+	apcu_store("themes_total",$themes_total,$apcu_ttl);
 }
 
 
@@ -344,10 +346,30 @@ if ( $themes_eliminated === false ) {
 	$query = 'SELECT count(`id`) AS total FROM `themes` WHERE `id`>800000;';
 	$result = mysql_query($query);
 	$themes_eliminated = mysql_fetch_row($result)[0];
-	apcu_store($themes_eliminated);
+	apcu_store("themes_eliminated",$themes_eliminated,$apcu_ttl);
 }
 
-echo '<small><b>Stats:</b> '.($themes_total).' total themes, '.($themes_eliminated).' eliminated (so far)</small>';
+
+$up_sum = apcu_fetch("themes_up_sum");
+$down_sum = apcu_fetch("themes_down_sum");
+$kill_sum = apcu_fetch("themes_kill_sum");
+$timestamp = apcu_fetch("themes_timestamp");
+
+if ( $up_sum === false ) {
+	$query = "SELECT SUM(`up`) as up_sum, SUM(`down`) as down_sum, SUM(`kill`) as kill_sum FROM `themes`;";
+	$result = mysql_query($query);
+	$up_sum = mysql_fetch_row($result)[0];
+	$down_sum = mysql_fetch_row($result)[1];
+	$kill_sum = mysql_fetch_row($result)[2];
+	apcu_store("themes_up_sum",$up_sum,$apcu_ttl);
+	apcu_store("themes_down_sum",$down_sum,$apcu_ttl);
+	apcu_store("themes_kill_sum",$kill_sum,$apcu_ttl);
+	apcu_store("themes_timestamp",time(),$apcu_ttl);
+}
+
+$total_sum = $up_sum+$down_sum+$kill_sum;
+
+echo '<small><b>Stats:</b> '.($themes_total).' total themes, '.($themes_eliminated).' eliminated (so far). '.number_format($total_sum).' votes so far (U:'.$up_sum.',D:'.$down_sum.',S:'.$kill_sum.'). <strong>Updated:</strong> '.date(DATE_COOKIE,$timestamp).'</small>';
 
 mysql_free_result($result);
 //mysql_free_result($result2);
