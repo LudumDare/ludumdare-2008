@@ -167,7 +167,7 @@ if (isset($_GET['shite']))
 		if (($_GET['sort'])=='7') $sort = '(`up`-`down`-`kill`) DESC';
 	}
 //	$query = 'SELECT * FROM `themes` WHERE `id`<800000 ORDER BY '.$sort.' '.(($_GET['shite']=='all') ? '' : 'LIMIT 250').';';
-	$query = 'SELECT * FROM `themes` '.(($_GET['shite']=='all') ? '' : 'WHERE `id`<800000').'ORDER BY '.$sort.' '.(($_GET['shite']=='all') ? '' : 'LIMIT 250').';';
+	$query = 'SELECT * FROM `themes` '.(($_GET['shite']=='all') ? '' : 'WHERE `id`<800000').' ORDER BY '.$sort.' '.(($_GET['shite']=='all') ? '' : 'LIMIT 250').';';
 	$c=0;
 	$result = mysql_query($query);
 	if (!$result) die('Query error: ' . mysql_error());
