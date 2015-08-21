@@ -104,7 +104,6 @@ function wp_new_user_notification($user_id, $plaintext_pass = '') {
 	wp_mail($user_email, sprintf(__('[%s] - Your registration information', 'sabre'), get_option('blogname')), $message, $mail_from);
 
 }
-*/
 endif;
-
+*/
 ?>
