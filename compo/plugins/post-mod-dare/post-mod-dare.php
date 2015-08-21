@@ -152,6 +152,7 @@ add_action('plugins_loaded','init_postmoddare');
 function custom_login_message() {
 	$message = '';
 	//$message = '<p class="message">Registration/Login Problems? A bug with user registrations was introduced earlier this week. It was fixed late Friday May 2nd, but we had to remove all users affected by the bug. If that was you, simply re-register. A confirmation e-mail with link should arrive within a few minutes.</p>';
+	$message = '<p class="message">Registration/Login Problems? A bug with new user registrations was introduced earlier this week (fixed as of late-night Thursday). If you\'re unable to log in, resetting your password should fix it. If you still have problems, <a href="/compo/contact/">contact Mike</a>.</p>';
 	return $message;
 }
 add_filter('login_message', 'custom_login_message');
