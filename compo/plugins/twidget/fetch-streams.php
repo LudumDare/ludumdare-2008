@@ -121,7 +121,7 @@ function hitbox_streams_get( $game_name ) {
 
 function beam_streams_get( $game_name ) {
 	$api_url = "https://beam.pro/api/v1/types/" . $game_name . "/channels";
-	$api_url .= "?order=online%3Adesc%2CviewersCurrent%3Adesc%2CviewersTotal%3Adesc&fields=id%2Ctoken%2Conline%2CviewersCurrent%2Cname%2Cthumbnail%2Ctype&where=suspended.eq.0&scope=names&q="
+	$api_url .= "?order=online%3Adesc%2CviewersCurrent%3Adesc%2CviewersTotal%3Adesc&fields=id%2Ctoken%2Conline%2CviewersCurrent%2Cname%2Cthumbnail%2Ctype&where=suspended.eq.0&scope=names&q=";
 	$api_response = @file_get_contents($api_url); // @ surpresses PHP error: http://stackoverflow.com/a/15685966
 	
 	// Decode the Data //
