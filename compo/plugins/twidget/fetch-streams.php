@@ -48,10 +48,18 @@ function twitch_streams_get( $game_name, $api_key ) {
 				return NULL;
 			}
 			$loops++;
+			
+			
+			$stream_context = stream_context_create([
+				'http'=>[
+					'method'=>"GET",
+					'header'=>"Accept: application/vnd.twitchtv.v3+json\r\n"
+				]
+			]);
 	
 			// API only supports 100 streams per request //
 			$api_url = "https://api.twitch.tv/kraken/streams/?game=" . $game_name . "&limit=" . $limit . "&offset=" . $offset;
-			$api_response = @file_get_contents($api_url); // @ surpresses PHP error: http://stackoverflow.com/a/15685966
+			$api_response = @file_get_contents($api_url, false, $stream_context); // @ surpresses PHP error: http://stackoverflow.com/a/15685966
 
 			// If we didn't get a correct response, then don't attempt to json decode. //
 			if ( $api_response === FALSE ) {
