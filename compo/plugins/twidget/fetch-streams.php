@@ -70,6 +70,7 @@ function twitch_streams_get( $game_name, $api_key ) {
 		
 		// If we currently have no data //
 		if ( $ret_data === NULL ) {
+			/*
 			{
 				// Confirm that the response matches our expected API version. Stored in the response header. //
 				$expected_api_version = 3;
@@ -81,6 +82,7 @@ function twitch_streams_get( $game_name, $api_key ) {
 					print_r($http_response_header);
 				}
 			}
+			*/
 			
 			// Copy all Data //
 			$ret_data = $json_data;
