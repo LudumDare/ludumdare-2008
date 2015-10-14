@@ -77,6 +77,8 @@ function twitch_streams_get( $game_name, $api_key ) {
 
 				if ( $api_version !== $expected_api_version ) {
 					echo "WARNING: Twitch API version mismatch. Expected: " . $expected_api_version . " Got: " . $api_version . "\n";
+					
+					print_r($http_response_header);
 				}
 			}
 			
