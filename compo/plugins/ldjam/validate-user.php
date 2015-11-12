@@ -53,7 +53,7 @@ if ( $user ) {
 	//$user['caps']['administrator']
 	//$user['roles'] // Array of strings including 'administrator'
 	
-	$data['hash'] = GetHash($data['id'])['hash'];
+	$data['hash'] = GetHash($data['id'])->hash;
 	//var_dump($data,GetHash($data['id']));
 	
 	// Set Cookie //
