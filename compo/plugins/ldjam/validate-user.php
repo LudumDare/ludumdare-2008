@@ -1,7 +1,7 @@
 <?php
 // Check wordpress credentials //
 require_once __DIR__."/../../../wp-load.php";
-require_once __DIR__."config.php";
+require_once __DIR__."/config.php";
 
 // TODO: check if not logged in 
 
