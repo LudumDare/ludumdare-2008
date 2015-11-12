@@ -2,7 +2,7 @@
 // Check wordpress credentials //
 require_once __DIR__."/../../../wp-load.php";
 
-echo wp_get_current_user();
+wp_get_current_user();
 
 // Set Cookie //
 //setcookie( "lusha", "1234", time()+2*24*60*60, "/", ".ludumdare.com" );
