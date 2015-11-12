@@ -3,12 +3,27 @@
 require_once __DIR__."/../../../wp-load.php";
 require_once __DIR__."/config.php";
 
+function GetHash($id) {
+	$query = [
+		'action' => "GET_HASH",
+		'id' => $id
+	];
+	
+	$result = http_post_fields(LEGACY_HASH_URL,$query);
+	
+	if ( $result !== false ) {
+		return json_decode($result);
+	}	
+	return false;
+}
+
 // User is known, so fetch it //
 $user = wp_get_current_user();
 
 if ( $user ) {
 	$data = [
 		'id' => $user->ID,
+		'hash' => "unknown_hash",
 	//	'name' => $user['data']['display_name'],
 	//	'slug' => wp_user['data']['user_nicename'],
 	//	'mail' => wp_user['data']['user_email'],
@@ -20,26 +35,14 @@ if ( $user ) {
 	//$user['caps']['administrator']
 	//$user['roles'] // Array of strings including 'administrator'
 	
-	
-	//	$query = [
-	//		'action'=>"LEGACY_FETCH",
-	//		'id'=>$id
-	//	];
-	//	
-	//	$result = http_post_fields(LEGACY_FETCH_URL,$query);
-	//	
-	//	if ( $result !== false ) {
-	//		var_dump($result);
-	//		return json_decode($result);
-	//	}
-	
-	//var_dump($data);
+	//$data['hash'] = GetHash($data['id'])['hash'];
+	var_dump($data,GetHash($data['id']));
 	
 	// Set Cookie //
-	setcookie( "lusha", $data['id'].".unknown_hash", time()+2*24*60*60, "/", str_replace("theme","",$_SERVER['SERVER_NAME']) );
+	//setcookie( "lusha", $data['id'].".".$data['hash'], time()+2*24*60*60, "/", str_replace("theme","",$_SERVER['SERVER_NAME']) );
 	
 	// Redirect //
-	header("Location: http://theme.ludumdare.com");
+	//header("Location: http://theme.ludumdare.com");
 	
 	//echo '<!doctype html>';
 	//echo '<html><head><meta http-equiv="Location" content="http://example.com/"></head>';
