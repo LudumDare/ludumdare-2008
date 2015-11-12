@@ -8,11 +8,11 @@ require_once __DIR__."/config.php";
 $wp_user = wp_get_current_user();
 
 $data = [
-	'id' => $wp_user['ID'],
+	'id' => $wp_user->ID,
 //	'name' => $wp_user['data']['display_name'],
 //	'slug' => $wp_user['data']['user_nicename'],
 //	'mail' => $wp_user['data']['user_email'],
-	'gravatar' => md5(strtolower(trim( $wp_user['data']['user_email'] ))),
+	'gravatar' => md5(strtolower(trim( $wp_user->data->user_email ))),
 //	'register_date' => $wp_user['data']['user_registered'],
 //	'login' => $wp_user['data']['user_login'],
 ];
