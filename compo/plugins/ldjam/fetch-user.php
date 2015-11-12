@@ -1,5 +1,8 @@
 <?php
+require_once __DIR__."/../../../wp-load.php";
 require_once __DIR__."/config.php";
+
+// User is NOT known //
 
 // Shorthand function for checking a configuration whitelist //
 function core_OnWhitelist( $ip, $list ) {
