@@ -3,13 +3,31 @@
 require_once __DIR__."/../../../wp-load.php";
 require_once __DIR__."/config.php";
 
+
 function GetHash($id) {
-	$query = [
+	$url = LEGACY_HASH_URL;
+	$data = [
 		'action' => "GET_HASH",
 		'id' => $id
 	];
+
+	// use key 'http' even if you send the request to https://...
+	$options = array(
+	    'http' => array(
+	        'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+	        'method'  => 'POST',
+	        'content' => http_build_query($data),
+	    ),
+	);
 	
-	$result = http_post_fields(LEGACY_HASH_URL,$query);
+	$context = stream_context_create($options);
+	$result = file_get_contents($url, false, $context);
+	
+//	$data = [
+//		'action' => "GET_HASH",
+//		'id' => $id
+//	];
+//	$result = http_post_fields(LEGACY_HASH_URL,$query);
 	
 	if ( $result !== false ) {
 		return json_decode($result);
