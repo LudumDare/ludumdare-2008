@@ -29,9 +29,10 @@ function GetHash($id) {
 //	];
 //	$result = http_post_fields($LEGACY_HASH_URL,$query);
 	
-	if ( $result !== false ) {
-		return json_decode($result);
-	}	
+	return $result;
+//	if ( $result !== false ) {
+//		return json_decode($result);
+//	}	
 	return false;
 }
 
