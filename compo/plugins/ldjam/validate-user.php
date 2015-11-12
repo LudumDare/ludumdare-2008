@@ -5,7 +5,7 @@ require_once __DIR__."/config.php";
 
 
 function GetHash($id) {
-	$url = LEGACY_HASH_URL;
+	$url = $GLOBALS['LEGACY_HASH_URL'];
 	$data = [
 		'action' => "GET_HASH",
 		'id' => $id
@@ -27,7 +27,7 @@ function GetHash($id) {
 //		'action' => "GET_HASH",
 //		'id' => $id
 //	];
-//	$result = http_post_fields(LEGACY_HASH_URL,$query);
+//	$result = http_post_fields($LEGACY_HASH_URL,$query);
 	
 	if ( $result !== false ) {
 		return json_decode($result);
