@@ -20,6 +20,8 @@ function core_OnWhitelist( $ip, $list ) {
 $data = [];
 
 $data['am_i_real'] = false;
+$data['whitelist'] = $IP_WHITELIST;
+$data['you'] = $_SERVER['REMOTE_ADDR'];
 
 header('Content-Type: application/json');
 echo json_encode($data);
