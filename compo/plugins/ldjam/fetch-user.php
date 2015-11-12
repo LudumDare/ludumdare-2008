@@ -17,6 +17,12 @@ function core_OnWhitelist( $ip, $list ) {
 
 //if (core_OnWhitelist($_SERVER['REMOTE_ADDR'],$IP_WHITELIST)) {
 
-echo '{"isreal":true}';
+$data = [];
+
+$data['am_i_real'] = false;
+
+header('Content-Type: application/json');
+echo json_encode($data);
+die();
 
 ?>
