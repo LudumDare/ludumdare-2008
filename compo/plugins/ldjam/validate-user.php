@@ -29,10 +29,9 @@ function GetHash($id) {
 //	];
 //	$result = http_post_fields($LEGACY_HASH_URL,$query);
 	
-	return $result;
-//	if ( $result !== false ) {
-//		return json_decode($result);
-//	}	
+	if ( $result !== false ) {
+		return json_decode($result);
+	}	
 	return false;
 }
 
@@ -54,14 +53,14 @@ if ( $user ) {
 	//$user['caps']['administrator']
 	//$user['roles'] // Array of strings including 'administrator'
 	
-	//$data['hash'] = GetHash($data['id'])['hash'];
-	var_dump($data,GetHash($data['id']));
+	$data['hash'] = GetHash($data['id'])['hash'];
+	//var_dump($data,GetHash($data['id']));
 	
 	// Set Cookie //
-	//setcookie( "lusha", $data['id'].".".$data['hash'], time()+2*24*60*60, "/", str_replace("theme","",$_SERVER['SERVER_NAME']) );
+	setcookie( "lusha", $data['id'].".".$data['hash'], time()+2*24*60*60, "/", str_replace("theme","",$_SERVER['SERVER_NAME']) );
 	
 	// Redirect //
-	//header("Location: http://theme.ludumdare.com");
+	header("Location: http://theme.ludumdare.com");
 	
 	//echo '<!doctype html>';
 	//echo '<html><head><meta http-equiv="Location" content="http://example.com/"></head>';
