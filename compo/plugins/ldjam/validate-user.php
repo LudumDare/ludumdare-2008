@@ -33,6 +33,7 @@ $data = [
 //		return json_decode($result);
 //	}
 
+var_dump($data);
 
 // Set Cookie //
 //setcookie( "lusha", "1234", time()+2*24*60*60, "/", ".ludumdare.com" );
