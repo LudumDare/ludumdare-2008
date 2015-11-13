@@ -23,6 +23,7 @@ function GetHash($id) {
 	$context = stream_context_create($options);
 	$result = file_get_contents($url, false, $context);
 	
+	// Can't use these (too old of a PHP), so .. //
 //	$data = [
 //		'action' => "GET_HASH",
 //		'id' => $id
@@ -41,11 +42,11 @@ $user = wp_get_current_user();
 if ( $user ) {
 	$data = [
 		'id' => $user->ID,
-		'hash' => "unknown_hash",
+	//	'hash' => "unknown_hash",
 	//	'name' => $user['data']['display_name'],
 	//	'slug' => wp_user['data']['user_nicename'],
 	//	'mail' => wp_user['data']['user_email'],
-		'gravatar' => md5(strtolower(trim( $user->data->user_email ))),
+	//	'gravatar' => md5(strtolower(trim( $user->data->user_email ))),
 	//	'register_date' => $user['data']['user_registered'],
 	//	'login' => $user['data']['user_login'],
 	];
