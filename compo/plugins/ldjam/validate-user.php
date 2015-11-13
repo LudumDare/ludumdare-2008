@@ -24,9 +24,10 @@ function GetHash($id) {
 	$result = file_get_contents($url, false, $context);
 
 	if ( $result !== false ) {
-		
-		var_dump($result);
-		return json_decode($result);
+		$decoded = json_decode($result);
+		if ( empty($decoded) )
+			return false;
+		return $decoded->hash;
 	}	
 	return false;
 }
@@ -36,13 +37,18 @@ $user = wp_get_current_user();
 
 if ( isset($user->ID) && ($user->ID > 0) ) {
 	$id = $user->ID;
-	$hash = GetHash($data['id'])->hash;
+	$hash = GetHash($data['id']);
 	
-	// Set Cookie //
-	setcookie( "lusha", $id.".".$hash, time()+2*24*60*60, "/", str_replace("theme","",$_SERVER['SERVER_NAME']) );
-	
-	// Redirect //
-	header("Location: http://theme.ludumdare.com");
+	if ( $hash ) {
+		// Set Cookie //
+		setcookie( "lusha", $id.".".$hash, time()+2*24*60*60, "/", str_replace("theme","",$_SERVER['SERVER_NAME']) );
+		
+		// Redirect //
+		header("Location: http://theme.ludumdare.com");
+	}
+	else {
+		echo "Nope";
+	}
 	
 	//echo '<!doctype html>';
 	//echo '<html><head><meta http-equiv="Location" content="http://example.com/"></head>';
