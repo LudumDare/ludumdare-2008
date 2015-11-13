@@ -43,7 +43,7 @@ if ( $user ) {
 	$data = [
 		'id' => $user->ID,
 	//	'hash' => "unknown_hash",
-	//	'name' => $user['data']['display_name'],
+		'name' => $user['data']['display_name'],
 	//	'slug' => wp_user['data']['user_nicename'],
 	//	'mail' => wp_user['data']['user_email'],
 	//	'gravatar' => md5(strtolower(trim( $user->data->user_email ))),
