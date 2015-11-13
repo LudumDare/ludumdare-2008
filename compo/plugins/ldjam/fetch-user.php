@@ -24,10 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if (core_OnWhitelist($_SERVER['REMOTE_ADDR'],$IP_WHITELIST)) {
 		$id = intval($_POST['id']);
 		
+		$data['_id'] = $id;
+		
 		$user = get_user_by('id',$id);
 		
 		if ( $user ) {
-			$data = [
+			$data['response'] = [
 				'id' => $user->ID,
 				'register_date' => $user->data->user_registered,
 //				'name' => $user->data->display_name,
