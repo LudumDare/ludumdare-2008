@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$data = [
 				'id' => $user->ID,
 				'register_date' => $user->data->user_registered,
-//				'name' => $user->data->display_name,
+				'name' => $user->data->display_name,
 //				'slug' => $user->data->user_nicename,
 //				'login' => $user->data->user_login,
 //				'mail' => $user->data->user_email,
