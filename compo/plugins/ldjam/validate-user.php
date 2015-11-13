@@ -24,6 +24,8 @@ function GetHash($id) {
 	$result = file_get_contents($url, false, $context);
 
 	if ( $result !== false ) {
+		
+		var_dump($result);
 		return json_decode($result);
 	}	
 	return false;
