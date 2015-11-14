@@ -43,13 +43,13 @@ if ( isset($user->ID) && ($user->ID > 0) ) {
 
 	// Make Cookies (Yummy) - The dot prefix (.) means it's an error //	
 	if ( $data ) {
-		$hash = json_decode($data);
+		$decoded = json_decode($data);
 		
-		if ( empty($hash) ) {
+		if ( empty($decoded) ) {
 			setcookie( "lusha", ".".$id.".empty", time()+2*24*60*60, "/", str_replace("theme","",$_SERVER['SERVER_NAME']) );
 		}
 		else {
-			setcookie( "lusha", $id.".".$hash, time()+2*24*60*60, "/", str_replace("theme","",$_SERVER['SERVER_NAME']) );
+			setcookie( "lusha", $id.".".$decoded->hash, time()+2*24*60*60, "/", str_replace("theme","",$_SERVER['SERVER_NAME']) );
 		}
 	}
 	else {
