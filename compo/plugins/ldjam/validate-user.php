@@ -68,7 +68,7 @@ if ( isset($user->ID) && ($user->ID > 0) ) {
 else {
 	// TODO: Include data for WP-login redirect to send it back here after logging in //
 	header("Location: http://ludumdare.com/compo/wp-login.php?".
-		http_build_query({'redirect_to' => "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"})
+		http_build_query(['redirect_to' => "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"])
 	);
 	die();	
 }
