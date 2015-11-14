@@ -27,6 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		$user = get_user_by('id',$id);
 		
 		if ( $user ) {
+			// Data is good. Extract the pieces we want. //
+			
 			$data = [
 				'id' => $user->ID,
 				'register_date' => $user->data->user_registered,
@@ -40,10 +42,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			//$user['caps']['administrator']
 			//$user['roles'] // Array of strings including 'administrator'
 		}
-		
-	//	$data['am_i_real'] = false;
-	//	$data['whitelist'] = $IP_WHITELIST;
-	//	$data['you'] = $_SERVER['REMOTE_ADDR'];
+		else {
+			// If we're unable to fetch, return a null Id.
+			$data['id'] = 0;
+		}
 	}
 }
 
