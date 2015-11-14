@@ -21,7 +21,9 @@ function FetchHash($id) {
 	);
 	
 	$context = stream_context_create($options);
-	return file_get_contents($url, false, $context);
+	$result = @file_get_contents($url, false, $context);
+	
+	return $result;
 
 //	$result = file_get_contents($url, false, $context);
 //
