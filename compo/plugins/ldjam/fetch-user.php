@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				// Do a Query to figure out how many Ludum Dare entries a user has //
 				global $wpdb;
 				$result = $wpdb->get_results(
-					"SELECT uid,cid,results IN c2_entry WHERE
+					"SELECT uid,cid,results FROM c2_entry WHERE
 					uid=".$data['id']." AND active=1;",
 					ARRAY_A
 				);
