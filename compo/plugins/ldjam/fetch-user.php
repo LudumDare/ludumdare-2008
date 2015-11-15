@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				$data['num_events'] = 0;
 				
 				foreach ($result as $item) {
-					if ( $item[''] !== null )
+					if ( $item['results'] !== null )
 						$data['num_events']++;
 				}
 			}
