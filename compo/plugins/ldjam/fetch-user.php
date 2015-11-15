@@ -23,14 +23,12 @@ $data = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	if (core_OnWhitelist($_SERVER['REMOTE_ADDR'],$IP_WHITELIST)) {
 		$id = intval($_POST['id']);
-		
 		$user = get_user_by('id',$id);
 		
 		if ( $user ) {
 			// Data is good. Extract the pieces we want. //
-			
 			$data = [
-				'id' => $user->ID,
+				'id' => intval($user->ID),
 				'register_date' => $user->data->user_registered,
 				'name' => $user->data->display_name,
 //				'slug' => $user->data->user_nicename,
@@ -38,6 +36,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 //				'mail' => $user->data->user_email,
 				'gravatar' => md5(strtolower(trim( $user->data->user_email ))),   
 			];
+
+			if ( isset($_POST['eep']) ) {
+			
+				// Do a Query to figure out how many Ludum Dare entries a user has //
+				global $wpdb;
+				$result = $wpdb->get_results(
+					"SELECT uid,cid,results IN c2_entry WHERE
+					uid=".$data['id']." AND active=1;",
+					ARRAY_A
+				);
+				
+				$data['result'] = $result;
+			}
 
 			//$user['caps']['administrator']
 			//$user['roles'] // Array of strings including 'administrator'
