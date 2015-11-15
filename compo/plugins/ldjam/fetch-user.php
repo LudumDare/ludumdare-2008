@@ -37,8 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 				'gravatar' => md5(strtolower(trim( $user->data->user_email ))),   
 			];
 
-			if ( isset($_POST['eep']) ) {
-			
+			{
 				// Do a Query to figure out how many Ludum Dare entries a user has //
 				global $wpdb;
 				$result = $wpdb->get_results(
@@ -47,8 +46,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 					ARRAY_A
 				);
 				
-				$data['result'] = $result;
+				$data['num_events'] = 0;
+				
+				foreach ($result as $item) {
+					if ( $item[''] !== null )
+						$data['num_events']++;
+				}
 			}
+			
+			
 
 			//$user['caps']['administrator']
 			//$user['roles'] // Array of strings including 'administrator'
