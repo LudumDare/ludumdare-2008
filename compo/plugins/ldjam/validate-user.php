@@ -8,7 +8,7 @@ function FetchHash($id) {
 	$query = [
 		'action' => "GET_HASH",
 		'id' => $id,
-		'ip' => $_SERVER["HTTP_CF_CONNECTING_IP"]
+		'ip' => isset($_SERVER["HTTP_CF_CONNECTING_IP"]) ? $_SERVER["HTTP_CF_CONNECTING_IP"] : "0.0.0.0"
 	];
 
 	// use key 'http' even if you send the request to https://...
