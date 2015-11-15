@@ -3,12 +3,12 @@
 require_once __DIR__."/../../../wp-load.php";
 require_once __DIR__."/config.php";
 
-
 function FetchHash($id) {
 	$url = $GLOBALS['LEGACY_HASH_URL'];
 	$query = [
 		'action' => "GET_HASH",
-		'id' => $id
+		'id' => $id,
+		'ip' => $_SERVER["HTTP_CF_CONNECTING_IP"]
 	];
 
 	// use key 'http' even if you send the request to https://...
@@ -24,16 +24,6 @@ function FetchHash($id) {
 	$result = @file_get_contents($url, false, $context);
 	
 	return $result;
-
-//	$result = file_get_contents($url, false, $context);
-//
-//	if ( $result !== false ) {
-//		$decoded = json_decode($result);
-//		if ( empty($decoded) )
-//			return false;
-//		return $decoded->hash;
-//	}	
-//	return false;
 }
 
 // User is known, so fetch it //
@@ -68,7 +58,6 @@ if ( isset($user->ID) && ($user->ID > 0) ) {
 	die();
 }
 else {
-	// TODO: Include data for WP-login redirect to send it back here after logging in //
 	header("Location: http://ludumdare.com/compo/wp-login.php?".
 		http_build_query(['redirect_to' => "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"])
 	);
