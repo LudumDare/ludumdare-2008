@@ -49,9 +49,13 @@ if ( isset($user->ID) && ($user->ID > 0) ) {
 	else {
 		setcookie( "lusha", ".".$id.".fetch_failed", time()+$cookie_length, "/", str_replace("theme","",$_SERVER['SERVER_NAME']) );
 	}
+	
+	$RETURN_URL = "http://theme.ludumdare.com";
+	if ( isset($_GET['beta']) )
+		$RETURN_URL .= "/?beta";
 
 	// Redirect //
-	header("Location: http://theme.ludumdare.com");
+	header("Location: ".$RETURN_URL);
 	
 	//echo '<!doctype html>';
 	//echo '<html><head><meta http-equiv="Location" content="http://example.com/"></head>';
@@ -61,7 +65,7 @@ if ( isset($user->ID) && ($user->ID > 0) ) {
 }
 else {
 	header("Location: http://ludumdare.com/compo/wp-login.php?".
-		http_build_query(['redirect_to' => "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}"])
+		http_build_query(['redirect_to' => "//{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}".(isset($_GET['beta'])?"&beta":"")])
 	);
 	die();	
 }
