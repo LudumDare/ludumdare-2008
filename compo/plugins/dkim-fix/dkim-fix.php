@@ -18,6 +18,8 @@ Description: Fix for broken DKIM headers
 
 function wp_mail( $to, $subject, $message, $headers = '', $attachments = array() ) {
 	// Ignoring Attachments //
+	
+	error_log("here we go!");
  
     // Headers
     if ( empty( $headers ) ) {
