@@ -120,9 +120,16 @@ function wp_mail( $to, $subject, $message, $headers = '', $attachments = array()
 //    }
 
 	echo(
-		$to,
-		$subject,
-		$message,
+		$to."\n\n".
+		$subject."\n\n".
+		$message."\n\n".
 		$headers
 	);
+
+//	mail(
+//		$to,
+//		$subject,
+//		$message,
+//		$headers
+//	);
 }
