@@ -118,8 +118,8 @@ function wp_mail( $to, $subject, $message, $headers = '', $attachments = array()
 // 
 //        $from_email = 'wordpress@' . $sitename;
 //    }
-    	
-	mail(
+
+	echo(
 		$to,
 		$subject,
 		$message,
