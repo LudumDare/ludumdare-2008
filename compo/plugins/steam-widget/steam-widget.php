@@ -120,7 +120,7 @@ class SteamWidget extends WP_Widget {
 				</div>
 				<div class='rule'></div>
 				<div class='content nobottom'>
-					<a href='http://steamcommunity.com/groups/ludum' target='_blank'><span class='right'>
+					<a href='http://steamcommunity.com/groups/ludumdare' target='_blank'><span class='right'>
 						<div class='follow_button' style='float:right'>Join</div>
 					</span>
 					<div class='avatar_small'></div></a>
