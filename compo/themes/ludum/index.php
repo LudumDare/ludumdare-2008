@@ -8,19 +8,11 @@
 		<?php if ( function_exists('ldjam_show_bar') ) { echo ldjam_show_bar(); } ?>
 		<?php if ( function_exists('c2_navigation') ) { 
 			/*c2_navigation(
-				"ludum-dare-34",
-				"Ludum Dare 34",
-				"http://ludumdare.com/compo/2015/12/09/welcome-to-ludum-dare-34/"
+				"ludum-dare-35",
+				"Ludum Dare 35",
+				"/compo/2015/12/09/welcome-to-ludum-dare-34/"
 				);*/
 		} ?>
-		<!--
-		<div class="event">
-			<div class="info">
-				<div class="navigation">Navigation</div>
-				<div class="name">Now: <strong>Test Event</strong></div>
-			</div>
-		</div>
-		-->
 		<!-- Posts -->
 <?php	if (have_posts()) { ?>
 <?php		while (have_posts()) { ?>
