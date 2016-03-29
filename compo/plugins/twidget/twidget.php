@@ -821,25 +821,28 @@ function broadcast_widget_func() {
 		}
 ?>
     	<div class="item">
-    		<span class="name">Hello! TV is offline</span>
+    		<span class="name">Hello! TV is offline due to</span>
     	</div>
     	<div class="item">
-    		<span class="name">due to changes. Hoping</span>
+    		<span class="name">"changes". I'm hoping to</span>
     	</div>
     	<div class="item">
-    		<span class="name">to have this fixed soon.</span>
+    		<span class="name">have this back soon.</span>
+    	</div>
+    	<div class="item">
+    		<span class="name"></span>
     	</div>
     	<div class="footer" onclick="broadcast_tvpop_toggle();"><span class="more">More <strong>LIVE</strong> GameDev</span></div>
     </div>
     <div class="frame hidden" id="tv-frame">
 	</div>
     <div class="border">
-    	<!--<img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.png">-->
+    	<img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.png">
     </div>
     <div class="close topright hidden" id="tv-close" onclick="broadcast_clear();"><strong>X</strong></div>
   </div>
   <div class="bar" onclick="broadcast_tvpop_toggle();">
-    <div style="float:right"><span class="label" style="background:#C46;color:#FCA">LIVE</span> <span class="number"><?php echo $total_streams; ?></span> <span class="label">VIEWERS</span> <span class="number" style="padding-right:0"><?php echo $total_viewers; ?></span></div><div class="logo"><img src="/compo/wp-content/themes/ludum/ld2014/ldtv-inv-sm.png"></div>
+    <div style="float:right"><span class="label" style="background:#C46;color:#FCA">LIVE</span> <span class="number"><?php echo $total_streams; ?></span> <span class="label">VIEWERS</span> <span class="number" style="padding-right:0"><?php echo $total_viewers; ?></span></div><div class="logo"><!--<img src="/compo/wp-content/themes/ludum/ld2014/ldtv-inv-sm.png">--></div>
   </div>
   <div style="padding-bottom:10px"></div>
 </div>
