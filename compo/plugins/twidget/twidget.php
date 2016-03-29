@@ -520,6 +520,7 @@ function broadcast_widget_func() {
 	padding-left:6px;
 	overflow:hidden;
 	display:block;
+	color:#EEF;	/* hack */
 }
 .tv .view .item .service {	
 }
@@ -830,7 +831,7 @@ function broadcast_widget_func() {
     		<span class="name">have something better soon.</span>
     	</div>
     	<div class="item">
-    		<span class="name"></span>
+    		<span class="name">&nbsp;</span>
     	</div>
     	<div class="footer" onclick="broadcast_tvpop_toggle();"><span class="more">More <strong>LIVE</strong> GameDev</span></div>
     </div>
