@@ -90,9 +90,7 @@
 */
 ?>
 
-<?
 <div id='mythumb'><?php mythumb_nav(); ?></div>
-?>
 
 		<?php while (have_posts()) : the_post(); ?>
 
