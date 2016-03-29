@@ -520,7 +520,8 @@ function broadcast_widget_func() {
 	padding-left:6px;
 	overflow:hidden;
 	display:block;
-	color:#EEF;	/* hack */
+	color:#CCE;	/* hack */
+	text-align:center; /* hack */
 }
 .tv .view .item .service {	
 }
@@ -822,13 +823,13 @@ function broadcast_widget_func() {
 		}
 ?>
     	<div class="item">
-    		<span class="name">Hello! TV is offline due to</span>
+    		<span class="name"><strong>Hello!</strong> TV is offline due to</span>
     	</div>
     	<div class="item">
-    		<span class="name">"changes". I'm hoping to</span>
+    		<span class="name">"changes". I'm hoping to have</span>
     	</div>
     	<div class="item">
-    		<span class="name">have something better soon.</span>
+    		<span class="name">something better soon.</span>
     	</div>
     	<div class="item">
     		<span class="name">&nbsp;</span>
