@@ -827,7 +827,7 @@ function broadcast_widget_func() {
     		<span class="name">"changes". I'm hoping to</span>
     	</div>
     	<div class="item">
-    		<span class="name">have this back soon.</span>
+    		<span class="name">have something better soon.</span>
     	</div>
     	<div class="item">
     		<span class="name"></span>
