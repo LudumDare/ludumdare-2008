@@ -88,10 +88,10 @@
 <form method='post'><input type='hidden' name='mythumb_nav' value='1'><input type='submit' value='Show me the GRID!'></form>
 <?php endif; ?>
 */
+
+
+//<div id='mythumb'><?php mythumb_nav(); ?></div>
 ?>
-
-<div id='mythumb'><?php mythumb_nav(); ?></div>
-
 		<?php while (have_posts()) : the_post(); ?>
 
 		<?php if ( current_user_can('edit_others_posts') ) { ?>
