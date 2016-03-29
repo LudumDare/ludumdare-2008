@@ -820,12 +820,21 @@ function broadcast_widget_func() {
 <?php
 		}
 ?>
+    	<div class="item">
+    		<span class="name">Hello! TV is offline</span>
+    	</div>
+    	<div class="item">
+    		<span class="name">due to changes. Hoping</span>
+    	</div>
+    	<div class="item">
+    		<span class="name">to have this fixed soon.</span>
+    	</div>
     	<div class="footer" onclick="broadcast_tvpop_toggle();"><span class="more">More <strong>LIVE</strong> GameDev</span></div>
     </div>
     <div class="frame hidden" id="tv-frame">
 	</div>
     <div class="border">
-    	<img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.png">
+    	<!--<img src="/compo/wp-content/themes/ludum/ld2014/tv-inv.png">-->
     </div>
     <div class="close topright hidden" id="tv-close" onclick="broadcast_clear();"><strong>X</strong></div>
   </div>
