@@ -520,8 +520,6 @@ function broadcast_widget_func() {
 	padding-left:6px;
 	overflow:hidden;
 	display:block;
-	color:#CCE;	/* hack */
-	text-align:center; /* hack */
 }
 .tv .view .item .service {	
 }
