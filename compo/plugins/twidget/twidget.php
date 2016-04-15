@@ -822,18 +822,6 @@ function broadcast_widget_func() {
 <?php
 		}
 ?>
-    	<div class="item">
-    		<span class="name"><strong>Hello!</strong> TV is offline due to</span>
-    	</div>
-    	<div class="item">
-    		<span class="name">"changes". I'm hoping to have</span>
-    	</div>
-    	<div class="item">
-    		<span class="name">something better soon.</span>
-    	</div>
-    	<div class="item">
-    		<span class="name">&nbsp;</span>
-    	</div>
     	<div class="footer" onclick="broadcast_tvpop_toggle();"><span class="more">More <strong>LIVE</strong> GameDev</span></div>
     </div>
     <div class="frame hidden" id="tv-frame">
