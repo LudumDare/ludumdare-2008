@@ -57,7 +57,7 @@ require "fetch-streams.php";
 	
 	$hitbox_streams = hitbox_streams_get( 786/*$game_name*/ ); // Workaround for an API bug //
 
-	$youtube_streams = youtube_streams_get( $game_name, $youtube_key );
+	//$youtube_streams = youtube_streams_get( $game_name, $youtube_key );
 
 	$alt_twitch_streams = twitch_streams_get( $alt_game_name, $twitch_key );
 
