@@ -630,7 +630,7 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 	
 	// Twitter Card Meta //
 	{
-		echo '<meta name="twitter:card" content="summary" />';
+		echo '<meta name="twitter:card" content="summary_large_image" />';
 		echo '<meta name="twitter:site" content="@ludumdare" />';
 		
 		$twitter = get_the_author_meta('twitter',(string)$uid);//get_the_author_meta('twitter', $user["ID"]); 
@@ -640,9 +640,13 @@ function _compo2_preview_show($params,$uid,$comments=true) {
 		
 		echo '<meta name="twitter:title" content="'.substr(htmlentities($ce["title"]),0,70).'" />';
 		echo '<meta name="twitter:description" content="'.substr(htmlentities($ce["notes"]),0,200).'" />';
-		if (($firstshot != null) && ($firstshot != '')) {
-			echo '<meta name="twitter:image" content="'.get_bloginfo("url").'/wp-content/compo2/'.htmlentities($firstshot).'" />';
-		}
+		$imagefile = array_values($shots)[0];
+		$link = $baseurl.'/compo2"/'.$imagefile;
+		$thumb = c2_thumb($imagefile,280*2,150*2);
+		echo '<meta name="twitter:image" content="'.htmlentities($thumb).'" />';
+//		if (($firstshot != null) && ($firstshot != '')) {
+//			//echo '<meta name="twitter:image" content="'.get_bloginfo("url").'/wp-content/compo2/'.htmlentities($firstshot).'" />';
+//		}
 		
 		echo '<script>';
 		echo 'var Elm = document.getElementsByTagName("title")[0];';
