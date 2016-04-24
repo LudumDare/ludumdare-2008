@@ -1,0 +1,963 @@
+<!DOCTYPE HTML>
+<!--
+To add an event:
+- Add items to ldcat, totalentries and compoentries arrays
+- Check that the height of "gamepiles" is tall enough (in the div tag, near end of the document
+-->
+
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Ludum Dare Charts</title>
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<style type="text/css">
+${demo.css}
+		</style>
+		<script type="text/javascript">		   		    
+		    
+		ldcat = ["ld1","ld2", "ld3?", "ld4", "ld5?", "ld6", "ld7?", "ld8", "ld9?", "ld10", "ld11", "ld12", 
+                      "ld13", "ld14", "ld15", "ld16", "ld17", "ld18", "ld19", "ld20", "ld21", "ld22", 
+                      "ld23", "ld24", "ld25", "ld26", "ld27", "ld28", "ld29", "ld30", "ld31", "ld32",
+                      "ld33", "ld34", "ld35"];
+        totalentries = [46,49,58,67,59.5,52,59,66,58.5,51,71,57,59,123,144,121,204,213,
+                            285,352,599,891,1401,1404,1325,2342,2212,2062,2494,2536,2631,2820,
+                            2724, 2865,2707];
+        compoentries = [46,49,58,67,59.5,52,59,66,58.5,51,71,57,59,123,144,121,204,172,
+                            242,288,509,717,1075,1006,912,1616,1438,1291,1494,1496,1350,1354,
+                            1202, 1232, 1116];        
+        
+        var totalsum=0;
+   for (var i=totalentries.length; i--;) {
+     totalsum+=totalentries[i];
+   }
+        
+        gamepiles = [
+["Atari Jaguar", 88],
+["WII U virtual console", 110],
+["Atari Lynx", 120],
+["Nintendo 3DS virtual console", 152],
+["Intellivision", 152],
+["NEC PC Engine", 288],
+["2012 IGF Pirate Kart", 321],
+["VIC-20", 329],
+["MSX (combined)", 335],
+["Nintendo 64", 387],
+["Linux (lgfaq)", 390],
+["Wii virtual console titles", 402],
+["*Origin catalogue q3/14", 431],
+["Apple II", 432],
+["WiiWare games", 458],
+["Atari ST", 476],
+["Game Boy Color", 550],
+["Atari 2600", 566],
+["GameCube", 640],
+["GoG catalogue q4/13", 674],
+["Dreamcast", 720],
+["SNES", 784],
+["NES", 785],
+["*GOG.COM catalogue q3/14", 791],
+["Playstation 3 q4/2013", 795],
+["Game Boy", 812],
+["Xbox", 968],
+["Xbox 360 q4/2013", 972],
+["*humble store catalogue q3/14", 1049],
+["Game Boy Advance", 1071],
+["*MAME games (no dupes)", 1150],
+["Wii", 1222],
+["ZX Spectrum", 1238],
+["Nintendo DS", 1297],
+["Amstrad CPC", 1725],
+["PlayStation 1", 2418],
+["*Steam catalogue q4/13", 2431],
+["*Desura catalogue q3/14", 2439],
+["MS-DOS", 3657],
+["Playstation 2", 3870],
+["Amiga", 4352],
+["*gamersgate catalogue q3/14", 5728],
+["*Steam catalogue q3/14", 14066],
+["C64", 22500],       
+["------- <b>all LD entries so far</b>", totalsum],
+["*NewGrounds q4/13", 68783],
+["*Newgrounds q3/14", 72695],
+["*Kongregate q4/13", 74890],
+["*Kongregate q3/14", 88197],
+["iOS game releases during 2014", 138546]];
+        
+           for (var i=totalentries.length; i--;) {
+            var foo = ["<b>"+ldcat[i]+"</b>", totalentries[i]];
+            gamepiles.push(foo);
+           }
+
+        gamepiles.sort(function(a,b) { return a[1]-b[1]; });
+        
+        pilenames = [];
+        pilecounts = [];
+        
+        for (var i = 0; i < gamepiles.length; i++)
+        {
+            pilenames[i] = gamepiles[i][0];
+            pilecounts[i] = gamepiles[i][1];
+        }
+        
+        timeperentry = [];
+        jamentries = [];
+        cumulativeentries = [];
+        cumulativecompo = [];
+        jampercentage = [];
+        cumulativejam = [];
+        halfhourpergame = [];
+        halfhourpergamecumulative = [];
+        percentgrowth = [];
+        percentgrowthjam = [];
+        percentgrowth48 = [];
+        manyears = [];
+        manyearscumulative = [];
+        ldpiedata = [];
+        ldpiecompodata = [];
+        ldpiejamdata = [];
+        firstjam = 0;
+        
+        for (var i = 0; i < totalentries.length; i++)        
+        {
+            timeperentry[i] = (20*4*60) / totalentries[i];
+            jamentries[i] = totalentries[i] - compoentries[i];
+            if (i == 0)
+                cumulativeentries[i] = totalentries[i];
+            else
+                cumulativeentries[i] = totalentries[i] + cumulativeentries[i-1];
+
+            if (i == 0)
+                cumulativejam[i] = jamentries[i];
+            else
+                cumulativejam[i] = jamentries[i] + cumulativejam[i-1];
+            
+            cumulativecompo[i] = cumulativeentries[i] - cumulativejam[i];
+            
+            jampercentage[i] = jamentries[i] * 100.0 / totalentries[i];
+            halfhourpergame[i] = totalentries[i] * 30 / (60 * 24);
+            halfhourpergamecumulative[i] = cumulativeentries[i] * 30 / (60 * 24);
+            
+            if (i == 0 || totalentries[i - 1] == 0)
+                percentgrowth[i] = 0;
+            else
+                percentgrowth[i] = ((totalentries[i] / totalentries[i - 1]) * 100) - 100;
+
+            if (i == 0 || jamentries[i - 1] == 0)
+                percentgrowthjam[i] = 0;
+            else
+                percentgrowthjam[i] = ((jamentries[i] / jamentries[i - 1]) * 100) - 100;
+
+            if (i == 0 || (totalentries[i - 1] - jamentries[i - 1]) == 0)
+                percentgrowth48[i] = 0;
+            else
+                percentgrowth48[i] = (((totalentries[i] - jamentries[i]) / (totalentries[i - 1] - jamentries[i - 1])) * 100) - 100;
+            
+            manyears[i] = (compoentries[i] * 2 + jamentries[i] * 3) / 365.0;
+            manyearscumulative[i] = ((cumulativeentries[i] - cumulativejam[i]) * 2 + cumulativejam[i] * 3) / 365.0;
+            
+            ldpiedata[i] = [ldcat[i], totalentries[i]];
+            ldpiecompodata[i] = [ldcat[i], compoentries[i]];
+            if (jamentries[i] > 0)
+            {
+                if (firstjam == 0) firstjam = i;          
+                ldpiejamdata[i - firstjam] = [ldcat[i], jamentries[i]];
+            }
+            
+        }
+            
+$(function () {
+        $('#entries').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+            title: {
+                text: 'Ludum Dare Entries',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'www.ludumdare.com',
+                x: -20
+            },
+            xAxis: {
+                categories: ldcat
+            },
+            yAxis: {
+                floor: 0,
+                title: {
+                    text: 'Entries'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: '48h + jam entries',
+                data: totalentries
+            }, {
+                name: '48h contest entries',
+                data: compoentries
+            }, {
+                name: 'Jam entries',
+                data: jamentries
+            }]
+        });
+        $('#entrieslog').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+            title: {
+                text: 'Ludum Dare Entries (log scale)',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'www.ludumdare.com',
+                x: -20
+            },
+            xAxis: {
+                categories: ldcat
+            },
+            yAxis: {
+                type: 'logarithmic',
+                floor: 0,
+                title: {
+                    text: 'Entries'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: '48h + jam entries',
+                data: totalentries
+            }, {
+                name: '48h contest entries',
+                data: compoentries
+            }, {
+                name: 'Jam entries',
+                data: jamentries
+            }]
+        });
+        $('#minuterate').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+            title: {
+                text: 'Ludum Dare - Time to Rate a Single Entry',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'Assuming 4 hours a day for 20 days.',
+                x: -20
+            },
+            xAxis: {
+                categories: ldcat
+            },
+            yAxis: {
+                floor: 0,
+                title: {
+                    text: 'Minutes'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Time',
+                data: timeperentry
+            }]
+        });
+        $('#minuteratelog').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+            title: {
+                text: 'Ludum Dare - Time to Rate a Single Entry (log scale)',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'Assuming 4 hours a day for 20 days.',
+                x: -20
+            },
+            xAxis: {
+                categories: ldcat
+            },
+            yAxis: {
+                type: 'logarithmic',
+                floor: 0,
+                title: {
+                    text: 'Minutes'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Time',
+                data: timeperentry
+            }]
+        });
+        $('#cumulativeentries').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+            title: {
+                text: 'Ludum Dare Entries - Cumulative',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'www.ludumdare.com',
+                x: -20
+            },
+            xAxis: {
+                categories: ldcat
+            },
+            yAxis: {
+                floor: 0,
+                title: {
+                    text: 'Entries'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: '48h + jam entries',
+                data: cumulativeentries
+            },
+            {
+                name: '48h contest entries',
+                data: cumulativecompo
+            },
+            {
+                name: 'Jam entries',
+                data: cumulativejam
+            }
+            ]
+        });
+        $('#cumulativeentrieslog').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+            title: {
+                text: 'Ludum Dare Entries - Cumulative (log scale)',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'www.ludumdare.com',
+                x: -20
+            },
+            xAxis: {
+                categories: ldcat
+            },
+            yAxis: {
+                type: 'logarithmic',
+                floor: 0,
+                title: {
+                    text: 'Entries'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: '48h + jam entries',
+                data: cumulativeentries
+            },
+            {
+                name: '48h contest entries',
+                data: cumulativecompo
+            },
+            {
+                name: 'Jam entries',
+                data: cumulativejam
+            }
+            ]
+        });
+        $('#jampercentage').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+            title: {
+                text: 'Ludum Dare Entries - Percentage of Jam Entries out of Total Entries',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'www.ludumdare.com',
+                x: -20
+            },
+            xAxis: {
+                categories: ldcat
+            },
+            yAxis: {
+                floor: 0,
+                max:100,
+                title: {
+                    text: 'Percent'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: '%'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Jam percentage',
+                data: jampercentage
+            }
+            ]
+        });
+        $('#halfhourpergame').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+            title: {
+                text: 'Ludum Dare Entries - If You Played 30 Minutes Per Game, How Many Days?',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'www.ludumdare.com',
+                x: -20
+            },
+            xAxis: {
+                categories: ldcat
+            },
+            yAxis: {
+                floor: 0,
+                title: {
+                    text: 'Days'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: '30 min per game',
+                data: halfhourpergame
+            }
+            ]
+        });        
+        $('#halfhourpergamecumulative').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+            title: {
+                text: 'Ludum Dare Entries - If You Played 30 Minutes Per Game, How Many Days? (cumulative)',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'www.ludumdare.com',
+                x: -20
+            },
+            xAxis: {
+                categories: ldcat
+            },
+            yAxis: {
+                floor: 0,
+                title: {
+                    text: 'Days'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: '30 min per game',
+                data: halfhourpergamecumulative
+            }
+            ]
+        });
+        $('#percentgrowth').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+            title: {
+                text: 'Ludum Dare Entries - Percentage Growth Compared to Previous LD',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'www.ludumdare.com',
+                x: -20
+            },
+            xAxis: {
+                categories: ldcat
+            },
+            yAxis: {
+                title: {
+                    text: 'Growth Percentage'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: '%'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Growth',
+                data: percentgrowth
+            }
+            ]
+        });
+        $('#percentgrowth48').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+            title: {
+                text: 'Ludum Dare Entries - Percentage Growth Compared to Previous LD, 48h entries',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'www.ludumdare.com',
+                x: -20
+            },
+            xAxis: {
+                categories: ldcat
+            },
+            yAxis: {
+                title: {
+                    text: 'Growth Percentage'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: '%'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Growth',
+                data: percentgrowth48
+            }
+            ]
+        });
+        $('#percentgrowthjam').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+            title: {
+                text: 'Ludum Dare Entries - Percentage Growth Compared to Previous LD, jam entries',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'www.ludumdare.com',
+                x: -20
+            },
+            xAxis: {
+                categories: ldcat
+            },
+            yAxis: {
+                title: {
+                    text: 'Growth Percentage'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: '%'
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Growth',
+                data: percentgrowthjam
+            }
+            ]
+        });        
+        $('#manyears').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+            title: {
+                text: 'Ludum Dare Entries - Man-Years Spent Making Games',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'www.ludumdare.com',
+                x: -20
+            },
+            xAxis: {
+                categories: ldcat
+            },
+            yAxis: {
+                floor: 0,
+                title: {
+                    text: 'Man-Years'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Man-Years',
+                data: manyears
+            }
+            ]
+        });        
+        $('#manyearscumulative').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+            title: {
+                text: 'Ludum Dare Entries - Man-Years Spent Making Games (Cumulative)',
+                x: -20 //center
+            },
+            subtitle: {
+                text: 'www.ludumdare.com',
+                x: -20
+            },
+            xAxis: {
+                categories: ldcat
+            },
+            yAxis: {
+                floor: 0,
+                title: {
+                    text: 'Man-Years'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'middle',
+                borderWidth: 0
+            },
+            series: [{
+                name: 'Man-Years',
+                data: manyearscumulative
+            }
+            ]
+        });      
+          
+        $('#ldpie').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+        chart: {
+            type: 'pie',
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
+        },
+        title: {
+            text: 'Ludum Dare Entries'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Entries',
+            data: ldpiedata
+        }]
+    });
+    
+        $('#ldcompopie').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+        chart: {
+            type: 'pie',
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
+        },
+        title: {
+            text: 'Ludum Dare 48h Contest Entries'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Entries',
+            data: ldpiecompodata
+        }]
+    });
+    
+        $('#ldjampie').highcharts({
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+        chart: {
+            type: 'pie',
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
+        },
+        title: {
+            text: 'Ludum Dare Jam Entries'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Entries',
+            data: ldpiejamdata
+        }]
+    });
+    
+$('#gamepiles').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Games by Platform'
+        },
+        subtitle: {
+            text: 'Mostly anecdotal comparison of Ludum Dare to other piles of games'
+        },
+        xAxis: {
+            categories: pilenames,
+            title: {
+                text: 'Piles of Games'
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Number of Games',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ''
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+            credits: { href : "http://iki.fi/sol/", text: "cc-by Jari Komppa http://iki.fi/sol/" },
+        legend: {
+            enabled: false
+        },
+        series: [{
+            data: pilecounts
+        }]
+    });    
+    });
+    
+
+		</script>
+	</head>
+	<body>
+<script src="highcharts.js"></script>
+<script src="exporting.js"></script>
+
+<h1>Ludum Dare Charts</h1>
+<p>This page contains charts generated from some data collected about <a href="http://ludumdare.com">Ludum Dare</a> game making contest / jam. Note that the data has been collected by mortal human beings and thus there may be some errors. This is mostly for your amusement. The graphs are rendered with <a href="http://highcharts.com">highcharts.com</a> js library, which is free for non-commercial use. Feel free to send comments, corrections, maybe even new chart ideas <a href="http://iki.fi/sol/email.html">to me</a>.</p>
+<p>Without further ado...</p>
+
+<hr>
+<div id="entries" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="entrieslog" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="cumulativeentries" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="cumulativeentrieslog" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="percentgrowth" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="percentgrowth48" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="percentgrowthjam" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="jampercentage" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="minuterate" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>Assuming you want to rate every single game, and do it 4 hours a day for 20 days. Note that that time includes time to find, download, install, and run the game, in addition to playing and rating it.</p>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="minuteratelog" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>Assuming you want to rate every single game, and do it 4 hours a day for 20 days. Note that that time includes time to find, download, install, and run the game, in addition to playing and rating it.</p>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="halfhourpergame" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>This is assuming you'd play 24/7, and the 30 minutes includes finding, downloading, installing, rating, toilet breaks, eating, etc..</p>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="halfhourpergamecumulative" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>This is assuming you'd play 24/7, and the 30 minutes includes finding, downloading, installing, rating, toilet breaks, eating, etc..</p>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="manyears" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>Assuming 2 work days for compo and 3 work days for jam entries. Some entries are made faster, some take more work; there's no way to know for sure.</p>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="manyearscumulative" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>Assuming 2 work days for compo and 3 work days for jam entries. Some entries are made faster, some take more work; there's no way to know for sure.</p>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="ldpie" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="ldcompopie" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<p>Note that the data from some of the early Ludum Dares is lost and replaced with guessimates.</p>
+<hr>
+<div id="ldjampie" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<hr>
+<div id="gamepiles" style="min-width: 310px; height: 2000px; margin: 0 auto"></div>
+<p>Most numbers from Wikipedia Lists_of_video_games. Others (*) may be rough estimates. Online store counts may include various versions and possibly even DLC. Application of grains of salt adviced.</p>
+<hr>
+<p>Feel free to send comments, corrections, maybe even new chart ideas <a href="http://iki.fi/sol/email.html">to me</a>.</p>
+	</body>
+</html>
