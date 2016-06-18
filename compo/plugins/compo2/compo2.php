@@ -393,6 +393,7 @@ function compo2_number_format($v) {
     
     
 require_once dirname(__FILE__)."/install.php";
+require_once dirname(__FILE__)."/options.php";
 require_once dirname(__FILE__)."/main.php";
 
 require_once dirname(__FILE__)."/active.php";
@@ -404,6 +405,8 @@ require_once dirname(__FILE__)."/misc.php";
 require_once dirname(__FILE__)."/closed.php";
 
 require_once dirname(__FILE__)."/mike.php";
+
+add_action('admin_menu', 'compo2_options_menu');
 
 //add_filter('the_content','compo2_the_content');
 //add_action('wp_head', 'compo2_wp_head');
