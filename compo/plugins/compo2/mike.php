@@ -36,9 +36,44 @@ function c2_set_game($event_id,$user_id,$game) {
 }
 
 // This Function is called in the style sheet to display Navigation //
-function c2_navigation($slug,$name,$name_url) {
+function c2_navigation() {
+
 	//if ( !is_paged() ) { // First Page Only // 
-	{
+
+	// Fetch navigation enabled
+	if (function_exists('apcu_fetch')) {
+		$nav_info = apcu_fetch('c2_navigation_cache');
+		if ($nav_info) {
+			$enabled = $nav_info['enabled'];
+		}
+	}
+	if (!$nav_info) {
+		$enabled = get_option('c2_navigation_enable');
+	}
+
+	if ($enabled) {
+
+		// Fetch navigation options
+		if ($nav_info) {
+			$slug = $nav_info['slug'];
+			$name = $nav_info['name'];
+			$name_url = $nav_info['name_url'];
+		}
+		else {
+			$slug = get_option('c2_navigation_slug');
+			$name = get_option('c2_navigation_name');
+			$name_url = get_option('c2_navigation_name_url');
+			if (function_exists('apcu_store')) {
+				apcu_store('c2_navigation_cache', array(
+					'enabled' => $enabled,
+					'slug' => $slug,
+					'name' => $name,
+					'name_url' => $name_url
+				));
+			}
+		}
+
+		// Fetch user/event info
 		$user_id = get_current_user_id();
 		$event_id = 0;
 		$underscore_slug = str_replace( '-', '_', $slug );

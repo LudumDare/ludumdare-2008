@@ -7,11 +7,7 @@
 		<!-- Event -->
 		<?php if ( function_exists('ldjam_show_bar') ) { echo ldjam_show_bar(); } ?>
 		<?php if ( function_exists('c2_navigation') ) { 
-			/*c2_navigation(
-				"ludum-dare-35",
-				"Ludum Dare 35",
-				"/compo/2016/04/13/welcome-to-ludum-dare-35/"
-				);*/
+			c2_navigation();
 		} ?>
 		<!-- Posts -->
 <?php	if (have_posts()) { ?>
