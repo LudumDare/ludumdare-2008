@@ -1,4 +1,4 @@
-<?php 
+<?php
 do_action("compo2_cache_begin");
 ob_start(); // start the ob_cache so that things work magictastically
 require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodies
@@ -8,37 +8,37 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 
 <head profile="http://gmpg.org/xfn/11">
 	<meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php bloginfo('charset'); ?>" />
-	
+
 	<title><?php wp_title('|',true,'right'); bloginfo('name'); ?></title>
-	
+
 	<meta name="generator" content="WordPress <?php bloginfo('version'); ?>" /> <!-- leave this for stats -->
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:site" content="@ludumdare" />
 	<meta name="twitter:title" content="Ludum Dare" />
 	<meta name="twitter:description" content="The worlds largest online game jam event. Join us every April, August, and December." />
 
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 	<link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>?2.96" type="text/css" media="screen" />
 	<link rel="alternate" type="application/rss+xml" title="<?php bloginfo('name'); ?> RSS Feed" href="<?php bloginfo('rss2_url'); ?>" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css' />
 
 	<?php wp_head(); ?>
-	
+
 	<!-- Google Analytics -->
 	<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-2932135-5']);
 		_gaq.push(['_trackPageview']);
-		
+
 		(function() {
 			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
 	</script>
-	
+
 	<!-- Countdown Clocks -->
 	<script type="text/javascript">
 	(function() {
@@ -49,7 +49,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 			}
 			return num;
 		}
-		
+
 		// Subtract B - A //
 		function DateDiff( a, b ) {
 			return b.getTime() - a.getTime();
@@ -74,30 +74,30 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 //			});
 //		}
 //		// If Clock is Okay //
-//		else 
+//		else
 		{
 			// Store it in Window (global scope) //
 			window.mkClocksUpdate = function(e) {
 				clockElm = document.getElementsByClassName('clock');
-				
+
 				// If no clocks, bail //
 				if ( clockElm.length === 0 ) {
 					return;
 				}
-				
+
 				window._mkClocksFunc = function(){
 					var nowClock = new Date();
-					
+
 					for (var idx = 0; idx < clockElm.length; idx++ ) {
 						var diff = DateDiff(nowClock,new Date(clockElm[idx].getAttribute('title')));
-						
+
 						if ( diff >= 0 ) {
 							var oneSecond = 1000;
 							var oneMinute = 60*1000;
 							var oneHour = 60*60*1000;
 							var oneDay = 24*60*60*1000;
 							var oneWeek = 7*24*60*60*1000;
-		
+
 							var diffMS = Math.floor(diff % oneSecond);
 							var diffSeconds = Math.floor(diff / oneSecond) % 60;
 							var diffMinutes = Math.floor(diff / oneMinute) % 60;
@@ -105,12 +105,12 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 							var diffDays = Math.floor(diff / oneDay) % 7;
 							var diffDaysOnly = Math.floor(diff / oneDay);
 							var diffWeeks = Math.floor(diff / oneWeek);
-							
+
 							var sep = ":";
 							if ( diffMS >= 500 ) {
 								sep = ";";
 							}
-							
+
 							var fiveWeek = diffDaysOnly <= (7*5)+1;
 
 							var weekText = diffWeeks + " Weeks, ";
@@ -120,7 +120,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 							else if ( diffWeeks == 0 ) {
 								weekText = "";
 							}
-							
+
 							var dayText = diffDays + " Days" + (fiveWeek ? ", " : "");
 							if ( diffDays == 1 ) {
 								dayText = "1 Day, ";
@@ -128,7 +128,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 							else if ( diffDays == 0 ) {
 								dayText = "";
 							}
-							
+
 							var prefixText = clockElm[idx].getAttribute('prefix');
 							if ( prefixText === null ) {
 								prefixText = "";
@@ -139,12 +139,12 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 									prefixText = '<span style="' + prefixStyle + '">' + prefixText + "</span>";
 								}
 							}
-							
-							clockElm[idx].innerHTML = 
+
+							clockElm[idx].innerHTML =
 								prefixText +
 								weekText +
 								dayText +
-								(fiveWeek ? 
+								(fiveWeek ?
 									PadZero(diffHours) + sep +
 									PadZero(diffMinutes) + sep +
 									PadZero(diffSeconds)
@@ -173,7 +173,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 					timerHandle = null;
 				}
 			};
-			
+
 			window.addEventListener("load", window.mkClocksUpdate);
 			/* In case people want us to be less wasteful */
 			//window.addEventListener("focus", window.mkClocksFocus);
@@ -186,6 +186,74 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	<div style="display:none;height:54px;background:#000;position:relative;"><img style="display:block;position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;" src="/compo/wp-content/themes/ludum/images/ld-tease.png" width="960" height="47" /></div>
 	<div id="page">
 		<div id="header">
+
+
+			<!-- LD38 REDIRECT HEADER -->
+			<style>
+					#popup {
+							position: fixed;
+							padding: 0;
+							margin: 0;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+							background: rgba(0, 0, 0, 0.7);
+							z-index: 1000;
+					}
+
+					#popup #popup-window {
+							border-radius: .5em;
+							margin: auto;
+							margin-top: 50px;
+							max-width: 1024px;
+							width: 100%;
+							height: 550px;
+							background: url(http://ludumdare.com/compo/wp-content/uploads/2017/04/ldjamalpha-1.jpg) no-repeat center center;
+							background-size:100%;
+							text-align: right;
+							z-index: 9999;
+							display: block;
+							cursor: pointer;
+						}
+
+						#popup #popup-window img {
+								height: 4em;
+								width: auto;
+							}
+			</style>
+			<div id="popup" style="display: none;">
+					<div id="popup-window" onclick="window.open('https://ldjam.com/', '_self');">
+						<a id="hidepopup" href="#hidepopup"><img src="http://cdn.jsdelivr.net/emojione/assets/3.0/png/64/274c.png" /></a>
+					</div>
+			</div>
+			<script type="text/javascript">
+				var popup = document.getElementById("popup");
+				var hidepopup = document.getElementById("hidepopup");
+				hidepopup.addEventListener("click", hidePopup);
+
+				if(!sessionStorage.getItem('ld38')) {
+					showPopup();
+				} else {
+					hidePopup();
+				}
+
+				function showPopup() {
+					popup.style.display = "block"
+				}
+
+				function hidePopup(e) {
+					if(e) {
+						e.stopPropagation()
+					}
+
+					popup.style.display = "none";
+					sessionStorage.setItem('ld38', true);
+				}
+			</script>
+			<!-- LD38 REDIRECT HEADER -->
+
+
 			<div class="body">
 <?php		$current_user = wp_get_current_user(); ?>
 <?php		if ( 0 == $current_user->ID ) { ?>
@@ -214,28 +282,28 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 				<a href="<?php echo get_option('home'); ?>/" title="Home"><img src="/compo/wp-content/themes/ludum/povimg/LDLogo2015.png" width="386" height="64" /></a>
 			</div>
 		</div>
-		
+
 		<div id="status">
 <?php /* BEGIN */
 			$out = FALSE;
-			
+
 			if ( function_exists('apcu_fetch') ) {
 				if ( !isset($_GET["cache"]) ) {
 					$out = apcu_fetch('mk_Header_cache');
 				}
 			}
-		
+
 			if ( $out === FALSE ) {
 				global $wpdb;
 				$e = $wpdb->get_row("SELECT * FROM {$wpdb->posts} WHERE post_name='status' AND post_type='page';",ARRAY_A);
 				//$e = array_pop(compo_query("select * from {$wpdb->posts} where post_name = ? and post_type =?",array("status","page")));
 				$out = $e["post_content"];
-			
+
 				if ( function_exists('apcu_store') ) {
 					apcu_store('mk_Header_cache', $out, 120);	// Store for 2 minutes //
 				}
 			}
-		
+
 			$out = apply_filters('the_content',$out);
 			echo $out;
 /* END */ ?>
