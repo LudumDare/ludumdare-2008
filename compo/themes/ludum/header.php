@@ -233,7 +233,8 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 				hidepopup.addEventListener("click", hidePopup);
 
 				if(!sessionStorage.getItem('ld38')) {
-					showPopup();
+					// Re-enable this to support the popup again
+//					showPopup();
 				} else {
 					hidePopup();
 				}
