@@ -183,7 +183,7 @@ require_once dirname(__FILE__)."/fncs.php"; // load up our custom function goodi
 	</script>
 </head>
 <body>
-	<div style="display:none;height:54px;background:#000;position:relative;"><img style="display:block;position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;" src="/compo/wp-content/themes/ludum/images/ld-tease.png" width="960" height="47" /></div>
+	<div style="height:54px;background:#000;position:relative;"><a href="https://ldjam.com"><img style="display:block;position:absolute;left:0;right:0;top:0;bottom:0;margin:auto;" src="/compo/wp-content/uploads/2017/11/ld-legacy960.png" width="960" height="40" /></a></div>
 	<div id="page">
 		<div id="header">
 
